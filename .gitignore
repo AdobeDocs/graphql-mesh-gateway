@@ -6,3 +6,9 @@ node_modules
 yarn-error.log
 .editorconfig
 .env
+
+# os files
+.DS_STORE
+
+#IDE files
+.idea/
