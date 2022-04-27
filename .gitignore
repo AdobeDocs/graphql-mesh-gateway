@@ -7,8 +7,10 @@ yarn-error.log
 .editorconfig
 .env
 
-# os files
-.DS_STORE
+# OS and IDE generated files #
+##############################
+.DS_Store
+.vscode
+.history
+/.idea
 
-#IDE files
-.idea/
