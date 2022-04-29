@@ -62,7 +62,7 @@ module.exports = {
       },
       {
       title: 'Utilities',
-      path: '/guides/gateway/create-tenant.md',
+      path: '/guides/gateway/command-reference.md',
       header: true,
       pages: [
       {
