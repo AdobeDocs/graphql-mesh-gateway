@@ -10,7 +10,7 @@ Adobe Graph currently supports the following [transforms]:
 
 -  [Rename](#rename)
 -  [Prefix](#prefix)
--  [Filter](#filter)
+-  [Filter](#filter-schema)
 -  [Replace](#replace)
 -  [Type Merge](#type-merge)
 -  [Naming Convention](#naming-convention)

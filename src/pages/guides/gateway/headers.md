@@ -13,7 +13,7 @@ To add headers directly to a source handler in your mesh file, for example `mesh
 
 <InlineAlert variant="info" slots="text"/>
 
-Header variables are not supported in the mesh file. 
+Header variables are not supported in the mesh file.
 
 ```json
 {
@@ -55,7 +55,7 @@ Header variables are not supported in the mesh file.
 
 When you use GraphiQL or another tool to interact with your mesh, you can add headers at runtime that are passed through the mesh to specified handler by using the following format:
 
-Key: `GGW-SH-<SourceName>-<HeaderName>`
+-  **Key**: `GGW-SH-<SourceName>-<HeaderName>`
 
 Using this example, the components of the header name are:
 
@@ -67,19 +67,19 @@ Using this example, the components of the header name are:
 
 Consider a scenario where the value of the `Store` header defined in the previous example is the store view with the most traffic. However, you have additional store views that allow international customers to shop in their native languages and currencies. You can override the predefined value for your UK store view by sending the following header information with your request:
 
-Key: `GGW-SH-Commerce-Store`
-Value: `uk`
+-  **Key**: `GGW-SH-Commerce-Store`
+   -  **Value**: `uk`
 
 ### Add a header to all sources
 
 If you want to send a header to all sources in your mesh, you can replace the source handler name with `*`. For example:
 
-Key: `GGW-SH-*-trackingId`
-Value: `new-trackingId`
+-  **Key**: `GGW-SH-*-trackingId`
+   -  **Value**: `new-trackingId`
 
 This can be useful for authorization, authentication, and tracking headers that could be the same across multiple sources. If you want to apply a header to all sources except one, specify that source separately. For example:
 
-Key: `GGW-SH-*-trackingId`
-Value: `new-trackingId`
-Key: `GGW-SH-differentSource-trackingId`
-Value: `different-trackingId`
+-  **Key**: `GGW-SH-*-trackingId`
+   -  **Value**: `new-trackingId`
+-  **Key**: `GGW-SH-differentSource-trackingId`
+   -  **Value**: `different-trackingId`

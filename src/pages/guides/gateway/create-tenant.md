@@ -7,58 +7,63 @@ description: Create a configuration file for your tenants, access the gateway, a
 
 1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers] and [transforms]. In this example, the file name is `mesh.json`. The `tenantId` is the case-sensitive name you want to assign to your mesh configuration.
 
-<InlineAlert variant="info" slots="text"/>
+    **NOTE:** The following example adds both an Adobe Commerce instance (with Live Search enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Live Search are different, therefore you must configure them separately.
 
-The following example adds both an Adobe Commerce instance (with Live Search enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Live Search are different, therefore you must configure them separately.
+   <p></p>
+   <details>
+      <summary><b>Tenant example</b></summary>
 
-    ```json
-    {
-      "meshConfig": {
-        "sources": [
-          {
-            "name": "Commerce",
-            "handler": {
-              "graphql": {
-                "endpoint": "https://<your_commerce_site>/graphql/"
-              }
-            }
-          },
-          {
-            "name": "AEM",
-            "handler": {
-              "graphql": {
-                "endpoint": "https://<your_AEM_site>/endpoint.json"
-              }
-            }
-          },
-          {
-            "name": "LiveSearch",
+  ```json
+      {
+        "meshConfig": {
+          "sources": [
+            {
+              "name": "Commerce",
               "handler": {
                 "graphql": {
-                  "endpoint": "https://<your_commerce_site>/search/graphql",
-                  "operationHeaders": {
-                    "x-api-key": "search_gql",
-                    "Magento-Environment-Id": "<your_environment_id>",
-                    "Magento-Website-Code": "base",
-                    "Content-Type": "application/json",
-                    "Magento-Store-Code": "main_website_store",
-                    "Magento-Store-View-Code": "default"
-                  },
-                  "schemaHeaders": {
-                    "x-api-key": "search_gql",
-                    "Magento-Environment-Id": "<your_environment_id>",
-                    "Magento-Website-Code": "base",
-                    "Content-Type": "application/json",
-                    "Magento-Store-Code": "main_website_store",
-                    "Magento-Store-View-Code": "default"
+                  "endpoint": "https://<your_commerce_site>/graphql/"
+                }
+              }
+            },
+            {
+              "name": "AEM",
+              "handler": {
+                "graphql": {
+                  "endpoint": "https://<your_AEM_site>/endpoint.json"
+                }
+              }
+            },
+            {
+              "name": "LiveSearch",
+                "handler": {
+                  "graphql": {
+                    "endpoint": "https://<your_commerce_site>/search/graphql",
+                    "operationHeaders": {
+                      "x-api-key": "search_gql",
+                      "Magento-Environment-Id": "<your_environment_id>",
+                      "Magento-Website-Code": "base",
+                      "Content-Type": "application/json",
+                      "Magento-Store-Code": "main_website_store",
+                      "Magento-Store-View-Code": "default"
+                    },
+                    "schemaHeaders": {
+                      "x-api-key": "search_gql",
+                      "Magento-Environment-Id": "<your_environment_id>",
+                      "Magento-Website-Code": "base",
+                      "Content-Type": "application/json",
+                      "Magento-Store-Code": "main_website_store",
+                      "Magento-Store-View-Code": "default"
+                    }
                   }
                 }
               }
-            }
-          ]
-        },
-      "tenantId": "<your_tenant_Id>"
-    }
+            ]
+          },
+        "tenantId": "<your_tenant_Id>"
+      }
+  ```
+  
+  </details>
 
 1. Run the login command and provide your credentials in the browser window.
 
@@ -76,7 +81,7 @@ The following example adds both an Adobe Commerce instance (with Live Search ena
 
 After creating a tenant, you should be able to access the GraphQL endpoint by entering the following URL in any GraphQL browser:
 
-```https://graph.adobe.io/api/<chosen_tenant_name>/graphql?api_key=<your_apiKey>```
+`https://graph.adobe.io/api/<chosen_tenant_name>/graphql?api_key=<your_apiKey>`
 
 ## Update an existing tenant
 
@@ -88,7 +93,7 @@ aio commerce-gateway:tenant:update tenantid update-mesh.json
 
 When updating a tenant, do not include a tenantId in your mesh `JSON` file. Compare the following example to the previous [Creating a tenant](#creating_a_tenant) example on this page and note the absence of the `tenantId`.
 
-    ```json
+```json
     {
       "meshConfig": {
         "sources": [
@@ -135,8 +140,8 @@ When updating a tenant, do not include a tenantId in your mesh `JSON` file. Comp
           ]
         }
     }
-    ```
+```
 
 <!-- Link Definitions -->
-[handlers]: handlers.md
+[handlers]: source-handlers.md
 [transforms]: transforms.md

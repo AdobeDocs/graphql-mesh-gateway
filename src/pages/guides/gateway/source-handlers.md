@@ -6,15 +6,18 @@ title: Add source handlers
 
 Although [GraphQL Mesh] supports many types of [source handlers], at launch Adobe Graph only supports the following:
 
--  [OpenAPI](#OpenAPI)
--  [GraphQL endpoints](#graphql_endpoints)
--  [JSON schemas](#json_schemas)
+-  [OpenAPI](#openapi)
+   -  [API Handler Configuration](#api-handler-configuration)
+-  [GraphQL endpoints](#graphql-endpoints)
+   -  [GraphQL Handler Configuration](#graphql-handler-configuration)
+-  [JSON schemas](#json-schemas)
+   -  [JSON Schema Handler Configuration](#json-schema-handler-configuration)
 
 <InlineAlert variant="info" slots="text"/>
 
 We will add support for additional handlers in future releases.
 
-<InlineAlert variant="info" slots="text"/>
+<InlineAlert variant="warning" slots="text"/>
 
 Hyphens are disallowed in source handler names.
 
