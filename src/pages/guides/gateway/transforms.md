@@ -249,6 +249,6 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 [Type Merge]: https://www.graphql-mesh.com/docs/transforms/type-merging
 [Naming Convention]: https://www.graphql-mesh.com/docs/transforms/naming-convention
 [Federation]: https://www.graphql-mesh.com/docs/transforms/federation
-[Encaspsulate]: https://www.graphql-mesh.com/docs/transforms/encapsulate
+[Encapsulate]: https://www.graphql-mesh.com/docs/transforms/encapsulate
 [GraphQL Mesh Example]: https://www.graphql-mesh.com/docs/recipes/multiple-apis#merging-types-from-different-sources-using-type-merging
 [RegEx flags]: https://www.graphql-mesh.com/docs/transforms/rename#config-api-reference
