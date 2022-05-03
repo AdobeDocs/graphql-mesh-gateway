@@ -14,7 +14,7 @@ Adobe Extensibility is a set of growth related tools, which currently consists o
 ## Resources
 
 *  [Adobe Graph](../guides/gateway/index.md)
-*  [Adobe Events](www.adobe.com)
+*  [Adobe Events](http://www.adobe.com)
 
 ## Overview
 
@@ -44,7 +44,7 @@ Learn how to use multiple external APIs simultaneously with your Adobe Commerce 
 
 <DiscoverBlock slots="link, text"/>
 
-[Adobe Events](www.adobe.com)
+[Adobe Events](http://www.adobe.com)
 
 Learn about our new eventing system.
 
