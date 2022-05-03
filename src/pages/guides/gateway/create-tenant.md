@@ -9,10 +9,6 @@ description: Create a configuration file for your tenants, access the gateway, a
 
     **NOTE:** The following example adds both an Adobe Commerce instance (with Live Search enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Live Search are different, therefore you must configure them separately.
 
-   <p></p>
-   <details>
-      <summary><b>Tenant example</b></summary>
-
   ```json
       {
         "meshConfig": {
@@ -62,8 +58,7 @@ description: Create a configuration file for your tenants, access the gateway, a
         "tenantId": "<your_tenant_Id>"
       }
   ```
-  
-  </details>
+
 
 1. Run the login command and provide your credentials in the browser window.
 
