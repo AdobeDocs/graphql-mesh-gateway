@@ -35,7 +35,7 @@ aio commerce-gateway:tenant:create mesh.json
 
 #### Response
 
-```bash
+```terminal
 Start create tenant
 Selecting your organization as: my-organization-name
 Initialized user login and the selected organization
@@ -71,7 +71,7 @@ aio commerce-gateway:tenant:update tenant1 mesh.json
 
 #### Response
 
-```bash
+```terminal
 Selecting your organization as: my-organization-name
 Initialized user login and the selected organization
 OrgCode - updateTenant: 27E41B3246BEC9B16E398115@MyOrg
@@ -101,7 +101,7 @@ aio commerce-gateway:tenant:update tenant1 mesh.json
 
 #### Response
 
-```bash
+```terminal
 get tenantId1234
 Selecting your organization as: my-organization-name
 Initialized user login and the selected organization
