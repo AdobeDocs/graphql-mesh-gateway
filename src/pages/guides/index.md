@@ -9,8 +9,8 @@ To get started with Adobe Graph select one of the links below.
 
 ## Getting Started
 
--  [Overview](../guides/gateway/index.md)
--  [Getting Started](../gateway/getting-started.mdgetting-started.md)
+-  [Overview](../guides/gateway/)
+-  [Getting Started](../guides/gateway/getting-started.md)
 
 ## Creating and Managing your Mesh
 
