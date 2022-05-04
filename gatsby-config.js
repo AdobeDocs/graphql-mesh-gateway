@@ -10,21 +10,13 @@
  * governing permissions and limitations under the License.
  */
 
+const { pages, subPages } = require("./src/data/navigation");
+
 module.exports = {
   siteMetadata: {
-    home: {
-      title: 'Adobe Extensibility',
-      path: '/index.md'
-    },
-    pages: [
-      {
-        title: 'Adobe Graph',
-        path: '/guides/gateway/index.md'
-      },
-    ],
+    pages: pages,
+    subPages: subPages,
   },
-  plugins: [
-    `@adobe/gatsby-theme-aio`
-  ],
-  pathPrefix: '/example/'
+  plugins: [`@adobe/gatsby-theme-aio`],
+  pathPrefix: process.env.PATH_PREFIX || '/graphql-mesh-gateway/'
 };
