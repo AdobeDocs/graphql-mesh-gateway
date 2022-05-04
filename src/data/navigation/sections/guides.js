@@ -1,61 +1,51 @@
 module.exports = [
 {
-          pages: [
-            {
-              title: 'Adobe Graph',
-              path: '/guides/gateway/index.md'
-            },
-          ],
-          subPages: [
-            {
-            title: 'Overview',
-            path: '/guides/gateway/index.md',
-            header: true,
-            pages: [      
-            {
-              title: 'Adobe Graph overview',
-              path: '/guides/gateway/index.md',
-            },
-            {
-              title: 'Getting started',
-              path: '/guides/gateway/getting-started.md',
-            }
-            ],
-          },
-            {
-              title: 'Working with your mesh',
-              path: '/guides/gateway/create-tenant.md',
-              header: true,
-              pages: [
-                {
-                  title: 'Create a tenant',
-                  path: '/guides/gateway/create-tenant.md'
-                },
-                {
-                  title: 'Source handlers',
-                  path: '/guides/gateway/source-handlers.md',
-                },
-                {
-                  title: 'Transforms',
-                  path: '/guides/gateway/transforms.md'
-                },
-                {
-                  title: 'Headers',
-                  path: '/guides/gateway/headers.md'
-                }
-              ]
-            },
-            {
-            title: 'Utilities',
-            path: '/guides/gateway/create-tenant.md',
-            header: true,
-            pages: [
-            {
-              title: 'Command reference',
-              path: '/guides/gateway/command-reference.md'
-            },
-          ]
+    title: 'Overview',
+    path: '/guides/gateway/',
+    header: true,
+    pages: [
+        {
+            title: 'Getting started',
+            path: '/guides/gateway/getting-started/',
         },
-        ]
-    }
+        {
+            title: 'Adobe Graph',
+            path: '/guides/gateway/index/'
+        },
+    ],
+},
+{
+    title: 'Working with your mesh',
+    path: '/guides/gateway/create-tenant/',
+    header: true,
+    pages: [
+        {
+            title: 'Create a tenant',
+            path: '/guides/gateway/create-tenant/'
+        },
+        {
+            title: 'Source handlers',
+            path: '/guides/gateway/source-handlers',
+        },
+        {
+            title: 'Transforms',
+            path: '/guides/gateway/transforms/'
+        },
+        {
+            title: 'Headers',
+            path: '/guides/gateway/headers/'
+        },
+    ],
+},
+{
+    title: 'Utilities',
+    path: '/guides/gateway/command-reference/',
+    header: true,
+    pages: [
+        {
+            title: 'Command reference',
+            path: '/guides/gateway/command-reference/'
+        },
+    ]
+}
 ]
