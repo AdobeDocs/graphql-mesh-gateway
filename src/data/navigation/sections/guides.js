@@ -10,7 +10,7 @@ module.exports = [
         },
         {
             title: 'Adobe Graph',
-            path: '/guides/gateway/index/'
+            path: '/guides/gateway/'
         },
     ],
 },
