@@ -35,6 +35,10 @@ module.exports = [
             title: 'Headers',
             path: '/guides/gateway/headers/'
         },
+        {
+            title: 'Architecture',
+            path: '/guides/gateway/architecture'
+        },
     ],
 },
 {
