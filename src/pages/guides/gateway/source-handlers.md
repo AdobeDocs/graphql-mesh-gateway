@@ -163,12 +163,12 @@ For more information, see GraphQL Mesh's [JSON Schema Config API Reference]. Not
 
 <!-- Link Definitions -->
 
-[GraphQL Mesh]: https://www.graphql-mesh.com/docs/getting-started/introduction
-[source handlers]: https://www.graphql-mesh.com/docs/handlers/handlers-introduction
-[OpenAPI]: https://www.graphql-mesh.com/docs/handlers/openapi
-[GraphQL]: https://www.graphql-mesh.com/docs/handlers/graphql
-[JSON]: https://www.graphql-mesh.com/docs/handlers/json-schema
-[Config API Reference]: https://www.graphql-mesh.com/docs/handlers/openapi#config-api-reference
-[GraphQL Config API Reference]: https://www.graphql-mesh.com/docs/handlers/graphql#config-api-reference
-[JSON Schema Config API Reference]: https://www.graphql-mesh.com/docs/handlers/json-schema#config-api-reference
+[GraphQL Mesh]: getting-started.md
+[source handlers]: source-handlers.md
 [header]: headers.md
+[OpenAPI]: graphql-mesh/handlers/openapi.md
+[GraphQL]: graphql-mesh/handlers/graphql.md
+[JSON]: graphql-mesh/handlers/json-schema.md
+[OpenAPI Config API Reference]: graphql-mesh/handlers/openapi.md#config-api-reference
+[GraphQL Config API Reference]: graphql-mesh/handlers/graphql.md#config-api-reference
+[JSON Schema Config API Reference]: graphql-mesh/handlers/json-schema.md#config-api-reference
