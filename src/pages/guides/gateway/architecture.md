@@ -14,7 +14,7 @@ If you are interested in how you can affect the gateway, you can follow this pro
 
 If you are interested in how the internal Adobe network processes your calls, you can follow this process in the diagram below:
 
--  **1** - The Adobe I/O Gateway processes the API requests, providing monitoring, authentication and security.
+-  **1** - The Adobe I/O Gateway processes the API requests, providing monitoring, authentication, and security.
 -  **2** - The Schema Management Service generates a GraphQL schema for each tenant based on its GraphQL mesh configuration.
 -  **3** - The GraphQL server fetches data from the upstream APIs based on the mesh configuration.
 
