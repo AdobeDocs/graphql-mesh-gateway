@@ -18,32 +18,48 @@ The `rename` transform allows you to rename:
 
 Add the following configuration to your Mesh config file:
 
-```yml
-transforms:
-  - rename:
-      mode: bare | wrap
-      renames:
-        # rename type
-        - from:
-            type: ApiUser
-          to:
-            type: User
-        # rename type fields
-        - from:
-            type: Query
-            field: apiUser
-          to:
-            type: Query
-            field: user
-        # rename field arguments
-        - from:
-            type: Query
-            field: user
-            argument: user_id
-          to:
-            type: Query
-            field: user
-            argument: userId
+```json
+{
+  "transforms": [
+    {
+      "rename": {
+        "mode": "bare | wrap",
+        "renames": [
+          {
+            "from": {
+              "type": "ApiUser"
+            },
+            "to": {
+              "type": "User"
+            }
+          },
+          {
+            "from": {
+              "type": "Query",
+              "field": "apiUser"
+            },
+            "to": {
+              "type": "Query",
+              "field": "user"
+            }
+          },
+          {
+            "from": {
+              "type": "Query",
+              "field": "user",
+              "argument": "user_id"
+            },
+            "to": {
+              "type": "Query",
+              "field": "user",
+              "argument": "userId"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 
 <InlineAlert variant="info" slots="text"/>
@@ -52,23 +68,36 @@ transforms:
 
 Or you can use regular expressions to rename multiple types, fields or both:
 
-```yml
-- rename:
-    mode: bare | wrap
-    renames:
-      - from:
-          type: Api(.*)
-        to:
-          type: $1
-        useRegExpForTypes: true
-
-      - from:
-          type: Query
-          field: api(.*)
-        to:
-          type: Query
-          field: $1
-        useRegExpForFields: true
+```json
+[
+  {
+    "rename": {
+      "mode": "bare | wrap",
+      "renames": [
+        {
+          "from": {
+            "type": "Api(.*)"
+          },
+          "to": {
+            "type": "$1"
+          },
+          "useRegExpForTypes": true
+        },
+        {
+          "from": {
+            "type": "Query",
+            "field": "api(.*)"
+          },
+          "to": {
+            "type": "Query",
+            "field": "$1"
+          },
+          "useRegExpForFields": true
+        }
+      ]
+    }
+  }
+]
 ```
 
 <InlineAlert variant="info" slots="text"/>

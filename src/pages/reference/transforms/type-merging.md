@@ -8,49 +8,79 @@ sidebar_label: Type Merging
 
 This transform helps you to use Type Merging approach of Schema Stitching in your GraphQL Mesh sources.
 
-```yml
-sources:
-  - name: AuthorService
-    handler:
-      graphql:
-        endpoint: ./author-service-schema.js
-    transforms:
-      - typeMerging:
-          queryFields:
-            # No need to define which type it belongs
-            # And no need to define a key for type
-            # keyField assigns to that type automatically
-            - queryFieldName: authors
-              # Mesh automatically does batching if return type is a list
-              keyField: id
-            # keyArg: ids <-- This is needed if you have multiple args
-            #                for that query field
-  - name: BookService
-    handler:
-      graphql:
-        endpoint: ./book-service-schema.js
-    transforms:
-      # Rename type names and field names to let stitching merger merges them
-      - rename:
-          renames:
-            - from:
-                type: AuthorWithBooks
-              to:
-                type: Author
-            - from:
-                type: Query
-                field: authorWithBooks
-              to:
-                type: Query
-                field: author
-      - typeMerging:
-          queryFields:
-            # This doesn't use batching
-            # It does regular stitching
-            - queryFieldName: book
-              keyField: id
-            - queryFieldName: author
-              keyField: id
+```json
+{
+  "sources": [
+    {
+      "name": "AuthorService",
+      "handler": {
+        "graphql": {
+          "endpoint": "./author-service-schema.js"
+        }
+      },
+      "transforms": [
+        {
+          "typeMerging": {
+            "queryFields": [
+              {
+                "queryFieldName": "authors",
+                "keyField": "id"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "BookService",
+      "handler": {
+        "graphql": {
+          "endpoint": "./book-service-schema.js"
+        }
+      },
+      "transforms": [
+        {
+          "rename": {
+            "renames": [
+              {
+                "from": {
+                  "type": "AuthorWithBooks"
+                },
+                "to": {
+                  "type": "Author"
+                }
+              },
+              {
+                "from": {
+                  "type": "Query",
+                  "field": "authorWithBooks"
+                },
+                "to": {
+                  "type": "Query",
+                  "field": "author"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "typeMerging": {
+            "queryFields": [
+              {
+                "queryFieldName": "book",
+                "keyField": "id"
+              },
+              {
+                "queryFieldName": "author",
+                "keyField": "id"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ## Config API Reference

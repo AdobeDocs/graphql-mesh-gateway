@@ -236,16 +236,16 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 [PWA]: https://developer.adobe.com/commerce/pwa-studio/
 [GraphQL Mesh]: getting-started.md
 [handlers]: source-handlers.md
-[transforms]: graphql-mesh/transforms/transforms-introduction.md
-[RegEx flags]: graphql-mesh/transforms/rename.md#config-api-reference
-[Introduction]: graphql-mesh/transforms/transforms-introduction.md
-[Extend]: graphql-mesh/transforms/extend.md
-[Encapsulate]: graphql-mesh/transforms/encapsulate.md
-[Federation]: graphql-mesh/transforms/federation.md
-[Filter schema]: graphql-mesh/transforms/filter-schema.md
-[Naming Convention]: graphql-mesh/transforms/naming-convention.md
-[Prefix]: graphql-mesh/transforms/prefix.md
-[Rename]: graphql-mesh/transforms/rename.md
-[Replace Field]: graphql-mesh/transforms/replace-field.md
-[Type Merging]: graphql-mesh/transforms/type-merging.md
-[GraphQL Mesh Example]: graphql-mesh/multiple-apis.md#merging-types-from-different-sources-using-type-merging
+[transforms]: /reference/transforms/transforms-introduction.md
+[RegEx flags]: /reference/transforms/rename.md#config-api-reference
+[Introduction]: /reference/transforms/transforms-introduction.md
+[Extend]: /reference/transforms/extend.md
+[Encapsulate]: /reference/transforms/encapsulate.md
+[Federation]: /reference/transforms/federation.md
+[Filter schema]: /reference/transforms/filter-schema.md
+[Naming Convention]: /reference/transforms/naming-convention.md
+[Prefix]: /reference/transforms/prefix.md
+[Rename]: /reference/transforms/rename.md
+[Replace Field]: /reference/transforms/replace-field.md
+[Type Merging]: /reference/transforms/type-merging.md
+[GraphQL Mesh Example]: /reference/multiple-apis.md#merging-types-from-different-sources-using-type-merging

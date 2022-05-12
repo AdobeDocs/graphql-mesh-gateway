@@ -20,11 +20,17 @@ Please DO NOT use this transform unless you know what you're doing! We strongly 
 
 Add the following configuration under the source configuration;
 
-```yml
-transforms:
-  - extend:
-      typeDefs: ./someTypeDefs.graphql
-      resolvers: ./someResolvers.js
+```json
+{
+  "transforms": [
+    {
+      "extend": {
+        "typeDefs": "./someTypeDefs.graphql",
+        "resolvers": "./someResolvers.js"
+      }
+    }
+  ]
+}
 ```
 
 You can extend the existing types in `someTypeDefs.graphql`;

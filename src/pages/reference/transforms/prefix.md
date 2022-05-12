@@ -16,11 +16,17 @@ You can use it to easily "namespace" APIs in your unified API and avoid conflict
 
 Add the following configuration to your Mesh config file:
 
-```yml
-transforms:
-  - prefix:
-      mode: bare | wrap
-      value: MyApi_
+```json
+{
+  "transforms": [
+    {
+      "prefix": {
+        "mode": "bare | wrap",
+        "value": "MyApi_"
+      }
+    }
+  ]
+}
 ```
 <InlineAlert variant="info" slots="text"/>
 

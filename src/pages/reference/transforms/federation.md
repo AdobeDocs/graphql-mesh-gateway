@@ -14,27 +14,41 @@ sidebar_label: Apollo Federation
 
 Add the following configuration to your Mesh config file:
 
-```yml
-transforms:
-  - federation:
-        types:
-            # Ensure the root queries of this schema show up the combined schema
-            - name: Query
-              config:
-                extend: true
-            - name: Product
-              config:
-                # extend Product {
-                extend: true
-                # Product @key(fields: "id") {
-                keyFields:
-                    - id
-                fields:
-                    # id: Int! @external
-                    - name: id
-                      external: true
-                resolveReference:
-                  queryFieldName: user
+```json
+{
+  "transforms": [
+    {
+      "federation": {
+        "types": [
+          {
+            "name": "Query",
+            "config": {
+              "extend": true
+            }
+          },
+          {
+            "name": "Product",
+            "config": {
+              "extend": true,
+              "keyFields": [
+                "id"
+              ],
+              "fields": [
+                {
+                  "name": "id",
+                  "external": true
+                }
+              ],
+              "resolveReference": {
+                "queryFieldName": "user"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
 
 ```
 
@@ -42,8 +56,10 @@ transforms:
 
 If you want to add more complex business logic, you can point to a code file that exports a resolver function.
 
-```yaml
-resolveReference: ./userResolveReference.js
+```json
+{
+  "resolveReference": "./userResolveReference.js"
+}
 ```
 
 `./userResolveReference.js`

@@ -48,13 +48,20 @@ To get started with this transform, install it:
 
 ## How to use?
 
-```yml
-transforms:
-  - encapsulate:
-      applyTo:
-        query: true
-        mutation: false
-        subscription: false
+```json
+{
+  "transforms": [
+    {
+      "encapsulate": {
+        "applyTo": {
+          "query": true,
+          "mutation": false,
+          "subscription": false
+        }
+      }
+    }
+  ]
+}
 
 ```
 

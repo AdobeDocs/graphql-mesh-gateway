@@ -14,13 +14,19 @@ The `naming-convention` transform allows applying naming convention to GraphQL t
 
 Add the following configuration to your Mesh config file:
 
-```yml
-transforms:
-  - namingConvention:
-        typeNames: pascalCase
-        enumValues: upperCase
-        fieldNames: camelCase
-        fieldArgumentNames: camelCase
+```json
+{
+  "transforms": [
+    {
+      "namingConvention": {
+        "typeNames": "pascalCase",
+        "enumValues": "upperCase",
+        "fieldNames": "camelCase",
+        "fieldArgumentNames": "camelCase"
+      }
+    }
+  ]
+}
 ```
 
 <InlineAlert variant="info" slots="text"/>

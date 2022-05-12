@@ -18,15 +18,26 @@ To specify `transforms` over a specific source, add it to your `sources` section
 
 The following example prefixes an input source to make it simpler later to merge and avoid conflicts:
 
-```yml
-sources:
-  - name: Wiki
-    handler:
-      openapi:
-        source: https://api.apis.guru/v2/specs/wikimedia.org/1.0.0/swagger.yaml
-    transforms:
-      - prefix:
-          value: Wiki_
+```json
+{
+  "sources": [
+    {
+      "name": "Wiki",
+      "handler": {
+        "openapi": {
+          "source": "https://api.apis.guru/v2/specs/wikimedia.org/1.0.0/swagger.yaml"
+        }
+      },
+      "transforms": [
+        {
+          "prefix": {
+            "value": "Wiki_"
+          }
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ## Root-level transforms
@@ -35,20 +46,29 @@ To specify `transforms` over unified schema, you should put it in the root of yo
 
 The following example prefixes an input source to make it simpler later to merge and avoid conflicts:
 
-```yml
-sources:
-  - name: Users
-    handler: #...
-  - name: Posts
-    handler: #...
-transforms:
-  - cache:
-      - field: Query.user
-        cacheKey: user-{args.id}
-        invalidates:
-          effectingOperations:
-            - operation: Mutation.updateUser
-              matchKey: { args.userIdToUpdate }
+```json
+{
+  "transforms": [
+    {
+      "replace-field": {
+        "typeDefs": "type NewBook {\n  isAvailable: Boolean\n}\n",
+        "replacements": [
+          {
+            "from": {
+              "type": "Book",
+              "field": "code"
+            },
+            "to": {
+              "type": "NewBook",
+              "field": "isAvailable"
+            },
+            "composer": "./customComposers.js#isAvailable"
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 
 ## Two different modes
@@ -88,46 +108,84 @@ Wrap is the default mode for schema manipulation transforms, because is safe and
 
 Example:
 
-```yaml
-sources:
-  - name: Countries
-    handler:
-      graphql:
-        endpoint: https://api.../graphql
-    transforms:
-      - rename:
-          mode: wrap # bare won't work here, since this data source already "speaks" GraphQL
-          renames:
-            - from:
-                type: Country
-                field: admin1Admins
-              to:
-                type: Country
-                field: admin1
-  - name: Users
-    handler:
-      openapi:
-        source: https://api.../swagger.yaml
-    transforms:
-      - rename:
-          mode: wrap # you can use either wrap or bare here
-          renames:
-            - from:
-                type: User
-                field: lastName
-              to:
-                type: User
-                field: surname
-transforms:
-  - rename:
-      mode: wrap # bare won't work here at all-sources (root) level, because you're not using merger-bare
-      renames:
-        - from:
-            type: Country
-            field: ISO-3166_Code
-          to:
-            type: Country
-            field: code
+```json
+{
+  "sources": [
+    {
+      "name": "Countries",
+      "handler": {
+        "graphql": {
+          "endpoint": "https://api.../graphql"
+        }
+      },
+      "transforms": [
+        {
+          "rename": {
+            "mode": "wrap",
+            "renames": [
+              {
+                "from": {
+                  "type": "Country",
+                  "field": "admin1Admins"
+                },
+                "to": {
+                  "type": "Country",
+                  "field": "admin1"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "handler": {
+        "openapi": {
+          "source": "https://api.../swagger.yaml"
+        }
+      },
+      "transforms": [
+        {
+          "rename": {
+            "mode": "wrap",
+            "renames": [
+              {
+                "from": {
+                  "type": "User",
+                  "field": "lastName"
+                },
+                "to": {
+                  "type": "User",
+                  "field": "surname"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "transforms": [
+    {
+      "rename": {
+        "mode": "wrap",
+        "renames": [
+          {
+            "from": {
+              "type": "Country",
+              "field": "ISO-3166_Code"
+            },
+            "to": {
+              "type": "Country",
+              "field": "code"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 
 <InlineAlert variant="info" slots="text"/>
@@ -160,37 +218,66 @@ Bare does provide performance improvements over "wrap", however it has a main re
 
 Example:
 
-```yaml
-sources:
-  - name: Countries
-    handler:
-      soap:
-        wsdl: http://webservices.../wso?WSDL
-  - name: Users
-    handler:
-      openapi:
-        source: https://api.../swagger.yaml
-    transforms:
-      - rename:
-          mode: bare # bare is a great choice here, at the data source level
-          renames:
-            - from:
-                type: User
-                field: lastName
-              to:
-                type: User
-                field: surname
-merger: bare # this lets transforms access the bare schemas
-transforms:
-  - rename:
-      mode: bare # bare will work here, at all-sources (root) level, because you're using merger-bare
-      renames:
-        - from:
-            type: Country
-            field: ISO-3166_Code
-          to:
-            type: Country
-            field: code
+```json
+{
+  "sources": [
+    {
+      "name": "Countries",
+      "handler": {
+        "soap": {
+          "wsdl": "http://webservices.../wso?WSDL"
+        }
+      }
+    },
+    {
+      "name": "Users",
+      "handler": {
+        "openapi": {
+          "source": "https://api.../swagger.yaml"
+        }
+      },
+      "transforms": [
+        {
+          "rename": {
+            "mode": "bare",
+            "renames": [
+              {
+                "from": {
+                  "type": "User",
+                  "field": "lastName"
+                },
+                "to": {
+                  "type": "User",
+                  "field": "surname"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "merger": "bare",
+  "transforms": [
+    {
+      "rename": {
+        "mode": "bare",
+        "renames": [
+          {
+            "from": {
+              "type": "Country",
+              "field": "ISO-3166_Code"
+            },
+            "to": {
+              "type": "Country",
+              "field": "code"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 
 ### Modes support

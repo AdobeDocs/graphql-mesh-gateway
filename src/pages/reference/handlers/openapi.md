@@ -16,12 +16,19 @@ To get started, install the handler library:
 
 Now, you can use it directly in your Mesh config file:
 
-```yml
-sources:
-  - name: MyOpenapiApi
-    handler:
-      openapi:
-        source: ./my-schema.json
+```json
+{
+  "sources": [
+    {
+      "name": "MyOpenapiApi",
+      "handler": {
+        "openapi": {
+          "source": "./my-schema.json"
+        }
+      }
+    }
+  ]
+}
 ```
 
 ## Overriding default Query/Mutation operations
@@ -30,21 +37,33 @@ By default, OpenAPI-to-GraphQL will place all GET operations into Query fields a
 In order to switch between Query and Mutation operations, and vice versa, you need to define a rule per override, consisting of: OAS title, path of the operation, method of the operation and finally the destination type (e.g. Query or Mutation).
 See example below:
 
-```yaml
-sources:
-  - name: MyOpenapiApi
-    handler:
-      openapi:
-        source: ./my-schema.json
-        selectQueryOrMutationField:
-          - title: "Weather Service v1" # OAS title
-            path: /weather/current # operation path
-            method: post
-            type: Query # switch method POST from default Mutation into Query
-          - title: "Weather Service v1" # OAS title
-            path: /weather/forecast # operation path
-            method: get
-            type: Mutation # switch method GET from default Query into Mutation
+```json
+{
+  "sources": [
+    {
+      "name": "MyOpenapiApi",
+      "handler": {
+        "openapi": {
+          "source": "./my-schema.json",
+          "selectQueryOrMutationField": [
+            {
+              "title": "Weather Service v1",
+              "path": "/weather/current",
+              "method": "post",
+              "type": "Query"
+            },
+            {
+              "title": "Weather Service v1",
+              "path": "/weather/forecast",
+              "method": "get",
+              "type": "Mutation"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
 ```
 
 ## Dynamic Header Values
@@ -55,17 +74,22 @@ The expression inside dynamic values should be as in JS.
 
 ### From Context (HTTP Header for `mesh dev` or `mesh start`)
 
-```yml
-sources:
-  - name: MyGraphQLApi
-    handler:
-      openapi:
-        source: ./my-schema.json
-        operationHeaders:
-          # Please do not use capital letters while getting the headers
-          Authorization: Bearer {context.headers['x-my-api-token']}
-          # You can also access to the cookies like below;
-          # Authorization: Bearer {context.cookies.myApiToken}
+```json
+{
+  "sources": [
+    {
+      "name": "MyGraphQLApi",
+      "handler": {
+        "openapi": {
+          "source": "./my-schema.json",
+          "operationHeaders": {
+            "Authorization": "Bearer {context.headers['x-my-api-token']}"
+          }
+        }
+      }
+    }
+  ]
+}
 ```
 
 And for `mesh dev` or `mesh start`, you can pass the value using `x-my-graphql-api-token` HTTP header.
@@ -74,14 +98,22 @@ And for `mesh dev` or `mesh start`, you can pass the value using `x-my-graphql-a
 
 `MY_API_TOKEN` is the name of the environmental variable you have the value.
 
-```yml
-sources:
-  - name: MyGraphQLApi
-    handler:
-      openapi:
-        source: ./my-schema.json
-        operationHeaders:
-          Authorization: Bearer {env.MY_API_TOKEN}
+```json
+{
+  "sources": [
+    {
+      "name": "MyGraphQLApi",
+      "handler": {
+        "openapi": {
+          "source": "./my-schema.json",
+          "operationHeaders": {
+            "Authorization": "Bearer {env.MY_API_TOKEN}"
+          }
+        }
+      }
+    }
+  ]
+}
 ```
 
 ## Advanced cookies handling
@@ -94,17 +126,25 @@ This section shows how to configure GraphQL Mesh to accept either, and also how 
 
 We want to accept one of: an `accessToken` cookie, an `Authorization` header, or an authorization value available in context (e.g. set by a GraphQL auth plugin), and transmit it to the Rest API as a `Authorization` header. GraphQL Mesh does not allow dynamic selection in the `meshrc.yaml` file, but that's fine! We can use a bit of trickery.
 
-```yml
-sources:
-  - name: Rest
-    handler:
-      openapi:
-        source: ./openapi.yaml
-        baseUrl: "{env.REST_URL}/api/"
-        operationHeaders:
-          Authorization-Header: "{context.headers.authorization}"
-          Authorization-Cookie: Bearer {context.cookies.accessToken}
-        customFetch: ./src/custom-fetch.js
+```json
+{
+  "sources": [
+    {
+      "name": "Rest",
+      "handler": {
+        "openapi": {
+          "source": "./openapi.yaml",
+          "baseUrl": "{env.REST_URL}/api/",
+          "operationHeaders": {
+            "Authorization-Header": "{context.headers.authorization}",
+            "Authorization-Cookie": "Bearer {context.cookies.accessToken}"
+          },
+          "customFetch": "./src/custom-fetch.js"
+        }
+      }
+    }
+  ]
+}
 ```
 
 Here in the `meshrc.yaml` configuration we store the cookie in `Authorization-Cookie`, and the header in `Authorization-Header`. Now to introduce the logic needed to generate the proper `Authorization` header for the Rest API, we need to implement a `customFetch`. It will replace the `fetch` used by GraphQL Mesh to call the Rest API.
@@ -135,14 +175,13 @@ For that, we need to access the HTTP response that is sent back to the client. L
 
 The first step is to edit the `meshrc.yaml` file, add this at the end:
 
-```yml
-additionalTypeDefs: |
-  extend type Mutation {
-    login(credentials: Credentials!): String
-    logout: Boolean
-  }
-additionalResolvers:
-  - ./src/additional-resolvers.js
+```json
+{
+  "additionalTypeDefs": "extend type Mutation {\n  login(credentials: Credentials!): String\n  logout: Boolean\n}\n",
+  "additionalResolvers": [
+    "./src/additional-resolvers.js"
+  ]
+}
 ```
 
 Then manage the cookie in the new resolvers:

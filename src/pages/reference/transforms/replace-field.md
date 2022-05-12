@@ -58,17 +58,28 @@ This is not ideal because you have to request `books` as a child of `books`, so 
 
 To achieve this you can add the following configuration to your Mesh config file:
 
-```yml
-transforms:
-  - replace-field:
-      replacements:
-        - from:
-            type: Query
-            field: books
-          to:
-            type: BooksApiResponse
-            field: books
-          scope: hoistValue
+```json
+{
+  "transforms": [
+    {
+      "replace-field": {
+        "replacements": [
+          {
+            "from": {
+              "type": "Query",
+              "field": "books"
+            },
+            "to": {
+              "type": "BooksApiResponse",
+              "field": "books"
+            },
+            "scope": "hoistValue"
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 
 This will transform your schema from what you had above, to this:
@@ -105,20 +116,28 @@ Allowing you to request a GraphQL document like this:
 
 Let's understand more about how this transform works. With `from` you define your source, which field in the schema you want to replace.
 
-```yaml
-- from:
-    type: Query
-    field: books
+```json
+[
+  {
+    "from": {
+      "type": "Query",
+      "field": "books"
+    }
+  }
+]
 ```
 
 In this case, we want to replace the field `books` in type `Query`, which by default has the type `BooksApiResponse`.
 
 With `to` you define your target, and so which field should replace your identified source field.
 
-```yaml
-to:
-  type: BooksApiResponse
-  field: books
+```json
+{
+  "to": {
+    "type": "BooksApiResponse",
+    "field": "books"
+  }
+}
 ```
 
 To summarize, with the configuration above we want field `books` in type `Query` to be replaced from being of type `BooksApiResponse` to become type `[Book]`.
@@ -178,21 +197,28 @@ In this case, the transform allows you to pass additional type definitions that 
 
 Let's have a look at a Mesh config to be applied to the GraphQL schema shared above:
 
-```yml
-transforms:
-  - replace-field:
-      typeDefs: |
-        type NewAuthor {
-          age: String
-        }
-      # typeDefs: ./customTypeDefs.graphql # for convenience, you can also pass a .graphql file
-      replacements:
-        - from:
-            type: Author
-            field: age
-          to:
-            type: NewAuthor
-            field: age
+```json
+{
+  "transforms": [
+    {
+      "replace-field": {
+        "typeDefs": "type NewAuthor {\n  age: String\n}\n",
+        "replacements": [
+          {
+            "from": {
+              "type": "Author",
+              "field": "age"
+            },
+            "to": {
+              "type": "NewAuthor",
+              "field": "age"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 
 The config above will change type `Author` from this:
@@ -226,21 +252,29 @@ Let's look at an example.
 Currently, our `Book` type has a `code` field, we want to replace this field and turn it into a boolean. Our logic assumes that if we have a book code, it means this book is available in our store.
 Eventually, we want to completely replace `code` with `isAvailable`; as you can see this requires implementing custom logic.
 
-```yml
-transforms:
-  - replace-field:
-      typeDefs: |
-        type NewBook {
-          isAvailable: Boolean
-        }
-      replacements:
-        - from:
-            type: Book
-            field: code
-          to:
-            type: NewBook
-            field: isAvailable
-          composer: ./customComposers.js#isAvailable
+```json
+{
+  "transforms": [
+    {
+      "replace-field": {
+        "typeDefs": "type NewBook {\n  isAvailable: Boolean\n}\n",
+        "replacements": [
+          {
+            "from": {
+              "type": "Book",
+              "field": "code"
+            },
+            "to": {
+              "type": "NewBook",
+              "field": "isAvailable"
+            },
+            "composer": "./customComposers.js#isAvailable"
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 
 ```js
@@ -265,29 +299,41 @@ Replace-field transform allows you to do that directly as part of the replacemen
 
 Let's wrap this up by adding a finishing touch to our schema:
 
-```yml
-transforms:
-  - replace-field:
-      typeDefs: |
-        type NewBook {
-          isAvailable: Boolean
-        }
-      replacements:
-        - from:
-            type: Query
-            field: books
-          to:
-            type: BooksApiResponse
-            field: books
-          scope: hoistValue
-        - from:
-            type: Book
-            field: code
-          to:
-            type: NewBook
-            field: isAvailable
-          composer: ./customResolvers.js#isAvailable
-          name: isAvailable
+```json
+{
+  "transforms": [
+    {
+      "replace-field": {
+        "typeDefs": "type NewBook {\n  isAvailable: Boolean\n}\n",
+        "replacements": [
+          {
+            "from": {
+              "type": "Query",
+              "field": "books"
+            },
+            "to": {
+              "type": "BooksApiResponse",
+              "field": "books"
+            },
+            "scope": "hoistValue"
+          },
+          {
+            "from": {
+              "type": "Book",
+              "field": "code"
+            },
+            "to": {
+              "type": "NewBook",
+              "field": "isAvailable"
+            },
+            "composer": "./customResolvers.js#isAvailable",
+            "name": "isAvailable"
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 
 And now we have the following shiny GraphQL schema:

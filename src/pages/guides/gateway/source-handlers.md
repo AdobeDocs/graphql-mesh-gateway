@@ -108,6 +108,10 @@ For more information, see GraphQL Mesh's [GraphQL Config API Reference]. Note th
 
 The [JSON] handler allows you to load a single remote REST endpoint and define the request and response structures using pre-defined JSON schema files.
 
+<InlineAlert variant="warning" slots="text"/>
+
+The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.  
+
 ```json
 {
   "meshConfig": {
@@ -166,9 +170,9 @@ For more information, see GraphQL Mesh's [JSON Schema Config API Reference]. Not
 [GraphQL Mesh]: getting-started.md
 [source handlers]: source-handlers.md
 [header]: headers.md
-[OpenAPI]: graphql-mesh/handlers/openapi.md
-[GraphQL]: graphql-mesh/handlers/graphql.md
-[JSON]: graphql-mesh/handlers/json-schema.md
-[OpenAPI Config API Reference]: graphql-mesh/handlers/openapi.md#config-api-reference
-[GraphQL Config API Reference]: graphql-mesh/handlers/graphql.md#config-api-reference
-[JSON Schema Config API Reference]: graphql-mesh/handlers/json-schema.md#config-api-reference
+[OpenAPI]: /reference/handlers/openapi.md
+[GraphQL]: /reference/handlers/graphql.md
+[JSON]: /reference/handlers/json-schema.md
+[OpenAPI Config API Reference]: reference/handlers/openapi.md#config-api-reference
+[GraphQL Config API Reference]: /reference/handlers/graphql.md#config-api-reference
+[JSON Schema Config API Reference]: /reference/handlers/json-schema.md#config-api-reference
