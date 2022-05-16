@@ -124,7 +124,7 @@ This section shows how to configure GraphQL Mesh to accept either, and also how 
 
 ### Accepting one of cookie, header or context value
 
-We want to accept one of: an `accessToken` cookie, an `Authorization` header, or an authorization value available in context (e.g. set by a GraphQL auth plugin), and transmit it to the Rest API as a `Authorization` header. GraphQL Mesh does not allow dynamic selection in the `meshrc.yaml` file, but that's fine! We can use a bit of trickery.
+We want to accept one of: an `accessToken` cookie, an `Authorization` header, or an authorization value available in context (e.g. set by a GraphQL auth plugin), and transmit it to the Rest API as a `Authorization` header. GraphQL Mesh does not allow dynamic selection in the `meshrc.json` file, but that's fine! We can use a bit of trickery.
 
 ```json
 {
@@ -147,7 +147,7 @@ We want to accept one of: an `accessToken` cookie, an `Authorization` header, or
 }
 ```
 
-Here in the `meshrc.yaml` configuration we store the cookie in `Authorization-Cookie`, and the header in `Authorization-Header`. Now to introduce the logic needed to generate the proper `Authorization` header for the Rest API, we need to implement a `customFetch`. It will replace the `fetch` used by GraphQL Mesh to call the Rest API.
+Here in the `meshrc.json` configuration we store the cookie in `Authorization-Cookie`, and the header in `Authorization-Header`. Now to introduce the logic needed to generate the proper `Authorization` header for the Rest API, we need to implement a `customFetch`. It will replace the `fetch` used by GraphQL Mesh to call the Rest API.
 
 ```js
 const fetch = require('node-fetch')
@@ -173,7 +173,7 @@ Of course, being able to use GraphQL Mesh as a Gateway for both the mobile appli
 
 For that, we need to access the HTTP response that is sent back to the client. Luckily, we can do so in `additionalResolvers`. So we need to create two new resolvers, one for login and one for logout, and manage the cookie in their code.
 
-The first step is to edit the `meshrc.yaml` file, add this at the end:
+The first step is to edit the `meshrc.json` file, add this at the end:
 
 ```json
 {

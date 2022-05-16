@@ -6,7 +6,7 @@ sidebar_label: JSON Schema or Samples
 
 # JSON schema handlers (GraphQL Mesh)
 
-This handler allows you to load any remote REST service, and describe its request/response using the YAML config.
+This handler allows you to load any remote REST service, and describe its request/response using the config.
 
 With this handler, you can easily customize and control the built GraphQL schema.
 
