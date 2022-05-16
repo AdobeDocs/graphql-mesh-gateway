@@ -1,10 +1,10 @@
 ---
 id: prefix
-title: Prefix Transform
+title: prefix Transform
 sidebar_label: Prefix
 ---
 
-# prefix transforms (GraphQL Mesh)
+# prefix transform
 
 The `prefix` transform allow you prefix GraphQL types and GraphQL root operations (under `Query/Mutation`).
 

@@ -1,10 +1,10 @@
 ---
 id: encapsulate
-title: Encapsulate Transform
+title: encapsulate Transform
 sidebar_label: Encapsulate
 ---
 
-# encapsulate transforms (GraphQL Mesh)
+# encapsulate transform
 
 The `encapsulate` transform allow you to easily encapsulate a specific schema into a single field under the root type.
 

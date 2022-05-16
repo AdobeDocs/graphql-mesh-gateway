@@ -1,10 +1,10 @@
 ---
 id: filter-schema
-title: Filter Schema Transform
+title: filterSchema Transform
 sidebar_label: Filter Schema
 ---
 
-# filterSchema Transforms (GraphQL Mesh)
+# filterSchema transform
 
 The `filterSchema` transform allows you to filter fields in specific types.
 

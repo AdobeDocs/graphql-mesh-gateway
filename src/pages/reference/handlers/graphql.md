@@ -1,10 +1,10 @@
 ---
 id: graphql
-title: GraphQL
+title: GraphQL Handler
 sidebar_label: GraphQL
 ---
 
-# GraphQL handlers (GraphQL Mesh)
+# GraphQL handlers
 
 This handler allows you to load remote GraphQL schemas and use it with schema-stitching, based on `graphql-tools`.
 
@@ -62,7 +62,7 @@ The expression inside dynamic values should be as in JS.
 
 And for `mesh dev` or `mesh start`, you can pass the value using `x-my-graphql-api-token` HTTP header.
 
-### From Environmental Variable
+### From Environment Variable
 
 `MY_API_TOKEN` is the name of the environmental variable you have the value.
 

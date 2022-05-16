@@ -1,10 +1,10 @@
 ---
 id: type-merging
-title: Type Merging Transform
+title: typeMerging Transform
 sidebar_label: Type Merging
 ---
 
-# typeMerge transforms (GraphQL Mesh)
+# typeMerge transform
 
 This transform helps you to use Type Merging approach of Schema Stitching in your GraphQL Mesh sources.
 

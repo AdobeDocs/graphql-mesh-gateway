@@ -1,10 +1,10 @@
 ---
 id: rename
-title: Rename Transform
+title: rename Transform
 sidebar_label: Rename
 ---
 
-# rename transforms (GraphQL Mesh)
+# rename transform
 
 The `rename` transform allows you to rename:
 

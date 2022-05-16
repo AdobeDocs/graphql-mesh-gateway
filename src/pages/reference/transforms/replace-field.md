@@ -1,10 +1,10 @@
 ---
 id: replace-field
-title: Replace Field
+title: replace Field
 sidebar_label: Replace Field
 ---
 
-# replace transforms (GraphQL Mesh)
+# replace transform
 
 The `replace-field` transform allows you to replace configuration properties of a GraphQL field (source) with the ones of another field (target).
 
@@ -172,7 +172,7 @@ When passing `scope: hoistValue` in addition to replacing the Type, the transfor
 
 Taking into account the original schema shared above, originally `Query.books` would return a value like this:
 
-```js
+```graphql
 {
   books: {
     books: [{ title: 'abc', author: 'def' }, { title: 'ghi', author: 'lmn' }]
@@ -182,7 +182,7 @@ Taking into account the original schema shared above, originally `Query.books` w
 
 But the wrapping function applied to the original resolver, when passing `hoistValue` scope, will change the value above to this:
 
-```js
+```graphql
 {
   books: [{ title: 'abc', author: 'def' }, { title: 'ghi', author: 'lmn' }]
 }

@@ -3,9 +3,9 @@ title: GraphQL Mesh Documentation
 description: Versioned documentation republished from the GraphQL Mesh documentation site (under the MIT license).
 ---
 
-# GraphQL mesh documentation
+# GraphQL Mesh documentation
 
-The documentation in this folder was originally published by [The Guild] at https://www.graphql-mesh.com/docs/. We are republishing it here under the [MIT License] because Adobe Graph uses an older version of GraphQL Mesh and the documentation at that site reflects the current version. Additionally, we currently only support a limited set of handlers, transforms, and recipes.
+The GraphQL Mesh documentation was originally published by [The Guild] at https://www.graphql-mesh.com/docs/. We are republishing it here under the [MIT License] because Adobe Graph uses an older version of GraphQL Mesh and the documentation at that site reflects the current version. Additionally, we currently only support a limited set of handlers, transforms, and recipes.
 
 Follow the links below for more information on using GraphQL Mesh:
 
