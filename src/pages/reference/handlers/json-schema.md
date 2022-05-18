@@ -1,12 +1,10 @@
 ---
-id: json-schema
 title: JSON Schema or Samples
-sidebar_label: JSON Schema or Samples
 ---
 
 # JSON schema handlers
 
-This handler allows you to load any remote REST service, and describe its request/response using the config.
+This handler allows you to load any remote REST service, and describe its request/response.
 
 With this handler, you can easily customize and control the built GraphQL schema.
 
@@ -14,11 +12,7 @@ With this handler, you can easily customize and control the built GraphQL schema
 
 The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.  
 
-To get started, install the handler library:
-
-<PackageInstall packages="@graphql-mesh/json-schema" />
-
-Now, you can use it directly in your Mesh config file:
+To get started, use the handler in your Mesh config file:
 
 ```json
 {
@@ -73,8 +67,6 @@ And for `mesh dev` or `mesh start`, you can pass the value using `x-my-graphql-a
 
 ### From Environment Variable
 
-`MY_API_TOKEN` is the name of the environmental variable you have the value.
-
 ```json
 {
   "sources": [
@@ -126,10 +118,11 @@ This example operation definition will generate a root field with `id: ID` argum
 ### From JSON Samples
 
 Mesh can also load JSON samples from a remote service.
-Just add a `json-samples` directory in your project root, and put the JSON samples in there (`responseSample: ./jsons/MyField.response.json` - Create a new folder like `Jsons`).
-By declare the `responseSample`, you can use the JSON sample in the GraphQL schema.
+Just add a `json-samples` directory in your project root, and put the JSON samples in there (`responseSample: ./json/MyField.response.json` - Create a new folder like `json`).
+By declaring the `responseSample`, you can use the JSON sample in the GraphQL schema.
 
  `Mesh Sample Example - .meshrc.json file`
+
 ```json
 {
   "sources": [
@@ -144,7 +137,7 @@ By declare the `responseSample`, you can use the JSON sample in the GraphQL sche
               "field": "MyField",
               "path": "/MyField?id={args.id}",
               "method": "GET",
-              "responseSample": "./jsons/MyField.response.json",
+              "responseSample": "./json/MyField.response.json",
               "responseTypeName": "MyResponseName",
               "argsTypeMap": {
                 "id": "String"
@@ -157,10 +150,8 @@ By declare the `responseSample`, you can use the JSON sample in the GraphQL sche
   ]
 }
 ```
- `Mesh Sample Example - ./jsons/MyField.response.json file`
-```json
-Any JSON sample file can be used.
-```
+
+ For your `./jsons/MyField.response.json` file, any JSON file can be used.
 
 ## Config API Reference
 

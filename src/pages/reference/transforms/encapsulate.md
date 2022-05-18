@@ -1,7 +1,5 @@
 ---
-id: encapsulate
 title: encapsulate Transform
-sidebar_label: Encapsulate
 ---
 
 # encapsulate transform
@@ -41,10 +39,6 @@ type mySchemaMutation {
 ```
 
 This transformer is useful when you have multiple APIs in your Mesh, and you wish to have it wrapped with a name to have a better understanding on where each field is coming from.
-
-To get started with this transform, install it:
-
-<PackageInstall packages="@graphql-mesh/transform-encapsulate" />
 
 ## How to use?
 

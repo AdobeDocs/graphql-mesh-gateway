@@ -1,14 +1,10 @@
 ---
-id: filter-schema
 title: filterSchema Transform
-sidebar_label: Filter Schema
 ---
 
 # filterSchema transform
 
 The `filterSchema` transform allows you to filter fields in specific types.
-
-<PackageInstall packages="@graphql-mesh/transform-filter-schema" />
 
 ## How to use?
 

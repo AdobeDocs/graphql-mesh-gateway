@@ -1,7 +1,5 @@
 ---
-id: type-merging
 title: typeMerging Transform
-sidebar_label: Type Merging
 ---
 
 # typeMerge transform

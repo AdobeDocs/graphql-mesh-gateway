@@ -1,7 +1,5 @@
 ---
-id: replace-field
 title: replace Field
-sidebar_label: Replace Field
 ---
 
 # replace transform
@@ -9,8 +7,6 @@ sidebar_label: Replace Field
 The `replace-field` transform allows you to replace configuration properties of a GraphQL field (source) with the ones of another field (target).
 
 This is extremely useful when you want to hoist field values from one subfield to its parent, but it can be customized to completely replace and/or compose resolve functions with a great degree of customization.
-
-<PackageInstall packages="@graphql-mesh/transform-replace-field" />
 
 <InlineAlert variant="info" slots="text"/>
 

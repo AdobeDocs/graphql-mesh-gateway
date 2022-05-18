@@ -1,14 +1,10 @@
 ---
-id: naming-convention
 title: namingConvention Transform
-sidebar_label: Naming Convention
 ---
 
 # namingConvention transform
 
 The `naming-convention` transform allows applying naming convention to GraphQL types and GraphQL fields easily.
-
-<PackageInstall packages="@graphql-mesh/transform-naming-convention" />
 
 ## How to use?
 

@@ -1,7 +1,5 @@
 ---
-id: prefix
 title: prefix Transform
-sidebar_label: Prefix
 ---
 
 # prefix transform
@@ -9,8 +7,6 @@ sidebar_label: Prefix
 The `prefix` transform allow you prefix GraphQL types and GraphQL root operations (under `Query/Mutation`).
 
 You can use it to easily "namespace" APIs in your unified API and avoid conflicts.
-
-<PackageInstall packages="@graphql-mesh/transform-prefix" />
 
 ## How to use?
 

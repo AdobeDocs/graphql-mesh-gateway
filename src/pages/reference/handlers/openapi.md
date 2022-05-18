@@ -1,7 +1,5 @@
 ---
-id: openapi
-title: OpenAPI / Swagger
-sidebar_label: 'OpenAPI / Swagger'
+title: OpenAPI
 ---
 
 # OpenAPI handlers
@@ -10,11 +8,7 @@ This handler allows you to load remote or local [OpenAPI (2/3) and Swagger](http
 
 You can import it using remote/local `.json` or `.yaml`.
 
-To get started, install the handler library:
-
-<PackageInstall packages="@graphql-mesh/openapi" />
-
-Now, you can use it directly in your Mesh config file:
+To get started, use the handler in your Mesh config file:
 
 ```json
 {
@@ -32,6 +26,7 @@ Now, you can use it directly in your Mesh config file:
 ```
 
 ## Overriding default Query/Mutation operations
+
 By default, OpenAPI-to-GraphQL will place all GET operations into Query fields and all other operations into Mutation fields; with this option you can manually override this process.
 
 In order to switch between Query and Mutation operations, and vice versa, you need to define a rule per override, consisting of: OAS title, path of the operation, method of the operation and finally the destination type (e.g. Query or Mutation).
@@ -165,7 +160,7 @@ module.exports = (url, args, context) => {
 
 Of course, `node-fetch` needs to be added to your project:
 
-<PackageInstall packages="node-fetch" />
+`npm install node-fetch`
 
 ### Setting / Unsetting the cookie
 

@@ -239,7 +239,6 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 [transforms]: /reference/transforms/transforms-introduction.md
 [RegEx flags]: /reference/transforms/rename.md#config-api-reference
 [Introduction]: /reference/transforms/transforms-introduction.md
-[Extend]: /reference/transforms/extend.md
 [Encapsulate]: /reference/transforms/encapsulate.md
 [Federation]: /reference/transforms/federation.md
 [Filter schema]: /reference/transforms/filter-schema.md

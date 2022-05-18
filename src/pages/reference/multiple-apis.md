@@ -1,10 +1,9 @@
 ---
-id: multiple-apis
-title: Combine and extend different sources
-sidebar_label: Combine and extend sources
+title: Multiple APIs 
+description: Combine and extend different sources
 ---
 
-# Multiple APIs recipe (GraphQL Mesh)
+# Multiple APIs recipe
 
 This topic describes the GraphQL Mesh recipe for using multiple apis.
 
@@ -18,7 +17,7 @@ In addition to `@apollo/gateway`, GraphQL Mesh supports subscriptions out-of-box
 
 You can add new types and/or fields to the current unified GraphQL Schema by using `additionalTypeDefs` configuration field;
 
-Let's say we have `Wikipedia` API in our Mesh configuration;
+Let's say we have the StackExchange API in our Mesh configuration;
 
 ```json
 {

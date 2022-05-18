@@ -9,6 +9,10 @@ module.exports = [
         header: true,
         pages: [
             {
+                title: 'Overview',
+                path: '/reference/handlers/index.md'
+            },
+            {
                 title: 'OpenAPI',
                 path: '/reference/handlers/openapi.md'
             },
@@ -28,16 +32,12 @@ module.exports = [
         header: true,
         pages: [
             {
-                title: 'Transforms Overview',
-                path: '/reference/transforms/transforms-introduction.md'
+                title: 'Overview',
+                path: '/reference/transforms/index.md'
             },
             {
                 title: 'Encapsulate',
                 path: '/reference/transforms/encapsulate.md'
-            },
-            {
-                title: 'Extend',
-                path: '/reference/transforms/extend.md'
             },
             {
                 title: 'Federation',

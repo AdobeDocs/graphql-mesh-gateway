@@ -5,7 +5,7 @@ description: Versioned documentation republished from the GraphQL Mesh documenta
 
 # GraphQL Mesh documentation
 
-The GraphQL Mesh documentation was originally published by [The Guild] at https://www.graphql-mesh.com/docs/. We are republishing it here under the [MIT License] because Adobe Graph uses an older version of GraphQL Mesh and the documentation at that site reflects the current version. Additionally, we currently only support a limited set of handlers, transforms, and recipes.
+This reference documentation was originally published by [The Guild] in their [GraphQL Mesh Docs]. We are republishing it here under the [MIT License] because Adobe Graph uses an older version of GraphQL Mesh, while the documentation at that site reflects the current version. Additionally, we currently only support a limited set of handlers, transforms, and recipes.
 
 Follow the links below for more information on using GraphQL Mesh:
 
@@ -16,7 +16,6 @@ Follow the links below for more information on using GraphQL Mesh:
 -  Transforms
    -  [Introduction]
    -  [Encapsulate]
-   -  [Extend]
    -  [Federation]
    -  [Filter schema]
    -  [Naming Convention]
@@ -32,7 +31,6 @@ Follow the links below for more information on using GraphQL Mesh:
 [GraphQL]: handlers/graphql.md
 [JSON Schemas]: handlers/json-schema.md
 [Introduction]: transforms/transforms-introduction.md
-[Extend]: transforms/extend.md
 [Encapsulate]: transforms/encapsulate.md
 [Federation]: transforms/federation.md
 [Filter schema]: transforms/filter-schema.md
@@ -44,3 +42,4 @@ Follow the links below for more information on using GraphQL Mesh:
 [Multiple APIs]: multiple-apis.md
 [The Guild]: https://www.the-guild.dev/
 [MIT License]: https://github.com/Urigo/graphql-mesh/blob/master/LICENSE#L3
+[GraphQL Mesh Docs]: https://www.graphql-mesh.com/docs/

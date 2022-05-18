@@ -1,14 +1,10 @@
 ---
-id: federation
 title: federation Transform (Apollo)
-sidebar_label: Apollo Federation
 ---
 
 # federation transform
 
 `federation` transform allows to add the resolvers and directives to conform to the federation specification. Much of the federation source code could be reused ensuring it is compliant to the specification. This transform uses [`graphql-transform-federation`](https://github.com/0xR/graphql-transform-federation) package.
-
-<PackageInstall packages="@graphql-mesh/transform-federation" />
 
 ## How to use?
 

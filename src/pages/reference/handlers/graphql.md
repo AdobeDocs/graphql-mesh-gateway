@@ -1,18 +1,12 @@
 ---
-id: graphql
 title: GraphQL Handler
-sidebar_label: GraphQL
 ---
 
 # GraphQL handlers
 
 This handler allows you to load remote GraphQL schemas and use it with schema-stitching, based on `graphql-tools`.
 
-To get started, install the handler library:
-
-<PackageInstall packages="@graphql-mesh/graphql" />
-
-Now, you can use it directly in your Mesh config file:
+To get started, use the handler in your Mesh config file:
 
 ```json
 {
@@ -36,11 +30,11 @@ You can check out our example that uses schema stitching with a PostgreSQL data 
 
 ## Dynamic Header Values (e.g. for Authorization)
 
-Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
+Mesh can take dynamic values from the GraphQL Context or the environmental variables.
 
 The expression inside dynamic values should be as in JS.
 
-### From Context (HTTP Header for `mesh dev` or `mesh start`)
+### From Context
 
 ```json
 {
@@ -60,11 +54,7 @@ The expression inside dynamic values should be as in JS.
 }
 ```
 
-And for `mesh dev` or `mesh start`, you can pass the value using `x-my-graphql-api-token` HTTP header.
-
 ### From Environment Variable
-
-`MY_API_TOKEN` is the name of the environmental variable you have the value.
 
 ```json
 {

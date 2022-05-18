@@ -1,7 +1,5 @@
 ---
-id: rename
 title: rename Transform
-sidebar_label: Rename
 ---
 
 # rename transform
@@ -11,8 +9,6 @@ The `rename` transform allows you to rename:
 -  GraphQL types
 -  GraphQL fields
 -  GraphQL field arguments
-
-<PackageInstall packages="@graphql-mesh/transform-rename" />
 
 ## How to use?
 
