@@ -59,7 +59,6 @@ description: Create a configuration file for your tenants, access the gateway, a
       }
   ```
 
-
 1. Run the login command and provide your credentials in the browser window.
 
     ```bash
@@ -72,6 +71,10 @@ description: Create a configuration file for your tenants, access the gateway, a
     aio commerce-gateway:tenant:create mesh.json
     ```
 
+<InlineAlert variant="info" slots="text"/>
+
+When creating or updating a mesh, the file to upload must have the `.json` filename extension.
+
 ## Access the gateway
 
 After creating a tenant, you should be able to access the GraphQL endpoint by entering the following URL in any GraphQL browser:
@@ -83,7 +86,7 @@ After creating a tenant, you should be able to access the GraphQL endpoint by en
 If you make any changes to your mesh file, such as adding [transforms], you must publish them before the changes will be reflected in your gateway. The following command will update the `tenantId` with the settings specified in the `update-mesh.json` file.
 
 ```bash
-aio commerce-gateway:tenant:update tenantid update-mesh.json
+aio commerce-gateway:tenant:update tenantId update-mesh.json
 ```
 
 When updating a tenant, do not include a tenantId in your mesh `JSON` file. Compare the following example to the previous [Creating a tenant](#creating_a_tenant) example on this page and note the absence of the `tenantId`.

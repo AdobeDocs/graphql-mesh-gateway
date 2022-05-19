@@ -14,7 +14,7 @@ Adobe Extensibility is a set of growth related tools, which currently consists o
 ## Resources
 
 *  [Adobe Graph](../guides/gateway/)
-*  [Adobe Events](http://www.adobe.com)
+*  [GraphQL Mesh Reference](../reference/)
 
 ## Overview
 
@@ -44,10 +44,9 @@ Learn how to use multiple external APIs simultaneously with your Adobe Commerce 
 
 <DiscoverBlock slots="link, text"/>
 
-[Adobe Events](http://www.adobe.com)
+[GraphQL Mesh Reference](../reference/)
 
-Learn about our new eventing system.
-
+View GraphQL Mesh documentation specifically for Adobe Graph.
 ### Command Reference
 
 <DiscoverBlock slots="link, text"/>

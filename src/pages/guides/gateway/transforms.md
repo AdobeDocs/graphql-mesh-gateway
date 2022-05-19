@@ -121,8 +121,6 @@ The [Filter Schema] transform allows you to specify which schema elements to inc
 
 For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed. In the example below, the deprecated Adobe Commerce  `category` and `customerOrders` queries are filtered out of the [PWA] handler.
 
-<!-- I'm not certain if the paragraph above is accurate. The documentation here is a little sparse: https://www.graphql-mesh.com/docs/transforms/filter-schema -->
-
 ```json
 {
   "meshConfig": {
@@ -203,9 +201,6 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 ## Type Merge
 
 [Type Merge] transforms allow you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [GraphQL Mesh Example].
-
-<!-- I couldn't really come up with an example here, so linking out made more sense to me. -->
-
 ## Naming Convention
 
 [Naming Convention] transforms allow you to apply casing and other conventions to your response. In the example below, `enumValues` fields are converted to uppercase, while `fieldNames` are converted to camel case to enforce consistency.
@@ -239,17 +234,17 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 <!-- Link Definitions -->
 [AEM]: https://experienceleague.adobe.com/docs/experience-manager-cloud-service.html
 [PWA]: https://developer.adobe.com/commerce/pwa-studio/
-[Rename]: https://www.graphql-mesh.com/docs/transforms/rename
-[GraphQL Mesh]: https://www.graphql-mesh.com/docs/getting-started/introduction
+[GraphQL Mesh]: getting-started.md
 [handlers]: source-handlers.md
-[transforms]: https://www.graphql-mesh.com/docs/transforms/transforms-introduction
-[Prefix]: https://www.graphql-mesh.com/docs/transforms/prefix
-[Rename]: https://www.graphql-mesh.com/docs/transforms/rename
-[Filter Schema]: https://www.graphql-mesh.com/docs/transforms/filter-schema
-[Replace]: https://www.graphql-mesh.com/docs/transforms/replace-field
-[Type Merge]: https://www.graphql-mesh.com/docs/transforms/type-merging
-[Naming Convention]: https://www.graphql-mesh.com/docs/transforms/naming-convention
-[Federation]: https://www.graphql-mesh.com/docs/transforms/federation
-[Encapsulate]: https://www.graphql-mesh.com/docs/transforms/encapsulate
-[GraphQL Mesh Example]: https://www.graphql-mesh.com/docs/recipes/multiple-apis#merging-types-from-different-sources-using-type-merging
-[RegEx flags]: https://www.graphql-mesh.com/docs/transforms/rename#config-api-reference
+[transforms]: /reference/transforms/transforms-introduction.md
+[RegEx flags]: /reference/transforms/rename.md#config-api-reference
+[Introduction]: /reference/transforms/transforms-introduction.md
+[Encapsulate]: /reference/transforms/encapsulate.md
+[Federation]: /reference/transforms/federation.md
+[Filter schema]: /reference/transforms/filter-schema.md
+[Naming Convention]: /reference/transforms/naming-convention.md
+[Prefix]: /reference/transforms/prefix.md
+[Rename]: /reference/transforms/rename.md
+[Replace Field]: /reference/transforms/replace-field.md
+[Type Merging]: /reference/transforms/type-merging.md
+[GraphQL Mesh Example]: /reference/multiple-apis.md#merging-types-from-different-sources-using-type-merging
