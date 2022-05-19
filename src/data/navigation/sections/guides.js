@@ -38,11 +38,8 @@ module.exports = [
         {
             title: 'Headers',
             path: '/guides/gateway/headers/'
-<<<<<<< HEAD
         },
-=======
         }
->>>>>>> 15f91f087f91047de2894a09dc7ae0207974b150
     ],
 },
 {
