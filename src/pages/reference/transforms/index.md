@@ -313,7 +313,7 @@ If you have use cases for which you would require to introduce either "bare" or 
 | Replace Field         |  ✅  |  ❌  | [docs](replace-field.md)         |
 
 <!-- Link Definitions -->
-[Introduction]: transforms-introduction.md
+[Introduction]: index.md
 [encapsulate]: encapsulate.md
 [federation]: federation.md
 [filterSchema]: filter-schema.md

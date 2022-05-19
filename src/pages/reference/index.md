@@ -30,7 +30,7 @@ Follow the links below for more information on using GraphQL Mesh:
 [OpenAPI]: handlers/openapi.md
 [GraphQL]: handlers/graphql.md
 [JSON Schemas]: handlers/json-schema.md
-[Introduction]: transforms/transforms-introduction.md
+[Introduction]: transforms/index.md
 [Encapsulate]: transforms/encapsulate.md
 [Federation]: transforms/federation.md
 [Filter schema]: transforms/filter-schema.md

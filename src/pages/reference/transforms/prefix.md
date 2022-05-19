@@ -26,7 +26,7 @@ Add the following configuration to your Mesh config file:
 ```
 <InlineAlert variant="info" slots="text"/>
 
-For information about "bare" and "wrap" modes, please read the [dedicated section](transforms-introduction.md#two-different-modes).
+For information about "bare" and "wrap" modes, please read the [dedicated section](index.md#two-different-modes).
 
 <InlineAlert variant="info" slots="text"/>
 

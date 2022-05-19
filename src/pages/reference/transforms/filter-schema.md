@@ -110,7 +110,7 @@ type User {
 ```
 <InlineAlert variant="info" slots="text"/>
 
-For information about "bare" and "wrap" modes, please read the [dedicated section](transforms-introduction.md#two-different-modes).
+For information about "bare" and "wrap" modes, please read the [dedicated section](index.md#two-different-modes).
 
 ## Config API Reference
 
