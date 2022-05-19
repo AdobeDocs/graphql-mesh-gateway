@@ -19,7 +19,7 @@ The following table specifies the transforms supported by Adobe Graph and the ve
 [replaceField] | `0.3.34`
 [typeMerging] | `0.3.23`
 
-If you would like more information on transforms in the context of Adobe Graph, please refer to [Transforms].
+See [Transforms] if you would like more information on transforms in the context of Adobe Graph.
 
 ## Introduction to transforms
 
@@ -313,7 +313,7 @@ If you have use cases for which you would require to introduce either "bare" or 
 | Replace Field         |  ✅  |  ❌  | [docs](replace-field.md)         |
 
 <!-- Link Definitions -->
-[Introduction]: transforms-introduction.md
+[Introduction]: index.md
 [encapsulate]: encapsulate.md
 [federation]: federation.md
 [filterSchema]: filter-schema.md

@@ -236,9 +236,9 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 [PWA]: https://developer.adobe.com/commerce/pwa-studio/
 [GraphQL Mesh]: getting-started.md
 [handlers]: source-handlers.md
-[transforms]: /reference/transforms/transforms-introduction.md
+[transforms]: /reference/transforms/index.md
 [RegEx flags]: /reference/transforms/rename.md#config-api-reference
-[Introduction]: /reference/transforms/transforms-introduction.md
+[Introduction]: /reference/transforms/index.md
 [Encapsulate]: /reference/transforms/encapsulate.md
 [Federation]: /reference/transforms/federation.md
 [Filter schema]: /reference/transforms/filter-schema.md
