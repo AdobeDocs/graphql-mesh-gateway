@@ -1,5 +1,5 @@
 ---
-title: GraphQL Mesh Documentation
+title: GraphQL Mesh Documentation | Adobe Graph
 description: Versioned documentation republished from the GraphQL Mesh documentation site (under the MIT license).
 ---
 

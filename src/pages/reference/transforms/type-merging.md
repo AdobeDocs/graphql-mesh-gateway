@@ -1,5 +1,5 @@
 ---
-title: typeMerging Transform
+title: typeMerging Transform | Adobe Graph
 ---
 
 # typeMerge transform

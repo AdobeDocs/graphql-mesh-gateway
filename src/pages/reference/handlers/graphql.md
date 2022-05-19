@@ -1,5 +1,5 @@
 ---
-title: GraphQL Handler
+title: GraphQL Handler | Adobe Graph
 ---
 
 # GraphQL handlers

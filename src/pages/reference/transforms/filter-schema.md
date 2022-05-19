@@ -1,5 +1,5 @@
 ---
-title: filterSchema Transform
+title: filterSchema Transform | Adobe Graph
 ---
 
 # filterSchema transform

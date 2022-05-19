@@ -1,5 +1,5 @@
 ---
-title: JSON Schema or Samples
+title: JSON Schema or Samples | Adobe Graph
 ---
 
 # JSON schema handlers
