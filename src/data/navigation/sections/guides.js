@@ -12,6 +12,10 @@ module.exports = [
             title: 'Adobe Graph',
             path: '/guides/gateway/'
         },
+        {
+            title: 'Architecture',
+            path: '/guides/gateway/architecture'
+        },
     ],
 },
 {
