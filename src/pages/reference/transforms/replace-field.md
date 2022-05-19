@@ -10,7 +10,7 @@ This is extremely useful when you want to hoist field values from one subfield t
 
 <InlineAlert variant="info" slots="text"/>
 
-Currently this transform supports `bare` mode only. For information about "bare" and "wrap" modes, please read the [dedicated section](index.md#two-different-modes).
+For information about "bare" and "wrap" modes, read the [dedicated section](/reference/transforms/index.md#two-different-modes).
 
 ## How to use?
 
