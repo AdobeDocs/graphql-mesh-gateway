@@ -5,24 +5,23 @@ description: This is the overview page of Adobe Graph
 
 <Hero slots="heading, text"/>
 
-# Adobe Extensibility
+# Adobe Graph
 
-Adobe Extensibility is a set of growth related tools, which currently consists of Adobe Graph and Adobe Events.
+Adobe Graph is a decoupled API platform that enables enterprise and mid-market developers to integrate private or third-party APIs and other software interfaces with Adobe products using Adobe IO.
 
 <Resources slots="heading, links"/>
 
 ## Resources
 
-*  [Adobe Graph](../guides/gateway/)
-*  [GraphQL Mesh Reference](../reference/)
+*  [App Builder](https://developer.adobe.com/app-builder/docs/overview/)
+*  [Commerce GraphQL](https://devdocs.magento.com/guides/v2.4/graphql/)
+*  [REST API](https://devdocs.magento.com/guides/v2.4/rest/bk-rest.html)
+*  [Developer Console](https://developer.adobe.com/developer-console/docs/guides/)
+*  [Experience Manager GraphQL](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/headless/graphql-api/content-fragments.html)
 
 ## Overview
 
-This documentation provides instructions for Extensibility products, like Adobe Graph and Adobe Events.
-
-Adobe Graph is a decoupled API platform that enables enterprise and mid-market developers to integrate private or third-party APIs and other software interfaces with Adobe products using Adobe IO.
-
-Adobe Events is coming soon.
+Adobe Graph allows businesses to access functionality across multiple systems to provide better end-user experiences. Adobe Graph is Multi-Tenant, which means developers can configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single [GraphQL] query. Adobe Commerce, for example, also [supports GraphQL queries].
 
 ## Discover
 
@@ -30,7 +29,7 @@ Adobe Events is coming soon.
 
 ### Get Started
 
-[Adobe Graph Overview](../guides/gateway/)
+[Adobe Graph Overview](gateway/overview.md)
 
 Get started with the Adobe Graph Overview.
 
@@ -38,7 +37,7 @@ Get started with the Adobe Graph Overview.
 
 ### Guides
 
-[Adobe Graph](guides/gateway/)
+[Adobe Graph](../gateway/)
 
 Learn how to use multiple external APIs simultaneously with your Adobe Commerce or other Adobe APIs.
 
@@ -47,10 +46,8 @@ Learn how to use multiple external APIs simultaneously with your Adobe Commerce 
 [GraphQL Mesh Reference](../reference/)
 
 View GraphQL Mesh documentation specifically for Adobe Graph.
-### Command Reference
 
-<DiscoverBlock slots="link, text"/>
+<!-- Link Definitions -->
 
-[Command Reference](..gateway/../guides/gateway/command-reference.md)
-
-The Adobe Graph CLI allows you to manage and modify tenants. This page covers commands exclusive to Adobe Graph.
+[GraphQL]: https://graphql.org/
+[supports GraphQL queries]: https://devdocs.magento.com/guides/v2.4/graphql/index.html

@@ -324,5 +324,5 @@ If you have use cases for which you would require to introduce either "bare" or 
 [typeMerging]: type-merging.md
 [The Guild]: https://www.the-guild.dev/
 [MIT License]: https://github.com/Urigo/graphql-mesh/blob/master/LICENSE#L3
-[Transforms]: /guides/gateway/transforms/
+[Transforms]: /gateway/transforms/
 [GraphQL Mesh Docs]: https://www.graphql-mesh.com/docs/

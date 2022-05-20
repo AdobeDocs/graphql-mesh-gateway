@@ -20,4 +20,4 @@ If you are interested in how the internal Adobe network processes your calls, yo
 
 The diagram below explains the high-level architecture of Adobe Graph.
 
-![architecture diagram](../images/adobe-graph-architecture.svg)
+![architecture diagram](../_images/adobe-graph-architecture.svg)
