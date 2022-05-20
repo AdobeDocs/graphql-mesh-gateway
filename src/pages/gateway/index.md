@@ -9,14 +9,15 @@ To get started with Adobe Graph select one of the links below.
 
 ## Getting Started
 
--  [Overview](../gateway/overview.md)
--  [Getting Started](../gateway/getting-started.md)
+-  [Overview](overview.md)
+-  [Getting Started](getting-started.md)
+-  [Architecture](architecture.md)
 
 ## Creating and Managing your Mesh
 
--  [Create a Tenant](../gateway/create-tenant.md)
--  [Source Handlers](../gateway/source-handlers.md)
--  [Transforms](../gateway/transforms.md)
--  [Headers](../gateway/headers.md)
+-  [Create a Tenant](create-tenant.md)
+-  [Source Handlers](source-handlers.md)
+-  [Transforms](transforms.md)
+-  [Headers](headers.md)
 
-## [Command Reference](../gateway/command-reference.md)
+## [Command Reference](command-reference.md)
