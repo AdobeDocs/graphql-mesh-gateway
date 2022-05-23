@@ -42,7 +42,7 @@ Handlers are located in the sources section of the mesh file. Each `source` will
 [OpenAPI]: openapi.md
 [GraphQL]: graphql.md
 [JSON Schemas]: json-schema.md
-[Source Handlers]: /guides/gateway/source-handlers.md
+[Source Handlers]: /gateway/source-handlers.md
 [The Guild]: https://www.the-guild.dev/
 [MIT License]: https://github.com/Urigo/graphql-mesh/blob/master/LICENSE#L3
 [GraphQL Mesh Docs]: https://www.graphql-mesh.com/docs/

@@ -1,11 +1,11 @@
 module.exports = [
     {
-      title: "Extensibility",
+      title: "Adobe Graph",
       path: "/",
     },
     {
-      title: "Adobe Graph",
-      path: "/guides/",
+      title: "Gateway",
+      path: "/gateway/",
     },
     {
       title: "GraphQL Mesh Reference",
