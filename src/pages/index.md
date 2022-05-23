@@ -15,7 +15,7 @@ Adobe Graph is a decoupled API platform that enables enterprise and mid-market d
 
 *  [App Builder](https://developer.adobe.com/app-builder/docs/overview/)
 *  [Commerce GraphQL](https://devdocs.magento.com/guides/v2.4/graphql/)
-*  [REST API](https://devdocs.magento.com/guides/v2.4/rest/bk-rest.html)
+*  [Commerce REST API](https://devdocs.magento.com/guides/v2.4/rest/bk-rest.html)
 *  [Developer Console](https://developer.adobe.com/developer-console/docs/guides/)
 *  [Experience Manager GraphQL](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/headless/graphql-api/content-fragments.html)
 
