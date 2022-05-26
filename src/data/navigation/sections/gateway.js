@@ -9,7 +9,7 @@ module.exports = [
             path: '/gateway/getting-started',
         },
         {
-            title: 'Adobe Graph',
+            title: 'Adobe API Manager',
             path: '/gateway/overview'
         },
         {
@@ -20,12 +20,12 @@ module.exports = [
 },
 {
     title: 'Working with your mesh',
-    path: '/gateway/create-tenant/',
+    path: '/gateway/create-mesh/',
     header: true,
     pages: [
         {
-            title: 'Create a tenant',
-            path: '/gateway/create-tenant'
+            title: 'Create a mesh',
+            path: '/gateway/create-mesh'
         },
         {
             title: 'Source handlers',

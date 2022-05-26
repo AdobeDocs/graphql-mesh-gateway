@@ -1,6 +1,6 @@
 ---
 title: Headers
-description: Specifies the means, format, and restrictions for sending operation headers through the mesh in Adobe Graph.
+description: Specifies the means, format, and restrictions for sending operation headers through the mesh in Adobe API Manager.
 ---
 
 # Headers
@@ -47,7 +47,7 @@ Header variables are not supported in the mesh file.
       }
     ]
   },
-  "tenantId": "<your_tenant_id>"
+  "meshId": "<your_mesh_id>"
 }
 ```
 

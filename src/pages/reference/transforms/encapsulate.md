@@ -1,5 +1,5 @@
 ---
-title: encapsulate Transform | Adobe Graph
+title: encapsulate Transform | Adobe API Manager
 ---
 
 # encapsulate transform

@@ -1,5 +1,5 @@
 ---
-title: typeMerging Transform | Adobe Graph
+title: typeMerging Transform | Adobe API Manager
 ---
 
 # typeMerge transform

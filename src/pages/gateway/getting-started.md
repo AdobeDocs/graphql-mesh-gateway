@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Set up and configure Adobe Graph.
+description: Set up and configure Adobe API Manager.
 ---
 
 # Getting started
@@ -9,7 +9,7 @@ This guide provides you with the basic steps you need to set up your API managem
 
 ## Join the Beta
 
-Request access to join the Adobe Graph Beta:
+Request access to join the Adobe API Manager Beta:
 
 <!-- coming soon -->
 
@@ -17,7 +17,7 @@ Request access to join the Adobe Graph Beta:
 
 ## Prerequisites
 
-Before you can begin using Adobe Graph, you must install:
+Before you can begin using Adobe API Manager, you must install:
 
 -  [Node.js]
 -  [nvm] 16.x.x
@@ -47,7 +47,7 @@ Once you have an Adobe IO account, you need to access the CLI tool to start conf
    }
    ```
 
-1. Run the following command to load the configuration information into Adobe Graph:
+1. Run the following command to load the configuration information into Adobe API Manager:
 
    ``` bash
    aio config:set aio-cli-plugin-commerce-admin <path_to_config.json_file>
@@ -61,7 +61,7 @@ Once you have an Adobe IO account, you need to access the CLI tool to start conf
 
 ## Next steps
 
--  Proceed to [create a tenant].
+-  Proceed to [create a mesh].
 
 <!-- Link Definitions -->
 [nvm]: https://github.com/nvm-sh/nvm
@@ -73,4 +73,4 @@ Once you have an Adobe IO account, you need to access the CLI tool to start conf
 [aio CLI]: https://developer.adobe.com/runtime/docs/guides/tools/cli_install/
 [Node.js]: https://nodejs.org/en/download/
 [schema management plugin]: https://www.npmjs.com/package/@magento/aio-cli-plugin-commerce-admin
-[create a tenant]: create-a-tenant.md
+[create a mesh]: create-mesh.md

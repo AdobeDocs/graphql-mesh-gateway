@@ -1,5 +1,5 @@
 ---
-title: filterSchema Transform | Adobe Graph
+title: filterSchema Transform | Adobe API Manager
 ---
 
 # filterSchema transform
