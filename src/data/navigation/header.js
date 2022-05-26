@@ -1,6 +1,6 @@
 module.exports = [
     {
-      title: "Adobe Graph",
+      title: "Adobe API Manager",
       path: "/",
     },
     {

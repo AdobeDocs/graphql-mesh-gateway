@@ -5,7 +5,7 @@ description: How to add supported source handlers to your mesh.
 
 # Add source handlers
 
-Although [GraphQL Mesh] supports many types of [source handlers], at launch Adobe Graph only supports the following:
+Although [GraphQL Mesh] supports many types of [source handlers], at launch Adobe API Manager only supports the following:
 
 -  [OpenAPI](#openapi)
    -  [API Handler Configuration](#api-handler-configuration)
@@ -40,13 +40,13 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service
       }
     ]
   },
-  "tenantId": "<your_tenant_id>"
+  "meshId": "<your_mesh_id>"
 }
 ```
 
 ### API Handler Configuration
 
- Adobe Graph currently supports the following configuration options for API handlers.
+ Adobe API Manager currently supports the following configuration options for API handlers.
 
 -  **source** - Your API source or endpoint
 -  **sourceFormat** - The format of the source file (`json` | `yaml`)
@@ -58,7 +58,7 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see GraphQL Mesh's [Config API Reference]. Note that Adobe Graph uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
+For more information, see GraphQL Mesh's [Config API Reference]. Note that Adobe API Manager uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
 
 ## GraphQL endpoints
 
@@ -86,13 +86,13 @@ The [GraphQL] handler allows you to connect to a GraphQL endpoint.
       }
     ]
   },
-  "tenantId": "<your_tenant_id>"
+  "meshId": "<your_mesh_id>"
 }
 ```
 
 ### GraphQL Handler Configuration
 
- Adobe Graph currently supports the following configuration options for GraphQL handlers.
+ Adobe API Manager currently supports the following configuration options for GraphQL handlers.
 
 -  **endpoint** - The URL or path of your GraphQL endpoint
 -  **schemaHeaders** - JSON Headers to fetch your schema
@@ -102,7 +102,7 @@ The [GraphQL] handler allows you to connect to a GraphQL endpoint.
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see GraphQL Mesh's [GraphQL Config API Reference]. Note that Adobe Graph uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
+For more information, see GraphQL Mesh's [GraphQL Config API Reference]. Note that Adobe API Manager uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
 
 ## JSON schemas
 
@@ -135,13 +135,13 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
           }
       ]
   },
-  "tenantId": "<your_tenant_id>"
+  "meshId": "<your_mesh_id>"
 }
 ```
 
 ### JSON Schema Handler Configuration
 
- Adobe Graph currently supports the following configuration options for JSON Schema handlers.
+ Adobe API Manager currently supports the following configuration options for JSON Schema handlers.
 
 -  **baseurl** - The URL or path of your JSON Schema
 -  **schemaHeaders** - JSON Headers to fetch your schema
@@ -163,7 +163,7 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see GraphQL Mesh's [JSON Schema Config API Reference]. Note that Adobe Graph uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
+For more information, see GraphQL Mesh's [JSON Schema Config API Reference]. Note that Adobe API Manager uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
 
 <!-- Link Definitions -->
 

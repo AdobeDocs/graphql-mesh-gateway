@@ -1,5 +1,5 @@
 ---
-title: namingConvention Transform | Adobe Graph
+title: namingConvention Transform | Adobe API Manager
 ---
 
 # namingConvention transform

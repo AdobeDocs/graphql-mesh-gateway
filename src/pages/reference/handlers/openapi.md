@@ -1,5 +1,5 @@
 ---
-title: OpenAPI | Adobe Graph
+title: OpenAPI | Adobe API Manager
 ---
 
 # OpenAPI handlers

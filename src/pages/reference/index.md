@@ -1,11 +1,11 @@
 ---
-title: GraphQL Mesh Documentation | Adobe Graph
+title: GraphQL Mesh Documentation | Adobe API Manager
 description: Versioned documentation republished from the GraphQL Mesh documentation site (under the MIT license).
 ---
 
 # GraphQL Mesh documentation
 
-This reference documentation was originally published by [The Guild] in their [GraphQL Mesh Docs]. We are republishing it here under the [MIT License] because Adobe Graph uses an older version of GraphQL Mesh, while the documentation at that site reflects the current version. Additionally, we currently only support a limited set of handlers, transforms, and recipes.
+This reference documentation was originally published by [The Guild] in their [GraphQL Mesh Docs]. We are republishing it here under the [MIT License] because Adobe API Manager uses an older version of GraphQL Mesh, while the documentation at that site reflects the current version. Additionally, we currently only support a limited set of handlers, transforms, and recipes.
 
 Follow the links below for more information on using GraphQL Mesh:
 
