@@ -13,6 +13,12 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
+  "devDependencies": {
+    "markdownlint": "^0.25.1",
+    "markdownlint-cli": "^0.31.1",
+    "remark-cli": "^10.0.1",
+    "remark-validate-links": "^11.0.2"
+  },
   "scripts": {
     "start": "gatsby build && gatsby serve",
     "start:prefix": "gatsby build --prefix-paths && gatsby serve --prefix-paths",
@@ -25,10 +31,9 @@
     "test:links": "remark src/pages --quiet --frail",
     "test": "markdownlint src/pages && remark src/pages --quiet --frail"
   },
-  "devDependencies": {
-    "markdownlint": "^0.25.1",
-    "markdownlint-cli": "^0.31.1",
-    "remark-cli": "^10.0.1",
-    "remark-validate-links": "^11.0.2"
+  "remarkConfig": {
+    "plugins": [
+      "remark-validate-links"
+    ]
   }
 }
