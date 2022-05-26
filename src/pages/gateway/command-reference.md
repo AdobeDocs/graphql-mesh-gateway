@@ -9,14 +9,14 @@ The Adobe API Manager CLI allows you to manage and modify meshs. This page cover
 
 All commands on this page support the `--help` argument, which provides information about the command.
 
-## aio api-manager:mesh:get:create
+## aio api-manager:mesh:create
 
 Creates a new mesh based on the settings in the specified `JSON` file in your working directory. The `meshId` key value in your `JSON` file determines the name for your mesh. For more information, see [Creating a mesh].
 
 ### Usage
 
 ```bash
-aio api-manager:mesh:get:create [FILE]
+aio api-manager:mesh:create [FILE]
 ```
 
 ### Arguments
@@ -26,7 +26,7 @@ aio api-manager:mesh:get:create [FILE]
 ### Example
 
 ```bash
-aio api-manager:mesh:get:create mesh.json
+aio api-manager:mesh:create mesh.json
 ```
 
 #### Response
@@ -40,7 +40,7 @@ here
 Successfully created a mesh with the ID: meshId1234 and imsOrgCode: 27E41B3246BEC9B16E398115@MyOrg
 ```
 
-## aio api-manager:mesh:get:update
+## aio api-manager:mesh:update
 
 Updates an existing mesh based on the settings in the specified `JSON` file. For more information, see [Updating a mesh].
 
@@ -51,7 +51,7 @@ You cannot modify the `meshId` when updating a mesh.
 ### Usage
 
 ```bash
-aio api-manager:mesh:get:update [MESHID] [FILE]
+aio api-manager:mesh:update [MESHID] [FILE]
 ```
 
 ### Arguments
@@ -62,7 +62,7 @@ aio api-manager:mesh:get:update [MESHID] [FILE]
 ### Example
 
 ```bash
-aio api-manager:mesh:get:update mesh1 mesh.json
+aio api-manager:mesh:update mesh1 mesh.json
 ```
 
 #### Response
@@ -75,14 +75,14 @@ OrgCode - updateMesh: 27E41B3246BEC9B16E398115@MyOrg
 Successfully updated the mesh with the id: meshId1234
 ```
 
-## aio api-manager:mesh:get:get
+## aio api-manager:mesh:get
 
 Retrieves the current `JSON` mesh file for the specified mesh.
 
 ### Usage
 
 ```bash
-aio api-manager:mesh:get:get [MESHID]
+aio api-manager:mesh:get [MESHID]
 ```
 
 ### Arguments
@@ -92,7 +92,7 @@ aio api-manager:mesh:get:get [MESHID]
 ### Example
 
 ```bash
-aio api-manager:mesh:get:update mesh1 mesh.json
+aio api-manager:mesh:get meshId1234
 ```
 
 #### Response
