@@ -1,57 +1,34 @@
 ---
-title: Overview - Adobe Analytics
-description: This is the overview page of Adobe Analytics
-contributors:
-  - https://github.com/icaraps 
+title: Adobe API Manager Overview
+description: Learn how Adobe API Manager enables you to route incoming requests from customers to different underlying remote services.
 ---
 
-<Hero slots="heading, text"/>
+# What is Adobe API Manager?
 
-# Adobe Analytics API
+Adobe API Manager is a decoupled API platform that enables enterprise and mid-market developers to integrate private or third-party APIs and other software interfaces with Adobe products using Adobe IO. This allows businesses that need to access functionality across multiple systems to provide better end-user experiences. Adobe API Manager is Multi-Tenant, which means developers can configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single GraphQL query. Adobe Commerce, for example, also supports GraphQL queries.
 
-Adobe Product API offers limitless ways to integrate your most important customer data into key business processes. Adobe Product API offer limitless ways.
+Adobe API Manager enables developers to integrate a GraphQL Mesh or third-party APIs with other Adobe products, like App Builder, Adobe IO Gateway, or other serverless technologies. By subscribing to near-real-time events, developers can allow these external systems to synchronize data, participate in distributed workflows, and generally react to events as they occur.
 
-<Resources slots="heading, links"/>
+<InlineAlert variant="info" slots="text"/>
 
-## Resources
+GraphQL is a query language for your API that lets you query exactly the information you need and only the information you need. GraphQL Mesh allows you to use GraphQL to query multiple data sources simultaneously.
 
-*  [Quickstart Guide](https://www.adobe.io/apis/experiencecloud/analytics/docs.html)
-*  [Adobe Analytics Github Repo](https://github.com/AdobeDocs/analytics-2.0-apis)
+## Why GraphQL?
 
-## Overview
+GraphQL has several advantages over REST and other APIs:
 
-This documentation provides instructions for Adobe Analytics 2.0 APIs. For working with Analytics 1.4 APIs, see [Analytics 1.4 API Documentation](https://github.com/AdobeDocs/analytics-1.4-apis).
+-  **GraphQL has predictable responses**: With GraphQL, you specify what information your response should contain.
+-  **Faster response time**: Since you can control what data appears in your response, there is less extraneous data slowing down your calls.
+-  **Defined Schema**: With its well-defined set of types, GraphQL lets you know what data you can query.
 
-The Adobe Analytics APIs are a collection of APIs that power Adobe Analytics products like Analysis Workspace.
-The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data.
-You can also create reports to explore, get insights, or answer important questions about your data.
+## Features
 
-## Discover
+-  **Adobe API Manager** - A reverse proxy that accepts most API calls for many backend services
+-  **Configurable Integrations** - Low/No-code method to integrate with your own private APIs with Adobe Commerce and other Adobe products, and third-party APIs
+<!-- The two features below likely refer to the App Builder and may need to be deleted before beta -->
+-  **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones
+-  **Extensibility** - Customize and extend all of your APIs directly in the gateway without making changes to the API source
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+## Example use case
 
-### Get Started
-
-[Quickstart Guide](guides/)
-
-Get started with the Adobe Analytics APIs.
-
-<DiscoverBlock slots="heading, link, text"/>
-
-### Guides
-
-[Events](guides/events/)
-
-Returns information on the user's company that is necessary for making other Adobe Analytics API calls.
-
-<DiscoverBlock slots="link, text"/>
-
-[Gateway](guides/gateway/)
-
-Provides configuration guidance and best practices for the /segments endpoint.
-
-## Contributing
-
-We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions
-or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/gatsby-theme-spectrum-example), and submit a pull
-request with your contribution.
+Adobe Commerce users can consider Adobe API Manager as a low-code way to integrate other APIs to the Storefront and Storefront Management APIs. It also provides a way for the Storefront API and the Storefront Management APIs to communicate with each other.
