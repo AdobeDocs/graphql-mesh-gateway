@@ -5,7 +5,7 @@ description: Create a configuration file for your mesh, access the gateway, and 
 
 # Create a mesh
 
-1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers] and [transforms]. In this example, the file name is `mesh.json`. The `meshId` is the case-sensitive name you want to assign to your mesh configuration.
+1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers] and [transforms]. In this example, the file name is `mesh.json`.
 
     **NOTE:** The following example adds both an Adobe Commerce instance (with Live Search enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Live Search are different, therefore you must configure them separately.
 
@@ -55,7 +55,6 @@ description: Create a configuration file for your mesh, access the gateway, and 
               }
             ]
           },
-        "meshId": "<your_mesh_Id>"
       }
   ```
 
@@ -75,6 +74,8 @@ description: Create a configuration file for your mesh, access the gateway, and 
 
 When creating or updating a mesh, the file to upload must have the `.json` filename extension.
 
+1. Select the project and workspace that you want to create the mesh in. You will be assigned a `meshId`, which is the case-sensitive, readable name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `continuing-aqua-bobby-2pUkDmZd`
+
 ## Access the gateway
 
 After creating a mesh, you should be able to access the GraphQL endpoint by entering the following URL in any GraphQL browser:
@@ -88,8 +89,6 @@ If you make any changes to your mesh file, such as adding [transforms], you must
 ```bash
 aio api-manager:mesh:update meshId update-mesh.json
 ```
-
-When updating a mesh, do not include a meshId in your mesh `JSON` file. Compare the following example to the previous [Creating a mesh](#creating_a_mesh) example on this page and note the absence of the `meshId`.
 
 ```json
     {

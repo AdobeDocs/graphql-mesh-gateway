@@ -32,7 +32,6 @@ The following example contains a basic mesh file with an OpenAPI source handler.
       }
     ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 

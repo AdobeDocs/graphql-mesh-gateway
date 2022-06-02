@@ -47,7 +47,6 @@ Header variables are not supported in the mesh file.
       }
     ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 

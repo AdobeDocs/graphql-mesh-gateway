@@ -11,7 +11,7 @@ All commands on this page support the `--help` argument, which provides informat
 
 ## aio api-manager:mesh:create
 
-Creates a new mesh based on the settings in the specified `JSON` file in your working directory. The `meshId` key value in your `JSON` file determines the name for your mesh. For more information, see [Creating a mesh].
+Creates a new mesh based on the settings in the specified `JSON` file in your working directory. After creating your mesh, you will receive a  `meshId`, like `continuing-aqua-bobby-2pUkDmZd`, to refer to it in the future. For more information, see [Creating a mesh].
 
 ### Usage
 
@@ -37,16 +37,12 @@ Selecting your organization as: my-organization-name
 Initialized user login and the selected organization
 OrgCode - createMesh: 27E41B3246BEC9B16E398115@MyOrg
 here
-Successfully created a mesh with the ID: meshId1234 and imsOrgCode: 27E41B3246BEC9B16E398115@MyOrg
+Successfully created a mesh with the ID: continuing-aqua-bobby-2pUkDmZd and imsOrgCode: 27E41B3246BEC9B16E398115@MyOrg
 ```
 
 ## aio api-manager:mesh:update
 
 Updates an existing mesh based on the settings in the specified `JSON` file. For more information, see [Updating a mesh].
-
-<InlineAlert variant="info" slots="text"/>
-
-You cannot modify the `meshId` when updating a mesh.
 
 ### Usage
 
@@ -72,7 +68,7 @@ Selecting your organization as: my-organization-name
 Initialized user login and the selected organization
 OrgCode - updateMesh: 27E41B3246BEC9B16E398115@MyOrg
 204
-Successfully updated the mesh with the id: meshId1234
+Successfully updated the mesh with the id: continuing-aqua-bobby-2pUkDmZd
 ```
 
 ## aio api-manager:mesh:get
@@ -92,7 +88,7 @@ aio api-manager:mesh:get [MESHID]
 ### Example
 
 ```bash
-aio api-manager:mesh:get meshId1234
+aio api-manager:mesh:get continuing-aqua-bobby-2pUkDmZd
 ```
 
 #### Response
@@ -103,7 +99,7 @@ Selecting your organization as: my-organization-name
 Initialized user login and the selected organization
 OrgCode - getMesh: 27E41B3246BEC9B16E398115@MyOrg
 Config : [object Object]
-{"imsOrgId":"27E41B3246BEC9B16E398115@MyOrg","lastUpdated":"1234123412341","meshConfig":{"sources":[{"name":"Commerce","handler":{"graphql":{"endpoint":"https://<your_commerce_site>/graphql/"}}},{"name":"AEM","handler":{"graphql":{"endpoint":"https://<your_AEM_site>/endpoint.json"}}},{"name":"LiveSearch","handler":{"graphql":{"endpoint":"https://<your_commerce_site>/search/graphql","operationHeaders":{"Magento-Store-View-Code":"default","Magento-Website-Code":"base","Magento-Store-Code":"main_website_store","Magento-Environment-Id":"<your_environment_id>","x-api-key":"search_gql","Content-Type":"application/json"},"schemaHeaders":{"Magento-Store-View-Code":"default","Magento-Website-Code":"base","Magento-Store-Code":"main_website_store","Magento-Environment-Id":"<your_environment_id>","x-api-key":"search_gql","Content-Type":"application/json"}}}}]},"meshId":"meshId1234","lastUpdatedBy":{"firstName":"User","lastName":"Name","userEmail":"uname@domain.com","userId":"undefined","displayName":"User%20Name"}}
+{"imsOrgId":"27E41B3246BEC9B16E398115@MyOrg","lastUpdated":"1234123412341","meshConfig":{"sources":[{"name":"Commerce","handler":{"graphql":{"endpoint":"https://<your_commerce_site>/graphql/"}}},{"name":"AEM","handler":{"graphql":{"endpoint":"https://<your_AEM_site>/endpoint.json"}}},{"name":"LiveSearch","handler":{"graphql":{"endpoint":"https://<your_commerce_site>/search/graphql","operationHeaders":{"Magento-Store-View-Code":"default","Magento-Website-Code":"base","Magento-Store-Code":"main_website_store","Magento-Environment-Id":"<your_environment_id>","x-api-key":"search_gql","Content-Type":"application/json"},"schemaHeaders":{"Magento-Store-View-Code":"default","Magento-Website-Code":"base","Magento-Store-Code":"main_website_store","Magento-Environment-Id":"<your_environment_id>","x-api-key":"search_gql","Content-Type":"application/json"}}}}]},"meshId":"continuing-aqua-bobby-2pUkDmZd","lastUpdatedBy":{"firstName":"User","lastName":"Name","userEmail":"uname@domain.com","userId":"undefined","displayName":"User%20Name"}}
 ```
 
 <!-- Link Definitions -->

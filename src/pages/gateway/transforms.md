@@ -65,7 +65,6 @@ Other [GraphQL Mesh] transforms are not supported.
       }
     ]
   },
-  "meshId": "<your_mesh_id"
 }
 ```
 
@@ -111,7 +110,6 @@ You can use [RegEx flags] to enable the use of regular expressions when renaming
       }
     ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 
@@ -153,7 +151,6 @@ For example, you might want to exclude deprecated queries, mutations, and types 
       }
     ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 
@@ -194,7 +191,6 @@ For example, you might want to exclude deprecated queries, mutations, and types 
       }
     ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 
@@ -227,7 +223,6 @@ For example, you might want to exclude deprecated queries, mutations, and types 
       }
     ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 

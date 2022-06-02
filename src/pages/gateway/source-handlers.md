@@ -40,7 +40,6 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service
       }
     ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 
@@ -86,7 +85,6 @@ The [GraphQL] handler allows you to connect to a GraphQL endpoint.
       }
     ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 
@@ -135,7 +133,6 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
           }
       ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 
