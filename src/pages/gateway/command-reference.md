@@ -32,12 +32,7 @@ aio api-manager:mesh:create mesh.json
 #### Response
 
 ```terminal
-Start create mesh
-Selecting your organization as: my-organization-name
-Initialized user login and the selected organization
-OrgCode - createMesh: 27E41B3246BEC9B16E398115@MyOrg
-here
-Successfully created a mesh with the ID: continuing-aqua-bobby-2pUkDmZd and imsOrgCode: 27E41B3246BEC9B16E398115@MyOrg
+Successfully created a mesh with the ID: continuing-aqua-bobby-2pUkDmZd
 ```
 
 ## aio api-manager:mesh:update
@@ -64,10 +59,6 @@ aio api-manager:mesh:update mesh1 mesh.json
 #### Response
 
 ```terminal
-Selecting your organization as: my-organization-name
-Initialized user login and the selected organization
-OrgCode - updateMesh: 27E41B3246BEC9B16E398115@MyOrg
-204
 Successfully updated the mesh with the id: continuing-aqua-bobby-2pUkDmZd
 ```
 
@@ -78,12 +69,13 @@ Retrieves the current `JSON` mesh file for the specified mesh.
 ### Usage
 
 ```bash
-aio api-manager:mesh:get [MESHID]
+aio api-manager:mesh:get [MESHID] [DOWNLOAD]
 ```
 
 ### Arguments
 
-  MESHID  The name of the existing meshId that you want to view
+  MESHID    The name of the existing meshId that you want to view
+  DOWNLOAD  (Optional) specify the local filename to create from the mesh
 
 ### Example
 
@@ -94,12 +86,87 @@ aio api-manager:mesh:get continuing-aqua-bobby-2pUkDmZd
 #### Response
 
 ```terminal
-get meshId1234
-Selecting your organization as: my-organization-name
-Initialized user login and the selected organization
-OrgCode - getMesh: 27E41B3246BEC9B16E398115@MyOrg
-Config : [object Object]
-{"imsOrgId":"27E41B3246BEC9B16E398115@MyOrg","lastUpdated":"1234123412341","meshConfig":{"sources":[{"name":"Commerce","handler":{"graphql":{"endpoint":"https://<your_commerce_site>/graphql/"}}},{"name":"AEM","handler":{"graphql":{"endpoint":"https://<your_AEM_site>/endpoint.json"}}},{"name":"LiveSearch","handler":{"graphql":{"endpoint":"https://<your_commerce_site>/search/graphql","operationHeaders":{"Magento-Store-View-Code":"default","Magento-Website-Code":"base","Magento-Store-Code":"main_website_store","Magento-Environment-Id":"<your_environment_id>","x-api-key":"search_gql","Content-Type":"application/json"},"schemaHeaders":{"Magento-Store-View-Code":"default","Magento-Website-Code":"base","Magento-Store-Code":"main_website_store","Magento-Environment-Id":"<your_environment_id>","x-api-key":"search_gql","Content-Type":"application/json"}}}}]},"meshId":"continuing-aqua-bobby-2pUkDmZd","lastUpdatedBy":{"firstName":"User","lastName":"Name","userEmail":"uname@domain.com","userId":"undefined","displayName":"User%20Name"}}
+Successfully retrieved mesh {
+  "lastUpdated": "2022-06-01T12:12:12.0000",
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Commerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://<your_commerce_site>/graphql/"
+          }
+        }
+      },
+      {
+        "name": "AEM",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://<your_AEM_site>/endpoint.json"
+          }
+        }
+      },
+      {
+        "name": "LiveSearch",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://<your_commerce_site>/search/graphql",
+            "operationHeaders": {
+              "Magento-Store-View-Code": "default",
+              "Magento-Website-Code": "base",
+              "Magento-Store-Code": "main_website_store",
+              "Magento-Environment-Id": "<your_environment_id>",
+              "x-api-key": "search_gql",
+              "Content-Type": "application/json"
+            },
+            "schemaHeaders": {
+              "Magento-Store-View-Code": "default",
+              "Magento-Website-Code": "base",
+              "Magento-Store-Code": "main_website_store",
+              "Magento-Environment-Id": "<your_environment_id>",
+              "x-api-key": "search_gql",
+              "Content-Type": "application/json"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "meshId": "continuing-aqua-bobby-2pUkDmZd",
+  "lastUpdatedBy": {
+    "firstName": "User",
+    "lastName": "Name",
+    "userEmail": "uname@domain.com",
+    "userId": "undefined",
+    "displayName": "User%20Name"
+  }
+}
+```
+
+## aio api-manager:mesh:delete meshId
+
+Deletes the mesh from the selected workspace.
+
+### Usage
+
+```bash
+aio api-manager:mesh:delete [MESHID]
+```
+
+### Arguments
+
+  MESHID    The name of the existing meshId that you want to view
+
+### Example
+
+```bash
+aio api-manager:mesh:delete continuing-aqua-bobby-2pUkDmZd
+```
+
+### Response
+
+```terminal
+Successfully deleted continuing-aqua-bobby-2pUkDmZd
 ```
 
 <!-- Link Definitions -->

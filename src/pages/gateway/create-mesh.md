@@ -74,7 +74,11 @@ description: Create a configuration file for your mesh, access the gateway, and 
 
 When creating or updating a mesh, the file to upload must have the `.json` filename extension.
 
-1. Select the project and workspace that you want to create the mesh in. You will be assigned a `meshId`, which is the case-sensitive, readable name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `continuing-aqua-bobby-2pUkDmZd`
+1. Select the project and workspace that you want to create the mesh in. You will be assigned a `meshId`, which is the case-sensitive, readable name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `continuing-aqua-bobby-2pUkDmZd`.
+
+<InlineAlert variant="info" slots="text"/>
+
+Each workspace within a project can only have one mesh associated with it at a time.
 
 ## Access the gateway
 
