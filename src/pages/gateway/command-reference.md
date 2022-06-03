@@ -11,7 +11,7 @@ All commands on this page support the `--help` argument, which provides informat
 
 ## aio api-manager:mesh:create
 
-Creates a new mesh based on the settings in the specified `JSON` file in your working directory. After creating your mesh, you will receive a  `meshId`, like `bright-cloud-plastic-2pUkDmZd`, to refer to it in the future. For more information, see [Creating a mesh].
+Creates a new mesh based on the settings in the specified `JSON` file in your working directory. After creating your mesh, you will receive a  `meshId`, like `12a3b4c5-6d78-4012-3456-7e890fa1bcde`, to refer to it in the future. For more information, see [Creating a mesh].
 
 ### Usage
 
@@ -32,7 +32,7 @@ aio api-manager:mesh:create mesh.json
 #### Response
 
 ```terminal
-Successfully created a mesh with the ID: bright-cloud-plastic-2pUkDmZd
+Successfully created a mesh with the ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
 ## aio api-manager:mesh:update
@@ -60,7 +60,7 @@ aio api-manager:mesh:update mesh1 mesh.json
 #### Response
 
 ```terminal
-Successfully updated the mesh with the id: bright-cloud-plastic-2pUkDmZd
+Successfully updated the mesh with the id: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
 ## aio api-manager:mesh:get
@@ -82,7 +82,7 @@ aio api-manager:mesh:get [MESHID] [DOWNLOAD]
 ### Example
 
 ```bash
-aio api-manager:mesh:get bright-cloud-plastic-2pUkDmZd
+aio api-manager:mesh:get 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
 #### Response
@@ -134,7 +134,7 @@ Successfully retrieved mesh {
       }
     ]
   },
-  "meshId": "bright-cloud-plastic-2pUkDmZd",
+  "meshId": "12a3b4c5-6d78-4012-3456-7e890fa1bcde",
   "lastUpdatedBy": {
     "firstName": "User",
     "lastName": "Name",
@@ -162,13 +162,13 @@ aio api-manager:mesh:delete [MESHID]
 ### Example
 
 ```bash
-aio api-manager:mesh:delete bright-cloud-plastic-2pUkDmZd
+aio api-manager:mesh:delete 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
 ### Response
 
 ```terminal
-Successfully deleted bright-cloud-plastic-2pUkDmZd
+Successfully deleted 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
 <!-- Link Definitions -->
