@@ -5,9 +5,9 @@ description: How to apply transforms to your mesh to customize your responses.
 
 # Transforms
 
-While [handlers] let you bring outside sources into Adobe API Manager, [transforms] allow you to modify the schema in order to control the contents of your GraphQL requests and responses.
+While [handlers] let you bring outside sources into API Mesh for Adobe Developer App Builder, [transforms] allow you to modify the schema in order to control the contents of your GraphQL requests and responses.
 
-Adobe API Manager currently supports the following [transforms]:
+API Mesh for Adobe Developer App Builder currently supports the following [transforms]:
 
 -  [Rename](#rename)
 -  [Prefix](#prefix)
@@ -65,7 +65,6 @@ Other [GraphQL Mesh] transforms are not supported.
       }
     ]
   },
-  "meshId": "<your_mesh_id"
 }
 ```
 
@@ -111,7 +110,6 @@ You can use [RegEx flags] to enable the use of regular expressions when renaming
       }
     ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 
@@ -153,7 +151,6 @@ For example, you might want to exclude deprecated queries, mutations, and types 
       }
     ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 
@@ -194,7 +191,6 @@ For example, you might want to exclude deprecated queries, mutations, and types 
       }
     ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 
@@ -227,7 +223,6 @@ For example, you might want to exclude deprecated queries, mutations, and types 
       }
     ]
   },
-  "meshId": "<your_mesh_id>"
 }
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: JSON Schema or Samples | Adobe API Manager
+title: JSON Schema or Samples | API Mesh for Adobe Developer App Builder
 ---
 
 # JSON schema handlers

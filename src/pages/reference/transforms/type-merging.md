@@ -1,5 +1,5 @@
 ---
-title: typeMerging Transform | Adobe API Manager
+title: typeMerging Transform | API Mesh for Adobe Developer App Builder
 ---
 
 # typeMerge transform

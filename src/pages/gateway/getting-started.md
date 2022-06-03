@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Set up and configure Adobe API Manager.
+description: Set up and configure API Mesh for Adobe Developer App Builder.
 ---
 
 # Getting started
@@ -9,7 +9,7 @@ This guide provides you with the basic steps you need to set up your API managem
 
 ## Join the Beta
 
-Request access to join the Adobe API Manager Beta:
+Request access to join the API Mesh for Adobe Developer App Builder Beta:
 
 <!-- coming soon -->
 
@@ -17,7 +17,7 @@ Request access to join the Adobe API Manager Beta:
 
 ## Prerequisites
 
-Before you can begin using Adobe API Manager, you must install:
+Before you can begin using API Mesh for Adobe Developer App Builder, you must install:
 
 -  [Node.js]
 -  [nvm] 16.x.x
@@ -47,7 +47,7 @@ Once you have an Adobe IO account, you need to access the CLI tool to start conf
    }
    ```
 
-1. Run the following command to load the configuration information into Adobe API Manager:
+1. Run the following command to load the configuration information into API Mesh for Adobe Developer App Builder:
 
    ``` bash
    aio config:set aio-cli-plugin-commerce-admin <path_to_config.json_file>

@@ -9,7 +9,7 @@ module.exports = [
             path: '/gateway/getting-started',
         },
         {
-            title: 'Adobe API Manager',
+            title: 'API Mesh for Adobe Developer App Builder',
             path: '/gateway/overview'
         },
         {

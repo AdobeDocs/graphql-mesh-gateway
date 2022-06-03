@@ -1,13 +1,13 @@
 ---
-title: Overview - Adobe API Manager
-description: This is the overview page of Adobe API Manager
+title: Overview - API Mesh for Adobe Developer App Builder
+description: Learn about the features of API Mesh for Adobe Developer App Builder.
 ---
 
 <Hero slots="heading, text"/>
 
-# Adobe API Manager
+# API Mesh for Adobe Developer App Builder
 
-Adobe API Manager is a decoupled API platform that enables enterprise and mid-market developers to integrate private or third-party APIs and other software interfaces with Adobe products using Adobe IO.
+API Mesh for Adobe Developer App Builder is a decoupled API platform that enables enterprise and mid-market developers to integrate private or third-party APIs and other software interfaces with Adobe products using Adobe IO.
 
 <Resources slots="heading, links"/>
 
@@ -21,7 +21,7 @@ Adobe API Manager is a decoupled API platform that enables enterprise and mid-ma
 
 ## Overview
 
-Adobe API Manager allows businesses to access functionality across multiple systems to provide better end-user experiences. Adobe API Manager is Multi-Tenant, which means developers can configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single [GraphQL] query. Adobe Commerce, for example, also [supports GraphQL queries].
+API Mesh for Adobe Developer App Builder allows businesses to access functionality across multiple systems to provide better end-user experiences. API Mesh for Adobe Developer App Builder is Multi-Tenant, which means developers can configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single [GraphQL] query. Adobe Commerce, for example, also [supports GraphQL queries].
 
 ## Discover
 
@@ -29,15 +29,15 @@ Adobe API Manager allows businesses to access functionality across multiple syst
 
 ### Get Started
 
-[Adobe API Manager Overview](gateway/overview.md)
+[API Mesh for Adobe Developer App Builder Overview](gateway/overview.md)
 
-Get started with the Adobe API Manager Overview.
+Get started with the API Mesh for Adobe Developer App Builder Overview.
 
 <DiscoverBlock slots="heading, link, text"/>
 
 ### Guides
 
-[Adobe API Manager](../gateway/)
+[API Mesh for Adobe Developer App Builder](../gateway/)
 
 Learn how to use multiple external APIs simultaneously with your Adobe Commerce or other Adobe APIs.
 
@@ -45,7 +45,7 @@ Learn how to use multiple external APIs simultaneously with your Adobe Commerce 
 
 [GraphQL Mesh Reference](../reference/)
 
-View GraphQL Mesh documentation specifically for Adobe API Manager.
+View GraphQL Mesh documentation specifically for API Mesh for Adobe Developer App Builder.
 
 <!-- Link Definitions -->
 
