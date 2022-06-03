@@ -1,6 +1,6 @@
 ---
 title: Overview - API Mesh for Adobe Developer App Builder
-description: This is the overview page of API Mesh for Adobe Developer App Builder
+description: Learn about the features of API Mesh for Adobe Developer App Builder.
 ---
 
 <Hero slots="heading, text"/>
