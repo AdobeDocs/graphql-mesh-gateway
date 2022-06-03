@@ -5,7 +5,7 @@ description: How to add supported source handlers to your mesh.
 
 # Add source handlers
 
-Although [GraphQL Mesh] supports many types of [source handlers], at launch Adobe API Manager only supports the following:
+Although [GraphQL Mesh] supports many types of [source handlers], at launch API Mesh for Adobe Developer App Builder only supports the following:
 
 -  [OpenAPI](#openapi)
    -  [API Handler Configuration](#api-handler-configuration)
@@ -45,7 +45,7 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service
 
 ### API Handler Configuration
 
- Adobe API Manager currently supports the following configuration options for API handlers.
+ API Mesh for Adobe Developer App Builder currently supports the following configuration options for API handlers.
 
 -  **source** - Your API source or endpoint
 -  **sourceFormat** - The format of the source file (`json` | `yaml`)
@@ -57,7 +57,7 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see GraphQL Mesh's [Config API Reference]. Note that Adobe API Manager uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
+For more information, see GraphQL Mesh's [Config API Reference]. Note that API Mesh for Adobe Developer App Builder uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
 
 ## GraphQL endpoints
 
@@ -90,7 +90,7 @@ The [GraphQL] handler allows you to connect to a GraphQL endpoint.
 
 ### GraphQL Handler Configuration
 
- Adobe API Manager currently supports the following configuration options for GraphQL handlers.
+ API Mesh for Adobe Developer App Builder currently supports the following configuration options for GraphQL handlers.
 
 -  **endpoint** - The URL or path of your GraphQL endpoint
 -  **schemaHeaders** - JSON Headers to fetch your schema
@@ -100,7 +100,7 @@ The [GraphQL] handler allows you to connect to a GraphQL endpoint.
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see GraphQL Mesh's [GraphQL Config API Reference]. Note that Adobe API Manager uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
+For more information, see GraphQL Mesh's [GraphQL Config API Reference]. Note that API Mesh for Adobe Developer App Builder uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
 
 ## JSON schemas
 
@@ -138,7 +138,7 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
 
 ### JSON Schema Handler Configuration
 
- Adobe API Manager currently supports the following configuration options for JSON Schema handlers.
+ API Mesh for Adobe Developer App Builder currently supports the following configuration options for JSON Schema handlers.
 
 -  **baseurl** - The URL or path of your JSON Schema
 -  **schemaHeaders** - JSON Headers to fetch your schema
@@ -160,7 +160,7 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see GraphQL Mesh's [JSON Schema Config API Reference]. Note that Adobe API Manager uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
+For more information, see GraphQL Mesh's [JSON Schema Config API Reference]. Note that API Mesh for Adobe Developer App Builder uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
 
 <!-- Link Definitions -->
 

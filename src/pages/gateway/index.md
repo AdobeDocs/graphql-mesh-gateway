@@ -1,11 +1,11 @@
 ---
-title: Guides - Adobe API Manager
-description: This is the guides overview page of Adobe API Manager 
+title: Guides - API Mesh for Adobe Developer App Builder
+description: This is the guides overview page of API Mesh for Adobe Developer App Builder 
 ---
 
-# Adobe API Manager
+# API Mesh for Adobe Developer App Builder
 
-To get started with Adobe API Manager select one of the links below.
+To get started with API Mesh for Adobe Developer App Builder select one of the links below.
 
 ## Getting Started
 

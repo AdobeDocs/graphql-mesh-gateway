@@ -1,11 +1,11 @@
 ---
-title: Adobe API Manager Architecture Overview
-description: A description of the architecture and how requests are processed inside Adobe API Manager.
+title: API Mesh for Adobe Developer App Builder Architecture Overview
+description: A description of the architecture and how requests are processed inside API Mesh for Adobe Developer App Builder.
 ---
 
 # Architecture overview
 
-Depending on your role and use case for Adobe API Manager, there are different ways to view the gateway architecture.
+Depending on your role and use case for API Mesh for Adobe Developer App Builder, there are different ways to view the gateway architecture.
 
 If you are interested in how you can affect the gateway, you can follow this process in the diagram below:
 
@@ -18,6 +18,6 @@ If you are interested in how the internal Adobe network processes your calls, yo
 -  **2** - The Schema Management Service generates a GraphQL schema for each mesh based on its GraphQL mesh configuration.
 -  **3** - The GraphQL server fetches data from the upstream APIs based on the mesh configuration.
 
-The diagram below explains the high-level architecture of Adobe API Manager.
+The diagram below explains the high-level architecture of API Mesh for Adobe Developer App Builder.
 
-![architecture diagram](../_images/adobe-api-manager-architecture.svg)
+![architecture diagram](../_images/api-mesh.svg)

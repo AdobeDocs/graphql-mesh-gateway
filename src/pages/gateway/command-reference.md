@@ -1,11 +1,11 @@
 ---
 title: Command Reference
-description: A description of the CLI commands available for Adobe API Manager.
+description: A description of the CLI commands available for API Mesh for Adobe Developer App Builder.
 ---
 
 # Command Reference
 
-The Adobe API Manager CLI allows you to manage and modify meshes. This page covers commands exclusive to Adobe API Manager. For authorization and other Adobe I/O Extensible CLI commands, refer to the [Adobe IO CLI command list]. For installation instructions, refer to [Getting Started].
+The API Mesh for Adobe Developer App Builder CLI allows you to manage and modify meshes. This page covers commands exclusive to API Mesh for Adobe Developer App Builder. For authorization and other Adobe I/O Extensible CLI commands, refer to the [Adobe IO CLI command list]. For installation instructions, refer to [Getting Started].
 
 All commands on this page support the `--help` argument, which provides information about the command.
 

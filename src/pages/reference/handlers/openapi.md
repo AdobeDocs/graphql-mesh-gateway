@@ -1,5 +1,5 @@
 ---
-title: OpenAPI | Adobe API Manager
+title: OpenAPI | API Mesh for Adobe Developer App Builder
 ---
 
 # OpenAPI handlers

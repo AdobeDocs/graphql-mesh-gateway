@@ -1,6 +1,6 @@
 ---
 title: Headers
-description: Specifies the means, format, and restrictions for sending operation headers through the mesh in Adobe API Manager.
+description: Specifies the means, format, and restrictions for sending operation headers through the mesh in API Mesh for Adobe Developer App Builder.
 ---
 
 # Headers
