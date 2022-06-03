@@ -48,7 +48,8 @@ aio api-manager:mesh:update [MESHID] [FILE]
 ### Arguments
 
   MESHID  The name of the existing meshId that you want to update
-  FILE      The JSON file that contains your mesh's handlers and transforms
+
+  FILE    The JSON file that contains your mesh's handlers and transforms
 
 ### Example
 
@@ -75,6 +76,7 @@ aio api-manager:mesh:get [MESHID] [DOWNLOAD]
 ### Arguments
 
   MESHID    The name of the existing meshId that you want to view
+  
   DOWNLOAD  (Optional) specify the local filename to create from the mesh
 
 ### Example
