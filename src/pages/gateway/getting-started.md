@@ -30,13 +30,17 @@ You will also need to have:
 
 ## Configure your environment
 
-Once you have an Adobe IO account, you need to access the CLI tool to start configuring your APIs with the schema management service.
+Once you have an Adobe IO account, you can use the command line interface (CLI) to start configuring your APIs with the schema management service. 
 
 1. Install the [schema management plugin] in your project directory:
 
    ```bash
-   aio plugins:install @adobe/aio-cli-plugin-commerce-admin
+   aio plugins:install @adobe/aio-cli-plugin-api-mesh
    ```
+
+### Configure `baseUrl` and `apiKey`
+
+These steps are optional and the CLI will run without them. If you want to customize your `baseUrl` or `apiKey`, follow these steps:
 
 1. Create a `config.json` file in your working directory with the following parameters:
 
@@ -50,13 +54,13 @@ Once you have an Adobe IO account, you need to access the CLI tool to start conf
 1. Run the following command to load the configuration information into API Mesh for Adobe Developer App Builder:
 
    ``` bash
-   aio config:set aio-cli-plugin-commerce-admin <path_to_config.json_file>
+   aio config:set api-mesh.configPath <path_to_config.json_file>
    ```
 
    **Example:**
 
    ``` bash
-   aio config:set aio-cli-plugin-commerce-admin ./config.json
+   aio config:set api-mesh.configPath ./config.json
    ```
 
 ## Next steps
@@ -72,5 +76,5 @@ Once you have an Adobe IO account, you need to access the CLI tool to start conf
 [AIO Plugin Documentation]: https://github.com/adobe/aio-cli#aio-pluginslink-plugin
 [aio CLI]: https://developer.adobe.com/runtime/docs/guides/tools/cli_install/
 [Node.js]: https://nodejs.org/en/download/
-[schema management plugin]: https://www.npmjs.com/package/@magento/aio-cli-plugin-commerce-admin
+[schema management plugin]: https://www.npmjs.com/package/@adobe/aio-cli-plugin-api-mesh
 [create a mesh]: create-mesh.md
