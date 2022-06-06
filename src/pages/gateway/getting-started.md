@@ -32,7 +32,7 @@ You will also need to have:
 
 Once you have an Adobe IO account, you can use the CLI interface to start configuring your APIs with the schema management service. This process is optional and the CLI will run without it. However, if you want to customize your `baseUrl` or `apiKey`:
 
-1. Install the schema management plugin in your project directory:
+1. Install the [schema management plugin] in your project directory:
 
    ```bash
    aio plugins:install @adobe/api-mesh.configPath
@@ -72,5 +72,5 @@ Once you have an Adobe IO account, you can use the CLI interface to start config
 [AIO Plugin Documentation]: https://github.com/adobe/aio-cli#aio-pluginslink-plugin
 [aio CLI]: https://developer.adobe.com/runtime/docs/guides/tools/cli_install/
 [Node.js]: https://nodejs.org/en/download/
-[schema management plugin]: https://www.npmjs.com/package/@magento/api-mesh.configPath
+[schema management plugin]: https://www.npmjs.com/package/@adobe/aio-cli-plugin-api-mesh
 [create a mesh]: create-mesh.md
