@@ -74,7 +74,7 @@ description: Create a configuration file for your mesh, access the gateway, and 
 
 When creating or updating a mesh, the file to upload must have the `.json` filename extension.
 
-1. Select the project and workspace that you want to create the mesh in. You will be assigned a `meshId`, which is the case-sensitive, readable name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `bright-cloud-plastic-2pUkDmZd`.
+1. Select the project and workspace that you want to create the mesh in. You will be assigned a `meshId`, which is the case-sensitive, readable name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `12a3b4c5-6d78-4012-3456-7e890fa1bcded`.
 
 <InlineAlert variant="info" slots="text"/>
 
