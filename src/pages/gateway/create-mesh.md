@@ -67,14 +67,14 @@ description: Create a configuration file for your mesh, access the gateway, and 
 1. Run the following command to create a mesh:
 
     ```bash
-    aio api-manager:mesh:create mesh.json
+    aio api-mesh:create mesh.json
     ```
 
 <InlineAlert variant="info" slots="text"/>
 
 When creating or updating a mesh, the file to upload must have the `.json` filename extension.
 
-1. Select the project and workspace that you want to create the mesh in. You will be assigned a `meshId`, which is the case-sensitive, readable name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `12a3b4c5-6d78-4012-3456-7e890fa1bcde`.
+1. Select the project and workspace that you want to create the mesh in. You will be assigned a `meshId`, which is the case-sensitive, readable name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `bright-cloud-plastic-2pUkDmZd`.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -91,7 +91,7 @@ After creating a mesh, you should be able to access the GraphQL endpoint by ente
 If you make any changes to your mesh file, such as adding [transforms], you must publish them before the changes will be reflected in your gateway. The following command will update the `meshId` with the settings specified in the `update-mesh.json` file.
 
 ```bash
-aio api-manager:mesh:update meshId update-mesh.json
+aio api-mesh:update meshId update-mesh.json
 ```
 
 ```json

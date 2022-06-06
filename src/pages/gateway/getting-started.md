@@ -28,14 +28,14 @@ You will also need to have:
 -  An API key (provided by Adobe)
 -  An API to integrate (for example, your own API, any public OpenAPI REST endpoint, or an [Adobe Experience Manager API])
 
-## Configure your environment
+## Configure your environment (optional)
 
-Once you have an Adobe IO account, you need to access the CLI tool to start configuring your APIs with the schema management service.
+Once you have an Adobe IO account, you can use the CLI interface to start configuring your APIs with the schema management service. This process is optional and the CLI will run without it. However, if you want to customize your `baseUrl` or `apiKey`:
 
-1. Install the [schema management plugin] in your project directory:
+1. Install the schema management plugin in your project directory:
 
    ```bash
-   aio plugins:install @adobe/aio-cli-plugin-commerce-admin
+   aio plugins:install @adobe/api-mesh.configPath
    ```
 
 1. Create a `config.json` file in your working directory with the following parameters:
@@ -50,13 +50,13 @@ Once you have an Adobe IO account, you need to access the CLI tool to start conf
 1. Run the following command to load the configuration information into API Mesh for Adobe Developer App Builder:
 
    ``` bash
-   aio config:set aio-cli-plugin-commerce-admin <path_to_config.json_file>
+   aio config:set api-mesh.configPath <path_to_config.json_file>
    ```
 
    **Example:**
 
    ``` bash
-   aio config:set aio-cli-plugin-commerce-admin ./config.json
+   aio config:set api-mesh.configPath ./config.json
    ```
 
 ## Next steps
@@ -72,5 +72,5 @@ Once you have an Adobe IO account, you need to access the CLI tool to start conf
 [AIO Plugin Documentation]: https://github.com/adobe/aio-cli#aio-pluginslink-plugin
 [aio CLI]: https://developer.adobe.com/runtime/docs/guides/tools/cli_install/
 [Node.js]: https://nodejs.org/en/download/
-[schema management plugin]: https://www.npmjs.com/package/@magento/aio-cli-plugin-commerce-admin
+[schema management plugin]: https://www.npmjs.com/package/@magento/api-mesh.configPath
 [create a mesh]: create-mesh.md

@@ -9,14 +9,14 @@ The API Mesh for Adobe Developer App Builder CLI allows you to manage and modify
 
 All commands on this page support the `--help` argument, which provides information about the command.
 
-## aio api-manager:mesh:create
+## aio api-mesh:create
 
 Creates a new mesh based on the settings in the specified `JSON` file in your working directory. After creating your mesh, you will receive a  `meshId`, like `12a3b4c5-6d78-4012-3456-7e890fa1bcde`, to refer to it in the future. For more information, see [Creating a mesh].
 
 ### Usage
 
 ```bash
-aio api-manager:mesh:create [FILE]
+aio api-mesh:create [FILE]
 ```
 
 ### Arguments
@@ -26,7 +26,7 @@ aio api-manager:mesh:create [FILE]
 ### Example
 
 ```bash
-aio api-manager:mesh:create mesh.json
+aio api-mesh:create mesh.json
 ```
 
 #### Response
@@ -35,14 +35,14 @@ aio api-manager:mesh:create mesh.json
 Successfully created a mesh with the ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
-## aio api-manager:mesh:update
+## aio api-mesh:update
 
 Updates an existing mesh based on the settings in the specified `JSON` file. For more information, see [Updating a mesh].
 
 ### Usage
 
 ```bash
-aio api-manager:mesh:update [MESHID] [FILE]
+aio api-mesh:update [MESHID] [FILE]
 ```
 
 ### Arguments
@@ -54,7 +54,7 @@ aio api-manager:mesh:update [MESHID] [FILE]
 ### Example
 
 ```bash
-aio api-manager:mesh:update mesh1 mesh.json
+aio api-mesh:update mesh1 mesh.json
 ```
 
 #### Response
@@ -63,14 +63,14 @@ aio api-manager:mesh:update mesh1 mesh.json
 Successfully updated the mesh with the id: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
-## aio api-manager:mesh:get
+## aio api-mesh:get
 
 Retrieves the current `JSON` mesh file for the specified mesh.
 
 ### Usage
 
 ```bash
-aio api-manager:mesh:get [MESHID] [DOWNLOAD]
+aio api-mesh:get [MESHID] [DOWNLOAD]
 ```
 
 ### Arguments
@@ -82,7 +82,7 @@ aio api-manager:mesh:get [MESHID] [DOWNLOAD]
 ### Example
 
 ```bash
-aio api-manager:mesh:get 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+aio api-mesh:get 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
 #### Response
@@ -145,14 +145,14 @@ Successfully retrieved mesh {
 }
 ```
 
-## aio api-manager:mesh:delete meshId
+## aio api-mesh:delete meshId
 
 Deletes the mesh from the selected workspace.
 
 ### Usage
 
 ```bash
-aio api-manager:mesh:delete [MESHID]
+aio api-mesh:delete [MESHID]
 ```
 
 ### Arguments
@@ -162,7 +162,7 @@ aio api-manager:mesh:delete [MESHID]
 ### Example
 
 ```bash
-aio api-manager:mesh:delete 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+aio api-mesh:delete 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
 ### Response
