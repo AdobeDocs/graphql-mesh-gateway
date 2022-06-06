@@ -28,14 +28,14 @@ You will also need to have:
 -  An API key (provided by Adobe)
 -  An API to integrate (for example, your own API, any public OpenAPI REST endpoint, or an [Adobe Experience Manager API])
 
-## Configure your environment (optional)
+## Configure your environment
 
 Once you have an Adobe IO account, you can use the CLI interface to start configuring your APIs with the schema management service. This process is optional and the CLI will run without it. However, if you want to customize your `baseUrl` or `apiKey`:
 
 1. Install the [schema management plugin] in your project directory:
 
    ```bash
-   aio plugins:install @adobe/api-mesh.configPath
+   aio plugins:install @adobe/aio-cli-plugin-api-mesh
    ```
 
 1. Create a `config.json` file in your working directory with the following parameters:
