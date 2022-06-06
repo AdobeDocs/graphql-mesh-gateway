@@ -30,7 +30,7 @@ You will also need to have:
 
 ## Configure your environment
 
-Once you have an Adobe IO account, you can use the CLI interface to start configuring your APIs with the schema management service. 
+Once you have an Adobe IO account, you can use the command line interface (CLI) to start configuring your APIs with the schema management service. 
 
 1. Install the [schema management plugin] in your project directory:
 
