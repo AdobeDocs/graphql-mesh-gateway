@@ -12,10 +12,6 @@ module.exports = [
             title: 'API Mesh for Adobe Developer App Builder',
             path: '/gateway/overview'
         },
-        {
-            title: 'Architecture',
-            path: '/gateway/architecture'
-        },
     ],
 },
 {

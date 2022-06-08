@@ -11,7 +11,6 @@ To get started with API Mesh for Adobe Developer App Builder select one of the l
 
 -  [Overview](overview.md)
 -  [Getting Started](getting-started.md)
--  [Architecture](architecture.md)
 
 ## Creating and Managing your Mesh
 
