@@ -80,6 +80,27 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
 
 Each workspace within a project can only have one mesh associated with it at a time.
 
+## Mesh example
+
+The following mesh file can be used with minimal setup to access the endpoint of the [Venia] demo store.
+
+``` json
+{
+"meshConfig": {
+    "sources": [
+      {
+        "name": "Commerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql/"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
 ## Access the gateway
 
 After creating a mesh, you should be able to access the GraphQL endpoint by entering the following URL in any GraphQL browser:
@@ -146,3 +167,4 @@ aio api-mesh:update meshId update-mesh.json
 <!-- Link Definitions -->
 [handlers]: source-handlers.md
 [transforms]: transforms.md
+[venia]: https://developer.adobe.com/commerce/pwa-studio/guides/packages/venia/

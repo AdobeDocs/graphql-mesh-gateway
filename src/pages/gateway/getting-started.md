@@ -5,62 +5,28 @@ description: Set up and configure API Mesh for Adobe Developer App Builder.
 
 # Getting started
 
-This guide provides you with the basic steps you need to set up your API management environment:
-
-## Join the Beta
-
-Request access to join the API Mesh for Adobe Developer App Builder Beta:
-
-<!-- coming soon -->
-
--  An Adobe IO account. If you do not already have an Adobe IO account, [install Adobe IO].
+This guide provides you with the basic steps you need to set up your API management environment.
 
 ## Prerequisites
 
-Before you can begin using API Mesh for Adobe Developer App Builder, you must install:
+Before you can begin using API Mesh, you must install:
 
 -  [Node.js]
 -  [nvm] 16.x.x
 
-You will also need to have:
+You will also need:
 
+-  An Adobe IO account. If you do not already have an Adobe IO account, [install Adobe IO].
 -  A working instance of Adobe Commerce with either Luma or Venia sample data. You can optionally include a Live Search instance.
 -  An API key (provided by Adobe)
 -  An API to integrate (for example, your own API, any public OpenAPI REST endpoint, or an [Adobe Experience Manager API])
 
 ## Configure your environment
 
-Once you have an Adobe IO account, you can use the command line interface (CLI) to start configuring your APIs with the schema management service. 
-
-1. Install the [schema management plugin] in your project directory:
+Once you have an Adobe IO account, you can use the following command line interface (CLI) command to install the [schema management plugin] in your project directory:
 
    ```bash
    aio plugins:install @adobe/aio-cli-plugin-api-mesh
-   ```
-
-### Configure `baseUrl` and `apiKey`
-
-These steps are optional and the CLI will run without them. If you want to customize your `baseUrl` or `apiKey`, follow these steps:
-
-1. Create a `config.json` file in your working directory with the following parameters:
-
-   ``` json
-   {
-      "baseUrl": "https://<your_commerce_site>",
-      "apiKey": "<your_apiKey>"
-   }
-   ```
-
-1. Run the following command to load the configuration information into API Mesh for Adobe Developer App Builder:
-
-   ``` bash
-   aio config:set api-mesh.configPath <path_to_config.json_file>
-   ```
-
-   **Example:**
-
-   ``` bash
-   aio config:set api-mesh.configPath ./config.json
    ```
 
 ## Next steps

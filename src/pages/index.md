@@ -7,7 +7,7 @@ description: Learn about the features of API Mesh for Adobe Developer App Builde
 
 # API Mesh for Adobe Developer App Builder
 
-API Mesh for Adobe Developer App Builder is a decoupled API platform that enables enterprise and mid-market developers to integrate private or third-party APIs and other software interfaces with Adobe products using Adobe IO.
+API Mesh for Adobe Developer App Builder is a decoupled API platform that enables enterprise and mid-market developers to integrate private and third-party APIs and other software interfaces with Adobe products using Adobe IO.
 
 <Resources slots="heading, links"/>
 
@@ -21,31 +21,31 @@ API Mesh for Adobe Developer App Builder is a decoupled API platform that enable
 
 ## Overview
 
-API Mesh for Adobe Developer App Builder allows businesses to access functionality across multiple systems to provide better end-user experiences. API Mesh for Adobe Developer App Builder is Multi-Tenant, which means developers can configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single [GraphQL] query. Adobe Commerce, for example, also [supports GraphQL queries].
+API Mesh allows businesses to access functionality across multiple systems to provide better end-user experiences. API Mesh allows developers to configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single [GraphQL] query. Adobe Commerce, for example, also [supports GraphQL queries].
 
 ## Discover
 
 <DiscoverBlock width="100%" slots="heading, link, text"/>
 
-### Get Started
+### Getting Started
 
-[API Mesh for Adobe Developer App Builder Overview](gateway/overview.md)
+[API Mesh](gateway/overview.md)
 
-Get started with the API Mesh for Adobe Developer App Builder Overview.
+Get started with the API Mesh Overview.
 
 <DiscoverBlock slots="heading, link, text"/>
 
 ### Guides
 
-[API Mesh for Adobe Developer App Builder](../gateway/)
+[API Mesh](./gateway/)
 
 Learn how to use multiple external APIs simultaneously with your Adobe Commerce or other Adobe APIs.
 
 <DiscoverBlock slots="link, text"/>
 
-[GraphQL Mesh Reference](../reference/)
+[GraphQL Mesh Reference](./reference/)
 
-View GraphQL Mesh documentation specifically for API Mesh for Adobe Developer App Builder.
+View GraphQL Mesh documentation specifically for API Mesh.
 
 <!-- Link Definitions -->
 
