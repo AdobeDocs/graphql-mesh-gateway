@@ -21,7 +21,7 @@ API Mesh for Adobe Developer App Builder is a decoupled API platform that enable
 
 ## Overview
 
-API Mesh allows businesses to access functionality across multiple systems to provide better end-user experiences. API Mesh allows developers to configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single [GraphQL] query. Adobe Commerce, for example, also [supports GraphQL queries].
+The API Mesh allows businesses to access functionality across multiple systems to provide better end-user experiences. The API Mesh allows developers to configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single [GraphQL] query. Adobe Commerce, for example, also [supports GraphQL queries].
 
 ## Discover
 
@@ -45,7 +45,7 @@ Learn how to use multiple external APIs simultaneously with your Adobe Commerce 
 
 [GraphQL Mesh Reference](./reference/)
 
-View GraphQL Mesh documentation specifically for API Mesh.
+View GraphQL Mesh documentation specifically for the API Mesh.
 
 <!-- Link Definitions -->
 

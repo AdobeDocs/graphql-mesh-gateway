@@ -9,7 +9,7 @@ This guide provides you with the basic steps you need to set up your API managem
 
 ## Prerequisites
 
-Before you can begin using API Mesh, you must install:
+Before you can begin using the API Mesh, you must install:
 
 -  [Node.js]
 -  [nvm] 16.x.x

@@ -7,8 +7,6 @@ description: Create a configuration file for your mesh, access the gateway, and 
 
 1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers] and [transforms]. In this example, the file name is `mesh.json`.
 
-    **NOTE:** The following example adds both an Adobe Commerce instance (with Live Search enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Live Search are different, therefore you must configure them separately.
-
   The following mesh file can be used with minimal setup to access the endpoint of the [Venia] demo store.
 
   ``` json
@@ -42,13 +40,15 @@ description: Create a configuration file for your mesh, access the gateway, and 
 
    **NOTE:** When creating or updating a mesh, the file to upload must have the `.json` filename extension.
 
-1. Select the project and workspace that you want to create the mesh in. You will be assigned a `meshId`, which is the case-sensitive, readable name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `12a3b4c5-6d78-4012-3456-7e890fa1bcde`.
+1. Select the project and workspace that you want to create the mesh in. You will be assigned a `meshId`, which is the case-sensitive, readable name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `12a3b4c5-6d78-4012-3456-7e890fa1bcde`. If you do not have a project, see [Create a project](#create-a-project).
 
 <InlineAlert variant="info" slots="text"/>
 
 Each workspace within a project can only have one mesh associated with it at a time.
 
 ## Mesh example
+
+The following example adds both an Adobe Commerce instance (with Live Search enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Live Search are different, therefore you must configure them separately.
 
 ```json
     {
@@ -98,9 +98,40 @@ Each workspace within a project can only have one mesh associated with it at a t
         }
     }
 ```
+
+## Create a project
+
+When you [create a mesh], you must assign the mesh to a specific project. To create a new project, log in to the [Adobe Developer Console] and [create a project].
+
+<InlineAlert variant="info" slots="text"/>
+
+Each workspace within a project can only have one mesh associated with it at a time.
+
+## Create an API Key
+
+<InlineAlert variant="info" slots="text"/>
+
+Only mesh owners can create API Keys. If you do not have access to [Adobe Developer Console], contact your mesh owner.
+
+To access the gateway and perform GraphQL queries, you need to provide an API Key to authorize access to your mesh. To create your API Key:
+
+1. In [Adobe Developer Console], select the desired organization from the dropdown in the top-right corner.
+
+1. Select an existing project or [create a new one](#create-a-project).
+
+1. Inside the project, click **Add API**.
+
+1. Select **API Mesh for Adobe Developer App Builder** and click **Next**.
+
+1. The **Allowed Domain** field is not currently enforced, however you must provide a valid domain, such as www.adobe.com to proceed.
+
+1. Click **Save configured API**. Copy your **API Key** from the Project Overview page.
+
+You can return to the Project Overview page whenever you need to retrieve your API Key.
+
 ## Access the gateway
 
-After creating a mesh, you should be able to access the GraphQL endpoint by entering the following URL in any GraphQL browser:
+After you [create a mesh] and [create an API Key](#create-an-api-key), you can access the GraphQL endpoint in any GraphQL browser by modifying the following URL:
 
 `https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`
 
@@ -165,3 +196,6 @@ aio api-mesh:update meshId update-mesh.json
 [handlers]: source-handlers.md
 [transforms]: transforms.md
 [venia]: https://developer.adobe.com/commerce/pwa-studio/guides/packages/venia/
+[Adobe Developer Console]:https://developer.adobe.com/console
+[create a project]:https://developer.adobe.com/developer-console/docs/guides/projects/#create-a-new-project
+[create a mesh]: create-mesh.md
