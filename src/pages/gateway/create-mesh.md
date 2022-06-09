@@ -9,53 +9,23 @@ description: Create a configuration file for your mesh, access the gateway, and 
 
     **NOTE:** The following example adds both an Adobe Commerce instance (with Live Search enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Live Search are different, therefore you must configure them separately.
 
-  ```json
-      {
-        "meshConfig": {
-          "sources": [
-            {
-              "name": "Commerce",
-              "handler": {
-                "graphql": {
-                  "endpoint": "https://<your_commerce_site>/graphql/"
-                }
-              }
-            },
-            {
-              "name": "AEM",
-              "handler": {
-                "graphql": {
-                  "endpoint": "https://<your_AEM_site>/endpoint.json"
-                }
-              }
-            },
-            {
-              "name": "LiveSearch",
-                "handler": {
-                  "graphql": {
-                    "endpoint": "https://<your_commerce_site>/search/graphql",
-                    "operationHeaders": {
-                      "x-api-key": "search_gql",
-                      "Magento-Environment-Id": "<your_environment_id>",
-                      "Magento-Website-Code": "base",
-                      "Content-Type": "application/json",
-                      "Magento-Store-Code": "main_website_store",
-                      "Magento-Store-View-Code": "default"
-                    },
-                    "schemaHeaders": {
-                      "x-api-key": "search_gql",
-                      "Magento-Environment-Id": "<your_environment_id>",
-                      "Magento-Website-Code": "base",
-                      "Content-Type": "application/json",
-                      "Magento-Store-Code": "main_website_store",
-                      "Magento-Store-View-Code": "default"
-                    }
-                  }
-                }
-              }
-            ]
+  The following mesh file can be used with minimal setup to access the endpoint of the [Venia] demo store.
+
+  ``` json
+  {
+  "meshConfig": {
+      "sources": [
+        {
+          "name": "Commerce",
+          "handler": {
+            "graphql": {
+              "endpoint": "https://venia.magento.com/graphql/"
+            }
           }
-      }
+        }
+      ]
+    }
+  }
   ```
 
 1. Run the login command and provide your credentials in the browser window.
@@ -70,9 +40,7 @@ description: Create a configuration file for your mesh, access the gateway, and 
     aio api-mesh:create mesh.json
     ```
 
-<InlineAlert variant="info" slots="text"/>
-
-When creating or updating a mesh, the file to upload must have the `.json` filename extension.
+   **NOTE:** When creating or updating a mesh, the file to upload must have the `.json` filename extension.
 
 1. Select the project and workspace that you want to create the mesh in. You will be assigned a `meshId`, which is the case-sensitive, readable name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `12a3b4c5-6d78-4012-3456-7e890fa1bcde`.
 
@@ -82,30 +50,59 @@ Each workspace within a project can only have one mesh associated with it at a t
 
 ## Mesh example
 
-The following mesh file can be used with minimal setup to access the endpoint of the [Venia] demo store.
-
-``` json
-{
-"meshConfig": {
-    "sources": [
-      {
-        "name": "Commerce",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://venia.magento.com/graphql/"
-          }
+```json
+    {
+      "meshConfig": {
+        "sources": [
+          {
+            "name": "Commerce",
+            "handler": {
+              "graphql": {
+                "endpoint": "https://<your_commerce_site>/graphql/"
+              }
+            }
+          },
+          {
+            "name": "AEM",
+            "handler": {
+              "graphql": {
+                "endpoint": "https://<your_AEM_site>/endpoint.json"
+              }
+            }
+          },
+          {
+            "name": "LiveSearch",
+              "handler": {
+                "graphql": {
+                  "endpoint": "https://<your_commerce_site>/search/graphql",
+                  "operationHeaders": {
+                    "x-api-key": "search_gql",
+                    "Magento-Environment-Id": "<your_environment_id>",
+                    "Magento-Website-Code": "base",
+                    "Content-Type": "application/json",
+                    "Magento-Store-Code": "main_website_store",
+                    "Magento-Store-View-Code": "default"
+                  },
+                  "schemaHeaders": {
+                    "x-api-key": "search_gql",
+                    "Magento-Environment-Id": "<your_environment_id>",
+                    "Magento-Website-Code": "base",
+                    "Content-Type": "application/json",
+                    "Magento-Store-Code": "main_website_store",
+                    "Magento-Store-View-Code": "default"
+                  }
+                }
+              }
+            }
+          ]
         }
-      }
-    ]
-  }
-}
+    }
 ```
-
 ## Access the gateway
 
 After creating a mesh, you should be able to access the GraphQL endpoint by entering the following URL in any GraphQL browser:
 
-`https://graph.adobe.io/api/<chosen_mesh_name>/graphql?api_key=<your_apiKey>`
+`https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`
 
 ## Update an existing mesh
 

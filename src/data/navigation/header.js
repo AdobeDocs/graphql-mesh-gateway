@@ -1,6 +1,6 @@
 module.exports = [
     {
-      title: "API Mesh for Adobe Developer App Builder",
+      title: "API Mesh",
       path: "/",
     },
     {
