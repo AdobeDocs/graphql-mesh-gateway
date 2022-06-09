@@ -107,6 +107,10 @@ When you [create a mesh], you must assign the mesh to a specific project. To cre
 
 Each workspace within a project can only have one mesh associated with it at a time.
 
+### Add a workspace to your project
+
+If you are [creating a templated project], you can add [workspaces]. Workspaces allow you to create separate Production and Stage environments. You can also create workspaces for each developer on your team.
+
 ## Create an API Key
 
 <InlineAlert variant="info" slots="text"/>
@@ -196,6 +200,8 @@ aio api-mesh:update meshId update-mesh.json
 [handlers]: source-handlers.md
 [transforms]: transforms.md
 [venia]: https://developer.adobe.com/commerce/pwa-studio/guides/packages/venia/
-[Adobe Developer Console]:https://developer.adobe.com/console
-[create a project]:https://developer.adobe.com/developer-console/docs/guides/projects/#create-a-new-project
+[Adobe Developer Console]: https://developer.adobe.com/console
+[create a project]: https://developer.adobe.com/developer-console/docs/guides/projects/#create-a-new-project
 [create a mesh]: create-mesh.md
+[creating a templated project]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/
+[workspaces]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/#workspaces
