@@ -1,12 +1,11 @@
 ---
 title: JSON Schema or Samples | API Mesh for Adobe Developer App Builder
 ---
+import Headers from '/src/pages/_includes/headers.md'
 
 # JSON schema handlers
 
-This handler allows you to load any remote REST service, and describe its request/response.
-
-With this handler, you can easily customize and control the built GraphQL schema.
+This handler allows you to load any remote REST service, and describe its request/response. With this handler, you can easily customize and control the built GraphQL schema.
 
 <InlineAlert variant="warning" slots="text"/>
 
@@ -28,7 +27,7 @@ To get started, use the handler in your Mesh config file:
               "field": "users",
               "path": "/users",
               "method": "GET",
-              "responseSchema": "./json-schemas/users.json"
+              "responseSchema": "https://my-json-schema/users.json"
             }
           ]
         }
@@ -37,9 +36,14 @@ To get started, use the handler in your Mesh config file:
   ]
 }
 ```
+
+JSON Schema handlers can also use local sources, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
+
 ## Dynamic Values
 
-Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
+<Headers />
+
+<!-- Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
 
 The expression inside dynamic values should be as in JS.
 
@@ -152,7 +156,7 @@ By declaring the `responseSample`, you can use the JSON sample in the GraphQL sc
 ```
 
  For your `./jsons/MyField.response.json` file, any JSON file can be used.
-
+ -->
 ## Config API Reference
 
 -  `baseUrl` (type: `String`)

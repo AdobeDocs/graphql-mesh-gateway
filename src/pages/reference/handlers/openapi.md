@@ -1,12 +1,13 @@
 ---
 title: OpenAPI | API Mesh for Adobe Developer App Builder
 ---
+import Headers from '/src/pages/_includes/headers.md'
 
 # OpenAPI handlers
 
 This handler allows you to load remote or local [OpenAPI (2/3) and Swagger](https://swagger.io) schemas. Based on [OpenAPI-to-GraphQL](https://developer.ibm.com/open/projects/openapi-to-graphql).
 
-You can import it using remote/local `.json` or `.yaml`.
+You can import it using remote/local `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
 
 To get started, use the handler in your Mesh config file:
 
@@ -17,7 +18,7 @@ To get started, use the handler in your Mesh config file:
       "name": "MyOpenapiApi",
       "handler": {
         "openapi": {
-          "source": "./my-schema.json"
+          "source": "https://my-api-source.com"
         }
       }
     }
@@ -39,7 +40,7 @@ See example below:
       "name": "MyOpenapiApi",
       "handler": {
         "openapi": {
-          "source": "./my-schema.json",
+          "source": "https://my-api-source.com",
           "selectQueryOrMutationField": [
             {
               "title": "Weather Service v1",
@@ -63,7 +64,9 @@ See example below:
 
 ## Dynamic Header Values
 
-Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
+<Headers />
+
+<!-- Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
 
 The expression inside dynamic values should be as in JS.
 
@@ -109,8 +112,8 @@ And for `mesh dev` or `mesh start`, you can pass the value using `x-my-graphql-a
     }
   ]
 }
-```
-
+``` -->
+<!-- 
 ## Advanced cookies handling
 
 When building a web application, for security reasons, cookies are often used for authentication. Mobile applications on the other end, tend to use a HTTP header.
@@ -213,11 +216,11 @@ const resolvers = {
 }
 
 module.exports = { resolvers }
-```
+``` -->
 
 ## Examples
 
-We have a lot of examples for OpenAPI Handler:
+Here are some examples of OpenAPI Handlers:
 
 -  [JavaScript Wiki](https://codesandbox.io/s/github/Urigo/graphql-mesh/tree/master/examples/openapi-javascript-wiki)
 -  [Location Weather](https://codesandbox.io/s/github/Urigo/graphql-mesh/tree/master/examples/openapi-location-weather)

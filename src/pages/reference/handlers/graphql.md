@@ -1,12 +1,11 @@
 ---
 title: GraphQL Handler | API Mesh for Adobe Developer App Builder
 ---
+import Headers from '/src/pages/_includes/headers.md'
 
 # GraphQL handlers
 
-This handler allows you to load remote GraphQL schemas and use it with schema-stitching, based on `graphql-tools`.
-
-To get started, use the handler in your Mesh config file:
+This handler allows you to load remote GraphQL schemas and use it with schema-stitching, based on `graphql-tools`. To get started, use the handler in your Mesh config file:
 
 ```json
 {
@@ -23,14 +22,18 @@ To get started, use the handler in your Mesh config file:
 }
 ```
 
+GraphQL handlers can also use local sources, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
+
 <InlineAlert variant="info" slots="text"/>
 
 You can check out our example that uses schema stitching with a PostgreSQL data source.
 [Click here to open the example on GitHub](https://github.com/Urigo/graphql-mesh/tree/master/examples/postgres-geodb)
 
-## Dynamic Header Values (e.g. for Authorization)
+## Dynamic Header Values
 
-Mesh can take dynamic values from the GraphQL Context or the environmental variables.
+<Headers />
+
+<!-- Mesh can take dynamic values from the GraphQL Context or the environmental variables.
 
 The expression inside dynamic values should be as in JS.
 
@@ -73,7 +76,7 @@ The expression inside dynamic values should be as in JS.
   ]
 }
 ```
-
+ -->
 ## Config API Reference
 
 -  `schema` (type: `Any`, required) - A file path to your GraphQL Schema

@@ -41,7 +41,7 @@ Follow the links below for more information on using GraphQL Mesh:
 [Naming Convention]: transforms/naming-convention.md
 [Prefix]: transforms/prefix.md
 [Rename]: transforms/rename.md
-[Replace Field]: transforms/replace-field.md
+[Replace Field]: transforms/replaceField.md
 [Type Merging]: transforms/type-merging.md
 [Multiple APIs]: multiple-apis.md
 [The Guild]: https://www.the-guild.dev/
