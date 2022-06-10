@@ -20,7 +20,7 @@ Each workspace within a project can only have one mesh associated with it at a t
 
 ### Add a workspace to your project
 
-If you are [creating a templated project], you can add [workspaces]. Workspaces allow you to create separate Production and Stage environments. You can also create workspaces for each developer on your team.
+If you are [creating a templated project], you can add [workspaces]. Workspaces allow you to create separate environments. You can also create workspaces for each developer on your team.
 
 ## Create a mesh
 
