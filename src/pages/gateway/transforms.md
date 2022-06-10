@@ -171,7 +171,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
         },
           "transforms": [
             {
-              "replace-field": {
+              "replaceField": {
               "replacements": [
                 {
                   "from": {
@@ -240,6 +240,6 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 [Naming Convention]: /reference/transforms/naming-convention.md
 [Prefix]: /reference/transforms/prefix.md
 [Rename]: /reference/transforms/rename.md
-[Replace Field]: /reference/transforms/replace-field.md
+[Replace Field]: /reference/transforms/replaceField.md
 [Type Merging]: /reference/transforms/type-merging.md
 [GraphQL Mesh Example]: /reference/multiple-apis.md#merging-types-from-different-sources-using-type-merging

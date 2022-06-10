@@ -56,7 +56,7 @@ The following example prefixes an input source to make it simpler later to merge
   ]
 }
 ```
-
+<!-- 
 ## Root-level transforms
 
 To specify `transforms` over unified schema, you should put it in the root of your config file. This could be used in case you need access fields or types from all your data source, for example for linking two data sources together.
@@ -67,7 +67,7 @@ The following example prefixes an input source to make it simpler later to merge
 {
   "transforms": [
     {
-      "replace-field": {
+      "replaceField": {
         "typeDefs": "type NewBook {\n  isAvailable: Boolean\n}\n",
         "replacements": [
           {
@@ -86,7 +86,7 @@ The following example prefixes an input source to make it simpler later to merge
     }
   ]
 }
-```
+``` -->
 
 ## Two different modes
 
@@ -310,7 +310,7 @@ If you have use cases for which you would require to introduce either "bare" or 
 | Naming Convention     |  ❌  |  ✅  | [docs](naming-convention.md)     |
 | Prefix                |  ✅  |  ✅  | [docs](prefix.md)                |
 | Rename                |  ✅  |  ✅  | [docs](rename.md)                |
-| Replace Field         |  ✅  |  ❌  | [docs](replace-field.md)         |
+| Replace Field         |  ✅  |  ❌  | [docs](replaceField.md)         |
 
 <!-- Link Definitions -->
 [Introduction]: index.md
@@ -320,7 +320,7 @@ If you have use cases for which you would require to introduce either "bare" or 
 [namingConvention]: naming-convention.md
 [prefix]: prefix.md
 [rename]: rename.md
-[replaceField]: replace-field.md
+[replaceField]: replaceField.md
 [typeMerging]: type-merging.md
 [The Guild]: https://www.the-guild.dev/
 [MIT License]: https://github.com/Urigo/graphql-mesh/blob/master/LICENSE#L3

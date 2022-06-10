@@ -13,7 +13,7 @@ This transform helps you to use Type Merging approach of Schema Stitching in you
       "name": "AuthorService",
       "handler": {
         "graphql": {
-          "endpoint": "./author-service-schema.js"
+          "endpoint": "https://my-site.com/author-service-schema.js"
         }
       },
       "transforms": [
@@ -33,7 +33,7 @@ This transform helps you to use Type Merging approach of Schema Stitching in you
       "name": "BookService",
       "handler": {
         "graphql": {
-          "endpoint": "./book-service-schema.js"
+          "endpoint": "https://my-site.com/book-service-schema.js"
         }
       },
       "transforms": [

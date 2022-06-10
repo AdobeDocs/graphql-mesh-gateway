@@ -61,7 +61,7 @@ module.exports = [
             },
             {
                 title: 'Replace Field',
-                path: '/reference/transforms/replace-field.md'
+                path: '/reference/transforms/replaceField.md'
             },
             {
                 title: 'Type Merging',
