@@ -5,6 +5,25 @@ description: Create a configuration file for your mesh, access the gateway, and 
 
 # Create a mesh
 
+This page provides the basic steps for creating your first mesh.  
+
+## Requirements
+
+Before creating a mesh, create a project or a templated project and workspace for the mesh. For other requirements see [Prerequisites].
+### Create a project
+
+When you [create a mesh], you must assign the mesh to a specific project. To create a new project, log in to the [Adobe Developer Console] and [create a project].
+
+<InlineAlert variant="info" slots="text"/>
+
+Each workspace within a project can only have one mesh associated with it at a time.
+
+### Add a workspace to your project
+
+If you are [creating a templated project], you can add [workspaces]. Workspaces allow you to create separate Production and Stage environments. You can also create workspaces for each developer on your team.
+
+## Create a mesh
+
 1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers] and [transforms]. In this example, the file name is `mesh.json`.
 
   The following mesh file can be used with minimal setup to access the endpoint of the [Venia] demo store.
@@ -98,18 +117,6 @@ The following example adds both an Adobe Commerce instance (with Live Search ena
         }
     }
 ```
-
-## Create a project
-
-When you [create a mesh], you must assign the mesh to a specific project. To create a new project, log in to the [Adobe Developer Console] and [create a project].
-
-<InlineAlert variant="info" slots="text"/>
-
-Each workspace within a project can only have one mesh associated with it at a time.
-
-### Add a workspace to your project
-
-If you are [creating a templated project], you can add [workspaces]. Workspaces allow you to create separate Production and Stage environments. You can also create workspaces for each developer on your team.
 
 ## Create an API Key
 
@@ -205,3 +212,4 @@ aio api-mesh:update meshId update-mesh.json
 [create a mesh]: create-mesh.md
 [creating a templated project]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/
 [workspaces]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/#workspaces
+[Prerequisites]: ./getting-started.md#prerequisites
