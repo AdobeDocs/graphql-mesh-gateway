@@ -14,13 +14,13 @@ Before creating a mesh, create a project or a templated project and workspace fo
 
 When you [create a mesh], you must assign the mesh to a specific project. To create a new project, log in to the [Adobe Developer Console] and [create a project].
 
-<InlineAlert variant="info" slots="text"/>
-
-Each workspace within a project can only have one mesh associated with it at a time.
-
 ### Add a workspace to your project
 
 If you are [creating a templated project], you can add [workspaces]. Workspaces allow you to create separate environments. You can also create workspaces for each developer on your team.
+
+<InlineAlert variant="info" slots="text"/>
+
+When creating or updating a mesh, the file to upload must have the `.json` filename extension.
 
 ## Create a mesh
 
@@ -51,13 +51,11 @@ If you are [creating a templated project], you can add [workspaces]. Workspaces 
     aio auth:login
     ```
 
-1. Run the following command to create a mesh:
+1. Run the following command to create a mesh. In this example, the file name is `mesh.json`.
 
     ```bash
     aio api-mesh:create mesh.json
     ```
-
-   **NOTE:** When creating or updating a mesh, the file to upload must have the `.json` filename extension.
 
 1. Select the project and workspace that you want to create the mesh in. You will be assigned a `meshId`, which is the case-sensitive, readable name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `12a3b4c5-6d78-4012-3456-7e890fa1bcde`. If you do not have a project, see [Create a project](#create-a-project).
 
@@ -128,15 +126,25 @@ To access the gateway and perform GraphQL queries, you need to provide an API Ke
 
 1. In [Adobe Developer Console], select the desired organization from the dropdown in the top-right corner.
 
+    ![create a project](../_images/create-project.png)
+
 1. Select an existing project or [create a new one](#create-a-project).
 
 1. Inside the project, click **Add API**.
 
+    ![add an api](../_images/add-api.png)
+
 1. Select **API Mesh for Adobe Developer App Builder** and click **Next**.
 
-1. The **Allowed Domain** field is not currently enforced, however you must provide a valid domain, such as www.adobe.com to proceed.
+    ![add an api mesh](../_images/add-api-mesh.png)
+
+1. The **Allowed Domain** field is not currently enforced. Enter any valid test domain to proceed.
+
+    ![add an allowed domain](../_images/allowed-domain.png)
 
 1. Click **Save configured API**. Copy your **API Key** from the Project Overview page.
+
+    ![api key](../_images/api-key.png)
 
 You can return to the Project Overview page whenever you need to retrieve your API Key.
 
