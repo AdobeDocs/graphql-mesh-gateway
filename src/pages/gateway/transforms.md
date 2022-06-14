@@ -7,7 +7,7 @@ description: How to apply transforms to your mesh to customize your responses.
 
 While [handlers] let you bring outside sources into API Mesh for Adobe Developer App Builder, [transforms] allow you to modify the schema in order to control the contents of your GraphQL requests and responses.
 
-API Mesh for Adobe Developer App Builder currently supports the following [transforms]:
+The API Mesh currently supports the following [transforms]:
 
 -  [Rename](#rename)
 -  [Prefix](#prefix)

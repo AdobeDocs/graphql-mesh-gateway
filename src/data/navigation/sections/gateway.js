@@ -9,12 +9,8 @@ module.exports = [
             path: '/gateway/getting-started',
         },
         {
-            title: 'API Mesh for Adobe Developer App Builder',
+            title: 'What is API Mesh?',
             path: '/gateway/overview'
-        },
-        {
-            title: 'Architecture',
-            path: '/gateway/architecture'
         },
     ],
 },
