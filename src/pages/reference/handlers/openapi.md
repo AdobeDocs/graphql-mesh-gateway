@@ -216,7 +216,8 @@ const resolvers = {
 }
 
 module.exports = { resolvers }
-``` -->
+``` 
+-->
 ## Examples
 
 Here are some examples of OpenAPI Handlers:
