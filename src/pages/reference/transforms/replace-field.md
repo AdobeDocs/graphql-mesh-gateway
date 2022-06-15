@@ -1,10 +1,10 @@
 ---
-title: replace Field | API Mesh for Adobe Developer App Builder
+title: replaceField | API Mesh for Adobe Developer App Builder
 ---
 
-# replace transform
+# replaceField transform
 
-The `replace-field` transform allows you to replace configuration properties of a GraphQL field (source) with the ones of another field (target).
+The `replaceField` transform allows you to replace configuration properties of a GraphQL field (source) with the ones of another field (target).
 
 This is extremely useful when you want to hoist field values from one subfield to its parent, but it can be customized to completely replace and/or compose resolve functions with a great degree of customization.
 
@@ -58,7 +58,7 @@ To achieve this you can add the following configuration to your Mesh config file
 {
   "transforms": [
     {
-      "replace-field": {
+      "replaceField": {
         "replacements": [
           {
             "from": {
@@ -197,7 +197,7 @@ Let's have a look at a Mesh config to be applied to the GraphQL schema shared ab
 {
   "transforms": [
     {
-      "replace-field": {
+      "replaceField": {
         "typeDefs": "type NewAuthor {\n  age: String\n}\n",
         "replacements": [
           {
@@ -234,7 +234,7 @@ type Author {
   age: String
 }
 ```
-
+<!-- 
 ## Custom composers
 
 Performing value hoisting or replacing the full field config is powerful, but it might not always fully satisfy custom needs.
@@ -252,7 +252,7 @@ Eventually, we want to completely replace `code` with `isAvailable`; as you can 
 {
   "transforms": [
     {
-      "replace-field": {
+      "replaceField": {
         "typeDefs": "type NewBook {\n  isAvailable: Boolean\n}\n",
         "replacements": [
           {
@@ -291,7 +291,7 @@ Now our `code` field will return a Boolean as per custom logic implemented throu
 
 If we continue to elaborate from what we did above, when attaching composers to field resolvers to implement custom logic; it seems logical that a field that has been changed in Type and so return value, even with the addition of custom logic, has certainly evolved from the original field and so it would probably be best to rename it.
 
-Replace-field transform allows you to do that directly as part of the replacements rules; you just need to pass the `name` property to define a new name for your target field.
+replaceField transform allows you to do that directly as part of the replacements rules; you just need to pass the `name` property to define a new name for your target field.
 
 Let's wrap this up by adding a finishing touch to our schema:
 
@@ -299,7 +299,7 @@ Let's wrap this up by adding a finishing touch to our schema:
 {
   "transforms": [
     {
-      "replace-field": {
+      "replaceField": {
         "typeDefs": "type NewBook {\n  isAvailable: Boolean\n}\n",
         "replacements": [
           {
@@ -350,7 +350,7 @@ type Author {
   age: Int!
 }
 ```
-
+ -->
 ## Config API Reference
 
 -  `typeDefs` (type: `Any`)  -  Additional type definition to used to replace field types
@@ -362,5 +362,4 @@ type Author {
       -  `type` (type: `String`, required)
       -  `field` (type: `String`, required)
    -  `scope` (type: `String (config | hoistValue)`)
-   -  `composer` (type: `Any`)
    -  `name` (type: `String`)

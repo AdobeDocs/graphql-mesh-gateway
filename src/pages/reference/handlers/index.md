@@ -37,6 +37,45 @@ The following example contains a basic mesh file with an OpenAPI source handler.
 
 Handlers are located in the sources section of the mesh file. Each `source` will need a `name`, a `handler`, and other key value pairs that correspond to the `handler` type. In the previous example, the `openapi` handler only requires a `source`.
 
+## Reference local files in handlers
+
+You can reference local files as sources in handlers using the following format:
+
+```json
+{
+    "meshConfig": {
+        "sources": [
+            {
+                "name": "Magento REST",
+                "handler": {
+                    "openapi": {
+                        "source": "your_Magento_API"
+                    }
+                }
+            },
+            {
+                "name": "Magento REST V2",
+                "handler": {
+                    "openapi": {
+                        "source": "./magentoRestV2.json"
+                    }
+                }
+            }
+        ],
+        "files": [
+            {
+                "path": "./magentoRestV2.json",
+                "content": <LOCAL_FILE_CONTENT>
+            }
+        ]
+    }
+}
+```
+
+<InlineAlert variant="info" slots="text"/>
+
+Only `JS` and `JSON` files are supported using this method.
+
 <!-- Link Definitions -->
 [OpenAPI]: openapi.md
 [GraphQL]: graphql.md

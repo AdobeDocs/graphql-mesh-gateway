@@ -54,7 +54,7 @@ If you want to add more complex business logic, you can point to a code file tha
 
 ```json
 {
-  "resolveReference": "./userResolveReference.js"
+  "resolveReference": "https://my-site.com/userResolveReference.js"
 }
 ```
 

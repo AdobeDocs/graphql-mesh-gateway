@@ -56,7 +56,7 @@ The following example prefixes an input source to make it simpler later to merge
   ]
 }
 ```
-
+<!-- 
 ## Root-level transforms
 
 To specify `transforms` over unified schema, you should put it in the root of your config file. This could be used in case you need access fields or types from all your data source, for example for linking two data sources together.
@@ -67,7 +67,7 @@ The following example prefixes an input source to make it simpler later to merge
 {
   "transforms": [
     {
-      "replace-field": {
+      "replaceField": {
         "typeDefs": "type NewBook {\n  isAvailable: Boolean\n}\n",
         "replacements": [
           {
@@ -86,7 +86,7 @@ The following example prefixes an input source to make it simpler later to merge
     }
   ]
 }
-```
+``` -->
 
 ## Two different modes
 

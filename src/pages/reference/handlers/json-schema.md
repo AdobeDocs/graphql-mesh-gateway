@@ -1,12 +1,11 @@
 ---
 title: JSON Schema or Samples | API Mesh for Adobe Developer App Builder
 ---
+import Headers from '/src/pages/_includes/headers.md'
 
 # JSON schema handlers
 
-This handler allows you to load any remote REST service, and describe its request/response.
-
-With this handler, you can easily customize and control the built GraphQL schema.
+This handler allows you to load any remote REST service, and describe its request/response. With this handler, you can easily customize and control the built GraphQL schema.
 
 <InlineAlert variant="warning" slots="text"/>
 
@@ -28,7 +27,7 @@ To get started, use the handler in your Mesh config file:
               "field": "users",
               "path": "/users",
               "method": "GET",
-              "responseSchema": "./json-schemas/users.json"
+              "responseSchema": "https://my-json-schema/users.json"
             }
           ]
         }
@@ -37,9 +36,14 @@ To get started, use the handler in your Mesh config file:
   ]
 }
 ```
+
+JSON Schema handlers can also use local sources, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
+
 ## Dynamic Values
 
-Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
+<Headers />
+
+<!-- Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
 
 The expression inside dynamic values should be as in JS.
 
@@ -152,7 +156,7 @@ By declaring the `responseSample`, you can use the JSON sample in the GraphQL sc
 ```
 
  For your `./jsons/MyField.response.json` file, any JSON file can be used.
-
+ -->
 ## Config API Reference
 
 -  `baseUrl` (type: `String`)
@@ -166,28 +170,29 @@ By declaring the `responseSample`, you can use the JSON sample in the GraphQL sc
       -  `requestSchema` (type: `Any`)
       -  `requestSample` (type: `Any`)
       -  `requestTypeName` (type: `String`)
-      -  `requestBaseBody` (type: `Any`) - This body will be merged with the request body sent with the underlying HTTP request
       -  `responseSchema` (type: `Any`)
       -  `responseSample` (type: `Any`)
       -  `responseTypeName` (type: `String`)
       -  `argTypeMap` (type: `JSON`)
-      -  `path` (type: `String`, required)
-      -  `method` (type: `String (GET | HEAD | POST | PUT | DELETE | CONNECT | OPTIONS | TRACE | PATCH)`)
-      -  `headers` (type: `JSON`)
-      -  `binary` (type: `Boolean`) - If true, this operation cannot have requestSchema or requestSample
+-  `ignoreErrorResponses` (type: `Boolean`)
+<!--   
+`path` (type: `String`, required)
+`method` (type: `String (GET | HEAD | POST | PUT | DELETE | CONNECT | OPTIONS | TRACE | PATCH)`)
+`headers` (type: `JSON`)
+`binary` (type: `Boolean`) - If true, this operation cannot have requestSchema or requestSample
 And the request body will be passed as binary with its mime type
 unless you define an explicit Content-Type header
-   -  `object`:
-      -  `field` (type: `String`, required)
-      -  `description` (type: `String`)
-      -  `type` (type: `String (Query | Mutation | Subscription)`, required)
-      -  `requestSchema` (type: `Any`)
-      -  `requestSample` (type: `Any`)
-      -  `requestTypeName` (type: `String`)
-      -  `requestBaseBody` (type: `Any`) - This body will be merged with the request body sent with the underlying HTTP request
-      -  `responseSchema` (type: `Any`)
-      -  `responseSample` (type: `Any`)
-      -  `responseTypeName` (type: `String`)
-      -  `argTypeMap` (type: `JSON`)
-      -  `pubsubTopic` (type: `String`, required)
--  `ignoreErrorResponses` (type: `Boolean`)
+`object`:
+    `field` (type: `String`, required)
+    `description` (type: `String`)
+    `type` (type: `String (Query | Mutation | Subscription)`, required)
+    `requestSchema` (type: `Any`)
+    `requestSample` (type: `Any`)
+    `requestTypeName` (type: `String`)
+    `requestBaseBody` (type: `Any`) - This body will be merged with the request body sent with the underlying HTTP request
+    `responseSchema` (type: `Any`)
+    `responseSample` (type: `Any`)
+    `responseTypeName` (type: `String`)
+    `argTypeMap` (type: `JSON`)
+    `pubsubTopic` (type: `String`, required) 
+-->

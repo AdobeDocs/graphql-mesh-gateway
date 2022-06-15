@@ -171,7 +171,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
         },
           "transforms": [
             {
-              "replace-field": {
+              "replaceField": {
               "replacements": [
                 {
                   "from": {
