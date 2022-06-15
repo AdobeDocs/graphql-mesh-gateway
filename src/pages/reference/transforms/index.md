@@ -310,7 +310,7 @@ If you have use cases for which you would require to introduce either "bare" or 
 | Naming Convention     |  ❌  |  ✅  | [docs](naming-convention.md)     |
 | Prefix                |  ✅  |  ✅  | [docs](prefix.md)                |
 | Rename                |  ✅  |  ✅  | [docs](rename.md)                |
-| Replace Field         |  ✅  |  ❌  | [docs](replaceField.md)         |
+| Replace Field         |  ✅  |  ❌  | [docs](replace-field.md)         |
 
 <!-- Link Definitions -->
 [Introduction]: index.md
@@ -320,7 +320,7 @@ If you have use cases for which you would require to introduce either "bare" or 
 [namingConvention]: naming-convention.md
 [prefix]: prefix.md
 [rename]: rename.md
-[replaceField]: replaceField.md
+[replaceField]: replace-field.md
 [typeMerging]: type-merging.md
 [The Guild]: https://www.the-guild.dev/
 [MIT License]: https://github.com/Urigo/graphql-mesh/blob/master/LICENSE#L3
