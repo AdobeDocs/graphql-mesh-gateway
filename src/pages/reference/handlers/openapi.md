@@ -238,7 +238,6 @@ Here are some examples of OpenAPI Handlers:
 -  `baseUrl` (type: `String`) - Specifies the URL on which all paths will be based on.
 Overrides the server object in the OAS.
 -  `qs` (type: `JSON`) - JSON object representing the query search parameters to add to the API calls
--  `customFetch` (type: `Any`) - W3 Compatible Fetch Implementation
 -  `includeHttpDetails` (type: `Boolean`) - Include HTTP Response details to the result object
 
 <!-- 
