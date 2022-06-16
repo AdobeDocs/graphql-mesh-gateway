@@ -170,6 +170,6 @@ For more information, see GraphQL Mesh's [JSON Schema Config API Reference]. Not
 [OpenAPI]: /reference/handlers/openapi.md
 [GraphQL]: /reference/handlers/graphql.md
 [JSON]: /reference/handlers/json-schema.md
-[OpenAPI Config API Reference]: reference/handlers/openapi.md#config-api-reference
+[OpenAPI Config API Reference]: /reference/handlers/openapi.md#config-api-reference
 [GraphQL Config API Reference]: /reference/handlers/graphql.md#config-api-reference
 [JSON Schema Config API Reference]: /reference/handlers/json-schema.md#config-api-reference
