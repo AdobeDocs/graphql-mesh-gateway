@@ -18,5 +18,4 @@ To get started with the API Mesh for Adobe Developer App Builder select one of t
 -  [Source Handlers](source-handlers.md)
 -  [Transforms](transforms.md)
 -  [Headers](headers.md)
-
-## [Command Reference](command-reference.md)
+-  [Command Reference](command-reference.md)
