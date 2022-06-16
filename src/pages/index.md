@@ -1,13 +1,13 @@
 ---
-title: Adobe API Manager Overview
-description: Learn how Adobe API Manager enables you to route incoming requests from customers to different underlying remote services.
+title: Overview - API Mesh for Adobe Developer App Builder
+description: Learn about the features of API Mesh for Adobe Developer App Builder.
 ---
 
-# What is Adobe API Manager?
+<Hero slots="heading, text"/>
 
-Adobe API Manager is a decoupled API platform that enables enterprise and mid-market developers to integrate private or third-party APIs and other software interfaces with Adobe products using Adobe IO. This allows businesses that need to access functionality across multiple systems to provide better end-user experiences. Adobe API Manager is Multi-Tenant, which means developers can configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single GraphQL query. Adobe Commerce, for example, also supports GraphQL queries.
+# API Mesh for Adobe Developer App Builder
 
-Adobe API Manager enables developers to integrate a GraphQL Mesh or third-party APIs with other Adobe products, like App Builder, Adobe IO Gateway, or other serverless technologies. By subscribing to near-real-time events, developers can allow these external systems to synchronize data, participate in distributed workflows, and generally react to events as they occur.
+API Mesh for Adobe Developer App Builder is a decoupled API platform that enables enterprise and mid-market developers to integrate private and third-party APIs and other software interfaces with Adobe products using Adobe IO.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -17,9 +17,7 @@ GraphQL is a query language for your API that lets you query exactly the informa
 
 GraphQL has several advantages over REST and other APIs:
 
--  **GraphQL has predictable responses**: With GraphQL, you specify what information your response should contain.
--  **Faster response time**: Since you can control what data appears in your response, there is less extraneous data slowing down your calls.
--  **Defined Schema**: With its well-defined set of types, GraphQL lets you know what data you can query.
+The API Mesh allows businesses to access functionality across multiple systems to provide better end-user experiences. The API Mesh allows developers to configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single [GraphQL] query. Adobe Commerce, for example, also [supports GraphQL queries].
 
 ## Features
 
@@ -29,6 +27,23 @@ GraphQL has several advantages over REST and other APIs:
 -  **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones
 -  **Extensibility** - Customize and extend all of your APIs directly in the gateway without making changes to the API source
 
-## Example use case
+### Getting Started
 
-Adobe Commerce users can consider Adobe API Manager as a low-code way to integrate other APIs to the Storefront and Storefront Management APIs. It also provides a way for the Storefront API and the Storefront Management APIs to communicate with each other.
+Review the following guides to learn more about the API Mesh.
+
+<DiscoverBlock slots="link, text"/>
+
+[API Mesh](./gateway/)
+
+Learn how to use multiple external APIs simultaneously with your Adobe Commerce or other Adobe APIs.
+
+<DiscoverBlock slots="link, text"/>
+
+[GraphQL Mesh Reference](./reference/)
+
+View GraphQL Mesh documentation specifically for the API Mesh.
+
+<!-- Link Definitions -->
+
+[GraphQL]: https://graphql.org/
+[supports GraphQL queries]: https://devdocs.magento.com/guides/v2.4/graphql/index.html
