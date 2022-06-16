@@ -27,11 +27,9 @@ The API Mesh allows businesses to access functionality across multiple systems t
 
 ### Getting Started
 
-<DiscoverBlock slots="heading, link, text"/>
-
-### Guides
-
 Review the following guides to learn more about the API Mesh.
+
+<DiscoverBlock slots="link, text"/>
 
 [API Mesh](./gateway/)
 
