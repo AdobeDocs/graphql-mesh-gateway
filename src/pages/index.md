@@ -3,6 +3,8 @@ title: Overview - API Mesh for Adobe Developer App Builder
 description: Learn about the features of API Mesh for Adobe Developer App Builder.
 ---
 
+<Hero slots="heading, text"/>
+
 # API Mesh for Adobe Developer App Builder
 
 API Mesh for Adobe Developer App Builder is a decoupled API platform that enables enterprise and mid-market developers to integrate private and third-party APIs and other software interfaces with Adobe products using Adobe IO.
