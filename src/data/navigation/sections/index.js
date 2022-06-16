@@ -1,4 +1,3 @@
-const gateway = require("./gateway");
-const reference = require("./reference");
+const guides = require("./guides");
 
-module.exports = [...gateway, ...reference];
+module.exports = [...guides];

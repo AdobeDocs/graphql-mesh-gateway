@@ -3,29 +3,29 @@ title: Overview - API Mesh for Adobe Developer App Builder
 description: Learn about the features of API Mesh for Adobe Developer App Builder.
 ---
 
-<Hero slots="heading, text"/>
+# What is Adobe API Manager?
 
 # API Mesh for Adobe Developer App Builder
 
 API Mesh for Adobe Developer App Builder is a decoupled API platform that enables enterprise and mid-market developers to integrate private and third-party APIs and other software interfaces with Adobe products using Adobe IO.
 
-<Resources slots="heading, links"/>
+<InlineAlert variant="info" slots="text"/>
 
-## Resources
+GraphQL is a query language for your API that lets you query exactly the information you need and only the information you need. GraphQL Mesh allows you to use GraphQL to query multiple data sources simultaneously.
 
-*  [App Builder](https://developer.adobe.com/app-builder/docs/overview/)
-*  [Commerce GraphQL](https://devdocs.magento.com/guides/v2.4/graphql/)
-*  [Commerce REST API](https://devdocs.magento.com/guides/v2.4/rest/bk-rest.html)
-*  [Developer Console](https://developer.adobe.com/developer-console/docs/guides/)
-*  [Experience Manager GraphQL](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/headless/graphql-api/content-fragments.html)
+## Why GraphQL?
 
-## Overview
+GraphQL has several advantages over REST and other APIs:
 
 The API Mesh allows businesses to access functionality across multiple systems to provide better end-user experiences. The API Mesh allows developers to configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single [GraphQL] query. Adobe Commerce, for example, also [supports GraphQL queries].
 
-## Discover
+## Features
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+-  **Adobe API Manager** - A reverse proxy that accepts most API calls for many backend services
+-  **Configurable Integrations** - Low/No-code method to integrate with your own private APIs with Adobe Commerce and other Adobe products, and third-party APIs
+<!-- The two features below likely refer to the App Builder and may need to be deleted before beta -->
+-  **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones
+-  **Extensibility** - Customize and extend all of your APIs directly in the gateway without making changes to the API source
 
 ### Getting Started
 
