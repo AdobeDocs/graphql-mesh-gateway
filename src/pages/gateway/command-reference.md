@@ -175,4 +175,4 @@ Successfully deleted 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 [Getting Started]: getting-started.md
 [Adobe IO CLI command list]: https://github.com/adobe/aio-cli#commands
 [Creating a mesh]: create-mesh.md
-[Updating a mesh]: create-mesh.md#update_an_existing_mesh
+[Updating a mesh]: create-mesh.md#update-an-existing-mesh
