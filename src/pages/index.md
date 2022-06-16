@@ -31,6 +31,8 @@ The API Mesh allows businesses to access functionality across multiple systems t
 
 ### Guides
 
+Review the following guides to learn more about the API Mesh.
+
 [API Mesh](./gateway/)
 
 Learn how to use multiple external APIs simultaneously with your Adobe Commerce or other Adobe APIs.
