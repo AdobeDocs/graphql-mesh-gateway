@@ -47,6 +47,6 @@ Adobe Commerce users can consider the API Mesh as a low-code way to integrate ot
 [mesh]: https://www.graphql-mesh.com/docs/getting-started/basic-usage
 [Getting started]: getting-started.md
 [Prerequisites]: getting-started.md#Prerequisites
-[Create an Adobe IO account]: getting-started.md/#prerequisites
-[Configure your environment]: getting-started.md/#configure-your-environment
+[Create an Adobe IO account]: getting-started.md#prerequisites
+[Configure your environment]: getting-started.md#configure-your-environment
 [Create a mesh]: create-mesh.md
