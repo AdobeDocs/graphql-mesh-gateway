@@ -173,7 +173,7 @@ type AuthorWithBooks {
 }
 ```
 
-And you renamed `AuthorWithBooks` to `Author` using [`Rename`](rename.md) transform.
+And you renamed `AuthorWithBooks` to `Author` using [`Rename`](transforms/rename.md) transform.
 
 ```json
 [
@@ -519,4 +519,4 @@ You can also transform your existing non-federated schemas into federated servic
 
 <InlineAlert variant="info" slots="text"/>
 
- You can [check out documentation of federation transformer](../transforms/federation.md) to learn more about adding federation metadata to a non-federated GraphQL Schema.
+ You can [check out documentation of federation transformer](transforms/federation.md) to learn more about adding federation metadata to a non-federated GraphQL Schema.
