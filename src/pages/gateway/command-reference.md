@@ -171,6 +171,27 @@ aio api-mesh:delete 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 Successfully deleted 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
+## aio api-mesh:describe
+
+Returns the Org, Project, Workspace, and `meshId` info for the selected workspace. Use the arrow and enter keys, or type to search for the Project and Workspace you want to view info for.
+
+### Usage
+
+```bash
+aio api-mesh:describe
+```
+
+### Response
+
+```terminal
+Successfully retrieved mesh details
+
+Org ID: 123456
+Project ID: 1234567890123456789
+Workspace ID: 2345678901234567890
+Mesh ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+```
+
 <!-- Link Definitions -->
 [Getting Started]: getting-started.md
 [Adobe IO CLI command list]: https://github.com/adobe/aio-cli#commands

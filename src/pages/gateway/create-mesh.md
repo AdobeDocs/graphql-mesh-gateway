@@ -211,6 +211,16 @@ aio api-mesh:update meshId update-mesh.json
     }
 ```
 
+## Retrieve a previously created `meshId`
+
+If you need to retrieve a `meshId` from a previously created mesh, use the following command:
+
+```bash
+aio api-mesh:describe
+```
+
+Use the arrow and enter keys to select your Project and Organization. Alternatively, you can type to search for your Project and Workspace.
+
 <!-- Link Definitions -->
 [handlers]: source-handlers.md
 [transforms]: transforms.md
