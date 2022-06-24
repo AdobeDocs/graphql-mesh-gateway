@@ -219,7 +219,7 @@ If you need to retrieve a `meshId` from a previously created mesh, use the follo
 aio api-mesh:describe
 ```
 
-Use the arrow and enter keys to select your Project and Organization. Alternatively, you can type to search for your Project and Workspace.
+The command returns a list of projects. Use the arrow and enter keys to select your project and organization. Alternatively, you can type to search for your project and workspace. The console then displays details about the project.
 
 <!-- Link Definitions -->
 [handlers]: source-handlers.md

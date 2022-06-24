@@ -173,7 +173,7 @@ Successfully deleted 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 
 ## aio api-mesh:describe
 
-Returns the Org, Project, Workspace, and `meshId` info for the selected workspace. Use the arrow and enter keys, or type to search for the Project and Workspace you want to view info for.
+Returns a list of projects. Select a project to display its organization, project, workspace, and mesh IDs.
 
 ### Usage
 
