@@ -11,10 +11,6 @@ To specify request headers for your mesh, you can add them inside the `JSON` fil
 
 To add headers directly to a source handler in your mesh file, for example `mesh.json`, add the `operationHeaders` object with key value pairs for your headers. The following example defines the `Store` header for the Commerce source and multiple headers for the LiveSearch source.
 
-<InlineAlert variant="info" slots="text"/>
-
-Header variables are not supported in the mesh file.
-
 ```json
 {
   "meshConfig": {
@@ -49,6 +45,14 @@ Header variables are not supported in the mesh file.
   },
 }
 ```
+
+## Add context headers
+
+Using context headers allows you to inject header values from the context into your mesh. For examples of context headers, select one of the following:
+
+-  [OpenAPI handlers](../reference/handlers/openapi.md#dynamic-header-values)
+-  [GraphQL handlers](../reference/handlers/graphql.md#dynamic-header-values)
+-  [JSON schemas](../reference/handlers/json-schema.md#dynamic-values)
 
 ## Add or update headers at runtime
 

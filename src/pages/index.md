@@ -9,7 +9,7 @@ description: Learn about the features of API Mesh for Adobe Developer App Builde
 
 API Mesh for Adobe Developer App Builder is a decoupled API platform that enables enterprise and mid-market developers to integrate private and third-party APIs and other software interfaces with Adobe products using Adobe IO.
 
-<InlineAlert variant="info" slots="text"/>
+## What is GraphQL?
 
 GraphQL is a query language for your API that lets you query exactly the information you need and only the information you need. GraphQL Mesh allows you to use GraphQL to query multiple data sources simultaneously.
 

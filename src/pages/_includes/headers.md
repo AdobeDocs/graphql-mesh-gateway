@@ -1,3 +1,3 @@
-You can pass dynamic header values at runtime. Environment variables and context values are not supported.
+You can pass dynamic header values at runtime or by including them in your mesh.
 
-For more information refer to [runtime headers](/src/pages/gateway/headers/#add-or-update-headers-at-runtime).
+If you want to add headers directly to the query, see [runtime headers](/src/pages/gateway/headers/#add-or-update-headers-at-runtime).

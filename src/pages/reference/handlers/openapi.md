@@ -66,7 +66,7 @@ See example below:
 
 <Headers />
 
-<!-- Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
+Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
 
 The expression inside dynamic values should be as in JS.
 
@@ -112,7 +112,7 @@ And for `mesh dev` or `mesh start`, you can pass the value using `x-my-graphql-a
     }
   ]
 }
-``` -->
+```
 <!-- 
 ## Advanced cookies handling
 

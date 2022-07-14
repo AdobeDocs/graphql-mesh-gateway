@@ -33,7 +33,7 @@ You can check out our example that uses schema stitching with a PostgreSQL data 
 
 <Headers />
 
-<!-- Mesh can take dynamic values from the GraphQL Context or the environmental variables.
+Mesh can take dynamic values from the GraphQL Context or the environmental variables.
 
 The expression inside dynamic values should be as in JS.
 
@@ -76,7 +76,7 @@ The expression inside dynamic values should be as in JS.
   ]
 }
 ```
- -->
+
 ## Config API Reference
 
 -  `endpoint` (type: `String`, required) - A url or file path to your remote GraphQL endpoint.

@@ -43,7 +43,7 @@ JSON Schema handlers can also use local sources, see [Reference local file handl
 
 <Headers />
 
-<!-- Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
+Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
 
 The expression inside dynamic values should be as in JS.
 
@@ -156,7 +156,7 @@ By declaring the `responseSample`, you can use the JSON sample in the GraphQL sc
 ```
 
  For your `./jsons/MyField.response.json` file, any JSON file can be used.
- -->
+
 ## Config API Reference
 
 -  `baseUrl` (type: `String`)
