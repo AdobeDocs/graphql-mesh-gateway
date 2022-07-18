@@ -86,7 +86,6 @@ JSON Schema handlers can also use local sources, see [Reference local file handl
     }
   ]
 }
-``` -->
 
 ### From Arguments
 
@@ -154,8 +153,8 @@ By declaring the `responseSample`, you can use the JSON sample in the GraphQL sc
 }
 ```
 
- For your `./jsons/MyField.response.json` file, any JSON file can be used.
-
+For your `./jsons/MyField.response.json` file, any JSON file can be used.
+``` -->
 ## Config API Reference
 
 -  `baseUrl` (type: `String`)

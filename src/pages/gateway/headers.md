@@ -52,7 +52,7 @@ Using context headers allows you to inject header values from the context into y
 
 -  [OpenAPI handlers](../reference/handlers/openapi.md#dynamic-header-values)
 -  [GraphQL handlers](../reference/handlers/graphql.md#dynamic-header-values)
--  [JSON schemas](../reference/handlers/json-schema.md#dynamic-header-values)
+-  [JSON schema handlers](../reference/handlers/json-schema.md#dynamic-header-values)
 
 ## Add or update headers at runtime
 
