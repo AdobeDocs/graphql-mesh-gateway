@@ -75,12 +75,12 @@ Consider a scenario where the value of the `Store` header defined in the previou
 
 ### Add a header to all sources
 
-If you want to send a header to all sources in your mesh, you can replace the source handler name with `*`. For example:
+To send a header to all sources in your mesh, you can replace the source handler name with `*`. For example:
 
 -  **Key**: `GGW-SH-*-trackingId`
    -  **Value**: `new-trackingId`
 
-This can be useful for authorization, authentication, and tracking headers that could be the same across multiple sources. If you want to apply a header to all sources except one, specify that source separately. For example:
+This can be useful for authorization, authentication, and tracking headers that could be the same across multiple sources. To apply a header to all sources except one, specify that source separately. For example:
 
 -  **Key**: `GGW-SH-*-trackingId`
    -  **Value**: `new-trackingId`

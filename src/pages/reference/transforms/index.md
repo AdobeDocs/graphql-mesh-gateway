@@ -121,7 +121,7 @@ Wrap is the default mode for schema manipulation transforms, because is safe and
 
 <InlineAlert variant="info" slots="text"/>
 
-"wrap" is the only approach that works with data sources that already "speaks" GraphQL, or when you want to transform at all-sources (root) level, unless you're using merger-bare. If you want to remove the possible runtime implications, consider either moving your transforms at the data source level, or opting into `merger-bare`; in order to take advantage of "bare" mode.
+"wrap" is the only approach that works with data sources that already "speaks" GraphQL, or when you want to transform at all-sources (root) level, unless you're using merger-bare. To remove the possible runtime implications, consider either moving your transforms at the data source level, or opting into `merger-bare`; in order to take advantage of "bare" mode.
 
 Example:
 
