@@ -39,15 +39,14 @@ To get started, use the handler in your Mesh config file:
 
 JSON Schema handlers can also use local sources, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
 
-## Dynamic Values
+## Dynamic Header Values
 
 <Headers />
 
 <!-- Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
+ -->
 
-The expression inside dynamic values should be as in JS.
-
-### From Context (HTTP Header for `mesh dev` or `mesh start`)
+### From Context
 
 ```json
 {
@@ -67,7 +66,7 @@ The expression inside dynamic values should be as in JS.
 }
 ```
 
-And for `mesh dev` or `mesh start`, you can pass the value using `x-my-graphql-api-token` HTTP header.
+<!-- And for `mesh dev` or `mesh start`, you can pass the value using `x-my-graphql-api-token` HTTP header.
 
 ### From Environment Variable
 
@@ -87,7 +86,6 @@ And for `mesh dev` or `mesh start`, you can pass the value using `x-my-graphql-a
     }
   ]
 }
-```
 
 ### From Arguments
 
@@ -155,8 +153,8 @@ By declaring the `responseSample`, you can use the JSON sample in the GraphQL sc
 }
 ```
 
- For your `./jsons/MyField.response.json` file, any JSON file can be used.
- -->
+For your `./jsons/MyField.response.json` file, any JSON file can be used.
+``` -->
 ## Config API Reference
 
 -  `baseUrl` (type: `String`)

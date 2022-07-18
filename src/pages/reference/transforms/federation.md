@@ -50,7 +50,7 @@ Add the following configuration to your Mesh config file:
 
 ### Add Reference Resolver as a Code File
 
-If you want to add more complex business logic, you can point to a code file that exports a resolver function.
+To add more complex business logic, you can point to a code file that exports a resolver function.
 
 ```json
 {

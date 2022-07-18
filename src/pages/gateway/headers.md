@@ -11,10 +11,6 @@ To specify request headers for your mesh, you can add them inside the `JSON` fil
 
 To add headers directly to a source handler in your mesh file, for example `mesh.json`, add the `operationHeaders` object with key value pairs for your headers. The following example defines the `Store` header for the Commerce source and multiple headers for the LiveSearch source.
 
-<InlineAlert variant="info" slots="text"/>
-
-Header variables are not supported in the mesh file.
-
 ```json
 {
   "meshConfig": {
@@ -50,6 +46,14 @@ Header variables are not supported in the mesh file.
 }
 ```
 
+## Add context headers
+
+Using context headers allows you to inject header values from the context into your mesh. For examples of context headers, select one of the following:
+
+-  [OpenAPI handlers](../reference/handlers/openapi.md#dynamic-header-values)
+-  [GraphQL handlers](../reference/handlers/graphql.md#dynamic-header-values)
+-  [JSON schema handlers](../reference/handlers/json-schema.md#dynamic-header-values)
+
 ## Add or update headers at runtime
 
 When you use GraphiQL or another tool to interact with your mesh, you can add headers at runtime that are passed through the mesh to specified handler by using the following format:
@@ -71,12 +75,12 @@ Consider a scenario where the value of the `Store` header defined in the previou
 
 ### Add a header to all sources
 
-If you want to send a header to all sources in your mesh, you can replace the source handler name with `*`. For example:
+To send a header to all sources in your mesh, you can replace the source handler name with `*`. For example:
 
 -  **Key**: `GGW-SH-*-trackingId`
    -  **Value**: `new-trackingId`
 
-This can be useful for authorization, authentication, and tracking headers that could be the same across multiple sources. If you want to apply a header to all sources except one, specify that source separately. For example:
+This can be useful for authorization, authentication, and tracking headers that could be the same across multiple sources. To apply a header to all sources except one, specify that source separately. For example:
 
 -  **Key**: `GGW-SH-*-trackingId`
    -  **Value**: `new-trackingId`
