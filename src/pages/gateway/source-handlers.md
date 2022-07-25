@@ -31,7 +31,7 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service
   "meshConfig": {
     "sources": [
       {
-        "name": "Magento REST",
+        "name": "MagentoREST",
         "handler": {
           "openapi": {
             "source": "your_Magento_API"
