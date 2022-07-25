@@ -105,9 +105,9 @@ Mesh owners can use `responseConfig` to add response headers to their mesh. `res
           }
         ],
        "responseConfig": {
-       "headers": {
-          "Cache-Control": "max-age=60480",
-          "Vary": "Accept"
+        "headers": {
+            "Cache-Control": "max-age=60480",
+            "Vary": "Accept"
           }
         }
       }
