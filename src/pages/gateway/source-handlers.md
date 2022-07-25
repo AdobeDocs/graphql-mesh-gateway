@@ -20,7 +20,7 @@ We will add support for additional handlers in future releases.
 
 <InlineAlert variant="warning" slots="text"/>
 
-Hyphens are disallowed in source handler names.
+Only alphanumerical characters are allowed in source handler names.
 
 ## OpenAPI
 
