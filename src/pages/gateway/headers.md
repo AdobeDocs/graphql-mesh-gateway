@@ -89,7 +89,7 @@ This can be useful for authorization, authentication, and tracking headers that 
 
 ## Add response headers
 
-Mesh owners can use `responseConfig` to add response headers to their mesh. `responseConfig` must contain a `headers` field that contains your headers as key value pairs.
+Mesh owners can use the `responseConfig.headers` object to add response headers. Define each header as a key value pair.
 
 ``` json
     { 
