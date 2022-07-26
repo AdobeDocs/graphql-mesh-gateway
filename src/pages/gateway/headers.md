@@ -5,7 +5,7 @@ description: Specifies the means, format, and restrictions for sending operation
 
 # Headers
 
-To specify request headers for your mesh, you can add them inside the `JSON` file that describes your mesh, or you can add them when querying.
+To specify request headers for your mesh, you can add them inside the `JSON` file that describes your mesh, or you can add them when querying. Currently, you can add [context headers](#add-context-headers), [runtime headers](#add-or-update-headers-at-runtime), and [response headers](#add-response-headers). Each [handler](../reference/handlers/index.md) has different header specifications.
 
 ## Configure headers in your mesh file
 
@@ -86,3 +86,30 @@ This can be useful for authorization, authentication, and tracking headers that 
    -  **Value**: `new-trackingId`
 -  **Key**: `GGW-SH-differentSource-trackingId`
    -  **Value**: `different-trackingId`
+
+## Add response headers
+
+Mesh owners can use the `responseConfig.headers` object to add response headers. Define each header as a key value pair.
+
+``` json
+    { 
+      "meshConfig": { 
+        "sources": [
+          {
+            "name": "venia", 
+            "handler": { 
+              "graphql": { 
+                "endpoint": "https://venia.magento.com/graphql"
+              } 
+            } 
+          }
+        ],
+       "responseConfig": {
+        "headers": {
+            "Cache-Control": "max-age=60480",
+            "Vary": "Accept"
+          }
+        }
+      }
+    }
+```
