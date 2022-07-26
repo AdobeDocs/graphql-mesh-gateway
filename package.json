@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "markdownlint": "^0.25.1",
-    "markdownlint-cli": "^0.31.1",
+    "markdownlint-cli": "^0.32.1",
     "remark-cli": "^10.0.1",
     "remark-validate-links": "^11.0.2"
   },
