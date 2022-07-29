@@ -5,7 +5,8 @@ description: Specifies the means, format, and restrictions for sending operation
 
 # Headers
 
-To specify request headers for your mesh, you can add them inside the `JSON` file that describes your mesh, or you can add them when querying. Currently, you can add [context headers](#add-context-headers), [runtime headers](#add-or-update-headers-at-runtime), and [response headers](#add-response-headers). Each [handler](../reference/handlers/index.md) has different header specifications.
+To specify request headers for your mesh, you can add them inside the `JSON` file that describes your mesh, or you can add them when querying. Currently, you can [add headers to your mesh file](#configure-headers-in-your-mesh-file) or [add headers at runtime](#add-or-update-headers-at-runtime).
+Each [handler](../reference/handlers/index.md) has different header specifications.
 
 ## Configure headers in your mesh file
 
@@ -46,13 +47,70 @@ To add headers directly to a source handler in your mesh file, for example `mesh
 }
 ```
 
-## Add context headers
+### Context headers
 
 Using context headers allows you to inject header values from the context into your mesh. For examples of context headers, select one of the following:
 
 -  [OpenAPI handlers](../reference/handlers/openapi.md#dynamic-header-values)
 -  [GraphQL handlers](../reference/handlers/graphql.md#dynamic-header-values)
 -  [JSON schema handlers](../reference/handlers/json-schema.md#dynamic-header-values)
+
+### Response headers
+
+Mesh owners can use the `responseConfig.headers` object to add response headers. Define each header as a key value pair.
+
+``` json
+    { 
+      "meshConfig": { 
+        "sources": [
+          {
+            "name": "venia", 
+            "handler": { 
+              "graphql": { 
+                "endpoint": "https://venia.magento.com/graphql"
+              } 
+            } 
+          }
+        ],
+       "responseConfig": {
+        "headers": {
+            "Cache-Control": "max-age=60480",
+            "Vary": "Accept"
+          }
+        }
+      }
+    }
+```
+
+### CORS headers
+
+Cross-origin resource sharing or CORS allows you to pass usually restricted resources to an outside domain. Refer to [MDN's documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for more information on CORS headers.
+
+To add CORS headers to your mesh, create a `CORS` object in the `responseConfig` object, using the following key value pairs:
+
+-  `origin` (Required) - the domain of the resource you want to allow to make a CORS request
+-  `methods` (Required) - the HTTP verbs allowed in the CORS request
+-  `allowedHeaders` - a string of allowed headers in preflight request
+-  `credentials` - boolean value that indicates if credentials can be included in CORS request (default: `false`)
+-  `exposedHeaders` - a comma-delimited CORS request that contains headers to expose
+-  `maxAge` - the maximum number of seconds the preflight response (the values of the `origin` and `methods` headers) can be cached
+-  `preflightContinue` - boolean value that determines if the CORS preflight response should be sent to the route handler (default: `false`)
+
+``` json
+...
+{
+  "responseConfig": {
+    "headers": {
+      "Cache-Control": "max-age=60480"
+    },
+    "CORS": {
+      "origin": "www.domain.com",
+      "methods": "POST, GET, OPTIONS"
+    }
+  }
+}
+...
+```
 
 ## Add or update headers at runtime
 
@@ -86,30 +144,3 @@ This can be useful for authorization, authentication, and tracking headers that 
    -  **Value**: `new-trackingId`
 -  **Key**: `GGW-SH-differentSource-trackingId`
    -  **Value**: `different-trackingId`
-
-## Add response headers
-
-Mesh owners can use the `responseConfig.headers` object to add response headers. Define each header as a key value pair.
-
-``` json
-    { 
-      "meshConfig": { 
-        "sources": [
-          {
-            "name": "venia", 
-            "handler": { 
-              "graphql": { 
-                "endpoint": "https://venia.magento.com/graphql"
-              } 
-            } 
-          }
-        ],
-       "responseConfig": {
-        "headers": {
-            "Cache-Control": "max-age=60480",
-            "Vary": "Accept"
-          }
-        }
-      }
-    }
-```
