@@ -5,7 +5,7 @@ description: Specifies the means, format, and restrictions for sending operation
 
 # Headers
 
-To specify request headers for your mesh, you can add them inside the `JSON` file that describes your mesh, or you can add them when querying. Currently, you can add [request headers](#request-headers) and [response headers](#response-headers).
+To specify headers for your mesh, you can add them inside the `JSON` file that describes your mesh, or you can add them when querying. Currently, you can add [request headers](#request-headers) and [response headers](#response-headers).
 
 ## Request headers
 
@@ -54,7 +54,7 @@ To add headers directly to a source handler in your mesh file, for example `mesh
 }
 ```
 
-You can also use context headers to inject header values from the context into your mesh. For examples of context headers, select a handler:
+You can also inject dynamic values from the context into your headers. For examples of dynamic header values, select a handler:
 
 -  [OpenAPI handlers](../reference/handlers/openapi.md#dynamic-header-values)
 -  [GraphQL handlers](../reference/handlers/graphql.md#dynamic-header-values)
@@ -99,7 +99,7 @@ Response headers provide detailed context of the response. Currently, you can on
 
 <InlineAlert variant="info" slots="text"/>
 
-All header names must be unique. Conflicting header names will result in an error.
+All header names must be unique. Conflicting header names will result in an error on mesh creation and update.
 
 ### Add response headers in your mesh file
 
