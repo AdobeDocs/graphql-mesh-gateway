@@ -20,7 +20,7 @@ We will add support for additional handlers in future releases.
 
 <InlineAlert variant="warning" slots="text"/>
 
-Hyphens are disallowed in source handler names.
+Only alphanumerical characters are allowed in source handler names.
 
 ## OpenAPI
 
@@ -31,7 +31,7 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service
   "meshConfig": {
     "sources": [
       {
-        "name": "Magento REST",
+        "name": "MagentoREST",
         "handler": {
           "openapi": {
             "source": "your_Magento_API"
