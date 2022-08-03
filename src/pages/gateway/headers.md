@@ -11,10 +11,6 @@ To specify headers for your mesh, you can add them inside the `JSON` file that d
 
 Request headers provide more information about the request context. Currently, you can add request headers to your [mesh config](#add-request-headers-in-your-mesh-file) or add them [at runtime](#add-or-update-request-headers-at-runtime).
 
-<InlineAlert variant="info" slots="text"/>
-
-All header names must be unique. Conflicting header names will result in an error.
-
 ### Add request headers in your mesh file
 
 To add headers directly to a source handler in your mesh file, for example `mesh.json`, add the `operationHeaders` object with key value pairs for your headers. The following example defines the `Store` header for the Commerce source and multiple headers for the LiveSearch source.
@@ -99,7 +95,7 @@ Response headers provide detailed context of the response. Currently, you can on
 
 <InlineAlert variant="info" slots="text"/>
 
-All header names must be unique. Conflicting header names will result in an error on mesh creation and update.
+All response header names must be unique. Conflicting header names will result in an error on mesh creation and update.
 
 ### Add response headers in your mesh file
 
