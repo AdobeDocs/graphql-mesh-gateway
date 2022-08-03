@@ -95,7 +95,7 @@ Response headers provide detailed context of the response. Currently, you can on
 
 <InlineAlert variant="info" slots="text"/>
 
-All response header names must be unique. Conflicting header names will result in an error on mesh creation and update.
+All response header names must be unique. Conflicting header names will result in an error when you try to create or update a mesh.
 
 ### Add response headers in your mesh file
 
@@ -126,12 +126,12 @@ Mesh owners can use the `responseConfig.headers` object to add response headers.
 
 #### CORS headers
 
-Cross-origin resource sharing or CORS allows you to pass usually restricted resources to an outside domain. Refer to [MDN's documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for more information on CORS headers.
+Cross-origin resource sharing (CORS) allows you to pass resources that are usually restricted to an outside domain. Refer to [MDN's documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for more information on CORS headers.
 
 To add CORS headers to your mesh, create a `CORS` object in the `responseConfig` object, using the following key value pairs:
 
 -  `origin` (Required) - the domain of the resource you want to allow to make a CORS request
--  `methods` (Required) - the HTTP verbs allowed in the CORS request
+-  `methods` (Required) - the HTTP request methods allowed in the CORS request, such as GET, POST, and OPTIONS
 -  `allowedHeaders` - a string of allowed headers in preflight request
 -  `credentials` - boolean value that indicates if credentials can be included in CORS request (default: `false`)
 -  `exposedHeaders` - a comma-delimited CORS request that contains headers to expose
