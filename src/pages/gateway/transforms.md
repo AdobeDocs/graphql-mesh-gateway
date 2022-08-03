@@ -83,7 +83,7 @@ You can use [RegEx flags] to enable the use of regular expressions when renaming
   "meshConfig": {
     "sources": [
       {
-        "name": "Magento REST",
+        "name": "MagentoRest",
         "handler": {
           "openapi": {
             "source": "https://www.example.com/rest/all/schema?services=all"
