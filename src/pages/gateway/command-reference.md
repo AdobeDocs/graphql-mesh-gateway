@@ -32,7 +32,24 @@ aio api-mesh:create mesh.json
 #### Response
 
 ```terminal
-Successfully created a mesh with the ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+Successfully created mesh: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+{
+"meshConfig": {
+    "sources": [
+      {
+        "name": "Commerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql/"
+          }
+        }
+      }
+    ]
+  }
+}
+Successfully create API Key: 1234567ab8c901a2b345c67d8ef9012a
+Successfully subscribed API Key 1234567ab8c901a2b345c67d8ef9012a to API Mesh service.
+Mesh Endpoint: https://<span></span>graph.adobe.io/api/12a3b4c5-6d78-4012-3456-7e890fa1bcde/graphql?api_key=1234567ab8c901a2b345c67d8ef9012a
 ```
 
 ## aio api-mesh:update
@@ -147,7 +164,11 @@ Successfully retrieved mesh {
 
 ## aio api-mesh:delete meshId
 
-Deletes the mesh from the selected workspace.
+Deletes the mesh from the selected workspace and unsubscribes the API key from the API Mesh service.
+
+<InlineAlert variant="info" slots="text"/>
+
+The `aio api-mesh:delete` command does not delete the API key in case other services use it.
 
 ### Usage
 
