@@ -63,7 +63,11 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
 
 Each workspace within a project can only have one mesh associated with it at a time.
 
- The `aio api-mesh:create` response assigns you a `meshId`, which is the case-sensitive name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `12a3b4c5-6d78-4012-3456-7e890fa1bcde`.
+The `aio api-mesh:create` response assigns you a `meshId`, which is the case-sensitive name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `12a3b4c5-6d78-4012-3456-7e890fa1bcde`.
+
+<InlineAlert variant="info" slots="text"/>
+
+Refer to the [command reference] for a detailed description of `aio api-mesh:create`.
 
 ### Access the gateway
 
@@ -239,3 +243,4 @@ You can return to the Project Overview page whenever you need to retrieve your A
 [creating a templated project]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/
 [workspaces]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/#workspaces
 [Prerequisites]: ./getting-started.md#prerequisites
+[command reference]: ./command-reference.md#aio-api-meshcreate
