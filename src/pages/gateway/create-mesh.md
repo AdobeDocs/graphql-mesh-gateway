@@ -57,13 +57,15 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
     aio api-mesh:create mesh.json
     ```
 
-1. Select the project and workspace that you want to create the mesh in. If you do not have a project, see [Create a project](#create-a-project).
+1. Select the organization, project, and workspace that you want to create the mesh in. If you do not have a project, see [Create a project](#create-a-project).
 
-<InlineAlert variant="info" slots="text"/>
+  You will also need to indicate if you want to automatically select the specified organization and workspace in the future. If you answer **Yes** to either of these prompts and you want to select an organization or workspace other than the cached organization and workspace, you can use the `-i` or `-ignoreCache` flag to clear the cache and allow you to select another organization and workspace.
 
-Each workspace within a project can only have one mesh associated with it at a time.
+  **Note:** Each workspace within a project can only have one mesh associated with it at a time.
 
-The `aio api-mesh:create` response assigns you a `meshId`, which is the case-sensitive name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `12a3b4c5-6d78-4012-3456-7e890fa1bcde`.
+1. When you are prompted to confirm that you want to create a mesh, select **Yes**.
+
+  The `aio api-mesh:create` response assigns you a `meshId`, an `apiKey`, and provides a GraphQL endpoint that you can use to query your mesh.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -132,10 +134,10 @@ The following example adds both an Adobe Commerce instance (with Live Search ena
 
 ## Update an existing mesh
 
-If you make any changes to your mesh file, such as adding [transforms], you must publish them before the changes will be reflected in your gateway. The following command will update the `meshId` with the settings specified in the `update-mesh.json` file.
+If you make any changes to your mesh file, such as adding [transforms], you must publish them before the changes will be reflected in your gateway. The following command will update the mesh in the selected workspace with the settings specified in the `update-mesh.json` file.
 
 ```bash
-aio api-mesh:update meshId update-mesh.json
+aio api-mesh:update update-mesh.json
 ```
 
 ```json
@@ -197,7 +199,7 @@ aio api-mesh:describe
 
 The command returns a list of projects. Use the arrow and enter keys to select your project and organization. Alternatively, you can type to search for your project and workspace. The console then displays details about the project.
 
-## Manually create an API Key (deprecated)
+## Manually create an API Key (optional)
 
 <InlineAlert variant="warning" slots="text"/>
 
