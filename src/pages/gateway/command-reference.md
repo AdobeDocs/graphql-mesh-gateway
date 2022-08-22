@@ -7,8 +7,6 @@ description: A description of the CLI commands available for API Mesh for Adobe 
 
 The API Mesh for Adobe Developer App Builder CLI allows you to manage and modify meshes. This page covers commands exclusive to the API Mesh. For authorization and other Adobe I/O Extensible CLI commands, refer to the [Adobe IO CLI command list]. For installation instructions, refer to [Getting Started].
 
-All commands on this page support the `--help` argument, which provides information about the command.
-
 ## aio api-mesh:create
 
 Creates a new mesh based on the settings in the specified `JSON` file in your working directory. After creating your mesh, you will receive a  `meshId`, like `12a3b4c5-6d78-4012-3456-7e890fa1bcde`, to refer to it in the future. For more information, see [Creating a mesh].
@@ -23,6 +21,12 @@ aio api-mesh:create [FILE]
 
 `FILE` The JSON file that contains your mesh's handlers and transforms.
 
+### Flags
+
+`-i` or `--ignoreCache` ignores the cached organization and workspace, allowing you to create a mesh in a different workspace.
+
+`--help` provides information on the specified command
+
 ### Example
 
 ```bash
@@ -32,29 +36,50 @@ aio api-mesh:create mesh.json
 #### Response
 
 ```terminal
-Successfully created a mesh with the ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+Successfully created mesh: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+{
+"meshConfig": {
+    "sources": [
+      {
+        "name": "Commerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql/"
+          }
+        }
+      }
+    ]
+  }
+}
+Successfully create API Key: 1234567ab8c901a2b345c67d8ef9012a
+Successfully subscribed API Key 1234567ab8c901a2b345c67d8ef9012a to API Mesh service.
+Mesh Endpoint: https://graph.adobe.io/api/12a3b4c5-6d78-4012-3456-7e890fa1bcde/graphql?api_key=1234567ab8c901a2b345c67d8ef9012a
 ```
 
 ## aio api-mesh:update
 
-Updates an existing mesh based on the settings in the specified `JSON` file. For more information, see [Updating a mesh].
+Updates the mesh for the workspace you select based on the settings specified in the `JSON` file. For more information, see [Updating a mesh].
 
 ### Usage
 
 ```bash
-aio api-mesh:update [MESHID] [FILE]
+aio api-mesh:update [FILE]
 ```
 
 ### Arguments
 
-`MESHID` The name of the existing meshId that you want to update.
-
 `FILE` The JSON file that contains your mesh's handlers and transforms.
+
+### Flags
+
+`-i` or `--ignoreCache` ignores the cached organization and workspace, allowing you to update a mesh in a different workspace.
+
+`--help` provides information on the specified command
 
 ### Example
 
 ```bash
-aio api-mesh:update mesh1 mesh.json
+aio api-mesh:update mesh.json
 ```
 
 #### Response
@@ -65,24 +90,28 @@ Successfully updated the mesh with the id: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 
 ## aio api-mesh:get
 
-Retrieves the current `JSON` mesh file for the specified mesh.
+Retrieves the current `JSON` mesh file for the workspace you select.
 
 ### Usage
 
 ```bash
-aio api-mesh:get [MESHID] [DOWNLOAD]
+aio api-mesh:get [DOWNLOAD]
 ```
 
 ### Arguments
-
-`MESHID` The name of the existing meshId that you want to view.
   
 `DOWNLOAD` (Optional) specify the local filename to create from the mesh.
+
+### Flags
+
+`-i` or `--ignoreCache` ignores the cached organization and workspace, allowing you to retrieve a mesh from a different workspace.
+
+`--help` provides information on the specified command
 
 ### Example
 
 ```bash
-aio api-mesh:get 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+aio api-mesh:get
 ```
 
 #### Response
@@ -145,24 +174,30 @@ Successfully retrieved mesh {
 }
 ```
 
-## aio api-mesh:delete meshId
+## aio api-mesh:delete
 
-Deletes the mesh from the selected workspace.
+Deletes the mesh from the selected workspace and unsubscribes the API key from the API Mesh service.
+
+<InlineAlert variant="info" slots="text"/>
+
+The `aio api-mesh:delete` command does not delete the API key in case other services use it.
 
 ### Usage
 
 ```bash
-aio api-mesh:delete [MESHID]
+aio api-mesh:delete
 ```
 
-### Arguments
+### Flags
 
-  MESHID    The name of the existing meshId that you want to view.
+`-i` or `--ignoreCache` ignores the cached organization and workspace, allowing you to delete a mesh from a different workspace.
+
+`--help` provides information on the specified command
 
 ### Example
 
 ```bash
-aio api-mesh:delete 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+aio api-mesh:delete
 ```
 
 ### Response
@@ -173,13 +208,18 @@ Successfully deleted 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 
 ## aio api-mesh:describe
 
-Returns a list of projects. Select a project to display its organization, project, workspace, and mesh IDs.
+Describes the mesh for the selected workspace.
 
 ### Usage
 
 ```bash
 aio api-mesh:describe
 ```
+### Flags
+
+`-i` or`--ignoreCache` ignores the cached organization and workspace, allowing you to get the description of a different workspace.
+
+`--help` provides information on the specified command
 
 ### Response
 

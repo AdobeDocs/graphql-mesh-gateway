@@ -57,11 +57,27 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
     aio api-mesh:create mesh.json
     ```
 
-1. Select the project and workspace that you want to create the mesh in. You will be assigned a `meshId`, which is the case-sensitive, readable name you will use to refer to your mesh in the future. Your assigned `meshId` will look something like this: `12a3b4c5-6d78-4012-3456-7e890fa1bcde`. If you do not have a project, see [Create a project](#create-a-project).
+1. Select the organization, project, and workspace that you want to create the mesh in. If you do not have a project, see [Create a project](#create-a-project).
+
+  You will also need to indicate if you want to automatically select the specified organization and workspace in the future. If you answer **Yes** to either of these prompts and you want to select an organization or workspace other than the cached organization and workspace, you can use the `-i` or `-ignoreCache` flag to clear the cache and allow you to select another organization and workspace.
+
+  **Note:** Each workspace within a project can only have one mesh associated with it at a time.
+
+1. When you are prompted to confirm that you want to create a mesh, select **Yes**.
+
+  The `aio api-mesh:create` response assigns you a `meshId`, an `apiKey`, and provides a GraphQL endpoint that you can use to query your mesh.
 
 <InlineAlert variant="info" slots="text"/>
 
-Each workspace within a project can only have one mesh associated with it at a time.
+Refer to the [command reference] for a detailed description of `aio api-mesh:create`.
+
+### Access the gateway
+
+The `aio api-mesh:create` response automatically assigns you an API key and subscribes that API key to the mesh service. You can also retrieve the API key by viewing the project in the [Adobe Developer Console].
+
+After you [create a mesh], you can access the GraphQL endpoint in any GraphQL browser by modifying the following URL: `https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`
+
+The `aio api-mesh:create` response provides the exact url to access the gateway for your mesh.
 
 ## Mesh example
 
@@ -116,50 +132,12 @@ The following example adds both an Adobe Commerce instance (with Live Search ena
     }
 ```
 
-## Create an API Key
-
-<InlineAlert variant="info" slots="text"/>
-
-Only mesh owners can create API Keys. If you do not have access to [Adobe Developer Console], contact your mesh owner.
-
-To access the gateway and perform GraphQL queries, you need to provide an API Key to authorize access to your mesh. To create your API Key:
-
-1. In [Adobe Developer Console], select the desired organization from the dropdown in the top-right corner.
-
-    ![create a project](../_images/create-project.png)
-
-1. Select an existing project or [create a new one](#create-a-project).
-
-1. Inside the project, click **Add API**.
-
-    ![add an api](../_images/add-api.png)
-
-1. Select **API Mesh for Adobe Developer App Builder** and click **Next**.
-
-    ![add an api mesh](../_images/add-api-mesh.png)
-
-1. The **Allowed Domain** field is not currently enforced. Enter any valid test domain to proceed.
-
-    ![add an allowed domain](../_images/allowed-domain.png)
-
-1. Click **Save configured API**. Copy your **API Key** from the Project Overview page.
-
-    ![api key](../_images/api-key.png)
-
-You can return to the Project Overview page whenever you need to retrieve your API Key.
-
-## Access the gateway
-
-After you [create a mesh] and [create an API Key](#create-an-api-key), you can access the GraphQL endpoint in any GraphQL browser by modifying the following URL:
-
-`https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`
-
 ## Update an existing mesh
 
-If you make any changes to your mesh file, such as adding [transforms], you must publish them before the changes will be reflected in your gateway. The following command will update the `meshId` with the settings specified in the `update-mesh.json` file.
+If you make any changes to your mesh file, such as adding [transforms], you must publish them before the changes will be reflected in your gateway. The following command will update the mesh in the selected workspace with the settings specified in the `update-mesh.json` file.
 
 ```bash
-aio api-mesh:update meshId update-mesh.json
+aio api-mesh:update update-mesh.json
 ```
 
 ```json
@@ -221,6 +199,42 @@ aio api-mesh:describe
 
 The command returns a list of projects. Use the arrow and enter keys to select your project and organization. Alternatively, you can type to search for your project and workspace. The console then displays details about the project.
 
+## Manually create an API Key (optional)
+
+<InlineAlert variant="warning" slots="text"/>
+
+API keys are now automatically generated and associated with your project as part of the mesh creation process. Use the following process if you need to manually add an API to a project.
+
+<InlineAlert variant="info" slots="text"/>
+
+Only mesh owners can create API Keys. If you do not have access to [Adobe Developer Console], contact your mesh owner.
+
+To access the gateway and perform GraphQL queries, you need to provide an API Key to authorize access to your mesh. To create your API Key:
+
+1. In [Adobe Developer Console], select the desired organization from the dropdown in the top-right corner.
+
+    ![create a project](../_images/create-project.png)
+
+1. Select an existing project or [create a new one](#create-a-project).
+
+1. Inside the project, click **Add API**.
+
+    ![add an api](../_images/add-api.png)
+
+1. Select **API Mesh for Adobe Developer App Builder** and click **Next**.
+
+    ![add an api mesh](../_images/add-api-mesh.png)
+
+1. The **Allowed Domain** field is not currently enforced. Enter any valid test domain to proceed.
+
+    ![add an allowed domain](../_images/allowed-domain.png)
+
+1. Click **Save configured API**. Copy your **API Key** from the Project Overview page.
+
+    ![api key](../_images/api-key.png)
+
+You can return to the Project Overview page whenever you need to retrieve your API Key.
+
 <!-- Link Definitions -->
 [handlers]: source-handlers.md
 [transforms]: transforms.md
@@ -231,3 +245,4 @@ The command returns a list of projects. Use the arrow and enter keys to select y
 [creating a templated project]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/
 [workspaces]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/#workspaces
 [Prerequisites]: ./getting-started.md#prerequisites
+[command reference]: ./command-reference.md#aio-api-meshcreate
