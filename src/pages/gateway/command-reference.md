@@ -25,6 +25,8 @@ aio api-mesh:create [FILE]
 
 `-i` or `--ignoreCache` ignores the cached organization and workspace, allowing you to create a mesh in a different workspace.
 
+`-c` or `--autoConfirmAction` automatically confirms the mesh creation instead of prompting the user to confirm.
+
 `--help` provides information on the specified command
 
 ### Example
@@ -73,6 +75,8 @@ aio api-mesh:update [FILE]
 ### Flags
 
 `-i` or `--ignoreCache` ignores the cached organization and workspace, allowing you to update a mesh in a different workspace.
+
+`-c` or `--autoConfirmAction` automatically confirms the mesh update instead of prompting the user to confirm.
 
 `--help` provides information on the specified command
 
@@ -191,6 +195,8 @@ aio api-mesh:delete
 ### Flags
 
 `-i` or `--ignoreCache` ignores the cached organization and workspace, allowing you to delete a mesh from a different workspace.
+
+`-c` or `--autoConfirmAction` automatically confirms the mesh deletion instead of prompting the user to confirm.
 
 `--help` provides information on the specified command
 
