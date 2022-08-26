@@ -193,7 +193,7 @@ aio api-mesh:update update-mesh.json
 
 <InlineAlert variant="info" slots="text"/>
 
-When creating a mesh for the first time, you must select the project and workspace that you want to create the mesh in. Alternatively, you can use the following [aio commands](https://github.com/adobe/aio-cli#commands) to select or deselect a project or workspace without interacting with your mesh. 
+When creating a mesh for the first time, you must select the project and workspace that you want to create the mesh in. Alternatively, you can use the following [aio commands](https://github.com/adobe/aio-cli#commands) to select or deselect a project or workspace without interacting with your mesh.
 
 [aio commands](https://github.com/adobe/aio-cli#commands) allow you to list the current selections, manually select a project or workspace, or remove the currently selected project or workspace from the cache.
 
