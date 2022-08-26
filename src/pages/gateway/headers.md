@@ -151,9 +151,9 @@ The `responseConfig.headers` object also allows you to return header values from
 }
 ```
 
-##### Preventing conflicting return header values
+##### Conflicting headers
 
-When forwarding headers, an error occurs if two or more sources return a header with the same name. To prevent this, include the `x-include-metadata` header with a value of `true` in the request.
+When forwarding headers, an error occurs if two or more sources return a header with the same name. To view all headers, regardless of source, include the `x-include-metadata` header with a value of `true` in the request.
 
 ``` json
 ...
