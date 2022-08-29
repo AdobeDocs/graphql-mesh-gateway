@@ -124,7 +124,7 @@ Mesh owners can use the `responseConfig.headers` object to add response headers.
     }
 ```
 
-#### Forward headers
+#### Return forwarded headers
 
 The `responseConfig.headers` object also allows you to return header values from a source. The following example requests the `X-Magento-Cache-Id` and `X-Cache` headers from the Venia source.
 
