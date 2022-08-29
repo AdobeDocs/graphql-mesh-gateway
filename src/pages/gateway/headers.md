@@ -124,6 +124,65 @@ Mesh owners can use the `responseConfig.headers` object to add response headers.
     }
 ```
 
+#### Return forwarded headers
+
+The `responseConfig.headers` object also allows you to return header values from a source. The following example requests the `X-Magento-Cache-Id` and `X-Cache` headers from the Venia source.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "venia",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        },
+        "responseConfig": {
+          "headers": [
+            "X-Magento-Cache-Id",
+            "X-Cache"
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+#### Conflicting headers
+
+When forwarding headers, an error occurs if two or more sources return a header with the same name. To view all headers, regardless of source, include the `x-include-metadata` header with a value of `true` in the request.
+
+``` json
+...
+{
+  "responseConfig": {
+    "headers": {
+      "x-include-metadata": "true"
+    }
+  }
+}
+...
+```
+
+Including metadata prefixes the returned response headers with their source name. In the following example, the `cache-control` header values are returned for the `venia` and `commerce` sources.
+
+``` json
+{
+  "data": {
+    ...
+    },
+  "_ggw_metadata__": {
+        "responseHeaders": {
+          "x-venia-cache-control": "max-age=3600",
+          "x-commerce-cache-control": "max-age=1800",
+        }
+    }
+}
+```
+
 #### CORS headers
 
 Cross-origin resource sharing (CORS) allows you to pass resources that are usually restricted to an outside domain. Refer to [MDN's documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for more information on CORS headers.
