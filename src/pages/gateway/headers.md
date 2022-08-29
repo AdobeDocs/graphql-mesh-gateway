@@ -126,7 +126,7 @@ Mesh owners can use the `responseConfig.headers` object to add response headers.
 
 #### Forward headers
 
-The `responseConfig.headers` object also allows you to return header values from a source. In the following example, we are requesting the `X-Magento-Cache-Id` and `X-Cache` headers from the Venia source.
+The `responseConfig.headers` object also allows you to return header values from a source. The following example requests the `X-Magento-Cache-Id` and `X-Cache` headers from the Venia source.
 
 ```json
 {
@@ -151,7 +151,7 @@ The `responseConfig.headers` object also allows you to return header values from
 }
 ```
 
-##### Conflicting headers
+#### Conflicting headers
 
 When forwarding headers, an error occurs if two or more sources return a header with the same name. To view all headers, regardless of source, include the `x-include-metadata` header with a value of `true` in the request.
 
@@ -167,7 +167,7 @@ When forwarding headers, an error occurs if two or more sources return a header 
 ...
 ```
 
-Including metadata will prefix the returned response headers with their source name. In the following example, the `cache-control` header values are returned for the `venia` and `commerce` sources.
+Including metadata prefixes the returned response headers with their source name. In the following example, the `cache-control` header values are returned for the `venia` and `commerce` sources.
 
 ``` json
 {
