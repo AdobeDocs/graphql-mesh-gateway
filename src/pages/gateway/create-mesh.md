@@ -201,23 +201,30 @@ When creating a mesh for the first time, you must select the project and workspa
 
 To see your current cache configuration, use the [`aio config:get console`](https://github.com/adobe/aio-cli#aio-configget-key) command, which includes the currently selected organization, project, and workspace.
 
+You can view a list of available projects in your current organization by running the [`aio console:project:list`](https://github.com/adobe/aio-cli-plugin-console#aio-consoleprojectlist) command.
+
+To view a list of available workspaces in the current project, run the [`aio console:workspace:list`](https://github.com/adobe/aio-cli-plugin-console#aio-consoleworkspacelist) command.
+
 ### Select a project or workspace
 
-If you want to change the selected project, use the [`aio console:project:sel`](https://github.com/adobe/aio-cli#aio-consoleprojectsel-projectidorname) or [`aio console:project:select`](https://github.com/adobe/aio-cli#aio-consoleprojectselect-projectidorname) commands followed by the name or id of the project. You will be prompted to select a project.
+By [default](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#2-creating-a-new-project-on-developer-console) projects have a `production` and a `stage` workspace. You can also [create your own workspaces](https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/#add-a-workspace). If you do not know which workspace to use, use the `stage` workspace.
 
-If you want to change the selected workspace, use the [`aio console:workspace:sel`](https://github.com/adobe/aio-cli#aio-consoleworkspacesel-workspaceidorname) or [`aio console:workspace:select`](https://github.com/adobe/aio-cli#aio-consoleworkspaceselect-workspaceidorname) commands followed by the name or id of the workspace. You will be prompted to select a workspace.
+To change the selected project, use the [`aio console:project:select`](https://github.com/adobe/aio-cli#aio-consoleprojectselect-projectidorname) command, which will prompt you to select your project from a list.
 
-By [default](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#2-creating-a-new-project-on-developer-console) projects have `prod` and `stage` workspace.
+To change the selected workspace, use the [`aio console:workspace:select`](https://github.com/adobe/aio-cli#aio-consoleworkspaceselect-workspaceidorname) command, which will prompt you to select your workspace from a list.
+
+<InlineAlert variant="info" slots="text"/>
+
+You must have a project selected before you select a workspace.
 
 ### Delete a cached project or workspace
 
-If you want to clear a previously selected project or workspace from your cache, use the [`aio config:del`](https://github.com/adobe/aio-cli#aio-configdel-keys) [`aio config:delete`](https://github.com/adobe/aio-cli#aio-configdelete-keys) followed by the object you want to remove from your cached config.
+If you want to clear a previously selected project or workspace from your cache, use the [`aio config:delete`](https://github.com/adobe/aio-cli#aio-configdelete-keys) followed by the object you want to remove from your cached config.
 
 For example:
 
--  `aio config:del console.project` Removes the current project from the cache.
--  `aio config:del console.workspace` Removes the current workspace from the cache.
--  `aio config:del console` will deselect the selected project, and workspace.
+-  `aio config:delete console.project` Removes the current project from the cache.
+-  `aio config:delete console.workspace` Removes the current workspace from the cache.
 
 ## Retrieve a previously created `meshId`
 
