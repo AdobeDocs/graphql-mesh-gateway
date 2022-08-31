@@ -57,7 +57,7 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
     aio api-mesh:create mesh.json
     ```
 
-1. If you have not selected already [selected a project and workspace manually](#select-a-project-or-workspace), select the organization, project, and workspace that you want to create the mesh in. If you do not have a project, see [Create a project](#create-a-project).
+1. If you have not already [selected a project and workspace manually](#select-a-project-or-workspace), choose the organization, project, and workspace that you want to create the mesh in. If you do not have a project, see [Create a project](#create-a-project).
 
   You will also need to indicate if you want to automatically select the specified organization and workspace in the future. If you answer **Yes** to either of these prompts and you want to select an organization or workspace other than the cached organization and workspace. You can use the `-i` or `-ignoreCache` flag to clear the cache and allow you to select another organization and workspace. You can also manually [modify the selected project or workspace](#modify-projects-and-workspaces).
 
@@ -199,7 +199,7 @@ When creating a mesh for the first time, you must select the project and workspa
 
 ### View cached project and workspace
 
-To see your current cache configuration, use the [`aio config:get:console`](https://github.com/adobe/aio-cli#aio-configget-key) command, which includes the currently selected organization, project, and workspace.
+To see your current cache configuration, use the [`aio config:get console`](https://github.com/adobe/aio-cli#aio-configget-key) command, which includes the currently selected organization, project, and workspace.
 
 ### Select a project or workspace
 
@@ -215,8 +215,8 @@ If you want to clear a previously selected project or workspace from your cache,
 
 For example:
 
--  `aio config:del console.project` will deselect the selected project.
--  `aio config:del console.workspace` will deselect the selected workspace.
+-  `aio config:del console.project` Removes the current project from the cache.
+-  `aio config:del console.workspace` Removes the current workspace from the cache.
 -  `aio config:del console` will deselect the selected project, and workspace.
 
 ## Retrieve a previously created `meshId`
