@@ -5,7 +5,7 @@ description: Create a configuration file for your mesh, access the gateway, and 
 
 # Create a mesh
 
-This page provides the basic steps for creating your first mesh.  
+This page provides the basic steps for creating your first mesh.
 
 ## Requirements
 
@@ -193,9 +193,7 @@ aio api-mesh:update update-mesh.json
 
 <InlineAlert variant="info" slots="text"/>
 
-When creating a mesh for the first time, you must select the project and workspace that you want to create the mesh in. Alternatively, you can use  [aio commands](https://github.com/adobe/aio-cli#commands) to select or deselect a project or workspace without interacting with your mesh.
-
-[aio commands](https://github.com/adobe/aio-cli#commands) allow you to list the current selections, manually select a project or workspace, or remove the currently selected project or workspace from the cache.
+When creating a mesh for the first time, you must select the project and workspace that you want to create the mesh in. Alternatively, you can use [aio commands](https://github.com/adobe/aio-cli#commands) to manually select a project or workspace, list the current selections, or remove the currently selected project or workspace from the cache.
 
 ### View the cached project and workspace
 
