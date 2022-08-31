@@ -5,7 +5,7 @@ description: Create a configuration file for your mesh, access the gateway, and 
 
 # Create a mesh
 
-This page provides the basic steps for creating your first mesh.  
+This page provides the basic steps for creating your first mesh.
 
 ## Requirements
 
@@ -57,13 +57,13 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
     aio api-mesh:create mesh.json
     ```
 
-1. Select the organization, project, and workspace that you want to create the mesh in. If you do not have a project, see [Create a project](#create-a-project).
+1. If you have not already [selected a project and workspace manually](#select-a-project-or-workspace), choose the organization, project, and workspace that you want to create the mesh in. If you do not have a project, see [Create a project](#create-a-project).
 
-  You will also need to indicate if you want to automatically select the specified organization and workspace in the future. If you answer **Yes** to either of these prompts and you want to select an organization or workspace other than the cached organization and workspace, you can use the `-i` or `-ignoreCache` flag to clear the cache and allow you to select another organization and workspace.
+  You will also need to indicate if you want to automatically select the specified organization and workspace in the future. If you answer **Yes** to either of these prompts and you want to select an organization or workspace other than the cached organization and workspace. You can use the `-i` or `-ignoreCache` flag to clear the cache and allow you to select another organization and workspace. You can also manually [modify the selected project or workspace](#modify-projects-and-workspaces).
 
   **Note:** Each workspace within a project can only have one mesh associated with it at a time.
 
-1. When you are prompted to confirm that you want to create a mesh, select **Yes**.
+1. When you are prompted to confirm that you want to create a mesh, select **Yes**. If you want to automatically confirm the creation, add the `-c` or `--autoConfirmAction` flag to your create command.
 
   The `aio api-mesh:create` response assigns you a `meshId`, an `apiKey`, and provides a GraphQL endpoint that you can use to query your mesh.
 
@@ -188,6 +188,41 @@ aio api-mesh:update update-mesh.json
         }
     }
 ```
+
+## Modify projects and workspaces
+
+<InlineAlert variant="info" slots="text"/>
+
+When creating a mesh for the first time, you must select the project and workspace that you want to create the mesh in. Alternatively, you can use [aio commands](https://github.com/adobe/aio-cli#commands) to manually select a project or workspace, list the current selections, or remove the currently selected project or workspace from the cache.
+
+### View the cached project and workspace
+
+To see your current cache configuration, use the [`aio config:get console`](https://github.com/adobe/aio-cli#aio-configget-key) command, which includes the currently selected organization, project, and workspace.
+
+You can view a list of available projects in your current organization by running the [`aio console:project:list`](https://github.com/adobe/aio-cli-plugin-console#aio-consoleprojectlist) command.
+
+To view a list of available workspaces in the current project, run the [`aio console:workspace:list`](https://github.com/adobe/aio-cli-plugin-console#aio-consoleworkspacelist) command.
+
+### Select a project or workspace
+
+By [default](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#2-creating-a-new-project-on-developer-console) projects have a `production` and a `stage` workspace. You can also [create your own workspaces](https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/#add-a-workspace). If you do not know which workspace to use, use the `stage` workspace.
+
+To change the selected project, use the [`aio console:project:select`](https://github.com/adobe/aio-cli#aio-consoleprojectselect-projectidorname) command, which will prompt you to select your project from a list.
+
+To change the selected workspace, use the [`aio console:workspace:select`](https://github.com/adobe/aio-cli#aio-consoleworkspaceselect-workspaceidorname) command, which will prompt you to select your workspace from a list.
+
+<InlineAlert variant="info" slots="text"/>
+
+You must select a project before you select a workspace.
+
+### Delete a cached project or workspace
+
+If you want to clear a previously selected project or workspace from your cache, use the [`aio config:delete`](https://github.com/adobe/aio-cli#aio-configdelete-keys) followed by the object you want to remove from your cached config.
+
+For example:
+
+-  `aio config:delete console.project` Removes the current project from the cache.
+-  `aio config:delete console.workspace` Removes the current workspace from the cache.
 
 ## Retrieve a previously created `meshId`
 
