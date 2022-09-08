@@ -22,6 +22,10 @@ If you are [creating a templated project], you can add [workspaces]. Workspaces 
 
 When creating or updating a mesh, the file to upload must have the `.json` filename extension.
 
+Workspaces that already have an API mesh will have "API Mesh" displayed on their workspace card in the developer console.
+
+![workspace card](../_images/workspace-card.png)
+
 ## Create a mesh
 
 1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers] and [transforms]. In this example, the file name is `mesh.json`.
@@ -231,6 +235,18 @@ To see your current cache configuration, use the [`aio config:get console`](http
 You can view a list of available projects in your current organization by running the [`aio console:project:list`](https://github.com/adobe/aio-cli-plugin-console#aio-consoleprojectlist) command.
 
 To view a list of available workspaces in the current project, run the [`aio console:workspace:list`](https://github.com/adobe/aio-cli-plugin-console#aio-consoleworkspacelist) command.
+
+### View your mesh in the Adobe Developer Console
+
+As an alternative to running the [`aio api-mesh:get`](./command-reference.md#aio-api-meshget) command, you can view your mesh details by selecting the **API Mesh** section in the desired workspace in the [Adobe Developer Console].
+
+On the API Mesh Details screen, you can use the tabs to view different segments of your mesh.
+
+![api mesh details](../_images/api-mesh-details.png)
+
+To download a copy of your mesh file, click the **Download Mesh Schema** button at the top of the API Mesh Details screen.
+
+![download mesh](../_images/download-mesh-schema.png)
 
 ### Select a project or workspace
 
