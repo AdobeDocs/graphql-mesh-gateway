@@ -245,7 +245,7 @@ Lists all available sources. Select a source to view its configuration file and 
 
 <InlineAlert variant="info" slots="text"/>
 
-Connectors are prebuilt mesh configuration files that are formatted for a specific combination of sources. This feature is currently in development, see [Create a mesh from a template](./create-mesh.md#create-a-mesh-from-a-template) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of sources. This feature is currently in development, see [Create a mesh from a template](./create-mesh.md#create-a-mesh-from-a-template) for more information.
 
 ### Usage
 
@@ -261,9 +261,9 @@ aio api-mesh:source:discover
 ```terminal
 [
   {
-      "name": "Test 01",
+      "name": "Adobe Commerce Compare List",
       "version": "0.0.2",
-      "description": "example source",
+      "description": "Source to get information about Compare list", "author": "Adobe team", "provider",
       "author": "VZ",
       "provider": {
           "name": "Commerce",
@@ -319,16 +319,16 @@ aio api-mesh:source:discover
 
 ## aio api-mesh:source:get
 
-Prints the specified source's mesh file and copies it to the clipboard.
+Prints the specified source's mesh file and allows you to copy it to the clipboard.
 
 <InlineAlert variant="info" slots="text"/>
 
-Connectors are prebuilt mesh configuration files that are formatted for a specific combination of sources. This feature is currently in development, see [Create a mesh from a template](./create-mesh.md#create-a-mesh-from-a-template) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of sources. This feature is currently in development, see [Create a mesh from a template](./create-mesh.md#create-a-mesh-from-a-template) for more information.
 
 ### Usage
 
 ```bash
-aio api-mesh:source:get -s "CONNECTOR"
+aio api-mesh:source:get -s "%SOURCE_NAME%"
 ```
 
 ### Flags
@@ -340,13 +340,13 @@ aio api-mesh:source:get -s "CONNECTOR"
 ### Example
 
 ```bash
-aio api-mesh:source:get -s "test 01"
+aio api-mesh:source:get -s "AEM Assets API"
 ```
 
 With multiple sources:
 
 ```bash
-aio api-mesh:source:get -m -s "test 01" -s "test 02"
+aio api-mesh:source:get -m -s "AEM Assets API" -s "Adobe Target API"
 ```
 
 ### Response
@@ -354,9 +354,9 @@ aio api-mesh:source:get -m -s "test 01" -s "test 02"
 ```terminal
 [
   {
-      "name": "Test 01",
+      "name": "AEM Assets API",
       "version": "0.0.2",
-      "description": "Example source",
+      "description": "A source for the AEM Assets API",
       "author": "VZ",
       "provider": {
           "name": "Commerce",
