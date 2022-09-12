@@ -75,11 +75,11 @@ Workspaces that already have an API mesh will have "API Mesh" displayed on their
 
 Refer to the [command reference] for a detailed description of `aio api-mesh:create`.
 
-### Create a mesh from a template
+### Create a mesh from a source
 
 <InlineAlert variant="warning" slots="text"/>
 
-This feature is currently in development. The sources you can select should be used as templates for your own meshes.
+This feature is currently in development. The sources you can select should be used as a guide for your own meshes.
 
 The `aio api-mesh:source` commands provide several prebuilt mesh sources that you can use to create your mesh file, for example `mesh.json`. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. Once approved, these sources will be available for selection in the CLI.
 
