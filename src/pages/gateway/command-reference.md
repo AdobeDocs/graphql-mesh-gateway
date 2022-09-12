@@ -301,16 +301,6 @@ aio api-mesh:source:discover
                 ]
               }
             },
-            {
-              "cache": [
-                {
-                  "field": "Query.storeConfig",
-                  "invalidate": {
-                    "ttl": 3600
-                  }
-                }
-              ]
-            }
           ]
         }
   }
