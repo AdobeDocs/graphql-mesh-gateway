@@ -245,7 +245,7 @@ Lists all available sources. Select a source to view its configuration file and 
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of sources. This feature is currently in development, see [Create a mesh from a template](./create-mesh.md#create-a-mesh-from-a-template) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of sources. This feature is currently in development, see [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 
@@ -313,7 +313,7 @@ Prints the specified source's mesh file and allows you to copy it to the clipboa
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of sources. This feature is currently in development, see [Create a mesh from a template](./create-mesh.md#create-a-mesh-from-a-template) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of sources. This feature is currently in development, see [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 
