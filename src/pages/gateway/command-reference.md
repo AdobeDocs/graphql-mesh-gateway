@@ -347,7 +347,7 @@ aio api-mesh:source:get -m -s "AEM Assets API" -s "Adobe Target API"
       "name": "AEM Assets API",
       "version": "0.0.2",
       "description": "A source for the AEM Assets API",
-      "author": "VZ",
+      "author": "Adobe team",
       "provider": {
           "name": "Commerce",
           "handler": {
