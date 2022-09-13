@@ -27,7 +27,7 @@ aio api-mesh:create [FILE]
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh creation instead of prompting the user to confirm.
 
-`--help` provides information on the specified command
+`--help` provides information on the specified command.
 
 ### Example
 
@@ -78,7 +78,7 @@ aio api-mesh:update [FILE]
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh update instead of prompting the user to confirm.
 
-`--help` provides information on the specified command
+`--help` provides information on the specified command.
 
 ### Example
 
@@ -110,7 +110,7 @@ aio api-mesh:get [DOWNLOAD]
 
 `-i` or `--ignoreCache` ignores the cached organization, project and workspace, allowing you to retrieve a mesh from a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
 
-`--help` provides information on the specified command
+`--help` provides information on the specified command.
 
 ### Example
 
@@ -198,7 +198,7 @@ aio api-mesh:delete
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh deletion instead of prompting the user to confirm.
 
-`--help` provides information on the specified command
+`--help` provides information on the specified command.
 
 ### Example
 
@@ -221,6 +221,7 @@ Describes the mesh for the selected workspace.
 ```bash
 aio api-mesh:describe
 ```
+
 ### Flags
 
 `-i` or`--ignoreCache` ignores the cached organization, project and workspace, allowing you to get the description of a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
@@ -236,6 +237,168 @@ Org ID: 123456
 Project ID: 1234567890123456789
 Workspace ID: 2345678901234567890
 Mesh ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+```
+
+## aio api-mesh:source:discover
+
+Lists all available sources. Select a source to view its configuration file and copy its content to your clipboard.
+
+<InlineAlert variant="info" slots="text"/>
+
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of sources. This feature is currently in development, see [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
+
+### Usage
+
+```bash
+aio api-mesh:source:discover
+```
+
+### Flags
+
+`--help` provides information on the specified command.
+
+### Response
+
+```terminal
+[
+  {
+      "name": "Adobe Commerce Compare List",
+      "version": "0.0.2",
+      "description": "Source to get information about Compare list",
+      "author": "Adobe team",
+      "provider": {
+          "name": "Commerce",
+          "handler": {
+            "graphql": {
+              "endpoint": "https://venia.magento.com/graphql/"
+            }
+          },
+          "transforms": [
+            {
+              "rename": {
+                "mode": "bare | wrap",
+                "renames": [
+                  {
+                    "from": {
+                      "type": "Query",
+                      "field": "compareList"
+                    },
+                    "to": {
+                      "type": "Query",
+                      "field": "productCompareList"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "filterSchema": {
+                "mode": "bare | wrap",
+                "filters": [
+                  "Query.!category",
+                  "Query.!customerOrders",
+                  "Query.!urlResolver",
+                  "Query.!wishlist"
+                ]
+              }
+            },
+          ]
+        }
+  }
+]
+```
+
+## aio api-mesh:source:get
+
+Prints the specified source's mesh file and allows you to copy it to the clipboard.
+
+<InlineAlert variant="info" slots="text"/>
+
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of sources. This feature is currently in development, see [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
+
+### Usage
+
+```bash
+aio api-mesh:source:get -s "%SOURCE_NAME%"
+```
+
+### Flags
+
+`-s` or `--source` (required) allows you to specify the name of the source you want to copy.
+`-m` or `--multiple` allows you to add multiple sources, which are returned in an array.
+`--help` provides information on the specified command.
+
+### Example
+
+```bash
+aio api-mesh:source:get -s "AEM Assets API"
+```
+
+With multiple sources:
+
+```bash
+aio api-mesh:source:get -m -s "AEM Assets API" -s "Adobe Target API"
+```
+
+### Response
+
+```terminal
+[
+  {
+      "name": "AEM Assets API",
+      "version": "0.0.2",
+      "description": "A source for the AEM Assets API",
+      "author": "Adobe team",
+      "provider": {
+          "name": "Commerce",
+          "handler": {
+            "graphql": {
+              "endpoint": "https://venia.magento.com/graphql/"
+            }
+          },
+          "transforms": [
+            {
+              "rename": {
+                "mode": "bare | wrap",
+                "renames": [
+                  {
+                    "from": {
+                      "type": "Query",
+                      "field": "compareList"
+                    },
+                    "to": {
+                      "type": "Query",
+                      "field": "productCompareList"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "filterSchema": {
+                "mode": "bare | wrap",
+                "filters": [
+                  "Query.!category",
+                  "Query.!customerOrders",
+                  "Query.!urlResolver",
+                  "Query.!wishlist"
+                ]
+              }
+            },
+            {
+              "cache": [
+                {
+                  "field": "Query.storeConfig",
+                  "invalidate": {
+                    "ttl": 3600
+                  }
+                }
+              ]
+            }
+          ]
+        }
+  }
+]
 ```
 
 <!-- Link Definitions -->
