@@ -90,6 +90,7 @@ Currently this feature serves as a way for you to quickly copy an example mesh.
   ```bash
   aio api-mesh:source:discover
   ```
+
   **Note**: Alternatively, you can use the aio [api-mesh:source:get](./command-reference.md#aio-api-meshsourceget) command if you know the source you want to select.
 
 1. Confirm that you want to copy the source.
