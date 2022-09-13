@@ -324,8 +324,8 @@ aio api-mesh:source:get -s "%SOURCE_NAME%"
 
 ### Flags
 
-`-s` (required) allows you to specify the name of the source you want to copy.
-`-m` allows you to add multiple sources, which are returned in an array.
+`-s` or `--source` (required) allows you to specify the name of the source you want to copy.
+`-m` or `--multiple` allows you to add multiple sources, which are returned in an array.
 `--help` provides information on the specified command.
 
 ### Example

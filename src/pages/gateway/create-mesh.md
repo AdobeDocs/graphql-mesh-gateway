@@ -32,22 +32,22 @@ Workspaces that already have an API mesh will have "API Mesh" displayed on their
 
   The following mesh file can be used with minimal setup to access the endpoint of the [Venia] demo store.
 
-    ``` json
-    {
-    "meshConfig": {
-        "sources": [
-          {
-            "name": "Commerce",
-            "handler": {
-              "graphql": {
-                "endpoint": "https://venia.magento.com/graphql/"
-              }
+  ``` json
+  {
+  "meshConfig": {
+      "sources": [
+        {
+          "name": "Commerce",
+          "handler": {
+            "graphql": {
+              "endpoint": "https://venia.magento.com/graphql/"
             }
           }
-        ]
-      }
+        }
+      ]
     }
-    ```
+  }
+  ```
 
 1. Run the login command and provide your credentials in the browser window.
 
