@@ -252,6 +252,7 @@ Sources are prebuilt mesh configuration files that are formatted for a specific 
 ```bash
 aio api-mesh:source:discover
 ```
+
 ### Flags
 
 `--help` provides information on the specified command.
@@ -263,8 +264,8 @@ aio api-mesh:source:discover
   {
       "name": "Adobe Commerce Compare List",
       "version": "0.0.2",
-      "description": "Source to get information about Compare list", "author": "Adobe team", "provider",
-      "author": "VZ",
+      "description": "Source to get information about Compare list",
+      "author": "Adobe team",
       "provider": {
           "name": "Commerce",
           "handler": {
