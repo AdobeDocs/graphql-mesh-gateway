@@ -179,7 +179,7 @@ Cross-origin resource sharing (CORS) allows you to pass resources that are usual
 
 To add CORS headers to your mesh, create a `CORS` object in the `responseConfig` object, using the following key value pairs:
 
--  `origin` (Required) - the domain of the resource you want to allow to make a CORS request
+-  `origin` (Required) - the scheme and domain of the resource you want to allow to make a CORS request
 -  `methods` (Required) - the HTTP request methods allowed in the CORS request, such as GET, POST, and OPTIONS
 -  `allowedHeaders` - a string of allowed headers in preflight request
 -  `credentials` - boolean value that indicates if credentials can be included in CORS request (default: `false`)
@@ -195,7 +195,7 @@ To add CORS headers to your mesh, create a `CORS` object in the `responseConfig`
       "Cache-Control": "max-age=60480"
     },
     "CORS": {
-      "origin": "www.domain.com",
+      "origin": "https://www.domain.com",
       "methods": "POST, GET, OPTIONS"
     }
   }
