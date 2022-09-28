@@ -128,6 +128,10 @@ Mesh owners can use the `responseConfig.headers` object to add response headers.
 
 The `responseConfig.headers` object also allows you to return header values from a source. The following example requests the `X-Magento-Cache-Id` and `X-Cache` headers from the Venia source.
 
+<InlineAlert variant="info" slots="text"/>
+
+[JSON schema handlers](../reference/handlers/json-schema.md) do not support `responseConfig` functionality.
+
 ```json
 {
   "meshConfig": {
