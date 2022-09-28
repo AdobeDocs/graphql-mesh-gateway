@@ -101,6 +101,10 @@ All response header names must be unique. Conflicting header names will result i
 
 Mesh owners can use the `responseConfig.headers` object to add response headers. Define each header as a key value pair.
 
+<InlineAlert variant="info" slots="text"/>
+
+[JSON schema handlers](../reference/handlers/json-schema.md) do not support `responseConfig` functionality.
+
 ``` json
     { 
       "meshConfig": { 

@@ -11,6 +11,10 @@ This handler allows you to load any remote REST service, and describe its reques
 
 The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.  
 
+<InlineAlert variant="info" slots="text"/>
+
+[JSON schema handlers](../reference/handlers/json-schema.md) do not support `responseConfig` functionality.
+
 To get started, use the handler in your Mesh config file:
 
 ```json
