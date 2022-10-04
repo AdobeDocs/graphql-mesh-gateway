@@ -108,6 +108,7 @@ type User {
   age: Int
 }
 ```
+
 <InlineAlert variant="info" slots="text"/>
 
 For information about "bare" and "wrap" modes, read the [dedicated section](/reference/transforms/index.md#two-different-modes).
