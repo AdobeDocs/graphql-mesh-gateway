@@ -13,7 +13,7 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
 
 <InlineAlert variant="info" slots="text"/>
 
-[JSON schema handlers](../reference/handlers/json-schema.md) do not support `responseConfig` functionality.
+JSON schema handlers do not support `responseConfig` functionality.
 
 To get started, use the handler in your Mesh config file:
 

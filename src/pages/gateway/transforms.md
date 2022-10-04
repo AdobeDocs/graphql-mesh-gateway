@@ -197,6 +197,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 ## Type Merge
 
 [Type Merge] transforms allow you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [GraphQL Mesh Example].
+
 ## Naming Convention
 
 [Naming Convention] transforms allow you to apply casing and other conventions to your response. In the example below, `enumValues` fields are converted to uppercase, while `fieldNames` are converted to camel case to enforce consistency.

@@ -10,6 +10,7 @@ This page provides the basic steps for creating your first mesh.
 ## Requirements
 
 Before creating a mesh, create a project or a templated project and workspace for the mesh. For other requirements see [Prerequisites].
+
 ### Create a project
 
 When you [create a mesh], you must assign the mesh to a specific project. To create a new project, log in to the [Adobe Developer Console] and [create a project].

@@ -404,6 +404,7 @@ And now it batches the requests to the inner sources.
 In the current example, we want to have a field called `author` under `Book` property then point it to `author`.
 
 Normally we supposed to do the following definitions;
+
 ```json
 {
   "additionalTypeDefs": "extend type Book {\n  author: Author\n}\n",

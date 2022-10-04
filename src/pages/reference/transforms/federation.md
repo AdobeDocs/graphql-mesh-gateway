@@ -59,6 +59,7 @@ To add more complex business logic, you can point to a code file that exports a 
 ```
 
 `./userResolveReference.js`
+
 ```js
 // So we can point to an existing query field to resolve that entity
 module.exports = (root, context, info) =>
