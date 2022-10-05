@@ -37,7 +37,7 @@ When making a GET request, you can add cache-control headers to your GraphQL cli
 
 <InlineAlert variant="info" slots="text"/>
 
-PUT requests are not supported and GET requests are limited to 2,048 characters.
+POST requests are not supported and GET requests are limited to 2,048 characters.
 
 #### How conflicting header values are resolved
 
