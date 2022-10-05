@@ -133,6 +133,7 @@ Cache-control header values in your mesh configuration file take precedence over
         "responseConfig": {
           "headers": {
             "Cache-Control": "max-age=50,min-fresh=6,stale-if-error=20,public,must-revalidate"
+          }
         }
       }
     ]
