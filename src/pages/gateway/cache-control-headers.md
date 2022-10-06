@@ -129,11 +129,11 @@ Example 2
 
 ### In the mesh configuration file
 
-To set your cache-control headers in your mesh configuration file, add a `Cache-Control` key value pair to the `responseConfig`.
+To set your own values for cache-control headers, add a `Cache-Control` key value pair to the `responseConfig` in your mesh configuration file.
 
 <InlineAlert variant="info" slots="text"/>
 
-Cache-control header values in your mesh configuration file take precedence over other conflicting values and are always included in the response.
+Cache-control header values in your mesh configuration file take precedence over other conflicting values for your sources and are always included in the response.
 
 #### Mesh Example
 
