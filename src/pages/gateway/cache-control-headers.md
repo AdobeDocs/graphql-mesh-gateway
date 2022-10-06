@@ -31,7 +31,7 @@ Currently query-level caching is not supported.
 
 ### As request headers
 
-When making a GET request, you can receive cache-control headers from your sources, by adding the following `cache-control` section to your `operationHeaders` for each source.
+When making a GET request, you can receive cache-control headers from your sources, by adding the following `cache-control` section to your `operationHeaders` for each source. When cache-control values are returned, only the [most restrictive values](#how-conflicting-header-values-are-resolved) are returned.
 
 ```json
 {
@@ -61,7 +61,7 @@ POST requests are not supported and GET requests are limited to 2,048 characters
 
 When cache-control header values from multiple sources conflict, API Mesh will select the lowest or most restrictive value. The following section explains which values are returned when [cache-control directives](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) conflict.
 
-If your source's cache-control headers contain the `no-store` directive, it supersedes all other directives.
+If your source's cache-control headers contain the `no-store` directive, then `no-store` is the only returned cache-control header, because it supersedes all other directives.
 
 If your source's cache-control headers contain conflicting values for the following directives, the lowest value is selected:
 
