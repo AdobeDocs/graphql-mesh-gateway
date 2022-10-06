@@ -31,9 +31,27 @@ Currently query-level caching is not supported.
 
 ### As request headers
 
-When making a GET request, you can add cache-control headers to your GraphQL client.
+When making a GET request, you can receive cache-control headers from your sources, by adding the following `cache-control` section to your `operationHeaders` for each source.
 
-![headers](../_images/ccheaders.png)
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "venia",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql",
+            "operationHeaders:" {
+              "cache-control": "{context.headers['cache-control]}"
+            }
+          }
+        },
+      }
+    ]
+  }
+}
+```
 
 <InlineAlert variant="info" slots="text"/>
 
