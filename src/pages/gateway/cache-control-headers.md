@@ -5,13 +5,13 @@ description: Specifies how to use headers to limit and modify the cache for GET 
 
 # Edge caching
 
-API Mesh for Adobe App Builder supports edge caching for users who provide their own content delivery network (CDN), such as Fastly. Edge caching allows you to improve website load times and reduce consumption costs associated with bandwidth.
+API Mesh for Adobe App Builder supports edge caching for users who provide their own content delivery network (CDN), such as Fastly. Edge caching helps to improve website load times and reduces consumption costs associated with bandwidth.
 
 ## Cache-control headers
 
-CDN's use cache-control headers to determine how your information is cached.
+A CDN's cache-control headers determine how queried information is cached.
 
-Every time you use a browser or a GET request to access a url, the site's response headers typically include a `cache-control` header, which determines how long the site will allow its data to be cached. For example, a website could have the following response header:
+When a browser or a GET request accesses a URL, the site's response headers typically include a `cache-control` header, which determines how long the site will allow its data to be cached. For example, a website could have the following response header:
 
 ```html
 cache-control: max-age=0
@@ -27,11 +27,11 @@ API mesh users can add cache-control headers to [request headers](#as-request-he
 
 <InlineAlert variant="info" slots="text"/>
 
-Currently query-level caching is not supported.
+Currently, query-level caching is not supported.
 
 ### As request headers
 
-When making a GET request, you can receive cache-control headers from your sources, by adding the following `cache-control` section to your `operationHeaders` for each source. When cache-control values are returned, only the [most restrictive values](#how-conflicting-header-values-are-resolved) are returned.
+You can receive cache-control headers from your sources in response to GET requests, by adding the following `cache-control` section to your `operationHeaders` object for each source. When the response includes cache-control values, only the [most restrictive values](#how-conflicting-header-values-are-resolved) are returned.
 
 ```json
 {
@@ -55,15 +55,15 @@ When making a GET request, you can receive cache-control headers from your sourc
 
 <InlineAlert variant="info" slots="text"/>
 
-POST requests are not supported and GET requests are limited to 2,048 characters.
+POST requests are not supported, and GET requests are limited to 2,048 characters.
 
 #### How conflicting header values are resolved
 
-When cache-control header values from multiple sources conflict, API Mesh will select the lowest or most restrictive value. The following section explains which values are returned when [cache-control directives](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) conflict.
+When cache-control header values from multiple sources conflict, API Mesh selects the lowest or most restrictive value. The following section explains which values are returned when [cache-control directives](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) conflict.
 
-If your source's cache-control headers contain the `no-store` directive, then `no-store` is the only returned cache-control header, because it supersedes all other directives.
+The `no-store` directive supersedes all other directives. If your source's cache-control headers contain this directive, then the mesh does not return other headers.
 
-If your source's cache-control headers contain conflicting values for the following directives, the lowest value is selected:
+If your source's cache-control headers contain conflicting values for the following directives, the mesh selects the lowest value:
 
 - `min-fresh`
 
@@ -77,7 +77,7 @@ If your source's cache-control headers contain conflicting values for the follow
 
 - `stale-while-revalidate`
 
-If your source's cache-control headers contain any of the following directives, the directive is added to the `cache-control` response.
+If your source's cache-control headers contain any of the following directives, the mesh adds the directive to the `cache-control` response.
 
 - `public`
 
@@ -101,35 +101,35 @@ The following example scenarios indicate the resulting `Response header` from tw
 
 Example 1
 
-- Source 1
+- Source 1 response headers
 
-  - response headers - max-age=3600, stale-while-revalidate=60, stale-if-error=3600
+  - max-age=3600, stale-while-revalidate=60, stale-if-error=3600
 
-- Source 2
+- Source 2 response headers
 
-  - response headers - max-age:600, stale-if-error=60
+  - max-age:600, stale-if-error=60
 
-- Combined HTTP response
+- Combined HTTP response headers
 
-  - response header - max-age=600, stale-while-revalidate=60, stale-if-error=60
+  - max-age=600, stale-while-revalidate=60, stale-if-error=60
 
 Example 2
 
-- Source 1
+- Source 1 response headers
 
-  - response headers - max-age=3600, stale-while-revalidate=60, stale-if-error=3600
+  - max-age=3600, stale-while-revalidate=60, stale-if-error=3600
+  
+- Source 2 response headers
 
-- Source 2
+  - no-store
 
-  - response header - no-store
+- Combined HTTP response headers
 
-- Combined HTTP response
-
-  - response header - no-store
+  - no-store
 
 ### In the mesh configuration file
 
-To set your own values for cache-control headers, add a `Cache-Control` key value pair to the `responseConfig` in your mesh configuration file.
+To set your own values for cache-control headers, add a `Cache-Control` key value pair to the `responseConfig` object in your mesh configuration file.
 
 <InlineAlert variant="info" slots="text"/>
 
