@@ -35,6 +35,10 @@ module.exports = [
                 title: 'Headers',
                 path: '/gateway/headers'
             },
+            {
+                title: 'Edge caching and cache control',
+                path: '/gateway/cache-control-headers'
+            },
         ],
     },
     {
