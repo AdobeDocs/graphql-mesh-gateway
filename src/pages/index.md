@@ -21,7 +21,7 @@ The API Mesh allows businesses to access functionality across multiple systems t
 
 ## Features
 
-<br>
+<br></br>
 
 -  **Adobe API Manager** - A reverse proxy that accepts most API calls for many backend services
 -  **Configurable Integrations** - Low/No-code method to integrate with your own private APIs with Adobe Commerce and other Adobe products, and third-party APIs
