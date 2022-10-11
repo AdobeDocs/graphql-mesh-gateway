@@ -7,6 +7,10 @@ description: Specifies how to use headers to limit and modify the cache for GET 
 
 API Mesh for Adobe App Builder supports edge caching if you provide your own content delivery network (CDN), such as Fastly. Edge caching helps improve website load times and reduces consumption costs associated with bandwidth.
 
+<InlineAlert variant="info" slots="text"/>
+
+When using a CDN, you must invalidate the cache after modifying a mesh configuration or you will receive stale information.
+
 ## Cache-control headers
 
 A CDN's cache-control headers determine how queried information is cached.

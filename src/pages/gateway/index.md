@@ -9,10 +9,14 @@ To get started with the API Mesh for Adobe Developer App Builder select one of t
 
 ## Getting Started
 
+<br></br>
+
 -  [Overview](overview.md)
 -  [Getting Started](getting-started.md)
 
 ## Creating and Managing your Mesh
+
+<br></br>
 
 -  [Create a Mesh](create-mesh.md)
 -  [Source Handlers](source-handlers.md)
