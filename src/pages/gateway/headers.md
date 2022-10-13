@@ -34,12 +34,12 @@ To add headers directly to a source handler in your mesh file, for example `mesh
         "name": "LiveSearch",
         "handler": {
           "graphql": {
-            "endpoint": "https://<host>/search/graphql"
+            "endpoint": "https://<host>/search/graphql",
             "operationHeaders": {
-              "Magento-Environment-Id": "<environment_id>"
-              "Magento-Website-Code": "base"
-              "Magento-Store-Code": "main_website_store"
-              "Magento-Store-View-Code": "default"
+              "Magento-Environment-Id": "<environment_id>",
+              "Magento-Website-Code": "base",
+              "Magento-Store-Code": "main_website_store",
+              "Magento-Store-View-Code": "default",
               "X-Api-Key": "search_gql"
             }
           }
