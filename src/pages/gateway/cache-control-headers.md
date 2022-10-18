@@ -37,7 +37,7 @@ Currently, query-level caching is not supported.
 
 Use a mesh configuration similar to the example below to [return forwarded headers](headers.md#return-forwarded-headers).
 
-<InlineAlert variant="tip" slots="text"/>
+<InlineAlert variant="info" slots="text"/>
 
 You can also use a header value of `x-include-metadata=true` to return all headers.
 
