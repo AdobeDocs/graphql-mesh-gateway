@@ -35,7 +35,13 @@ Currently, query-level caching is not supported.
 
 ### As request headers
 
-You can receive cache-control headers from your sources in response to GET requests, by adding the following `cache-control` section to your `operationHeaders` object for each source. When the response includes cache-control values, only the [most restrictive values](#how-conflicting-header-values-are-resolved) are returned.
+Use a mesh configuration similar to the example below to [return forwarded headers](headers.md#return-forwarded-headers).
+
+<InlineAlert variant="tip" slots="text"/>
+
+You can also use a header value of `x-include-metadata=true` to return all headers.
+
+When the response includes cache-control values, only the [most restrictive values](#how-conflicting-header-values-are-resolved) are returned.
 
 ```json
 {
@@ -45,9 +51,14 @@ You can receive cache-control headers from your sources in response to GET reque
         "name": "venia",
         "handler": {
           "graphql": {
-            "endpoint": "https://venia.magento.com/graphql",
+            "endpoint": "https://venia.magento.com/graphql"
           }
         },
+        "responseConfig": {
+          "headers": [
+            "Cache-Control"
+          ]
+        }
       }
     ]
   }
