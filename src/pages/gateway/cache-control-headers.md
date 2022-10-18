@@ -46,9 +46,6 @@ You can receive cache-control headers from your sources in response to GET reque
         "handler": {
           "graphql": {
             "endpoint": "https://venia.magento.com/graphql",
-            "operationHeaders:" {
-              "cache-control": "{context.headers['cache-control]}"
-            }
           }
         },
       }
