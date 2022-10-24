@@ -241,7 +241,7 @@ Mesh ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 
 ## aio api-mesh:source:discover
 
-Lists all available sources. Select a source to view its configuration file and copy its content to your clipboard. You can also view available sources directly in the  [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo.
+Lists all available sources. Select a source to view its configuration file and copy its content to your clipboard. You can also view available sources directly in the [api-mesh-sources](https://github.com/adobe/api-mesh-sources/tree/main/connectors) repo.
 
 <InlineAlert variant="info" slots="text"/>
 
