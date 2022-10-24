@@ -428,9 +428,9 @@ aio api-mesh:source:install "SOURCE_NAME"@source_version_number
 `-f` or `--variable-file` specifies a file location that contains variables to use in the mesh configuration file for the source. The file must be in `.json` format. For example:
 
 ```json
-  {
-	"ENDPOINT_URL": "https://venia.magento.com/graphql"
-  }
+{
+"ENDPOINT_URL": "https://venia.magento.com/graphql"
+}
 ```
 
 `--help` provides information on the specified command.
