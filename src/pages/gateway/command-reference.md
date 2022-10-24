@@ -415,6 +415,12 @@ Sources are prebuilt mesh configuration files that are formatted for a specific 
 aio api-mesh:source:install "SOURCE_NAME"
 ```
 
+To install a specific version of a source, use the following command:
+
+```bash
+aio api-mesh:source:install "SOURCE_NAME"@source_version_number
+```
+
 ### Flags
 
 `-v` or `--variable` specifies the values of any variables in the `variables` array in the mesh configuration file for the source.
@@ -445,6 +451,12 @@ With a variable file:
 
 ```bash
 aio api-mesh:source:install "AEM Assets API" -f documents/my_variables.json
+```
+
+Install a specific version:
+
+```bash
+aio api-mesh:source:install "AEM Assets API"@0.0.1
 ```
 
 ### Response
