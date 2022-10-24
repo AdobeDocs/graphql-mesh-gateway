@@ -241,11 +241,11 @@ Mesh ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 
 ## aio api-mesh:source:discover
 
-Lists all available sources. Select a source to view its configuration file and copy its content to your clipboard.
+Lists all available sources. Select a source to view its configuration file and copy its content to your clipboard. You can also view available sources directly in the  [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo.
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of sources. This feature is currently in development, see [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 
@@ -314,7 +314,7 @@ Prints the specified source's mesh file and allows you to copy it to the clipboa
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of sources. This feature is currently in development, see [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 
@@ -399,6 +399,58 @@ aio api-mesh:source:get -m -s "AEM Assets API" -s "Adobe Target API"
         }
   }
 ]
+```
+
+## aio api-mesh:source:install
+
+Updates the currently selected workspace's mesh configuration with the selected configuration from the specified source.
+
+<InlineAlert variant="info" slots="text"/>
+
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
+
+### Usage
+
+```bash
+aio api-mesh:source:install "SOURCE_NAME"
+```
+
+### Flags
+
+`-v` or `--variable` specifies the values of any variables in the `variables` array in the mesh configuration file for the source.
+
+`-f` or `--variable-file` specifies a file location that contains variables to use in the mesh configuration file for the source. The file must be in `.json` format. For example:
+
+```json
+  {
+	"ENDPOINT_URL": "https://venia.magento.com/graphql"
+  }
+```
+
+`--help` provides information on the specified command.
+
+### Example
+
+```bash
+aio api-mesh:source:install "AEM Assets API"
+```
+
+With a variable:
+
+```bash
+aio api-mesh:source:install "AEM Assets API" -v ENDPOINT_URL:https://venia.magento.com/graphql
+```
+
+With a variable file:
+
+```bash
+aio api-mesh:source:install "AEM Assets API" -f documents/my_variables.json
+```
+
+### Response
+
+```bash
+Successfully updated the mesh with the id: MESH_ID
 ```
 
 <!-- Link Definitions -->
