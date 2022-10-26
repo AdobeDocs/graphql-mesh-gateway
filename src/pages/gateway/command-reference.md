@@ -319,7 +319,7 @@ Sources are prebuilt mesh configuration files that are formatted for a specific 
 ### Usage
 
 ```bash
-aio api-mesh:source:get -s "%SOURCE_NAME%"
+aio api-mesh:source:get -s "<source_name>"
 ```
 
 ### Flags
@@ -412,26 +412,30 @@ Sources are prebuilt mesh configuration files that are formatted for a specific 
 ### Usage
 
 ```bash
-aio api-mesh:source:install "SOURCE_NAME"
+aio api-mesh:source:install "<source_name>"
 ```
 
 To install a specific version of a source, use the following command:
 
 ```bash
-aio api-mesh:source:install "SOURCE_NAME"@source_version_number
+aio api-mesh:source:install "<source_name>"@source_version_number
 ```
 
-### Flags
+The two variable flags, `-v` and `-f`, described in the following section, allow you to automatically replace any of the variables defined in the source that you are installing with your own values.
 
-`-v` or `--variable` specifies the values of any variables in the `variables` array in the mesh configuration file for the source.
-
-`-f` or `--variable-file` specifies a file location that contains variables to use in the mesh configuration file for the source. The file must be in `.json` format. For example:
+When using the `-f` or `--variable-file` flag, you must specify the variables in a separate file. The following example defines the variable file formatting:
 
 ```json
 {
 "ENDPOINT_URL": "https://venia.magento.com/graphql"
 }
 ```
+
+### Flags
+
+`-v` or `--variable` specifies the values of any variables defined in the `variables` array of the mesh configuration file for the source. Use commas to separate multiple variables.
+
+`-f` or `--variable-file` specifies a file location that contains variables to use in the mesh configuration file for the source. The file must be in `.json` format.
 
 `--help` provides information on the specified command.
 

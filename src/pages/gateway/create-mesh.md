@@ -94,7 +94,11 @@ Currently this feature serves as a way for you to quickly copy an example mesh.
 
 1. Confirm that you want to print the configuration in the console. The mesh configuration prints in your terminal and is automatically copied to your clipboard depending on your selections.
 
-1. Review the mesh configuration. When you are ready to install the mesh configuration, run the `aio api-mesh:source:install` command followed by the `"SOURCE_NAME"` you want to install.
+1. Review the mesh configuration. When you are ready to install the mesh configuration, run the `aio api-mesh:source:install` command followed by the `"<source_name>"` you want to install, for example:
+
+```bash
+aio api-mesh:source:install "AEM Assets API"
+```
 
 <InlineAlert variant="info" slots="text"/>
 
