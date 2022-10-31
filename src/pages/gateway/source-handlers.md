@@ -108,7 +108,7 @@ The [JSON] handler allows you to load a single remote REST endpoint and define t
 
 <InlineAlert variant="warning" slots="text"/>
 
-The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.  
+The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.
 
 ```json
 {

@@ -78,10 +78,6 @@ Refer to the [command reference] for a detailed description of `aio api-mesh:cre
 
 ### Create a mesh from a source
 
-<InlineAlert variant="warning" slots="text"/>
-
-This feature is currently in development. The sources you can select should be used as a guide for your own meshes.
-
 The `aio api-mesh:source` commands provide several prebuilt mesh sources that you can use to create your mesh file, for example `mesh.json`. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. Once approved, these sources will be available for selection in the CLI.
 
 Currently this feature serves as a way for you to quickly copy an example mesh.
@@ -92,19 +88,23 @@ Currently this feature serves as a way for you to quickly copy an example mesh.
   aio api-mesh:source:discover
   ```
 
-  **Note**: Alternatively, you can use the aio [api-mesh:source:get](./command-reference.md#aio-api-meshsourceget) command if you know the source you want to select.
-
-1. Confirm that you want to copy the source.
+  **Note**: Alternatively, you can use the [aio api-mesh:source:install](./command-reference.md#aio-api-meshsourceinstall) command if you know the source you want to install.
 
 1. Use the arrow keys to select which source you want to copy and press Enter. You can use the Spacebar to select multiple sources.
 
-1. Confirm that you want to print the configuration in the console. The mesh configuration prints in your terminal and is automatically copied to your clipboard.
+1. Confirm that you want to print the configuration in the console. The mesh configuration prints in your terminal and is automatically copied to your clipboard depending on your selections.
 
-1. Create a file with a name similar to `mesh.json` and paste the copied data in that file.
+1. Review the mesh configuration. When you are ready to install the mesh configuration, run the `aio api-mesh:source:install` command followed by the `"<source_name>"` you want to install, for example:
 
-1. Save the file.
+```bash
+aio api-mesh:source:install "AEM Assets API"
+```
 
-1. Now follow the steps in the [Create a mesh](#create-a-mesh) section and use the newly created file in the `aio:api-mesh:create` command.
+<InlineAlert variant="info" slots="text"/>
+
+Alternatively, you can use the [aio api-mesh:source:get](./command-reference.md#aio-api-meshsourceget) command to print the source in the terminal or copy the source to the clipboard.
+
+Refer to the [Command reference](command-reference.md#aio-api-meshsourceinstall) flags to learn how to replace variables in the source mesh configuration.
 
 ### Access the gateway
 

@@ -9,7 +9,7 @@ This handler allows you to load any remote REST service, and describe its reques
 
 <InlineAlert variant="warning" slots="text"/>
 
-The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.  
+The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.
 
 <InlineAlert variant="info" slots="text"/>
 
