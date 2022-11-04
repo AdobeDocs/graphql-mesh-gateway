@@ -40,7 +40,7 @@ Basic identification is provided by your Mesh ID and API Key. Additionally, API 
 
 If you require additional authentication or authorization, you can use [custom resolvers](../reference/multiple-apis.md).
 
-DDOS protection, rate limiting, and throttling are provided at a global level by graph.adobe.io. For more individualized protection, we recommend adding a Content Delivery Network (CDN), such as fastly, through [edge caching](cache-control-headers.md).
+Distributed denial-of-service (DDOS) attack protection, rate limiting, and throttling are provided at a global level by graph.adobe.io. For more individualized protection, we recommend adding a Content Delivery Network (CDN), such as Fastly, through [edge caching](cache-control-headers.md).
 
 If you encounter any security issues and need assistance, reach out to your contact for the beta program.
 
