@@ -5,24 +5,36 @@ description: Learn how to use the Hooks transform to add hooks before and after 
 
 # Hooks transform
 
+The Hooks transform allows you to invoke a composable [local or remote](#local-vs-remote-functions) function on a particular operation.
 
-## BeforeAll
+## Types of hooks
+
+The following sections describe how to invoke hooks at different points during the query.
+
+### BeforeAll
+
+The `BeforeAll` hook occurs before the query takes place. 
+
+### Before
+
+### After
+
+### AfterAll
 
 
-## Before
+## Blocking
 
-## After
+Both `before` and `beforeall` hooks accept the `blocking` argument, which allows you to stop running hooks for a query that does not receive a successful response.
 
-## AfterAll
+## Local vs remote functions
 
 Hooks transform
 
 
 Questions 
 
-- This transform is not part of gqlmesh? How do we distinguish? It is ours, hidden package
 - Define Resolver/composer/blocking
-- At the mesh and handler level?
+
 - What is the difference between before/before all and after/after all? e.g. if last source has after does that = after all?
 - You should use resolvers to restrict returned data instead of using after all restrictions?
 - Local vs remote? Define and when to use
@@ -68,15 +80,7 @@ When to use a local vs remote
 END OF NOVEMBER
 
 
-Other
 
-- Security stuff? Just need a blanket statement explaining that any public or private APIs that you use do not undergo any security change, the gateway is just a proxy that you are accessing them through etc
-- How do I get graphiql to work on my mesh?
-
-
-Revanth leading Nov 1st, Revanth will follow up with me when this is in Ready for Staging
-
-What is a hook, a composable local or remote function that can be invoked on a particular operation
 
 Can add before or after schema, can add for a source or for a whole mesh
 
