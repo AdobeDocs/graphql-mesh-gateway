@@ -32,6 +32,18 @@ The API Mesh enables developers to integrate a GraphQL Mesh or third-party APIs 
 
 Adobe Commerce users can consider the API Mesh as a low-code way to integrate other APIs to the Storefront and Storefront Management APIs. It also provides a way for the Storefront API and the Storefront Management APIs to communicate with each other.
 
+## Security
+
+The GraphQL data plane used by API Mesh is public, but requires both a MeshID and an API Key to access. We recommend storing your API Key in a header, instead of using the API Key attached to your mesh's url.
+
+Basic identification is provided by your Mesh ID and API Key. Additionally, API Mesh honors any downstream authorization headers provided by your [sources](source-handlers.md).
+
+If you require additional authentication or authorization, you can use [custom resolvers](../reference/multiple-apis.md).
+
+Distributed denial-of-service (DDOS) attack protection, rate limiting, and throttling are provided at a global level by graph.adobe.io. For more individualized protection, we recommend adding a Content Delivery Network (CDN), such as Fastly, through [edge caching](cache-control-headers.md).
+
+If you encounter any security issues and need assistance, reach out to your contact for the beta program.
+
 ## Where to go next
 
 -  [Getting started]
