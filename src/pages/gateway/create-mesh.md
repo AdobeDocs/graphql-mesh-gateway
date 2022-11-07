@@ -319,7 +319,7 @@ You can return to the Project Overview page whenever you need to retrieve your A
 
 ## Stage to production
 
-To move a mesh in the `stage` workspace to `production` workspace:
+To move a mesh in the `stage` workspace to the `production` workspace:
 
 1. [Retrieve](#retrieve-a-previously-created-meshid) your previously created mesh by running the following command with the desired project and workspace selected.
 
