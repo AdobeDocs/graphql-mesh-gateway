@@ -9,7 +9,7 @@ The Hooks transform allows you to invoke a composable [local or remote](#local-v
 
 <InlineAlert variant="info" slots="text"/>
 
-Hooks are used to modify the response to a request, but cannot be used to modify the request.
+Hooks cannot be used to modify the request.
 
 If processing time is important, developers should use hook transforms sparingly, because they can increase processing time.
 
