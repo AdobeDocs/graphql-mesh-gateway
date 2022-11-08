@@ -112,6 +112,10 @@ The `aio api-mesh:create` response automatically assigns you an API key and subs
 
 After you [create a mesh], you can access the GraphQL endpoint in any GraphQL browser by modifying the following URL: `https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`
 
+<InlineAlert variant="info" slots="text"/>
+
+For security purposes, we recommend moving your API key from the provided link into a request header.
+
 The `aio api-mesh:create` response provides the exact url to access the gateway for your mesh.
 
 ## Mesh example
