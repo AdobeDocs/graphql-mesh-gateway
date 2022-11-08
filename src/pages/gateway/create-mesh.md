@@ -324,10 +324,10 @@ To move a mesh in the `stage` workspace to the `production` workspace:
 1. [Retrieve](#retrieve-a-previously-created-meshid) your previously created mesh by running the following command with the desired project and workspace selected.
 
   ```bash
-  aio api-mesh:describe
+  aio api-mesh:get
   ```
 
-1. Copy and paste the described mesh into a new `.json` file and save it.
+1. Copy and paste the retrieved mesh into a new `.json` file and save it.
 
 1. Select the `production` workspace or [select another project and workspace](#select-a-project-or-workspace) combination for your destination.
 
