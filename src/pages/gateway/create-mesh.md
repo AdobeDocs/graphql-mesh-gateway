@@ -349,26 +349,6 @@ To access the gateway and perform GraphQL queries, you need to provide an API Ke
 
 You can return to the Project Overview page whenever you need to retrieve your API Key.
 
-## Stage to production
-
-To move a mesh in the `stage` workspace to the `production` workspace:
-
-1. [Retrieve](#retrieve-a-previously-created-meshid) your previously created mesh by running the following command with the desired project and workspace selected.
-
-  ```bash
-  aio api-mesh:get
-  ```
-
-1. Copy and paste the retrieved mesh into a new `.json` file and save it.
-
-1. Select the `production` workspace or [select another project and workspace](#select-a-project-or-workspace) combination for your destination.
-
-1. Run the [create](#create-a-mesh) command and reference the previously created file.
-
-    ```bash
-    aio api-mesh:create mesh.json
-    ```
-
 <!-- Link Definitions -->
 [handlers]: source-handlers.md
 [transforms]: transforms.md
