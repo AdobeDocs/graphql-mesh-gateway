@@ -333,7 +333,11 @@ You may need to move a mesh from one workspace to another, for example from `sta
 
 1. Copy your mesh and paste the retrieved mesh into a new `.json` file. Before saving the file remove the unnecessary data in the `lastUpdated`, `meshId`, and `lastUpdatedBy` sections. See the [example section](#copying-mesh-example) for more details.
 
-1. Select the `production` workspace or [select another project and workspace](#select-a-project-or-workspace) combination for your destination.
+1. Run the following command and select the `production` workspace, see [select a project or workspace](#select-a-project-or-workspace) for more information.
+
+    ```bash
+    aio console:workspace:select
+    ```
 
 1. Run the [create](#create-a-mesh) command and reference the previously created file.
 
