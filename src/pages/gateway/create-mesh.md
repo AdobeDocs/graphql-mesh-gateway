@@ -331,7 +331,7 @@ To move a mesh in the `stage` workspace to the `production` workspace:
     aio api-mesh:get
     ```
 
-    The response displays your mesh which begins with the opening curly bracket (`{`) that follows `Successfully retrieved mesh`.
+    The response displays your mesh, which begins with the opening curly bracket (`{`) that follows `Successfully retrieved mesh`.
 
 1. Copy and paste the retrieved mesh into a new `.json` file and save it.
 
