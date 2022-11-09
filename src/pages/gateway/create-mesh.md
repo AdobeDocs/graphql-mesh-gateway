@@ -86,8 +86,6 @@ After you [create a mesh], you can access the GraphQL endpoint in any GraphQL br
 
 For security purposes, we recommend moving your API key from the provided link into a request header.
 
-The `aio api-mesh:create` response provides the exact url to access the gateway for your mesh.
-
 ### Create a mesh from a source
 
 The `aio api-mesh:source` commands provide several prebuilt mesh sources that you can use to create your mesh file, for example `mesh.json`. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. Once approved, these sources will be available for selection in the CLI.
@@ -128,7 +126,7 @@ You can also create a mesh automatically when [bootstrapping a new app through t
     aio app init <app_name>
     ```
 
-1. Select the desired organization, project, and workspace by using the arrow keys or start typing to search.
+1. Select the desired organization, project, and workspace by using the arrow keys, or start typing to search.
 
 1. Select the `generator-app-api-mesh` standalone application.
 
