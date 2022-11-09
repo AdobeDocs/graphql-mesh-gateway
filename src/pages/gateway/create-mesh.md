@@ -84,7 +84,7 @@ After you [create a mesh], you can access the GraphQL endpoint in any GraphQL br
 
 <InlineAlert variant="info" slots="text"/>
 
-For security purposes, we recommend moving your API key from the provided link into a request header.
+For security purposes, we recommend moving your API key from the provided link into a request header. The header key is `x-api-key` and the header value is your API key.
 
 ### Create a mesh from a source
 
