@@ -321,9 +321,9 @@ To access the gateway and perform GraphQL queries, you need to provide an API Ke
 
 You can return to the Project Overview page whenever you need to retrieve your API Key.
 
-## Stage to production
+## Move a mesh to another workspace
 
-To move a mesh in the `stage` workspace to the `production` workspace:
+You may need to move a mesh from one workspace to another, for example from `stage` to `production`. The following process describes how to copy a mesh from one workspace and duplicate it in another workspace.
 
 1. [Retrieve](#retrieve-a-previously-created-meshid) your previously created mesh by running the following command with the desired project and workspace selected.
 
