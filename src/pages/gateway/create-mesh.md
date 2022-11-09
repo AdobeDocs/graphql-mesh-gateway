@@ -331,9 +331,7 @@ You may need to move a mesh from one workspace to another, for example from `sta
     aio api-mesh:get
     ```
 
-    The response displays your mesh, which begins with the opening curly bracket (`{`) that follows `Successfully retrieved mesh`.
-
-1. Copy and paste the retrieved mesh into a new `.json` file and save it.
+1. Copy your mesh and paste the retrieved mesh into a new `.json` file. Before saving the file remove the unnecessary data in the `lastUpdated`, `meshId`, and `lastUpdatedBy` sections. See the [example section](#copying-mesh-example) for more details.
 
 1. Select the `production` workspace or [select another project and workspace](#select-a-project-or-workspace) combination for your destination.
 
@@ -342,6 +340,57 @@ You may need to move a mesh from one workspace to another, for example from `sta
     ```bash
     aio api-mesh:create mesh.json
     ```
+
+### Copying mesh example
+
+Running the `aio api-mesh:get` command returns the full mesh along with useful data about who modified it previously and when it was modified. However, this information must be removed for the mesh to function correctly.
+
+For example, the following response is similar to the response you will receive from the `aio api-mesh:get` command:
+
+```json
+Successfully retrieved mesh {
+  "lastUpdated": "2022-11-09T21:12:34.977Z",
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "mesh",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        }
+      }
+    ]
+  },
+  "meshId": "ab1c234-5d6e-7890-fa12-b3c45d67890e",
+  "lastUpdatedBy": {
+    "firstName": "User",
+    "lastName": "Name",
+    "userEmail": "username@email.com",
+    "userId": "A1B2345678901C234D567EFA@ab12345678cdef90123a4b.e",
+    "displayName": "User%20Name"
+  }
+}
+```
+
+You need to remove the extraneous data sections, so that your mesh is formatted like the following example:
+
+```json
+{
+    "meshConfig": {
+     "sources": [
+        {
+          "name": "mesh",
+          "handler": {
+            "graphql": {
+              "endpoint": "https://venia.magento.com/graphql"
+            }
+          }
+       }
+    ]
+  }
+}
+```
 
 <!-- Link Definitions -->
 [handlers]: source-handlers.md
