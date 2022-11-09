@@ -123,7 +123,7 @@ You can also create a mesh automatically when [bootstrapping a new app through t
 1. Navigate to the location you want to initialize your project and enter the following command:
 
     ```bash
-    aio app init <app_name>
+    aio app init
     ```
 
 1. Select the desired organization, project, and workspace by using the arrow keys, or start typing to search.
