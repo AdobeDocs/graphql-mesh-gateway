@@ -27,6 +27,8 @@ aio api-mesh:create [FILE]
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh creation instead of prompting the user to confirm.
 
+`-j` or `--json` outputs the `json` of the created mesh.
+
 `--help` provides information on the specified command.
 
 ### Example
