@@ -347,6 +347,81 @@ To access the gateway and perform GraphQL queries, you need to provide an API Ke
 
 You can return to the Project Overview page whenever you need to retrieve your API Key.
 
+## Move a mesh to another workspace
+
+You may need to move a mesh from one workspace to another, for example from `stage` to `production`. The following process describes how to copy a mesh from one workspace and duplicate it in another workspace.
+
+1. [Retrieve](#retrieve-a-previously-created-meshid) your previously created mesh by running the following command with the desired project and workspace selected.
+
+    ```bash
+    aio api-mesh:get
+    ```
+
+1. Copy your mesh and paste the retrieved mesh into a new `.json` file. Before saving the file remove the unnecessary data in the `lastUpdated`, `meshId`, and `lastUpdatedBy` sections. See the [example section](#copying-mesh-example) for more details.
+
+1. Run the following command and select the `production` workspace, see [select a project or workspace](#select-a-project-or-workspace) for more information.
+
+    ```bash
+    aio console:workspace:select
+    ```
+
+1. Run the [create](#create-a-mesh) command and reference the previously created file.
+
+    ```bash
+    aio api-mesh:create mesh.json
+    ```
+
+### Copying mesh example
+
+Running the `aio api-mesh:get` command returns the full mesh along with useful data about who modified it previously and when it was modified. However, this information must be removed for the mesh to function correctly.
+
+For example, the following response is similar to the response you will receive from the `aio api-mesh:get` command:
+
+```json
+Successfully retrieved mesh {
+  "lastUpdated": "2022-11-09T21:12:34.977Z",
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "mesh",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        }
+      }
+    ]
+  },
+  "meshId": "ab1c234-5d6e-7890-fa12-b3c45d67890e",
+  "lastUpdatedBy": {
+    "firstName": "User",
+    "lastName": "Name",
+    "userEmail": "username@email.com",
+    "userId": "A1B2345678901C234D567EFA@ab12345678cdef90123a4b.e",
+    "displayName": "User%20Name"
+  }
+}
+```
+
+You need to remove the extraneous data sections, so that your mesh is formatted like the following example:
+
+```json
+{
+    "meshConfig": {
+     "sources": [
+        {
+          "name": "mesh",
+          "handler": {
+            "graphql": {
+              "endpoint": "https://venia.magento.com/graphql"
+            }
+          }
+       }
+    ]
+  }
+}
+```
+
 <!-- Link Definitions -->
 [handlers]: source-handlers.md
 [transforms]: transforms.md
