@@ -76,6 +76,16 @@ Workspaces that already have an API mesh will have "API Mesh" displayed on their
 
 Refer to the [command reference] for a detailed description of `aio api-mesh:create`.
 
+### Access the gateway
+
+The `aio api-mesh:create` response automatically assigns you an API key and subscribes that API key to the mesh service. You can also retrieve the API key by viewing the project in the [Adobe Developer Console].
+
+After you [create a mesh], you can access the GraphQL endpoint in any GraphQL browser by modifying the following URL: `https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`
+
+<InlineAlert variant="info" slots="text"/>
+
+For security purposes, we recommend moving your API key from the provided link into a request header. The header key is `x-api-key` and the header value is your API key.
+
 ### Create a mesh from a source
 
 The `aio api-mesh:source` commands provide several prebuilt mesh sources that you can use to create your mesh file, for example `mesh.json`. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. Once approved, these sources will be available for selection in the CLI.
@@ -106,17 +116,33 @@ Alternatively, you can use the [aio api-mesh:source:get](./command-reference.md#
 
 Refer to the [Command reference](command-reference.md#aio-api-meshsourceinstall) flags to learn how to replace variables in the source mesh configuration.
 
-### Access the gateway
+### Create a mesh from a template
 
-The `aio api-mesh:create` response automatically assigns you an API key and subscribes that API key to the mesh service. You can also retrieve the API key by viewing the project in the [Adobe Developer Console].
+You can also create a mesh automatically when [bootstrapping a new app through the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli):
 
-After you [create a mesh], you can access the GraphQL endpoint in any GraphQL browser by modifying the following URL: `https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`
+1. Navigate to the location you want to initialize your project and enter the following command:
 
-<InlineAlert variant="info" slots="text"/>
+    ```bash
+    aio app init
+    ```
 
-For security purposes, we recommend moving your API key from the provided link into a request header.
+1. Select the desired organization, project, and workspace by using the arrow keys, or start typing to search.
 
-The `aio api-mesh:create` response provides the exact url to access the gateway for your mesh.
+1. Select the `generator-app-api-mesh` standalone application.
+
+1. Indicate if you want this app to be a single-page application accessible through the Experience Cloud UI.
+
+1. Indicate if you want to create a sample mesh.
+
+1. After the process completes, you are provided a link to your [API mesh endpoint](#access-the-gateway).
+
+1. When you are ready, you can deploy your app by running the following command:
+
+    ```bash
+    aio app deploy
+    ```
+
+1. After the process completes, you are provided a link to your app at `experience.adobe.com`.
 
 ## Mesh example
 
@@ -320,6 +346,81 @@ To access the gateway and perform GraphQL queries, you need to provide an API Ke
     ![api key](../_images/api-key.png)
 
 You can return to the Project Overview page whenever you need to retrieve your API Key.
+
+## Move a mesh to another workspace
+
+You may need to move a mesh from one workspace to another, for example from `stage` to `production`. The following process describes how to copy a mesh from one workspace and duplicate it in another workspace.
+
+1. [Retrieve](#retrieve-a-previously-created-meshid) your previously created mesh by running the following command with the desired project and workspace selected.
+
+    ```bash
+    aio api-mesh:get
+    ```
+
+1. Copy your mesh and paste the retrieved mesh into a new `.json` file. Before saving the file remove the unnecessary data in the `lastUpdated`, `meshId`, and `lastUpdatedBy` sections. See the [example section](#copying-mesh-example) for more details.
+
+1. Run the following command and select the `production` workspace, see [select a project or workspace](#select-a-project-or-workspace) for more information.
+
+    ```bash
+    aio console:workspace:select
+    ```
+
+1. Run the [create](#create-a-mesh) command and reference the previously created file.
+
+    ```bash
+    aio api-mesh:create mesh.json
+    ```
+
+### Copying mesh example
+
+Running the `aio api-mesh:get` command returns the full mesh along with useful data about who modified it previously and when it was modified. However, this information must be removed for the mesh to function correctly.
+
+For example, the following response is similar to the response you will receive from the `aio api-mesh:get` command:
+
+```json
+Successfully retrieved mesh {
+  "lastUpdated": "2022-11-09T21:12:34.977Z",
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "mesh",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        }
+      }
+    ]
+  },
+  "meshId": "ab1c234-5d6e-7890-fa12-b3c45d67890e",
+  "lastUpdatedBy": {
+    "firstName": "User",
+    "lastName": "Name",
+    "userEmail": "username@email.com",
+    "userId": "A1B2345678901C234D567EFA@ab12345678cdef90123a4b.e",
+    "displayName": "User%20Name"
+  }
+}
+```
+
+You need to remove the extraneous data sections, so that your mesh is formatted like the following example:
+
+```json
+{
+    "meshConfig": {
+     "sources": [
+        {
+          "name": "mesh",
+          "handler": {
+            "graphql": {
+              "endpoint": "https://venia.magento.com/graphql"
+            }
+          }
+       }
+    ]
+  }
+}
+```
 
 <!-- Link Definitions -->
 [handlers]: source-handlers.md
