@@ -29,7 +29,13 @@ module.exports = [
             },
             {
                 title: 'Transforms',
-                path: '/gateway/transforms'
+                path: '/gateway/transforms',
+                pages: [
+                    {
+                        title: 'Hooks transform',
+                        path: '/gateway/hooks',
+                    },
+                ],
             },
             {
                 title: 'Headers',
