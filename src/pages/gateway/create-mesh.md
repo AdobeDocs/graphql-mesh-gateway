@@ -351,15 +351,17 @@ You can return to the Project Overview page whenever you need to retrieve your A
 
 You may need to move a mesh from one workspace to another, for example from `stage` to `production`. The following process describes how to copy a mesh from one workspace and duplicate it in another workspace.
 
-1. [Retrieve](#retrieve-a-previously-created-meshid) your previously created mesh by running the following command with the desired project and workspace selected.
+1. [Select the workspace](#select-a-project-or-workspace) that contains the mesh you want to copy.
+
+1. [Retrieve](#retrieve-a-previously-created-meshid) your previously created mesh by running the following [`get` command](command-reference.md#aio-api-meshget).
 
     ```bash
-    aio api-mesh:get
+    aio api-mesh:get download.json
     ```
 
-1. Copy your mesh and paste the retrieved mesh into a new `.json` file. Before saving the file remove the unnecessary data in the `lastUpdated`, `meshId`, and `lastUpdatedBy` sections. See the [example section](#copying-mesh-example) for more details.
+  This command creates a file named `download.json` that contains a copy of the mesh from the selected workspace.
 
-1. Run the following command and select the `production` workspace, see [select a project or workspace](#select-a-project-or-workspace) for more information.
+1. Run the following command and select the `production` or target workspace, see [select a project or workspace](#select-a-project-or-workspace) for more information.
 
     ```bash
     aio console:workspace:select
@@ -368,59 +370,8 @@ You may need to move a mesh from one workspace to another, for example from `sta
 1. Run the [create](#create-a-mesh) command and reference the previously created file.
 
     ```bash
-    aio api-mesh:create mesh.json
+    aio api-mesh:create download.json
     ```
-
-### Copying mesh example
-
-Running the `aio api-mesh:get` command returns the full mesh along with useful data about who modified it previously and when it was modified. However, this information must be removed for the mesh to function correctly.
-
-For example, the following response is similar to the response you will receive from the `aio api-mesh:get` command:
-
-```json
-Successfully retrieved mesh {
-  "lastUpdated": "2022-11-09T21:12:34.977Z",
-  "meshConfig": {
-    "sources": [
-      {
-        "name": "mesh",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://venia.magento.com/graphql"
-          }
-        }
-      }
-    ]
-  },
-  "meshId": "ab1c234-5d6e-7890-fa12-b3c45d67890e",
-  "lastUpdatedBy": {
-    "firstName": "User",
-    "lastName": "Name",
-    "userEmail": "username@email.com",
-    "userId": "A1B2345678901C234D567EFA@ab12345678cdef90123a4b.e",
-    "displayName": "User%20Name"
-  }
-}
-```
-
-You need to remove the extraneous data sections, so that your mesh is formatted like the following example:
-
-```json
-{
-    "meshConfig": {
-     "sources": [
-        {
-          "name": "mesh",
-          "handler": {
-            "graphql": {
-              "endpoint": "https://venia.magento.com/graphql"
-            }
-          }
-       }
-    ]
-  }
-}
-```
 
 <!-- Link Definitions -->
 [handlers]: source-handlers.md
