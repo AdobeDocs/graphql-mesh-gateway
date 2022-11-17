@@ -58,7 +58,6 @@ Most of the previous Guides configured Transforms at the root of the `.meshrc.ya
 
 However, Mesh Transforms can be specified at the Source or Root level as follows:
 
-
 ```json
 {
     "sources": [
