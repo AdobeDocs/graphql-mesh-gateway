@@ -358,9 +358,9 @@ that provide a [canonical definition](https://www.graphql-tools.com/docs/stitch-
    -  `fields` (type: `Array of Object`, required):
       -  `fieldName` (type: `String`, required)
       -  `computed` (type: `Object`) - specifies a selection of fields required from other services to compute the value of this field.
-      These additional fields are only selected when the computed field is requested.
-      Analogous to [computed field](https://www.graphql-tools.com/docs/stitch-type-merging#computed-fields) in merged type configuration.
-      Computed field dependencies must be sent into the subservice using an [object key](https://www.graphql-tools.com/docs/stitch-directives-sdl#object-keys).:
+         - These additional fields are only selected when the computed field is requested.
+         - Analogous to [computed field](https://www.graphql-tools.com/docs/stitch-type-merging#computed-fields) in merged type configuration.
+         - Computed field dependencies must be sent into the subservice using an [object key](https://www.graphql-tools.com/docs/stitch-directives-sdl#object-keys).
          -  `selectionSet` (type: `String`, required)
 -  `queryFields` (type: `Array of Object`, required) - Denotes a root field used to query a merged type across services.
 The marked field's name is analogous
