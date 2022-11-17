@@ -10,6 +10,10 @@ The `rename` transform allows you to rename:
 -  GraphQL fields
 -  GraphQL field arguments
 
+The `rename` transform helps you avoid conflicting names, simplify complicated names and make queries look more like mutations.
+
+`rename` elements can contain arrays of individual renaming operations, defined in separate renames objects. Each of these objects must define the `from` and `to` values.
+
 ## How to use?
 
 Add the following configuration to your Mesh config file:
@@ -62,7 +66,9 @@ Add the following configuration to your Mesh config file:
 
 `type` and `field` are mandatory to rename a field argument with `argument`.
 
-Or you can use regular expressions to rename multiple types, fields or both:
+You can use RegEx flags to enable the use of regular expressions when renaming using this transform. This way you can rename multiple types, fields or both.
+
+For example, you could use the key value pair field: api(.*) in the from object to rename any field of the corresponding type that begins with "api".
 
 ```json
 [

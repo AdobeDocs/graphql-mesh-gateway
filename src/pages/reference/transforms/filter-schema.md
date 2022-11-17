@@ -4,7 +4,10 @@ title: filterSchema Transform | API Mesh for Adobe Developer App Builder
 
 # filterSchema transform
 
-The `filterSchema` transform allows you to filter fields in specific types.
+The `filterSchema` transform allows you to specify which schema elements to include or exclude in your mesh.
+You can include or exclude entire queries and mutations, place restrictions on which types can appear in your calls or which fields can appear in specific types.
+
+For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed.
 
 ## How to use?
 
@@ -37,7 +40,9 @@ Add the following configuration to your Mesh config file:
 }
 ```
 
-Let's assume you have the following schema,
+## Example
+
+Let's assume you have the following schema:
 
 ```graphql
 type Query {
@@ -68,7 +73,7 @@ type LooseType {
 }
 ```
 
-With the following Filter Schema config,
+With the following Filter Schema config:
 
 ```json
 {
@@ -111,7 +116,7 @@ type User {
 
 <InlineAlert variant="info" slots="text"/>
 
-For information about "bare" and "wrap" modes, read the [dedicated section](/reference/transforms/index.md#two-different-modes).
+For information about "bare" and "wrap" modes, read the [dedicated section](index.md#two-different-modes).
 
 ## Config API Reference
 

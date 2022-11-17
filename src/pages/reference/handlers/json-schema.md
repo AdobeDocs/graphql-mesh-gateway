@@ -5,6 +5,10 @@ import Headers from '/src/pages/_includes/headers.md'
 
 # JSON schema handlers
 
+<InlineAlert variant="info" slots="text"/>
+
+For a guided tutorial, please refer to ["How to: Configure Sources with no definition"](https://the-guild.dev/graphql/mesh/docs/getting-started/sources-with-no-definition)
+
 This handler allows you to load any remote REST service, and describe its request/response. With this handler, you can easily customize and control the built GraphQL schema.
 
 <InlineAlert variant="warning" slots="text"/>
@@ -159,6 +163,149 @@ By declaring the `responseSample`, you can use the JSON sample in the GraphQL sc
 
 For your `./jsons/MyField.response.json` file, any JSON file can be used.
 ``` -->
+
+## Query Parameters
+
+There are a few methods to define the query parameters, select the one that fits your needs (or combine them):
+
+### Auto declare:
+
+The mesh automatically generates arguments for operations if needed. Arguments are generated as nullable strings by default.
+
+```json
+{
+    "sources": [
+        {
+            "name": "MyGraphQLApi",
+            "handler": {
+                "jsonSchema": {
+                    "baseUrl": "https://some-service-url/endpoint-path/",
+                    "operations": [
+                        {
+                            "type": "Query",
+                            "field": "user",
+                            "path": "/user?id={args.id}",
+                            "method": "GET",
+                            "responseSchema": "./json-schemas/user.json"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+### Manual declare:
+
+You can define the arguments of the operation using the `argTypeMap` config field, according to the JSON Schema spec.
+
+In this example we declare `page` argument as an object with `limit` and `offset` properties:
+
+```json
+{
+    "argTypeMap": {
+        "page": {
+            "type": "object",
+            "properties": {
+                "limit": {
+                    "type": "number"
+                },
+                "offset": {
+                    "type": "number"
+                }
+            }
+        }
+    }
+}
+```
+
+In addition, especially for non-primitive types, the arguments should be added to the path using the `queryParamArgMap` config field.
+
+Here we add the `page` argument to the query parameters:
+
+```json
+{
+    "queryParamArgMap": {
+        "page": "page"
+    }
+}
+```
+
+And here is the final config:
+
+```json
+{
+    "sources": [
+        {
+            "name": "MyGraphQLApi",
+            "handler": {
+                "jsonSchema": {
+                    "baseUrl": "https://some-service-url/endpoint-path/",
+                    "operations": [
+                        {
+                            "type": "Query",
+                            "field": "users",
+                            "path": "/getUsers",
+                            "method": "GET",
+                            "responseSample": "./jsons/MyField.response.json",
+                            "responseTypeName": "MyResponseName",
+                            "argTypeMap": {
+                                "page": {
+                                    "type": "object",
+                                    "properties": {
+                                        "limit": {
+                                            "type": "number"
+                                        },
+                                        "offset": {
+                                            "type": "number"
+                                        }
+                                    }
+                                }
+                            },
+                            "queryParamArgMap": {
+                                "page": "page"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+### Global arguments
+
+Query arguments could be defined globally, on handler level, so they are added to all operations.
+
+In this example we declare `limit` parameter with the default value of `10`, and `api_key` with dynamic value taken from the environment:
+
+```json
+{
+    "sources": [
+        {
+            "name": "MyGraphQLApi",
+            "handler": {
+                "jsonSchema": {
+                    "baseUrl": "https://some-service-url/endpoint-path/",
+                    "queryParams": {
+                        "limit": 10,
+                        "api_key": {
+                            "env.MY_API_KEY": null
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}
+```
+
+<InlineAlert variant="info" slots="text"/>
+
+`queryParams` are automatically added to the query. If the argument is defined both on the handler AND operation level, the operation level argument will be used.
+
 ## Config API Reference
 
 -  `baseUrl` (type: `String`)

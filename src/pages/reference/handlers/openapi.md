@@ -5,9 +5,9 @@ import Headers from '/src/pages/_includes/headers.md'
 
 # OpenAPI handlers
 
-This handler allows you to load remote or local [OpenAPI (2/3) and Swagger](https://swagger.io) schemas. Based on [OpenAPI-to-GraphQL](https://developer.ibm.com/open/projects/openapi-to-graphql).
+This handler allows you to load remote or local [OpenAPI (2/3) and Swagger](https://swagger.io) schemas.
 
-You can import it using remote/local `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
+You can import it using remote/local `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers]([../handlers/index.md#reference-local-files-in-handlers](https://the-guild.dev/graphql/mesh/docs/getting-started/sources-with-no-definition)) for more information.
 
 To get started, use the handler in your Mesh config file:
 
@@ -18,13 +18,17 @@ To get started, use the handler in your Mesh config file:
       "name": "MyOpenapiApi",
       "handler": {
         "openapi": {
-          "source": "https://my-api-source.com"
+          "source": "./monolith-open-api-schema.json"
         }
       }
     }
   ]
 }
 ```
+
+<InlineAlert variant="info" slots="text"/>
+
+This handler is based on the [JSON Schema handler](json-schema.md), so its configurations also apply to the `openapi` handler.
 
 ## Overriding default Query/Mutation operations
 
@@ -40,7 +44,7 @@ See example below:
       "name": "MyOpenapiApi",
       "handler": {
         "openapi": {
-          "source": "https://my-api-source.com",
+          "source": "./monolith-open-api-schema.json",
           "selectQueryOrMutationField": [
             {
               "title": "Weather Service v1",
@@ -61,6 +65,22 @@ See example below:
   ]
 }
 ```
+<!-- need applicable api example -->
+
+## Naming convention
+
+We use `operationId` for names, and aim to keep it as close as possible to origin.
+
+### Type naming
+
+We adjust `operationId` only when necessary according to the GraphQL spec:
+    - Characters, such as white space, `.`, `/`, `:` and `-`, are replaced with an underscore (`_`).
+    - Other characters which are not digits or Latin letters are replaced with their character codes.
+    - If first character of a name is a digit, we prefix it with an underscore (`_`), because GraphQL does not allow initial digits.
+
+### Unnamed types
+
+We use path-based naming. So names could be structured like `query_getUsers_items_firstName`.
 
 ## Dynamic Header Values
 
@@ -118,7 +138,12 @@ This section shows how to configure GraphQL Mesh to accept either, and also how 
 
 ### Accepting one of cookie, header or context value
 
-We want to accept one of: an `accessToken` cookie, an `Authorization` header, or an authorization value available in context (e.g. set by a GraphQL auth plugin), and transmit it to the Rest API as a `Authorization` header. GraphQL Mesh does not allow dynamic selection in the `meshrc.json` file, but that's fine! We can use a bit of trickery.
+We want to accept one of the following: 
+- an `accessToken` cookie
+- an `Authorization` header
+- an authorization value available in context (e.g. set by a GraphQL auth plugin)
+ 
+And transmit it to the Rest API as a `Authorization` header. GraphQL Mesh does not allow dynamic selection in the `meshrc.json` file, but that's fine! We can use a bit of trickery.
 
 ```json
 {
@@ -214,6 +239,16 @@ const resolvers = {
 module.exports = { resolvers }
 ``` 
 -->
+
+
+## Callbacks as Subscriptions
+
+The OpenAPI handler is able to process OAS Callbacks as GraphQL Subscriptions. It uses your PubSub implementation to consume the data. But you have to define webhooks for individual callbacks to make it work.
+
+See [Subscriptions & Webhooks](../subscriptions-webhooks.md) to create an endpoint to consume a webhook. You should use the callback url as `pubSubTopic` in the webhook configuration.
+
+Also see our example; [Subscriptions Example with Webhooks](https://codesandbox.io/s/github/Urigo/graphql-mesh/tree/master/examples/openapi-subscriptions).
+
 ## Examples
 
 Here are some examples of OpenAPI Handlers:
