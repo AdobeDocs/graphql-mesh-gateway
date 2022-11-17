@@ -7,7 +7,7 @@ import Headers from '/src/pages/_includes/headers.md'
 
 This handler allows you to load remote or local [OpenAPI (2/3) and Swagger](https://swagger.io) schemas.
 
-You can import it using remote/local `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers]([../handlers/index.md#reference-local-files-in-handlers](https://the-guild.dev/graphql/mesh/docs/getting-started/sources-with-no-definition)) for more information.
+You can import it using remote/local `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers](index.md#reference-local-files-in-handlers) for more information.
 
 To get started, use the handler in your Mesh config file:
 
@@ -244,7 +244,7 @@ module.exports = { resolvers }
 
 The OpenAPI handler is able to process OAS Callbacks as GraphQL Subscriptions. It uses your PubSub implementation to consume the data. But you have to define webhooks for individual callbacks to make it work.
 
-See [Subscriptions & Webhooks](../subscriptions-webhooks.md) to create an endpoint to consume a webhook. You should use the callback url as `pubSubTopic` in the webhook configuration.
+See [Subscriptions & Webhooks](https://the-guild.dev/graphql/mesh/docs/guides/subscriptions-webhooks) to create an endpoint to consume a webhook. You should use the callback url as `pubSubTopic` in the webhook configuration.
 
 Also see our example; [Subscriptions Example with Webhooks](https://codesandbox.io/s/github/Urigo/graphql-mesh/tree/master/examples/openapi-subscriptions).
 
