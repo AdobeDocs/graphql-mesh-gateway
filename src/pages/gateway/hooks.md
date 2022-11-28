@@ -172,7 +172,7 @@ You should avoid using local composers if:
 
 ### `remote` composers
 
-If a local composer does not work or causes timeout errors, consider using a remote composer. 
+If a local composer does not work or causes timeout errors, consider using a remote composer.
 
 <InlineAlert variant="info" slots="text"/>
 
