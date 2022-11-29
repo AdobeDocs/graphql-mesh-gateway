@@ -13,8 +13,6 @@ Some use cases for the `HooksTransform` include:
 
 -  Publish events once all operations are executed
 
--  Checking for `storeCode` in headers before executing `availableStores` query (Adobe Commerce)
-
 -  Creating a cart in a 3rd-party store when calling the `Create Cart` Mutation (Adobe Commerce)
 
 <InlineAlert variant="info" slots="text"/>
