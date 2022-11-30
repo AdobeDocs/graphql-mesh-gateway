@@ -17,13 +17,11 @@ Some use cases for the `HooksTransform` include:
 
 <InlineAlert variant="info" slots="text"/>
 
-Hooks cannot be used to modify the request or the response.
+You cannot use hooks cannot to modify the request or the response. In addition, we recommend that you use resolvers instead of hooks to manipulate data.
+
+<!-- link to resolvers, when available -->
 
 Hook transforms increase processing time. Use them sparingly if processing time is important. Hooks are executed in the order you provide them, except `blocking` hooks execute before non-blocking hooks.
-
-Additionally, hook transforms should not be used to manipulate anything. If you need to manipulate your data, use resolvers.
-
-<!-- link to resolvers, what type of resolvers??? -->
 
 ```ts
 interface HooksTransform {
@@ -47,7 +45,7 @@ interface HooksTransform {
 ```
 
 ## Hook arguments
-<!-- are these actually arguments? -->
+
 Hooks accept the following arguments:
 
 ```ts
@@ -60,28 +58,23 @@ blocking: boolean;
 
 - `target` (string) - The target GraphQL node.
 
-    For example, `Query.availableStores` targets the `availableStores` field in the query, which means that if the  query calls the `availableStores` field, then the `composer` will execute.
-<!-- need better example? -->
+    For example, `Query.availableStores` targets [`availableStores`](https://developer.adobe.com/commerce/webapi/graphql/schema/store/queries/available-stores/), which means that if the  query calls `availableStores`, then the `composer` will execute.
 
 - `composer` (string) - The local or remote file location of the function you want to execute when the mesh encounters the node specified by the `target`.
   
-    Local scripts must be added to the mesh's [`files` array](../reference/handlers/index.md#reference-local-files-in-handlers). For more information on when to use local or remote functions, see [Local vs remote functions](#local-vs-remote-functions).
+    You must add any local scripts to the mesh's [`files` array](../reference/handlers/index.md#reference-local-files-in-handlers). [Local vs remote functions](#local-vs-remote-functions) describes when to use a local or remote function.
 
     **NOTE**: Local composer functions are limited to 30 seconds. If `blocking` is set to `true` and the function takes longer than 30 seconds, you will receive a `Timeout Error`. In such cases, consider using a [remote composer](#local-vs-remote-functions).
 
 - `blocking` (boolean) - (`false` by default) Determines if the query waits for a successful return message before continuing the query.
   
-    Both `before` and `beforeAll` hooks accept the `blocking` argument, which allows you to stop running hooks for a query that does not receive a successful response.
+    Only the `before` and `beforeAll` hooks accept the `blocking` argument, which allows you to stop running hooks for a query that does not receive a successful response.
 
     If blocking is `true` and the composer returns an error, all future hook executions are cancelled and the node's `target` will not be invoked. If multiple objects use the same `target`, an unsuccessful response means that the `target` is not called for the remainder of the operation.
 
     If blocking is `false` and the composer returns an error, the composer will still be invoked.
 
     Blocking hooks are executed before non-blocking hooks.
-
-<InlineAlert variant="info" slots="text"/>
-
-The `blocking` argument applies to `Before` and `BeforeAll` only.
 
 ## Types of hooks
 
@@ -91,8 +84,6 @@ The following sections describe how to invoke hooks at different points during t
 
 The `beforeAll` hook allows you to insert a function before the query takes place. This is a good place to add an authentication layer or anything else you want to run before your query.
 
-A `target` is not necessary for the `beforeAll` hook.
-
 <InlineAlert variant="info" slots="text"/>
 
 The `beforeAll` hook does not accept an array.
@@ -100,7 +91,7 @@ The `beforeAll` hook does not accept an array.
 ```ts
 interface BeforeAllTransformObject {
   composer: string;
-  blocking?: boolean;
+  blocking: boolean;
 }
 ```
 
@@ -112,7 +103,7 @@ The `before` hook allows you to insert an object or array before calling the [ta
 interface BeforeHooksTransformObject {
   target: string;
   composer: string;
-  blocking?: boolean;
+  blocking: boolean;
 }
 ```
 
@@ -138,8 +129,6 @@ The `afterAll` hook allows you to insert a function after the entire operation r
 <InlineAlert variant="info" slots="text"/>
 
 `afterAll` hooks cannot be blocked because the data has already resolved.
-
-A `target` is not necessary for the `afterAll` hook.
 
 ```ts
 interface AfterAllTransformObject {
@@ -213,8 +202,6 @@ A composer can be a local function or a remote serverless function. Composer sig
 - `info` - Contains information about the execution state of the query, including the field name and the path to the field from the root
 
     This argument is optional and should only be used in advanced cases.
-
-<!-- What are the advanced cases? -->
 
 <InlineAlert variant="info" slots="text"/>
 
