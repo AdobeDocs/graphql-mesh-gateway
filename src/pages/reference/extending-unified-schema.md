@@ -9,7 +9,7 @@ We saw in [Combining multiple Sources](combining-multiple-sources.md) that `addi
 
 However, the `additionalResolvers` value can also be the path to a JavaScript/TypeScript file that exports the custom resolvers implementation.
 
-## Programatic `additionalResolvers`
+## Programmatic `additionalResolvers`
 
 In [Combining multiple Sources](combining-multiple-sources.md), the `additionalResolvers` could have been provided programatically as shown in the [`multiple-sources-prog-resolvers`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources-prog-resolvers) example.
 
@@ -21,8 +21,6 @@ The following `meshrc.yaml` configuration add the following fields:
 
 - `Book.author: authors_v1_Author`: to get the author of a book
 
-[_.meshrc.yaml_](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources-prog-resolvers/.meshrc.yaml)
-
 ```json
 {
     "sources": null,
@@ -33,8 +31,6 @@ The following `meshrc.yaml` configuration add the following fields:
     ]
 }
 ```
-
-[__`resolvers.ts`__](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources-prog-resolvers/resolvers.ts)
 
 ```ts
 import { Resolvers } from './.mesh'

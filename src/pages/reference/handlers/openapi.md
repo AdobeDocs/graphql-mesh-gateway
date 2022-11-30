@@ -212,7 +212,7 @@ const resolvers = {
 }
 
 module.exports = { resolvers }
-``` 
+```
 
 ## Examples
 
