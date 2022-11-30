@@ -11,15 +11,15 @@ Some use cases for the `HooksTransform` include:
 
 -  Authenticating a user before all operations
 
--  Publish events once all operations are executed
+-  Publishing events once all operations are executed
 
--  Creating a cart in a 3rd-party store when calling the `Create Cart` Mutation (Adobe Commerce)
+-  Creating a cart in a 3rd-party store when calling the `Create Cart` mutation (Adobe Commerce)
 
 <InlineAlert variant="info" slots="text"/>
 
 Hooks cannot be used to modify the request or the response.
 
-If processing time is important, developers should use hook transforms sparingly, because they can increase processing time. Hooks are executed in the order you provide them. `blocking` hooks execute before non `blocking` hooks.
+Hook transforms increase processing time. Use them sparingly if processing time is important. Hooks are executed in the order you provide them, except `blocking` hooks execute before non-blocking hooks.
 
 Additionally, hook transforms should not be used to manipulate anything. If you need to manipulate your data, use resolvers.
 
@@ -58,16 +58,16 @@ blocking: boolean;
 }
 ```
 
-- `target` (string) - The target GraphQL node you want to add a hook to.
+- `target` (string) - The target GraphQL node.
 
     For example, `Query.availableStores` targets the `availableStores` field in the query, which means that if the  query calls the `availableStores` field, then the `composer` will execute.
 <!-- need better example? -->
 
-- `composer` (string) - The local or remote file location of the function you want to execute when the mesh encounters the node specified by the `target`
+- `composer` (string) - The local or remote file location of the function you want to execute when the mesh encounters the node specified by the `target`.
   
     Local scripts must be added to the mesh's [`files` array](../reference/handlers/index.md#reference-local-files-in-handlers). For more information on when to use local or remote functions, see [Local vs remote functions](#local-vs-remote-functions).
 
-    **NOTE**: Local composer functions are limited to 30 seconds. If `blocking` is set to `true` and the function takes longer than 30 seconds, you will receive a `Timeout Error`. In such cases, please consider using a [remote composer](#local-vs-remote-functions).
+    **NOTE**: Local composer functions are limited to 30 seconds. If `blocking` is set to `true` and the function takes longer than 30 seconds, you will receive a `Timeout Error`. In such cases, consider using a [remote composer](#local-vs-remote-functions).
 
 - `blocking` (boolean) - (`false` by default) Determines if the query waits for a successful return message before continuing the query.
   
@@ -149,16 +149,16 @@ interface AfterAllTransformObject {
 
 ## Local vs remote functions
 
-`local` composers are contained within your `mesh.json` file, whereas `remote` composers are only referenced within you `mesh.json` file. Local and remote composers offer different advantages and have different limitations.
+`local` composers are defined within your `mesh.json` file, whereas `remote` composers are only referenced within your mesh file. Local and remote composers have different advantages and limitations.
 
 ### `local` composers
 
-You should use local composers if:
+Use local composers if:
 
 - The entire operation will take less than 30 seconds.
 - The composer logic is simple and only requires access to the headers, body, and other context objects.
 
-You should avoid using local composers if:
+Avoid using local composers if:
 
 - The entire operation will take more than 30 seconds.
 
@@ -176,7 +176,7 @@ If a local composer does not work or causes timeout errors, consider using a rem
 
 When using `remote` composers, you could see decreased performance, because `remote` composers add a network hop.
 
-`remote` composers can use the `root`, `args`, `context`, and `info` arguments over the network. However, the serialization and deserialization of JSON data means that any complex fields or references will be lost. If the composer depends on complex fields or references, you should consider using a `local` composer instead.
+`remote` composers can use the `root`, `args`, `context`, and `info` arguments over the network. However, the serialization and deserialization of JSON data means that any complex fields or references will be lost. If the composer depends on complex fields or references, consider using a `local` composer instead.
 
 ### Examples
 
