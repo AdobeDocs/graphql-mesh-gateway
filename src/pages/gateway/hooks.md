@@ -17,7 +17,7 @@ Some use cases for the `HooksTransform` include:
 
 <InlineAlert variant="info" slots="text"/>
 
-You cannot use hooks cannot to modify the request or the response. In addition, we recommend that you use resolvers instead of hooks to manipulate data.
+You cannot use hooks to modify the request or the response. In addition, we recommend that you use resolvers instead of hooks to manipulate data.
 
 <!-- link to resolvers, when available -->
 
@@ -187,7 +187,7 @@ A composer can be a local function or a remote serverless function. Composer sig
 
 ### `before` and `beforeAll` hook composers
 
-`before` and `beforeAll` hook composer accept the following [arguments](https://the-guild.dev/graphql/tools/docs/resolvers#resolver-function-signature):
+`before` and `beforeAll` hook composers accept the following [arguments](https://the-guild.dev/graphql/tools/docs/resolvers#resolver-function-signature):
 
 - `root` - The resolver's return value for this field's root or parent
 
