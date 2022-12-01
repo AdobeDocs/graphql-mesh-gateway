@@ -57,7 +57,7 @@ We will use the `grpc` Handler with the `@graphql-mesh/grpc` package and configu
             "name": "Books",
             "handler": {
                 "openapi": {
-                    "baseUrl": "http://localhost:3002/",
+                    "baseUrl": "<your_url>",
                     "source": "../books-service/openapi3-definition.json"
                 }
             }
@@ -66,7 +66,7 @@ We will use the `grpc` Handler with the `@graphql-mesh/grpc` package and configu
             "name": "Authors",
             "handler": {
                 "grpc": {
-                    "endpoint": "localhost:3003",
+                    "endpoint": "<your_url>",
                     "protoFilePath": "../authors-service/proto/authors/v1/authors_service.proto"
                 }
             }
@@ -92,7 +92,7 @@ We will use the `graphql` Handler with the `@graphql-mesh/graphql` package and c
             "name": "Books",
             "handler": {
                 "openapi": {
-                    "baseUrl": "http://localhost:3002/",
+                    "baseUrl": "<your_url>",
                     "source": "../books-service/openapi3-definition.json"
                 }
             }
@@ -101,7 +101,7 @@ We will use the `graphql` Handler with the `@graphql-mesh/graphql` package and c
             "name": "Authors",
             "handler": {
                 "grpc": {
-                    "endpoint": "localhost:3003",
+                    "endpoint": "<your_url>",
                     "protoFilePath": "../authors-service/proto/authors/v1/authors_service.proto"
                 }
             }
@@ -131,7 +131,7 @@ The following Mesh Gateway configuration:
             "name": "Books",
             "handler": {
                 "openapi": {
-                    "baseUrl": "http://localhost:3002/",
+                    "baseUrl": "<your_url>",
                     "source": "../books-service/openapi3-definition.json"
                 }
             }
@@ -140,7 +140,7 @@ The following Mesh Gateway configuration:
             "name": "Authors",
             "handler": {
                 "grpc": {
-                    "endpoint": "localhost:3003",
+                    "endpoint": "<your_url>",
                     "protoFilePath": "../authors-service/proto/authors/v1/authors_service.proto"
                 }
             }
@@ -225,7 +225,7 @@ Our updated [`.meshrc.yaml`](https://github.com/charlypoly/graphql-mesh-docs-fir
             "name": "Books",
             "handler": {
                 "openapi": {
-                    "baseUrl": "http://localhost:3002/",
+                    "baseUrl": "<your_url>",
                     "source": "../books-service/openapi3-definition.json"
                 }
             }
@@ -234,7 +234,7 @@ Our updated [`.meshrc.yaml`](https://github.com/charlypoly/graphql-mesh-docs-fir
             "name": "Authors",
             "handler": {
                 "grpc": {
-                    "endpoint": "localhost:3003",
+                    "endpoint": "<your_url>",
                     "protoFilePath": "../authors-service/proto/authors/v1/authors_service.proto"
                 }
             }
