@@ -58,7 +58,7 @@ blocking: boolean;
 
 - `target` (string) - The target GraphQL node.
 
-    For example, `Query.availableStores` targets [`availableStores`](https://developer.adobe.com/commerce/webapi/graphql/schema/store/queries/available-stores/), which means that if the  query calls `availableStores`, then the `composer` will execute.
+    For example, `Query.availableStores` targets [`availableStores`](https://developer.adobe.com/commerce/webapi/graphql/schema/store/queries/available-stores/), which means that if the query calls `availableStores`, then the `composer` will execute.
 
 - `composer` (string) - The local or remote file location of the function you want to execute when the mesh encounters the node specified by the `target`.
   
@@ -70,7 +70,7 @@ blocking: boolean;
   
     Only the `before` and `beforeAll` hooks accept the `blocking` argument, which allows you to stop running hooks for a query that does not receive a successful response.
 
-    If blocking is `true` and the composer returns an error, all future hook executions are cancelled and the node's `target` will not be invoked. If multiple objects use the same `target`, an unsuccessful response means that the `target` is not called for the remainder of the operation.
+    If blocking is `true` and the composer returns an error, all future hook executions are canceled and the node's `target` will not be invoked. If multiple objects use the same `target`, an unsuccessful response means that the `target` is not called for the remainder of the operation.
 
     If blocking is `false` and the composer returns an error, the composer will still be invoked.
 
@@ -113,7 +113,7 @@ The `after` hook allows you to insert an object or array after the specified [ta
 
 <InlineAlert variant="info" slots="text"/>
 
-`after` hooks cannot be blocked because the data has already resolved.
+`after` hooks cannot be blocked because they occur after the data resolves.
 
 ```ts
 interface AfterHooksTransformObject {
