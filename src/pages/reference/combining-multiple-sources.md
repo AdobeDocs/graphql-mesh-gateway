@@ -1,6 +1,6 @@
 ---
 title: Combining Multiple Sources
-sidebar_label: Combine multiple Sources
+description: Learn how to combine multiple sources using additional resolvers.
 ---
 
 # Combining Multiple Sources
@@ -22,7 +22,7 @@ This guide will show how to add 2 new sources (Authors and Stores) to achieve th
 
 ![example](../_images/book-example.svg)
 
-We will go further than just add new Sources by shaping the Unified Schema to accept the following query:
+In addition to adding new sources, we can shape the Unified Schema to accept the following query:
 
 ```graphql
 query bestSellersByStore {
@@ -48,7 +48,7 @@ query bestSellersByStore {
 
 The "Authors" Source is a gRPC API: [`authors-service`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/authors-service).
 
-We will use the `grpc` Handler with the `@graphql-mesh/grpc` package and configure in our [`.meshrc.yaml`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) it as follows:
+We will use the `grpc` Handler with the `@graphql-mesh/grpc` package and configure it in our [`.meshrc.yaml`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) file:
 
 ```json
 {
@@ -83,7 +83,7 @@ We will "clean" the corresponding "Authors" GraphQL Schema later, in the 3rd ste
 
 The "Stores" Source is a GraphQL API: [`stores-service`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/stores-service).
 
-We will use the `graphql` Handler with the `@graphql-mesh/graphql` package and configure it in our [`.meshrc.yaml`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) it as follows:
+We will use the `graphql` Handler with the `@graphql-mesh/graphql` package and configure it in our [`.meshrc.yaml`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) file:
 
 ```json
 {
@@ -118,7 +118,7 @@ We will use the `graphql` Handler with the `@graphql-mesh/graphql` package and c
 }
 ```
 
-Since the "Stores" is a GraphQL API, Mesh can leverage introspection to get its schema with just the `endpoint` URL.
+Since `Stores` is a GraphQL API, Mesh can leverage introspection to get its schema with just the `endpoint` URL.
 
 ## 3. Shaping the Unified Schema
 
@@ -179,7 +179,7 @@ type Query {
 # ...
 ```
 
-In order to achieve a clean Unified Schema design that would allow the following Query:
+To achieve a clean Unified Schema design that would allow the following Query:
 
 ```graphql
 query bestSellersByStore {
@@ -265,7 +265,7 @@ Our updated [`.meshrc.yaml`](https://github.com/charlypoly/graphql-mesh-docs-fir
 
 By adding `Query.!authors_v1_AuthorsService_connectivityState`, we instruct Mesh to remove the `authors_v1_AuthorsService_connectivityState(...)` Query.
 
-Notice that the `filterSchema` allows using a bash-like syntax to avoid repetitive configuration with the `{..., ...}` syntax.
+Notice that the [`filterSchema`](transforms/filter-schema.md) allows using a bash-like syntax to avoid repetitive configuration with the `{..., ...}` syntax.
 
 Alternatively, you could instruct Mesh to only keep the `Query.stores` root query as follows:
 
@@ -283,8 +283,6 @@ Alternatively, you could instruct Mesh to only keep the `Query.stores` root quer
     ]
 }
 ```
-
-More information on the `filterSchema` Transform on [its dedicated documentation page](transforms/filter-schema.md).
 
 ### Setup hierarchy with nested queries
 
@@ -320,7 +318,7 @@ To achieve this, we will use the `additionalResolvers` and `additionalTypeDefs` 
 
 #### Update our Schema with new fields
 
-Using `additionalTypeDefs` configuration parameter allows writing GraphQL that will be merged with the Unified Schema definition, allowing us to [extend existing types](https://spec.graphql.org/June2018/#sec-Object-Extensions) and queries.
+The `additionalTypeDefs` configuration parameter allows you to merge GraphQL with the Unified Schema definition and [extend existing types](https://spec.graphql.org/June2018/#sec-Object-Extensions) and queries.
 
 If we want to add the `Book.author` field, we first need to know what is the type of Author.
 
@@ -366,9 +364,9 @@ enum ConnectivityState {
 
 <InlineAlert variant="info" slots="text"/>
 
-Try running the Mesh Gateway first if the `.mesh` folder does not exist.
+If the `.mesh` folder does not exist, try running the gateway first.
 
-Here we find that an author is described with the `authors_v1_Author` GraphQL type, which allows us to add the following `additionalTypeDefs` configuration:
+Here we add the `authors_v1_Author` GraphQL type that describes the author to `additionalTypeDefs`:
 
 ```json
 {
@@ -404,7 +402,7 @@ By applying the same process for `Store.bookSells` and `Sells.book`, we get the 
 }
 ```
 
-Now that the Unified Schema definition has been updated, we need to indicate to the Mesh how to resolve our new field's data.
+Now that we have updated the Unified Schema definition, we need to indicate to the Mesh how to resolve our new field's data.
 
 #### Add resolvers for our new fields
 
@@ -446,7 +444,7 @@ Each `additionalResolvers` value is based on 2 main concepts:
 - The **target** (`targetTypeName`, `targetFieldName`) describes the queried field.
 - The **source** (`sourceName`, `sourceTypeName`, `sourceFieldName`, `sourceArgs`) describes where the data is resolved for the target field.
 
-Here we have configured **target** and **Source** so that Querying `Book.author` will resolve the data by calling the `Query.authors_v1_AuthorsService_GetAuthor` from the "Authors" source.
+Here we have configured the **target** and **Source** so that Querying `Book.author` will resolve the data by calling the `Query.authors_v1_AuthorsService_GetAuthor` from the "Authors" source.
 
 The `requiredSelectionSet` and `sourceArgs` ensure that the required arguments are provided (`requiredSelectionSet`) and adequately mapped to the Source (`sourceArgs`).
 
@@ -482,8 +480,8 @@ query bestSellersByStore {
 }
 ```
 
-Which returns the correct data:
+The query returns the correct data:
 
 ![GraphQL Unified Schema with GraphiQL](../_images/graphiql-return.png)
 
-Congrats! You are now familiar with the basics of GraphQL Mesh: Configuring Sources, Handlers, Transforms and shaping the Unified Schema with `additionalTypeDefs` and `additionalResolvers`.
+Congrats! You are now familiar with the basics of shaping the Unified Schema with `additionalTypeDefs` and `additionalResolvers`.

@@ -2,6 +2,11 @@
 title: Extending the Unified Schema
 description: Learn how to extend the unified schema with resolvers.
 ---
+Passive: Bob Dylan was injured in a motorcycle accident.
+
+Active: A motorcycle accident injured Bob Dylan.
+
+Passive: Elvis is rumored to be alive.
 
 # Extending the Unified Schema
 
@@ -11,15 +16,15 @@ However, the `additionalResolvers` value can also be the path to a JavaScript/Ty
 
 ## Programmatic `additionalResolvers`
 
-In [Combining multiple Sources](combining-multiple-sources.md), the `additionalResolvers` could have been provided programatically as shown in the [`multiple-sources-prog-resolvers`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources-prog-resolvers) example.
+In [Combining multiple Sources](combining-multiple-sources.md), the `additionalResolvers` could have been provided programmatically as shown in the [`multiple-sources-prog-resolvers`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources-prog-resolvers) example.
 
-The following `meshrc.yaml` configuration add the following fields:
+The following `meshrc.yaml` configuration adds these fields:
 
-- `Store.bookSells: [Sells!]!`: to get the selling from a given store
+- `Store.bookSells: [Sells!]!`: gets the selling from a given store
 
-- `Sells.book: Book`: to get the book of a given store selling record
+- `Sells.book: Book`: gets the book of a given store selling record
 
-- `Book.author: authors_v1_Author`: to get the author of a book
+- `Book.author: authors_v1_Author`: gets the author of a book
 
 ```json
 {
@@ -125,11 +130,11 @@ await context.Authors.Query.authors_v1_AuthorsService_GetAuthor({
 })
 ```
 
-`authors_v1_AuthorsService_GetAuthor` is a generated SDK method that allows to query our gRPC Books Source as it was a GraphQL Schema.
+`authors_v1_AuthorsService_GetAuthor` is a generated SDK method that allows you to query our gRPC Books Source as it was a GraphQL Schema.
 
-Any SDK method take the following arguments:
+Any SDK method takes the following arguments:
 
-- `root`, `context` and `info` are mandatory parameters that we forward from the resolvers calling the method
+- `root`, `context`, and `info` are mandatory parameters that we forward from the resolvers calling the method
 
 - `args`: arguments to pass to the Mutation or Query
 
