@@ -2,11 +2,6 @@
 title: Extending the Unified Schema
 description: Learn how to extend the unified schema with resolvers.
 ---
-Passive: Bob Dylan was injured in a motorcycle accident.
-
-Active: A motorcycle accident injured Bob Dylan.
-
-Passive: Elvis is rumored to be alive.
 
 # Extending the Unified Schema
 

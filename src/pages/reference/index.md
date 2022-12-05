@@ -26,10 +26,10 @@ Follow the links below for more information on using GraphQL Mesh:
    -  [Rename]
    -  [Replace Field]
    -  [Type Merging]
--  Recipes
+-  Other
    -  [Multiple APIs]
-      -  [Extending a Schema with `additionalTypeDefs`]
-      -  [Declare a resolver by using `additionalResolvers`]
+   -  [Extending the unified schema](extending-unified-schema.md)
+   -  [Combining multiple sources](combining-multiple-sources.md)
 
 <!-- Link Definitions -->
 [OpenAPI]: handlers/openapi.md
@@ -49,5 +49,3 @@ Follow the links below for more information on using GraphQL Mesh:
 [GraphQL Mesh Docs]: https://www.graphql-mesh.com/docs/
 [Handlers Overview]: ./handlers/index.md
 [Transforms Overview]: ./transforms/index.md
-[Extending a Schema with `additionalTypeDefs`]: ./multiple-apis.md#extending-graphql-schema-with-additionaltypedefs
-[Declare a resolver by using `additionalResolvers`]: ./multiple-apis.md#declare-a-resolver-to-the-new-additionaltypedefs-by-using-additionalresolvers
