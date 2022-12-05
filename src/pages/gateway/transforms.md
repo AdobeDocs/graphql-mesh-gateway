@@ -15,6 +15,7 @@ The API Mesh currently supports the following [transforms]:
 -  [Replace](#replace)
 -  [Type Merge](#type-merge)
 -  [Naming Convention](#naming-convention)
+-  [Hooks](#hooks)
 
 Additionally, these transforms are available but are not fully supported at this time:
 
@@ -224,6 +225,48 @@ For example, you might want to exclude deprecated queries, mutations, and types 
       }
     ]
   },
+}
+```
+
+## Hooks
+
+Adobe created the [Hooks](hooks.md) transform to allow you to invoke composable local and remote functions on a targeted node.
+
+<CodeBlock slots="heading, code" repeat="4" languages="ts, ts, ts, ts" />
+
+### `beforeAll`
+
+```ts
+interface BeforeAllTransformObject {
+  composer: string;
+  blocking?: boolean;
+}
+```
+
+### `before`
+
+```ts
+interface BeforeHooksTransformObject {
+  target: string;
+  composer: string;
+  blocking?: boolean;
+}
+```
+
+### `after`
+
+```ts
+interface AfterHooksTransformObject {
+  target: string;
+  composer: string;
+}
+```
+
+### `afterAll`
+
+```ts
+interface AfterAllTransformObject {
+  composer: string;
 }
 ```
 

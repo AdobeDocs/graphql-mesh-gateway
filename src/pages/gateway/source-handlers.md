@@ -57,7 +57,7 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see GraphQL Mesh's [Config API Reference]. Note that the API Mesh uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
+For more information, see GraphQL Mesh's [OpenAPI Config API Reference]. Note that the API Mesh uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
 
 ## GraphQL endpoints
 
