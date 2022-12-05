@@ -110,6 +110,8 @@ Currently this feature serves as a way for you to quickly copy an example mesh.
 aio api-mesh:source:install "AEM Assets API"
 ```
 
+  You can repeat this process multiple times to add sources to your mesh.
+
 <InlineAlert variant="info" slots="text"/>
 
 Alternatively, you can use the [aio api-mesh:source:get](./command-reference.md#aio-api-meshsourceget) command to print the source in the terminal or copy the source to the clipboard.

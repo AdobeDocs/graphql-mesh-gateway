@@ -66,11 +66,15 @@ module.exports = [
             {
                 title: 'Type Merging',
                 path: '/reference/transforms/type-merging.md'
+            },
+            {
+                title: 'Hooks',
+                path: '/gateway/hooks.md'
             }
         ]
     },
     {
-    title: 'Recipes',
+    title: 'Other',
     path: '/reference/multiple-apis.md',
     header: true,
     pages: [
@@ -78,6 +82,14 @@ module.exports = [
             title: 'Multiple APIs',
             path: '/reference/multiple-apis.md'
         },
-            ]
+        {
+            title: 'Combining Multiple Sources',
+            path: '/reference/combining-multiple-sources.md'
+        },
+        {
+            title: 'Extending the Unified Schema',
+            path: '/reference/extending-unified-schema.md'
+        },
+        ]
     },
 ];
