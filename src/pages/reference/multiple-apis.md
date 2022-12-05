@@ -461,7 +461,7 @@ You can also transform your existing non-federated schemas into federated servic
       "name": "accounts",
       "handler": {
         "graphql": {
-          "endpoint": "http://localhost:4001/graphql"
+          "endpoint": "<your_url>"
         }
       },
       "transforms": [
@@ -494,7 +494,7 @@ You can also transform your existing non-federated schemas into federated servic
       "name": "reviews",
       "handler": {
         "graphql": {
-          "endpoint": "http://localhost:4002/graphql"
+          "endpoint": "<your_url>"
         }
       }
     },
@@ -502,7 +502,7 @@ You can also transform your existing non-federated schemas into federated servic
       "name": "products",
       "handler": {
         "graphql": {
-          "endpoint": "http://localhost:4003/graphql"
+          "endpoint": "<your_url>"
         }
       }
     },
@@ -510,7 +510,7 @@ You can also transform your existing non-federated schemas into federated servic
       "name": "inventory",
       "handler": {
         "graphql": {
-          "endpoint": "http://localhost:4004/graphql"
+          "endpoint": "<your_url>"
         }
       }
     }
