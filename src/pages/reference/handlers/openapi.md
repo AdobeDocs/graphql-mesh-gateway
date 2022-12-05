@@ -138,11 +138,12 @@ This section shows how to configure GraphQL Mesh to accept either, and also how 
 
 ### Accepting one of cookie, header or context value
 
-We want to accept one of the following: 
+We want to accept one of the following:
+
 - an `accessToken` cookie
 - an `Authorization` header
 - an authorization value available in context (e.g. set by a GraphQL auth plugin)
- 
+
 And transmit it to the Rest API as a `Authorization` header. GraphQL Mesh does not allow dynamic selection in the `meshrc.json` file, but that's fine! We can use a bit of trickery.
 
 ```json
@@ -237,7 +238,7 @@ const resolvers = {
 }
 
 module.exports = { resolvers }
-``` 
+```
 
 ## Callbacks as Subscriptions
 
