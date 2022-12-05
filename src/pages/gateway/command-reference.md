@@ -405,7 +405,7 @@ aio api-mesh:source:get -m -s "AEM Assets API" -s "Adobe Target API"
 
 ## aio api-mesh:source:install
 
-Updates the currently selected workspace's mesh configuration with the selected configuration from the specified source.
+The `install` command adds the specified source to the currently selected workspace's mesh configuration.
 
 <InlineAlert variant="info" slots="text"/>
 

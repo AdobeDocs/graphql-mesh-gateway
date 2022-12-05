@@ -66,6 +66,10 @@ module.exports = [
             {
                 title: 'Type Merging',
                 path: '/reference/transforms/type-merging.md'
+            },
+            {
+                title: 'Hooks',
+                path: '/gateway/hooks.md'
             }
         ]
     },
