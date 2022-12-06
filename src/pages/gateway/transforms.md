@@ -11,16 +11,19 @@ The API Mesh currently supports the following [transforms]:
 
 -  [Rename](#rename)
 -  [Prefix](#prefix)
--  [Filter](#filter-schema)
--  [Replace](#replace)
--  [Type Merge](#type-merge)
+-  [Filter Schema](#filter-schema)
+-  [Replace Field](#replace)
+-  [Type Merging](#type-merge)
 -  [Naming Convention](#naming-convention)
 -  [Hooks](#hooks)
 
-Additionally, these transforms are available but are not fully supported at this time:
+Additionally, these transforms are available but are not fully supported by API Mesh at this time:
 
 -  [Encapsulate]
 -  [Federation]
+-  [Hoist field](https://the-guild.dev/graphql/mesh/docs/transforms/hoist)
+-  [Prune](https://the-guild.dev/graphql/mesh/docs/transforms/prune)
+-  [Resolvers composition](https://the-guild.dev/graphql/mesh/docs/transforms/resolvers-composition)
 
 Other [GraphQL Mesh] transforms are not supported.
 
@@ -155,9 +158,9 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 }
 ```
 
-## Replace
+## Replace Field
 
-[Replace] transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant looking queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
+[Replace field] transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant looking queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
 
 ```json
 {
@@ -195,9 +198,9 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 }
 ```
 
-## Type Merge
+## Type Merging
 
-[Type Merge] transforms allow you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [GraphQL Mesh Example].
+[Type Merging] allows you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [GraphQL Mesh Example].
 
 ## Naming Convention
 
@@ -284,6 +287,6 @@ interface AfterAllTransformObject {
 [Naming Convention]: /reference/transforms/naming-convention.md
 [Prefix]: /reference/transforms/prefix.md
 [Rename]: /reference/transforms/rename.md
-[Replace]: /reference/transforms/replace-field.md
-[Type Merge]: /reference/transforms/type-merging.md
+[Replace field]: /reference/transforms/replace-field.md
+[Type Merging]: /reference/transforms/type-merging.md
 [GraphQL Mesh Example]: /reference/multiple-apis.md#merging-types-from-different-sources-using-type-merging

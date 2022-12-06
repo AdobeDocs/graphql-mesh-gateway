@@ -8,11 +8,11 @@ The handler documentation was originally published by [The Guild] in their [Grap
 
 Handlers, or source handlers, allow you to define sources that provide data to your mesh. The following table specifies the handlers supported by the API Mesh and the version of each handler:
 
-| Handler | Version |
+| Handler Package Name | Version |
 |------------|------------|
-[OpenAPI] | `0.24.1`
-[GraphQL] | `0.22.4`
-[JSON Schemas] | `0.26.5`
+[openapi] | `0.33.26`
+[graphql] | `0.31.24`
+[json-schema] | `0.35.38`
 
 [Source Handlers] provides more information about handlers in the context of the API Mesh.
 

@@ -10,14 +10,14 @@ The following table specifies the transforms supported by the API Mesh and the v
 
 | Transform | Version |
 |------------|------------|
-[encapsulate] | `0.3.35`
-[federation] | `0.8.35`
-[filterSchema] | `0.14.35`
-[namingConvention] | `0.10.25`
-[prefix] | `0.11.24`
-[rename] | `0.12.37`
-[replaceField] | `0.3.34`
-[typeMerging] | `0.3.23`
+[encapsulate] | `0.3.114`
+[federation] | `0.9.60`
+[filterSchema] | `0.14.113`
+[namingConvention] | `0.12.13`
+[prefix] | `0.11.104`
+[rename] | `0.13.2`
+[replaceField] | `0.3.112`
+[typeMerging] | `0.4.56`
 
 See [Transforms] if you would like more information on transforms in the context of the API Mesh.
 
