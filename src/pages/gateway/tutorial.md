@@ -72,7 +72,7 @@ description: This API mesh tutorial covers creating and updating a mesh.
 
 1. Paste the URL into a GraphQL client, such as [Altair](https://altairgraphql.dev), [GraphiQL](https://github.com/graphql/graphiql), or [Insomnia](https://insomnia.rest/download).
 
-1. Determine if you can view the schema in your GraphQL client. Refer to your GraphQL client's documentation to learn how to access the schema.
+1. Determine if you can view the schema in the **Docs** section of your GraphQL client. Refer to your GraphQL client's documentation to learn how to access the schema.
 
     If you can view the schema, proceed to the next section. If you cannot view the schema, go back and check your mesh's sources. You can use the [`aio api-mesh:update`](command-reference.md#aio-api-meshupdate) command to update your mesh with the correct information.
 
