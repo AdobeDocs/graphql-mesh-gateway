@@ -12,8 +12,8 @@ The API Mesh currently supports the following [transforms]:
 -  [Rename](#rename)
 -  [Prefix](#prefix)
 -  [Filter Schema](#filter-schema)
--  [Replace Field](#replace)
--  [Type Merging](#type-merge)
+-  [Replace Field](#replace-field)
+-  [Type Merging](#type-merging)
 -  [Naming Convention](#naming-convention)
 -  [Hooks](#hooks)
 
