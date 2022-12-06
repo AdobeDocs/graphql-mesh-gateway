@@ -25,11 +25,6 @@ Add the following configuration to your Mesh config file:
 }
 ```
 
-<InlineAlert variant="info" slots="text"/>
-
-You can see our gRPC example that uses this transform to see its application.
-[Click here to open the example on GitHub](https://github.com/Urigo/graphql-mesh/tree/master/examples/grpc-example)
-
 ## Config API Reference
 
 -  `typeNames` (type: String (`camelCase` | `capitalCase` | `constantCase` | `dotCase` | `headerCase` | `noCase` | `paramCase` | `pascalCase` | `pathCase` | `sentenceCase` | `snakeCase` | `upperCase` | `lowerCase`))
