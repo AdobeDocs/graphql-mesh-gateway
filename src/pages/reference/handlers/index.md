@@ -35,7 +35,7 @@ The following example contains a basic mesh file with an OpenAPI source handler.
 }
 ```
 
-Handlers are located in the sources section of the mesh file. Each `source` will need a `name`, a `handler`, and other key value pairs that correspond to the `handler` type. In the previous example, the `openapi` handler only requires a `source`.
+Handlers are located in the sources section of the mesh file. Each `source` will need a `name`, a `handler`, and other key-value pairs that correspond to the `handler` type. In the previous example, the `openapi` handler only requires a `source`.
 
 ## Reference local files in handlers
 

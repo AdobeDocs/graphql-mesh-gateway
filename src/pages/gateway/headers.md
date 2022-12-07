@@ -13,7 +13,7 @@ Request headers provide more information about the request context. Currently, y
 
 ### Add request headers in your mesh file
 
-To add headers directly to a source handler in your mesh file, for example `mesh.json`, add the `operationHeaders` object with key value pairs for your headers. The following example defines the `Store` header for the Commerce source and multiple headers for the LiveSearch source.
+To add headers directly to a source handler in your mesh file, for example `mesh.json`, add the `operationHeaders` object with key-value pairs for your headers. The following example defines the `Store` header for the Commerce source and multiple headers for the LiveSearch source.
 
 ```json
 {
@@ -58,7 +58,7 @@ You can also inject dynamic values from the context into your headers. For examp
 
 ### Add or update request headers at runtime
 
-When you use GraphiQL or another tool to interact with your mesh, you can add headers at runtime that are passed through the mesh to specified handler by using the following format:
+When you use GraphiQL or another tool to interact with your mesh, you can add headers at runtime that are passed through the mesh to the specified handler by using the following format:
 
 -  **Key**: `GGW-SH-<SourceName>-<HeaderName>`
 
@@ -99,7 +99,7 @@ All response header names must be unique. Conflicting header names will result i
 
 ### Add response headers in your mesh file
 
-Mesh owners can use the `responseConfig.headers` object to add response headers. Define each header as a key value pair.
+Mesh owners can use the `responseConfig.headers` object to add response headers. Define each header as a key-value pair.
 
 ``` json
     { 
@@ -181,11 +181,11 @@ Including metadata prefixes the returned response headers with their source name
 
 Cross-origin resource sharing (CORS) allows you to pass resources that are usually restricted to an outside domain. Refer to [MDN's documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for more information on CORS headers.
 
-To add CORS headers to your mesh, create a `CORS` object in the `responseConfig` object, using the following key value pairs:
+To add CORS headers to your mesh, create a `CORS` object in the `responseConfig` object, using the following key-value pairs:
 
 -  `origin` (Required) - the scheme and domain of the resource you want to allow to make a CORS request
 -  `methods` (Required) - the HTTP request methods allowed in the CORS request, such as GET, POST, and OPTIONS
--  `allowedHeaders` - a string of allowed headers in preflight request
+-  `allowedHeaders` - a string of allowed headers in preflight requests
 -  `credentials` - boolean value that indicates if credentials can be included in CORS request (default: `false`)
 -  `exposedHeaders` - a comma-delimited CORS request that contains headers to expose
 -  `maxAge` - the maximum number of seconds the preflight response (the values of the `origin` and `methods` headers) can be cached

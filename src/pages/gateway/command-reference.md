@@ -23,7 +23,7 @@ aio api-mesh:create [FILE]
 
 ### Flags
 
-`-i` or `--ignoreCache` ignores the cached organization, project and workspace, allowing you to create a mesh in a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh creation instead of prompting the user to confirm.
 
@@ -76,7 +76,7 @@ aio api-mesh:update [FILE]
 
 ### Flags
 
-`-i` or `--ignoreCache` ignores the cached organization, project and workspace, allowing you to update a mesh in a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to update a mesh in a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh update instead of prompting the user to confirm.
 
@@ -110,7 +110,7 @@ aio api-mesh:get [DOWNLOAD]
 
 ### Flags
 
-`-i` or `--ignoreCache` ignores the cached organization, project and workspace, allowing you to retrieve a mesh from a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to retrieve a mesh from a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
 
 `--help` provides information on the specified command.
 
@@ -196,7 +196,7 @@ aio api-mesh:delete
 
 ### Flags
 
-`-i` or `--ignoreCache` ignores the cached organization, project and workspace, allowing you to delete a mesh from a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to delete a mesh from a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh deletion instead of prompting the user to confirm.
 
@@ -226,7 +226,7 @@ aio api-mesh:describe
 
 ### Flags
 
-`-i` or`--ignoreCache` ignores the cached organization, project and workspace, allowing you to get the description of a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
+`-i` or`--ignoreCache` ignores the cached organization, project, and workspace, which allows you to get the description of a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
 
 `--help` provides information on the specified command
 
@@ -247,7 +247,7 @@ Lists all available sources. Select a source to view its configuration file and 
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 
@@ -316,7 +316,7 @@ Prints the specified source's mesh file and allows you to copy it to the clipboa
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 
@@ -409,7 +409,7 @@ The `install` command adds the specified source to the currently selected worksp
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 

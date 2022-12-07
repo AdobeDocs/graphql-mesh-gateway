@@ -369,7 +369,7 @@ to the fieldName setting in
 while the field's arguments and return type are used to infer merge configuration.
 Directive arguments tune the merge behavior:
    -  `queryFieldName` (type: `String`, required)
-   -  `keyField` (type: `String`) - Specifies the name of a field to pick off origin objects as the key value. When omitted, a `@key` directive must be included on the return type's definition to be built into an object key.
+   -  `keyField` (type: `String`) - Specifies the name of a field to pick off origin objects as the key-value. When omitted, a `@key` directive must be included on the return type's definition to be built into an object key.
 https://www.graphql-tools.com/docs/stitch-directives-sdl#object-keys
    -  `keyArg` (type: `String`) - Specifies which field argument receives the merge key. This may be omitted for fields with only one argument where the recipient can be inferred.
    -  `additionalArgs` (type: `String`) - Specifies a string of additional keys and values to apply to other arguments,

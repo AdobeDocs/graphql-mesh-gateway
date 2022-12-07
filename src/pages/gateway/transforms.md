@@ -5,7 +5,7 @@ description: How to apply transforms to your mesh to customize your responses.
 
 # Transforms
 
-While [handlers] let you bring outside sources into API Mesh for Adobe Developer App Builder, [transforms] allow you to modify the schema in order to control the contents of your GraphQL requests and responses.
+While [handlers] let you bring outside sources into API Mesh for Adobe Developer App Builder, [transforms] allow you to modify the schema to control the contents of your GraphQL requests and responses.
 
 The API Mesh currently supports the following [transforms]:
 
@@ -80,7 +80,7 @@ Other [GraphQL Mesh] transforms are not supported.
 
 <InlineAlert variant="info" slots="text"/>
 
-You can use [RegEx flags] to enable the use of regular expressions when renaming using this transform. For example, you could use the key value pair `field: api(.*)` in the `from` object to rename any field of the corresponding type that begins with "api".
+You can use [RegEx flags] to enable the use of regular expressions when renaming using this transform. For example, you could use the key-value pair `field: api(.*)` in the `from` object to rename any field of the corresponding type that begins with "api".
 
 ```json
 {
@@ -121,7 +121,7 @@ You can use [RegEx flags] to enable the use of regular expressions when renaming
 
 The [Filter Schema] transform allows you to specify which schema elements to include or exclude in your mesh. You can include or exclude entire queries and mutations, or place restrictions on which types can appear in your calls.
 
-For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed. In the example below, the deprecated Adobe Commerce  `category` and `customerOrders` queries are filtered out of the [PWA] handler.
+For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed. In the example below, the deprecated Adobe Commerce `category` and `customerOrders` queries are filtered out of the [PWA] handler.
 
 ```json
 {
@@ -160,7 +160,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 
 ## Replace Field
 
-[Replace field] transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant looking queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
+[Replace field] transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
 
 ```json
 {
