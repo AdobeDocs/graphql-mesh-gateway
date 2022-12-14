@@ -40,24 +40,8 @@ aio api-mesh:create mesh.json
 #### Response
 
 ```terminal
-Successfully created mesh: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
-{
-"meshConfig": {
-    "sources": [
-      {
-        "name": "Commerce",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://venia.magento.com/graphql/"
-          }
-        }
-      }
-    ]
-  }
-}
-Successfully create API Key: 1234567ab8c901a2b345c67d8ef9012a
-Successfully subscribed API Key 1234567ab8c901a2b345c67d8ef9012a to API Mesh service.
-Mesh Endpoint: https://graph.adobe.io/api/12a3b4c5-6d78-4012-3456-7e890fa1bcde/graphql?api_key=1234567ab8c901a2b345c67d8ef9012a
+We have scheduled your mesh build. Wait a few minutes before checking the status of your mesh: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+To check the status of your mesh, run aio api-mesh:status.
 ```
 
 ## aio api-mesh:update
@@ -93,6 +77,44 @@ aio api-mesh:update mesh.json
 ```terminal
 Successfully updated the mesh with the id: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
+
+## aio api-mesh:status
+
+Retrieves the current status of your create or update command.
+
+### Example
+
+```bash
+aio api-mesh:status
+```
+
+#### Response
+
+There are four possible responses that reflect the status of your mesh:
+
+- Success - Your mesh was successfully created or updated.
+
+  ```terminal
+  Success: Your mesh has been successfully built.
+  ```
+
+- Pending - Your mesh is queued and awaiting processing.
+
+  ```terminal
+  Pending: Your mesh is awaiting processing.
+  ```
+
+- Building - Our servers are currently processing your mesh.
+
+  ```terminal
+  Pending: Your mesh is currently being processed.
+  ```
+
+- Error - Your mesh encountered an error.
+
+  ```terminal
+  Unable to get the mesh status. If the error persists please contact support. RequestId: 1234567890
+  ```
 
 ## aio api-mesh:get
 

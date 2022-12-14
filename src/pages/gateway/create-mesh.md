@@ -70,7 +70,7 @@ Workspaces that already have an API mesh will have "API Mesh" displayed on their
 
 1. When you are prompted to confirm that you want to create a mesh, select **Yes**. If you want to automatically confirm the creation, add the `-c` or `--autoConfirmAction` flag to your create command.
 
-  The `aio api-mesh:create` response assigns you a `meshId`, an `apiKey`, and provides a GraphQL endpoint that you can use to query your mesh.
+  The `aio api-mesh:create` response assigns you a `meshId`. Use the [`aio api-mesh:status`](command-reference.md#aio-api-meshstatus) command to see the status of your mesh creation. You can run the [`aio api-mesh:describe`](command-reference.md#aio-api-meshdescribe) command to get your `apiKey` and a GraphQL endpoint that you can use to query your mesh.
 
 <InlineAlert variant="info" slots="text"/>
 
