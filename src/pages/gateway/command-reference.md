@@ -40,8 +40,10 @@ aio api-mesh:create mesh.json
 #### Response
 
 ```terminal
-We have scheduled your mesh build. Wait a few minutes before checking the status of your mesh: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
-To check the status of your mesh, run aio api-mesh:status.
+Your mesh is being provisioned. Wait a few minutes before checking the status of your mesh: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+To check the status of your mesh, run:
+
+aio api-mesh:status
 ```
 
 ## aio api-mesh:update
@@ -107,7 +109,7 @@ There are four possible responses that reflect the status of your mesh:
 - Building - Our servers are currently processing your mesh.
 
   ```terminal
-  Pending: Your mesh is currently being processed.
+  Pending: Your mesh is currently being provisioned. Wait a few minutes before checking again.
   ```
 
 - Error - Your mesh encountered an error.
