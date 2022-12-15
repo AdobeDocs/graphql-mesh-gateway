@@ -91,11 +91,11 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
 
 1. Type `y` and click the **Enter** key to confirm the creation of the mesh. The mesh configuration and corresponding details will display.
 
+1. Run the `aio api-mesh:status` command. After your mesh is built, proceed to the next section.
+
 ## Access the Mesh
 
-1. Copy the URL in the response to the create command.
-
-    You can optionally use the [`aio api-mesh:describe`](command-reference.md#aio-api-meshdescribe) command to retrieve the mesh URL in the future.
+1. Run the [`aio api-mesh:describe`](command-reference.md#aio-api-meshdescribe) command and copy the URL for your mesh.
 
 1. Paste the URL into a GraphQL client, such as [Altair](https://altairgraphql.dev), [GraphiQL](https://github.com/graphql/graphiql), or [Insomnia](https://insomnia.rest/download).
 
