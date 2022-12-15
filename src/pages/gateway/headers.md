@@ -200,7 +200,7 @@ To add CORS headers to your mesh, create a `CORS` object in the `responseConfig`
           "GET",
           "POST"
         ],
-        "maxAge": "60480",
+        "maxAge": 60480,
         "credentials": true,
         "exposedHeaders": [
           "Content-Range",
