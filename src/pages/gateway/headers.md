@@ -189,20 +189,25 @@ To add CORS headers to your mesh, create a `CORS` object in the `responseConfig`
 -  `credentials` - boolean value that indicates if credentials can be included in CORS request (default: `false`)
 -  `exposedHeaders` - a comma-delimited CORS request that contains headers to expose
 -  `maxAge` - the maximum number of seconds the preflight response (the values of the `origin` and `methods` headers) can be cached
--  `preflightContinue` - boolean value that determines if the CORS preflight response should be sent to the route handler (default: `false`)
 
-``` json
-...
+```json
 {
-  "responseConfig": {
-    "headers": {
-      "Cache-Control": "max-age=60480"
-    },
-    "CORS": {
-      "origin": "https://www.domain.com",
-      "methods": "POST, GET, OPTIONS"
-    }
-  }
-}
 ...
+    "responseConfig": {
+      "CORS": {
+        "origin": "https://www.domain.com",
+        "methods": [
+          "GET",
+          "POST"
+        ],
+        "maxAge": "60480",
+        "credentials": true,
+        "exposedHeaders": [
+          "Content-Range",
+          "X-Content-Range"
+        ]
+      }
+    }
+...
+}
 ```
