@@ -202,6 +202,3 @@ You can use the [source commands](command-reference.md#aio-api-meshsourceinstall
 ```bash
 aio api-mesh:get
 ```
-
-
-
