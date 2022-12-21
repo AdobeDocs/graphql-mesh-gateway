@@ -22,5 +22,5 @@ module.exports = {
     subPages: subPages,
   },
   plugins: [`@adobe/gatsby-theme-aio`],
-  pathPrefix: process.env.PATH_PREFIX || '/graphql/mesh-gateway/'
+  pathPrefix: process.env.PATH_PREFIX || '/graphql-mesh-gateway/'
 };
