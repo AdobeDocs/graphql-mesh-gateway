@@ -14,9 +14,13 @@ const { pages, subPages } = require("./src/data/navigation");
 
 module.exports = {
   siteMetadata: {
+    "home": {
+      "title": "Commerce",
+      "path": "/commerce/docs"
+    },
     pages: pages,
     subPages: subPages,
   },
   plugins: [`@adobe/gatsby-theme-aio`],
-  pathPrefix: process.env.PATH_PREFIX || '/graphql-mesh-gateway/'
+  pathPrefix: process.env.PATH_PREFIX || '/graphql/mesh-gateway/'
 };
