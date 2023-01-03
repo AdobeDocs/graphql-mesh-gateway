@@ -13,7 +13,7 @@ However, the `additionalResolvers` value can also be the path to a JavaScript/Ty
 
 In [Combining multiple Sources](combining-multiple-sources.md), the `additionalResolvers` could have been provided programmatically as shown in the [`multiple-sources-prog-resolvers`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources-prog-resolvers) example.
 
-The following `meshrc.json` configuration adds these fields:
+The following `mesh.json` configuration adds these fields:
 
 - `Store.bookSells: [Sells!]!`: gets the selling from a given store
 

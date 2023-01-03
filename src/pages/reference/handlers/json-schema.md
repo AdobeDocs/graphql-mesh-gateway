@@ -133,7 +133,7 @@ Mesh can also load JSON samples from a remote service.
 Just add a `json-samples` directory in your project root, and put the JSON samples in there (`responseSample: ./json/MyField.response.json` - Create a new folder like `json`).
 By declaring the `responseSample`, you can use the JSON sample in the GraphQL schema.
 
- `Mesh Sample Example - .meshrc.json file`
+ `Mesh Sample Example - mesh.json file`
 
 ```json
 {

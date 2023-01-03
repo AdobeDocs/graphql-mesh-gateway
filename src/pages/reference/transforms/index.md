@@ -32,7 +32,7 @@ Transforms are specified as a list of objects, and they are executed in order. Y
 
 ## Handler-level transforms
 
-Most of the previous Guides configured Transforms at the root of the `.meshrc.json` configuration.
+Most of the previous Guides configured Transforms at the root of the `mesh.json` configuration.
 
 ```json
 {
@@ -135,7 +135,7 @@ The sequence diagram shows that Mesh always applies transforms in order, which m
 
 Given the following `MyService` schema:
 
-```graphql filename="schema.graphql"
+```graphql
 type Query {
   books_list: [Book]!
 }
@@ -172,10 +172,10 @@ The following `filterSchema` transforms configuration will fail:
 Because Mesh process transforms in the definition order, when `filterSchema` is processed, all types and fields have been transformed to match the configured naming convention.
 The `Query.books_list` does not exist anymore, replaced by the `Query.booksList` query.
 
-<Callout>
-  Note: the number of configured transforms does not impact performances (build or runtime) since Mesh processes them in
-  a chained way
-</Callout>
+<InlineAlert variant="info" slots="text"/>
+
+The number of configured transforms does not impact performances (build or runtime) since Mesh processes them in
+a chained way
 
 ### Beware of which transforms are used at the source level
 

@@ -100,11 +100,11 @@ Let's say the introspection disabled in your production environment of your Grap
 }
 ```
 
-> In this case, CLI's `build` command won't save the introspection in the artifacts, so your Mesh won't start if `source` URL is down.
+In this case, CLI's `build` command won't save the introspection in the artifacts, so your Mesh won't start if `source` URL is down.
 
 ## Local Schemas
 
-We recommend providing local schema by using the `additionalTypeDefs` and `additionalResolvers` configuration options.
+We recommend providing local schema by using the [`additionalTypeDefs`](../extending-unified-schema.md) and [`additionalResolvers`](../multiple-apis.md#extending-graphql-schema-with-additionaltypedefs) configuration options.
 
 However, it is also possible to use a local GraphQL Schema instance as a GraphQL Mesh source, as showcased below:
 
@@ -123,7 +123,7 @@ However, it is also possible to use a local GraphQL Schema instance as a GraphQL
 }
 ```
 
-```ts filename="my-local-schema.ts"
+```ts
 import { makeExecutableSchema } from '@graphql-tools/schema'
 export default makeExecutableSchema({
   typeDefs: /* GraphQL */ `

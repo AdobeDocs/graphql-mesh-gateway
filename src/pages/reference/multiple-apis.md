@@ -72,7 +72,7 @@ We have `additionalResolvers` field to make our new field executable in the unif
 
 ## Combining Schemas using declarative API
 
-We learnt that we can combine multiple APIs in Mesh using `additionalTypeDefs` and `additionalResolvers`.
+We learned that we can combine multiple APIs in Mesh using `additionalTypeDefs` and `additionalResolvers`.
 
 The following example has two different OpenAPI sources; we add two new fields to a type of `Cities`, and those fields have return types from `Weather` API.
 
@@ -229,7 +229,7 @@ And you renamed `AuthorWithBooks` to `Author` using [`Rename`](transforms/rename
 }
 ```
 
-But it won't work because Mesh doesn't know which field belongs to where and how to combing those. For sure, you could add `additionalResolvers` then extract `books` from `AuthorWithBooks` then return it as `books` field of `Author` type but this sounds a little bit overhead. So let's try Type Merging here;
+But it won't work because Mesh doesn't know which field belongs to where and how to combine those. For sure, you could add `additionalResolvers` then extract `books` from `AuthorWithBooks` then return it as `books` field of `Author` type but this sounds a little bit overhead. So let's try Type Merging here;
 
 We have Type Merging transform to teach Mesh how to fetch entities from different sources;
 
@@ -401,9 +401,9 @@ And now it batches the requests to the inner sources.
 
 ### In regular `additionalResolvers`
 
-In the current example, we want to have a field called `author` under `Book` property then point it to `author`.
+In the current example, we want to have a field called `author` under `Book` property and point it to the `author` property.
 
-Normally we supposed to do the following definitions;
+Normally we would use the following definitions;
 
 ```json
 {
@@ -448,11 +448,11 @@ And that's it. Now GraphQL Mesh will batch the queries of `Book.author` by using
 
 GraphQL Mesh uses [the approach of Schema Stitching](https://github.com/gmac/schema-stitching-handbook/tree/master/federation-services) in order to consume the existing Apollo Federation services inside GraphQL Mesh. So you can combine Federation and Type Merging in GraphQL Mesh
 
-You can follow Apollo Federation spec and integrate your existing Federated services into GraphQL Mesh.
+You can follow the Apollo Federation spec and integrate your existing Federated services into GraphQL Mesh.
 
-GraphQL Mesh is smart enough to mix and match Federation and Stitching approaches including all other transforms (Type Merging, Rename, Filter etc.)
+GraphQL Mesh is smart enough to mix and match Federation and Stitching approaches including all other transforms (Type Merging, Rename, Filter, etc.)
 
-You can also transform your existing non-federated schemas into federated service.
+You can also transform your existing non-federated schemas into a federated service.
 
 ```json
 {
@@ -520,4 +520,4 @@ You can also transform your existing non-federated schemas into federated servic
 
 <InlineAlert variant="info" slots="text"/>
 
- You can [check out documentation of federation transformer](transforms/federation.md) to learn more about adding federation metadata to a non-federated GraphQL Schema.
+ You can [check out the documentation of the federation transformer](transforms/federation.md) to learn more about adding federation metadata to a non-federated GraphQL Schema.
