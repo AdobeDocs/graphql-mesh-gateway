@@ -202,7 +202,7 @@ The mesh automatically generates arguments for operations if needed. Arguments a
 
 You can define the arguments of the operation using the `argTypeMap` config field, according to the JSON Schema spec.
 
-In this example we declare `page` argument as an object with `limit` and `offset` properties:
+In this example, we declare a `page` argument as an object with `limit` and `offset` properties:
 
 ```json
 {
@@ -279,9 +279,9 @@ And here is the final config:
 
 ### Global arguments
 
-Query arguments could be defined globally, on handler level, so they are added to all operations.
+Query arguments could be defined globally, on the handler level, so they are added to all operations.
 
-In this example we declare `limit` parameter with the default value of `10`, and `api_key` with dynamic value taken from the environment:
+In this example, we declare the `limit` parameter with a default value of `10` and an `api_key` with a dynamic value taken from the environment:
 
 ```json
 {

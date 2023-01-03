@@ -79,7 +79,7 @@ The expression inside dynamic values should be as in JS. -->
 
 ## Fetching SDL or introspection from CDN or somewhere
 
-Let's say the introspection disabled in your production environment of your GraphQL source, and you want to provide your SDL or introspection seperately;
+Imagine that introspection is disabled in the production environment of your GraphQL source, and you want to provide your SDL or introspection separately:
 
 ```json
 {
@@ -150,7 +150,7 @@ All `fetch` strategies can be combined to create the ultimate execution flow:
 
 ### `retry`
 
-The `retry` mechanism allow you to specify the retry attempts for a single GraphQL endpoint/source.
+The `retry` mechanism allows you to specify the retry attempts for a single GraphQL endpoint/source.
 
 The retry flow will execute in both conditions: a network error, or due to a runtime error.
 
@@ -172,7 +172,7 @@ The retry flow will execute in both conditions: a network error, or due to a run
 
 ### `timeout`
 
-The `timeout` mechanism allow you to specify the `timeout` for a given GraphQL endpoint.
+The `timeout` mechanism allows you to specify the `timeout` for a given GraphQL endpoint.
 
 ```json
 {
@@ -225,7 +225,7 @@ This is helpful if you have a fallback endpoint for the same GraphQL API.
 
 The `race` mechanism allows you to specify more than one GraphQL endpoint, for the same source, and race on every execution.
 
-If you have different places that service is deployed, this is useful to get the fastest response by racing them.
+If you have different places that the service is deployed, this is useful to get the fastest response by racing them.
 
 ```json
 {
@@ -252,7 +252,7 @@ If you have different places that service is deployed, this is useful to get the
 
 ## Config API Reference
 
--  `endpoint` (type: `String`, required) - A url or file path to your remote GraphQL endpoint.
+-  `endpoint` (type: `String`, required) - A URL or file path to your remote GraphQL endpoint.
 If you provide a path to a code file(js or ts),
 other options will be ignored and the schema exported from the file will be used directly.
 -  `schemaHeaders` (type: `Any`) - JSON object representing the Headers to add to the runtime of the API calls only for schema introspection

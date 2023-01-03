@@ -123,7 +123,7 @@ Specifying transforms at the Source level helps to isolate each Source definitio
 
 Transforms performed at the Source level or Root level do not result in the same final SDK that you might potentially use later in `additionalResolvers`.
 
-The diagram below explains how Mesh process applied when building the final unified Schema and SDK:
+The diagram below explains how the Mesh process is applied when building the final unified Schema and SDK:
 
 [mflowchart](../../_images/mflowchart.svg)
 
@@ -169,7 +169,7 @@ The following `filterSchema` transforms configuration will fail:
 }
 ```
 
-Because Mesh process transforms in the definition order, when `filterSchema` is processed, all types and fields have been transformed to match the configured naming convention.
+Because the Mesh processes transforms in the order they are defined, when `filterSchema` is processed, all types and fields have been transformed to match the configured naming convention.
 The `Query.books_list` does not exist anymore, replaced by the `Query.booksList` query.
 
 <InlineAlert variant="info" slots="text"/>
@@ -203,7 +203,7 @@ For example:
 }
 ```
 
-The above `filterSchema` Transforms will prevent calling the `books_list` Query SDK method from the `additionalResolvers`.
+The above `filterSchema` Transforms will prevent calling the `books_list` Query SDK method from `additionalResolvers`.
 
 (_The `MyService.Query.books_list()` SDK method won't be generated_)
 
@@ -242,7 +242,7 @@ The following example prefixes an input source to make it simpler later to merge
 ## Two different modes
 
 By default, most transform manipulating schemas work by wrapping the original schema. Still, recently we have also introduced a new "bare" mode to replace the original schema with the transformed one.
-Although both `bare` and `wrap` modes apparently achieve the same result, their behaviors are very different.
+Although both `bare` and `wrap` modes achieve the same result, their behaviors are very different.
 Let's take a look at how they operate.
 
 ### Wrap
@@ -262,7 +262,7 @@ The wrap mode is the default mode for schema manipulation transforms because it 
 
 -  Runtime implications
 
-  Schema wrapping is performed during initialization only and so won't affect runtime GraphQL operations. However, transforms altering the original schema shape using the "wrap" mode, achieve this by intercepting both the incoming request and original response in order to do the mapping required to transform the original schema into the desired shape.
+  Schema wrapping is performed during initialization only and so won't affect runtime GraphQL operations. However, transforms that alter the original schema shape using "wrap" mode, achieve this by intercepting both the incoming request and the original response to do the mapping required to transform the original schema into the desired shape.
 
   Not all transforms require interception of both request and response. Some require straightforward mapping, so the runtime overhead could hopefully be negligible; however, there will always be some.
 
@@ -274,7 +274,7 @@ The wrap mode is the default mode for schema manipulation transforms because it 
 
 -  Working with fixed-schema sources
 
-    As mentioned, "wrap" is the only mode that works for sources that "speak" GraphQL natively. However, when you work with fixed schema sources, such as JSON-schema, OpenApi, or SOAP. Schema wrapping might have some undesired effects. For example: you won't have access to the original "fixed-contract" response from your data source.
+    As mentioned, "wrap" is the only mode that works for sources that "speak" GraphQL natively. However, when you work with fixed schema sources, such as JSON-schema, OpenApi, or SOAP. Schema wrapping might have some undesired effects. For example, you won't have access to the original "fixed-contract" response from your data source.
 
     This might not be ideal, for example, when implementing custom resolvers, where you might want to access several properties returned by your REST service to compute custom data. Still, you will only be able to access properties requested with the GraphQL query.
 
@@ -282,10 +282,7 @@ The wrap mode is the default mode for schema manipulation transforms because it 
 
 <InlineAlert variant="info" slots="text"/>
 
- "wrap" is the only approach that works with data sources that already "speaks" GraphQL, or when you want to
-  transform at all sources (root) level, unless you're using [merger-bare](/docs/api/modules/merger-bare). If you want
-  to remove the possible runtime implications, consider either moving your transforms at the data source level or opting
-  into `merger-bare`; in order to take advantage of "bare" mode.
+ "wrap" is the only approach that works with data sources that already "speaks" GraphQL, or when you want to transform all sources at the (root) level unless you're using [merger-bare](/docs/api/modules/merger-bare). If you want to remove the possible runtime implications, consider either moving your transforms from the data source level or opting into `merger-bare` to take advantage of "bare" mode.
 
 Example:
 
@@ -375,7 +372,7 @@ When you want to use "wrap", you can omit the "mode" property since this is alre
 
 ### Bare
 
-Bare is a recent addition and works by replacing the original schema. The handler generates a GraphQL schema and passes it to the transform. When in "bare" mode, the transform, receives the schema generated by your handler, applies the transform rules defined and finally returns an updated version of the original schema.
+Bare is a recent addition and works by replacing the original schema. The handler generates a GraphQL schema and passes it to the transform. When in "bare" mode, the transform, receives the schema generated by your handler, applies the transform rules defined and returns an updated version of the original schema.
 
 This means that the transformed schema replaces the original schema from the handler and so Mesh deals with the latter schema only, as opposed to an original schema plus one or more wrapping layers.
 
@@ -383,19 +380,19 @@ Bare mode does remove all the [implications of "wrap" mode](#implications), howe
 
 #### Restrictions
 
-Bare does provide performance improvements over "wrap", however it has a main restriction: it needs to access the bare schema. Here are some reasons why this might not work:
+Bare mode does provide performance improvements over "wrap" mode, however, it needs to access the bare schema. Here are some reasons this might not work:
 
 -  Your data source already "speaks" GraphQL
-  In this case "bare" won't work as it cannot replace a native GraphQL schema. This is not the same as transforming a "translated" GraphQL schema (e.g. from JSON-schema, OpenApi, SOAP, etc.).
-  The suggestion in this case is to apply "wrap" transforms to your GraphQL data source and "bare" transforms to sources "translated" into GraphQL.
+  "bare" won't work since it cannot replace a native GraphQL schema. This is not the same as transforming a "translated" GraphQL schema (e.g. from JSON-schema, OpenApi, SOAP, etc.).
+  Instead, we suggest that you apply the "wrap" transforms to your GraphQL data source and "bare" transforms to sources "translated" into GraphQL.
 
--  You are applying transforms at all-sources (root) level
-  This means that "bare" would receive a composed GraphQL schema, rather than a bare and "translated" schema. If you do want to use "bare" at the root level, your only choice is to opt into merger-bare, which lets transforms access the bare schemas; because it merges sources without wrapping them. This works when you don't have (or you take care of) conflicts between your sources, and you are not applying root-level transforms to data sources that already "speaks" GraphQL.
+-  You are applying transforms at the all-sources (root) level
+  This means that "bare" would receive a composed GraphQL schema, rather than a bare and "translated" schema. If you do want to use "bare" at the root level, your only choice is to opt into merger-bare, which lets transforms access the bare schemas; because it merges sources without wrapping them. This works when you don't have (or you take care of) conflicts between your sources, and you are not applying root-level transforms to data sources that already "speak" GraphQL.
 
 -  You are mixing transforms that support "bare" with transforms that don't
-  Again, "bare" always needs to access the bare schema. If you define other transforms that don't support "bare" mode, you will most likely have troubles, since those transforms will apply a wrapping layer which will provide "bare" transforms the wrapping layer, as opposed to the original bare schema.
+  Again, "bare" mode always needs to access the bare schema. If you define other transforms that don't support "bare" mode, you will most likely have trouble, because those transforms will apply a wrapping layer that provides the "bare" transforms, instead of the original bare schema.
 
-  In order to take advantage of "bare" performance improvements, the suggestion here is to apply "wrap" transforms at the all-sources (root) level and "bare" transforms within the data sources level; so that at least you are able to reduce the number of wrapping layers that would otherwise be created if not using "bare" at all.
+  To take advantage of "bare" performance improvements, the suggestion here is to apply "wrap" transforms at the all-sources (root) level and "bare" transforms within the data sources level; so you can reduce the number of wrapping layers that would otherwise be created if not using "bare" at all.
 
 Example:
 

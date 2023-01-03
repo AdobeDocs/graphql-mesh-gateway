@@ -6,7 +6,7 @@ title: naming-convention Transform | API Mesh for Adobe Developer App Builder
 
 The `naming-convention` transforms allow you to apply casing and other conventions to your response.
 
-## How to use?
+## Usage
 
 <InlineAlert variant="info" slots="text"/>
 

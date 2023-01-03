@@ -4,18 +4,18 @@ title: replaceField | API Mesh for Adobe Developer App Builder
 
 # replaceField transform
 
-The `replaceField` transform allows you to replace configuration properties of a GraphQL field (source) with the ones of another field (target).
+The `replaceField` transform allows you to replace the configuration properties of a GraphQL field (source) with the ones of another field (target).
 
 The `replace-field` transforms allow you to replace the configuration properties of one field with another. This allows you to hoist field values from a subfield to its parent.
 
-Use this transform to clean up redundant looking queries or replace field types.
+Use this transform to clean up redundant queries or replace field types.
 It can be customized to completely replace and/or compose resolve functions with a great degree of customization.
 
 <InlineAlert variant="info" slots="text"/>
 
-Currently this transform supports `bare` mode only. For information about "bare" and "wrap" modes, read the [dedicated section](index.md#two-different-modes).
+Currently, this transform supports `bare` mode only. For information about "bare" and "wrap" modes, read the [dedicated section](index.md#two-different-modes).
 
-## How to use?
+## Usage
 
 Imagine you have generated your schema from a data source you don't control, and the generated schema looks like this:
 
@@ -53,7 +53,7 @@ As you can see you would have to request a GraphQL Document like the following t
 }
 ```
 
-This is not ideal because you have to request `books` as a child of `books`, so in this case hoisting the value from child to parent would lead to a cleaner schema and request Document.
+This is not ideal because you have to request `books` as a child of `books`. In this case, hoisting the value from child to parent would lead to a cleaner schema and request Document.
 
 To achieve this, you can add the following configuration to your Mesh config file:
 
@@ -113,7 +113,7 @@ Allowing you to request a GraphQL document like this:
 
 ## How the transform works
 
-Let's understand more about how this transform works. With `from` you define your source, which field in the schema you want to replace.
+`from` defines your source, the field in the schema you want to replace.
 
 ```json
 [
@@ -126,7 +126,7 @@ Let's understand more about how this transform works. With `from` you define you
 ]
 ```
 
-In this case, we want to replace the field `books` in type `Query`, which has the type `BooksApiResponse`.
+In this case, we want to replace the field `books` in the type `Query`, which has the type `BooksApiResponse`.
 
 `to` defines the target, and which field should replace your identified source field.
 
@@ -146,7 +146,7 @@ Finally, since we no longer have any reference to `BooksApiResponse` this become
 ## Transform scopes
 
 We explored how to use the transform to replace field Types.
-The transform always replaces the type of the source field with the one of the target.
+The transform always replaces the type of source field with the type of the target.
 
 However, the transform also allows you to pass a scope property, which values can be `config` or `hoistValue`.
 
@@ -183,7 +183,7 @@ Taking into account the original schema shared above, originally, `Query.books` 
 }
 ```
 
-But the wrapping function applied to the original resolver, when passing `hoistValue` scope, will change the value above to this:
+But the wrapping function applied to the original resolver, when passing a `hoistValue` scope, will change the value above to this:
 
 ```json
 {
@@ -227,7 +227,7 @@ Let's have a look at a Mesh config to be applied to the GraphQL schema shared ab
 }
 ```
 
-The config above will change type `Author` from this:
+The config above will change the type `Author` from this:
 
 ```diff
 type Author {
@@ -364,7 +364,7 @@ type Author {
  -->
 ## Config API Reference
 
--  `typeDefs` (type: `Any`)  -  Additional type definition to used to replace field types
+-  `typeDefs` (type: `Any`)  -  Additional type definitions, used to replace field types
 -  `replacements` (type: `Array of Object`, required)  -  Array of rules to replace fields
    -  `from` (type: `Object`, required):
       -  `type` (type: `String`, required)

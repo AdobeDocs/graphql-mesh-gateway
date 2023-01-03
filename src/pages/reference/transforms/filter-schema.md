@@ -5,11 +5,11 @@ title: filterSchema Transform | API Mesh for Adobe Developer App Builder
 # filterSchema transform
 
 The `filterSchema` transform allows you to specify which schema elements to include or exclude in your mesh.
-You can include or exclude entire queries and mutations, place restrictions on which types can appear in your calls or which fields can appear in specific types.
+You can include or exclude entire queries and mutations and restrict which types can appear in your calls or which fields can appear in specific types.
 
 For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed.
 
-## How to use?
+## Usage
 
 Add the following configuration to your Mesh config file:
 
@@ -120,5 +120,5 @@ For information about "bare" and "wrap" modes, read the [dedicated section](inde
 
 ## Config API Reference
 
--  `mode` (type: `String` (`bare` | `wrap`)) - Specify to apply filter-schema transforms to bare schema or by wrapping original schema
+-  `mode` (type: `String` (`bare` | `wrap`)) - Specify to apply filter-schema transforms to bare schema or by wrapping the original schema
 -  `filters` (type: `Array of String`, required) - Array of filter rules

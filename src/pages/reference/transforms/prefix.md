@@ -4,12 +4,12 @@ title: prefix Transform | API Mesh for Adobe Developer App Builder
 
 # prefix transform
 
-The `prefix` transform allow you prefix GraphQL types and GraphQL root operations (under `Query/Mutation`). `prefix` is similar to [`rename`](/docs/transforms/rename) in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query.
+The `prefix` transform allows you to prefix GraphQL types and GraphQL root operations (under `Query/Mutation`). `prefix` is similar to [`rename`](/docs/transforms/rename) in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query.
 In contrast with `rename`, `prefix` is simpler and only allows you to append a `prefix` to the existing name.
 
 You can use it to easily "namespace" APIs in your unified API and avoid conflicts.
 
-## How to use?
+## Usage
 
 Add the following configuration to your Mesh config file:
 
@@ -32,13 +32,13 @@ For information about "bare" and "wrap" modes, read the [dedicated section](/ref
 
 <InlineAlert variant="info" slots="text"/>
 
-You can check out our example that uses schema stitching with a PostgreSQL datasource and prefix transform.
+You can check out our example that uses schema stitching with a PostgreSQL data source and prefix transform.
 [Click here to open the example on GitHub](https://github.com/Urigo/graphql-mesh/tree/master/examples/postgres-geodb)
 
 ## Config API Reference
 
 -  `mode` (type: `String` (`bare` | `wrap`)) - Specify to apply prefix transform to bare schema or by wrapping original schema
--  `value` (type: `String`) - The prefix to apply to the schema types. By default it's the API name.
+-  `value` (type: `String`) - The prefix to apply to the schema types. By default, the prefix is the API name.
 -  `ignore` (type: `Array of String`, required) - List of ignored types
 -  `includeRootOperations` (type: `Boolean`) - Changes root types and changes the field names (default: false)
 -  `includeTypes` (type: `Boolean`) - Changes types (default: true)
