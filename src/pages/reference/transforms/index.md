@@ -23,7 +23,7 @@ See [Transforms] if you would like more information on transforms in the context
 
 ## Introduction to transforms
 
-GraphQL Mesh allows you to modify the schema easily, in order to control the contents of your GraphQL requests and responses;
+GraphQL Mesh allows you to modify the schema easily, to control the contents of your GraphQL requests and responses;
 you can use one of the built-in transforms or write your own.
 
 Each transformer can manipulate the schema the way it needs and return the modified schema.
@@ -32,7 +32,7 @@ Transforms are specified as a list of objects, and they are executed in order. Y
 
 ## Handler-level transforms
 
-Most of the previous Guides configured Transforms at the root of the `.meshrc.yaml` YAML configuration.
+Most of the previous Guides configured Transforms at the root of the `.meshrc.json` configuration.
 
 ```json
 {
@@ -145,19 +145,28 @@ type Query {
 
 The following `filterSchema` transforms configuration will fail:
 
-```yaml filename=".meshrc.yaml"
-sources:
-   - name: MyService
-    handler:
-      jsonSchema:
-        # …
-
-    transforms:
-      - namingConvention:
-              typeNames: pascalCase
-              fieldNames: camelCase
-      - filterSchema:
-          - Query.books_list
+```json
+{
+  "sources": {
+    "name": "MyService",
+    "handler": {
+      "jsonSchema": null
+    },
+    "transforms": [
+      {
+        "namingConvention": {
+          "typeNames": "pascalCase",
+          "fieldNames": "camelCase"
+        }
+      },
+      {
+        "filterSchema": [
+          "Query.books_list"
+        ]
+      }
+    ]
+  }
+}
 ```
 
 Because Mesh process transforms in the definition order, when `filterSchema` is processed, all types and fields have been transformed to match the configured naming convention.
@@ -176,16 +185,22 @@ For this reason, be careful when using the `filterSchema` transforms at the Sour
 
 For example:
 
-```yaml filename=".meshrc.yaml"
-sources:
-   - name: MyService
-    handler:
-      jsonSchema:
-        # ...
-
-    transforms:
-      - filterSchema:
-          - Query.books_list
+```json
+{
+  "sources": {
+    "name": "MyService",
+    "handler": {
+      "jsonSchema": null
+    },
+    "transforms": [
+      {
+        "filterSchema": [
+          "Query.books_list"
+        ]
+      }
+    ]
+  }
+}
 ```
 
 The above `filterSchema` Transforms will prevent calling the `books_list` Query SDK method from the `additionalResolvers`.
