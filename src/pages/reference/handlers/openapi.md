@@ -87,7 +87,7 @@ See example below:
   ]
 }
 ```
-<!-- 
+
 ### From Environmental Variable
 
 `MY_API_TOKEN` is the name of the environmental variable you have the value.
@@ -212,8 +212,8 @@ const resolvers = {
 }
 
 module.exports = { resolvers }
-``` 
--->
+```
+
 ## Examples
 
 Here are some examples of OpenAPI Handlers:
