@@ -170,7 +170,7 @@ For your `./jsons/MyField.response.json` file, any JSON file can be used.
 
 There are a few methods to define the query parameters, select the one that fits your needs (or combine them):
 
-### Auto declare:
+### Auto declare
 
 The mesh automatically generates arguments for operations if needed. Arguments are generated as nullable strings by default.
 
@@ -198,7 +198,7 @@ The mesh automatically generates arguments for operations if needed. Arguments a
 }
 ```
 
-### Manual declare:
+### Manual declare
 
 You can define the arguments of the operation using the `argTypeMap` config field, according to the JSON Schema spec.
 

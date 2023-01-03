@@ -121,7 +121,7 @@ Specifying transforms at the Source level helps to isolate each Source definitio
 
 <InlineAlert variant="warning" slots="text"/>
 
-Transforms performed at the Source level or Root level does not result in the same final SDK that you might potentially use later in `additionalResolvers`.
+Transforms performed at the Source level or Root level do not result in the same final SDK that you might potentially use later in `additionalResolvers`.
 
 The diagram below explains how Mesh process applied when building the final unified Schema and SDK:
 
@@ -274,7 +274,7 @@ The wrap mode is the default mode for schema manipulation transforms because it 
 
 -  Working with fixed-schema sources
 
-    As mentioned, "wrap" is the only mode that works for sources that "speak" GraphQL natively. However, when you work with fixed schema sources, such as JSON-schema, OpenApi, SOAP, ..., schema wrapping might have some undesired effects; f.i. You won't have access to the original "fixed-contract" response from your data source.
+    As mentioned, "wrap" is the only mode that works for sources that "speak" GraphQL natively. However, when you work with fixed schema sources, such as JSON-schema, OpenApi, or SOAP. Schema wrapping might have some undesired effects. For example: you won't have access to the original "fixed-contract" response from your data source.
 
     This might not be ideal, for example, when implementing custom resolvers, where you might want to access several properties returned by your REST service to compute custom data. Still, you will only be able to access properties requested with the GraphQL query.
 

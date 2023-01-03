@@ -192,7 +192,7 @@ The `timeout` mechanism allow you to specify the `timeout` for a given GraphQL e
 
 ### `fallback`
 
-The `fallback` mechanism allow you to specify use more than one GraphQL endpoint, for the same source.
+The `fallback` mechanism allows you to specify more than one GraphQL endpoint, for the same source.
 
 This is helpful if you have a fallback endpoint for the same GraphQL API.
 
@@ -223,7 +223,7 @@ This is helpful if you have a fallback endpoint for the same GraphQL API.
 
 ### `race`
 
-The `race` mechanism allow you to specify use more than one GraphQL endpoint, for the same source, and race on every execution.
+The `race` mechanism allows you to specify more than one GraphQL endpoint, for the same source, and race on every execution.
 
 If you have different places that service is deployed, this is useful to get the fastest response by racing them.
 
