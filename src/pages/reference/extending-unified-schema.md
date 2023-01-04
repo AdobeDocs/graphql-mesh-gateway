@@ -127,6 +127,10 @@ await context.Authors.Query.authors_v1_AuthorsService_GetAuthor({
 
 `authors_v1_AuthorsService_GetAuthor` is a generated SDK method that allows you to query our gRPC Books Source as it was a GraphQL Schema.
 
+<InlineAlert variant="info" slots="text"/>
+
+API Mesh for Adobe Developer App Builder does not currently support the `gRPC` handler.
+
 Any SDK method takes the following arguments:
 
 - `root`, `context`, and `info` are mandatory parameters that we forward from the resolvers calling the method
