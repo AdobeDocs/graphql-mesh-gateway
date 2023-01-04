@@ -62,7 +62,7 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
               "name": "REST",
               "handler": {
                 "openapi": {
-                  "source": "https://accenturetest.magento.com/rest/all/schema?services=all"
+                  "source": "https://venia.magento.com/rest/all/schema?services=all"
                 }
               }
             },
@@ -70,7 +70,7 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
               "name": "GraphQL",
               "handler": {
                 "graphql": {
-                  "endpoint": "https://accenturetest.magento.com/graphql"
+                  "endpoint": "https://venia.magento.com/graphql"
                 }
               }
             }
