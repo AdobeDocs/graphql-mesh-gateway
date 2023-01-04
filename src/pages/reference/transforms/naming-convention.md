@@ -34,10 +34,6 @@ Add the following configuration to your Mesh config file:
 
 For information about "bare" and "wrap" modes, please read the [dedicated section](index.md#two-different-modes)
 
-<InlineAlert variant="info" slots="text"/>
-
-You can see our gRPC example that uses this transform to see its application. [Click here to open the example on GitHub](https://github.com/Urigo/graphql-mesh/tree/master/examples/grpc-example).
-
 ## Config API Reference
 
 -  `mode` (type: String (`bare` | `wrap`)) - Specify to apply naming-convention transforms to bare schema or by wrapping original schema

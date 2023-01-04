@@ -46,6 +46,10 @@ query bestSellersByStore {
 
 ## 1. Add the "Authors" Source
 
+<InlineAlert variant="info" slots="text"/>
+
+API Mesh for Adobe Developer App Builder does not currently support the `gRPC` handler.
+
 The "Authors" Source is a gRPC API: [`authors-service`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/authors-service).
 
 We will use the `grpc` Handler with the `@graphql-mesh/grpc` package and configure it in our [`mesh.json`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) file:
