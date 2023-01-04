@@ -60,6 +60,10 @@ module.exports = [
                 title: 'Release notes',
                 path: '/gateway/release-notes'
             },
+            {
+                title: 'Migration',
+                path: '/gateway/migration'
+            },
         ]
     }
     ]
