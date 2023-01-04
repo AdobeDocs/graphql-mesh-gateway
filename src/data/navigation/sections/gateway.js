@@ -57,5 +57,16 @@ module.exports = [
                 path: '/gateway/command-reference'
             },
         ]
+    },
+    {
+        title: 'Tutorials',
+        path: '/gateway/tutorial',
+        header: true,
+        pages: [
+            {
+                title: 'API Mesh tutorial',
+                path: '/gateway/tutorial'
+            },
+        ]
     }
     ]

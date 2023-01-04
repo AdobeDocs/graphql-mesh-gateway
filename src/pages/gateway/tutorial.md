@@ -91,7 +91,7 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
 
 1. Type `y` and click the **Enter** key to confirm the creation of the mesh. The mesh configuration and corresponding details will display.
 
-1. Run the `aio api-mesh:status` command. After your mesh is built, proceed to the next section.
+1. Run the `aio api-mesh:status` command to view your mesh status. It can take up to five minutes for new meshes to build. After your mesh is built, proceed to the next section.
 
 ## Access the Mesh
 
