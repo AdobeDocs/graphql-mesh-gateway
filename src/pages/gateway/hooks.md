@@ -169,17 +169,9 @@ When using `remote` composers, you could see decreased performance, because `rem
 
 ### Examples
 
-- `before` and `beforeAll` composer examples:
+- [`before` and `beforeAll` composer examples](#examples-1)
 
-  - [Local](#local-composer-example)
-
-  - [Remote](#remote-composer-example)
-
-- `after` and `afterAll` composer examples:
-
-  - [Local](#local-composer-example-1)
-
-  - [Remote](#remote-composer-example-1)
+- [`after` and `afterAll` composer examples](#examples-2)
 
 ## Creating `composers`
 
@@ -212,6 +204,8 @@ If the `composer` is a remote function, all the arguments are sent in the `POST`
 <InlineAlert variant="info" slots="text"/>
 
 Due to the limitations of `JSON` serialization and de-serialization, some complex `JSON` fields inside a remote function's arguments might not function correctly over the `HTTPS` call.
+
+### Examples
 
 <CodeBlock slots="heading, code" repeat="2" languages="js, js" />
 
@@ -273,6 +267,8 @@ async function handleRequest(event) {
 <InlineAlert variant="info" slots="text"/>
 
 Due to the limitations of `JSON` serialization and de-serialization, some complex `JSON` fields inside a remote function's arguments might not function correctly over the `HTTPS` call.
+
+### Examples
 
 <CodeBlock slots="heading, code" repeat="2" languages="js, js" />
 
