@@ -34,7 +34,7 @@ This walkthrough covers the basic actions you can perform in a mesh using API Me
 
 1. Change the **Project title** to "my_test_workspace".
 
-1. Click Save. You now have a workspace named "my_test_workspace" and workspaces named "Production" and "Stage".
+1. Click Save. You now have a project named "tutorial" with workspaces named "Production" and "Stage".
 
 ## Install the API Mesh plugin
 
