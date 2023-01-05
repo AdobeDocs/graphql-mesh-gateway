@@ -19,7 +19,11 @@ We have made the following changes since the API Mesh beta:
 - Error messages will now contain `RequestIds`. You can provide these IDs to support when troubleshooting errors.
 - Responses now include response time information.
 
-### Bug Fixes
+### Known issues
+
+<!-- I'll need someone to provide these -->
+
+### Bug fixes
 
 - Resolved an issue that previously prevented mesh updates from propagating.
 - Mesh updates that result in errors no longer overwrite the mesh in the selected workspace.
