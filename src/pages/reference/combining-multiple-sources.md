@@ -52,7 +52,7 @@ API Mesh for Adobe Developer App Builder does not currently support the `gRPC` h
 
 The "Authors" Source is a gRPC API: [`authors-service`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/authors-service).
 
-We will use the `grpc` Handler with the `@graphql-mesh/grpc` package and configure it in our [`mesh.json`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) file:
+We will use the `grpc` Handler with the `@graphql-mesh/grpc` package and configure it in our [`mesh`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) file:
 
 ```json
 {
@@ -87,7 +87,7 @@ We will "clean" the corresponding "Authors" GraphQL Schema later, in the 3rd ste
 
 The "Stores" Source is a GraphQL API: [`stores-service`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/stores-service).
 
-We will use the `graphql` Handler with the `@graphql-mesh/graphql` package and configure it in our [`mesh.json`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) file:
+We will use the `graphql` Handler with the `@graphql-mesh/graphql` package and configure it in our [`mesh`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) file:
 
 ```json
 {
@@ -220,7 +220,7 @@ To build a clean Unified Schema, we need to remove unnecessary Queries such as:
 - `Query.book` from the "Books" Source
 - `Query.bookSells` from the "Stores" Source
 
-Our updated [`mesh.json`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) is the following:
+Our updated [`mesh`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) is the following:
 
 ```json
 {
@@ -454,7 +454,7 @@ The `requiredSelectionSet` and `sourceArgs` ensure that the required arguments a
 
 `requiredSelectionSet` ensures that the `Book.author` selection will contain the `authorId`, so it can be forwarded to `Query.authors_v1_AuthorsService_GetAuthor` as the `input.id` argument.
 
-Applying the same logic to `Stores.bookSells` and `Sells.book` gives us a complete [`mesh.json`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) configuration.
+Applying the same logic to `Stores.bookSells` and `Sells.book` gives us a complete [`mesh`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml) configuration.
 
 Our Gateway is now complete. You can start it (along with the Services APIs) by running:
 
