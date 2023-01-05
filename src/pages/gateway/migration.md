@@ -1,5 +1,5 @@
 ---
-title: Release notes
+title: Migration
 description: This page describes breaking changes and how to migrate from one version of API Mesh for Adobe Developer App Builder to another.
 ---
 
