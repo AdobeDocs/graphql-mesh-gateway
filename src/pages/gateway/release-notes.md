@@ -7,13 +7,12 @@ description: This page lists changes that were made in each version of API Mesh 
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Migration page](migration.md) for more information on upgrading versions.
 
-## Jan 15, 2023
+## Jan 17, 2023
 
 We have made the following changes since the API Mesh beta:
 
 ### Enhancements
 
-- The new [Hooks transform](hooks.md) allows you to invoke composable functions.
 - The new [`aio api-mesh:status` command](command-reference.md#aio-api-meshstatus) allows you to: <!-- the target of the link above is added in PR #75 -->
   - View where your mesh is in the provisioning process
   - See any provisioning errors associated with your mesh
