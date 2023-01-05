@@ -144,7 +144,7 @@ Now we will apply a transform to make the schema more usable by adding a `prefix
           "name": "CommerceREST",
           "handler": {
             "openapi": {
-              "source": "https://accenturetest.magento.com/rest/all/schema?services=all"
+              "source": "https://venia.magento.com/rest/all/schema?services=all"
             }
           },
           "transforms": [
@@ -159,7 +159,7 @@ Now we will apply a transform to make the schema more usable by adding a `prefix
           "name": "CommerceCoreGraph",
           "handler": {
             "graphql": {
-              "endpoint": "https://accenturetest.magento.com/graphql"
+              "endpoint": "https://venia.magento.com/graphql"
             }
           },
           "transforms": [
