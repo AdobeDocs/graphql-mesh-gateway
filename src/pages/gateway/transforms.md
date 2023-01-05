@@ -17,7 +17,7 @@ The API Mesh currently supports the following [transforms]:
 -  [Naming Convention](#naming-convention)
 -  [Hooks](#hooks)
 
-Additionally, these transforms are available but are not fully supported by API Mesh at this time:
+Additionally, the following transforms are available but are not fully supported by API Mesh at this time. This means that your mesh will accept the transform, but we have not tested the transform thoroughly and you may encounter errors. Additionally, certain transform options may be disabled due to security concerns.
 
 -  [Encapsulate]
 -  [Federation]
