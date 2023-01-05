@@ -6,6 +6,7 @@ description: Learn how to use the Hooks transform to add hooks before and after 
 <InlineAlert variant="info" slots="text"/>
 
 The Hooks transform is not currently available and will be added in a subsequent release.
+
 <!--
 # Hooks transform
 
@@ -23,27 +24,27 @@ Some use cases for the `HooksTransform` include:
 
 You cannot use hooks to modify the request or the response. In addition, we recommend that you use resolvers instead of hooks to manipulate data.
 
-<!-- link to resolvers, when available
-
+<!-- link to resolvers, when available -->
+<!--
 Hook transforms increase processing time. Use them sparingly if processing time is important. Hooks are executed in the order you provide them, except `blocking` hooks execute before non-blocking hooks.
 
 ```ts
 interface HooksTransform {
-  /**
-   * Array of target/composer to apply before the original targets
-   */
+
+Array of target/composer to apply before the original targets
+
   before?: BeforeHooksTransformObject[];
-  /**
-   * Array of target/composer to apply after the original targets
-   */
+
+Array of target/composer to apply after the original targets
+
   after?: AfterHooksTransformObject[];
-  /**
-   * Target/composer to run before executing all the operations
-   */
+
+Target/composer to run before executing all the operations
+
   beforeAll?: BeforeAllTransformObject;
-  /**
-   * Target/composer to run after executing all the operations
-   */
+
+Target/composer to run after executing all the operations
+
   afterAll?: AfterAllTransformObject;
 }
 ```
@@ -325,3 +326,5 @@ The return signature of a composer is the same for local and remote functions.
     message: string
 }
 ```
+
+ -->
