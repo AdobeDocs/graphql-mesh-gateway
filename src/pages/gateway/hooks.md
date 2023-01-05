@@ -3,6 +3,10 @@ title: Hooks transform
 description: Learn how to use the Hooks transform to add hooks before and after querying your mesh.
 ---
 
+<InlineAlert variant="info" slots="text"/>
+
+The Hooks transform is not currently available and will be added in a subsequent release.
+<!--
 # Hooks transform
 
 The Hooks transform allows you to invoke a composable [local or remote](#local-vs-remote-functions) function on a targeted node.
@@ -19,7 +23,7 @@ Some use cases for the `HooksTransform` include:
 
 You cannot use hooks to modify the request or the response. In addition, we recommend that you use resolvers instead of hooks to manipulate data.
 
-<!-- link to resolvers, when available -->
+<!-- link to resolvers, when available
 
 Hook transforms increase processing time. Use them sparingly if processing time is important. Hooks are executed in the order you provide them, except `blocking` hooks execute before non-blocking hooks.
 
