@@ -1,11 +1,11 @@
 ---
-title: API Mesh Tutorial
-description: This API mesh tutorial covers creating and updating a mesh.
+title: API Mesh walkthrough
+description: This guide walks you through creating and updating a mesh in API mesh.
 ---
 
-# API Mesh Tutorial
+# API Mesh walkthrough
 
-This tutorial covers the basic actions you can perform in a mesh using API Mesh for Adobe Developer App Builder.
+This walkthrough covers the basic actions you can perform in a mesh using API Mesh for Adobe Developer App Builder.
 
 ## Prerequisites
 
@@ -32,9 +32,9 @@ This tutorial covers the basic actions you can perform in a mesh using API Mesh 
 
 1. Select **App Builder**.
 
-1. Change the **Project title** to "tutorial".
+1. Change the **Project title** to "my_test_workspace".
 
-1. Click Save. You now have a workspace named "tutorial" and workspaces named "Production" and "Stage".
+1. Click Save. You now have a workspace named "my_test_workspace" and workspaces named "Production" and "Stage".
 
 ## Install the API Mesh plugin
 
@@ -79,13 +79,15 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
       }
     ```
 
+  This mesh configuration files specifies the `sources` where you get data from and the `transforms` that manipulate that data.
+
 1. Run the following command:
 
     ```bash
     aio api-mesh:create mesh.json
     ```
 
-1. Use the arrow keys to select the `tutorial` Project and click **Enter**. If you want to use this project for future operations, type `y` and press the **Enter** key.
+1. Use the arrow keys to select the `my_test_workspace` Project and click **Enter**. If you want to use this project for future operations, type `y` and press the **Enter** key.
 
 1. Use the arrow keys to select the `stage` Workspace and click **Enter**. If you want to use this workspace for future operations, type `y` and press the **Enter** key.
 
@@ -126,7 +128,7 @@ In your GraphQL client, run the following GraphQL query:
 
 This query demonstrates how you can return data from multiple sources within your mesh with a single query.
 
-The `storeConfig` field returns information from your `REST` handler, while the `directoryDataCountryInformationInterface` field returns information from your `GraphQL` handler.
+The `storeConfig` field returns information from your `GraphQL` handler, while the `directoryDataCountryInformationInterface` field returns information from your `REST`  handler.
 
 ## Add a transform
 
