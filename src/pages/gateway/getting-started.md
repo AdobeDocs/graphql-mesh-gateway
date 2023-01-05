@@ -12,7 +12,7 @@ This guide provides you with the basic steps you need to set up your API managem
 Before you can begin using the API Mesh, you must install:
 
 -  [Node.js]
--  [nvm] 16.x.x (Mac/Linux) or [nvm-windows](https://github.com/coreybutler/nvm-windows)(Windows)
+-  [nvm] 16.x.x (Mac/Linux) or [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows)
 
 You will also need:
 
