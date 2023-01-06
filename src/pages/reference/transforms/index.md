@@ -65,7 +65,7 @@ However, Mesh Transforms can be specified at the Source or Root level as follows
             "name": "Books",
             "handler": {
                 "openapi": {
-                    "baseUrl": "http://localhost:3002/",
+                    "baseUrl": "https://my-service-url/",
                     "source": "../books-service/openapi3-definition.json"
                 }
             },
@@ -91,7 +91,7 @@ However, Mesh Transforms can be specified at the Source or Root level as follows
             "name": "Authors",
             "handler": {
                 "grpc": {
-                    "endpoint": "localhost:3003",
+                    "endpoint": "https://my-service-url/",
                     "protoFilePath": "../authors-service/proto/authors/v1/authors_service.proto"
                 }
             }
@@ -100,7 +100,7 @@ However, Mesh Transforms can be specified at the Source or Root level as follows
             "name": "Stores",
             "handler": {
                 "graphql": {
-                    "endpoint": "http://0.0.0.0:3004/graphql"
+                    "endpoint": "https://my-service-url/graphql"
                 }
             }
         }
@@ -403,7 +403,7 @@ Example:
       "name": "Countries",
       "handler": {
         "soap": {
-          "wsdl": "http://webservices.../wso?WSDL"
+          "wsdl": "https://webservices.../wso?WSDL"
         }
       }
     },

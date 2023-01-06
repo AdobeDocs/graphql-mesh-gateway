@@ -55,7 +55,7 @@ The [Prefix] transform allows you to add prefixes to existing types and root ope
         "name": "PWA",
         "handler": {
           "graphql": {
-            "endpoint": "http://example2.com/graphql"
+            "endpoint": "https://example2.com/graphql"
           }
         },
         "transforms": [

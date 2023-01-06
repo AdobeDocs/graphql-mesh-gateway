@@ -14,7 +14,7 @@ This handler allows you to load remote GraphQL schemas and use them with schema-
       "name": "MyGraphQLApi",
       "handler": {
         "graphql": {
-          "endpoint": "http://my-service-url:3000/graphql"
+          "endpoint": "https://my-service-url/graphql"
         }
       }
     }
@@ -46,7 +46,7 @@ The expression inside dynamic values should be as in JS. -->
       "name": "MyGraphQLApi",
       "handler": {
         "graphql": {
-          "endpoint": "http://my-service-url:3000/graphql",
+          "endpoint": "https://my-service-url/graphql",
           "operationHeaders": {
             "Authorization": "Bearer {context.headers['x-my-api-token']}"
           }
@@ -66,7 +66,7 @@ The expression inside dynamic values should be as in JS. -->
       "name": "MyGraphQLApi",
       "handler": {
         "graphql": {
-          "endpoint": "http://my-service-url:3000/graphql",
+        "endpoint": "https://my-service-url/graphql",
           "operationHeaders": {
             "Authorization": "Bearer {env.MY_API_TOKEN}"
           }

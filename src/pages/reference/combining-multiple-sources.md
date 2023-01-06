@@ -114,7 +114,7 @@ We will use the `graphql` Handler with the `@graphql-mesh/graphql` package and c
             "name": "Stores",
             "handler": {
                 "graphql": {
-                    "endpoint": "http://0.0.0.0:3004/graphql"
+                    "endpoint": "https://my-service-url/graphql"
                 }
             }
         }
@@ -153,7 +153,7 @@ The following Mesh Gateway configuration:
             "name": "Stores",
             "handler": {
                 "graphql": {
-                    "endpoint": "http://0.0.0.0:3004/graphql"
+                    "endpoint": "https://my-service-url/graphql"
                 }
             }
         }
@@ -247,7 +247,7 @@ Our updated [`mesh`](https://github.com/charlypoly/graphql-mesh-docs-first-gatew
             "name": "Stores",
             "handler": {
                 "graphql": {
-                    "endpoint": "http://0.0.0.0:3004/graphql"
+                    "endpoint": "https://my-service-url/graphql"
                 }
             }
         }
