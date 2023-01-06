@@ -208,7 +208,7 @@ Then manage the cookie in the new resolvers:
 
 ```js
 // lifespan of our cookie
-const oneYear = 365 -  24 -  3600
+const oneYear = 365 * 24 * 3600
 
 const resolvers = {
   Mutation: {

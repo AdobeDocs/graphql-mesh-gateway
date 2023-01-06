@@ -21,18 +21,31 @@ Add the following configuration to your Mesh config file:
         "mode": "bare | wrap",
         "filters": [
           "Type.!User",
+            // This will remove `User` type
           "Type.!{User, Post}",
+            // This will remove `User` and `Post` types
           "Query.!admins",
+            // This will remove field `admins` from `Query` type
           "Mutation.!{addUser, removeUser}",
+            // This will remove fields `addUser` and `removeUser` from `Mutation` type
           "User.{id, username, name, age}",
+            // This will remove all fields, from User type, except `id`, `username`, `name` and `age`
           "Query.user.id",
+            // This will remove all args from field `user`, in Query type, except `id` only
           "Query.user.!name",
+            // This will remove argument `name` from field `user`, in Query type
           "Query.user.{id, name}",
+            // This will remove all args for field `user`, in Query type, except `id` and `name`
           "Query.user.!{id, name}",
+            // This will remove args `id` and `name` from field `user`, in Query type
           "Query.*.id",
+            // This will remove all args from all fields in Query type, except `id` only
           "Query.*.!name",
+            // This will remove argument `name` from all fields in Query type
           "Query.*.{id, name}",
+            // This will remove all args from all fields in Query type, except `id` and `name`
           "Query.*.!{id, name}"
+            // This will remove args `id` and `name` from all fields in Query type
         ]
       }
     }
