@@ -17,7 +17,7 @@ We have made the following changes since the API Mesh beta:
   - View where your mesh is in the provisioning process
   - See any provisioning errors associated with your mesh
 - Error messages will now contain `RequestIds`. You can provide these IDs to support when troubleshooting errors.
-- Responses now include response time information.
+- Responses now include response time information for each source in your mesh.
 
 ### Known issues
 
