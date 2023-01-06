@@ -27,17 +27,17 @@ Remove any instances of `composerResolvers` from your mesh before running a [cre
 
 ### Hooks transform temporarily disabled
 
-The new [Hooks transform](hooks.md) is no longer supported.
+We have temporarily disabled the [Hooks transform](hooks.md). Hooks will return in an upcoming release.
 
 Remove any `Hook` transforms from your mesh before running a [create](command-reference.md#aio-api-meshcreate) or [update](command-reference.md#aio-api-meshupdate) command.
 
 ### Mesh create and update time
 
-While most [create](command-reference.md#aio-api-meshcreate) and [update](command-reference.md#aio-api-meshupdate) commands will be instantaneous, it can take a few minutes to fully provision and propagate your mesh.
+While most [create](command-reference.md#aio-api-meshcreate) and [update](command-reference.md#aio-api-meshupdate) commands will take a few seconds, complex meshes and meshes with several sources will take a few minutes to fully provision and propagate.
 
-To check the status of your mesh, if it was not created/updated instantly, use the [`aio api-mesh:status` command](command-reference.md#aio-api-meshstatus), which allows you to view where your mesh is in the provisioning process.
+To check the status of your mesh, use the [`aio api-mesh:status` command](command-reference.md#aio-api-meshstatus), which allows you to view where your mesh is in the provisioning process.
 
-Additionally, since your mesh is created/updated asynchronously, you will no longer receive an error if your mesh fails to create/update. Instead, run the [`aio api-mesh:status` command](command-reference.md#aio-api-meshstatus), which will indicate any errors associated with creating/updating your mesh.
+Additionally, due to our new asynchronous architecture, the create/update commands now add your mesh to a queue where it waits to be processed, which means you will no longer receive an error if your mesh fails to create/update. Instead, run the [`aio api-mesh:status` command](command-reference.md#aio-api-meshstatus), which will indicate the mesh status and any errors associated with creating/updating your mesh.
 
 ### CORS formatting change
 
