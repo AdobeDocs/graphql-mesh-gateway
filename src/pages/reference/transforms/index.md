@@ -150,7 +150,7 @@ The following `filterSchema` transforms configuration will fail:
   "sources": {
     "name": "MyService",
     "handler": {
-      "jsonSchema": null
+      "JsonSchema": null
     },
     "transforms": [
       {
@@ -190,7 +190,7 @@ For example:
   "sources": {
     "name": "MyService",
     "handler": {
-      "jsonSchema": null
+      "JsonSchema": null
     },
     "transforms": [
       {

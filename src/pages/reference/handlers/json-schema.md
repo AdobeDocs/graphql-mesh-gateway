@@ -14,7 +14,7 @@ For more information on creating JSON schemas, refer to this [JSON schema tutori
 
 <InlineAlert variant="warning" slots="text"/>
 
-The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.
+The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `JsonSchema` will result in an error.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -172,7 +172,7 @@ The mesh automatically generates arguments for operations if needed. Arguments a
         {
             "name": "MyGraphQLApi",
             "handler": {
-                "jsonSchema": {
+                "JsonSchema": {
                     "baseUrl": "https://some-service-url/endpoint-path/",
                     "operations": [
                         {
@@ -234,7 +234,7 @@ And here is the final config:
         {
             "name": "MyGraphQLApi",
             "handler": {
-                "jsonSchema": {
+                "JsonSchema": {
                     "baseUrl": "https://some-service-url/endpoint-path/",
                     "operations": [
                         {
@@ -281,7 +281,7 @@ In this example, we declare the `limit` parameter with a default value of `10` a
         {
             "name": "MyGraphQLApi",
             "handler": {
-                "jsonSchema": {
+                "JsonSchema": {
                     "baseUrl": "https://some-service-url/endpoint-path/",
                     "queryParams": {
                         "limit": 10,
