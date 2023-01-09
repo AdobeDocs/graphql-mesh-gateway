@@ -23,7 +23,7 @@ aio api-mesh:create [FILE]
 
 ### Flags
 
-`-i` or `--ignoreCache` ignores the cached organization, project and workspace, allowing you to create a mesh in a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh creation instead of prompting the user to confirm.
 
@@ -40,24 +40,10 @@ aio api-mesh:create mesh.json
 #### Response
 
 ```terminal
-Successfully created mesh: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
-{
-"meshConfig": {
-    "sources": [
-      {
-        "name": "Commerce",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://venia.magento.com/graphql/"
-          }
-        }
-      }
-    ]
-  }
-}
-Successfully create API Key: 1234567ab8c901a2b345c67d8ef9012a
-Successfully subscribed API Key 1234567ab8c901a2b345c67d8ef9012a to API Mesh service.
-Mesh Endpoint: https://graph.adobe.io/api/12a3b4c5-6d78-4012-3456-7e890fa1bcde/graphql?api_key=1234567ab8c901a2b345c67d8ef9012a
+Your mesh is being provisioned. Wait a few minutes before checking the status of your mesh: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+To check the status of your mesh, run:
+
+aio api-mesh:status
 ```
 
 ## aio api-mesh:update
@@ -76,7 +62,7 @@ aio api-mesh:update [FILE]
 
 ### Flags
 
-`-i` or `--ignoreCache` ignores the cached organization, project and workspace, allowing you to update a mesh in a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to update a mesh in a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh update instead of prompting the user to confirm.
 
@@ -94,6 +80,44 @@ aio api-mesh:update mesh.json
 Successfully updated the mesh with the id: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
+## aio api-mesh:status
+
+Retrieves the current status of your create or update command.
+
+### Example
+
+```bash
+aio api-mesh:status
+```
+
+#### Response
+
+There are four possible responses that reflect the status of your mesh:
+
+- Success - Your mesh was successfully created or updated.
+
+  ```terminal
+  Success: Your mesh has been successfully built.
+  ```
+
+- Pending - Your mesh is queued and awaiting processing.
+
+  ```terminal
+  Pending: Your mesh is awaiting processing.
+  ```
+
+- Building - Our servers are currently processing your mesh.
+
+  ```terminal
+  Pending: Your mesh is currently being provisioned. Wait a few minutes before checking again.
+  ```
+
+- Error - Your mesh encountered an error.
+
+  ```terminal
+  Unable to get the mesh status. If the error persists please contact support. RequestId: 1234567890
+  ```
+
 ## aio api-mesh:get
 
 Retrieves the current `JSON` mesh file for the workspace you select.
@@ -110,7 +134,7 @@ aio api-mesh:get [DOWNLOAD]
 
 ### Flags
 
-`-i` or `--ignoreCache` ignores the cached organization, project and workspace, allowing you to retrieve a mesh from a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to retrieve a mesh from a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
 
 `--help` provides information on the specified command.
 
@@ -196,7 +220,7 @@ aio api-mesh:delete
 
 ### Flags
 
-`-i` or `--ignoreCache` ignores the cached organization, project and workspace, allowing you to delete a mesh from a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to delete a mesh from a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh deletion instead of prompting the user to confirm.
 
@@ -226,7 +250,7 @@ aio api-mesh:describe
 
 ### Flags
 
-`-i` or`--ignoreCache` ignores the cached organization, project and workspace, allowing you to get the description of a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
+`-i` or`--ignoreCache` ignores the cached organization, project, and workspace, which allows you to get the description of a different workspace. You can also manually [modify the cache](create-mesh.md#modify-projects-and-workspaces).
 
 `--help` provides information on the specified command
 
@@ -247,7 +271,7 @@ Lists all available sources. Select a source to view its configuration file and 
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 
@@ -316,7 +340,7 @@ Prints the specified source's mesh file and allows you to copy it to the clipboa
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 
@@ -409,7 +433,7 @@ The `install` command adds the specified source to the currently selected worksp
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third-parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](./create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 

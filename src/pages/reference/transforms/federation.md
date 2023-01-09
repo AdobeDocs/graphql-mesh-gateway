@@ -4,9 +4,9 @@ title: federation Transform (Apollo) | API Mesh for Adobe Developer App Builder
 
 # federation transform
 
-`federation` transform allows to add the resolvers and directives to conform to the federation specification. Much of the federation source code could be reused ensuring it is compliant to the specification. This transform uses [`graphql-transform-federation`](https://github.com/0xR/graphql-transform-federation) package.
+`federation` transform allows you to add resolvers and directives to conform to the federation specification. Much of the federation source code could be reused to ensure that it is compliant to the specification. This transform uses the [`graphql-transform-federation`](https://github.com/0xR/graphql-transform-federation) package.
 
-## How to use?
+## Usage
 
 Add the following configuration to your Mesh config file:
 
@@ -26,9 +26,11 @@ Add the following configuration to your Mesh config file:
             "name": "Product",
             "config": {
               "extend": true,
-              "keyFields": [
-                "id"
+              "key": {
+                "Fields": [
+                  "id"
               ],
+            },
               "fields": [
                 {
                   "name": "id",
@@ -62,8 +64,9 @@ To add more complex business logic, you can point to a code file that exports a 
 
 ```js
 // So we can point to an existing query field to resolve that entity
-module.exports = (root, context, info) =>
-                    context.accounts.Query.user({ root, args: { id: root.id }, context, info })
+export default function (root, context, info)  {
+  return context.accounts.Query.user({ root, args: { id: root.id }, context, info })
+}
 ```
 
 ## Config API Reference
@@ -71,17 +74,33 @@ module.exports = (root, context, info) =>
 -  `types` (type: `Array of Object`, required):
    -  `name` (type: `String`, required)
    -  `config` (type: `Object`):
-      -  `keyFields` (type: `Array of String`, required)
+      - `key` (type: `Array of Object`):
+        - `fields` (type: `String`)
+      -  `shareable` (type: `Boolean`)
       -  `extend` (type: `Boolean`)
       -  `fields` (type: `Array of Object`, required):
          -  `name` (type: `String`, required)
          -  `config` (type: `Object`, required):
             -  `external` (type: `Boolean`)
             -  `provides` (type: `String`)
+               -  `fields` (type: `String`)
             -  `requires` (type: `String`)
-      -  `resolveReference` -  One of:
+               -  `fields` (type: `String`)
+            - `tag` (type: `Object`):
+              - `name` (type: `String`)
+            - `inaccessible` (type: `Boolean`)
+            - `override` (type: `Object`):
+              - `from` (type: `String`)
+      -  `resolveReference` -  One of the following:
          -  `String`
          -  `object`:
             -  `queryFieldName` (type: `String`, required) - Name of root field name that resolves the reference
-            -  `keyArg` (type: `String`) - If the root field name has multiple args,
-            you need to define which argument should receive the key
+            -  `args` (type: `JSON`) - Configure the arguments for the field:
+
+                ```json
+                {
+                    "args": {
+                        "someArg": "{root.someKeyValue}"
+                    }
+                }
+                ```

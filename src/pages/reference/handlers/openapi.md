@@ -1,13 +1,12 @@
 ---
 title: OpenAPI | API Mesh for Adobe Developer App Builder
 ---
-import Headers from '/src/pages/_includes/headers.md'
 
 # OpenAPI handlers
 
-This handler allows you to load remote or local [OpenAPI (2/3) and Swagger](https://swagger.io) schemas. Based on [OpenAPI-to-GraphQL](https://developer.ibm.com/open/projects/openapi-to-graphql).
+This handler allows you to load remote or local [OpenAPI (2/3) and Swagger](https://swagger.io) schemas.
 
-You can import it using remote/local `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
+You can import it using remote/local `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers](index.md#reference-local-files-in-handlers) for more information.
 
 To get started, use the handler in your Mesh config file:
 
@@ -18,7 +17,7 @@ To get started, use the handler in your Mesh config file:
       "name": "MyOpenapiApi",
       "handler": {
         "openapi": {
-          "source": "https://my-api-source.com"
+          "source": "./monolith-open-api-schema.json"
         }
       }
     }
@@ -26,12 +25,17 @@ To get started, use the handler in your Mesh config file:
 }
 ```
 
+<InlineAlert variant="info" slots="text"/>
+
+This handler is based on the [JSON Schema handler](json-schema.md), so its configurations also apply to the `openapi` handler.
+
 ## Overriding default Query/Mutation operations
 
-By default, OpenAPI-to-GraphQL will place all GET operations into Query fields and all other operations into Mutation fields; with this option you can manually override this process.
+By default, OpenAPI-to-GraphQL will place all GET operations into Query fields and all other operations into Mutation fields; with this option, you can manually override this process.
 
-In order to switch between Query and Mutation operations, and vice versa, you need to define a rule per override, consisting of: OAS title, path of the operation, method of the operation and finally the destination type (e.g. Query or Mutation).
-See example below:
+To switch between Query and Mutation operations, and vice versa, you need to define an override rule that consists of OAS title, the path of the operation, the method of the operation, and the destination type (e.g. Query or Mutation).
+
+See the following example:
 
 ```json
 {
@@ -40,7 +44,7 @@ See example below:
       "name": "MyOpenapiApi",
       "handler": {
         "openapi": {
-          "source": "https://my-api-source.com",
+          "source": "./monolith-open-api-schema.json",
           "selectQueryOrMutationField": [
             {
               "title": "Weather Service v1",
@@ -62,13 +66,22 @@ See example below:
 }
 ```
 
-## Dynamic Header Values
+## Naming convention
 
-<Headers />
+We use the `operationId` for names, and aim to keep it as close as possible to the origin.
 
-<!-- Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request. -->
+### Type naming
 
-### From Context
+We adjust the `operationId` only when necessary according to the GraphQL spec:
+    - Characters, such as white space, `.`, `/`, `:` and `-`, are replaced with an underscore (`_`).
+    - Other characters which are not digits or Latin letters are replaced with their character codes.
+    - If the first character of a name is a digit, we prefix it with an underscore (`_`), because GraphQL does not allow initial digits.
+
+### Unnamed types
+
+We use path-based naming. So names could be structured like `query_getUsers_items_firstName`.
+
+## Headers from context
 
 ```json
 {
@@ -87,10 +100,10 @@ See example below:
   ]
 }
 ```
-
+<!-- 
 ### From Environmental Variable
 
-`MY_API_TOKEN` is the name of the environmental variable you have the value.
+`MY_API_TOKEN` is the name of the environmental variable that you have the value for.
 
 ```json
 {
@@ -108,17 +121,23 @@ See example below:
     }
   ]
 }
-```
+``` -->
 
 ## Advanced cookies handling
 
-When building a web application, for security reasons, cookies are often used for authentication. Mobile applications on the other end, tend to use a HTTP header.
+When building a web application, for security reasons, cookies are often used for authentication. Mobile applications on the other end, tend to use an HTTP header.
 
 This section shows how to configure GraphQL Mesh to accept either, and also how to use GraphQL Mesh to set / unset cookies on the login & logout mutations.
 
-### Accepting one of cookie, header or context value
+### Accepting one cookie, header, or context value
 
-We want to accept one of: an `accessToken` cookie, an `Authorization` header, or an authorization value available in context (e.g. set by a GraphQL auth plugin), and transmit it to the Rest API as a `Authorization` header. GraphQL Mesh does not allow dynamic selection in the `meshrc.json` file, but that's fine! We can use a bit of trickery.
+We want to accept one of the following:
+
+- an `accessToken` cookie
+- an `Authorization` header
+- an authorization value available in context (e.g. set by a GraphQL auth plugin)
+
+We transmit the value to the Rest API as an `Authorization` header. GraphQL Mesh does not allow dynamic selection in the `meshrc.json` file, but we can work around that limitation.
 
 ```json
 {
@@ -128,7 +147,7 @@ We want to accept one of: an `accessToken` cookie, an `Authorization` header, or
       "handler": {
         "openapi": {
           "source": "./openapi.yaml",
-          "baseUrl": "{env.REST_URL}/api/",
+          "baseUrl": "my-site/api/",
           "operationHeaders": {
             "Authorization-Header": "{context.headers.authorization}",
             "Authorization-Cookie": "Bearer {context.cookies.accessToken}"
@@ -141,7 +160,7 @@ We want to accept one of: an `accessToken` cookie, an `Authorization` header, or
 }
 ```
 
-Here in the `meshrc.json` configuration we store the cookie in `Authorization-Cookie`, and the header in `Authorization-Header`. Now to introduce the logic needed to generate the proper `Authorization` header for the Rest API, we need to implement a `customFetch`. It will replace the `fetch` used by GraphQL Mesh to call the Rest API.
+Here in the `mesh.json` configuration, we store the cookie in `Authorization-Cookie` and the header in `Authorization-Header`. Now to introduce the logic needed to generate the proper `Authorization` header for the Rest API, we need to implement a `customFetch`. It will replace the `fetch` used by GraphQL Mesh to call the Rest API.
 
 ```js
 const fetch = require('node-fetch')
@@ -167,7 +186,7 @@ Of course, being able to use GraphQL Mesh as a Gateway for both the mobile appli
 
 For that, we need to access the HTTP response that is sent back to the client. Luckily, we can do so in `additionalResolvers`. So we need to create two new resolvers, one for login and one for logout, and manage the cookie in their code.
 
-The first step is to edit the `meshrc.json` file, add this at the end:
+The first step is to edit the `mesh.json` file, and add the following at the end:
 
 ```json
 {
@@ -182,7 +201,7 @@ Then manage the cookie in the new resolvers:
 
 ```js
 // lifespan of our cookie
-const oneYear = 365 -  24 -  3600
+const oneYear = 365 * 24 * 3600
 
 const resolvers = {
   Mutation: {
@@ -214,6 +233,14 @@ const resolvers = {
 module.exports = { resolvers }
 ```
 
+## Callbacks as Subscriptions
+
+The OpenAPI handler can process OAS Callbacks as GraphQL Subscriptions. It uses your PubSub implementation to consume the data. But you have to define webhooks for individual callbacks to make it work.
+
+See [Subscriptions & Webhooks](https://the-guild.dev/graphql/mesh/docs/guides/subscriptions-webhooks) to create an endpoint to consume a webhook. You should use the callback URL as `pubSubTopic` in the webhook configuration.
+
+See our example: [Subscriptions Example with Webhooks](https://codesandbox.io/s/github/Urigo/graphql-mesh/tree/master/examples/openapi-subscriptions).
+
 ## Examples
 
 Here are some examples of OpenAPI Handlers:
@@ -227,11 +254,11 @@ Here are some examples of OpenAPI Handlers:
 
 ## Config API Reference
 
--  `source` (type: `Any`, required) - A pointer to your API source - could be a local file, remote file or url endpoint
+-  `source` (type: `Any`, required) - A pointer to your API source - could be a local file, remote file, or url endpoint
 -  `sourceFormat` (type: `String (json | yaml)`) - Format of the source file
 -  `operationHeaders` (type: `JSON`) - JSON object representing the Headers to add to the runtime of the API calls
 -  `schemaHeaders` (type: `JSON`) - If you are using a remote URL endpoint to fetch your schema, you can set headers for the HTTP request to fetch your schema.
--  `baseUrl` (type: `String`) - Specifies the URL on which all paths will be based on.
+-  `baseUrl` (type: `String`) - Specifies the URL that all paths will be based on.
 Overrides the server object in the OAS.
 -  `qs` (type: `JSON`) - JSON object representing the query search parameters to add to the API calls
 -  `includeHttpDetails` (type: `Boolean`) - Include HTTP Response details to the result object
@@ -247,7 +274,7 @@ Overrides the server object in the OAS.
 `provideErrorExtensions` (type: `Boolean`) - Overwrite automatic wrapping of errors into GraphqlErrors
 `operationIdFieldNames` (type: `Boolean`) - Field names can only be sanitized operationIds 
 
-By default, query field names are based on the return type type name and mutation field names are based on the operationId, which may be generated if it does not exist.
+By default, query field names are based on the return type name and mutation field names are based on the operationId, which may be generated if it does not exist.
 
 This option forces OpenAPI handler to only create field names based on the operationId.
 -->

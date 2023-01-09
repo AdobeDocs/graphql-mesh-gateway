@@ -1,12 +1,16 @@
 ---
-title: namingConvention Transform | API Mesh for Adobe Developer App Builder
+title: naming-convention Transform | API Mesh for Adobe Developer App Builder
 ---
 
-# namingConvention transform
+# `naming-convention` transform
 
-The `naming-convention` transform allows applying naming convention to GraphQL types and GraphQL fields easily.
+The `naming-convention` transforms allow you to apply casing and other conventions to your response.
 
-## How to use?
+## Usage
+
+<InlineAlert variant="info" slots="text"/>
+
+In this example, enumValues fields are converted to uppercase, while fieldNames are converted to camel case to enforce consistency.
 
 Add the following configuration to your Mesh config file:
 
@@ -15,6 +19,7 @@ Add the following configuration to your Mesh config file:
   "transforms": [
     {
       "namingConvention": {
+        "mode": "bare | wrap",
         "typeNames": "pascalCase",
         "enumValues": "upperCase",
         "fieldNames": "camelCase",
@@ -25,8 +30,13 @@ Add the following configuration to your Mesh config file:
 }
 ```
 
+<InlineAlert variant="info" slots="text"/>
+
+For information about "bare" and "wrap" modes, please read the [dedicated section](index.md#two-different-modes)
+
 ## Config API Reference
 
+-  `mode` (type: String (`bare` | `wrap`)) - Specify to apply naming-convention transforms to bare schema or by wrapping original schema
 -  `typeNames` (type: String (`camelCase` | `capitalCase` | `constantCase` | `dotCase` | `headerCase` | `noCase` | `paramCase` | `pascalCase` | `pathCase` | `sentenceCase` | `snakeCase` | `upperCase` | `lowerCase`))
 -  `fieldNames` (type: String (`camelCase` | `capitalCase` | `constantCase` | `dotCase` | `headerCase` | `noCase` | `paramCase` | `pascalCase` | `pathCase` | `sentenceCase` | `snakeCase` | `upperCase` | `lowerCase`))
 -  `enumValues` (type: String (`camelCase` | `capitalCase` | `constantCase` | `dotCase` | `headerCase` | `noCase` | `paramCase` | `pascalCase` | `pathCase` | `sentenceCase` | `snakeCase` | `upperCase` | `lowerCase`))
