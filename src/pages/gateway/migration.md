@@ -25,6 +25,20 @@ The Resolver Composition transform (`composeResolvers`) is no longer supported.
 
 Remove any instances of `composerResolvers` from your mesh before running a [create](command-reference.md#aio-api-meshcreate) or [update](command-reference.md#aio-api-meshupdate) command.
 
+### Runtime headers
+
+Runtime headers that use the following format are now deprecated:
+
+```bash
+GGW-SH-<SourceName>-<HeaderName>
+```
+
+Instead, use the following methods:
+
+-  [OpenAPI handlers](../reference/handlers/openapi.md#dynamic-header-values)
+-  [GraphQL handlers](../reference/handlers/graphql.md#dynamic-header-values)
+-  [JSON schema handlers](../reference/handlers/json-schema.md#dynamic-header-values)
+
 ### Hooks transform temporarily disabled
 
 We have temporarily disabled the [Hooks transform](hooks.md). Hooks will return in an upcoming release.
