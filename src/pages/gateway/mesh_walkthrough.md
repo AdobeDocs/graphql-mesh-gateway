@@ -79,7 +79,7 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
       }
     ```
 
-  This mesh configuration file specifies the `sources` where you get data from and the `transforms` that manipulate that data.
+  This mesh configuration file specifies the `sources` where you get data from and the `transforms` that manipulate that data. Here we are using `venia.magento.com`, which is a publicly available Adobe Commerce sample storefront.
 
 1. Run the following command:
 
@@ -87,7 +87,7 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
     aio api-mesh:create mesh.json
     ```
 
-1. Use the arrow keys to select the `my_test_workspace` Project and click **Enter**. If you want to use this project for future operations, type `y` and press the **Enter** key.
+1. Use the arrow keys to select the `my_test_workspace` Project and click **Enter**. Type `y` to indicate you want to use this project for future operations. Then press the **Enter** key.
 
 1. Use the arrow keys to select the `stage` Workspace and click **Enter**. If you want to use this workspace for future operations, type `y` and press the **Enter** key.
 
@@ -104,6 +104,8 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
 1. Determine if you can view the schema in the **Docs** section of your GraphQL client. Refer to your GraphQL client's documentation to learn how to access the schema.
 
     If you can view the schema, proceed to the next section. If you cannot view the schema, go back and check your mesh's sources. You can use the [`aio api-mesh:update`](command-reference.md#aio-api-meshupdate) command to update your mesh with the correct information.
+
+    If you cannot view the schema. Open a web browser and determine if you have access to the Adobe Commerce sample storefront: [https://venia.magento.com](https://venia.magento.com).
 
 ## Run a query
 
@@ -128,11 +130,11 @@ In your GraphQL client, run the following GraphQL queries:
 
 These queries demonstrate how you can return data from multiple sources within your mesh with a single request.
 
-The `storeConfig` query returns information from your `GraphQL` handler, while the `directoryDataCountryInformationInterface` query returns information from your `REST`  handler.
+The `storeConfig` query returns information from your `GraphQL` handler, while the `directoryDataCountryInformationInterface` query returns information from your `REST`  handler. The `directoryDataCountryInformationInterface` query has been transformed from the Commerce [`GET /V1/default/directory/countries/{countryId}`](https://adobe-commerce.redoc.ly/2.4.5-admin/tag/directorycountries#operation/GetV1DirectoryCountries) endpoint.
 
 ## Add a transform
 
-Now we will apply a transform to make the schema more usable by adding a `prefix`. You can also use the `prefix` transform to avoid conflicting field names between sources.
+Now we will apply a transform to make the schema more usable by adding a `prefix`. You can also use the `prefix` transform to avoid conflicting field names between sources. In the following example, we will add `REST_` and `GraphQL_` prefixes to help us distinguish between our two handlers.
 
 1. Modify your `mesh.json` file to match the following:
 
