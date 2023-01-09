@@ -23,10 +23,10 @@ The following example contains a basic mesh file with an OpenAPI source handler.
   "meshConfig": {
     "sources": [
       {
-        "name": "MagentoRest",
+        "name": "CommerceREST",
         "handler": {
           "openapi": {
-            "source": "your_Magento_API"
+            "source": "your_Commerce_API"
           }
         },
       }
@@ -46,25 +46,25 @@ You can reference local files as sources in handlers using the following format:
     "meshConfig": {
         "sources": [
             {
-                "name": "MagentoRest",
+                "name": "CommerceREST",
                 "handler": {
                     "openapi": {
-                        "source": "your_Magento_API"
+                        "source": "your_Commerce_API"
                     }
                 }
             },
             {
-                "name": "Magento REST V2",
+                "name": "CommerceRESTV2",
                 "handler": {
                     "openapi": {
-                        "source": "./magentoRestV2.json"
+                        "source": "./CommerceRestV2.json"
                     }
                 }
             }
         ],
         "files": [
             {
-                "path": "./magentoRestV2.json",
+                "path": "./CommerceRestV2.json",
                 "content": <LOCAL_FILE_CONTENT>
             }
         ]
