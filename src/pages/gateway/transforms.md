@@ -5,28 +5,31 @@ description: How to apply transforms to your mesh to customize your responses.
 
 # Transforms
 
-While [handlers] let you bring outside sources into API Mesh for Adobe Developer App Builder, [transforms] allow you to modify the schema in order to control the contents of your GraphQL requests and responses.
+While [handlers] let you bring outside sources into API Mesh for Adobe Developer App Builder, [transforms] allow you to modify the schema to control the contents of your GraphQL requests and responses.
 
 The API Mesh currently supports the following [transforms]:
 
 -  [Rename](#rename)
 -  [Prefix](#prefix)
--  [Filter](#filter-schema)
--  [Replace](#replace)
--  [Type Merge](#type-merge)
+-  [Filter Schema](#filter-schema)
+-  [Replace Field](#replace-field)
+-  [Type Merging](#type-merging)
 -  [Naming Convention](#naming-convention)
 -  [Hooks](#hooks)
 
-Additionally, these transforms are available but are not fully supported at this time:
+Additionally, the following transforms are available but are not fully supported by API Mesh at this time. This means that your mesh will accept the transform, but we have not tested the transform thoroughly and you may encounter errors. Additionally, certain transform options may be disabled due to security concerns.
 
 -  [Encapsulate]
 -  [Federation]
+-  [Hoist field](https://the-guild.dev/graphql/mesh/docs/transforms/hoist)
+-  [Prune](https://the-guild.dev/graphql/mesh/docs/transforms/prune)
+-  [Resolvers composition](https://the-guild.dev/graphql/mesh/docs/transforms/resolvers-composition)
 
 Other [GraphQL Mesh] transforms are not supported.
 
 ## Prefix
 
-[Prefix] transforms allow you to add prefixes to existing types and root operations. `prefix` is similar to `rename` in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query. In contrast with `rename`, `prefix` is simpler and only allows you to append a prefix to the existing name. In the example below, we differentiate our sources by adding an "AEM_" prefix to the [AEM] source and a  "Venia_" prefix to the the [PWA] source.
+The [Prefix] transform allows you to add prefixes to existing types and root operations. `prefix` is similar to `rename` in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query. In contrast with `rename`, `prefix` is simpler and only allows you to append a prefix to the existing name. In the example below, we differentiate our sources by adding an "AEM_" prefix to the [AEM] source and a  "Venia_" prefix to the [PWA] source.
 
 ```json
 {
@@ -52,7 +55,7 @@ Other [GraphQL Mesh] transforms are not supported.
         "name": "PWA",
         "handler": {
           "graphql": {
-            "endpoint": "http://example2.com/graphql"
+            "endpoint": "https://example2.com/graphql"
           }
         },
         "transforms": [
@@ -77,14 +80,14 @@ Other [GraphQL Mesh] transforms are not supported.
 
 <InlineAlert variant="info" slots="text"/>
 
-You can use [RegEx flags] to enable the use of regular expressions when renaming using this transform. For example, you could use the key value pair `field: api(.*)` in the `from` object to rename any field of the corresponding type that begins with "api".
+You can use [RegEx flags] to enable the use of regular expressions when renaming using this transform. For example, you could use the key-value pair `field: api(.*)` in the `from` object to rename any field of the corresponding type that begins with "api".
 
 ```json
 {
   "meshConfig": {
     "sources": [
       {
-        "name": "MagentoRest",
+        "name": "CommerceREST",
         "handler": {
           "openapi": {
             "source": "https://www.example.com/rest/all/schema?services=all"
@@ -118,7 +121,7 @@ You can use [RegEx flags] to enable the use of regular expressions when renaming
 
 The [Filter Schema] transform allows you to specify which schema elements to include or exclude in your mesh. You can include or exclude entire queries and mutations, or place restrictions on which types can appear in your calls.
 
-For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed. In the example below, the deprecated Adobe Commerce  `category` and `customerOrders` queries are filtered out of the [PWA] handler.
+For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed. In the example below, the deprecated Adobe Commerce `category` and `customerOrders` queries are filtered out of the [PWA] handler.
 
 ```json
 {
@@ -155,9 +158,9 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 }
 ```
 
-## Replace
+## Replace Field
 
-[Replace] transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant looking queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
+[Replace field] transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
 
 ```json
 {
@@ -195,9 +198,9 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 }
 ```
 
-## Type Merge
+## Type Merging
 
-[Type Merge] transforms allow you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [GraphQL Mesh Example].
+[Type Merging] allows you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [GraphQL Mesh Example].
 
 ## Naming Convention
 
@@ -284,6 +287,6 @@ interface AfterAllTransformObject {
 [Naming Convention]: /reference/transforms/naming-convention.md
 [Prefix]: /reference/transforms/prefix.md
 [Rename]: /reference/transforms/rename.md
-[Replace]: /reference/transforms/replace-field.md
-[Type Merge]: /reference/transforms/type-merging.md
+[Replace field]: /reference/transforms/replace-field.md
+[Type Merging]: /reference/transforms/type-merging.md
 [GraphQL Mesh Example]: /reference/multiple-apis.md#merging-types-from-different-sources-using-type-merging

@@ -34,7 +34,7 @@ Adobe Commerce users can consider the API Mesh as a low-code way to integrate ot
 
 ## Security
 
-The GraphQL data plane used by API Mesh is public, but requires both a MeshID and an API Key to access. We recommend storing your API Key in a header, instead of using the API Key attached to your mesh's url.
+The GraphQL data plane used by API Mesh is public but requires both a MeshID and an API Key to access. We recommend storing your API Key in a header, instead of using the API Key attached to your mesh's URL.
 
 Basic identification is provided by your Mesh ID and API Key. Additionally, API Mesh honors any downstream authorization headers provided by your [sources](source-handlers.md).
 

@@ -21,6 +21,14 @@ You will also need:
 -  An API to integrate (for example, your own API, any public OpenAPI REST endpoint, or an [Adobe Experience Manager API])
 -  (Optional) A working instance of Adobe Commerce with either Luma or Venia sample data. You can also include a Live Search instance. The examples in this guide mainly use Commerce to demonstrate features and functionality.
 
+## Install the `aio` CLI
+
+Install [Adobe I/O Extensible CLI](https://developer.adobe.com/runtime/docs/guides/tools/cli_install/) by running the following command:
+
+```bash
+npm install -g @adobe/aio-cli
+```
+
 ## Configure your environment
 
 Once you have an Adobe IO account, you can use the following command line interface (CLI) command to install the [schema management plugin] in your project directory:
