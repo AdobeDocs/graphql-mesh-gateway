@@ -48,9 +48,9 @@ GGW-SH-<SourceName>-<HeaderName>
 
 Instead, use the following methods:
 
--  [OpenAPI handlers](../reference/handlers/openapi.md#dynamic-header-values)
--  [GraphQL handlers](../reference/handlers/graphql.md#dynamic-header-values)
--  [JSON schema handlers](../reference/handlers/json-schema.md#dynamic-header-values)
+-  [OpenAPI handlers](../reference/handlers/openapi.md#headers-from-context)
+-  [GraphQL handlers](../reference/handlers/graphql.md#headers-from-context)
+-  [JSON schema handlers](../reference/handlers/json-schema.md#headers-from-context)
 
 ### Mesh create and update time
 
