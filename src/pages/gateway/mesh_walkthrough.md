@@ -79,7 +79,7 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
       }
     ```
 
-  This mesh configuration files specifies the `sources` where you get data from and the `transforms` that manipulate that data.
+  This mesh configuration file specifies the `sources` where you get data from and the `transforms` that manipulate that data.
 
 1. Run the following command:
 
@@ -107,7 +107,7 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
 
 ## Run a query
 
-In your GraphQL client, run the following GraphQL query:
+In your GraphQL client, run the following GraphQL queries:
 
 ```graphql
 {
@@ -126,15 +126,15 @@ In your GraphQL client, run the following GraphQL query:
 }
 ```
 
-This query demonstrates how you can return data from multiple sources within your mesh with a single query.
+These queries demonstrate how you can return data from multiple sources within your mesh with a single request.
 
-The `storeConfig` field returns information from your `GraphQL` handler, while the `directoryDataCountryInformationInterface` field returns information from your `REST`  handler.
+The `storeConfig` query returns information from your `GraphQL` handler, while the `directoryDataCountryInformationInterface` query returns information from your `REST`  handler.
 
 ## Add a transform
 
 Now we will apply a transform to make the schema more usable by adding a `prefix`. You can also use the `prefix` transform to avoid conflicting field names between sources.
 
-1. Modify your mesh.json file to match the following:
+1. Modify your `mesh.json` file to match the following:
 
   ```json
   {
