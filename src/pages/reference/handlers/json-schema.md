@@ -1,7 +1,6 @@
 ---
 title: JSON Schema or Samples | API Mesh for Adobe Developer App Builder
 ---
-import Headers from '/src/pages/_includes/headers.md'
 
 # JSON schema handlers
 
@@ -49,14 +48,7 @@ To get started, use the handler in your Mesh config file:
 
 JSON Schema handlers can also use local sources, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
 
-## Dynamic Header Values
-
-<Headers />
-
-<!-- Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request.
- -->
-
-### From Context
+## Headers from context
 
 ```json
 {

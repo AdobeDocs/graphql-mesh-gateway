@@ -1,7 +1,6 @@
 ---
 title: OpenAPI | API Mesh for Adobe Developer App Builder
 ---
-import Headers from '/src/pages/_includes/headers.md'
 
 # OpenAPI handlers
 
@@ -82,13 +81,7 @@ We adjust the `operationId` only when necessary according to the GraphQL spec:
 
 We use path-based naming. So names could be structured like `query_getUsers_items_firstName`.
 
-## Dynamic Header Values
-
-<Headers />
-
-<!-- Mesh can take dynamic values from the GraphQL Context or the environmental variables. If you use `mesh dev` or `mesh start`, GraphQL Context will be the incoming HTTP request. -->
-
-### From Context
+## Headers from context
 
 ```json
 {
