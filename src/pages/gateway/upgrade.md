@@ -17,13 +17,13 @@ See our [NPM page](https://www.npmjs.com/package/@adobe/aio-cli-plugin-api-mesh)
 
 ## Upgrading
 
-You will need to modify any previously created meshes to account for the following breaking changes when updating to the new release.
+You must modify any previously created meshes to account for the following breaking changes when updating to the new release.
 
 ### Deprecated experimental features
 
 The beta release contained two experimental features that are not supported in the GA release.
 
-- The Resolver Composition transform has been deprecated.
+- The Resolver Composition transform has been deprecated and is no longer supported.
 - The Hook transform requires additional fixes and testing. We intend to re-enable this transform in a subsequent release.
 
 #### Resolver Composition transform deprecated
@@ -70,7 +70,9 @@ The [CORS headers](headers.md#cors-headers) format has changed. As the following
 ...
   "responseConfig": {
     "headers": {
-...
+    ...
+    }
+  }
 ```
 
 **New format**
@@ -78,7 +80,9 @@ The [CORS headers](headers.md#cors-headers) format has changed. As the following
 ```json
   "responseConfig": {
     "CORS": {
-...
+    ...
+    }
+  }
 ```
 
 Additionally, the `preflightContinue` field is no longer needed and will cause an error if used. Refer to the [CORS headers](headers.md#cors-headers) example for more information.
