@@ -61,8 +61,8 @@ module.exports = [
                 path: '/gateway/release-notes'
             },
             {
-                title: 'Migration',
-                path: '/gateway/migration'
+                title: 'Upgrading versions',
+                path: '/gateway/upgrade'
             },
         ]
     }
