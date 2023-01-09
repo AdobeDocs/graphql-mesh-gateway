@@ -95,7 +95,7 @@ In this case, CLI's `build` command won't save the introspection in the artifact
 ## Local Schemas
 
 We recommend providing local schema by using the [`additionalTypeDefs`](../extending-unified-schema.md) and [`additionalResolvers`](../multiple-apis.md#extending-graphql-schema-with-additionaltypedefs) configuration options.
-
+<!-- 
 ## Fetch Strategies and Multiple HTTP endpoints for the same source
 
 If you want to have an advanced fetch strategy for the GraphQL source such as retrying twice or timeout in 30 seconds etc.
@@ -205,7 +205,7 @@ If you have different places that the service is deployed, this is useful to get
         }
     ]
 }
-```
+``` -->
 
 ## Config API Reference
 
