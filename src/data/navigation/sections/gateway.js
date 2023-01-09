@@ -48,13 +48,21 @@ module.exports = [
         ],
     },
     {
-        title: 'Utilities',
+        title: 'Resources',
         path: '/gateway/command-reference',
         header: true,
         pages: [
             {
                 title: 'Command reference',
                 path: '/gateway/command-reference'
+            },
+            {
+                title: 'Release notes',
+                path: '/gateway/release-notes'
+            },
+            {
+                title: 'Upgrade versions',
+                path: '/gateway/upgrade'
             },
         ]
     }
