@@ -100,7 +100,7 @@ We use path-based naming. So names could be structured like `query_getUsers_item
   ]
 }
 ```
-
+<!-- 
 ### From Environmental Variable
 
 `MY_API_TOKEN` is the name of the environmental variable that you have the value for.
@@ -121,7 +121,7 @@ We use path-based naming. So names could be structured like `query_getUsers_item
     }
   ]
 }
-```
+``` -->
 
 ## Advanced cookies handling
 
@@ -147,7 +147,7 @@ We transmit the value to the Rest API as an `Authorization` header. GraphQL Mesh
       "handler": {
         "openapi": {
           "source": "./openapi.yaml",
-          "baseUrl": "{env.REST_URL}/api/",
+          "baseUrl": "my-site/api/",
           "operationHeaders": {
             "Authorization-Header": "{context.headers.authorization}",
             "Authorization-Cookie": "Bearer {context.cookies.accessToken}"

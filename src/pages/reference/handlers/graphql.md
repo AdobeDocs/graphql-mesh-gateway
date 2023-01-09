@@ -80,9 +80,8 @@ Imagine that introspection is disabled in the production environment of your Gra
             "handler": {
                 "graphql": {
                     "endpoint": "https://api.github.com/graphql",
-                    "schema": "https://docs.github.com/public/schema.docs.graphql",
                     "operationHeaders": {
-                        "Authorization": "Bearer {env.GITHUB_TOKEN}"
+                        "Authorization": "Bearer {context.headers['GITHUB_TOKEN']}"
                     }
                 }
             }
@@ -96,39 +95,6 @@ In this case, CLI's `build` command won't save the introspection in the artifact
 ## Local Schemas
 
 We recommend providing local schema by using the [`additionalTypeDefs`](../extending-unified-schema.md) and [`additionalResolvers`](../multiple-apis.md#extending-graphql-schema-with-additionaltypedefs) configuration options.
-
-However, it is also possible to use a local GraphQL Schema instance as a GraphQL Mesh source, as showcased below:
-
-```json
-{
-    "sources": [
-        {
-            "name": "MyGraphQLApi",
-            "handler": {
-                "graphql": {
-                    "schema": "./my-local-schema.js"
-                }
-            }
-        }
-    ]
-}
-```
-
-```ts
-import { makeExecutableSchema } from '@graphql-tools/schema'
-export default makeExecutableSchema({
-  typeDefs: /* GraphQL */ `
-    type Query {
-      foo: String
-    }
-  `,
-  resolvers: {
-    Query: {
-      foo: () => 'FOO'
-    }
-  }
-})
-```
 
 ## Fetch Strategies and Multiple HTTP endpoints for the same source
 
