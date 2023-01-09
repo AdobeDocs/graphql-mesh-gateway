@@ -52,9 +52,9 @@ To add headers directly to a source handler in your mesh file, for example `mesh
 
 You can also inject dynamic values from the context into your headers. For examples of dynamic header values, select a handler:
 
--  [OpenAPI handlers](../reference/handlers/openapi.md#dynamic-header-values)
--  [GraphQL handlers](../reference/handlers/graphql.md#dynamic-header-values)
--  [JSON schema handlers](../reference/handlers/json-schema.md#dynamic-header-values)
+-  [OpenAPI handlers](../reference/handlers/openapi.md#headers-from-context)
+-  [GraphQL handlers](../reference/handlers/graphql.md#headers-from-context)
+-  [JSON schema handlers](../reference/handlers/json-schema.md#headers-from-context)
 
 ## Response headers
 
