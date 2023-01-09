@@ -178,3 +178,62 @@ To add CORS headers to your mesh, create a `CORS` object in the `responseConfig`
 ...
 }
 ```
+
+## Retrieving handler details
+
+To receive response times and other additional details from a source, add `httpdetails=true` as a header value to your requests.
+
+Your response will look similar to the following:
+
+```json
+"extensions": {
+  "httpDetails": [
+      {
+          "sourceName": "CommerceGRAPHQL",
+          "path": {
+              "key": "storeConfig",
+              "typename": "Query"
+          },
+          "request": {
+              "timestamp": 1673279217990,
+              "url": "https://your-handler-site/graphql/",
+              "method": "POST",
+              "headers": {
+                  "accept": "application/graphql-response+json, application/json, multipart/mixed",
+                  "authorization": "Bearer ",
+                  "content-type": "application/json"
+              }
+          },
+          "response": {
+              "timestamp": 1673279219241,
+              "status": 200,
+              "statusText": "OK",
+              "headers": {
+                  "cache-control": "max-age=0, must-revalidate, no-cache, no-store",
+                  "content-encoding": "gzip",
+                  "content-length": "86",
+                  "content-type": "application/json",
+                  "date": "Mon, 09 Jan 2023 15:46:59 GMT",
+                  "expires": "Sun, 09 Jan 2022 15:46:59 GMT",
+                  "pragma": "no-cache",
+                  "set-cookie": "PHPSESSID=1a2bcde345fc7721a2f350ad6f00db28; expires=Mon, 09-Jan-2023 16:46:59 GMT; Max-Age=3600; path=/; domain=your-handler-site; HttpOnly; SameSite=Lax, private_content_version=123a4b560759611824a1f4a47c8232; expires=Thu, 06-Jan-2033 15:46:59 GMT; Max-Age=315360000; path=/; secure; SameSite=Lax",
+                  "strict-transport-security": "max-age=0",
+                  "traceresponse": "00-1234ab567847bd5ff28b963c3c2fc38-32ee58bedaff4a26-00",
+                  "vary": "Accept-Encoding",
+                  "x-content-type-options": "nosniff",
+                  "x-debug-info": "abCdZXRyaWVzIjowfQ==",
+                  "x-frame-options": "SAMEORIGIN",
+                  "x-magento-cache-id": "a1234b56cd89c7274eae43046f8de409a70f1367b18431dba75b9b9c265c1fc3",
+                  "x-magento-cloud-cluster": "1abcdef2ya3bo-master-7rqtwti",
+                  "x-magento-cloud-processor": "ab1cdefs2r5pntbsufqh6fiusa",
+                  "x-magento-cloud-router": "abcdefgfzw43bsxafcxj2lqpsm",
+                  "x-magento-tags": "FPC",
+                  "x-robots-tag": "noindex, nofollow",
+                  "x-xss-protection": "1; mode=block"
+              }
+          },
+          "responseTime": 1000
+        }
+      ]
+    }
+```
