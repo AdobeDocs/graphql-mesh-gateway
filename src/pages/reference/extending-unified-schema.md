@@ -7,7 +7,7 @@ description: Learn how to extend the unified schema with resolvers.
 
 We saw in [Combining multiple Sources](combining-multiple-sources.md) that `additionalResolvers` can shape and augment the Unified Schema with custom resolvers.
 
-However, the `additionalResolvers` value can also be the path to a JavaScript file that exports the custom resolvers implementation.
+However, the `additionalResolvers` value can also be the path to a JavaScript/TypeScript file that exports the custom resolvers implementation.
 
 ## Programmatic `additionalResolvers`
 
