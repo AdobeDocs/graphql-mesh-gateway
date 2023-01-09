@@ -80,7 +80,7 @@ Imagine that introspection is disabled in the production environment of your Gra
             "handler": {
                 "graphql": {
                     "endpoint": "https://api.github.com/graphql",
-                    "source": "https://docs.github.com/public/schema.docs.graphql",
+                    "schema": "https://docs.github.com/public/schema.docs.graphql",
                     "operationHeaders": {
                         "Authorization": "Bearer {env.GITHUB_TOKEN}"
                     }
@@ -106,7 +106,7 @@ However, it is also possible to use a local GraphQL Schema instance as a GraphQL
             "name": "MyGraphQLApi",
             "handler": {
                 "graphql": {
-                    "source": "./my-local-schema.ts"
+                    "schema": "./my-local-schema.js"
                 }
             }
         }

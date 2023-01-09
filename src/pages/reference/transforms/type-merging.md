@@ -278,7 +278,7 @@ And now it batches the requests to the inner sources.
       "name": "AuthorService",
       "handler": {
         "graphql": {
-          "endpoint": "https://my-site.com/author-service-schema.ts"
+          "endpoint": "https://my-site.com/author-service-schema"
         }
       },
       "transforms": [
@@ -298,7 +298,7 @@ And now it batches the requests to the inner sources.
       "name": "BookService",
       "handler": {
         "graphql": {
-          "endpoint": "https://my-site.com/book-service-schema.ts"
+          "endpoint": "https://my-site.com/book-service-schema.js"
         }
       },
       "transforms": [
