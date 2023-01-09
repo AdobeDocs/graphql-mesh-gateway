@@ -61,7 +61,7 @@ module.exports = [
                 path: '/gateway/release-notes'
             },
             {
-                title: 'Upgrading versions',
+                title: 'Upgrade versions',
                 path: '/gateway/upgrade'
             },
         ]

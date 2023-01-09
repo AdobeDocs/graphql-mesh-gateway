@@ -1,9 +1,9 @@
 ---
-title: Upgrading Versions
+title: Upgrade Versions
 description: This page describes breaking changes and how to migrate from one version of API Mesh for Adobe Developer App Builder to another.
 ---
 
-# Upgrading versions
+# Upgrade versions
 
 This page lists breaking changes between versions of API Mesh for Adobe Developer App Builder. For a list of new features and resolved issues, refer to the [release notes](release-notes.md).
 
