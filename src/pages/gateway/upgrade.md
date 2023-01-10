@@ -7,11 +7,29 @@ description: This page describes breaking changes and how to migrate from one ve
 
 This page lists breaking changes between versions of API Mesh for Adobe Developer App Builder. For a list of new features and resolved issues, refer to the [release notes](release-notes.md).
 
-To update to the latest version, run the following command:
+## Software updates
 
-```bash
-npm install -g @adobe/aio-cli-plugin-api-mesh
-```
+If you are upgrading from a beta release to GA, you must update to `nvm` 18.x.x and update the mesh code.
+
+1. Update `nvm` to version 18. The following command shows one way to do this:
+
+   ```bash
+   nvm use 18
+   ```
+
+1. Update the API Mesh for Adobe Developer plugin.
+
+   To update Adobe I/O and all registered plugins, run the following command:
+
+   ```bash
+   aio update
+   ```
+
+  To update the API Mesh for Adobe Developer App Builder plugin only, run the following command:
+
+   ```bash
+   npm install -g @adobe/aio-cli-plugin-api-mesh
+   ```
 
 See our [NPM page](https://www.npmjs.com/package/@adobe/aio-cli-plugin-api-mesh) or [Getting Started](getting-started.md#configure-your-environment) for more information.
 
