@@ -25,6 +25,8 @@ We have made the following changes since the API Mesh beta:
 
 - Use the [`httpdetails`](headers.md#retrieving-handler-details) header to see response times and other information from your source handlers.
 
+- `nvm` 18.x.x is required to upgrade API mesh. [Software updates](upgrade.md#software-updates) for details.
+
 ### Bug fixes
 
 - Resolved an issue that previously prevented mesh updates from propagating.
