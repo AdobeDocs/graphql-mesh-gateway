@@ -13,15 +13,15 @@ If you are upgrading from a beta release to GA, you must update to `nvm` 18.x.x 
 
 1. Update `nvm` to version 18. The following command shows one way to do this:
 
-```bash
-nvm use 18
-```
+   ```bash
+   nvm use 18
+   ```
 
 1. To update to the latest version of API Mesh for Adobe Developer App Builder, run the following command:
 
-```bash
-npm install -g @adobe/aio-cli-plugin-api-mesh
-```
+   ```bash
+   npm install -g @adobe/aio-cli-plugin-api-mesh
+   ```
 
 See our [NPM page](https://www.npmjs.com/package/@adobe/aio-cli-plugin-api-mesh) or [Getting Started](getting-started.md#configure-your-environment) for more information.
 
