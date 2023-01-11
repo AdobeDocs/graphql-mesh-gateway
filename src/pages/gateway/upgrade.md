@@ -17,7 +17,7 @@ If you are upgrading from a beta release to GA, you must update to `nvm` 18.x.x 
    nvm use 18
    ```
 
-1. Update the API Mesh for Adobe Developer plugin.
+1. Update the API Mesh plugin.
 
    To update Adobe I/O and all registered plugins, run the following command:
 
@@ -25,7 +25,7 @@ If you are upgrading from a beta release to GA, you must update to `nvm` 18.x.x 
    aio update
    ```
 
-  To update the API Mesh for Adobe Developer App Builder plugin only, run the following command:
+  To update the API Mesh plugin only, run the following command:
 
    ```bash
    npm install -g @adobe/aio-cli-plugin-api-mesh
