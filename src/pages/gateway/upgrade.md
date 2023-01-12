@@ -28,8 +28,10 @@ If you are upgrading from a beta release to GA, you must update to `nvm` 18.x.x 
   To update the API Mesh plugin only, run the following command:
 
    ```bash
-   npm install -g @adobe/aio-cli-plugin-api-mesh
+   aio plugins:install @adobe/aio-cli-plugin-api-mesh
    ```
+
+If you encounter any issues installing the plugin, try uninstalling any existing plugins first by running `aio plugins:uninstall`. The `aio plugins` command will list any installed plugins.
 
 See our [NPM page](https://www.npmjs.com/package/@adobe/aio-cli-plugin-api-mesh) or [Getting Started](getting-started.md#configure-your-environment) for more information.
 
