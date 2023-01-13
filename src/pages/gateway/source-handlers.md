@@ -31,10 +31,10 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service
   "meshConfig": {
     "sources": [
       {
-        "name": "MagentoREST",
+        "name": "CommerceREST",
         "handler": {
           "openapi": {
-            "source": "your_Magento_API"
+            "source": "your_Commerce_API"
           }
         },
       }
@@ -118,7 +118,7 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
               "name": "carts",
               "handler": {
                   "JsonSchema": {
-                      "baseUrl": "<your_Magento_url>",
+                      "baseUrl": "<your_Commerce_url>",
                       "operations": [
                           {
                               "type": "Query",

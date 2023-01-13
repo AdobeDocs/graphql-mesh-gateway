@@ -10,7 +10,11 @@ The `rename` transform allows you to rename:
 -  GraphQL fields
 -  GraphQL field arguments
 
-## How to use?
+The `rename` transform helps you avoid conflicting names, simplify complicated names and make queries look more like mutations.
+
+`rename` elements can contain arrays of individual renaming operations, defined in separate renames objects. Each of these objects must define the `from` and `to` values.
+
+## Usage
 
 Add the following configuration to your Mesh config file:
 
@@ -60,9 +64,11 @@ Add the following configuration to your Mesh config file:
 
 <InlineAlert variant="info" slots="text"/>
 
-`type` and `field` are mandatory to rename a field argument with `argument`.
+The `type` and `field` values are required when renaming a field `argument`.
 
-Or you can use regular expressions to rename multiple types, fields or both:
+You can use RegEx flags to enable the use of regular expressions when renaming using this transform. This way you can rename multiple types, fields, or both.
+
+For example, you could use the key-value pair field: `Api(.*)` in the `from` object to rename any field of the corresponding type that begins with "api".
 
 ```json
 [
@@ -102,8 +108,8 @@ For information about "bare" and "wrap" modes, read the [dedicated section](/ref
 
 ## Config API Reference
 
--  `mode` (type: `String` (`bare` | `wrap`)) - Specify to apply rename transforms to bare schema or by wrapping original schema
--  `renames` (type: `Array of Object`, required) - Array of rename rules:
+-  `mode` (type: `String` (`bare` | `wrap`)) - Specify to apply `rename` transforms to bare schema or by wrapping original schema
+-  `renames` (type: `Array of Object`, required) - Array of `rename` rules:
    -  `from` (type: `Object`, required):
       -  `type` (type: `String`)
       -  `field` (type: `String`)

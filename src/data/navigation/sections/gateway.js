@@ -60,6 +60,14 @@ module.exports = [
                 title: 'API Mesh walkthrough',
                 path: '/gateway/mesh_walkthrough'
             },
+            {
+                title: 'Release notes',
+                path: '/gateway/release-notes'
+            },
+            {
+                title: 'Upgrade versions',
+                path: '/gateway/upgrade'
+            },
         ]
     }
     ]

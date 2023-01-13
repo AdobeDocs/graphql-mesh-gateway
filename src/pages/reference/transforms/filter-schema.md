@@ -4,9 +4,12 @@ title: filterSchema Transform | API Mesh for Adobe Developer App Builder
 
 # filterSchema transform
 
-The `filterSchema` transform allows you to filter fields in specific types.
+The `filterSchema` transform allows you to specify which schema elements to include or exclude in your mesh.
+You can include or exclude entire queries and mutations and restrict which types can appear in your calls or which fields can appear in specific types.
 
-## How to use?
+For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed.
+
+## Usage
 
 Add the following configuration to your Mesh config file:
 
@@ -18,18 +21,31 @@ Add the following configuration to your Mesh config file:
         "mode": "bare | wrap",
         "filters": [
           "Type.!User",
+            // This will remove `User` type
           "Type.!{User, Post}",
+            // This will remove `User` and `Post` types
           "Query.!admins",
+            // This will remove field `admins` from `Query` type
           "Mutation.!{addUser, removeUser}",
+            // This will remove fields `addUser` and `removeUser` from `Mutation` type
           "User.{id, username, name, age}",
+            // This will remove all fields, from User type, except `id`, `username`, `name` and `age`
           "Query.user.id",
+            // This will remove all args from field `user`, in Query type, except `id` only
           "Query.user.!name",
+            // This will remove argument `name` from field `user`, in Query type
           "Query.user.{id, name}",
+            // This will remove all args for field `user`, in Query type, except `id` and `name`
           "Query.user.!{id, name}",
+            // This will remove args `id` and `name` from field `user`, in Query type
           "Query.*.id",
+            // This will remove all args from all fields in Query type, except `id` only
           "Query.*.!name",
+            // This will remove argument `name` from all fields in Query type
           "Query.*.{id, name}",
+            // This will remove all args from all fields in Query type, except `id` and `name`
           "Query.*.!{id, name}"
+            // This will remove args `id` and `name` from all fields in Query type
         ]
       }
     }
@@ -37,7 +53,9 @@ Add the following configuration to your Mesh config file:
 }
 ```
 
-Let's assume you have the following schema,
+## Example
+
+Let's assume you have the following schema:
 
 ```graphql
 type Query {
@@ -68,7 +86,7 @@ type LooseType {
 }
 ```
 
-With the following Filter Schema config,
+With the following Filter Schema config:
 
 ```json
 {
@@ -111,9 +129,9 @@ type User {
 
 <InlineAlert variant="info" slots="text"/>
 
-For information about "bare" and "wrap" modes, read the [dedicated section](/reference/transforms/index.md#two-different-modes).
+For information about "bare" and "wrap" modes, read the [dedicated section](index.md#two-different-modes).
 
 ## Config API Reference
 
--  `mode` (type: `String` (`bare` | `wrap`)) - Specify to apply filter-schema transforms to bare schema or by wrapping original schema
+-  `mode` (type: `String` (`bare` | `wrap`)) - Specify to apply filter-schema transforms to bare schema or by wrapping the original schema
 -  `filters` (type: `Array of String`, required) - Array of filter rules
