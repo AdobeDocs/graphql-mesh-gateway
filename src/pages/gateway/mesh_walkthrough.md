@@ -113,24 +113,24 @@ In your GraphQL client, run the following GraphQL queries:
 
 ```graphql
 {
-  storeConfig{
+  storeConfig {
     store_code
     store_name
     base_currency_code
   }
-  directoryDataCountryInformationInterface(countryId:"US"){
-    availableRegions{
-      code
-      name
+  GetV1DirectoryCountries {
+    ... on directory_data_country_information_interface {
       id
-    }
+      two_letter_abbreviation
+      full_name_english
   }
+ }
 }
 ```
 
 These queries demonstrate how you can return data from multiple sources within your mesh with a single request.
 
-The `storeConfig` query returns information from your `GraphQL` handler, while the `directoryDataCountryInformationInterface` query returns information from your `REST`  handler. The `directoryDataCountryInformationInterface` query has been transformed from the Commerce [`GET /V1/default/directory/countries/{countryId}`](https://adobe-commerce.redoc.ly/2.4.5-admin/tag/directorycountries#operation/GetV1DirectoryCountries) endpoint.
+The [`storeConfig`](https://developer.adobe.com/commerce/webapi/graphql/schema/store/queries/store-config/) query returns information from the `GraphQL` handler, while the [GetV1DirectoryCountries](https://adobe-commerce.redoc.ly/2.4.5-admin/tag/directorycountries#operation/GetV1DirectoryCountries) query returns information from the `REST`  handler.
 
 ## Add a transform
 
