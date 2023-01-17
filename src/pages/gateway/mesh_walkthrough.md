@@ -122,7 +122,6 @@ In your GraphQL client, run the following GraphQL queries:
     ... on directory_data_country_information_interface {
       id
       two_letter_abbreviation
-      full_name_english
   }
  }
 }
@@ -185,9 +184,27 @@ Now we will apply a transform to make the schema more usable by adding a `prefix
   aio api-mesh:update mesh.json
   ```
 
-1. After you have successfully updated, return to your GraphQL client and open the schema. Search for "GraphQL" or "Rest" to see if the `prefix` transform was successful. It can take up to five minutes for updated meshes to propagate.
+1. After you have successfully updated, return to your GraphQL client and open the schema. Search for "GraphQL" or "Rest" to see if the `prefix` transform was successful. It can take a few minutes for updated meshes to propagate. You can check the status of your mesh by running the `aio api-mesh:status` command.
 
-![Schema](../_images/schema.png)
+1. Run the following query, which adds both the `REST_` and the `GraphQL_` prefixes.
+
+  ```graphql
+  {
+    storeConfig {
+      ... on GraphQL_StoreConfig {
+        store_code
+        store_name
+        base_currency_code
+      }
+    }
+    GetV1DirectoryCountries {
+      ... on REST_directory_data_country_information_interface {
+        id
+        two_letter_abbreviation
+      }
+    }
+  }
+  ```
 
 ## Add a source
 
