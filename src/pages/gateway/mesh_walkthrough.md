@@ -44,6 +44,16 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
   npm install -g @adobe/aio-cli-plugin-api-mesh
   ```
 
+## Create a local directory
+
+Create a local directory named "mesh_example". Then navigate to that directory in your CLI by using a command similar to:
+
+```bash
+cd my_path/mesh_example
+```
+
+This directory will contain your `mesh.json` file, the configuration file for your mesh.
+
 ## Create a mesh
 
 1. Run the following command to log into Adobe IO:
@@ -89,11 +99,11 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
 
 1. Use the arrow keys to select the `my_test_workspace` Project and click **Enter**. Type `y` to indicate you want to use this project for future operations. Then press the **Enter** key.
 
-1. Use the arrow keys to select the `stage` Workspace and click **Enter**. If you want to use this workspace for future operations, type `y` and press the **Enter** key.
+1. Use the arrow keys to select the `stage` Workspace and click **Enter**. Type `y` and press the **Enter** key to automatically select this Workspace in the future. You can [select another workspace](create-mesh.md#select-a-project-or-workspace) at any time.
 
 1. Type `y` and click the **Enter** key to confirm the creation of the mesh. The mesh configuration and corresponding details will display.
 
-   It can take up to five minutes for new meshes to build. If you want to check its progress, run the `aio api-mesh:status` command. After your mesh is built, proceed to the next section.
+   It can take a few minutes for new meshes to propagate. If you want to check the build progress, run the `aio api-mesh:status` command. After your mesh is successfully built, proceed to the next section.
 
 ## Access the Mesh
 
@@ -103,9 +113,11 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
 
 1. Determine if you can view the schema in the **Docs** section of your GraphQL client. Refer to your GraphQL client's documentation to learn how to access the schema.
 
-    If you can view the schema, proceed to the next section. If you cannot view the schema, go back and check your mesh's sources. You can use the [`aio api-mesh:update`](command-reference.md#aio-api-meshupdate) command to update your mesh with the correct information.
+    If you can view the schema, proceed to the next section. If you cannot view the schema, try the following:
+    
+    - Check your mesh's sources. If you need to modify your mesh, use the [`aio api-mesh:update`](command-reference.md#aio-api-meshupdate) command to update your mesh with the correct information.
 
-    If you cannot view the schema. Open a web browser and determine if you have access to the Adobe Commerce sample storefront: [https://venia.magento.com](https://venia.magento.com).
+    - Open a web browser and determine if you have access to the Adobe Commerce sample storefront: [https://venia.magento.com](https://venia.magento.com).
 
 ## Run a query
 
