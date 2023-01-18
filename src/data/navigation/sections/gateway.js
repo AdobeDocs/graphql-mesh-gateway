@@ -57,6 +57,10 @@ module.exports = [
                 path: '/gateway/command-reference'
             },
             {
+                title: 'API Mesh walkthrough',
+                path: '/gateway/mesh_walkthrough'
+            },
+            {
                 title: 'Release notes',
                 path: '/gateway/release-notes'
             },
