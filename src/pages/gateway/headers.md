@@ -126,8 +126,6 @@ The `responseConfig.headers` object also allows you to return header values from
 
 When forwarding headers, an error occurs if two or more sources return a header with the same name. To view all headers, regardless of source, add the `x-include-metadata` header with a value of `true` in your GraphQL client.
 
-![metadata-header](../_images/metadata-header.png)
-
 Including metadata prefixes the returned response headers with their source name. In the following example, the `cache-control` header values are returned for the `venia` and `commerce` sources.
 
 ``` json
