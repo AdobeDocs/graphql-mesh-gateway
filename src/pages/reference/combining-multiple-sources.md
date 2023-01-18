@@ -486,6 +486,33 @@ query bestSellersByStore {
 
 The query returns the correct data:
 
-![GraphQL Unified Schema with GraphiQL](../_images/graphiql-return.png)
+```json
+{
+  "data": {
+    "stores": [
+      {
+        "id": "0",
+        "name": "Library",
+        "bookSells": [
+          {
+            "bookId": "0",
+            "sellsCount": 1234,
+            "book": {
+              "title": "Adobe",
+              "author": {
+                "name": "John Warnock and Charles Geschke"
+              }
+            }
+          },
+          {
+            "bookId": "1"
+            ...
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 Congrats! You are now familiar with the basics of shaping the Unified Schema with `additionalTypeDefs` and `additionalResolvers`.
