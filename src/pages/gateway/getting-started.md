@@ -32,7 +32,7 @@ npm install -g @adobe/aio-cli
 
 ## Configure your environment
 
-Once you have an Adobe IO account, you can use the following command line interface (CLI) command to install the [API Mesh plugin] in your project directory:
+Once you have an Adobe IO account, you can use the following command line interface (CLI) command to install the [schema management plugin] in your project directory:
 
    ```bash
    aio plugins:install @adobe/aio-cli-plugin-api-mesh
@@ -51,5 +51,5 @@ Once you have an Adobe IO account, you can use the following command line interf
 [AIO Plugin Documentation]: https://github.com/adobe/aio-cli#aio-pluginslink-plugin
 [aio CLI]: https://developer.adobe.com/runtime/docs/guides/tools/cli_install/
 [Node.js]: https://nodejs.org/en/download/
-[API Mesh plugin]: https://www.npmjs.com/package/@adobe/aio-cli-plugin-api-mesh
+[schema management plugin]: https://www.npmjs.com/package/@adobe/aio-cli-plugin-api-mesh
 [create a mesh]: create-mesh.md
