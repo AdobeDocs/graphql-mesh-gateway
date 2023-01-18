@@ -13,7 +13,7 @@ Before you can begin using the API Mesh, you must install:
 
 -  [Node.js]
 
--  [nvm] 18.x.x (Mac/Linux) or [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows)
+-  [nvm] 18.x.x
 
 You will also need:
 
