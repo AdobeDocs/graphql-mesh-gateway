@@ -16,7 +16,7 @@ This walkthrough covers the basic actions you can perform in a mesh using API Me
   NOTE: Restart your IDE after installing `node`.
 
 - Install a Node Version Manager (`nvm`)
-  - (MAC) - [Node Version Manager](https://github.com/nvm-sh/nvm)
+  - (macOS and Linux) - [Node Version Manager](https://github.com/nvm-sh/nvm)
   - (Windows) - [nvm-windows](https://github.com/coreybutler/nvm-windows)
 - Install the [Adobe `aio` CLI](https://developer.adobe.com/runtime/docs/guides/tools/cli_install/) with the following command:
 
@@ -93,7 +93,7 @@ Install the [API Mesh plugin](https://www.npmjs.com/package/@adobe/aio-cli-plugi
 
 1. Type `y` and click the **Enter** key to confirm the creation of the mesh. The mesh configuration and corresponding details will display.
 
-1. Run the `aio api-mesh:status` command to view your mesh status. It can take up to five minutes for new meshes to build. After your mesh is built, proceed to the next section.
+   It can take up to five minutes for new meshes to build. If you want to check its progress, run the `aio api-mesh:status` command. After your mesh is built, proceed to the next section.
 
 ## Access the Mesh
 
@@ -133,7 +133,7 @@ The [`storeConfig`](https://developer.adobe.com/commerce/webapi/graphql/schema/s
 
 ## Add a transform
 
-Now we will apply a transform to make the schema more usable by adding a `prefix`. You can also use the `prefix` transform to avoid conflicting field names between sources. In the following example, we will add `REST_` and `GraphQL_` prefixes to help us distinguish between our two handlers.
+Now we will apply the `prefix` transform to prevent conflicting field names between sources. In the following example, we will add `REST_` and `GraphQL_` prefixes to help us distinguish between our two handlers.
 
 1. Modify your `mesh.json` file to match the following:
 
@@ -184,7 +184,7 @@ Now we will apply a transform to make the schema more usable by adding a `prefix
   aio api-mesh:update mesh.json
   ```
 
-1. After you have successfully updated, return to your GraphQL client and open the schema. Search for "GraphQL" or "Rest" to see if the `prefix` transform was successful. It can take a few minutes for updated meshes to propagate. You can check the status of your mesh by running the `aio api-mesh:status` command.
+1. After you have successfully updated, return to your GraphQL client and open the schema. Search for "GraphQL" or "REST" to see if the `prefix` transform was successful. It can take a few minutes for updated meshes to propagate. You can check the status of your mesh by running the `aio api-mesh:status` command.
 
 1. Run the following query, which adds both the `REST_` and the `GraphQL_` prefixes.
 
