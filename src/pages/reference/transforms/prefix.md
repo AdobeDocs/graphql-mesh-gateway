@@ -30,11 +30,6 @@ Add the following configuration to your Mesh config file:
 
 For information about "bare" and "wrap" modes, read the [dedicated section](/reference/transforms/index.md#two-different-modes).
 
-<InlineAlert variant="info" slots="text"/>
-
-You can check out our example that uses schema stitching with a PostgreSQL data source and prefix transform.
-[Click here to open the example on GitHub](https://github.com/Urigo/graphql-mesh/tree/master/examples/postgres-geodb)
-
 ## Config API Reference
 
 -  `mode` (type: `String` (`bare` | `wrap`)) - Specify to apply prefix transform to bare schema or by wrapping original schema

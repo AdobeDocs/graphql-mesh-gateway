@@ -179,7 +179,7 @@ A composer can be a local function or a remote serverless function. Composer sig
 
 ### `before` and `beforeAll` hook composers
 
-`before` and `beforeAll` hook composers accept the following [arguments](https://the-guild.dev/graphql/tools/docs/resolvers#resolver-function-signature):
+`before` and `beforeAll` hook composers accept the following arguments:
 
 - `root` - The resolver's return value for this field's root or parent
 

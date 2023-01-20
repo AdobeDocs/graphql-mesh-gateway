@@ -21,9 +21,7 @@ Additionally, the following transforms are available but are not fully supported
 
 -  [Encapsulate]
 -  [Federation]
--  [Hoist field](https://the-guild.dev/graphql/mesh/docs/transforms/hoist)
--  [Prune](https://the-guild.dev/graphql/mesh/docs/transforms/prune)
--  [Resolvers composition](https://the-guild.dev/graphql/mesh/docs/transforms/resolvers-composition)
+-  [Hoist field](../reference/transforms/replace-field.md#scope-hoistvalue)
 
 Other [GraphQL Mesh] transforms are not supported.
 
