@@ -57,7 +57,7 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see GraphQL Mesh's [OpenAPI Config API Reference]. Note that the API Mesh uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
+For more information, see the [OpenAPI Config API Reference].
 
 ## GraphQL endpoints
 
@@ -100,7 +100,7 @@ The [GraphQL] handler allows you to connect to a GraphQL endpoint.
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see GraphQL Mesh's [GraphQL Config API Reference]. Note that the API Mesh uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
+For more information, see the [GraphQL Config API Reference].
 
 ## JSON schemas
 
@@ -160,7 +160,7 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see GraphQL Mesh's [JSON Schema Config API Reference]. Note that the API Mesh uses an older version of GraphQL Mesh, so settings in external documentation may not be accurate for these purposes. Additionally, only the options specified above are currently supported.
+For more information, see the [JSON Schema Config API Reference].
 
 <!-- Link Definitions -->
 
