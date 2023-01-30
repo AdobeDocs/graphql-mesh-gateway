@@ -4,8 +4,6 @@ title: Handlers | API Mesh for Adobe Developer App Builder
 
 # Handlers
 
-The handler documentation was originally published by [The Guild] in their [GraphQL Mesh Docs]. We are republishing it here under the [MIT License] because the API Mesh uses an older version of GraphQL Mesh, while the documentation at that site reflects the current version. Additionally, we currently only support a limited set of handlers, transforms, and recipes.
-
 Handlers, or source handlers, allow you to define sources that provide data to your mesh. The following table specifies the handlers supported by the API Mesh and the version of each handler:
 
 | Handler Package Name | Version |
@@ -81,6 +79,4 @@ Only `JS` and `JSON` files are supported using this method.
 [GraphQL]: graphql.md
 [JSON Schemas]: json-schema.md
 [Source Handlers]: /gateway/source-handlers.md
-[The Guild]: https://www.the-guild.dev/
-[MIT License]: https://github.com/Urigo/graphql-mesh/blob/master/LICENSE#L3
 [GraphQL Mesh Docs]: https://www.graphql-mesh.com/docs/

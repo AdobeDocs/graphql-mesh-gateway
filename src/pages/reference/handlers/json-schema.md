@@ -4,10 +4,6 @@ title: JSON Schema or Samples | API Mesh for Adobe Developer App Builder
 
 # JSON schema handlers
 
-<InlineAlert variant="info" slots="text"/>
-
-For a guided tutorial, please refer to ["How to: Configure Sources with no definition"](https://the-guild.dev/graphql/mesh/docs/getting-started/sources-with-no-definition).
-
 This handler allows you to load any remote REST service, and describe its request/response. With this handler, you can easily customize and control the built GraphQL schema.
 
 For more information on creating JSON schemas, refer to this [JSON schema tutorial](https://json-schema.org/learn/getting-started-step-by-step.html).

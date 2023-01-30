@@ -4,8 +4,6 @@ title: Transforms | API Mesh for Adobe Developer App Builder
 
 # Transforms
 
-The transform documentation was originally published by [The Guild] in their [GraphQL Mesh Docs]. We are republishing it here under the [MIT License] because API Mesh for Adobe Developer App Builder uses an older version of GraphQL Mesh, while the documentation at that site reflects the current version. Additionally, we currently only support a limited set of handlers, transforms, and recipes.
-
 The following table specifies the transforms supported by the API Mesh and the version of each transform:
 
 | Transform | Version |
@@ -461,7 +459,6 @@ Example:
 ### Modes support
 
 The table below illustrates how "bare" and "wrap" modes are supported across all transforms.
-If you have use cases for which you would require to introduce either "bare" or "wrap" mode to one of the transforms, feel free to [open a feature request](https://github.com/Urigo/graphql-mesh/issues/new/choose).
 
 | Transform             | Bare | Wrap |                      Docs                      |
 | --------------------- | :--: | :--: | :--------------------------------------------: |
@@ -483,7 +480,5 @@ If you have use cases for which you would require to introduce either "bare" or 
 [rename]: rename.md
 [replaceField]: replace-field.md
 [typeMerging]: type-merging.md
-[The Guild]: https://www.the-guild.dev/
-[MIT License]: https://github.com/Urigo/graphql-mesh/blob/master/LICENSE#L3
 [Transforms]: /gateway/transforms/
 [GraphQL Mesh Docs]: https://www.graphql-mesh.com/docs/

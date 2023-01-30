@@ -237,21 +237,6 @@ module.exports = { resolvers }
 
 The OpenAPI handler can process OAS Callbacks as GraphQL Subscriptions. It uses your PubSub implementation to consume the data. But you have to define webhooks for individual callbacks to make it work.
 
-See [Subscriptions & Webhooks](https://the-guild.dev/graphql/mesh/docs/guides/subscriptions-webhooks) to create an endpoint to consume a webhook. You should use the callback URL as `pubSubTopic` in the webhook configuration.
-
-See our example: [Subscriptions Example with Webhooks](https://codesandbox.io/s/github/Urigo/graphql-mesh/tree/master/examples/openapi-subscriptions).
-
-## Examples
-
-Here are some examples of OpenAPI Handlers:
-
--  [JavaScript Wiki](https://codesandbox.io/s/github/Urigo/graphql-mesh/tree/master/examples/openapi-javascript-wiki)
--  [Location Weather](https://codesandbox.io/s/github/Urigo/graphql-mesh/tree/master/examples/openapi-location-weather)
--  [StackExchange](https://codesandbox.io/s/github/Urigo/graphql-mesh/tree/master/examples/openapi-stackexchange)
--  [Stripe](https://codesandbox.io/s/github/Urigo/graphql-mesh/tree/master/examples/openapi-stripe)
--  [Subscriptions Example with Webhooks](https://codesandbox.io/s/github/Urigo/graphql-mesh/tree/master/examples/openapi-subscriptions)
--  [Youtrack](https://codesandbox.io/s/github/Urigo/graphql-mesh/tree/master/examples/openapi-youtrack)
-
 ## Config API Reference
 
 -  `source` (type: `Any`, required) - A pointer to your API source - could be a local file, remote file, or url endpoint

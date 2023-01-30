@@ -23,11 +23,6 @@ This handler allows you to load remote GraphQL schemas and use them with schema-
 
 GraphQL handlers can also use local sources, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
 
-<InlineAlert variant="info" slots="text"/>
-
-You can check out our example that uses schema stitching with a PostgreSQL data source.
-[Click here to open the example on GitHub](https://github.com/Urigo/graphql-mesh/tree/master/examples/postgres-geodb)
-
 ## Headers from context
 
 ```json
