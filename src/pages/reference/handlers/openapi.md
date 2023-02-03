@@ -28,7 +28,7 @@ To get started, use the handler in your Mesh config file:
 <InlineAlert variant="info" slots="text"/>
 
 This handler is based on the [JSON Schema handler](json-schema.md), so its configurations also apply to the `openapi` handler.
-
+<!-- 
 ## Overriding default Query/Mutation operations
 
 By default, OpenAPI-to-GraphQL will place all GET operations into Query fields and all other operations into Mutation fields; with this option, you can manually override this process.
@@ -64,7 +64,7 @@ See the following example:
     }
   ]
 }
-```
+``` -->
 
 ## Naming convention
 
