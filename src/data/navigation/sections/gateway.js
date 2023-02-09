@@ -61,6 +61,11 @@ module.exports = [
                 path: '/gateway/mesh_walkthrough'
             },
             {
+                title: `Tutorials (Experience League)`,
+                path: `https://experienceleague.adobe.com/docs/commerce-learn/api-mesh/getting-started-api-mesh.html`,
+                EventTarget: `_blank`
+            },
+            {
                 title: 'Release notes',
                 path: '/gateway/release-notes'
             },
