@@ -3,7 +3,9 @@ title: Overview - API Mesh for Adobe Developer App Builder
 description: Learn about the features of API Mesh for Adobe Developer App Builder.
 ---
 
-<Hero slots="heading, text"/>
+<Hero slots="image, heading, text"/>
+
+![Commerce Eventing](_images/home-bg.jpeg)
 
 # API Mesh for Adobe Developer App Builder
 
@@ -44,6 +46,26 @@ Learn how to use multiple external APIs simultaneously with your Adobe Commerce 
 [GraphQL Mesh Reference](./reference/)
 
 View GraphQL Mesh documentation specifically for the API Mesh.
+
+<DiscoverBlock slots="link, text"/>
+
+[Adobe I/O Events for Adobe Commerce](get-started/index.md)
+
+Makes Commerce transactional data available to App Builder using Adobe I/O. You can define the events to transmit data each time an event triggers, or only under circumstances defined within configuration rules.
+
+<DiscoverBlock slots="link, text"/>
+
+[App Builder](https://developer.adobe.com/app-builder/docs/overview/)
+
+Is a complete framework that enables enterprise developers to build and deploy custom web applications that extend Adobe Experience Cloud solutions and run on Adobe infrastructure.
+
+<DiscoverBlock slots="link, text"/>
+
+[API Mesh for Adobe Developer App Builder](https://developer.adobe.com/graphql-mesh-gateway/)
+
+Allows developers to integrate private and third-party APIs and other software interfaces with Adobe Commerce and other Adobe products using Adobe IO.
+
+<DiscoverBlock slots="link, text"/>
 
 <!-- Link Definitions -->
 
