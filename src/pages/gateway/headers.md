@@ -13,7 +13,7 @@ Request headers provide more information about the request context. Currently, y
 
 ### Add request headers in your mesh file
 
-To add headers directly to a source handler in your mesh file, for example `mesh.json`, add the `operationHeaders` object with key-value pairs for your headers. The following example defines the `Store` header for the Commerce source and multiple headers for the LiveSearch source.
+To add headers directly to a source handler in your mesh JSON file, add the `operationHeaders` object with key-value pairs for your headers. The following example defines the `Store` header for the Commerce source and multiple headers for the LiveSearch source.
 
 ```json
 {
@@ -56,9 +56,21 @@ You can also inject dynamic values from the context into your headers. For examp
 -  [GraphQL handlers](../reference/handlers/graphql.md#headers-from-context)
 -  [JSON schema handlers](../reference/handlers/json-schema.md#headers-from-context)
 
+#### Media types
+
+Depending on the type of information you are passing in a header, your source might require that you specify a [media type](https://www.iana.org/assignments/media-types/media-types.xhtml), which tells the mesh and your sources how to interpret the data you are passing. Use the `Content-Type` key-value pair in the `operationHeaders` object to define your content format.
+
+In the following example, the `"Content-Type": "application/json"` key-value pair indicates that the content is in JSON format.
+
+```json
+"operationHeaders": {
+  "Content-Type": "application/json",
+},
+```
+
 ## Response headers
 
-Response headers provide detailed context of the response. Currently, you can only add response headers from the mesh config.
+Response headers provide a detailed context of the response. Currently, you can only add response headers from the mesh config.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -151,7 +163,7 @@ To add CORS headers to your mesh, create a `CORS` object in the `responseConfig`
 -  `origin` (Required) - the scheme and domain of the resource you want to allow to make a CORS request
 -  `methods` (Required) - the HTTP request methods allowed in the CORS request, such as GET, POST, and OPTIONS
 -  `allowedHeaders` - a string of allowed headers in preflight requests
--  `credentials` - boolean value that indicates if credentials can be included in CORS request (default: `false`)
+-  `credentials` - a boolean value that indicates if credentials can be included in CORS request (default: `false`)
 -  `exposedHeaders` - a comma-delimited CORS request that contains headers to expose
 -  `maxAge` - the maximum number of seconds the preflight response (the values of the `origin` and `methods` headers) can be cached
 
