@@ -31,25 +31,25 @@ The API Mesh allows businesses to access functionality across multiple systems t
 -  **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones
 -  **Extensibility** - Customize and extend all of your APIs directly in the gateway without making changes to the API source
 
-### Getting Started
+### Guide
 
-Review the following guides to learn more about the API Mesh.
+Review the following guides to learn more about the API Mesh and extensibility at Adobe.
 
 <DiscoverBlock slots="link, text"/>
 
-[API Mesh](./gateway/)
+[API Mesh for Adobe Developer App Builder](../gateway/../pages/gateway/index.md)
 
-Learn how to use multiple external APIs simultaneously with your Adobe Commerce or other Adobe APIs.
+Allows developers to integrate private and third-party APIs and other software interfaces with Adobe Commerce and other Adobe products using Adobe IO.
 
 <DiscoverBlock slots="link, text"/>
 
 [GraphQL Mesh Reference](./reference/)
 
-View GraphQL Mesh documentation specifically for the API Mesh.
+View the GraphQL Mesh documentation reference to learn detailed information about using handlers and transforms with API Mesh.
 
 <DiscoverBlock slots="link, text"/>
 
-[Adobe I/O Events for Adobe Commerce](get-started/index.md)
+[Adobe I/O Events for Adobe Commerce](https://developer.adobe.com/commerce/events)
 
 Makes Commerce transactional data available to App Builder using Adobe I/O. You can define the events to transmit data each time an event triggers, or only under circumstances defined within configuration rules.
 
@@ -58,14 +58,6 @@ Makes Commerce transactional data available to App Builder using Adobe I/O. You 
 [App Builder](https://developer.adobe.com/app-builder/docs/overview/)
 
 Is a complete framework that enables enterprise developers to build and deploy custom web applications that extend Adobe Experience Cloud solutions and run on Adobe infrastructure.
-
-<DiscoverBlock slots="link, text"/>
-
-[API Mesh for Adobe Developer App Builder](https://developer.adobe.com/graphql-mesh-gateway/)
-
-Allows developers to integrate private and third-party APIs and other software interfaces with Adobe Commerce and other Adobe products using Adobe IO.
-
-<DiscoverBlock slots="link, text"/>
 
 <!-- Link Definitions -->
 
