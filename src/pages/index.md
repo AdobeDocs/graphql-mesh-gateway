@@ -37,7 +37,7 @@ Review the following guides to learn more about the API Mesh and extensibility a
 
 <DiscoverBlock slots="link, text"/>
 
-[API Mesh for Adobe Developer App Builder](../gateway/../pages/gateway/index.md)
+[API Mesh for Adobe Developer App Builder](gateway/index.md)
 
 Allows developers to integrate private and third-party APIs and other software interfaces with Adobe Commerce and other Adobe products using Adobe IO.
 
