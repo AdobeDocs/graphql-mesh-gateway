@@ -247,3 +247,13 @@ Your response will look similar to the following:
       ]
     }
 ```
+
+## Header troubleshooting
+
+If you receive a `401` or similar error when passing headers, add the following content-type specification to your mesh configuration file, as described in [media types](#media-types). This issue can occur when you pass your authorization credentials, such as username and password, to an endpoint, but the endpoint does not know how to consume that information. Specifying the `Content-Type` tells your endpoint how to parse header data.
+
+```json
+"operationHeaders": {
+  "Content-Type": "application/json",
+},
+```
