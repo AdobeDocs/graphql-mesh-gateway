@@ -68,6 +68,11 @@ module.exports = [
                 title: 'Upgrade versions',
                 path: '/gateway/upgrade'
             },
+            {
+                title: `Videos`,
+                path: `https://experienceleague.adobe.com/docs/commerce-learn/api-mesh/getting-started-api-mesh.html`,
+                EventTarget: `_blank`
+            }
         ]
     }
     ]
