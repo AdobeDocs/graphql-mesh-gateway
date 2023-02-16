@@ -24,6 +24,10 @@ module.exports = [
                 path: '/gateway/create-mesh'
             },
             {
+                title: 'Work with your mesh',
+                path: '/gateway/work-with-mesh'
+            },
+            {
                 title: 'Source handlers',
                 path: '/gateway/source-handlers',
             },

@@ -13,7 +13,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-- The new [`includeHTTPDetails` option](working-with-meshes.md#include-httpdetails-in-query-responses) controls whether users who query the mesh receive `httpDetails` in their responses.
+- The new [`includeHTTPDetails` option](work-with-mesh.md#include-httpdetails-in-query-responses) controls whether users who query the mesh receive `httpDetails` in their responses.
 
 ### Bug fixes
 
@@ -23,7 +23,7 @@ This release contains the following changes to API Mesh:
 
 If your mesh has multiple sources with the same name, you will need to change them to unique names and then [update your mesh](create-mesh.md#update-an-existing-mesh).
 
-- The `httpDetails` header has been deprecated in favor of [`includeHTTPDetails`](working-with-meshes.md#include-httpdetails-in-query-responses).
+- The `httpDetails` header has been deprecated in favor of [`includeHTTPDetails`](work-with-mesh.md#include-httpdetails-in-query-responses).
 
 ## Jan 17, 2023
 

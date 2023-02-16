@@ -1,9 +1,9 @@
 ---
-title: Working with meshes
+title: Work with your mesh
 description: This page describes ways you can work with meshes that are not part of the mesh creation process.
 ---
 
-# Working with meshes
+# Work with your mesh
 
 This page describes ways you can work with meshes that are not part of the [mesh creation](create-mesh.md) process.
 
