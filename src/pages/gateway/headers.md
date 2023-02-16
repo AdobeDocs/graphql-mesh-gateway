@@ -191,7 +191,7 @@ To add CORS headers to your mesh, create a `CORS` object in the `responseConfig`
 
 ## Retrieving handler details
 
-Setting an `httpDetails` header to `true` no longer returns `httpDetails` when querying. Instead, the setting is now controlled at the mesh level by [`includeHTTPDetails`](working-with-meshes.md#include-httpdetails-in-query-responses).
+Setting an `httpDetails` header to `true` no longer returns `httpDetails` when querying. Instead, the setting is now controlled at the mesh level by the [`includeHTTPDetails` setting](working-with-meshes.md#include-httpdetails-in-query-responses).
 
 ## Header troubleshooting
 
