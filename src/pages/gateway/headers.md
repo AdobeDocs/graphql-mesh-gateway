@@ -191,51 +191,7 @@ To add CORS headers to your mesh, create a `CORS` object in the `responseConfig`
 
 ## Retrieving handler details
 
-To receive response times and other additional details from a source, add `httpDetails=true` as a header value to your requests.
-
-<InlineAlert variant="info" slots="text"/>
-
-To enable `httpsDetails`, the [`includeHTTPDetails` setting](working-with-meshes.md#including-httpdetails-in-query-responses) must be set to `true` in the corresponding mesh.
-
-Your response will look similar to the following example. The exact response will vary depending on your source handlers, headers, and other customizations.
-
-```json
-"extensions": {
-  "httpDetails": [
-      {
-          "sourceName": "CommerceGRAPHQL",
-          "path": {
-              "key": "storeConfig",
-              "typename": "Query"
-          },
-          "request": {
-              "timestamp": 1673279217990,
-              "url": "https://your-handler-site/graphql/",
-              "method": "POST",
-              "headers": {
-                  "accept": "application/graphql-response+json, application/json, multipart/mixed",
-                  "authorization": "Bearer ",
-                  "content-type": "application/json"
-              }
-          },
-          "response": {
-              "timestamp": 1673279219241,
-              "status": 200,
-              "statusText": "OK",
-              "headers": {
-                  "cache-control": "max-age=0, must-revalidate, no-cache, no-store",
-                  "content-encoding": "gzip",
-                  "content-length": "86",
-                  "content-type": "application/json",
-                  "date": "Mon, 09 Jan 2023 15:46:59 GMT",
-                  "expires": "Sun, 09 Jan 2022 15:46:59 GMT"
-              }
-          },
-          "responseTime": 1000
-        }
-      ]
-    }
-```
+Setting an `httpDetails` header to `true` no longer returns `httpDetails` when querying. Instead, the setting is now controlled at the mesh level by [`includeHTTPDetails`](working-with-meshes.md#include-httpdetails-in-query-responses).
 
 ## Header troubleshooting
 
