@@ -43,7 +43,7 @@ The following [breaking changes](upgrade.md) must be addressed to make previousl
 
 - [Mesh create and update time changes](upgrade.md#mesh-create-and-update-time) - The `create` and `update` processes now run asynchronously and will typically take a few seconds to process. However, complex meshes, may take longer.
 
-- [CORS formatting](upgrade.md#cors-formatting-change) - CORS headers format has changed. The `headers` object is now the `CORS` object.
+- [CORS formatting](upgrade.md#cors-formatting-change) - CORS headers format has changed.
 
 Additionally, the beta release contained two experimental features that are not supported in the GA release:
 
