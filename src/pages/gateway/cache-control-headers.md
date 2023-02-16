@@ -65,8 +65,6 @@ When the response includes cache-control values, only the [most restrictive valu
 }
 ```
 
-
-
 <InlineAlert variant="info" slots="text"/>
 
 POST requests are not supported, and GET requests are limited to 2,048 characters.
