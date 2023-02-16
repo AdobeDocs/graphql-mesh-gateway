@@ -7,6 +7,22 @@ description: This page lists changes that were made in each version of API Mesh 
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## Feb 23, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- The new [`includeHTTPDetails` option](working-with-meshes.md#including-httpdetails-in-query-responses) controls whether response headers, `responseTime`, and other details are returned as part of the response to a query.
+
+### Bug fixes
+
+- Resolved an issue that allowed meshes to have multiple `sources` with the same name.
+
+### Breaking changes
+
+If your mesh has multiple sources with the same name, you will need to change them to unique names and then [update your mesh](create-mesh.md#update-an-existing-mesh).
+
 ## Jan 17, 2023
 
 We have made the following changes since the API Mesh beta:
