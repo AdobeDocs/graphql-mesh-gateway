@@ -82,9 +82,7 @@ Additionally, due to our new asynchronous architecture, the create/update comman
 
 ### CORS formatting change
 
-The [CORS headers](headers.md#cors-headers) format has changed.
-
-**New format**
+[CORS headers](headers.md#cors-headers) now have the following format:
 
 ```json
   "responseConfig": {
