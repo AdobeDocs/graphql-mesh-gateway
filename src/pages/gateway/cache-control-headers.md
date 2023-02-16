@@ -46,6 +46,11 @@ When the response includes cache-control values, only the [most restrictive valu
 ```json
 {
   "meshConfig": {
+	"responseConfig": {
+		"headers": {
+      "Cache-Control": "max-age=50,min-fresh=6,stale-if-error=20,public,must-revalidate"
+		}
+	},
     "sources": [
       {
         "name": "venia",
@@ -53,17 +58,14 @@ When the response includes cache-control values, only the [most restrictive valu
           "graphql": {
             "endpoint": "https://venia.magento.com/graphql"
           }
-        },
-        "responseConfig": {
-          "headers": [
-            "Cache-Control"
-          ]
         }
       }
     ]
   }
 }
 ```
+
+
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -152,17 +154,17 @@ Cache-control header values in your mesh configuration file take precedence over
 ```json
 {
   "meshConfig": {
+	"responseConfig": {
+		"headers": {
+      "Cache-Control": "max-age=50,min-fresh=6,stale-if-error=20,public,must-revalidate"
+		}
+	},
     "sources": [
       {
         "name": "venia",
         "handler": {
           "graphql": {
             "endpoint": "https://venia.magento.com/graphql"
-          }
-        },
-        "responseConfig": {
-          "headers": {
-            "Cache-Control": "max-age=50,min-fresh=6,stale-if-error=20,public,must-revalidate"
           }
         }
       }
