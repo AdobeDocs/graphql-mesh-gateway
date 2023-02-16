@@ -9,7 +9,9 @@ This page describes ways you can work with meshes that are not part of the [mesh
 
 ## Including httpDetails in query responses
 
-Adding the `includeHTTPDetails` flag to your JSON mesh configuration file allows you to toggle whether `httpDetails` are included in the outgoing HTTP requests. Setting `includeHTTPDetails` to `true` includes details like the `responseTime` and response headers. Setting `includeHTTPDetails` to `false` prevents users who query your mesh from accessing this information.
+Adding the `includeHTTPDetails` flag to your JSON mesh configuration file allows you to determine if [`httpDetails`](headers.md#retrieving-handler-details) can be included in the outgoing HTTP requests. Users who add `httpdetails=true` as a header value will be able to access these details based on the `includeHTTPDetails` setting in the corresponding mesh.
+
+Setting `includeHTTPDetails` to `true` allows details like the `responseTime` and response headers to be returned. Setting `includeHTTPDetails` to `false` prevents users who query your mesh from accessing this information.
 
 The following example mesh indicates the location of the `includeHTTPDetails` flag.
 
@@ -42,7 +44,7 @@ When you query a mesh with `includeHTTPDetails` set to `true`, the response will
 - `response`
 - `responseTime`
 
-The following example includes some of the additional information you can receive as part of the response. The exact response will vary depending on your source handlers, headers, and other customizations.
+The following example includes some of the additional information a user can receive as part of the response with a `httpDetails` header set to true. The exact response will vary depending on your source handlers, headers, and other customizations.
 
 ```json
 {   

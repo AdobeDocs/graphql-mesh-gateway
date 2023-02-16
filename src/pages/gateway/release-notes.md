@@ -13,7 +13,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-- The new [`includeHTTPDetails` option](working-with-meshes.md#including-httpdetails-in-query-responses) controls whether response headers, `responseTime`, and other details are returned as part of the response to a query.
+- The new [`includeHTTPDetails` option](working-with-meshes.md#including-httpdetails-in-query-responses) controls whether users who query the mesh can retrieve `httpDetails` using the `httpDetails:true` header.
 
 ### Bug fixes
 
