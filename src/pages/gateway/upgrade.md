@@ -35,7 +35,7 @@ If you encounter any issues installing the plugin, try uninstalling any existing
 
 See our [NPM page](https://www.npmjs.com/package/@adobe/aio-cli-plugin-api-mesh) or [Getting Started](getting-started.md#configure-your-environment) for more information.
 
-## Upgrading to the Feb 17, 2023 release
+## Upgrading to the Feb 23, 2023 release
 
 If your mesh has multiple sources with the same name, you will need to change them to unique names and then [update your mesh](create-mesh.md#update-an-existing-mesh).
 
