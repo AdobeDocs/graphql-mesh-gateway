@@ -127,8 +127,7 @@ We use path-based naming. So names could be structured like `query_getUsers_item
 
 When building a web application, for security reasons, cookies are often used for authentication. Mobile applications on the other end, tend to use an HTTP header.
 
-This section shows how to configure GraphQL Mesh to accept either, and also how to use GraphQL Mesh to set / unset cookies on the login & logout mutations.
-
+<!-- 
 ### Accepting one cookie, header, or context value
 
 We want to accept one of the following:
@@ -178,7 +177,7 @@ module.exports = (url, args, context) => {
 
 Of course, `node-fetch` needs to be added to your project:
 
-`npm install node-fetch`
+`npm install node-fetch` -->
 
 ### Setting / Unsetting the cookie
 

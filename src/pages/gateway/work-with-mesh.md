@@ -5,7 +5,7 @@ description: This page describes ways you can work with meshes that are not part
 
 # Work with your mesh
 
-This page describes ways you can work with meshes that are not part of the [mesh creation](create-mesh.md) process.
+This page describes ways you can work with meshes that contain optional processes that are not required for [mesh creation](create-mesh.md).
 
 ## Include httpDetails in query responses
 
