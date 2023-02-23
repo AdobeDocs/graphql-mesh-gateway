@@ -21,7 +21,7 @@ This release contains the following changes to API Mesh:
 
 ### Breaking changes
 
-If your mesh has multiple sources with the same name, you will need to change them to unique names and then [update your mesh](create-mesh.md#update-an-existing-mesh).
+- If your mesh has multiple sources with the same name, you will need to change them to unique names and then [update your mesh](create-mesh.md#update-an-existing-mesh).
 
 - The `httpDetails` header has been deprecated in favor of [`includeHTTPDetails`](work-with-mesh.md#include-httpdetails-in-query-responses).
 
