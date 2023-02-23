@@ -11,7 +11,7 @@ This page describes ways you can work with meshes that contain optional processe
 
 Adding the `includeHTTPDetails` flag to your JSON mesh configuration file determines if `httpDetails` information is included in query responses.
 
-Setting `includeHTTPDetails` to `true` adds information like `responseTime` and response headers to every query response. Setting `includeHTTPDetails` to `false` prevents users who query your mesh from accessing this information.
+Setting `includeHTTPDetails` to `true` adds information like `responseTime` and response headers to every query response. Setting `includeHTTPDetails` to `false` prevents users who query your mesh from accessing this information. If you do not include the `includeHTTPDetails` property in your mesh, the setting defaults to false.
 
 The following example mesh indicates the location of the `includeHTTPDetails` flag.
 
