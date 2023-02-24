@@ -21,7 +21,7 @@ See [Transforms] if you would like more information on transforms in the context
 
 ## Introduction to transforms
 
-GraphQL Mesh allows you to modify the schema easily, to control the contents of your GraphQL requests and responses;
+API Mesh allows you to modify the schema easily, to control the contents of your GraphQL requests and responses;
 you can use one of the built-in transforms or write your own.
 
 Each transformer can manipulate the schema the way it needs and return the modified schema.
@@ -481,4 +481,3 @@ The table below illustrates how "bare" and "wrap" modes are supported across all
 [replaceField]: replace-field.md
 [typeMerging]: type-merging.md
 [Transforms]: /gateway/transforms/
-[GraphQL Mesh Docs]: https://www.graphql-mesh.com/docs/

@@ -23,7 +23,7 @@ Additionally, the following transforms are available but are not fully supported
 -  [Federation]
 -  [Hoist field](../reference/transforms/replace-field.md#scope-hoistvalue)
 
-Other [GraphQL Mesh] transforms are not supported.
+Other transforms are not supported.
 
 ## Prefix
 
@@ -198,7 +198,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 
 ## Type Merging
 
-[Type Merging] allows you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [GraphQL Mesh Example].
+[Type Merging] allows you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [example].
 
 ## Naming Convention
 
@@ -287,4 +287,4 @@ interface AfterAllTransformObject {
 [Rename]: /reference/transforms/rename.md
 [Replace field]: /reference/transforms/replace-field.md
 [Type Merging]: /reference/transforms/type-merging.md
-[GraphQL Mesh Example]: /reference/multiple-apis.md#merging-types-from-different-sources-using-type-merging
+[example]: /reference/multiple-apis.md#merging-types-from-different-sources-using-type-merging

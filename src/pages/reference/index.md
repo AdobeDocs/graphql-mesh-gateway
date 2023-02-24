@@ -1,13 +1,13 @@
 ---
-title: GraphQL Mesh Documentation | API Mesh for Adobe Developer App Builder
-description: Versioned documentation republished from the GraphQL Mesh documentation site (under the MIT license).
+title: Reference documentation | API Mesh for Adobe Developer App Builder
+description: Versioned API Mesh reference documentation republished from the GraphQL Mesh documentation site (under the MIT license).
 ---
 
-# GraphQL Mesh documentation
+# Reference documentation
 
 This reference documentation uses some information from [The Guild] and their [GraphQL Mesh Docs]. Use the documentation in this section to customize your mesh as needed.
 
-Follow the links below for more information on using GraphQL Mesh:
+Follow the links below for more information on using API Mesh:
 
 -  Handlers
    -  [Handlers Overview]

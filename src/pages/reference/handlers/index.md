@@ -79,4 +79,3 @@ Only `JS` and `JSON` files are supported using this method.
 [GraphQL]: graphql.md
 [JSON Schemas]: json-schema.md
 [Source Handlers]: /gateway/source-handlers.md
-[GraphQL Mesh Docs]: https://www.graphql-mesh.com/docs/

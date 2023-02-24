@@ -100,7 +100,7 @@ const resolvers: Resolvers = {
 export default resolvers
 ```
 
-GraphQL Mesh relies on [GraphQL Code Generator](https://www.graphql-code-generator.com/) to generate the `Resolvers` type that gives you access to:
+API Mesh relies on the [GraphQL Code Generator](https://www.graphql-code-generator.com/) to generate the `Resolvers` type that gives you access to:
 
 - fully typed resolvers map
 
