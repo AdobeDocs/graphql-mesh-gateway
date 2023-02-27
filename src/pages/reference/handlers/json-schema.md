@@ -300,7 +300,7 @@ In this example, we declare the `limit` parameter with a default value of `10` a
 -  `baseUrl` (type: `String`)
 -  `operationHeaders` (type: `JSON`)
 -  `schemaHeaders` (type: `JSON`)
--  `operations` -  (required) Array of:
+-  `operations` - (required) Array of:
    -  `object`:
       -  `field` (type: `String`, required)
       -  `description` (type: `String`)

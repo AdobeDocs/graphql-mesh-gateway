@@ -2,7 +2,7 @@
 title: federation Transform (Apollo) | API Mesh for Adobe Developer App Builder
 ---
 
-# federation transform
+# `federation` transform
 
 `federation` transform allows you to add resolvers and directives to conform to the federation specification. Much of the federation source code could be reused to ensure that it is compliant to the specification. This transform uses the [`graphql-transform-federation`](https://github.com/0xR/graphql-transform-federation) package.
 
@@ -91,7 +91,7 @@ export default function (root, context, info)  {
             - `inaccessible` (type: `Boolean`)
             - `override` (type: `Object`):
               - `from` (type: `String`)
-      -  `resolveReference` -  One of the following:
+      -  `resolveReference` - One of the following:
          -  `String`
          -  `object`:
             -  `queryFieldName` (type: `String`, required) - Name of root field name that resolves the reference

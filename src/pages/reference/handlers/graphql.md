@@ -85,7 +85,7 @@ Imagine that introspection is disabled in the production environment of your Gra
 }
 ```
 
-In this case, CLI's `build` command won't save the introspection in the artifacts, so your Mesh won't start if `source` URL is down.
+In this case, CLI's `build` command won't save the introspection in the artifacts, so your Mesh won't start if the `source` URL is down.
 
 ## Local Schemas
 

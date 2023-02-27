@@ -2,7 +2,7 @@
 title: replaceField | API Mesh for Adobe Developer App Builder
 ---
 
-# replaceField transform
+# `replaceField` transform
 
 The `replaceField` transform allows you to replace the configuration properties of a GraphQL field (source) with the ones of another field (target).
 
@@ -13,7 +13,7 @@ It can be customized to completely replace and/or compose resolve functions with
 
 <InlineAlert variant="info" slots="text"/>
 
-Currently, this transform supports `bare` mode only. For information about "bare" and "wrap" modes, read the [dedicated section](index.md#two-different-modes).
+Currently, this transform supports `bare` mode only. For information about `bare` and `wrap` modes, read the [dedicated section](index.md#two-different-modes).
 
 ## Usage
 
@@ -152,7 +152,7 @@ However, the transform also allows you to pass a scope property, which values ca
 
 We could say that the scope property could also take a `type` value, but since it's the minimum requirement to replace the Type, this is considered the default scope and so it wouldn't make sense to pass it when you desire just this behavior.
 
-### scope: config
+### `scope:` config
 
 The transform will replace the full field config when you pass `scope: config{:yaml}`.
 
@@ -162,7 +162,7 @@ As you can see, this is very comprehensive as it includes things like arguments 
 
 This can be useful when you have custom resolve functions on your target field. So you are happy to replace the source field entirely. However, you should be careful when you fully understand the implications of the behavior for your replaced field.
 
-### scope: hoistValue
+### `scope: hoistValue`
 
 We have seen how `hoistValue` can be useful in the full example described in the "How to use?" paragraph.
 
@@ -364,8 +364,8 @@ type Author {
  -->
 ## Config API Reference
 
--  `typeDefs` (type: `Any`)  -  Additional type definitions, used to replace field types
--  `replacements` (type: `Array of Object`, required)  -  Array of rules to replace fields
+-  `typeDefs` (type: `Any`) - Additional type definitions, used to replace field types
+-  `replacements` (type: `Array of Object`, required) - Array of rules to replace fields
    -  `from` (type: `Object`, required):
       -  `type` (type: `String`, required)
       -  `field` (type: `String`, required)

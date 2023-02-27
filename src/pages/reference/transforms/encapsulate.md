@@ -2,7 +2,7 @@
 title: encapsulate Transform | API Mesh for Adobe Developer App Builder
 ---
 
-# encapsulate transform
+# `encapsulate` transform
 
 The `encapsulate` transform allows you to easily encapsulate a specific schema into a single field under the root type.
 

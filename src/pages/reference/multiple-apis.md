@@ -212,7 +212,7 @@ Then you could use the [`Rename`](transforms/rename.md) transform to rename `Aut
   ]
   ```
 
-After that `rename`, you would expect the following query to work, but it will fail because Mesh does not know which field belongs to which source and how to combine those.
+After that `rename`, you would expect the following query to work, but it will fail because the mesh does not know which field belongs to which source and how to combine those.
 
   ```graphql
   {
