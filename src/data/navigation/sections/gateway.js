@@ -65,6 +65,10 @@ module.exports = [
                 path: '/gateway/mesh_walkthrough'
             },
             {
+                title: 'Extending the unified schema',
+                path: '/gateway/extending-unified-schema.md'
+            },
+            {
                 title: 'Release notes',
                 path: '/gateway/release-notes'
             },

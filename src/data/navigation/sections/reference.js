@@ -21,7 +21,7 @@ module.exports = [
                 path: '/reference/handlers/graphql.md'
             },
             {
-                title: 'JSON Schemas',
+                title: 'JSON schemas',
                 path: '/reference/handlers/json-schema.md'
             },
         ]
@@ -44,11 +44,11 @@ module.exports = [
                 path: '/reference/transforms/federation.md'
             },
             {
-                title: 'Filter Schema',
+                title: 'Filter schema',
                 path: '/reference/transforms/filter-schema.md'
             },
             {
-                title: 'Naming Convention',
+                title: 'Naming convention',
                 path: '/reference/transforms/naming-convention.md'
             },
             {
@@ -60,11 +60,11 @@ module.exports = [
                 path: '/reference/transforms/rename.md'
             },
             {
-                title: 'Replace Field',
+                title: 'Replace field',
                 path: '/reference/transforms/replace-field.md'
             },
             {
-                title: 'Type Merging',
+                title: 'Type merging',
                 path: '/reference/transforms/type-merging.md'
             },
             {
@@ -83,12 +83,8 @@ module.exports = [
             path: '/reference/multiple-apis.md'
         },
         {
-            title: 'Combining Multiple Sources',
+            title: 'Combining multiple sources',
             path: '/reference/combining-multiple-sources.md'
-        },
-        {
-            title: 'Extending the Unified Schema',
-            path: '/reference/extending-unified-schema.md'
         },
         ]
     },

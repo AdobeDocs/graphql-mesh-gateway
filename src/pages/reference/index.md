@@ -26,7 +26,7 @@ Follow the links below for more information on using API Mesh:
    -  [Type Merging]
 -  Other
    -  [Multiple APIs]
-   -  [Extending the unified schema](extending-unified-schema.md)
+   -  [Extending the unified schema](../gateway/extending-unified-schema.md)
    -  [Combining multiple sources](combining-multiple-sources.md)
 
 <!-- Link Definitions -->
