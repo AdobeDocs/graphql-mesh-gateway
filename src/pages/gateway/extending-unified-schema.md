@@ -7,7 +7,7 @@ description: Learn how to extend the unified schema with resolvers.
 
 [Combining multiple Sources](../reference/combining-multiple-sources.md) explains how `additionalResolvers` can shape and augment the unified schema with custom resolvers.
 
-Alternatively, using an `additionalResolvers` custom resolver in API Mesh for Adobe Developer App Builder allows you to [attach a `JavaScript` or `TypeScript` file](../reference/handlers/index.md#reference-local-files-in-handlers) to export the custom resolver's implementation.
+Alternatively, using the `additionalResolvers` config allows you to upload a custom resolver,  as a [`JavaScript` file](../reference/handlers/index.md#reference-local-files-in-handlers), to the Mesh.
 
 ## Programmatic `additionalResolvers`
 
@@ -104,15 +104,14 @@ module.exports = {
 };
 ```
 
-This `javascript` file creates a `special_price` field that uses the `maximum_price` for a product and then applies the discount listed for that product in the [`discountsapi.json` file](https://raw.githubusercontent.com/AdobeDocs/graphql-mesh-gateway/main/src/pages/_examples/discounts-api.json). The following arguments define how the `javascript` interacts with your mesh:
+This `javascript` file targets the `special_price` field on `ConfigurableProduct` that uses the `maximum_price` for a product and then applies the discount listed for that product in the [`discountsapi.json` file](https://raw.githubusercontent.com/AdobeDocs/graphql-mesh-gateway/main/src/pages/_examples/discounts-api.json). The following arguments define how the `custom resolver` interacts with your mesh:
 
-- `special_price` - the name of the new field we are creating
+- `special_price` - the name of the field we are adding a custom resolver to
 
-- `selectionSet` - the information selected from the source that you want to mutate
+- `selectionSet` - the information from the parent field, `ConfigurableProduct`,  that the `special_price` field needs to resolve
 
-- `root`, `context`, and `info` - mandatory parameters that are forwarded from the resolvers calling the method
+- `root`, `context`, `args`, and `info` - are the parameters provided to the new resolver function
 
-- `args` - arguments to pass to the mutation or query
 
 Running the following query results in a response that lists the original `maxmum_price` value and the `special_price` that was calculated using the `DiscountsAPI` file.
 
