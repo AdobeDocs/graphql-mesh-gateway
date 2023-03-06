@@ -65,7 +65,7 @@ module.exports = [
                 path: '/gateway/mesh_walkthrough'
             },
             {
-                title: 'Extending the unified schema',
+                title: 'Extend the schema with custom resolvers',
                 path: '/gateway/extending-unified-schema.md'
             },
             {

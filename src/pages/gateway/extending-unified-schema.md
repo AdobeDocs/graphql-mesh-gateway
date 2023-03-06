@@ -1,13 +1,13 @@
 ---
-title: Extending the Unified Schema
+title: Extend the schema with custom resolvers
 description: Learn how to extend the unified schema with resolvers.
 ---
 
-# Extending the Unified Schema
+# Extend the schema with custom resolvers
 
 [Combining multiple Sources](../reference/combining-multiple-sources.md) explains how `additionalResolvers` can shape and augment the unified schema with custom resolvers.
 
-Alternatively, using the `additionalResolvers` config allows you to upload a custom resolver,  as a [`JavaScript` file](../reference/handlers/index.md#reference-local-files-in-handlers), to the Mesh.
+Alternatively, using the `additionalResolvers` config allows you to upload a custom resolver, as a [`JavaScript` file](../reference/handlers/index.md#reference-local-files-in-handlers), to the Mesh.
 
 ## Programmatic `additionalResolvers`
 
@@ -108,12 +108,11 @@ This `javascript` file targets the `special_price` field on `ConfigurableProduct
 
 - `special_price` - the name of the field we are adding a custom resolver to
 
-- `selectionSet` - the information from the parent field, `ConfigurableProduct`,  that the `special_price` field needs to resolve
+- `selectionSet` - the information from the parent field, `ConfigurableProduct`, that the `special_price` field needs to resolve
 
 - `root`, `context`, `args`, and `info` - are the parameters provided to the new resolver function
 
-
-Running the following query results in a response that lists the original `maxmum_price` value and the `special_price` that was calculated using the `DiscountsAPI` file.
+Running the following query results in a response that lists the original `maximum_price` value and the `special_price` that was calculated using the `DiscountsAPI` file.
 
 <CodeBlock slots="heading, code" repeat="2" languages="graphql, json" />
 
