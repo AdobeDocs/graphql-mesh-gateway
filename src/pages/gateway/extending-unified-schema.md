@@ -112,7 +112,9 @@ This `javascript` file targets the `special_price` field on `ConfigurableProduct
 
 - `root`, `context`, `args`, and `info` - are the parameters provided to the new resolver function
 
-Running the following query results in a response that lists the original `maximum_price` value and the `special_price` that was calculated using the `DiscountsAPI` file.
+Running the following query results in a response that lists the original `maximum_price` value and the `special_price` that was calculated using the `DiscountsAPI` file. In this example, we are searching for "sweater", but you could modify it to search for any products.
+
+In the following response, you can see that the "Roxana Cropped Sweater" and the "Hanna Sweater" we specified in our `discounts-api.json` file have a `special_price` that is 10% less than their `value`.
 
 <CodeBlock slots="heading, code" repeat="2" languages="graphql, json" />
 
@@ -120,7 +122,7 @@ Running the following query results in a response that lists the original `maxim
 
 ```graphql
 {
-  products(search: "tops") {
+  products(search: "sweater") {
     items {
       name
       special_price
@@ -144,133 +146,12 @@ Running the following query results in a response that lists the original `maxim
 		"products": {
 			"items": [
 				{
-					"name": "Vitalia Top",
-					"special_price": 68.992,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 78.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Jillian Top",
-					"special_price": 39.44,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 46.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Anna Draped Top",
-					"special_price": 52.800000000000004,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 70.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Emilia Cropped Lace Top",
-					"special_price": 31.2,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 62.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Silver Cirque Earrings",
-					"special_price": null,
+					"name": "Juno Sweater",
+					"special_price": 54.4,
 					"price_range": {
 						"maximum_price": {
 							"final_price": {
 								"value": 54.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Veronica Maxi Dress",
-					"special_price": 63.36000000000001,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 70.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Karena Halter Dress",
-					"special_price": 62.4,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 62.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Gold Cirque Earrings",
-					"special_price": null,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 54.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Roxana Cropped Sweater",
-					"special_price": 56.16,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 62.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Cora Open-Back Tank",
-					"special_price": 77.76,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 86.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Claudia Crochet Dress",
-					"special_price": 70.56,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 78.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Davina Skirt",
-					"special_price": 77.76,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 86.4
 							}
 						}
 					}
@@ -287,8 +168,41 @@ Running the following query results in a response that lists the original `maxim
 					}
 				},
 				{
-					"name": "Susanna Draped Tank",
-					"special_price": 70.56,
+					"name": "Echo Sweater",
+					"special_price": 62.4,
+					"price_range": {
+						"maximum_price": {
+							"final_price": {
+								"value": 62.4
+							}
+						}
+					}
+				},
+				{
+					"name": "Corina Lace-Back Sweater",
+					"special_price": 86.4,
+					"price_range": {
+						"maximum_price": {
+							"final_price": {
+								"value": 86.4
+							}
+						}
+					}
+				},
+				{
+					"name": "Roxana Cropped Sweater",
+					"special_price": 56.16,
+					"price_range": {
+						"maximum_price": {
+							"final_price": {
+								"value": 62.4
+							}
+						}
+					}
+				},
+				{
+					"name": "Helena Cardigan",
+					"special_price": 78.4,
 					"price_range": {
 						"maximum_price": {
 							"final_price": {
@@ -298,19 +212,8 @@ Running the following query results in a response that lists the original `maxim
 					}
 				},
 				{
-					"name": "Chloe Silk Shell",
-					"special_price": 48.96,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 54.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Aurora Sleeveless Blouse",
-					"special_price": 70.56,
+					"name": "Rosalina Cardigan",
+					"special_price": 78.4,
 					"price_range": {
 						"maximum_price": {
 							"final_price": {
@@ -320,23 +223,12 @@ Running the following query results in a response that lists the original `maxim
 					}
 				},
 				{
-					"name": "Bella Eyelet Capris",
-					"special_price": 70.56,
+					"name": "Brigid Boucle Cardigan",
+					"special_price": 94.4,
 					"price_range": {
 						"maximum_price": {
 							"final_price": {
-								"value": 78.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Night Out Collection",
-					"special_price": null,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 492
+								"value": 94.4
 							}
 						}
 					}

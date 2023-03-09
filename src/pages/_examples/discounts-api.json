@@ -16,20 +16,12 @@
         "discount": 50
     },
     {
-        "name": "Silver Cirque Earrings",
-        "discount": 0
-    },
-    {
         "name": "Veronica Maxi Dress",
         "discount": 10
     },
     {
         "name": "Karena Halter Dress",
         "discount": 0
-    },
-    {
-        "name": "Gold Cirque Earrings",
-        "discount": 10
     },
     {
         "name": "Roxana Cropped Sweater",
@@ -61,10 +53,6 @@
     },
     {
         "name": "Aurora Sleeveless Blouse",
-        "discount": 10
-    },
-    {
-        "name": "Bella Eyelet Capris",
         "discount": 10
     },
     {
