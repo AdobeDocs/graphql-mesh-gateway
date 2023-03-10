@@ -36,9 +36,9 @@ Allows developers to integrate private and third-party APIs and other software i
 
 <DiscoverBlock slots="link, text"/>
 
-[GraphQL Mesh Reference](./reference/)
+[Reference documentation](./reference/)
 
-View the GraphQL Mesh documentation reference to learn detailed information about using handlers and transforms with API Mesh.
+View the reference documentation to learn detailed information about using handlers and transforms with API Mesh.
 
 <DiscoverBlock slots="link, text"/>
 

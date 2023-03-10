@@ -5,7 +5,7 @@ description: How to add supported source handlers to your mesh.
 
 # Add source handlers
 
-Although [GraphQL Mesh] supports many types of [source handlers], at launch API Mesh for Adobe Developer App Builder only supports the following:
+API Mesh for Adobe Developer App Builder only supports the following [source handlers]:
 
 -  [OpenAPI](#openapi)
    -  [API Handler Configuration](#api-handler-configuration)

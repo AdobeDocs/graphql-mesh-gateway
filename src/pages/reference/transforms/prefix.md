@@ -2,7 +2,7 @@
 title: prefix Transform | API Mesh for Adobe Developer App Builder
 ---
 
-# prefix transform
+# `prefix` transform
 
 The `prefix` transform allows you to prefix GraphQL types and GraphQL root operations (under `Query/Mutation`). `prefix` is similar to [`rename`](/docs/transforms/rename) in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query.
 In contrast with `rename`, `prefix` is simpler and only allows you to append a `prefix` to the existing name.
@@ -28,7 +28,7 @@ Add the following configuration to your Mesh config file:
 
 <InlineAlert variant="info" slots="text"/>
 
-For information about "bare" and "wrap" modes, read the [dedicated section](/reference/transforms/index.md#two-different-modes).
+For information about `bare` and `wrap` modes, read the [dedicated section](/reference/transforms/index.md#two-different-modes).
 
 ## Config API Reference
 

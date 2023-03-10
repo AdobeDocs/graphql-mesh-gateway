@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Vitalia Top",
+        "discount": 12
+    },
+    {
+        "name": "Jillian Top",
+        "discount": 15
+    },
+    {
+        "name": "Anna Draped Top",
+        "discount": 25
+    },
+    {
+        "name": "Emilia Cropped Lace Top",
+        "discount": 50
+    },
+    {
+        "name": "Veronica Maxi Dress",
+        "discount": 10
+    },
+    {
+        "name": "Karena Halter Dress",
+        "discount": 0
+    },
+    {
+        "name": "Roxana Cropped Sweater",
+        "discount": 10
+    },
+    {
+        "name": "Claudia Crochet Dress",
+        "discount": 10
+    },
+    {
+        "name": "Cora Open-Back Tank",
+        "discount": 10
+    },
+    {
+        "name": "Davina Skirt",
+        "discount": 10
+    },
+    {
+        "name": "Hanna Sweater",
+        "discount": 10
+    },
+    {
+        "name": "Susanna Draped Tank",
+        "discount": 10
+    },
+    {
+        "name": "Chloe Silk Shell",
+        "discount": 10
+    },
+    {
+        "name": "Aurora Sleeveless Blouse",
+        "discount": 10
+    },
+    {
+        "name": "Night Out Collection",
+        "discount": 10
+    }
+]
