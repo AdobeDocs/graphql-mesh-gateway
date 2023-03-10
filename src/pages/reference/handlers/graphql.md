@@ -85,11 +85,11 @@ Imagine that introspection is disabled in the production environment of your Gra
 }
 ```
 
-In this case, CLI's `build` command won't save the introspection in the artifacts, so your Mesh won't start if `source` URL is down.
+In this case, CLI's `build` command won't save the introspection in the artifacts, so your Mesh won't start if the `source` URL is down.
 
 ## Local Schemas
 
-We recommend providing local schema by using the [`additionalTypeDefs`](../extending-unified-schema.md) and [`additionalResolvers`](../multiple-apis.md#extending-graphql-schema-with-additionaltypedefs) configuration options.
+We recommend providing local schema by using the [`additionalTypeDefs`](../../gateway/extending-unified-schema.md) and [`additionalResolvers`](../multiple-apis.md#extending-graphql-schema-with-additionaltypedefs) configuration options.
 <!-- 
 ## Fetch Strategies and Multiple HTTP endpoints for the same source
 

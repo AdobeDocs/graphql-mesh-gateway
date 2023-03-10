@@ -1,23 +1,21 @@
 ---
-title: Multiple APIs 
+title: Multiple APIs
 description: Combine and extend different sources
 ---
 
 # Multiple APIs recipe
 
-This topic describes the GraphQL Mesh recipe for using multiple apis.
+This topic describes how to use multiple APIs. Your mesh can merge different data sources into a single unified GraphQL Schema, but it is not an alternative to Schema Stitching, Apollo Federation, Bare Schema Merging, or another merging strategy.
 
-GraphQL Mesh is able to merge different data sources into a single unified GraphQL Schema, and GraphQL Mesh is not an alternative to Schema Stitching, Apollo Federation, Bare Schema Merging or another merging strategy. GraphQL Mesh can consume and merge your data sources in different approaches.
+In addition to `@apollo/gateway`, API Mesh supports subscriptions out-of-box.
 
-In addition to `@apollo/gateway`, GraphQL Mesh supports subscriptions out-of-box.
-
-[Learn more the key differences between Schema Stitching and Apollo Federation](https://product.voxmedia.com/2020/11/2/21494865/to-federate-or-stitch-a-graphql-gateway-revisited)
+[Learn more key differences between Schema Stitching and Apollo Federation](https://product.voxmedia.com/2020/11/2/21494865/to-federate-or-stitch-a-graphql-gateway-revisited)
 
 ## Extending GraphQL Schema with `additionalTypeDefs`
 
-You can add new types and/or fields to the current unified GraphQL Schema by using `additionalTypeDefs` configuration field;
+You can add new types or fields to the current unified GraphQL Schema by using the `additionalTypeDefs` configuration field.
 
-Let's say we have the StackExchange API in our Mesh configuration;
+For example, if we have the StackExchange API in our Mesh configuration:
 
 ```json
 {
@@ -35,11 +33,11 @@ Let's say we have the StackExchange API in our Mesh configuration;
 }
 ```
 
-And here we add a new field under `Query` root type named `viewsInPastMonth`. But we need a resolver for this new field.
+We might want to add a new field under the `Query` root type named `viewsInPastMonth`, but we will need a resolver for this field.
 
 ## Declare a resolver to the new `additionalTypeDefs` by using `additionalResolvers`
 
-We have `additionalResolvers` field to make our new field executable in the unified schema;
+The `additionalResolvers` field will make our new field executable in the unified schema:
 
 ```json
 {
@@ -72,11 +70,11 @@ We have `additionalResolvers` field to make our new field executable in the unif
 
 ## Combining Schemas using declarative API
 
-We learned that we can combine multiple APIs in Mesh using `additionalTypeDefs` and `additionalResolvers`.
+We learned that we can combine multiple APIs in a mesh using `additionalTypeDefs` and `additionalResolvers`.
 
-The following example has two different OpenAPI sources; we add two new fields to a type of `Cities`, and those fields have return types from `Weather` API.
+The following example has two different OpenAPI sources. We will add two new fields to the `Cities` type, and those fields have return types from the `Weather` API.
 
-But this time we don't use an extra resolvers file for `additionalResolvers` but only the configuration file.
+To achieve this, we will use `additionalResolvers` inside the mesh configuration file.
 
 ```json
 {
@@ -87,7 +85,7 @@ But this time we don't use an extra resolvers file for `additionalResolvers` but
         "openapi": {
           "source": "https://api.apis.guru/v2/specs/mashape.com/geodb/1.0.0/swagger.json",
           "operationHeaders": {
-            "X-RapidAPI-Key": "f93d3b393dmsh13fea7cb6981b2ep1dba0ajsn654ffeb48c26"
+            "X-RapidAPI-Key": "a12b3c456defg78hij9kl0123m4no5pqr6stuv789wxyz01a23"
           }
         }
       }
@@ -135,50 +133,123 @@ But this time we don't use an extra resolvers file for `additionalResolvers` but
 }
 ```
 
-## Merging types from different sources (using Type Merging)
+## Merging types from different sources (Type Merging)
 
-Let's say you have two different services; `Books` and `Authors`. And those two are exposing the following schemas at the end;
+Imagine you have two different services, `Books` and `Authors`, which are exposing the following schemas:
 
-```graphql
-# Authors
-type Query {
-  authors(ids: [ID!]): [Author!]!
-  author(id: ID!): Author!
-}
+  ```graphql
+  # Authors
+  type Query {
+    authors(ids: [ID!]): [Author!]!
+    author(id: ID!): Author!
+  }
 
-type Author {
-  id: ID!
-  name: String!
-}
-```
+  type Author {
+    id: ID!
+    name: String!
+  }
+  ```
 
-```graphql
-# Books
-type Query {
-  books(ids: [ID!]): [Book!]!
-  book(id: ID!): Book!
-  authorWithBooks(id: ID!): Author!
-  authorsWithBooks(ids: [ID!]): [Author!]!
-}
+  ```graphql
+  # Books
+  type Query {
+    books(ids: [ID!]): [Book!]!
+    book(id: ID!): Book!
+    authorWithBooks(id: ID!): Author!
+    authorsWithBooks(ids: [ID!]): [Author!]!
+  }
 
-type Book {
-  id: ID!
-  title: String!
-  authorId: ID!
-}
+  type Book {
+    id: ID!
+    title: String!
+    authorId: ID!
+  }
 
-type AuthorWithBooks {
-  id: ID!
-  books: [Book!]!
-}
-```
+  type AuthorWithBooks {
+    id: ID!
+    books: [Book!]!
+  }
+  ```
 
-And you renamed `AuthorWithBooks` to `Author` using [`Rename`](transforms/rename.md) transform.
+Then you could use the [`Rename`](transforms/rename.md) transform to rename `AuthorWithBooks` to `Author`.
 
-```json
-[
+  ```json
+  [
+    {
+      "sources": [
+        {
+          "name": "BookService",
+          "handler": null,
+          "transforms": [
+            {
+              "rename": {
+                "renames": [
+                  {
+                    "from": {
+                      "type": "AuthorWithBooks"
+                    },
+                    "to": {
+                      "type": "Author"
+                    }
+                  },
+                  {
+                    "from": {
+                      "type": "Query",
+                      "field": "authorWithBooks"
+                    },
+                    "to": {
+                      "type": "Query",
+                      "field": "author"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  ```
+
+After that `rename`, you would expect the following query to work, but it will fail because the mesh does not know which field belongs to which source and how to combine those.
+
+  ```graphql
+  {
+    author(id: 0) {
+      id # This field is common
+      name # This field is from `AuthorService`
+      books { # This field is from `BookService`
+        id
+        title
+      }
+    }
+  }
+  ```
+
+You could add `additionalResolvers`, extract `books` from `AuthorWithBooks`, and return it as a `books` field of `Author` type, but this is unnecessarily complicated. So instead, we'll use Type Merging.
+
+The following example indicates how to fetch entities from different sources:
+
+  ```json
   {
     "sources": [
+      {
+        "name": "AuthorService",
+        "handler": null,
+        "transforms": [
+          {
+            "typeMerging": {
+              "queryFields": [
+                {
+                  "queryFieldName": "author",
+                  "keyField": "id"
+                }
+              ]
+            }
+          }
+        ]
+      },
       {
         "name": "BookService",
         "handler": null,
@@ -203,6 +274,30 @@ And you renamed `AuthorWithBooks` to `Author` using [`Rename`](transforms/rename
                     "type": "Query",
                     "field": "author"
                   }
+                },
+                {
+                  "from": {
+                    "type": "Query",
+                    "field": "authorsWithBooks"
+                  },
+                  "to": {
+                    "type": "Query",
+                    "field": "authors"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "typeMerging": {
+              "queryFields": [
+                {
+                  "queryFieldName": "book",
+                  "keyField": "id"
+                },
+                {
+                  "queryFieldName": "author",
+                  "keyField": "id"
                 }
               ]
             }
@@ -211,114 +306,17 @@ And you renamed `AuthorWithBooks` to `Author` using [`Rename`](transforms/rename
       }
     ]
   }
-]
-```
+  ```
 
- then you expect following query works fine;
+Now the previous query will work as expected.
 
-```graphql
-{
-  author(id: 0) {
-    id # This field is common
-    name # This field is from `AuthorService`
-    books { # This field is from `BookService`
-      id
-      title
-    }
-  }
-}
-```
+[Learn more about the Type Merging transform](transforms/type-merging.md).
 
-But it won't work because Mesh doesn't know which field belongs to where and how to combine those. For sure, you could add `additionalResolvers` then extract `books` from `AuthorWithBooks` then return it as `books` field of `Author` type but this sounds a little bit overhead. So let's try Type Merging here;
-
-We have Type Merging transform to teach Mesh how to fetch entities from different sources;
-
-```json
-{
-  "sources": [
-    {
-      "name": "AuthorService",
-      "handler": null,
-      "transforms": [
-        {
-          "typeMerging": {
-            "queryFields": [
-              {
-                "queryFieldName": "author",
-                "keyField": "id"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "BookService",
-      "handler": null,
-      "transforms": [
-        {
-          "rename": {
-            "renames": [
-              {
-                "from": {
-                  "type": "AuthorWithBooks"
-                },
-                "to": {
-                  "type": "Author"
-                }
-              },
-              {
-                "from": {
-                  "type": "Query",
-                  "field": "authorWithBooks"
-                },
-                "to": {
-                  "type": "Query",
-                  "field": "author"
-                }
-              },
-              {
-                "from": {
-                  "type": "Query",
-                  "field": "authorsWithBooks"
-                },
-                "to": {
-                  "type": "Query",
-                  "field": "authors"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "typeMerging": {
-            "queryFields": [
-              {
-                "queryFieldName": "book",
-                "keyField": "id"
-              },
-              {
-                "queryFieldName": "author",
-                "keyField": "id"
-              }
-            ]
-          }
-        }
-      ]
-    }
-  ]
-}
-```
-
-Then now our query will work as expected!
-
-[Check this out learn more about Type Merging transform](transforms/type-merging.md).
-
-## Batching requests between sources to prevent N+1 problem
+## Batching requests between sources to prevent an N+1 problem
 
 ### In type merging
 
-The example above works fine but there is an N+1 problem. It sends `n` requests for `n` entities. But we have `authors` and `books`. Type Merging is smart enough to handle batching if you point it to a field that returns a list of entities. Let's update our configuration for this;
+The previous example works fine, but there is an N+1 problem. It sends `n` requests for `n` entities. But we have `authors` and `books`. Type Merging is smart enough to handle batching if you point it to a field that returns a list of entities. Let's update our mesh to the following:
 
 ```json
 {
@@ -401,9 +399,9 @@ And now it batches the requests to the inner sources.
 
 ### In regular `additionalResolvers`
 
-In the current example, we want to have a field called `author` under `Book` property and point it to the `author` property.
+In the following example, we want to have a field called `author` under `Book` property and point it to the `author` property.
 
-Normally we would use the following definitions;
+Normally, we would use the following definitions:
 
 ```json
 {
@@ -424,7 +422,7 @@ Normally we would use the following definitions;
 }
 ```
 
-But we want to solve N+1 problem;
+This creates an N+1 problem that we can solve by using the following format:
 
 ```json
 {
@@ -442,15 +440,13 @@ But we want to solve N+1 problem;
 }
 ```
 
-And that's it. Now GraphQL Mesh will batch the queries of `Book.author` by using `authorId` field into `Query.authors`.
+Now your mesh will batch the queries of `Book.author` by using the `authorId` field in `Query.authors`.
 
-## Consuming Apollo Federation Services inside GraphQL Mesh
+## Consuming Apollo Federation Services
 
-GraphQL Mesh uses [the approach of Schema Stitching](https://github.com/gmac/schema-stitching-handbook/tree/master/federation-services) in order to consume the existing Apollo Federation services inside GraphQL Mesh. So you can combine Federation and Type Merging in GraphQL Mesh
+The mesh uses [Schema Stitching](https://github.com/gmac/schema-stitching-handbook/tree/master/federation-services) to consume the existing Apollo Federation services, so you can combine Federation and Type Merging.
 
-You can follow the Apollo Federation spec and integrate your existing Federated services into GraphQL Mesh.
-
-GraphQL Mesh is smart enough to mix and match Federation and Stitching approaches including all other transforms (Type Merging, Rename, Filter, etc.)
+Follow the Apollo Federation spec and integrate your existing Federated services. Your mesh can mix and match Federation and Stitching approaches including all other transforms (Type Merging, Rename, Filter, etc.).
 
 You can also transform your existing non-federated schemas into a federated service.
 
@@ -520,4 +516,4 @@ You can also transform your existing non-federated schemas into a federated serv
 
 <InlineAlert variant="info" slots="text"/>
 
- You can [check out the documentation of the federation transformer](transforms/federation.md) to learn more about adding federation metadata to a non-federated GraphQL Schema.
+ You can view the [federation transformer](transforms/federation.md) documentation to learn more about adding federation metadata to a non-federated GraphQL Schema.

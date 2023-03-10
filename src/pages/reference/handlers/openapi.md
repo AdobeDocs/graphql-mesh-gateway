@@ -181,7 +181,7 @@ Of course, `node-fetch` needs to be added to your project:
 
 ### Setting / Unsetting the cookie
 
-Of course, being able to use GraphQL Mesh as a Gateway for both the mobile application and web application is nice, but there's one thing missing: the setting of the cookie for the web application.
+Of course, being able to use your mesh as a Gateway for both the mobile application and web application is nice, but there's one thing missing: the setting of the cookie for the web application.
 
 For that, we need to access the HTTP response that is sent back to the client. Luckily, we can do so in `additionalResolvers`. So we need to create two new resolvers, one for login and one for logout, and manage the cookie in their code.
 

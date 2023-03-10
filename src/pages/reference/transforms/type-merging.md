@@ -10,7 +10,7 @@ For example, you could combine responses from two different APIs on a single fie
 
 ## What is Type Merging?
 
-Take an example Mesh Gateway with two different GraphQL sources `Books` and `Authors`, defined as follows:
+Imagine you have a mesh with two different GraphQL sources, `Books` and `Authors`, defined as the following:
 
 ```graphql
 # Authors
@@ -46,7 +46,7 @@ type AuthorWithBooks {
 }
 ```
 
-And you renamed `AuthorWithBooks` to `Author` using [`Rename`](/docs/transforms/rename) transform.
+If you wanted to rename `AuthorWithBooks` to `Author` using the [`Rename`](/docs/transforms/rename) transform, you would create the following mesh.
 
 ```json
 [
@@ -87,7 +87,7 @@ And you renamed `AuthorWithBooks` to `Author` using [`Rename`](/docs/transforms/
 ]
 ```
 
-then you expect the following query works fine;
+After that `rename`, you would expect the following query to work, but it will fail because the mesh does not know which field belongs to which source and how to combine those.
 
 ```graphql
 {
@@ -103,9 +103,9 @@ then you expect the following query works fine;
 }
 ```
 
-But it won't work because Mesh doesn't know which field belongs to where and how to combine those. You could add `additionalResolvers` then extract `books` from `AuthorWithBooks` then return it as `books` field of `Author` type, but this sounds a little overhead. So let's try Type Merging here.
+You could add `additionalResolvers`, extract `books` from `AuthorWithBooks`, and return it as a `books` field of `Author` type, but this is unnecessarily complicated. So instead, we'll use Type Merging.
 
-We have Type Merging transform to teach Mesh how to fetch entities from different sources:
+The following example indicates how to fetch entities from different sources:
 
 ```json
 {
@@ -184,11 +184,11 @@ We have Type Merging transform to teach Mesh how to fetch entities from differen
 }
 ```
 
-Now our query will work as expected!
+Now the previous query will work as expected.
 
 ### Prevent N+1 problem with Type Merging
 
-The example above works fine, but there is an N+1 problem. It sends `n` requests for `n` entities. But we have `authors` and `books`. Type Merging is smart enough to handle batching if you point it to a field that returns a list of entities. Let's update our configuration for this:
+The previous example works fine, but there is an N+1 problem. It sends `n` requests for `n` entities. But we have `authors` and `books`. Type Merging is smart enough to handle batching if you point it to a field that returns a list of entities. Let's update our mesh to the following:
 
 ```json
 {
@@ -371,9 +371,9 @@ https://www.graphql-tools.com/docs/stitch-directives-sdl#object-keys
    -  `keyArg` (type: `String`) - Specifies which field argument receives the merge key. This may be omitted for fields with only one argument where the recipient can be inferred.
    -  `additionalArgs` (type: `String`) - Specifies a string of additional keys and values to apply to other arguments,
 formatted as `\"\"\" arg1: "value", arg2: "value" \"\"\"`.
-   -  `key` (type: `Array of String`, required) - Advanced use only; Allows building a custom key just for the argument from the selectionSet included by the `@key` directive.
+   -  `key` (type: `Array of String`, required) - Advanced use only; Allows building a custom key just for the argument from the `selectionSet` included by the `@key` directive.
    -  `argsExpr` (type: `String`) - Advanced use only; This argument specifies a string expression that allows more customization of the input arguments. Rules for evaluation of this argument are as follows:
    -  Basic object parsing of the input key: `"arg1: $key.arg1, arg2: $key.arg2"`
    -  Any expression enclosed by double brackets will be evaluated once for each of the requested keys, and then sent as a list: `"input: \{ keys: [[$key]] }"`
-   -  Selections from the key can be referenced by using the $ sign and dot notation: `"upcs: [[$key.upc]]"`, so that `$key.upc` refers to the `upc` field of the key.
+   -  Selections from the key can be referenced by using the $ sign and dot notation, for example `"upcs: [[$key.upc]]"`, so that `$key.upc` refers to the `upc` field of the key.
 -  `additionalConfiguration` (type: `Any`) - The path to a code file that has an additional type merging configuration
