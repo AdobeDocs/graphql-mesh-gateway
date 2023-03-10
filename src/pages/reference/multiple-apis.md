@@ -85,7 +85,7 @@ To achieve this, we will use `additionalResolvers` inside the mesh configuration
         "openapi": {
           "source": "https://api.apis.guru/v2/specs/mashape.com/geodb/1.0.0/swagger.json",
           "operationHeaders": {
-            "X-RapidAPI-Key": "f93d3b393dmsh13fea7cb6981b2ep1dba0ajsn654ffeb48c26"
+            "X-RapidAPI-Key": "a12b3c456defg78hij9kl0123m4no5pqr6stuv789wxyz01a23"
           }
         }
       }
