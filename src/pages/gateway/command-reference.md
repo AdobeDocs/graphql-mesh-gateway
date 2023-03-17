@@ -23,7 +23,7 @@ aio api-mesh:create [FILE]
 
 ### Flags
 
-`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](work-with-mesh.md#modify-projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](work-with-mesh.md#projects-and-workspaces).
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh creation instead of prompting the user to confirm.
 
@@ -62,7 +62,7 @@ aio api-mesh:update [FILE]
 
 ### Flags
 
-`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to update a mesh in a different workspace. You can also manually [modify the cache](work-with-mesh.md#modify-projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to update a mesh in a different workspace. You can also manually [modify the cache](work-with-mesh.md#projects-and-workspaces).
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh update instead of prompting the user to confirm.
 
@@ -134,7 +134,7 @@ aio api-mesh:get [DOWNLOAD]
 
 ### Flags
 
-`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to retrieve a mesh from a different workspace. You can also manually [modify the cache](work-with-mesh.md#modify-projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to retrieve a mesh from a different workspace. You can also manually [modify the cache](work-with-mesh.md#projects-and-workspaces).
 
 `--help` provides information on the specified command.
 
@@ -220,7 +220,7 @@ aio api-mesh:delete
 
 ### Flags
 
-`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to delete a mesh from a different workspace. You can also manually [modify the cache](work-with-mesh.md#modify-projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to delete a mesh from a different workspace. You can also manually [modify the cache](work-with-mesh.md#projects-and-workspaces).
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh deletion instead of prompting the user to confirm.
 
@@ -250,7 +250,7 @@ aio api-mesh:describe
 
 ### Flags
 
-`-i` or`--ignoreCache` ignores the cached organization, project, and workspace, which allows you to get the description of a different workspace. You can also manually [modify the cache](work-with-mesh.md#modify-projects-and-workspaces).
+`-i` or`--ignoreCache` ignores the cached organization, project, and workspace, which allows you to get the description of a different workspace. You can also manually [modify the cache](work-with-mesh.md#projects-and-workspaces).
 
 `--help` provides information on the specified command
 
