@@ -37,7 +37,7 @@ You may need to move a mesh from one workspace to another, for example from `sta
     aio console:workspace:select
     ```
 
-1. Run the [create](#create-a-mesh) command and reference the previously created file.
+1. Run the [create](create-mesh.md#create-a-mesh) command and reference the previously created file.
 
     ```bash
     aio api-mesh:create download.json
