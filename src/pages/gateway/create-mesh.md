@@ -64,7 +64,7 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
 
 1. If you have not already [selected a project and workspace manually](work-with-mesh.md#select-a-project-or-workspace), choose the organization, project, and workspace that you want to create the mesh in. If you do not have a project, see [Create a project](#create-a-project).
 
-  You will also need to indicate if you want to automatically select the specified organization and workspace in the future. If you answer **Yes** to either of these prompts and you want to select an organization or workspace other than the cached organization and workspace. You can use the `-i` or `-ignoreCache` flag to clear the cache and allow you to select another organization and workspace. You can also manually [modify the selected project or workspace](work-with-mesh.md#projects-and-workspaces).
+  You must also indicate if you want to automatically select the specified organization and workspace in the future. If you answer **Yes** to either of these prompts and you want to select an organization or workspace other than the cached organization and workspace. You can use the `-i` or `-ignoreCache` flag to clear the cache, allowing you to select another organization and workspace. You can also manually [modify the selected project or workspace](work-with-mesh.md#projects-and-workspaces).
 
   **Note:** Each workspace within a project can only have one mesh associated with it at a time.
 

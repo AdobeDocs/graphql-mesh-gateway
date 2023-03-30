@@ -80,7 +80,7 @@ When you query a mesh with `includeHTTPDetails` set to `true`, the response will
 - `response`
 - `responseTime`
 
-The following example includes some additional information a user can receive as part of the response. The exact response will vary depending on your source handlers, headers, and other customizations.
+The following example includes some additional information a user can receive as part of the response. The exact response varies, depending on your source handlers, headers, and other customizations.
 
 ```json
 {   
@@ -141,9 +141,9 @@ To view a list of available workspaces in the current project, run the [`aio con
 
 By [default](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#2-creating-a-new-project-on-developer-console), projects have a `production` and a `stage` workspace. You can also [create your own workspaces](https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/#add-a-workspace). If you do not know which workspace to use, use the `stage` workspace.
 
-To change the selected project, use the [`aio console:project:select`](https://github.com/adobe/aio-cli#aio-consoleprojectselect-projectidorname) command, which will prompt you to select your project from a list.
+To change the selected project, use the [`aio console:project:select`](https://github.com/adobe/aio-cli#aio-consoleprojectselect-projectidorname) command, which prompts you to select your project from a list.
 
-To change the selected workspace, use the [`aio console:workspace:select`](https://github.com/adobe/aio-cli#aio-consoleworkspaceselect-workspaceidorname) command, which will prompt you to select your workspace from a list.
+To change the selected workspace, use the [`aio console:workspace:select`](https://github.com/adobe/aio-cli#aio-consoleworkspaceselect-workspaceidorname) command, which prompts you to select your workspace from a list.
 
 <InlineAlert variant="info" slots="text"/>
 
