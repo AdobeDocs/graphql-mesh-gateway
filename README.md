@@ -1,6 +1,6 @@
 # API Mesh for Adobe Developer App Builder Documentation
 
-Welcome! This site contains the latest API Mesh for Adobe Developer App Builder developer documentation for ongoing releases.
+Welcome! This site contains the latest API Mesh for Adobe Developer App Builder documentation for ongoing releases.
 
 ## Local development
 
