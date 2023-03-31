@@ -99,7 +99,7 @@ This directory will contain your `mesh.json` file, the configuration file for yo
 
 1. Use the arrow keys to select the `my_test_workspace` Project and click **Enter**. Type `y` to indicate you want to use this project for future operations. Then press the **Enter** key.
 
-1. Use the arrow keys to select the `stage` Workspace and click **Enter**. Type `y` and press the **Enter** key to automatically select this Workspace in the future. You can [select another workspace](create-mesh.md#select-a-project-or-workspace) at any time.
+1. Use the arrow keys to select the `stage` Workspace and click **Enter**. Type `y` and press the **Enter** key to automatically select this Workspace in the future. You can [select another workspace](work-with-mesh.md#select-a-project-or-workspace) at any time.
 
 1. Type `y` and click the **Enter** key to confirm the creation of the mesh. The mesh configuration and corresponding details will display.
 
