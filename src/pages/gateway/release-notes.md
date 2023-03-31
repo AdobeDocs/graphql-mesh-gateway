@@ -13,7 +13,8 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-- Improved internal logging and performance.
+- Improved performance.
+- Updated logging protocols to support backend server updates.
 
 ## Mar 16, 2023
 
