@@ -7,7 +7,7 @@
     "url": "https://github.com/AdobeDocs/graphql-mesh-gateway"
   },
   "dependencies": {
-    "@adobe/gatsby-theme-aio": "4.9.0",
+    "@adobe/gatsby-theme-aio": "4.9.6",
     "gatsby": "4.22.0",
     "gatsby-plugin-html-comments": "^1.0.0",
     "react": "^17.0.0",
