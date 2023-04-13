@@ -262,7 +262,7 @@ Selected project: test-project
 Select workspace: Stage
 Successfully retrieved mesh details 
 
-Org ID: 283912345676
+Org ID: 123456789
 Project ID: 1234567890123456789
 Workspace ID: 2345678901234567890
 Mesh ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
