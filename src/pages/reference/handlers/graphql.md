@@ -35,6 +35,7 @@ GraphQL handlers can also use local sources, see [Reference local file handlers]
           "endpoint": "https://my-service-url/graphql",
           "operationHeaders": {
             "Authorization": "Bearer {context.headers['x-my-api-token']}"
+          // Do not use capital letters in header names.
           }
         }
       }
@@ -42,6 +43,11 @@ GraphQL handlers can also use local sources, see [Reference local file handlers]
   ]
 }
 ```
+
+<InlineAlert variant="info" slots="text"/>
+
+Header names must be in lowercase. Uppercase characters within a header name are automatically converted into lowercase.
+
 <!--
 ### From Environment Variable
 
