@@ -9,7 +9,7 @@ The API Mesh for Adobe Developer App Builder CLI allows you to manage and modify
 
 ## aio api-mesh:create
 
-Creates a new mesh based on the settings in the specified `JSON` file in your working directory. After creating your mesh, you will receive a  `meshId`, like `12a3b4c5-6d78-4012-3456-7e890fa1bcde`, to refer to it in the future. For more information, see [Creating a mesh].
+Creates a new mesh based on the settings in the specified `JSON` file in your working directory. After creating your mesh, you will receive a `meshId`, like `12a3b4c5-6d78-4012-3456-7e890fa1bcde`, to refer to it in the future. For more information, see [Creating a mesh].
 
 ### Usage
 
@@ -92,7 +92,7 @@ aio api-mesh:status
 
 #### Response
 
-There are four possible responses that reflect the status of your mesh:
+Four possible responses reflect the status of your mesh:
 
 - Success - Your mesh was successfully created or updated.
 
@@ -257,12 +257,17 @@ aio api-mesh:describe
 ### Response
 
 ```terminal
-Successfully retrieved mesh details
+Selected organization: my-org
+Selected project: test-project
+Select workspace: Stage
+Successfully retrieved mesh details 
 
-Org ID: 123456
+Org ID: 283912345676
 Project ID: 1234567890123456789
 Workspace ID: 2345678901234567890
 Mesh ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+API Key: f0a3b4c56d78401234567e890fa1bcde
+Mesh Endpoint: https://graph.adobe.io/api/12a3b4c5-6d78-4012-3456-7e890fa1bcde/graphql?api_key=12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
 ## aio api-mesh:source:discover
@@ -447,7 +452,7 @@ To install a specific version of a source, use the following command:
 aio api-mesh:source:install "<source_name>"@source_version_number
 ```
 
-The two variable flags, `-v` and `-f`, described in the following section, allow you to automatically replace any of the variables defined in the source that you are installing with your own values.
+The two variable flags, `-v` and `-f`, described in the following section, allow you to automatically replace any of the variables defined in the source that you are installing with your values.
 
 When using the `-f` or `--variable-file` flag, you must specify the variables in a separate file. The following example defines the variable file formatting:
 
