@@ -46,7 +46,7 @@ GraphQL handlers can also use local sources, see [Reference local file handlers]
 
 <InlineAlert variant="info" slots="text"/>
 
-Header names must be in `lowercase`. `Uppercase` characters in header names are automatically converted into `lowercase`.
+Header names must be in lowercase. Uppercase characters within a header name are automatically converted into lowercase.
 
 <!--
 ### From Environment Variable
