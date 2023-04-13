@@ -7,7 +7,43 @@ description: This page describes ways you can work with meshes that are not part
 
 This page describes ways you can work with meshes that contain optional processes that are not required for [mesh creation](create-mesh.md).
 
-## Include httpDetails in query responses
+## Retrieve a previously created `meshId`
+
+If you need to retrieve a `meshId` from a previously created mesh, use the following command:
+
+```bash
+aio api-mesh:describe
+```
+
+The command returns a list of projects. Use the arrow and enter keys to select your project and organization. Alternatively, you can type to search for your project and workspace. The console then displays details about the project.
+
+## Move a mesh to another workspace
+
+You may need to move a mesh from one workspace to another, for example from `stage` to `production`. The following process describes how to copy a mesh from one workspace and duplicate it in another workspace.
+
+1. [Select the workspace](#select-a-project-or-workspace) that contains the mesh you want to copy.
+
+1. [Retrieve](#retrieve-a-previously-created-meshid) your previously created mesh by running the following [`get` command](command-reference.md#aio-api-meshget).
+
+    ```bash
+    aio api-mesh:get download.json
+    ```
+
+  This command creates a file named `download.json` that contains a copy of the mesh from the selected workspace.
+
+1. Run the following command and select the `production` or target workspace, see [select a project or workspace](#select-a-project-or-workspace) for more information.
+
+    ```bash
+    aio console:workspace:select
+    ```
+
+1. Run the [create](create-mesh.md#create-a-mesh) command and reference the previously created file.
+
+    ```bash
+    aio api-mesh:create download.json
+    ```
+
+## Include `httpDetails` in query responses
 
 Adding the `includeHTTPDetails` flag to your JSON mesh configuration file determines if `httpDetails` information is included in query responses.
 
@@ -44,7 +80,7 @@ When you query a mesh with `includeHTTPDetails` set to `true`, the response will
 - `response`
 - `responseTime`
 
-The following example includes some of the additional information a user can receive as part of the response. The exact response will vary depending on your source handlers, headers, and other customizations.
+The following example includes some additional information a user can receive as part of the response. The exact response varies, depending on your source handlers, headers, and other customizations.
 
 ```json
 {   
@@ -86,3 +122,38 @@ The following example includes some of the additional information a user can rec
     }
 }
 ```
+
+## Projects and workspaces
+
+<InlineAlert variant="info" slots="text"/>
+
+When creating a mesh for the first time, you must select the project and workspace that you want to create the mesh in. Alternatively, you can use [aio commands](https://github.com/adobe/aio-cli#commands) to manually select a project or workspace, list the current selections, or remove the currently selected project or workspace from the cache.
+
+### View the cached project and workspace
+
+To see your current cache configuration, use the [`aio config:get console`](https://github.com/adobe/aio-cli#aio-configget-key) command, which includes the currently selected organization, project, and workspace.
+
+You can view a list of available projects in your current organization by running the [`aio console:project:list`](https://github.com/adobe/aio-cli-plugin-console#aio-consoleprojectlist) command.
+
+To view a list of available workspaces in the current project, run the [`aio console:workspace:list`](https://github.com/adobe/aio-cli-plugin-console#aio-consoleworkspacelist) command.
+
+### Select a project or workspace
+
+By [default](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#2-creating-a-new-project-on-developer-console), projects have a `production` and a `stage` workspace. You can also [create your own workspaces](https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/#add-a-workspace). If you do not know which workspace to use, use the `stage` workspace.
+
+To change the selected project, use the [`aio console:project:select`](https://github.com/adobe/aio-cli#aio-consoleprojectselect-projectidorname) command, which prompts you to select your project from a list.
+
+To change the selected workspace, use the [`aio console:workspace:select`](https://github.com/adobe/aio-cli#aio-consoleworkspaceselect-workspaceidorname) command, which prompts you to select your workspace from a list.
+
+<InlineAlert variant="info" slots="text"/>
+
+You must select a project before you select a workspace.
+
+### Delete a cached project or workspace
+
+If you want to clear a previously selected project or workspace from your cache, use the [`aio config:delete`](https://github.com/adobe/aio-cli#aio-configdelete-keys) followed by the object you want to remove from your cached config.
+
+For example:
+
+-  `aio config:delete console.project` Removes the current project from the cache.
+-  `aio config:delete console.workspace` Removes the current workspace from the cache.

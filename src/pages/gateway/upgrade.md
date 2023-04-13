@@ -102,9 +102,9 @@ Additionally, the `preflightContinue` field is no longer needed and will cause a
 
 API Mesh now runs on updated versions of GraphQL Mesh [handlers](source-handlers.md) and [transforms](transforms.md). To move to the new codebase and enable these upgrades, update your existing meshes.
 
-1. [Select the workspace](create-mesh.md#select-a-project-or-workspace) that contains the mesh you want to update.
+1. [Select the workspace](work-with-mesh.md#select-a-project-or-workspace) that contains the mesh you want to update.
 
-1. [Retrieve](create-mesh.md#retrieve-a-previously-created-meshid) your previously created mesh by running the following [`get` command](command-reference.md#aio-api-meshget).
+1. [Retrieve](work-with-mesh.md#retrieve-a-previously-created-meshid) your previously created mesh by running the following [`get` command](command-reference.md#aio-api-meshget).
 
     ```bash
     aio api-mesh:get download.json
