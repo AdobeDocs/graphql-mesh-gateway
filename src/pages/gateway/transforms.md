@@ -228,7 +228,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
   },
 }
 ```
-
+<!-- 
 ## Hooks
 
 Adobe created the [Hooks](hooks.md) transform to allow you to invoke composable local and remote functions on a targeted node.
@@ -269,7 +269,7 @@ interface AfterHooksTransformObject {
 interface AfterAllTransformObject {
   composer: string;
 }
-```
+``` -->
 
 <!-- Link Definitions -->
 [AEM]: https://experienceleague.adobe.com/docs/experience-manager-cloud-service.html
