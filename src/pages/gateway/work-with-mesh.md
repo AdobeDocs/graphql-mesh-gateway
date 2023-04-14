@@ -25,7 +25,7 @@ You may need to move a mesh from one workspace to another, for example from `sta
 
 1. [Select the workspace](#select-a-project-or-workspace) that contains the mesh you want to copy.
 
-1. [Retrieve](#retrieve-a-previously-created-meshid) your previously created mesh by running the following [`get` command](command-reference.md#aio-api-meshget).
+1. [Retrieve](#retrieve-a-previously-created-meshid-or-mesh-endpoint-url) your previously created mesh by running the following [`get` command](command-reference.md#aio-api-meshget).
 
     ```bash
     aio api-mesh:get download.json
