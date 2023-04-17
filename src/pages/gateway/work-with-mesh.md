@@ -7,15 +7,17 @@ description: This page describes ways you can work with meshes that are not part
 
 This page describes ways you can work with meshes that contain optional processes that are not required for [mesh creation](create-mesh.md).
 
-## Retrieve a previously created `meshId`
+## Retrieve a previously created `meshId` or mesh endpoint URL
 
-If you need to retrieve a `meshId` from a previously created mesh, use the following command:
+If you need to retrieve a `meshId` or mesh endpoint URL from a previously created mesh, use the following command to display your mesh details in the console.
 
 ```bash
 aio api-mesh:describe
 ```
 
-The command returns a list of projects. Use the arrow and enter keys to select your project and organization. Alternatively, you can type to search for your project and workspace. The console then displays details about the project.
+By default, the command describes the mesh in the selected project and workspace.
+
+If no project or workspace is selected, the command returns a list of projects. Use the arrow and enter keys to select your project and organization. Alternatively, you can type to search for your project and workspace.
 
 ## Move a mesh to another workspace
 
@@ -23,7 +25,7 @@ You may need to move a mesh from one workspace to another, for example from `sta
 
 1. [Select the workspace](#select-a-project-or-workspace) that contains the mesh you want to copy.
 
-1. [Retrieve](#retrieve-a-previously-created-meshid) your previously created mesh by running the following [`get` command](command-reference.md#aio-api-meshget).
+1. [Retrieve](#retrieve-a-previously-created-meshid-or-mesh-endpoint-url) your previously created mesh by running the following [`get` command](command-reference.md#aio-api-meshget).
 
     ```bash
     aio api-mesh:get download.json

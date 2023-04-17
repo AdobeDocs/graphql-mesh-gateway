@@ -15,7 +15,7 @@ The API Mesh currently supports the following [transforms]:
 -  [Replace Field](#replace-field)
 -  [Type Merging](#type-merging)
 -  [Naming Convention](#naming-convention)
--  [Hooks](#hooks)
+<!-- -  [Hooks](#hooks) -->
 
 Additionally, the following transforms are available but are not fully supported by API Mesh at this time. This means that your mesh will accept the transform, but we have not tested the transform thoroughly and you may encounter errors. Additionally, certain transform options may be disabled due to security concerns.
 
@@ -228,7 +228,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
   },
 }
 ```
-
+<!-- 
 ## Hooks
 
 Adobe created the [Hooks](hooks.md) transform to allow you to invoke composable local and remote functions on a targeted node.
@@ -269,7 +269,7 @@ interface AfterHooksTransformObject {
 interface AfterAllTransformObject {
   composer: string;
 }
-```
+``` -->
 
 <!-- Link Definitions -->
 [AEM]: https://experienceleague.adobe.com/docs/experience-manager-cloud-service.html
