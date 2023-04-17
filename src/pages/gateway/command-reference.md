@@ -270,6 +270,40 @@ API Key: f0a3b4c56d78401234567e890fa1bcde
 Mesh Endpoint: https://graph.adobe.io/api/12a3b4c5-6d78-4012-3456-7e890fa1bcde/graphql?api_key=12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
+## aio api-mesh:init
+
+Creates a [local environment](./local-development.md).
+
+### Usage
+
+```bash
+aio api-mesh:init <project-name>
+```
+
+### Flags
+
+The following arguments are all optional. If you do not supply them, the terminal response will prompt you for the information.
+
+`-p` or `--path` allows you to specify the location to set up the local environment.
+
+`-g` or `--git` is a binary argument that requires `Y` or `N` to determine if you want to use `git` for your local environment.
+
+`-m` or `--packageManager` is a binary argument that requires `npm` or `yarn` to determine which package manager to use for the local environment.
+
+#### Example
+
+The following example creates the environment in the `mesh_examples` subfolder of the current folder with `git` enabled and the package manager set to `yarn`:
+
+  ```
+  aio api-mesh:init myMesh --path ./mesh_examples --git Y --package-manager yarn
+  ```
+
+### Response
+
+```terminal
+Workspace setup done successfully.
+```
+
 ## aio api-mesh:source:discover
 
 Lists all available sources. Select a source to view its configuration file and copy its content to your clipboard. You can also view available sources directly in the [api-mesh-sources](https://github.com/adobe/api-mesh-sources/tree/main/connectors) repo.
