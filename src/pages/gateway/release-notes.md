@@ -7,6 +7,18 @@ description: This page lists changes that were made in each version of API Mesh 
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## April 20, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Internal autoscaling updates.
+
+### Bug fixes
+
+- Resolved an issue that could cause a "Module Not Found" error.
+
 ## Mar 31, 2023
 
 This release contains the following changes to API Mesh:
