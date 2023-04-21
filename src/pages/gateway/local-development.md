@@ -5,6 +5,10 @@ description: Learn how to create a local development environment for API Mesh.
 
 # Local development
 
+A local development environment for API Mesh for Adobe Developer App Builder allows you to run a local version for development and testing purposes.
+
+## Initiate a local environment
+
 The `aio api-mesh:init` command allows you to build a local development environment at the specified location.
 
 1. Run the following command.
@@ -24,3 +28,5 @@ The console indicates that the local environment installed successfully.
 <InlineAlert variant="info" slots="text"/>
 
 Most of these steps can be automated using flags described in the [command reference](./command-reference.md#aio-api-meshinit).
+
+## Environment variables
