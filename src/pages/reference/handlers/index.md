@@ -37,6 +37,10 @@ Handlers are located in the sources section of the mesh file. Each `source` will
 
 ## Reference local files in handlers
 
+<InlineAlert variant="info" slots="text"/>
+
+To reference files directly, refer to [developer tools].
+
 You can reference local files as sources in handlers using the following format:
 
 ```json

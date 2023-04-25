@@ -29,6 +29,8 @@ aio api-mesh:create [FILE]
 
 `-j` or `--json` outputs the `json` of the created mesh.
 
+`--env` allows you to provide an environment variables file. Refer to [developer tools](./developer-tools.md#environment-variables) for more information.
+
 `--help` provides information on the specified command.
 
 ### Example
@@ -65,6 +67,8 @@ aio api-mesh:update [FILE]
 `-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to update a mesh in a different workspace. You can also manually [modify the cache](work-with-mesh.md#projects-and-workspaces).
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh update instead of prompting the user to confirm.
+
+`--env` allows you to provide an environment variables file. Refer to [developer tools](./developer-tools.md#environment-variables) for more information.
 
 `--help` provides information on the specified command.
 
