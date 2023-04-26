@@ -35,9 +35,17 @@ Most of these steps can be automated using flags described in the [command refer
 
 Environment variables allow developers to make changes to a single variable, with one or more occurrences, across multiple meshes.
 
-The [`create`](./command-reference.md#aio-api-meshcreate) and [`update`](./command-reference.md#aio-api-meshupdate) commands support the use of an `--env` flag, which allows you to provide an environment variables file location. The variables in this file are inserted into your mesh when the mesh is created or updated.
+The [`create`](./command-reference.md#aio-api-meshcreate) and [`update`](./command-reference.md#aio-api-meshupdate) commands support the use of an `--env` flag, which allows you to provide an environment variables file location. For example:
 
-The following is an example of an `.env` file:
+```terminal
+aio api-mesh:create ../mesh.json --env ../.env
+```
+
+<InlineAlert variant="info" slots="text"/>
+
+If your mesh contains environment variables, but you have not specified a variable file, the [`create`](./command-reference.md#aio-api-meshcreate) or [`update`](./command-reference.md#aio-api-meshupdate) commands look for your variables in a file named `.env`.
+
+The variables in your `.env` file are inserted into your mesh when the mesh is created or updated. The following is an example of an `.env` file:
 
 ```typescript
 APIName='Adobe Commerce API'
@@ -52,16 +60,16 @@ The following mesh uses the preceding `.env` file to populate the name and endpo
 	"meshConfig": {
 		"sources": [
 			{
-				"name": "{env.APIName}",
+				"name": "{{env.APIName}}",
 				"handler": {
 					"graphql": {
-						"endpoint": "{env.commerceURL}"
+						"endpoint": "{{env.commerceURL}}"
 					}
 				}
 			}
 		],
         "responseConfig":{
-            "includeHTTPDetails":{env.includeHTTPDetailsValue}
+            "includeHTTPDetails":{{env.includeHTTPDetailsValue}}
         }
 	}
 }
