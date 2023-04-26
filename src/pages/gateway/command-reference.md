@@ -298,7 +298,7 @@ The following arguments are all optional. If you do not supply them, the termina
 
 The following example creates the environment in the `mesh_examples` subfolder of the current folder with `git` enabled and the package manager set to `yarn`:
 
-  ```
+  ```terminal
   aio api-mesh:init myMesh --path ./mesh_examples --git Y --package-manager yarn
   ```
 
