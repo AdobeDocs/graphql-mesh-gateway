@@ -276,7 +276,7 @@ Mesh Endpoint: https://graph.adobe.io/api/12a3b4c5-6d78-4012-3456-7e890fa1bcde/g
 
 ## aio api-mesh:init
 
-Creates a [local environment](./local-development.md).
+Creates a [local environment](./developer-tools.md#initiate-a-local-environment).
 
 ### Usage
 
