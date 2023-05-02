@@ -75,6 +75,8 @@ The following mesh uses the preceding `.env` file to populate the name and endpo
 }
 ```
 
+In the previous example, since `includeHTTPDetailsValue` expects a boolean value and not a string, the corresponding variable for that value `{{env.includeHTTPDetailsValue}}` is not enclosed in quotes. If you have strict settings in your IDE that prevent you from saving JSON similar to the previous example, you can instead save the mesh configuration file as a `.txt`.
+
 After running the [`create`](./command-reference.md#aio-api-meshcreate) or [`update`](./command-reference.md#aio-api-meshupdate) command with the `--env` flag, the published mesh will look like the following:
 
 ```json
