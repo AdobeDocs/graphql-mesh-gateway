@@ -9,7 +9,7 @@ The processes covered in this topic allow developers to set up a local environme
 
 ## Initiate a local environment
 
-A local development environment for API Mesh for Adobe Developer App Builder allows you to run a local version for development and testing purposes.
+A local development environment for API Mesh allows you to run a local version for development and testing purposes.
 
 The [`aio api-mesh:init` command](./command-reference.md#aio-api-meshinit) allows you to build a local development environment at the specified location.
 
@@ -19,7 +19,7 @@ The [`aio api-mesh:init` command](./command-reference.md#aio-api-meshinit) allow
     aio api-mesh:init <project-name>
     ```
 
-1. Select the folder to install the dev environment in.
+1. Select the directory to install the dev environment in.
 
 1. Indicate if you want to use `git`. (Requires [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).)
 

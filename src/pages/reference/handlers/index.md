@@ -39,7 +39,7 @@ Handlers are located in the sources section of the mesh file. Each `source` will
 
 <InlineAlert variant="info" slots="text"/>
 
-To reference files directly, refer to [developer tools].
+To reference files directly, refer to [developer tools](../../gateway/developer-tools.md#reference-files-directly).
 
 You can reference local files as sources in handlers using the following format:
 

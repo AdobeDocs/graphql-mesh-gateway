@@ -25,11 +25,11 @@ The following arguments are all optional. If you do not supply them, the termina
 
 `-g` or `--git` is a binary argument that requires `Y` or `N` to determine if you want to use `git` for your local environment.
 
-`-m` or `--packageManager` is a binary argument that requires `npm` or `yarn` to determine which package manager to use for the local environment.
+`-m` or `--packageManager` is a binary argument that requires `npm` or `yarn` to determine which package manager to use for the local environment. (Requires [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).)
 
 #### Example
 
-The following example creates the environment in the `mesh_examples` subfolder of the current folder with `git` enabled and the package manager set to `yarn`:
+The following example creates the environment in the `mesh_examples` subdirectory of the current directory with `git` enabled and the package manager set to `yarn`:
 
   ```terminal
   aio api-mesh:init myMesh --path ./mesh_examples --git Y --package-manager yarn
