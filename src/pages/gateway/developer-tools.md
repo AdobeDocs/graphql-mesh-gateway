@@ -38,12 +38,12 @@ Environment variables allow developers to make changes to a single variable, wit
 The [`create`](./command-reference.md#aio-api-meshcreate) and [`update`](./command-reference.md#aio-api-meshupdate) commands support the use of an `--env` flag, which allows you to provide an environment variables file location. For example:
 
 ```terminal
-aio api-mesh:create ../mesh.json --env ../.env
+aio api-mesh:create ../mesh.json --env .env_adhoc
 ```
 
 <InlineAlert variant="info" slots="text"/>
 
-If your mesh contains environment variables, but you have not specified a variable file, the [`create`](./command-reference.md#aio-api-meshcreate) or [`update`](./command-reference.md#aio-api-meshupdate) commands look for your variables in a file named `.env`.
+If your mesh contains environment variables, but you have not specified a variable file, the [`create`](./command-reference.md#aio-api-meshcreate) or [`update`](./command-reference.md#aio-api-meshupdate) commands look for your variables in a file named `.env` in the current directory.
 
 The variables in your `.env` file are inserted into your mesh when the mesh is created or updated. The following is an example of an `.env` file:
 
