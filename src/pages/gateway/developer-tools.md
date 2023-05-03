@@ -21,7 +21,7 @@ The [`aio api-mesh:init` command](./command-reference.md#aio-api-meshinit) allow
 
 1. Select the directory to install the dev environment in.
 
-1. Indicate if you want to use `git`. (Requires [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).)
+1. Indicate if you want this environment to be a `git` project. (Requires [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).)
 
 1. Specify whether you want to use Node Package Manager (`npm`) or `yarn`. (Requires [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).)
 
