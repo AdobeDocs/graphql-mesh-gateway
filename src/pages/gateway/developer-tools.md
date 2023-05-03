@@ -23,13 +23,13 @@ The [`aio api-mesh:init` command](./command-reference.md#aio-api-meshinit) allow
 
 1. Indicate if you want to use `git`. (Requires [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).)
 
-1. Indicate if you want to use Node Package Manager (`npm`) or `yarn`. (Requires [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).)
+1. Specify whether you want to use Node Package Manager (`npm`) or `yarn`. (Requires [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).)
 
 The console indicates that the local environment installed successfully.
 
 <InlineAlert variant="info" slots="text"/>
 
-Most of these steps can be automated using flags described in the [command reference](./command-reference.md#aio-api-meshinit).
+All of these steps can be automated using flags described in the [command reference](./command-reference.md#aio-api-meshinit).
 
 ## Environment variables
 
