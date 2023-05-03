@@ -38,7 +38,7 @@ The following example creates the environment in the `mesh_examples` subdirector
 ### Response
 
 ```terminal
-Workspace setup done successfully.
+Local Workspace Created Successfully.
 ```
 
 ## aio api-mesh:create
