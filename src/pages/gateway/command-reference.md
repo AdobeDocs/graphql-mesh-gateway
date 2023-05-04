@@ -7,9 +7,47 @@ description: A description of the CLI commands available for API Mesh for Adobe 
 
 The API Mesh for Adobe Developer App Builder CLI allows you to manage and modify meshes. This page covers commands exclusive to the API Mesh. For authorization and other Adobe I/O Extensible CLI commands, refer to the [Adobe IO CLI command list]. For installation instructions, refer to [Getting Started].
 
+## aio api-mesh:init
+
+Creates a [local development environment](./developer-tools.md#initiate-a-local-environment). You only need to run this command if you want to set up a local environment.
+
+### Usage
+
+```bash
+aio api-mesh:init <project-name>
+```
+
+### Flags
+
+The following arguments are all optional. If you do not supply them, the terminal response will prompt you for the information.
+
+`-p` or `--path` allows you to specify the location to set up the local environment.
+
+`-g` or `--git` is a binary argument that requires `Y` or `N` to determine if you want to use `git` for your local environment.
+
+`-m` or `--packageManager` is a binary argument that requires `npm` or `yarn` to determine which package manager to use for the local environment. (Requires [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).)
+
+#### Example
+
+The following example creates the environment in the `mesh_examples` subdirectory of the current directory with `git` enabled and the package manager set to `yarn`:
+
+  ```bash
+  aio api-mesh:init myMesh --path ./mesh_examples --git Y --package-manager yarn
+  ```
+
+### Response
+
+```terminal
+Local workspace created successfully
+```
+
 ## aio api-mesh:create
 
 Creates a new mesh based on the settings in the specified `JSON` file in your working directory. After creating your mesh, you will receive a `meshId`, like `12a3b4c5-6d78-4012-3456-7e890fa1bcde`, to refer to it in the future. For more information, see [Creating a mesh].
+
+<InlineAlert variant="info" slots="text"/>
+
+You only need to run the `create` command once. For subsequent changes to your mesh, use the [`update` command](#aio-api-meshupdate).
 
 ### Usage
 
@@ -28,6 +66,8 @@ aio api-mesh:create [FILE]
 `-c` or `--autoConfirmAction` automatically confirms the mesh creation instead of prompting the user to confirm.
 
 `-j` or `--json` outputs the `json` of the created mesh.
+
+`--env` allows you to provide an environment variables file. Refer to [developer tools](./developer-tools.md#environment-variables) for more information.
 
 `--help` provides information on the specified command.
 
@@ -65,6 +105,8 @@ aio api-mesh:update [FILE]
 `-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to update a mesh in a different workspace. You can also manually [modify the cache](work-with-mesh.md#projects-and-workspaces).
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh update instead of prompting the user to confirm.
+
+`--env` allows you to provide an environment variables file. Refer to [developer tools](./developer-tools.md#environment-variables) for more information.
 
 `--help` provides information on the specified command.
 

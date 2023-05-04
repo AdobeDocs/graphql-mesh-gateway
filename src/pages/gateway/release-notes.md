@@ -7,6 +7,23 @@ description: This page lists changes that were made in each version of API Mesh 
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## May 4, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+Added several new tools for local development. We will continue to enhance developer tooling in future releases.
+
+- Added an [`init` command](./developer-tools.md#initiate-a-local-environment) to set up a local environment.
+- Enabled the use of a `.env` file to supply your mesh with [environment variables](./developer-tools.md#environment-variables).
+- Added the ability to [reference local files directly](./developer-tools.md#reference-files-directly) in your mesh, which removes the need to stringify and minify file attachments.
+
+### Bug fixes
+
+- Resolved an issue where the `useGETForQueries` flag was not respected.
+- Operational headers are now converted to `lowercase` at runtime to prevent capitalization mismatches.
+
 ## April 20, 2023
 
 This release contains the following changes to API Mesh:
