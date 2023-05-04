@@ -37,7 +37,7 @@ Environment variables allow developers to make changes to a single variable, wit
 
 The [`create`](./command-reference.md#aio-api-meshcreate) and [`update`](./command-reference.md#aio-api-meshupdate) commands support the use of an `--env` flag, which allows you to provide an environment variables file location. For example:
 
-```terminal
+```bash
 aio api-mesh:create ../mesh.json --env .env_adhoc
 ```
 
