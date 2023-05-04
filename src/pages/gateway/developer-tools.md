@@ -15,7 +15,7 @@ The [`aio api-mesh:init` command](./command-reference.md#aio-api-meshinit) allow
 
 1. Run the following command.
 
-    ```terminal
+    ```bash
     aio api-mesh:init <project-name>
     ```
 
