@@ -259,10 +259,6 @@ If the `composer` is a remote function, all the arguments are sent in the `POST`
 
 Due to the limitations of `JSON` serialization and de-serialization, some complex `JSON` fields inside a remote function's arguments might not function correctly over the `HTTPS` call.
 
-### Examples
-
-<CodeBlock slots="heading, code" repeat="2" languages="js, js" />
-
 #### Local composer example
 
 This simple composer checks for an authorization header before processing the query.
