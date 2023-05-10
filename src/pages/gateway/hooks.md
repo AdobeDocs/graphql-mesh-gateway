@@ -17,9 +17,10 @@ Some use cases for the `Hooks` include:
 
 -  Checking for an authorization token before making a request
 
-<!-- -  Publishing events once all operations are executed
-
--  Creating a cart in a 3rd-party store when calling the `Create Cart` mutation (Adobe Commerce) -->
+<!--
+-  Publishing events once all operations are executed
+-  Creating a cart in a 3rd-party store when calling the `Create Cart` mutation (Adobe Commerce)
+-->
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -40,9 +41,11 @@ Hooks are plugins that accept the following arguments:
 }
 ```
 
-<!-- - `target` (string) - The target GraphQL node.
+<!-- 
+- `target` (string) - The target GraphQL node.
 
-    For example, `Query.availableStores` targets [`availableStores`](https://developer.adobe.com/commerce/webapi/graphql/schema/store/queries/available-stores/), which means that if the query calls `availableStores`, then the `composer` will execute. -->
+    For example, `Query.availableStores` targets [`availableStores`](https://developer.adobe.com/commerce/webapi/graphql/schema/store/queries/available-stores/), which means that if the query calls `availableStores`, then the `composer` will execute.
+-->
 
 - `composer` (string) - The local or remote file location of the function you want to execute.
   
@@ -56,11 +59,11 @@ Hooks are plugins that accept the following arguments:
 
     If blocking is `true` and the composer returns an error, all future hook executions are canceled.
 
-    <!-- and the node's `target` will not be invoked. If multiple objects use the same `target`, an unsuccessful response means that the `target` is not called for the remainder of the operation. -->
-
     If blocking is `false` and the composer returns an error, the composer will still be invoked.
 
     Blocking hooks are executed before non-blocking hooks.
+
+<!-- and the node's `target` will not be invoked. If multiple objects use the same `target`, an unsuccessful response means that the `target` is not called for the remainder of the operation. -->
 
 ## Types of hooks
 
