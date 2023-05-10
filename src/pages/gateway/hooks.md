@@ -55,6 +55,7 @@ Hooks are plugins that accept the following arguments:
     The `blocking` argument allows you to stop running hooks for a query that does not receive a successful response.
 
     If blocking is `true` and the composer returns an error, all future hook executions are canceled.
+
     <!-- and the node's `target` will not be invoked. If multiple objects use the same `target`, an unsuccessful response means that the `target` is not called for the remainder of the operation. -->
 
     If blocking is `false` and the composer returns an error, the composer will still be invoked.
