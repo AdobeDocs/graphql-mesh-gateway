@@ -1,17 +1,17 @@
 ---
-title: Hooks transform
-description: Learn how to use the Hooks transform to add hooks before and after querying your mesh.
+title: Hooks
+description: Learn how to use the Hooks to add hooks before and after querying your mesh.
 ---
 
-# Hooks transform
+# Hooks
 
 <InlineAlert variant="info" slots="text"/>
 
 The hooks feature is currently in development and will be expanded in future releases. Only `beforeAll` hooks are currently available.
 
-The Hooks transform allows you to invoke a composable [local or remote](#local-vs-remote-functions) function on a targeted node.
+Hooks allow you to invoke a composable [local or remote](#local-vs-remote-functions) function on a targeted node.
 
-Some use cases for the `HooksTransform` include:
+Some use cases for the `Hooks` include:
 
 -  Authenticating a user before all operations
 
@@ -25,7 +25,7 @@ Some use cases for the `HooksTransform` include:
 
 You cannot use hooks to modify the request or the response. If you want to manipulate data, we recommend that you use [custom resolvers](./extending-unified-schema.md).
 
-Hook transforms increase processing time. Use them sparingly if processing time is important. Hooks are executed in the order you provide them. However, any `blocking` hooks execute before non-blocking hooks.
+Hooks increase processing time. Use them sparingly if processing time is important. Hooks are executed in the order you provide them. However, any `blocking` hooks execute before non-blocking hooks.
 
 ## Hook arguments
 
