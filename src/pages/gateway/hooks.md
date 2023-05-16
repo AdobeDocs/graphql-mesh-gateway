@@ -61,13 +61,12 @@ Hooks are plugins that accept the following arguments:
 
     If blocking is `false` and the composer returns an error, the composer will still be invoked.
 
-    Blocking hooks are executed before non-blocking hooks.
-
-<!-- and the node's `target` will not be invoked. If multiple objects use the same `target`, an unsuccessful response means that the `target` is not called for the remainder of the operation. -->
-
+<!--
+    Blocking hooks are executed before non-blocking hooks. and the node's `target` will not be invoked. If multiple objects use the same `target`, an unsuccessful response means that the `target` is not called for the remainder of the operation.
+-->
 ## Types of hooks
 
-The following sections describe how to invoke hooks at different points during the query.
+<!-- The following sections describe how to invoke hooks at different points during the query. -->
 
 ### `beforeAll`
 
@@ -75,7 +74,7 @@ The `beforeAll` hook allows you to insert a function before the query takes plac
 
 <InlineAlert variant="info" slots="text"/>
 
-The `beforeAll` hook does not accept an array.
+The `beforeAll` hook is a singular hook.
 
 ```json
 "plugins": [
@@ -233,25 +232,25 @@ A composer can be a local function or a remote serverless function. Composer sig
 
 ### `beforeAll` hooks
 
-`beforeAll` hook composers accept the following arguments:
+`beforeAll` hooks can receive the following fields as objects during runtime:
+<!--
 
-- `root` - The resolver's return value for this field's root or parent
+`root` - The resolver's return value for this field's root or parent
 
-- `params` - An object that contains all GraphQL arguments provided for this field
+`params` - An object that contains all GraphQL arguments provided for this field
 
-    For example, when executing `query{ user(id: "4") }`, the `params` object passed to the resolver is `{ "id": "4" }`
+For example, when executing `query{ user(id: "4") }`, the `params` object passed to the resolver is `{ "id": "4" }`
+-->
 
-- `context` - An object containing shareable fields and information to identify the request
+- `context` - An object containing information about the request.
   
-    For example, `context` contains your `headers` and the `body` of the original request.
+    For example, `context` can contain `headers`, the `body` of the request, and the request `object`.
 
-- `document` - Contains information about the execution state of the query, including the field name and the path to the field from the root
-
-    This argument is optional and should only be used in advanced cases.
+- `document` - A GraphQL representation of the query.
 
 <InlineAlert variant="info" slots="text"/>
 
-Since the `beforeAll` hook runs at the root level, `root` and `document` are empty objects (`{}`) by default.
+Since the `beforeAll` hook runs at the root level, the `document` object is empty (`{}`) by default.
 
 If the `composer` is a remote function, all the arguments are sent in the `POST` body when calling the function.
 
@@ -280,8 +279,6 @@ module.exports = {
 };
 ```
 
-#### Remote composer example
-
 This remote composer fetches your authorization token and inserts it into the `x-auth-token` header.
 
 ```js
@@ -308,6 +305,42 @@ module.exports = {
     };
   },
 };
+```
+
+#### Remote composer example
+
+The following example remote composer checks for an `authorization` header.
+
+<InlineAlert variant="info" slots="text"/>
+
+While this example uses Fastly Edge computing, you can use any serverless function with remote hooks.
+
+```js
+addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
+
+async function handleRequest(event) {
+    try {
+        const body = await event.request.json();
+        if (!body.context.headers["authorization"]) {
+            return new Response({
+                status: "SUCCESS",
+                message: "Unauthorized"
+            }, {
+                status: 401
+            });
+        }
+        return new Response({
+            status: "SUCCESS",
+            message: "Authorized"
+        }, {
+            status: 200
+        });
+    } catch (err) {
+        return new Response(err, {
+            status: 500
+        });
+    }
+}
 ```
 <!-- 
 ### `after` and `afterAll` hook composer
@@ -376,6 +409,11 @@ The return signature of a composer is the same for local and remote functions.
 ```ts
 {
   status: "ERROR" | "SUCCESS",
-  message: string
+  message: string,
+  data?: {
+    headers?: {
+        [headerName: string]: string
+    }
+  }
 }
 ```
