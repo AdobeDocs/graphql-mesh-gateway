@@ -34,12 +34,6 @@ module.exports = [
             {
                 title: 'Transforms',
                 path: '/gateway/transforms',
-                pages: [
-                    {
-                        title: 'Hooks transform',
-                        path: '/gateway/hooks',
-                    },
-                ],
             },
             {
                 title: 'Headers',
@@ -67,6 +61,10 @@ module.exports = [
             {
                 title: 'Developer Tools',
                 path: '/gateway/developer-tools.md'
+            },
+            {
+                title: 'Hooks',
+                path: '/gateway/hooks',
             },
             {
                 title: 'Extend the schema with custom resolvers',

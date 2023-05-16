@@ -7,6 +7,14 @@ description: This page lists changes that were made in each version of API Mesh 
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## May 16, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+The [`hooks` plugin](./hooks.md) allows you to invoke a composable [local or remote](./hooks.md#local-vs-remote-functions) function on a targeted node.
+
 ## May 4, 2023
 
 This release contains the following changes to API Mesh:
