@@ -10,7 +10,7 @@ For more information on creating JSON schemas, refer to this [JSON schema tutori
 
 <InlineAlert variant="warning" slots="text"/>
 
-The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `JsonSchema` will result in an error.
+The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.
 
 <InlineAlert variant="info" slots="text"/>
 
