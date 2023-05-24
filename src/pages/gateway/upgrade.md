@@ -35,6 +35,10 @@ If you encounter any issues installing the plugin, try uninstalling any existing
 
 See our [NPM page](https://www.npmjs.com/package/@adobe/aio-cli-plugin-api-mesh) or [Getting Started](getting-started.md#configure-your-environment) for more information.
 
+## Upgrading to the May 25, 2023 release
+
+This release introduces a breaking change for a narrow use case where [prefixed Fastly headers](./headers.md#fastly-prefixing) are consumed for Adobe Commerce sources and any other source that contains "magento" in the URL. If you are currently consuming headers with the following format `x-<source_name>-magento-cacheid`, you will need to remove the source name (`x-magento-cacheid`) to reestablish any previously working processes.
+
 ## Upgrading to the Feb 23, 2023 release
 
 If your mesh has multiple sources with the same name, you will need to change them to unique names and then [update your mesh](create-mesh.md#update-an-existing-mesh).
