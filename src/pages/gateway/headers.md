@@ -55,7 +55,6 @@ You can also inject dynamic values from the context into your headers. For examp
 -  [OpenAPI handlers](../reference/handlers/openapi.md#headers-from-context)
 -  [GraphQL handlers](../reference/handlers/graphql.md#headers-from-context)
 -  [JSON schema handlers](../reference/handlers/json-schema.md#headers-from-context)
--  [SOAP handlers](../reference/handlers/soap.md)
 
 #### Media types
 
