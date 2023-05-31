@@ -14,7 +14,7 @@ API Mesh for Adobe Developer App Builder only supports the following [source han
 -  [JSON schemas](#json-schemas)
    -  [JSON schema handler configuration](#json-schema-handler-configuration)
 -  [SOAP endpoints](../reference/handlers/soap.md)
-   -  [SOAP handler configuration](../reference/handlers/soap.md#configuration)
+   -  [SOAP handler configuration](../reference/handlers/soap.md#config-api-reference)
 
 <InlineAlert variant="info" slots="text"/>
 
