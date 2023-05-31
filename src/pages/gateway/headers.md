@@ -197,7 +197,7 @@ Setting an `httpDetails` header to `true` no longer returns `httpDetails` when q
 
 ### Fastly Prefixing
 
-API mesh prefixes any Fastly source headers with their source name. For example, a source named "commerce" with an `x-magento-cacheid` header is converted to `x-commerce-magento-cacheid`. However, if your endpoint URL contains "magento", API Mesh assumes you are connecting to an Adobe Commerce instance and does not prefix your headers with a source name. Using the previous example, your header would remain `x-magento-cacheid`.
+API mesh prefixes any Fastly source headers with their source name. For example, a source named "commerce" with an `x-magento-cache-id` header is converted to `x-commerce-magento-cache-id`. However, if your endpoint URL contains "magento", API Mesh assumes you are connecting to an Adobe Commerce instance and does not prefix your headers with a source name. Using the previous example, your header would remain `x-magento-cache-id`.
 
 ### 401 errors
 
