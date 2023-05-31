@@ -7,13 +7,17 @@ description: This page lists changes that were made in each version of API Mesh 
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
-## May 25, 2023
+## June 1, 2023
 
 This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-Fastly headers for Adobe Commerce sources no longer prefix headers with their source name. For more information, refer to [Fastly prefixing](./headers.md#fastly-prefixing). This enhancement introduces [breaking changes](./upgrade.md#upgrading-to-the-may-25-2023-release) for a narrow use case where the modified headers were being consumed.
+Fastly headers for Adobe Commerce sources no longer prefix headers with their source name. For more information, refer to [Fastly prefixing](./headers.md#fastly-prefixing). This enhancement introduces [breaking changes](./upgrade.md#upgrading-to-the-june-1-2023-release) for a narrow use case where the modified headers were being consumed.
+
+### Bug fixes
+
+Resolved an issue that caused a "job stalled more than allowable limit" error when provisioning a mesh.
 
 ## May 16, 2023
 
