@@ -8,11 +8,13 @@ description: How to add supported source handlers to your mesh.
 API Mesh for Adobe Developer App Builder only supports the following [source handlers]:
 
 -  [OpenAPI](#openapi)
-   -  [API Handler Configuration](#api-handler-configuration)
+   -  [API handler configuration](#api-handler-configuration)
 -  [GraphQL endpoints](#graphql-endpoints)
-   -  [GraphQL Handler Configuration](#graphql-handler-configuration)
+   -  [GraphQL handler configuration](#graphql-handler-configuration)
 -  [JSON schemas](#json-schemas)
-   -  [JSON Schema Handler Configuration](#json-schema-handler-configuration)
+   -  [JSON schema handler configuration](#json-schema-handler-configuration)
+-  [SOAP endpoints](../reference/handlers/soap.md)
+   -  [SOAP handler configuration](../reference/handlers/soap.md#configuration)
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -45,7 +47,7 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service
 
 ### API Handler Configuration
 
- The API Mesh currently supports the following configuration options for API handlers.
+API Mesh currently supports the following configuration options for API handlers.
 
 -  **source** - Your API source or endpoint
 -  **sourceFormat** - The format of the source file (`json` | `yaml`)
@@ -138,7 +140,7 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
 
 ### JSON Schema Handler Configuration
 
- The API Mesh currently supports the following configuration options for JSON Schema handlers.
+API Mesh currently supports the following configuration options for JSON Schema handlers.
 
 -  **baseurl** - The URL or path of your JSON Schema
 -  **schemaHeaders** - JSON Headers to fetch your schema

@@ -26,7 +26,7 @@ By serving multiple sources through a single gateway and providing customized re
 
 ### Guide
 
-Review the following guides to learn more about the API Mesh and extensibility at Adobe.
+Review the following guides to learn more about API Mesh and extensibility at Adobe.
 
 <DiscoverBlock slots="link, text"/>
 
