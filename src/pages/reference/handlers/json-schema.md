@@ -303,13 +303,16 @@ In this example, we declare the `limit` parameter with a default value of `10` a
 -  `operations` - (required) Array of:
    -  `object`:
       -  `field` (type: `String`, required)
+         -  `operations.field` cannot contain hyphens.
       -  `description` (type: `String`)
       -  `type` (type: `String (Query | Mutation | Subscription)`, required)
       -  `requestSchema` (type: `Any`)
       -  `requestSample` (type: `Any`)
       -  `requestTypeName` (type: `String`)
       -  `responseSchema` (type: `Any`)
+         -  Remote files and URLs are not supported. You must provide a local path.
       -  `responseSample` (type: `Any`)
+         -  Remote files and URLs are not supported. You must provide a local path.
       -  `responseTypeName` (type: `String`)
       -  `argTypeMap` (type: `JSON`)
 -  `ignoreErrorResponses` (type: `Boolean`)
