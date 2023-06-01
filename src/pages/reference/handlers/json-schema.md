@@ -303,7 +303,7 @@ In this example, we declare the `limit` parameter with a default value of `10` a
 -  `operations` - (required) Array of:
    -  `object`:
       -  `field` (type: `String`, required)
-         -  `operations.field` cannot contain hyphens.
+         -  Cannot contain hyphens.
       -  `description` (type: `String`)
       -  `type` (type: `String (Query | Mutation | Subscription)`, required)
       -  `requestSchema` (type: `Any`)
