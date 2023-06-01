@@ -195,6 +195,12 @@ Setting an `httpDetails` header to `true` no longer returns `httpDetails` when q
 
 ## Header troubleshooting
 
+### Fastly Prefixing
+
+API mesh prefixes any Fastly source headers with their source name. For example, a source named "commerce" with an `x-magento-cache-id` header is converted to `x-commerce-magento-cache-id`. However, if your endpoint URL contains "magento", API Mesh assumes you are connecting to an Adobe Commerce instance and does not prefix your headers with a source name. Using the previous example, your header would remain `x-magento-cache-id`.
+
+### 401 errors
+
 If you receive a `401` or similar error when passing headers, add the following content-type specification to your mesh configuration file, as described in [media types](#media-types). This issue can occur when you pass your authorization credentials, such as username and password, to an endpoint, but the endpoint does not know how to consume that information. Specifying the `Content-Type` tells your endpoint how to parse the request body.
 
 ```json
