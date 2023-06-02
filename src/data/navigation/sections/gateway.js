@@ -62,10 +62,10 @@ module.exports = [
                 title: 'Developer Tools',
                 path: '/gateway/developer-tools.md'
             },
-            {
-                title: 'Hooks',
-                path: '/gateway/hooks',
-            },
+            // {
+            //     title: 'Hooks',
+            //     path: '/gateway/hooks',
+            // },
             {
                 title: 'Extend the schema with custom resolvers',
                 path: '/gateway/extending-unified-schema.md'

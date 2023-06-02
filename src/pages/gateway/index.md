@@ -21,7 +21,7 @@ To get started with the API Mesh for Adobe Developer App Builder select one of t
 -  [Create a Mesh](create-mesh.md)
 -  [Source Handlers](source-handlers.md)
 -  [Transforms](transforms.md)
-   -  [Hooks transform](hooks.md)
+   <!-- -  [Hooks transform](hooks.md) -->
 -  [Headers](headers.md)
 -  [Edge caching and cache control](cache-control-headers.md)
 -  [Command Reference](command-reference.md)
