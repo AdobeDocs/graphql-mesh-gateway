@@ -18,8 +18,8 @@ Fastly headers for Adobe Commerce sources no longer prefix headers with their so
 ### Bug fixes
 
 Resolved an issue that caused a "job stalled more than allowable limit" error when provisioning a mesh.
-
-<!-- ## May 16, 2023
+<!-- 
+## May 16, 2023
 
 This release contains the following changes to API Mesh:
 
