@@ -66,11 +66,11 @@ module.exports = [
             {
                 title: 'Type merging',
                 path: '/reference/transforms/type-merging.md'
+            },
+            {
+                title: 'Hooks',
+                path: '/gateway/hooks.md'
             }
-            // {
-            //     title: 'Hooks',
-            //     path: '/gateway/hooks.md'
-            // }
         ]
     },
     {
