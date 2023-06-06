@@ -62,7 +62,7 @@ Remove any instances of `composerResolvers` from your mesh before running a [cre
 
 #### Hooks transform temporarily disabled
 
-We have temporarily disabled the Hooks transform. Hooks will return in an upcoming release.
+We have temporarily disabled the [Hooks transform](hooks.md). Hooks will return in an upcoming release.
 
 Remove any `Hook` transforms from your mesh before running a [create](command-reference.md#aio-api-meshcreate) or [update](command-reference.md#aio-api-meshupdate) command.
 
