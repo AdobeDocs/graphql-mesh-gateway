@@ -22,7 +22,7 @@ By serving multiple sources through a single gateway and providing customized re
 -  **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones
 -  **Extensibility** - Customize and extend your APIs directly in the gateway without making changes to the API source
 
-### Guide
+### Related information
 
 Use the following sections to learn more about the API Mesh and extensibility at Adobe.
 
