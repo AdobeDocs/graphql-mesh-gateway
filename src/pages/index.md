@@ -17,16 +17,14 @@ By serving multiple sources through a single gateway and providing customized re
 
 ## Features
 
-<br></br>
-
 -  **Adobe API Manager** - A reverse proxy that accepts most API calls for many backend services
 -  **Configurable Integrations** - Low/No-code method to integrate with your own private APIs with Adobe Commerce, other Adobe products, and third-party APIs
 -  **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones
 -  **Extensibility** - Customize and extend your APIs directly in the gateway without making changes to the API source
 
-### Guide
+### Related information
 
-Review the following guides to learn more about the API Mesh and extensibility at Adobe.
+Use the following sections to learn more about the API Mesh and extensibility at Adobe.
 
 <DiscoverBlock slots="link, text"/>
 
@@ -51,6 +49,10 @@ Is a complete framework that enables enterprise developers to build and deploy c
 [Adobe I/O Events for Adobe Commerce](https://developer.adobe.com/commerce/events)
 
 Makes Commerce transactional data available to App Builder using Adobe I/O. You can define the events to transmit data each time an event triggers, or only under circumstances defined within configuration rules.
+
+## Contributing to this documentation
+
+We encourage you to participate in our open documentation initiative. If you have suggestions, corrections, additions, or deletions for this documentation, check out the source on [GitHub](https://github.com/AdobeDocs/graphql-mesh-gateway) and open a pull request.
 
 <!-- Link Definitions -->
 
