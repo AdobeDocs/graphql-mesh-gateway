@@ -7,6 +7,18 @@ description: This page lists changes that were made in each version of API Mesh 
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## June 15, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added support for automatically importing files for [local `hooks`](./hooks.md#local-composers).
+
+### Bug fixes
+
+- Resolved several miscellaneous bugs around API Mesh performance and security.
+
 ## June 6, 2023
 
 This release contains the following changes to API Mesh:
