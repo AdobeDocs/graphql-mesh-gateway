@@ -15,10 +15,6 @@ This release contains the following changes to API Mesh:
 
 - Added support for automatically importing files for [local `hooks`](./hooks.md#local-composers).
 
-### Bug fixes
-
-- Resolved several miscellaneous bugs around API Mesh performance and security.
-
 ## June 6, 2023
 
 This release contains the following changes to API Mesh:
