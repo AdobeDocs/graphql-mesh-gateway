@@ -7,6 +7,14 @@ description: This page lists changes that were made in each version of API Mesh 
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## June 27, 2023
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Resolved an issue where error details from GraphQL sources appeared as a generic error. API Mesh now forwards the error details from the GraphQL source.
+
 ## June 15, 2023
 
 This release contains the following changes to API Mesh:
