@@ -13,7 +13,7 @@ This release contains the following changes to API Mesh:
 
 ### Bug fixes
 
-- Resolved an issue where error details from GraphQL sources appeared as a generic error. API Mesh will now forward the error details from the GraphQL source.s
+- Resolved an issue where error details from GraphQL sources appeared as a generic error. API Mesh now forwards the error details from the GraphQL source.
 
 ## June 15, 2023
 
