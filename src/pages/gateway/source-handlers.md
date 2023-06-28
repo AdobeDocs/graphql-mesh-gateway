@@ -26,6 +26,10 @@ Only alphanumerical characters are allowed in source handler names.
 
 The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service endpoint or static Swagger schemas using a `.json` or `.yaml` file.
 
+<InlineAlert variant="info" slots="text"/>
+
+When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition.
+
 ```json
 {
   "meshConfig": {
