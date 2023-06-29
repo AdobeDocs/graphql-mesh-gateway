@@ -13,7 +13,7 @@ This release contains the following changes to API Mesh:
 
 ### Bug fixes
 
-- A previous release introduced an issue that could cause unnecessary calls for every query. This issue has been resolved and could result in improved query performance.
+- A previous release introduced an issue that could cause unnecessary delays on Graphql requests. This issue has been resolved and could result in improved performance.
 
 ## June 27, 2023
 
