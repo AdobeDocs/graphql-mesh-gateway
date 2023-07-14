@@ -4,7 +4,7 @@ title: GraphQL Handler | API Mesh for Adobe Developer App Builder
 
 # GraphQL handlers
 
-This handler allows you to load remote GraphQL schemas and use them with schema-stitching, based on `graphql-tools`. To get started, use the handler in your Mesh config file:
+This handler allows you to load remote GraphQL schemas as part of your mesh. The GraphQL handler uses the following format:
 
 ```json
 {
@@ -32,7 +32,7 @@ GraphQL handlers can also use local sources, see [Reference local file handlers]
       "name": "MyGraphQLApi",
       "handler": {
         "graphql": {
-          "endpoint": "https://my-service-url/graphql",
+          "endpoint": "https://your-service/graphql",
           "operationHeaders": {
             "Authorization": "Bearer {context.headers['x-my-api-token']}"
           // Do not use capital letters in header names.
@@ -69,9 +69,9 @@ Header names are automatically converted to lowercase.
 }
 ``` -->
 
-## Fetching SDL or introspection from CDN or somewhere
+## Fetching SDL or introspection from CDN
 
-Imagine that introspection is disabled in the production environment of your GraphQL source, and you want to provide your SDL or introspection separately:
+Consider a scenario where introspection is disabled in the production environment of your GraphQL source, and you want to provide your SDL or introspection separately:
 
 ```json
 {
@@ -80,7 +80,7 @@ Imagine that introspection is disabled in the production environment of your Gra
             "name": "MyGraphQLApi",
             "handler": {
                 "graphql": {
-                    "endpoint": "https://api.github.com/graphql",
+                    "endpoint": "https://your-service/graphql",
                     "operationHeaders": {
                         "Authorization": "Bearer {context.headers['GITHUB_TOKEN']}"
                     }
@@ -95,7 +95,7 @@ In this case, CLI's `build` command won't save the introspection in the artifact
 
 ## Local Schemas
 
-We recommend providing local schema by using the [`additionalTypeDefs`](../../gateway/extending-unified-schema.md) and [`additionalResolvers`](../multiple-apis.md#extending-graphql-schema-with-additionaltypedefs) configuration options.
+We recommend providing a local schema by using the [`additionalTypeDefs`](../../gateway/extending-unified-schema.md) and [`additionalResolvers`](../multiple-apis.md#extending-graphql-schema-with-additionaltypedefs) configuration options.
 <!-- 
 ## Fetch Strategies and Multiple HTTP endpoints for the same source
 
@@ -210,13 +210,12 @@ If you have different places that the service is deployed, this is useful to get
 
 ## Config API Reference
 
--  `endpoint` (type: `String`, required) - A URL or file path to your remote GraphQL endpoint.
-If you provide a path to a code file(js or ts),
-other options will be ignored and the schema exported from the file will be used directly.
--  `schemaHeaders` (type: `Any`) - JSON object representing the Headers to add to the runtime of the API calls only for schema introspection
--  `operationHeaders` (type: `JSON`) - JSON object representing the Headers to add to the runtime of the API calls only for operation during runtime
--  `useGETForQueries` (type: `Boolean`) - Use HTTP GET for Query operations
--  `method` (type: `String (GET | POST)`) - HTTP method used for GraphQL operations
+-  `endpoint` (type: `String`, required) - URL or file path for your remote GraphQL endpoint
+   -  Local file types must be `.js` or `.ts`.
+-  `schemaHeaders` (type: `Any`) - JSON object for adding headers to API calls for runtime schema introspection
+-  `operationHeaders` (type: `JSON`) - JSON object for adding headers to API calls for runtime operation execution
+-  `useGETForQueries` (type: `Boolean`) - An HTTP GET method for query operations
+-  `method` (type: `String (GET | POST)`) - An HTTP method for GraphQL operations
 <!-- 
 `customFetch` (type: `Any`) - Path to a custom W3 Compatible Fetch Implementation
 `webSocketImpl` (type: `String`) - Path to a custom W3 Compatible WebSocket Implementation
