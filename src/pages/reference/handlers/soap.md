@@ -78,7 +78,7 @@ mutation {
   - `privateKeyPath` (type: `String`) - Path to the file or URL that contains your private key
   - `passwordPath` (type: `String`) - Path to the file or URL that contains your password
 -  `schemaHeaders` (type: `Any`) - JSON object for adding headers to API calls for runtime schema introspection
-  - You can also provide `.js` or `.ts` file path that exports `schemaHeaders` as an object.
+   - You can also provide `.js` or `.ts` file path that exports `schemaHeaders` as an object.
 -  `operationHeaders` (type: `JSON`) - JSON object for adding headers to API calls for runtime operation execution
 - `includePorts` (type: `Boolean`) - A flag that defines if ports defined in the WSDL are represented in the schema
   - If `true`, the ports defined in the WSDL are represented as GraphQL-type objects in the schema. The fields of the object will be the operations of the port. Most SOAP endpoints only define one port, so including it in the schema will be inconvenient, but if there are multiple ports with operations of the same name, you should set this option to `true`. If set to `false` (default), only one of the identically-named operations will be callable.
