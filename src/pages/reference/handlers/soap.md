@@ -63,7 +63,7 @@ mutation {
 }
 ```
 
-## Config API Reference
+## Config API reference
 
 - `source`(type: `String`, required) - A URL to your WSDL, must be identical to `wsdl`
 - `wsdl` (type: `String`, required) - A URL to your WSDL, must be identical to the `source`
