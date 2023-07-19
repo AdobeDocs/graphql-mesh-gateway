@@ -7,14 +7,10 @@ description: How to add supported source handlers to your mesh.
 
 API Mesh for Adobe Developer App Builder only supports the following [source handlers]:
 
--  [OpenAPI](#openapi)
-   -  [API handler configuration](#api-handler-configuration)
--  [GraphQL endpoints](#graphql-endpoints)
-   -  [GraphQL handler configuration](#graphql-handler-configuration)
--  [JSON schemas](#json-schemas)
-   -  [JSON schema handler configuration](#json-schema-handler-configuration)
--  [SOAP](../reference/handlers/soap.md) (Experimental)
-   -  [SOAP handler configuration](../reference/handlers/soap.md#config-api-reference)
+-  OpenAPI
+-  GraphQL
+-  JSON schemas
+-  SOAP (Experimental)
 
 <InlineAlert variant="info" slots="text"/>
 
