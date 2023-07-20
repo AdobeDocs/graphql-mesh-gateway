@@ -57,8 +57,6 @@ mutation {
     forceReload: true
   ),
 
-
-
   catalogCategoryListV1GetList(searchCriteria:"category")
 }
 ```
