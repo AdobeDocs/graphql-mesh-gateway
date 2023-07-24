@@ -64,8 +64,8 @@ mutation {
 
 ## Config API reference
 
-- `source`(type: `String`, required) - A URL to your WSDL, must be identical to `wsdl`
-- `wsdl` (type: `String`, required) - A URL to your WSDL, must be identical to the `source`
+- `source`(type: `String`, required) - URL to your WSDL, must be identical to `wsdl`
+- `wsdl` (type: `String`, required) - URL to your WSDL, must be identical to the `source`
 -  `schemaHeaders` (type: `Any`) - JSON object for adding headers to API calls for runtime schema introspection
-   - You can also provide `.js` or `.ts` file path that exports `schemaHeaders` as an object.
+   - You can also provide a `.js` or `.ts` file path that exports `schemaHeaders` as an object.
 -  `operationHeaders` (type: `JSON`) - JSON object for adding headers to API calls for runtime operation execution
