@@ -13,7 +13,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-- Added the [Soap handler](../reference/handlers/soap.md) to API Mesh.
+- Added the [SOAP handler](../reference/handlers/soap.md) to API Mesh.
   - The SOAP handler is experimental and should not be used in production deployments.
 - Added internal logging improvements.
 
