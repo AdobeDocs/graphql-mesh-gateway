@@ -13,7 +13,7 @@ Handlers, or source handlers, allow you to define sources that provide data to y
 [json-schema] | `0.35.38`
 [soap] | `0.14.25`
 
-[Source Handlers] provides more information about handlers in the context of API Mesh.
+[Source handlers] provides more information about handlers in the context of API Mesh.
 
 The following example contains a basic mesh file with an OpenAPI source handler.
 
