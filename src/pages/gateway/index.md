@@ -7,21 +7,21 @@ description: This is the guides overview page of API Mesh for Adobe Developer Ap
 
 To get started with API Mesh for Adobe Developer App Builder select one of the links below.
 
-## Getting Started
+## Getting started
 
 <br></br>
 
 -  [Overview](overview.md)
 -  [Getting Started](getting-started.md)
 
-## Creating and Managing your Mesh
+## Creating and managing your mesh
 
 <br></br>
 
--  [Create a Mesh](create-mesh.md)
--  [Source Handlers](source-handlers.md)
+-  [Create a mesh](create-mesh.md)
+-  [Source handlers](source-handlers.md)
 -  [Transforms](transforms.md)
 -  [Hooks](hooks.md)
 -  [Headers](headers.md)
 -  [Edge caching and cache control](cache-control-headers.md)
--  [Command Reference](command-reference.md)
+-  [Command reference](command-reference.md)
