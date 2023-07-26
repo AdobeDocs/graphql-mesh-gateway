@@ -82,5 +82,5 @@ Only `JS` and `JSON` files are supported using this method.
 <!-- Link Definitions -->
 [OpenAPI]: openapi.md
 [GraphQL]: graphql.md
-[JSON Schemas]: json-schema.md
-[Source Handlers]: /gateway/source-handlers.md
+[json-schema]: json-schema.md
+[Source handlers]: /gateway/source-handlers.md
