@@ -42,6 +42,8 @@ The experimental SOAP handler has the following limitations:
 
 - A `source` field and a `wsdl` field (with identical values) are required
   - This redundancy is a temporary limitation and will be addressed in a future release.
+- If you do not provide an expected argument, you will receive an `undefined` error.
+  - This error will be clarified in a future release.
 - `context.headers` are not available inside `operationHeaders`
 - `mutations` must be used when querying
 
