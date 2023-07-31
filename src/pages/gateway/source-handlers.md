@@ -7,12 +7,10 @@ description: How to add supported source handlers to your mesh.
 
 API Mesh for Adobe Developer App Builder only supports the following [source handlers]:
 
--  [OpenAPI](#openapi)
-   -  [API Handler Configuration](#api-handler-configuration)
--  [GraphQL endpoints](#graphql-endpoints)
-   -  [GraphQL Handler Configuration](#graphql-handler-configuration)
--  [JSON schemas](#json-schemas)
-   -  [JSON Schema Handler Configuration](#json-schema-handler-configuration)
+-  OpenAPI
+-  GraphQL
+-  JSON schemas
+-  SOAP (Experimental)
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -47,21 +45,9 @@ When using a Swagger schema, API Mesh can only access `application/json` content
 }
 ```
 
-### API Handler Configuration
-
- The API Mesh currently supports the following configuration options for API handlers.
-
--  **source** - Your API source or endpoint
--  **sourceFormat** - The format of the source file (`json` | `yaml`)
--  **schemaHeaders** - JSON Headers to fetch your schema
--  **operationHeaders** - JSON headers for your API calls
--  **baseUrl** - Your base URL
--  **qs** - JSON object for query search parameters
--  **includeHttpDetails** - A boolean flag to include HTTP Response details
-
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see the [OpenAPI Config API Reference].
+For more information, see the [OpenAPI Config API Reference](../reference/handlers/openapi.md#config-api-reference).
 
 ## GraphQL endpoints
 
@@ -92,19 +78,9 @@ The [GraphQL] handler allows you to connect to a GraphQL endpoint.
 }
 ```
 
-### GraphQL Handler Configuration
-
- The API Mesh currently supports the following configuration options for GraphQL handlers.
-
--  **endpoint** - The URL or path of your GraphQL endpoint
--  **schemaHeaders** - JSON Headers to fetch your schema
--  **operationHeaders** - JSON headers for your calls
--  **useGETForQueries** - A boolean option to use HTTP GET
--  **method** - HTTP method used (`GET` | `POST`)
-
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see the [GraphQL Config API Reference].
+For more information, see the [GraphQL Config API Reference](../reference/handlers/graphql.md#config-api-reference).
 
 ## JSON schemas
 
@@ -140,31 +116,45 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
 }
 ```
 
-### JSON Schema Handler Configuration
+<InlineAlert variant="info" slots="text"/>
 
- The API Mesh currently supports the following configuration options for JSON Schema handlers.
+For more information, see the [JSON Schema Config API Reference](../reference/handlers/json-schema.md#config-api-reference).
 
--  **baseurl** - The URL or path of your JSON Schema
--  **schemaHeaders** - JSON Headers to fetch your schema
--  **operationHeaders** - JSON headers for your calls
--  **operations** - An array that contains:
-   -  field
-   -  description
-   -  type (`Query` | `Mutation` | `Subscription`)
-   -  requestSchema
-   -  requestSample
-   -  requestTypeName
-   -  requestBaseBody - This body will merge with the request body sent with the HTTP request
-   -  responseSchema
-   -  responseSample
-   -  responseTypeName
-   -  argTypeMap
-   -  pubsubTopic
--  **ignoreErrorResponses** - A Boolean option to ignore errors
+## SOAP
+
+<InlineAlert variant="warning" slots="text"/>
+
+The SOAP handler is experimental and should not be used in production deployments.
+
+The SOAP handler allows you to consume [SOAP](https://soapui.org) `WSDL` files and generate a remote executable schema for those services.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "SoapSource",
+        "handler": {
+          "soap": {
+            "source": "http://<Commerce Host>/soap?wsdl&services=customerCustomerRepositoryV1",
+            "wsdl": "http://<Commerce Host>/soap?wsdl&services=customerCustomerRepositoryV1",
+            "operationHeaders": {
+              "x-operation-header-key": "sample-x-operation-header-value"
+            },
+            "schemaHeaders": {
+              "x-schema-header-key": "sample-x-schema-header-value"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+```
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see the [JSON Schema Config API Reference].
+For more information, see the [SOAP handler reference](../reference/handlers/soap.md#config-api-reference).
 
 <!-- Link Definitions -->
 
@@ -174,6 +164,3 @@ For more information, see the [JSON Schema Config API Reference].
 [OpenAPI]: /reference/handlers/openapi.md
 [GraphQL]: /reference/handlers/graphql.md
 [JSON]: /reference/handlers/json-schema.md
-[OpenAPI Config API Reference]: /reference/handlers/openapi.md#config-api-reference
-[GraphQL Config API Reference]: /reference/handlers/graphql.md#config-api-reference
-[JSON Schema Config API Reference]: /reference/handlers/json-schema.md#config-api-reference

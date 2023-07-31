@@ -7,6 +7,22 @@ description: This page lists changes that were made in each version of API Mesh 
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## July 31, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added the [SOAP handler](../reference/handlers/soap.md) to API Mesh.
+  - The SOAP handler is experimental and should not be used in production deployments.
+- Added internal logging improvements.
+
+### Bug fixes
+
+- Removed a configuration option that was enabled but not supported.
+- Resolved a `500 Internal Server Error` that could occur when deleting a mesh.
+- Resolved a `400 Bad Request` that could occur when updating a mesh.
+
 ## June 29, 2023
 
 This release contains the following changes to API Mesh:

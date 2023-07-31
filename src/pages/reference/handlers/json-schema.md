@@ -295,7 +295,7 @@ In this example, we declare the `limit` parameter with a default value of `10` a
 <InlineAlert variant="info" slots="text"/>
 
 `queryParams` are automatically added to the query. If the argument is defined both on the handler AND operation level, the operation level argument will be used. -->
-## Config API Reference
+## Config API reference
 
 -  `baseUrl` (type: `String`)
 -  `operationHeaders` (type: `JSON`)
