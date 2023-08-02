@@ -171,9 +171,9 @@ For example, you might want to exclude deprecated queries, mutations, and types 
             "endpoint": "https://example2.com/graphql"
           }
         },
-          "transforms": [
-            {
-              "replaceField": {
+        "transforms": [
+          {
+            "replaceField": {
               "replacements": [
                 {
                   "from": {
@@ -182,9 +182,9 @@ For example, you might want to exclude deprecated queries, mutations, and types 
                   },
                   "to": {
                     "type": "<your_API_Response>",
-                    "field": "child",
+                    "field": "child"
+                  },
                   "scope": "hoistvalue"
-                  }
                 }
               ]
             }
@@ -192,7 +192,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
         ]
       }
     ]
-  },
+  }
 }
 ```
 
