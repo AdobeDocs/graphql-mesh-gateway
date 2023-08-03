@@ -239,7 +239,7 @@ module.exports = { resolvers }
 
 The OpenAPI handler can process OpenAPI Spec Callbacks as GraphQL Subscriptions, by using your Publish-subscribe pattern PubSub implementation to consume the data. However, you need to define webhooks for callbacks individually.
 
-## Config API Reference
+## Config API reference
 
 -  `source` (type: `Any`, required) - Reference to your API source, such as a local file, a remote file, or a URL endpoint
 -  `sourceFormat` (type: `String (json | yaml)`) - Format of the source file

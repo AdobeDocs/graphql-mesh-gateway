@@ -7,7 +7,7 @@ description: How to apply transforms to your mesh to customize your responses.
 
 While [handlers] let you bring outside sources into API Mesh for Adobe Developer App Builder, [transforms] allow you to modify the schema to control the contents of your GraphQL requests and responses.
 
-The API Mesh currently supports the following [transforms]:
+API Mesh currently supports the following [transforms]:
 
 -  [Rename](#rename)
 -  [Prefix](#prefix)
@@ -171,9 +171,9 @@ For example, you might want to exclude deprecated queries, mutations, and types 
             "endpoint": "https://example2.com/graphql"
           }
         },
-          "transforms": [
-            {
-              "replaceField": {
+        "transforms": [
+          {
+            "replaceField": {
               "replacements": [
                 {
                   "from": {
@@ -182,9 +182,9 @@ For example, you might want to exclude deprecated queries, mutations, and types 
                   },
                   "to": {
                     "type": "<your_API_Response>",
-                    "field": "child",
+                    "field": "child"
+                  },
                   "scope": "hoistvalue"
-                  }
                 }
               ]
             }
@@ -192,7 +192,7 @@ For example, you might want to exclude deprecated queries, mutations, and types 
         ]
       }
     ]
-  },
+  }
 }
 ```
 

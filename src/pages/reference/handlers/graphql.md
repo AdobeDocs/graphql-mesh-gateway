@@ -208,7 +208,7 @@ If you have different places that the service is deployed, this is useful to get
 }
 ``` -->
 
-## Config API Reference
+## Config API reference
 
 -  `endpoint` (type: `String`, required) - URL or file path for your remote GraphQL endpoint
    -  Local file types must be `.js` or `.ts`.

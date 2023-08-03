@@ -24,6 +24,10 @@ module.exports = [
                 title: 'JSON schemas',
                 path: '/reference/handlers/json-schema.md'
             },
+            {
+                title: 'SOAP',
+                path: '/reference/handlers/soap.md'
+            },
         ]
     },
     {
