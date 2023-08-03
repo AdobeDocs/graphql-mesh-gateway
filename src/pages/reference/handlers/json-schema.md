@@ -44,6 +44,47 @@ The JSON Schema handler uses the following format:
 
 JSON Schema handlers can also use local sources, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
 
+The following example returns your header values, so you can confirm your headers are functioning properly.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "headersData",
+        "handler": {
+          "JsonSchema": {
+            "baseUrl": "<your baseUrl>",
+            "operationHeaders": {
+              "sample-operation-header": "sample operation value"
+            },
+            "schemaHeaders": {
+              "sample-schema-header": "sample schema value"
+            },
+            "operations": [
+              {
+                "type": "Query",
+                "field": "data",
+                "path": "/getHeadersData",
+                "method": "GET",
+                "responseSchema": "./getHeadersSchema.json"
+              }
+            ],
+            "ignoreErrorResponses": false
+          }
+        }
+      }
+    ],
+    "files": [
+      {
+        "path": "./getHeadersSchema.json",
+        "content": "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"required\":[\"headerKeys\",\"headerValues\",\"headers\"],\"properties\":{\"headerKeys\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"headerValues\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"headers\":{\"type\":\"object\"}}}"
+      }
+    ]
+  }
+}
+```
+
 ## Headers from context
 
 ```json
