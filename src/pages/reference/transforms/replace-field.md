@@ -17,6 +17,44 @@ Currently, this transform supports `bare` mode only. For information about `bare
 
 ## Usage
 
+The following example hoists Venia's `name` field from the `ProductInterface` to the `label` field of `ProductImage`:
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Adobe Commerce Replace",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        },
+        "transforms": [
+          {
+            "replaceField": {
+              "replacements": [
+                {
+                  "to": {
+                    "type": "ProductImage",
+                    "field": "label"
+                  },
+                  "from": {
+                    "type": "ProductInterface",
+                    "field": "name"
+                  },
+                  "scope": "hoistValue"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 Imagine you have generated your schema from a data source you don't control, and the generated schema looks like this:
 
 ```graphql

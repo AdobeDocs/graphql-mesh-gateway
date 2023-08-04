@@ -11,18 +11,30 @@ You can use it to easily "namespace" APIs in your unified API and avoid conflict
 
 ## Usage
 
-Add the following configuration to your Mesh config file:
+The following example prefixes `commerce_` to all the Venia handler operations.
 
 ```json
 {
-  "transforms": [
-    {
-      "prefix": {
-        "mode": "bare | wrap",
-        "value": "MyApi_"
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Adobe Commerce Prefix",
+        "transforms": [
+          {
+            "prefix": {
+              "mode": "wrap",
+              "value": "commerce_"
+            }
+          }
+        ],
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        }
       }
-    }
-  ]
+    ]
+  }
 }
 ```
 

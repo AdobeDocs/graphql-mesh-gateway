@@ -53,6 +53,35 @@ Add the following configuration to your Mesh config file:
 }
 ```
 
+The following example excludes the `company` type in Adobe Commerce:
+
+```JSON
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "FilterSchemaCreate",
+        "transforms": [
+          {
+            "filterSchema": {
+              "mode": "bare",
+              "filters": [
+                "Query.!company"
+              ]
+            }
+          }
+        ],
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
 ## Example
 
 Let's assume you have the following schema:
