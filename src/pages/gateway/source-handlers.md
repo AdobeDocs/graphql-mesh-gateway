@@ -118,6 +118,8 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
 
 <InlineAlert variant="info" slots="text"/>
 
+When your `JsonSchema` is modified, you must [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
+
 For more information, see the [JSON Schema Config API Reference](../reference/handlers/json-schema.md#config-api-reference).
 
 ## SOAP
