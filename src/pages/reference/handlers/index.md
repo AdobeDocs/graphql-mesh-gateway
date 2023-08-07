@@ -17,7 +17,7 @@ Handlers, or source handlers, allow you to define sources that provide data to y
 
 <InlineAlert variant="info" slots="text"/>
 
-Whenever a source schema is modified, you must [update your mesh](./create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
+Whenever a source schema is modified, you must [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
 
 The following example contains a basic mesh file with an OpenAPI source handler.
 
