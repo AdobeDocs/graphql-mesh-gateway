@@ -201,7 +201,9 @@ The following example adds both an Adobe Commerce instance (with Live Search ena
 
 ## Update an existing mesh
 
-If you make any changes to your mesh file, such as adding [transforms], you must publish them before the changes will be reflected in your gateway. The following command will update the mesh in the selected workspace with the settings specified in the `update-mesh.json` file.
+If you make any changes to your mesh file, such as adding [transforms], you must publish them before the changes will be reflected in your gateway. Additionally, if a source schema is modified, you must update your mesh to allow API Mesh to cache any changes.
+
+The following command will update the mesh in the selected workspace with the settings specified in the `update-mesh.json` file.
 
 ```bash
 aio api-mesh:update update-mesh.json
