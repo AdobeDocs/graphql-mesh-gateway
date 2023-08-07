@@ -7,6 +7,15 @@ description: This page lists changes that were made in each version of API Mesh 
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## August 10, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added support for [aliasing](./work-with-mesh.md#aliasing).
+- Added internal caching improvements. You may notice improvements to response time.
+
 ## July 31, 2023
 
 This release contains the following changes to API Mesh:
