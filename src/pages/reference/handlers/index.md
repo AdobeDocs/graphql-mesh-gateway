@@ -1,5 +1,6 @@
 ---
 title: Handlers | API Mesh for Adobe Developer App Builder
+description: Overview of handlers and sources available in API Mesh.
 ---
 
 # Handlers
@@ -8,12 +9,12 @@ Handlers, or source handlers, allow you to define sources that provide data to y
 
 | Handler Package Name | Version |
 |------------|------------|
-[openapi] | `0.33.26`
-[graphql] | `0.31.24`
-[json-schema] | `0.35.38`
-[soap] | `0.14.25`
+[`openapi`](./openapi.md) | `0.33.26`
+[`graphql`](./graphql.md) | `0.31.24`
+[`JsonSchema`](./json-schema.md) | `0.35.38`
+[`soap`](./soap.md) | `0.14.25`
 
-[Source handlers] provides more information about handlers in the context of API Mesh.
+The [source handlers](../../gateway/source-handlers.md) topic provides more information about handlers in the context of API Mesh.
 
 The following example contains a basic mesh file with an OpenAPI source handler.
 
@@ -78,9 +79,3 @@ You can reference local files as sources in handlers using the following format:
 <InlineAlert variant="info" slots="text"/>
 
 Only `JS` and `JSON` files are supported using this method.
-
-<!-- Link Definitions -->
-[OpenAPI]: openapi.md
-[GraphQL]: graphql.md
-[json-schema]: json-schema.md
-[Source handlers]: /gateway/source-handlers.md
