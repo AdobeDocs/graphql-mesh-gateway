@@ -8,6 +8,8 @@ This handler allows you to load any remote REST service, and describe its reques
 
 <InlineAlert variant="info" slots="text"/>
 
+If your REST service's request or response format is modified, you must update your mesh configuration file with the modified request or response. Then [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
+
 If your source handler's schema is modified, you must [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
 
 For more information on creating JSON schemas, refer to this [JSON schema tutorial](https://json-schema.org/learn/getting-started-step-by-step.html).
