@@ -4,7 +4,7 @@ title: JSON Schema or Samples | API Mesh for Adobe Developer App Builder
 
 # JSON schema handlers
 
-This handler allows you to load any remote REST service, and describe its request/response. With this handler, you can easily customize and control the a GraphQL schema in API Mesh for Adobe Developer App Builder.
+This handler allows you to load any remote REST service and describe its request/response. With this handler, you can easily customize and control the GraphQL schema in API Mesh for Adobe Developer App Builder.
 
 <InlineAlert variant="info" slots="text"/>
 
