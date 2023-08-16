@@ -177,7 +177,7 @@ The following example renames the `name` field to `productName`.
  } 
 ```
 
-Due to the limitations of API Mesh, responses contain both the newly created alias field and the originally named field. For example, the previous query produces the following response that contains both the aliased field, `productName`, and the original field, `name`.
+Due to the limitations of API Mesh, responses contain both the newly created alias field and the original field. For example, the previous query produces the following response that contains both the aliased field, `productName`, and the original field, `name`.
 
 ```json
 {
