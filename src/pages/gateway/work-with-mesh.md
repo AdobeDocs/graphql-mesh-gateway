@@ -162,7 +162,11 @@ For example:
 
 ## Aliasing
 
-In GraphQL you can use aliasing to rename fields and avoid conflicts. This is particularly useful for API Mesh, because along with the [`rename`](../reference/transforms/rename.md) and [`prefix`](../reference/transforms/prefix.md) transforms it allows you to avoid naming conflicts.
+In GraphQL you can use [aliasing](https://graphql.org/learn/queries/#aliases) in your query to rename fields and avoid fields with conflicting names. This is particularly useful for API Mesh because aliasing allows you to rename fields when querying.
+
+<InlineAlert variant="info" slots="text"/>
+
+You can also field names within your mesh by using the [`rename`](../reference/transforms/rename.md) and [`prefix`](../reference/transforms/prefix.md) transforms.
 
 The following example renames the `name` field to `productName`.
 
