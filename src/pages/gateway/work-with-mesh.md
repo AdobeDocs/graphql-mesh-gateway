@@ -166,7 +166,7 @@ In GraphQL you can use [aliasing](https://graphql.org/learn/queries/#aliases) in
 
 <InlineAlert variant="info" slots="text"/>
 
-You can also field names within your mesh by using the [`rename`](../reference/transforms/rename.md) and [`prefix`](../reference/transforms/prefix.md) transforms.
+You can also rename field names within your mesh by using the [`rename`](../reference/transforms/rename.md) and [`prefix`](../reference/transforms/prefix.md) transforms.
 
 The following example renames the `name` field to `productName`.
 
