@@ -10,6 +10,10 @@ The SOAP handler is experimental and should not be used in production deployment
 
 The SOAP handler allows you to consume [SOAP](https://soapui.org) `WSDL` files and generate a remote executable schema for those services.
 
+<InlineAlert variant="info" slots="text"/>
+
+If your source handler's schema is modified, you must [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
+
 Add SOAP handlers to your mesh:
 
 ```json

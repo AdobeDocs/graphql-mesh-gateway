@@ -12,6 +12,8 @@ API Mesh for Adobe Developer App Builder only supports the following [source han
 -  JSON schemas
 -  SOAP (Experimental)
 
+Whenever a source schema is modified, you must [update your mesh](./create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
+
 <InlineAlert variant="info" slots="text"/>
 
 We will add support for additional handlers in future releases.
@@ -115,8 +117,6 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
   },
 }
 ```
-
-<InlineAlert variant="info" slots="text"/>
 
 For more information, see the [JSON Schema Config API Reference](../reference/handlers/json-schema.md#config-api-reference).
 
