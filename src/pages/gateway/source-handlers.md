@@ -28,7 +28,7 @@ The [OpenAPI] handler allows you to connect to an OpenAPI-compliant REST service
 
 <InlineAlert variant="info" slots="text"/>
 
-When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition. API Mesh does not accept a `/` or a wildcard (`**`) as a content type.
+When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition. API Mesh does not accept a wildcard (`*/*`) as a content type.
 
 ```json
 {

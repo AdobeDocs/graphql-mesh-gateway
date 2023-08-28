@@ -8,7 +8,7 @@ This handler allows you to load remote or local [OpenAPI (2/3) and Swagger](http
 
 <InlineAlert variant="info" slots="text"/>
 
-When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition. API Mesh does not accept a `/` or a wildcard (`**`) as a content type.
+When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition. API Mesh does not accept a wildcard (`*/*`) as a content type.
 
 You can import it using remote/local `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers](index.md#reference-local-files-in-handlers) for more information.
 
