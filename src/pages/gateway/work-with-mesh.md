@@ -159,3 +159,47 @@ For example:
 
 -  `aio config:delete console.project` Removes the current project from the cache.
 -  `aio config:delete console.workspace` Removes the current workspace from the cache.
+
+## Aliasing
+
+In GraphQL you can use [aliasing](https://graphql.org/learn/queries/#aliases) in your query to rename fields and avoid fields with conflicting names. This is particularly useful for API Mesh because aliasing allows you to rename fields when querying.
+
+<InlineAlert variant="info" slots="text"/>
+
+You can also rename field names within your mesh by using the [`rename`](../reference/transforms/rename.md) and [`prefix`](../reference/transforms/prefix.md) transforms.
+
+The following example renames the `name` field to `productName`.
+
+```graphql
+{
+ products(search:"tops"){
+   items {
+       productName:name
+       sku
+     }
+   } 
+ } 
+```
+
+Due to the limitations of API Mesh, responses contain both the newly created alias field and the original field. For example, the previous query produces the following response that contains both the aliased field, `productName`, and the original field, `name`.
+
+```json
+{
+  "data": {
+    "products": {
+      "CommerceItems": [
+        {
+          "productName": "Vitalia Top",
+          "sku": "VT10",
+          "name": "Vitalia Top"
+        },
+        {
+          "productName": "Jillian Top",
+          "sku": "VT12",
+          "name": "Jillian Top"
+        }
+      ]
+    }
+  }
+}
+```
