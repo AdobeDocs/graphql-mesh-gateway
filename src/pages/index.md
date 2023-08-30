@@ -49,7 +49,7 @@ Is a complete framework that enables enterprise developers to build and deploy c
 
 <DiscoverBlock slots="link, text"/>
 
-[Adobe I/O Events for Adobe Commerce](https://developer.adobe.com/commerce/events)
+[Adobe I/O Events for Adobe Commerce](https://developer.adobe.com/commerce/extensibility/events/)
 
 Makes Commerce transactional data available to App Builder using Adobe I/O. You can define the events to transmit data each time an event triggers, or only under circumstances defined within configuration rules.
 
