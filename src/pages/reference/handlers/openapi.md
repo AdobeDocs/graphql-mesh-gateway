@@ -266,7 +266,6 @@ API Mesh supports loading sources from a CDN or schema registry by using the `so
 }
 ```
 
-
 ## Config API reference
 
 -  `source` (type: `Any`, required) - A pointer to your API source - could be a local file, remote file, or url endpoint
