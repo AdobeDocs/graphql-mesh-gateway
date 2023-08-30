@@ -273,7 +273,7 @@ API Mesh supports loading sources from a CDN or schema registry by using the `so
 -  `sourceFormat` (type: `String (json | yaml)`) - Format of the source file
 -  `operationHeaders` (type: `JSON`) - JSON object representing the Headers to add to the runtime of the API calls
 -  `schemaHeaders` (type: `JSON`) - If you are using a remote URL endpoint to fetch your schema, you can set headers for the HTTP request to fetch your schema.
--  `baseUrl` (type: `String`) - Specifies the URL that all paths will be based on.
+-  `endpoint` (type: `String`) - Specifies the URL that all paths will be based on.
 Overrides the server object in the OAS.
 -  `qs` (type: `JSON`) - JSON object representing the query search parameters to add to the API calls
 -  `includeHttpDetails` (type: `Boolean`) - Include HTTP Response details to the result object
