@@ -7,6 +7,14 @@ description: This page lists changes that were made in each version of API Mesh 
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## August 31, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Due to upcoming changes in the [Adobe I/O Extensible CLI](https://developer.adobe.com/runtime/docs/guides/tools/cli_install/), the [API Mesh CLI](./getting-started.md#configure-your-environment) may encounter an `Unable to create API key` error when running an `aio api-mesh create` command on a workspace that has an existing API key. To resolve this run `aio-update` or `aio plugins:update @adobe/aio-cli-plugin-api-mesh` to ensure you have version `3.3.3` of the API Mesh plugin.
+
 ## August 17, 2023
 
 This release contains the following changes to API Mesh:
