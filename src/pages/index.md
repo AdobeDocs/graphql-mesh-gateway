@@ -2,6 +2,9 @@
 title: Overview - API Mesh for Adobe Developer App Builder
 description: Learn about the features of API Mesh for Adobe Developer App Builder.
 ---
+<InlineAlert variant="warning" slots="text"/>
+
+Update to the latest API Mesh CLI package to avoid any interruptions. For more information refer to the [release notes](gateway/release-notes.md#august-31-2023).
 
 <Hero slots="image, heading, text"/>
 
