@@ -8,7 +8,7 @@ Update to the latest API Mesh CLI package to avoid any interruptions. For more i
 
 <Hero slots="image, heading, text"/>
 
-![Commerce Eventing](_images/home-bg.jpeg)
+![API Mesh](_images/home-bg.jpeg)
 
 # API Mesh for Adobe Developer App Builder
 
