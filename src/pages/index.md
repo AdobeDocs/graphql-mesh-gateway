@@ -2,10 +2,13 @@
 title: Overview - API Mesh for Adobe Developer App Builder
 description: Learn about the features of API Mesh for Adobe Developer App Builder.
 ---
+<InlineAlert variant="warning" slots="text"/>
+
+Update to the latest API Mesh CLI package to avoid any interruptions. For more information refer to the [release notes](gateway/release-notes.md#august-30-2023).
 
 <Hero slots="image, heading, text"/>
 
-![Commerce Eventing](_images/home-bg.jpeg)
+![API Mesh](_images/home-bg.jpeg)
 
 # API Mesh for Adobe Developer App Builder
 
@@ -46,7 +49,7 @@ Is a complete framework that enables enterprise developers to build and deploy c
 
 <DiscoverBlock slots="link, text"/>
 
-[Adobe I/O Events for Adobe Commerce](https://developer.adobe.com/commerce/events)
+[Adobe I/O Events for Adobe Commerce](https://developer.adobe.com/commerce/extensibility/events/)
 
 Makes Commerce transactional data available to App Builder using Adobe I/O. You can define the events to transmit data each time an event triggers, or only under circumstances defined within configuration rules.
 
