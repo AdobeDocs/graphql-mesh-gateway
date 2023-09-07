@@ -76,7 +76,7 @@ The following Adobe Commerce example will encapsulate the schema into the `myVen
 
 -  `name` (type: `String`) - (Optional) The name used for grouping under root types
    -  If you do not specify a `name`, the API name will be used.
--  `applyTo` (type: `Object`) - Choose which root operations the `encapsulate` applies to, unspecified options default to `true`:
+-  `applyTo` (type: `Object`) - The root operations the `encapsulate` applies to. Unspecified options default to `true`:
    -  `query` (type: `Boolean`)
    -  `mutation` (type: `Boolean`)
    -  `subscription` (type: `Boolean`)
