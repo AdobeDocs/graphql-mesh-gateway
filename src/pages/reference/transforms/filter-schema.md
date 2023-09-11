@@ -1,5 +1,6 @@
 ---
-title: filterSchema Transform | API Mesh for Adobe Developer App Builder
+title: filterSchema | API Mesh for Adobe Developer App Builder
+description: Learn how to specify which schema elements to include or exclude with the filterSchema transform.
 ---
 
 # `filterSchema` transform

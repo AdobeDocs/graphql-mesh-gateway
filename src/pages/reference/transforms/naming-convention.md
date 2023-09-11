@@ -1,5 +1,6 @@
 ---
-title: naming-convention Transform | API Mesh for Adobe Developer App Builder
+title: naming-convention | API Mesh for Adobe Developer App Builder
+description: Learn how to apply casing to respobse data with the naming-convention transform.
 ---
 
 # `naming-convention` transform

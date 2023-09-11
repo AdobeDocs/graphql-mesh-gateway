@@ -1,5 +1,6 @@
 ---
-title: encapsulate Transform | API Mesh for Adobe Developer App Builder
+title: encapsulate | API Mesh for Adobe Developer App Builder
+description: Learn how to define a schema for a field with the encapsulate transform.
 ---
 
 # `encapsulate` transform

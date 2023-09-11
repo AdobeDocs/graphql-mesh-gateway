@@ -1,5 +1,6 @@
 ---
-title: federation Transform (Apollo) | API Mesh for Adobe Developer App Builder
+title: federation | API Mesh for Adobe Developer App Builder
+description: Learn how to add specification-compliant resolvers and directives with the federation transform.
 ---
 
 # `federation` transform

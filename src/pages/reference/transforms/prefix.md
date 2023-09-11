@@ -1,5 +1,6 @@
 ---
 title: prefix Transform | API Mesh for Adobe Developer App Builder
+description: Learn how to namespace APIs with the prefix transform.
 ---
 
 # `prefix` transform

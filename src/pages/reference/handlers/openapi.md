@@ -1,5 +1,6 @@
 ---
 title: OpenAPI | API Mesh for Adobe Developer App Builder
+description: Learn how to integrate OpenAPI schemas with the OpenAPI handler.
 ---
 
 # OpenAPI handlers
