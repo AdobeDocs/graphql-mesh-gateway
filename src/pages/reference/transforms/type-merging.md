@@ -1,5 +1,13 @@
 ---
-title: typeMerging Transform | API Mesh for Adobe Developer App Builder
+title: typeMerging | API Mesh for Adobe Developer App Builder
+description: Learn how to combine multiple sources with the typeMerge transform.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # typeMerge transform
