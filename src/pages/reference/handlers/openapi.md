@@ -1,5 +1,13 @@
 ---
 title: OpenAPI | API Mesh for Adobe Developer App Builder
+description: Learn how to integrate OpenAPI schemas with the OpenAPI handler.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # OpenAPI handlers
@@ -8,11 +16,15 @@ This handler allows you to load remote or local [OpenAPI (2.0-3.0) and Swagger](
 
 <InlineAlert variant="info" slots="text"/>
 
-When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition.
+When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition. API Mesh does not accept a wildcard (`*/*`) as a content type.
 
 You can import a remote or local schema `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers](index.md#reference-local-files-in-handlers) for more information.
 
-The OpenAPI handler uses the following format:
+<InlineAlert variant="info" slots="text"/>
+
+If your source handler's schema is modified, you must [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
+
+To get started, use the handler in your Mesh config file:
 
 ```json
 {

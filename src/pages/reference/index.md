@@ -1,6 +1,13 @@
 ---
-title: Reference documentation | API Mesh for Adobe Developer App Builder
+title: Reference | API Mesh for Adobe Developer App Builder
 description: Versioned API Mesh reference documentation republished from the GraphQL Mesh documentation site (under the MIT license).
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Reference documentation

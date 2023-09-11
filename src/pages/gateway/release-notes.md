@@ -1,11 +1,37 @@
 ---
 title: Release notes
 description: This page lists changes that were made in each version of API Mesh for Adobe Developer App Builder.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Release notes
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
+
+## August 30, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+Due to upcoming changes in the [Adobe I/O Extensible CLI](https://developer.adobe.com/runtime/docs/guides/tools/cli_install/), the [API Mesh CLI](./getting-started.md#configure-your-environment) may encounter an `Unable to create API key` error when running an `aio api-mesh create` command on a workspace that has an existing API key. To resolve this run `aio-update` or `aio plugins:update @adobe/aio-cli-plugin-api-mesh` to ensure you have version `3.0.0` of the API Mesh plugin.
+
+Alternatively, if updating your plugin is not an option, you can manually [delete the credential](https://developer.adobe.com/developer-console/docs/guides/credentials/#api-key) from Adobe Developer Console by navigating to **API Keys** in the appropriate workspace and clicking **Delete Credential**.
+
+## August 17, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added support for [aliasing](./work-with-mesh.md#aliasing).
+- Added internal caching improvements. You may notice improvements to response time.
 
 ## July 31, 2023
 

@@ -1,6 +1,13 @@
 ---
 title: Add source handlers
 description: How to add supported source handlers to your mesh. 
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Add source handlers
@@ -12,6 +19,8 @@ API Mesh for Adobe Developer App Builder only supports the following [source han
 -  JSON schemas
 -  SOAP (Experimental)
 
+Whenever a source schema is modified, you must [update your mesh](./create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
+
 <InlineAlert variant="info" slots="text"/>
 
 We will add support for additional handlers in future releases.
@@ -22,11 +31,11 @@ Only alphanumerical characters are allowed in source handler names.
 
 ## OpenAPI
 
-The [OpenAPI] handler allows you to connect to an OpenAPI-complaint REST service endpoint or static Swagger schemas using a `.json` or `.yaml` file.
+The [OpenAPI] handler allows you to connect to an OpenAPI-compliant REST service endpoint or static Swagger schemas using a `.json` or `.yaml` file.
 
 <InlineAlert variant="info" slots="text"/>
 
-When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition.
+When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition. API Mesh does not accept a wildcard (`*/*`) as a content type.
 
 ```json
 {
@@ -115,8 +124,6 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
   },
 }
 ```
-
-<InlineAlert variant="info" slots="text"/>
 
 For more information, see the [JSON Schema Config API Reference](../reference/handlers/json-schema.md#config-api-reference).
 

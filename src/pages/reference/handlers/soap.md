@@ -1,5 +1,12 @@
 ---
 title: SOAP handler | API Mesh for Adobe Developer App Builder
+description: Learn how to integrate SOAP schemas with the SOAP handler.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - Tools
 ---
 
 # SOAP
@@ -9,6 +16,10 @@ title: SOAP handler | API Mesh for Adobe Developer App Builder
 The SOAP handler is experimental and should not be used in production deployments.
 
 The SOAP handler allows you to consume [SOAP](https://soapui.org) `WSDL` files and generate a remote executable schema for those services.
+
+<InlineAlert variant="info" slots="text"/>
+
+If your source handler's schema is modified, you must [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
 
 Add SOAP handlers to your mesh:
 

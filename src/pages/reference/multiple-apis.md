@@ -1,6 +1,13 @@
 ---
 title: Multiple APIs
 description: Combine and extend different sources
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Multiple APIs recipe
