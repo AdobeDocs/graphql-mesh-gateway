@@ -1,6 +1,13 @@
 ---
 title: Transforms
 description: How to apply transforms to your mesh to customize your responses.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Transforms

@@ -1,6 +1,13 @@
 ---
 title: Create a Mesh
 description: Create a configuration file for your mesh, access the gateway, and update your configuration file.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Create a mesh

@@ -1,7 +1,15 @@
 ---
 title: Overview - API Mesh for Adobe Developer App Builder
 description: Learn about the features of API Mesh for Adobe Developer App Builder.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
+
 <InlineAlert variant="warning" slots="text"/>
 
 Update to the latest API Mesh CLI package to avoid any interruptions. For more information refer to the [release notes](gateway/release-notes.md#august-30-2023).

@@ -1,6 +1,13 @@
 ---
 title: Combining Multiple Sources
 description: Learn how to combine multiple sources using additional resolvers.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Combining Multiple Sources

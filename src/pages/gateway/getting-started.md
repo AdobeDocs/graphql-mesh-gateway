@@ -1,6 +1,13 @@
 ---
 title: Getting Started
 description: Set up and configure API Mesh for Adobe Developer App Builder.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Getting started

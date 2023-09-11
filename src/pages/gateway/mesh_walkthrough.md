@@ -1,6 +1,13 @@
 ---
 title: API Mesh walkthrough
 description: This guide walks you through creating and updating a mesh in API mesh.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # API Mesh walkthrough
