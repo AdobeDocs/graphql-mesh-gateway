@@ -1,6 +1,13 @@
 ---
 title: Handlers | API Mesh for Adobe Developer App Builder
 description: Overview of handlers and sources available in API Mesh.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Handlers

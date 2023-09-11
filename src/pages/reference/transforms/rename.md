@@ -1,6 +1,13 @@
 ---
 title: rename Transform | API Mesh for Adobe Developer App Builder
 description: Learn how to rename GraphQL types, fields, and field arguments with the rename transform.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # rename transform

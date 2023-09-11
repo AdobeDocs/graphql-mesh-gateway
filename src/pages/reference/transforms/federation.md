@@ -1,6 +1,13 @@
 ---
 title: federation | API Mesh for Adobe Developer App Builder
 description: Learn how to add specification-compliant resolvers and directives with the federation transform.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # `federation` transform

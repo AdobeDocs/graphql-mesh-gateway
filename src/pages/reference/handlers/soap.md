@@ -1,6 +1,12 @@
 ---
 title: SOAP handler | API Mesh for Adobe Developer App Builder
 description: Learn how to integrate SOAP schemas with the SOAP handler.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - Tools
 ---
 
 # SOAP

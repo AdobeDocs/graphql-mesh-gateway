@@ -1,6 +1,12 @@
 ---
 title: JSON Schema | API Mesh for Adobe Developer App Builder
 description: Learn how to integrate a JSON schemas with the JsonSchema handler.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - Tools
 ---
 
 # JSON schema handlers

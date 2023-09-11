@@ -1,6 +1,14 @@
 ---
 title: Edge caching
 description: Specifies how to use headers to limit and modify the cache for GET requests.
+keywords:
+  - API Mesh
+  - Extensibility
+  - Cache
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Edge caching
@@ -46,11 +54,11 @@ When the response includes cache-control values, only the [most restrictive valu
 ```json
 {
   "meshConfig": {
-	"responseConfig": {
-		"headers": {
+    "responseConfig": {
+        "headers": {
       "Cache-Control": "max-age=50,min-fresh=6,stale-if-error=20,public,must-revalidate"
-		}
-	},
+        }
+    },
     "sources": [
       {
         "name": "venia",
@@ -152,11 +160,11 @@ Cache-control header values in your mesh configuration file take precedence over
 ```json
 {
   "meshConfig": {
-	"responseConfig": {
-		"headers": {
+    "responseConfig": {
+        "headers": {
       "Cache-Control": "max-age=50,min-fresh=6,stale-if-error=20,public,must-revalidate"
-		}
-	},
+        }
+    },
     "sources": [
       {
         "name": "venia",

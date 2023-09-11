@@ -1,6 +1,13 @@
 ---
 title: replaceField | API Mesh for Adobe Developer App Builder
 description: Learn how to clean up redundant queries or replace files types with the replaceField transform.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # `replaceField` transform

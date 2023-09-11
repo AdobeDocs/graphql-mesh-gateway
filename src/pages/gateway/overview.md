@@ -1,6 +1,13 @@
 ---
 title: API Mesh for Adobe Developer App Builder Overview
 description: Learn how API Mesh for Adobe Developer App Builder enables you to route incoming requests from customers to different underlying remote services.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # What is API Mesh for Adobe Developer App Builder?

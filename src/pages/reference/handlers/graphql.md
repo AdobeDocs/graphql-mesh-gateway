@@ -1,6 +1,12 @@
 ---
 title: GraphQL Handler | API Mesh for Adobe Developer App Builder
 description: Learn how to integrate remote schemas with handlers.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - Tools
 ---
 
 # GraphQL handlers

@@ -1,6 +1,13 @@
 ---
 title: filterSchema | API Mesh for Adobe Developer App Builder
 description: Learn how to specify which schema elements to include or exclude with the filterSchema transform.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # `filterSchema` transform

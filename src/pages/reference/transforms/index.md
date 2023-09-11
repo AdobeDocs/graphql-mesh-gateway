@@ -1,6 +1,13 @@
 ---
 title: Transforms | API Mesh for Adobe Developer App Builder
 description: Learn how to use transforms.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Transforms

@@ -1,6 +1,13 @@
 ---
 title: encapsulate | API Mesh for Adobe Developer App Builder
 description: Learn how to define a schema for a field with the encapsulate transform.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # `encapsulate` transform
