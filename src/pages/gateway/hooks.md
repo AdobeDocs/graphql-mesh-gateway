@@ -1,6 +1,13 @@
 ---
 title: Hooks
 description: Learn how to use the Hooks to add hooks before and after querying your mesh.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Hooks

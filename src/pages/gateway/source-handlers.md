@@ -1,6 +1,13 @@
 ---
 title: Add source handlers
 description: How to add supported source handlers to your mesh. 
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Add source handlers

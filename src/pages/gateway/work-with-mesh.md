@@ -1,6 +1,13 @@
 ---
 title: Work with your mesh
 description: This page describes ways you can work with meshes that are not part of the mesh creation process.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Work with your mesh

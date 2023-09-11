@@ -1,6 +1,13 @@
 ---
 title: Developer tools
 description: Learn how to use development tools to create a local environment and use environment variables with API Mesh.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Developer tools
@@ -57,21 +64,21 @@ The following mesh uses the preceding `.env` file to populate the name and endpo
 
 ```json
 {
-	"meshConfig": {
-		"sources": [
-			{
-				"name": "{{env.APIName}}",
-				"handler": {
-					"graphql": {
-						"endpoint": "{{env.commerceURL}}"
-					}
-				}
-			}
-		],
+    "meshConfig": {
+        "sources": [
+            {
+                "name": "{{env.APIName}}",
+                "handler": {
+                    "graphql": {
+                        "endpoint": "{{env.commerceURL}}"
+                    }
+                }
+            }
+        ],
         "responseConfig":{
             "includeHTTPDetails":{{env.includeHTTPDetailsValue}}
         }
-	}
+    }
 }
 ```
 
@@ -81,21 +88,21 @@ After running the [`create`](./command-reference.md#aio-api-meshcreate) or [`upd
 
 ```json
 {
-	"meshConfig": {
-		"sources": [
-			{
-				"name": "Adobe Commerce API",
-				"handler": {
-					"graphql": {
-						"endpoint": "<your_endpoint>"
-					}
-				}
-			}
-		],
+    "meshConfig": {
+        "sources": [
+            {
+                "name": "Adobe Commerce API",
+                "handler": {
+                    "graphql": {
+                        "endpoint": "<your_endpoint>"
+                    }
+                }
+            }
+        ],
         "responseConfig":{
             "includeHTTPDetails":true
         }
-	}
+    }
 }
 ```
 

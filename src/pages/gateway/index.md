@@ -1,6 +1,13 @@
 ---
 title: Guides - API Mesh for Adobe Developer App Builder
 description: This is the guides overview page of API Mesh for Adobe Developer App Builder 
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # API Mesh for Adobe Developer App Builder

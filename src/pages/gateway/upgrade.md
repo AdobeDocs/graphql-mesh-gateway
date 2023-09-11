@@ -1,6 +1,14 @@
 ---
 title: Upgrade Versions
 description: This page describes breaking changes and how to migrate from one version of API Mesh for Adobe Developer App Builder to another.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
+  - Upgrade
 ---
 
 # Upgrade versions

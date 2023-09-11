@@ -1,6 +1,13 @@
 ---
 title: Extend the schema with custom resolvers
 description: Learn how to extend the unified schema with resolvers.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Extend the schema with custom resolvers
@@ -64,43 +71,43 @@ The previous example contains a `files` object that contains the following `java
 
 ```js
 module.exports = {
-	resolvers: {
-		ConfigurableProduct: {
-			special_price: {
-				selectionSet: '{ name price_range { maximum_price { final_price { value } } } }',
-				resolve: (root, args, context, info) => {
-					let max = 0;
+    resolvers: {
+        ConfigurableProduct: {
+            special_price: {
+                selectionSet: '{ name price_range { maximum_price { final_price { value } } } }',
+                resolve: (root, args, context, info) => {
+                    let max = 0;
 
-					try {
-						max = root.price_range.maximum_price.final_price.value;
-					} catch (e) {
-						// ignore
-					}
+                    try {
+                        max = root.price_range.maximum_price.final_price.value;
+                    } catch (e) {
+                        // ignore
+                    }
 
-					return context.DiscountsAPI.Query.discounts({
-							root,
-							args,
-							context,
-							info,
-							selectionSet: '{ name discount }',
-						})
-						.then(response => {
-							let discount = 0;
-							const discountConfig = response.find(discount => discount.name === root.name);
+                    return context.DiscountsAPI.Query.discounts({
+                            root,
+                            args,
+                            context,
+                            info,
+                            selectionSet: '{ name discount }',
+                        })
+                        .then(response => {
+                            let discount = 0;
+                            const discountConfig = response.find(discount => discount.name === root.name);
 
-							if (discountConfig) {
-								discount = discountConfig.discount;
-							}
+                            if (discountConfig) {
+                                discount = discountConfig.discount;
+                            }
 
-							return max * ((100 - discount) / 100);
-						})
-						.catch(() => {
-							return null;
-						});
-				},
-			},
-		},
-	},
+                            return max * ((100 - discount) / 100);
+                        })
+                        .catch(() => {
+                            return null;
+                        });
+                },
+            },
+        },
+    },
 };
 ```
 
@@ -142,100 +149,100 @@ In the following response, you can see that the "Roxana Cropped Sweater" and the
 
 ```json
 {
-	"data": {
-		"products": {
-			"items": [
-				{
-					"name": "Juno Sweater",
-					"special_price": 54.4,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 54.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Hanna Sweater",
-					"special_price": 70.56,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 78.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Echo Sweater",
-					"special_price": 62.4,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 62.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Corina Lace-Back Sweater",
-					"special_price": 86.4,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 86.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Roxana Cropped Sweater",
-					"special_price": 56.16,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 62.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Helena Cardigan",
-					"special_price": 78.4,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 78.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Rosalina Cardigan",
-					"special_price": 78.4,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 78.4
-							}
-						}
-					}
-				},
-				{
-					"name": "Brigid Boucle Cardigan",
-					"special_price": 94.4,
-					"price_range": {
-						"maximum_price": {
-							"final_price": {
-								"value": 94.4
-							}
-						}
-					}
-				}
-			]
-		}
-	},
-	"extensions": {}
+    "data": {
+        "products": {
+            "items": [
+                {
+                    "name": "Juno Sweater",
+                    "special_price": 54.4,
+                    "price_range": {
+                        "maximum_price": {
+                            "final_price": {
+                                "value": 54.4
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Hanna Sweater",
+                    "special_price": 70.56,
+                    "price_range": {
+                        "maximum_price": {
+                            "final_price": {
+                                "value": 78.4
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Echo Sweater",
+                    "special_price": 62.4,
+                    "price_range": {
+                        "maximum_price": {
+                            "final_price": {
+                                "value": 62.4
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Corina Lace-Back Sweater",
+                    "special_price": 86.4,
+                    "price_range": {
+                        "maximum_price": {
+                            "final_price": {
+                                "value": 86.4
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Roxana Cropped Sweater",
+                    "special_price": 56.16,
+                    "price_range": {
+                        "maximum_price": {
+                            "final_price": {
+                                "value": 62.4
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Helena Cardigan",
+                    "special_price": 78.4,
+                    "price_range": {
+                        "maximum_price": {
+                            "final_price": {
+                                "value": 78.4
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Rosalina Cardigan",
+                    "special_price": 78.4,
+                    "price_range": {
+                        "maximum_price": {
+                            "final_price": {
+                                "value": 78.4
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Brigid Boucle Cardigan",
+                    "special_price": 94.4,
+                    "price_range": {
+                        "maximum_price": {
+                            "final_price": {
+                                "value": 94.4
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "extensions": {}
 }
 ```

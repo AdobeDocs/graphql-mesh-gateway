@@ -1,6 +1,13 @@
 ---
 title: Command Reference
 description: A description of the CLI commands available for API Mesh for Adobe Developer App Builder.
+keywords:
+  - API Mesh
+  - Extensibility
+  - GraphQL
+  - Integration
+  - REST
+  - Tools
 ---
 
 # Command Reference
