@@ -61,7 +61,7 @@ Add the following configuration to your Mesh config file:
 }
 ```
 
-The following example excludes the `company` field from the `Query` type in the Adobe Commerce source.
+The following example excludes the `company` field from the `Query` type in the Adobe Commerce source:
 
 ```JSON
 {
@@ -87,80 +87,6 @@ The following example excludes the `company` field from the `Query` type in the 
       }
     ]
   }
-}
-```
-
-## Example
-
-Let's assume you have the following schema:
-
-```graphql
-type Query {
-  me: User
-  users: [User]
-  user(id: ID, name: String): User
-  admins: [User]
-}
-
-type Mutation {
-  updateMyProfile(name: String, age: Int): User
-  addUser(username: String, name: String, age: Int): User
-  removeUser(id: ID): ID
-}
-
-type User {
-  id: ID
-  username: String
-  password: String
-  name: String
-  age: Int
-  ipAddress: String
-}
-
-type LooseType {
-  foo: String
-  bar: String
-}
-```
-
-With the following Filter Schema config:
-
-```json
-{
-  "transforms": [
-    {
-      "filterSchema": {
-        "mode": "bare | wrap",
-        "filters": [
-          "Type.!LooseType",
-          "Query.!admins",
-          "Mutation.!{addUser, removeUser}",
-          "User.{username, name, age}",
-          "Query.user.!name"
-        ]
-      }
-    }
-  ]
-}
-```
-
-It would become the following schema:
-
-```graphql
-type Query {
-  me: User
-  users: [User]
-  user(id: ID): User
-}
-
-type Mutation {
-  updateMyProfile(name: String, age: Int): User
-}
-
-type User {
-  username: String
-  name: String
-  age: Int
 }
 ```
 

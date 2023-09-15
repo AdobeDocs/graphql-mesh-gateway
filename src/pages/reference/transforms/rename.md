@@ -24,7 +24,7 @@ The `rename` transform helps you avoid conflicting names, simplify complicated n
 
 ## Usage
 
-The following example renames Venia's `currency` query to `currencyType`:
+The following example renames the `currency` query field to `currencyType` in the Adobe Commerce source:
 
 ```json
 {

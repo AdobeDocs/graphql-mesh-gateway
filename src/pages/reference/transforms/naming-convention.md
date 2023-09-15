@@ -16,29 +16,7 @@ The `naming-convention` transforms allow you to apply casing and other conventio
 
 ## Usage
 
-<InlineAlert variant="info" slots="text"/>
-
-In this example, enumValues fields are converted to uppercase, while `fieldNames` are converted to camel case to enforce consistency.
-
-Add the following configuration to your Mesh config file:
-
-```json
-{
-  "transforms": [
-    {
-      "namingConvention": {
-        "mode": "bare | wrap",
-        "typeNames": "pascalCase",
-        "enumValues": "upperCase",
-        "fieldNames": "camelCase",
-        "fieldArgumentNames": "camelCase"
-      }
-    }
-  ]
-}
-```
-
-The following example converts all of your `fieldNames` to lower case in the Adobe Commerce source.
+The following example converts all of your `fieldNames` to lower case in the Adobe Commerce source:
 
 ```JSON
 {

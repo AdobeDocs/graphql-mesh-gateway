@@ -25,7 +25,7 @@ Currently, this transform supports `bare` mode only. For information about `bare
 
 ## Usage
 
-The following example hoists the Adobe Commerce `name` field from the `ProductInterface` to the `label` field of `ProductImage`.
+The following example hoists the Adobe Commerce `name` field from the `ProductInterface` to the `label` field of `ProductImage`:
 
 ```json
 {
@@ -59,100 +59,6 @@ The following example hoists the Adobe Commerce `name` field from the `ProductIn
         ]
       }
     ]
-  }
-}
-```
-
-Imagine you have generated your schema from a data source you don't control, and the generated schema looks like this:
-
-```graphql
-type Query {
-  books: BooksApiResponse
-}
-
-type BooksApiResponse {
-  books: [Book]
-}
-
-type Book {
-  title: String!
-  author: Author!
-  code: String
-}
-
-type Author {
-  name: String!
-  age: Int!
-}
-```
-
-As you can see you would have to request a GraphQL Document like the following to retrieve the list of books:
-
-```graphql
-{
-  books {
-    books {
-      title
-      author
-    }
-  }
-}
-```
-
-This is not ideal because you have to request `books` as a child of `books`. In this case, hoisting the value from child to parent would lead to a cleaner schema and request Document.
-
-To achieve this, you can add the following configuration to your Mesh config file:
-
-```json
-{
-  "transforms": [
-    {
-      "replaceField": {
-        "replacements": [
-          {
-            "from": {
-              "type": "Query",
-              "field": "books"
-            },
-            "to": {
-              "type": "BooksApiResponse",
-              "field": "books"
-            },
-            "scope": "hoistValue"
-          }
-        ]
-      }
-    }
-  ]
-}
-```
-
-This will transform your schema from what you had above, to this:
-
-```graphql
-type Query {
-  books: [Book]
-}
-
-type Book {
-  title: String!
-  author: Author!
-  code: String
-}
-
-type Author {
-  name: String!
-  age: Int!
-}
-```
-
-Allowing you to request a GraphQL document like this:
-
-```graphql
-{
-  books {
-    title
-    author
   }
 }
 ```

@@ -50,7 +50,7 @@ This transformer is useful when you have multiple APIs in your Mesh Gateway and 
 
 ## Usage
 
-The following Adobe Commerce example will encapsulate the schema into the `myVenia` field.
+The following example encapsulates the Adobe Commerce schema into the `AdobeCommerce` field:
 
 ```json
 {
@@ -58,6 +58,11 @@ The following Adobe Commerce example will encapsulate the schema into the `myVen
     "sources": [
       {
         "name": "AdobeCommerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        },
         "transforms": [
           {
             "encapsulate": {
@@ -68,12 +73,7 @@ The following Adobe Commerce example will encapsulate the schema into the `myVen
               }
             }
           }
-        ],
-        "handler": {
-          "graphql": {
-            "endpoint": "https://venia.magento.com/graphql"
-          }
-        }
+        ]
       }
     ]
   }

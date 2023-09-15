@@ -19,7 +19,7 @@ You can use it to easily "namespace" APIs in your unified API and avoid conflict
 
 ## Usage
 
-The following example adds the `commerce_` prefix to all Adobe Commerce source types.
+The following example adds the `commerce_` prefix to all Adobe Commerce source types:
 
 ```json
 {
