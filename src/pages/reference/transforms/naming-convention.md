@@ -38,14 +38,14 @@ Add the following configuration to your Mesh config file:
 }
 ```
 
-The following example demonstrates converting all your `fieldNames` to lower case in Adobe Commerce.
+The following example converts all of your `fieldNames` to lower case in the Adobe Commerce source.
 
 ```JSON
 {
   "meshConfig": {
     "sources": [
       {
-        "name": "NamingConventionCreate",
+        "name": "AdobeCommerce",
         "transforms": [
           {
             "namingConvention": {

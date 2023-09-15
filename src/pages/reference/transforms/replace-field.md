@@ -25,14 +25,14 @@ Currently, this transform supports `bare` mode only. For information about `bare
 
 ## Usage
 
-The following example hoists Venia's `name` field from the `ProductInterface` to the `label` field of `ProductImage`:
+The following example hoists the Adobe Commerce `name` field from the `ProductInterface` to the `label` field of `ProductImage`.
 
 ```json
 {
   "meshConfig": {
     "sources": [
       {
-        "name": "Adobe Commerce Replace",
+        "name": "AdobeCommerce",
         "handler": {
           "graphql": {
             "endpoint": "https://venia.magento.com/graphql"

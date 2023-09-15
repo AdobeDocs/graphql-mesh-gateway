@@ -31,7 +31,7 @@ The following example renames Venia's `currency` query to `currencyType`:
   "meshConfig": {
     "sources": [
       {
-        "name": "Adobe Commerce Rename",
+        "name": "AdobeCommerce",
         "transforms": [
           {
             "rename": {

@@ -57,7 +57,7 @@ The following Adobe Commerce example will encapsulate the schema into the `myVen
   "meshConfig": {
     "sources": [
       {
-        "name": "myVenia",
+        "name": "AdobeCommerce",
         "transforms": [
           {
             "encapsulate": {

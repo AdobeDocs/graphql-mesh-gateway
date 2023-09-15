@@ -61,14 +61,14 @@ Add the following configuration to your Mesh config file:
 }
 ```
 
-The following example excludes the `company` type in Adobe Commerce:
+The following example excludes the `company` field from the `Query` type in the Adobe Commerce source.
 
 ```JSON
 {
   "meshConfig": {
     "sources": [
       {
-        "name": "FilterSchemaCreate",
+        "name": "AdobeCommerce",
         "transforms": [
           {
             "filterSchema": {

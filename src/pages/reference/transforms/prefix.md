@@ -19,14 +19,14 @@ You can use it to easily "namespace" APIs in your unified API and avoid conflict
 
 ## Usage
 
-The following example prefixes `commerce_` to all the Venia handler operations.
+The following example adds the `commerce_` prefix to all Adobe Commerce source types.
 
 ```json
 {
   "meshConfig": {
     "sources": [
       {
-        "name": "Adobe Commerce Prefix",
+        "name": "AdobeCommerce",
         "transforms": [
           {
             "prefix": {
