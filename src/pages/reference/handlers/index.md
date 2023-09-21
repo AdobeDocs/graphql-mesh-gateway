@@ -16,9 +16,9 @@ Handlers, or source handlers, allow you to define sources that provide data to y
 
 | Handler Package Name | Version |
 |------------|------------|
-[`openapi`](./openapi.md) | `0.35.26`
+[`openapi`](./openapi.md) | `0.33.39`
 [`graphql`](./graphql.md) | `0.34.13`
-[`JsonSchema`](./json-schema.md) | `0.35.28`
+[`JsonSchema`](./json-schema.md) | `0.35.38`
 [`soap`](./soap.md) | `0.14.25`
 
 The [source handlers](../../gateway/source-handlers.md) topic provides more information about handlers in the context of API Mesh.
