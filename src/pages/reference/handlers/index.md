@@ -16,8 +16,8 @@ Source handlers allow you to define sources that provide data to your mesh. The 
 
 | Handler Package Name | Version |
 |------------|------------|
-[`openapi`](./openapi.md) | `0.33.26`
-[`graphql`](./graphql.md) | `0.31.24`
+[`openapi`](./openapi.md) | `0.33.39`
+[`graphql`](./graphql.md) | `0.34.13`
 [`JsonSchema`](./json-schema.md) | `0.35.38`
 [`soap`](./soap.md) | `0.14.25`
 

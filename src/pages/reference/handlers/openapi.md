@@ -251,6 +251,28 @@ module.exports = { resolvers }
 
 The OpenAPI handler can process OpenAPI Spec Callbacks as GraphQL Subscriptions, by using your Publish-subscribe pattern PubSub implementation to consume the data. However, you need to define webhooks for callbacks individually.
 
+## Loading source from a CDN
+
+API Mesh supports loading sources from a CDN or schema registry by using the `source` property.
+
+```json
+{
+  "sources": [
+    {
+      "name": "MyApi",
+      "handler": {
+        "openapi": {
+          "source": "https://cdn.<your cdn>.graphql",
+          "schemaHeaders": {
+            "X-CDN-Key": "abc123+d4/5e="
+          }
+        }
+      }
+    }
+  ]
+}
+```
+
 ## Config API reference
 
 -  `source` (type: `Any`, required) - Reference to your API source, such as a local file, a remote file, or a URL endpoint

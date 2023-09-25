@@ -224,6 +224,7 @@ If you have different places that the service is deployed, this is useful to get
 -  `useGETForQueries` (type: `Boolean`) - An HTTP GET method for query operations
 -  `method` (type: `String (GET | POST)`) - An HTTP method for GraphQL operations
 <!-- 
+`subscriptionsEndpoint` (type: `String`) - A URL to your endpoint serving all subscription queries for this source
 `customFetch` (type: `Any`) - Path to a custom W3 Compatible Fetch Implementation
 `webSocketImpl` (type: `String`) - Path to a custom W3 Compatible WebSocket Implementation
 `introspection` (type: `String`) - Path to the introspection
