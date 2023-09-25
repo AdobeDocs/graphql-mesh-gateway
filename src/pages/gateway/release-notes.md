@@ -14,6 +14,15 @@ keywords:
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## September 21, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- [GraphQL aliasing](https://graphql.org/learn/queries/) is now enabled.
+  - As a part of this enhancement, several [handler](../reference/handlers/index.md) and [transform](../reference/transforms/index.md) packages have been updated.
+
 ## August 30, 2023
 
 This release contains the following changes to API Mesh:
