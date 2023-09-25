@@ -225,6 +225,7 @@ other options will be ignored and the schema exported from the file will be used
 -  `useGETForQueries` (type: `Boolean`) - Use HTTP GET for Query operations
 -  `method` (type: `String (GET | POST)`) - HTTP method used for GraphQL operations
 <!-- 
+`subscriptionsEndpoint` (type: `String`) - A URL to your endpoint serving all subscription queries for this source
 `customFetch` (type: `Any`) - Path to a custom W3 Compatible Fetch Implementation
 `webSocketImpl` (type: `String`) - Path to a custom W3 Compatible WebSocket Implementation
 `introspection` (type: `String`) - Path to the introspection
