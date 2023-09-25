@@ -39,20 +39,23 @@ The following example includes several common filters that you can use with an A
                 // Filter type(s)
                 "Type.!Customer", // Remove the `Customer` type
                 "Type.!{Customer, Cart}", // Remove the `Customer` and `Cart` types
+
                 // Filter field(s) from type
                 "Query.!customer", // Remove the `customer` field from the root `Query` type
                 "Mutation.!{createCustomer, createEmptyCart}", // Remove the `createCustomer` and `createEmptyCart` fields from the root `Mutation` type
-                "Customer.{firstname, lastname, email, telephone}", // Remove all fields except `firstname`, `lastname`, `email` and `telephone` from the Customer type,
+                "Customer.{firstname, lastname, email, telephone}", // Remove all fields except `firstname`, `lastname`, `email` and `telephone` from the Customer type
+
                 // Filter argument(s) from a single field
                 "Query.products.search", // Remove all arguments except `search` from the `products` field in the Query type
                 "Query.products.{search, sort}" // Remove all arguments except `search` and `sort` from the `products` field in the Query type
                 "Query.products.!pageSize" // Remove the `pageSize` argument from the `products` field in the Query type
                 "Query.products.!{pageSize, currentPage}" // Remove the `pageSize` and `currentPage` arguments from the `products` field in the Query type
+
                 // Filter argument(s) from all fields
-                "Query.*.id" // Remove all arguments except `id` from all fields in Query type
-                "Query.*.{id, uid}" // Remove all arguments except `id` and `uid` from all fields in Query type
+                "Query.*.id" // Remove all arguments except `id` from all fields in the Query type
+                "Query.*.{id, uid}" // Remove all arguments except `id` and `uid` from all fields in the Query type
                 "Query.*.!id" // Remove the `id` argument from all fields in Query type
-                "Query.*.!{id, uid}" // Remove the `id` and `uid` arguments from all fields in Query type
+                "Query.*.!{id, uid}" // Remove the `id` and `uid` arguments from all fields in the Query type
               ]
             }
           }
