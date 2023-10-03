@@ -32,7 +32,15 @@ The [`aio api-mesh:init` command](./command-reference.md#aio-api-meshinit) allow
 
 1. Specify whether you want to use Node Package Manager (`npm`) or `yarn`. (Requires [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).)
 
-The console indicates that the local environment installed successfully.
+  The console indicates that the local environment installed successfully.
+
+1. To deploy your mesh locally, use the `run` command. You can specify a port by using the `--port` flag or by indicating one in the `.env` file. The port defaults to `5000`.
+
+  ```terminal
+  aio api-mesh run --port 9000
+  ```
+
+  The console indicates your server status.
 
 <InlineAlert variant="info" slots="text"/>
 

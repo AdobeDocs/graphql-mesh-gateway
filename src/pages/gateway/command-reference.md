@@ -48,6 +48,39 @@ The following example creates the environment in the `mesh_examples` subdirector
 Local workspace created successfully
 ```
 
+## aio api-mesh:run
+
+[Deploys a mesh locally](./developer-tools.md#deploy-a-mesh-locally). You only need to run this command if you want to work with your mesh locally for testing.
+
+### Usage
+
+```bash
+aio api-mesh:run <port_number>
+```
+
+### Flags
+
+The following arguments are all optional.
+
+`-p` or `--port` allows you to specify the port number for your local environment. The default is `5000`.
+
+`--debug` enters debug mode.
+
+#### Example
+
+The following example runs the mesh locally at port `9000`.
+
+  ```bash
+  aio api-mesh:run -p 9000
+  ```
+
+### Response
+
+```terminal
+Starting server on port no: 5000
+Data from server -
+```
+
 ## aio api-mesh:create
 
 Creates a new mesh based on the settings in the specified `JSON` file in your working directory. After creating your mesh, you will receive a `meshId`, like `12a3b4c5-6d78-4012-3456-7e890fa1bcde`, to refer to it in the future. For more information, see [Creating a mesh].
