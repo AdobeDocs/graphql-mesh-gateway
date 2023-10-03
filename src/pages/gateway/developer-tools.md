@@ -14,7 +14,7 @@ keywords:
 
 The processes covered in this topic allow developers to set up a local environment, use environment variables, and directly reference files in API Mesh for Adobe Developer App Builder.
 
-## Initiate a local environment
+## Create a local environment
 
 A local development environment for API Mesh allows you to run a local version for development and testing purposes.
 
