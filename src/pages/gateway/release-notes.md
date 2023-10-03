@@ -14,6 +14,14 @@ keywords:
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## October 10, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+A [`run` command](./command-reference.md#aio-api-meshrun) is now available, which allows you to [create a local API Mesh environment](./developer-tools.md#create-a-local-environment) for development and testing purposes.
+
 ## September 21, 2023
 
 This release contains the following changes to API Mesh:
@@ -118,7 +126,7 @@ This release contains the following changes to API Mesh:
 
 Added several new tools for local development. We will continue to enhance developer tooling in future releases.
 
-- Added an [`init` command](./developer-tools.md#initiate-a-local-environment) to set up a local environment.
+- Added an [`init` command](./developer-tools.md#create-a-local-environment) to set up a local environment.
 - Enabled the use of a `.env` file to supply your mesh with [environment variables](./developer-tools.md#environment-variables).
 - Added the ability to [reference local files directly](./developer-tools.md#reference-files-directly) in your mesh, which removes the need to stringify and minify file attachments.
 

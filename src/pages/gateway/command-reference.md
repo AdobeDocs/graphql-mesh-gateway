@@ -16,7 +16,7 @@ API Mesh for Adobe Developer App Builder CLI allows you to manage and modify mes
 
 ## aio api-mesh:init
 
-Creates a [local development environment](./developer-tools.md#initiate-a-local-environment). You only need to run this command if you want to set up a local environment.
+Creates a [local development environment](./developer-tools.md#create-a-local-environment). You only need to run this command if you want to set up a local environment.
 
 ### Usage
 
