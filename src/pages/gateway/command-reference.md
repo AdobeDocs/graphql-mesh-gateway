@@ -80,6 +80,8 @@ The following arguments are all optional.
   }
   ```
 
+For more information on debugging, see the [`node.js` Inspector documentation.](https://nodejs.org/en/docs/inspector#inspector-clients)
+
 #### Example
 
 The following example runs the mesh locally at port `9000`.
