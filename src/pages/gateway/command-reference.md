@@ -54,7 +54,7 @@ Local workspace created successfully
 
 This command is currently in beta.
 
-[Deploys a mesh locally](./developer-tools.md#create-a-local-environment). You only need to run this command if you want to work with your mesh locally for testing.
+[Deploys a mesh locally](./developer-tools.md#create-a-local-environment). You only need to run this command if you want to work with your mesh locally for testing. Run `aio api-mesh:init` before running this command.
 
 ### Usage
 
@@ -68,7 +68,17 @@ The following arguments are all optional.
 
 `-p` or `--port` allows you to specify the port number for your local environment. The default is `5000`.
 
-`--debug` enters debug mode.
+`--debug` enters debug mode. Debugging is disabled by default. To use debugging, add the following configuration to your `launch.json` file:
+
+  ```json
+  {
+    "name": "Debug Mesh",
+    "port": 9229,
+    "request": "attach",
+    "skipFiles": ["<node_internals>/**"],
+    "type": "node"
+  }
+  ```
 
 #### Example
 
@@ -81,8 +91,8 @@ The following example runs the mesh locally at port `9000`.
 ### Response
 
 ```terminal
-Starting server on port : 9000
-Data from server -
+Starting server on port : 5000
+Server is running on http://localhost:5000/graphql
 ```
 
 ## aio api-mesh:create

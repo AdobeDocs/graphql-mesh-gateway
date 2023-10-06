@@ -38,13 +38,13 @@ All of these steps can be automated using flags described in the [command refere
 
   The console indicates that the local environment installed successfully.
 
-1. To deploy your mesh locally, use the `run` command. You can specify a port by using the `--port` flag or by indicating one in the `.env` file. The port defaults to `5000`.
+1. To deploy your mesh locally, use the `run` command. The port defaults to `5000`. You can specify a different port by using the `--port` flag or by adding your desired port number to the [`.env` file](#environment-variables), for example `PORT=9000`.
 
   ```terminal
-  aio api-mesh run --port 9000
+  aio api-mesh run mesh.json --port 9000
   ```
 
-  The console indicates your server status.
+  The console indicates your server status. If your build is successful, your mesh will be accessible at `http://localhost:5000/graphql` by default.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -52,7 +52,7 @@ The `run` command is currently in beta.
 
 ## Environment variables
 
-Environment variables allow developers to make changes to a single variable, with one or more occurrences, across multiple meshes.
+Environment variables allow developers to make changes to a single variable, with one or more occurrences, across multiple meshes. An `.env` file will be created automatically when running the [`init` command](./command-reference.md#aio-api-meshinit).
 
 The [`create`](./command-reference.md#aio-api-meshcreate) and [`update`](./command-reference.md#aio-api-meshupdate) commands support the use of an `--env` flag, which allows you to provide an environment variables file location. For example:
 
@@ -70,6 +70,7 @@ The variables in your `.env` file are inserted into your mesh when the mesh is c
 APIName='Adobe Commerce API'
 commerceURL='<your_endpoint>'
 includeHTTPDetailsValue=true
+PORT=9000
 ```
 
 The following mesh uses the preceding `.env` file to populate the name and endpoint for the first source, as well as the state of the `includeHTTPDetails` flag.
