@@ -68,7 +68,7 @@ The following arguments are all optional.
 
 `-p` or `--port` allows you to specify the port number for your local environment. The default is `5000`.
 
-`--debug` enters debug mode. Debugging is disabled by default. To debug in an IDE such as Visual Studio Code, add the following configuration to your `launch.json` file:
+`--debug` enters debug mode. To debug in an IDE such as Visual Studio Code, add the following configuration to your `launch.json` file:
 
   ```json
   {
