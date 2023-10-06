@@ -50,6 +50,10 @@ Local workspace created successfully
 
 ## aio api-mesh:run
 
+<InlineAlert variant="info" slots="text"/>
+
+This command is currently in beta.
+
 [Deploys a mesh locally](./developer-tools.md#create-a-local-environment). You only need to run this command if you want to work with your mesh locally for testing.
 
 ### Usage

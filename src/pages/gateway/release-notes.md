@@ -20,7 +20,11 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-A [`run` command](./command-reference.md#aio-api-meshrun) is now available, which allows you to [create a local API Mesh environment](./developer-tools.md#create-a-local-environment) for development and testing purposes.
+A [`run` command](./command-reference.md#aio-api-meshrun) beta is now available, which allows you to [create a local API Mesh environment](./developer-tools.md#create-a-local-environment) for development and testing purposes.
+
+<InlineAlert variant="info" slots="text"/>
+
+Beta features may not be fully supported.
 
 ## September 21, 2023
 

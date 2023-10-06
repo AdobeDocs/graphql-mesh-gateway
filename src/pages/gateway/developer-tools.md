@@ -20,6 +20,10 @@ A local development environment for API Mesh allows you to run a local version f
 
 The [`aio api-mesh:init` command](./command-reference.md#aio-api-meshinit) allows you to build a local development environment at the specified location.
 
+<InlineAlert variant="info" slots="text"/>
+
+All of these steps can be automated using flags described in the [command reference](./command-reference.md#aio-api-meshinit).
+
 1. Run the following command.
 
     ```bash
@@ -44,7 +48,7 @@ The [`aio api-mesh:init` command](./command-reference.md#aio-api-meshinit) allow
 
 <InlineAlert variant="info" slots="text"/>
 
-All of these steps can be automated using flags described in the [command reference](./command-reference.md#aio-api-meshinit).
+The `run` command is currently in beta.
 
 ## Environment variables
 
