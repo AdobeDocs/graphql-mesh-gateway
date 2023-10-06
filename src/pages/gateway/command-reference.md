@@ -59,7 +59,7 @@ This command is currently in beta.
 ### Usage
 
 ```bash
-aio api-mesh:run <port_number>
+aio api-mesh:run [FILE]
 ```
 
 ### Flags
@@ -75,13 +75,13 @@ The following arguments are all optional.
 The following example runs the mesh locally at port `9000`.
 
   ```bash
-  aio api-mesh:run -p 9000
+  aio api-mesh:run mesh.json -p 9000
   ```
 
 ### Response
 
 ```terminal
-Starting server on port no: 5000
+Starting server on port : 9000
 Data from server -
 ```
 
