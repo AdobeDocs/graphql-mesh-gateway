@@ -26,6 +26,8 @@ A [`run` command](./command-reference.md#aio-api-meshrun) beta is now available,
 
 Beta features may not be fully supported.
 
+To update to the newest version of the CLI, run `aio-update` or `aio plugins:update @adobe/aio-cli-plugin-api-mesh`.
+
 ## September 21, 2023
 
 This release contains the following changes to API Mesh:
