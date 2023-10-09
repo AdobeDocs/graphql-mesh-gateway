@@ -20,7 +20,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-A [`run` command](./command-reference.md#aio-api-meshrun) beta is now available, which allows you to [create a local API Mesh environment](./developer-tools.md#create-a-local-environment) for development and testing purposes.
+A [`run` command](./command-reference.md#aio-api-meshrun) beta is now available, which allows you to [create a local API Mesh environment](./developer-tools.md#create-a-local-environment) for development and testing purposes. The `run` command works in concert with the [`init` command](./command-reference.md#aio-api-meshinit) and [environment variables](./developer-tools.md#environment-variables) to provide more robust developer tooling.
 
 <InlineAlert variant="info" slots="text"/>
 
