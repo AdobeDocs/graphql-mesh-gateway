@@ -19,18 +19,30 @@ You can use it to easily "namespace" APIs in your unified API and avoid conflict
 
 ## Usage
 
-Add the following configuration to your Mesh config file:
+The following example adds the `commerce_` prefix to all Adobe Commerce source types:
 
 ```json
 {
-  "transforms": [
-    {
-      "prefix": {
-        "mode": "bare | wrap",
-        "value": "MyApi_"
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "AdobeCommerce",
+        "transforms": [
+          {
+            "prefix": {
+              "mode": "wrap",
+              "value": "commerce_"
+            }
+          }
+        ],
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        }
       }
-    }
-  ]
+    ]
+  }
 }
 ```
 

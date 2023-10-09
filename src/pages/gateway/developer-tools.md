@@ -14,11 +14,15 @@ keywords:
 
 The processes covered in this topic allow developers to set up a local environment, use environment variables, and directly reference files in API Mesh for Adobe Developer App Builder.
 
-## Initiate a local environment
+## Create a local environment
 
 A local development environment for API Mesh allows you to run a local version for development and testing purposes.
 
 The [`aio api-mesh:init` command](./command-reference.md#aio-api-meshinit) allows you to build a local development environment at the specified location.
+
+<InlineAlert variant="info" slots="text"/>
+
+All of these steps can be automated using flags described in the [command reference](./command-reference.md#aio-api-meshinit).
 
 1. Run the following command.
 
@@ -32,15 +36,23 @@ The [`aio api-mesh:init` command](./command-reference.md#aio-api-meshinit) allow
 
 1. Specify whether you want to use Node Package Manager (`npm`) or `yarn`. (Requires [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).)
 
-The console indicates that the local environment installed successfully.
+  The console indicates that the local environment installed successfully.
+
+1. To deploy your mesh locally, use the `run` command. The port defaults to `5000`. You can specify a different port by using the `--port` flag or by adding your desired port number to the [`.env` file](#environment-variables), for example `PORT=9000`.
+
+  ```terminal
+  aio api-mesh run mesh.json --port 9000
+  ```
+
+  The console indicates your server status. If your build is successful, your mesh will be accessible at `http://localhost:5000/graphql` by default.
 
 <InlineAlert variant="info" slots="text"/>
 
-All of these steps can be automated using flags described in the [command reference](./command-reference.md#aio-api-meshinit).
+The `run` command is currently in beta.
 
 ## Environment variables
 
-Environment variables allow developers to make changes to a single variable, with one or more occurrences, across multiple meshes.
+Environment variables allow developers to make changes to a single variable, with one or more occurrences, across multiple meshes. An `.env` file will be created automatically when running the [`init` command](./command-reference.md#aio-api-meshinit).
 
 The [`create`](./command-reference.md#aio-api-meshcreate) and [`update`](./command-reference.md#aio-api-meshupdate) commands support the use of an `--env` flag, which allows you to provide an environment variables file location. For example:
 
@@ -58,6 +70,7 @@ The variables in your `.env` file are inserted into your mesh when the mesh is c
 APIName='Adobe Commerce API'
 commerceURL='<your_endpoint>'
 includeHTTPDetailsValue=true
+PORT=9000
 ```
 
 The following mesh uses the preceding `.env` file to populate the name and endpoint for the first source, as well as the state of the `includeHTTPDetails` flag.
