@@ -50,27 +50,41 @@ This transformer is useful when you have multiple APIs in your Mesh Gateway and 
 
 ## Usage
 
+The following example encapsulates the Adobe Commerce schema into the `AdobeCommerce` field:
+
 ```json
 {
-  "transforms": [
-    {
-      "encapsulate": {
-        "applyTo": {
-          "query": true,
-          "mutation": false,
-          "subscription": false
-        }
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "AdobeCommerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        },
+        "transforms": [
+          {
+            "encapsulate": {
+              "applyTo": {
+                "query": true,
+                "mutation": false,
+                "subscription": false
+              }
+            }
+          }
+        ]
       }
-    }
-  ]
+    ]
+  }
 }
-
 ```
 
 ## Config API Reference
 
--  `name` (type: `String`) - Optional, the name used for grouping under root types. If you do not specify a name, the API name will be used.
--  `applyTo` (type: `Object`) - Allow you to choose which root operations you would like to apply. By default, it's applied to all root types.:
+-  `name` (type: `String`) - (Optional) The name used for grouping under root types
+   -  If you do not specify a `name`, the API name will be used.
+-  `applyTo` (type: `Object`) - The root operations the `encapsulate` applies to. Unspecified options default to `true`:
    -  `query` (type: `Boolean`)
    -  `mutation` (type: `Boolean`)
    -  `subscription` (type: `Boolean`)

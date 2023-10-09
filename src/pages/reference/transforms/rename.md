@@ -24,49 +24,40 @@ The `rename` transform helps you avoid conflicting names, simplify complicated n
 
 ## Usage
 
-Add the following configuration to your Mesh config file:
+The following example renames the `currency` query field to `currencyType` in the Adobe Commerce source:
 
 ```json
 {
-  "transforms": [
-    {
-      "rename": {
-        "mode": "bare | wrap",
-        "renames": [
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "AdobeCommerce",
+        "transforms": [
           {
-            "from": {
-              "type": "ApiUser"
-            },
-            "to": {
-              "type": "User"
-            }
-          },
-          {
-            "from": {
-              "type": "Query",
-              "field": "apiUser"
-            },
-            "to": {
-              "type": "Query",
-              "field": "user"
-            }
-          },
-          {
-            "from": {
-              "type": "Query",
-              "field": "user",
-              "argument": "user_id"
-            },
-            "to": {
-              "type": "Query",
-              "field": "user",
-              "argument": "userId"
+            "rename": {
+              "renames": [
+                {
+                  "from": {
+                    "type": "Query",
+                    "field": "currency"
+                  },
+                  "to": {
+                    "type": "Query",
+                    "field": "currencyType"
+                  }
+                }
+              ]
             }
           }
-        ]
+        ],
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        }
       }
-    }
-  ]
+    ]
+  }
 }
 ```
 

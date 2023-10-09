@@ -19,119 +19,50 @@ For example, you might want to exclude deprecated queries, mutations, and types 
 
 ## Usage
 
-Add the following configuration to your Mesh config file:
+The following example includes several common filters that you can use with an Adobe Commerce source:
 
 ```json
 {
-  "transforms": [
-    {
-      "filterSchema": {
-        "mode": "bare | wrap",
-        "filters": [
-          "Type.!User",
-            // This will remove `User` type
-          "Type.!{User, Post}",
-            // This will remove `User` and `Post` types
-          "Query.!admins",
-            // This will remove field `admins` from `Query` type
-          "Mutation.!{addUser, removeUser}",
-            // This will remove fields `addUser` and `removeUser` from `Mutation` type
-          "User.{id, username, name, age}",
-            // This will remove all fields, from User type, except `id`, `username`, `name` and `age`
-          "Query.user.id",
-            // This will remove all args from field `user`, in Query type, except `id` only
-          "Query.user.!name",
-            // This will remove argument `name` from field `user`, in Query type
-          "Query.user.{id, name}",
-            // This will remove all args for field `user`, in Query type, except `id` and `name`
-          "Query.user.!{id, name}",
-            // This will remove args `id` and `name` from field `user`, in Query type
-          "Query.*.id",
-            // This will remove all args from all fields in Query type, except `id` only
-          "Query.*.!name",
-            // This will remove argument `name` from all fields in Query type
-          "Query.*.{id, name}",
-            // This will remove all args from all fields in Query type, except `id` and `name`
-          "Query.*.!{id, name}"
-            // This will remove args `id` and `name` from all fields in Query type
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "AdobeCommerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        },
+        "transforms": [
+          {
+            "filterSchema": {
+              "filters": [
+                // Filter type(s)
+                "Type.!Customer", // Remove the `Customer` type
+                "Type.!{Customer, Cart}", // Remove the `Customer` and `Cart` types
+
+                // Filter field(s) from type
+                "Query.!customer", // Remove the `customer` field from the root `Query` type
+                "Mutation.!{createCustomer, createEmptyCart}", // Remove the `createCustomer` and `createEmptyCart` fields from the root `Mutation` type
+                "Customer.{firstname, lastname, email, telephone}", // Remove all fields except `firstname`, `lastname`, `email` and `telephone` from the Customer type
+
+                // Filter argument(s) from a single field
+                "Query.products.search", // Remove all arguments except `search` from the `products` field in the Query type
+                "Query.products.{search, sort}" // Remove all arguments except `search` and `sort` from the `products` field in the Query type
+                "Query.products.!pageSize" // Remove the `pageSize` argument from the `products` field in the Query type
+                "Query.products.!{pageSize, currentPage}" // Remove the `pageSize` and `currentPage` arguments from the `products` field in the Query type
+
+                // Filter argument(s) from all fields
+                "Query.*.id" // Remove all arguments except `id` from all fields in the Query type
+                "Query.*.{id, uid}" // Remove all arguments except `id` and `uid` from all fields in the Query type
+                "Query.*.!id" // Remove the `id` argument from all fields in Query type
+                "Query.*.!{id, uid}" // Remove the `id` and `uid` arguments from all fields in the Query type
+              ]
+            }
+          }
         ]
       }
-    }
-  ]
-}
-```
-
-## Example
-
-Let's assume you have the following schema:
-
-```graphql
-type Query {
-  me: User
-  users: [User]
-  user(id: ID, name: String): User
-  admins: [User]
-}
-
-type Mutation {
-  updateMyProfile(name: String, age: Int): User
-  addUser(username: String, name: String, age: Int): User
-  removeUser(id: ID): ID
-}
-
-type User {
-  id: ID
-  username: String
-  password: String
-  name: String
-  age: Int
-  ipAddress: String
-}
-
-type LooseType {
-  foo: String
-  bar: String
-}
-```
-
-With the following Filter Schema config:
-
-```json
-{
-  "transforms": [
-    {
-      "filterSchema": {
-        "mode": "bare | wrap",
-        "filters": [
-          "Type.!LooseType",
-          "Query.!admins",
-          "Mutation.!{addUser, removeUser}",
-          "User.{username, name, age}",
-          "Query.user.!name"
-        ]
-      }
-    }
-  ]
-}
-```
-
-It would become the following schema:
-
-```graphql
-type Query {
-  me: User
-  users: [User]
-  user(id: ID): User
-}
-
-type Mutation {
-  updateMyProfile(name: String, age: Int): User
-}
-
-type User {
-  username: String
-  name: String
-  age: Int
+    ]
+  }
 }
 ```
 

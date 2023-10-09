@@ -16,7 +16,7 @@ API Mesh for Adobe Developer App Builder CLI allows you to manage and modify mes
 
 ## aio api-mesh:init
 
-Creates a [local development environment](./developer-tools.md#initiate-a-local-environment). You only need to run this command if you want to set up a local environment.
+Creates a [local development environment](./developer-tools.md#create-a-local-environment). You only need to run this command if you want to set up a local environment.
 
 ### Usage
 
@@ -46,6 +46,55 @@ The following example creates the environment in the `mesh_examples` subdirector
 
 ```terminal
 Local workspace created successfully
+```
+
+## aio api-mesh:run
+
+<InlineAlert variant="info" slots="text"/>
+
+This command is currently in beta.
+
+[Deploys a mesh locally](./developer-tools.md#create-a-local-environment). You only need to run this command if you want to work with your mesh locally for testing. Run `aio api-mesh:init` before running this command.
+
+### Usage
+
+```bash
+aio api-mesh:run [FILE]
+```
+
+### Flags
+
+The following arguments are all optional.
+
+`-p` or `--port` allows you to specify the port number for your local environment. The default is `5000`.
+
+`--debug` enters debug mode. To debug in an IDE such as Visual Studio Code, add the following configuration to your `launch.json` file:
+
+  ```json
+  {
+    "name": "Debug Mesh",
+    "port": 9229,
+    "request": "attach",
+    "skipFiles": ["<node_internals>/**"],
+    "type": "node"
+  }
+  ```
+
+For more information on debugging, see the [`node.js` Inspector documentation.](https://nodejs.org/en/docs/inspector#inspector-clients)
+
+#### Example
+
+The following example runs the mesh locally at port `9000`.
+
+  ```bash
+  aio api-mesh:run mesh.json -p 9000
+  ```
+
+### Response
+
+```terminal
+Starting server on port : 5000
+Server is running on http://localhost:5000/graphql
 ```
 
 ## aio api-mesh:create
