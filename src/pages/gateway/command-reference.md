@@ -175,7 +175,9 @@ aio api-mesh:update mesh.json
 #### Response
 
 ```terminal
-Successfully updated the mesh with the id: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+Your mesh is being provisioned. Wait a few minutes before checking the status of your mesh 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+To check the status of your mesh, run:
+aio api-mesh:status
 ```
 
 ## aio api-mesh:status
@@ -298,7 +300,8 @@ Successfully retrieved mesh {
     "userEmail": "uname@domain.com",
     "userId": "A4BF2F3C61FC531A0A494210@AdobeID",
     "displayName": "User%20Name"
-  }
+  },
+  "meshStatus": "success",
 }
 ```
 
@@ -364,7 +367,6 @@ Org ID: 123456789
 Project ID: 1234567890123456789
 Workspace ID: 2345678901234567890
 Mesh ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
-API Key: f0a3b4c56d78401234567e890fa1bcde
 Mesh Endpoint: https://graph.adobe.io/api/12a3b4c5-6d78-4012-3456-7e890fa1bcde/graphql?api_key=12a3b4c5-6d78-4012-3456-7e890fa1bcde
 ```
 
