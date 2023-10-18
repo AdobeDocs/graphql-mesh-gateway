@@ -20,7 +20,7 @@ This release contains the following changes to API Mesh:
 
 ### Bug fixes
 
-Resolved a memory leak that could cause slow response times.
+Performance fixes.
 
 ## October 09, 2023
 
