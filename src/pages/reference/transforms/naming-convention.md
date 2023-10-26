@@ -51,7 +51,7 @@ For information about `bare` and `wrap` modes, please read the [dedicated sectio
 <InlineAlert variant="info" slots="text"/>
 
 <p>
-The following case options should not be used because they violate the [GraphQL](https://spec.graphql.org/June2018/#sec-Names):
+The following case options should not be used because they violate the <a href="https://spec.graphql.org/June2018/#sec-Names)">GraphQL spec</a>
 
 - `capitalCase`
 - `dotCase`
