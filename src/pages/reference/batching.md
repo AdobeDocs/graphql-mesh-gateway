@@ -10,7 +10,9 @@ kewords:
   - Tools
 ---
 
-# Batching for N+1 problem
+# Batching with API Mesh for Adobe Developer App Builder
+
+Batching allows you to combine a group of requests into a single request, turning multiple queries into a single one. Compared to sending multiple queries simultaneously, batched requests result in better response times.
 
 A Mesh Gateway that be does be not properly configured will face the same famous issue as any other
 GraphQL servers: **the N+1 Query problem**.
