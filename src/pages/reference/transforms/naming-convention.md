@@ -48,6 +48,21 @@ For information about `bare` and `wrap` modes, please read the [dedicated sectio
 
 ## Config API Reference
 
+<InlineAlert variant="info" slots="text"/>
+
+<p>
+The following case options should not be used because they violate the <a href="https://spec.graphql.org/October2021/#sec-Names)">GraphQL spec</a>. These options will likely be deprecated in the future.
+
+- `capitalCase`
+- `dotCase`
+- `headerCase`
+- `noCase`
+- `paramCase`
+- `pathCase`
+- `sentenceCase`
+
+</p>
+
 -  `mode` (type: String (`bare` | `wrap`)) - Specify to apply naming-convention transforms to bare schema or by wrapping original schema
 -  `typeNames` (type: String (`camelCase` | `capitalCase` | `constantCase` | `dotCase` | `headerCase` | `noCase` | `paramCase` | `pascalCase` | `pathCase` | `sentenceCase` | `snakeCase` | `upperCase` | `lowerCase`))
 -  `fieldNames` (type: String (`camelCase` | `capitalCase` | `constantCase` | `dotCase` | `headerCase` | `noCase` | `paramCase` | `pascalCase` | `pathCase` | `sentenceCase` | `snakeCase` | `upperCase` | `lowerCase`))
