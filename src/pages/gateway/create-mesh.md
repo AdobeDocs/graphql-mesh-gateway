@@ -155,7 +155,7 @@ You can also create a mesh automatically when [bootstrapping a new app through t
 
 ## Mesh example
 
-The following example adds both an Adobe Commerce instance (with Live Search enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Live Search are different, therefore you must configure them separately.
+The following example adds both an Adobe Commerce instance (with Catalog Service enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Catalog Service are different, therefore you must configure them separately.
 
 ```json
     {
@@ -178,25 +178,20 @@ The following example adds both an Adobe Commerce instance (with Live Search ena
             }
           },
           {
-            "name": "LiveSearch",
+            "name": "CatalogService",
               "handler": {
                 "graphql": {
-                  "endpoint": "https://<your_commerce_site>/search/graphql",
+                  "endpoint": "https://catalog-service.adobe.io/graphql/",
                   "operationHeaders": {
-                    "x-api-key": "search_gql",
+                    "x-api-key": "<api_key>",
                     "Magento-Environment-Id": "<your_environment_id>",
                     "Magento-Website-Code": "base",
-                    "Content-Type": "application/json",
+                    "Magento-Customer-Group": "<customer_group_value>",
                     "Magento-Store-Code": "main_website_store",
                     "Magento-Store-View-Code": "default"
                   },
                   "schemaHeaders": {
-                    "x-api-key": "search_gql",
-                    "Magento-Environment-Id": "<your_environment_id>",
-                    "Magento-Website-Code": "base",
-                    "Content-Type": "application/json",
-                    "Magento-Store-Code": "main_website_store",
-                    "Magento-Store-View-Code": "default"
+                    "x-api-key": "<api_key>"
                   }
                 }
               }
@@ -237,25 +232,20 @@ aio api-mesh:update update-mesh.json
             }
           },
           {
-            "name": "LiveSearch",
+            "name": "CatalogService",
               "handler": {
                 "graphql": {
-                  "endpoint": "https://<your_commerce_site>/search/graphql",
+                  "endpoint": "https://catalog-service.adobe.io/graphql/search/graphql",
                   "operationHeaders": {
-                    "x-api-key": "search_gql",
+                    "x-api-key": "<api_key>",
                     "Magento-Environment-Id": "<your_environment_id>",
                     "Magento-Website-Code": "base",
-                    "Content-Type": "application/json",
+                    "Magento-Customer-Group": "<customer_group_value>",
                     "Magento-Store-Code": "main_website_store",
                     "Magento-Store-View-Code": "default"
                   },
                   "schemaHeaders": {
-                    "x-api-key": "search_gql",
-                    "Magento-Environment-Id": "<your_environment_id>",
-                    "Magento-Website-Code": "base",
-                    "Content-Type": "application/json",
-                    "Magento-Store-Code": "main_website_store",
-                    "Magento-Store-View-Code": "default"
+                    "x-api-key": "<api_key>"
                   }
                 }
               }
