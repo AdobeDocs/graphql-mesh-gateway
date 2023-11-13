@@ -165,6 +165,10 @@ Including metadata prefixes the returned response headers with their source name
 
 Cross-origin resource sharing (CORS) allows you to pass resources that are usually restricted to an outside domain. Refer to [MDN's documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for more information on CORS headers.
 
+<InlineAlert variant="info" slots="text"/>
+
+To get CORS response headers when querying your mesh you must provide an `origin` request header with the origin URL as the value. For example, `origin: https://graph.adobe.io`.
+
 To add CORS headers to your mesh, create a `CORS` object in the `responseConfig` object, using the following key-value pairs:
 
 -  `origin` (Required) - the scheme and domain of the resource you want to allow to make a CORS request
