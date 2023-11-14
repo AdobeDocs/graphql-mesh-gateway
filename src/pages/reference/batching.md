@@ -12,160 +12,116 @@ kewords:
 
 # Batching with API Mesh for Adobe Developer App Builder
 
-Batching allows you to combine a group of requests into a single request, turning multiple queries into a single one. Compared to sending multiple queries simultaneously, batched requests result in better response times.
+Batching allows you to combine a group of requests into a single request, turning multiple queries into a single one. Compared to sending multiple queries simultaneously, batched requests result in better response times. They also avoid issues with rate-limiting.
 
-A Mesh Gateway that be does be not properly configured will face the same famous issue as any other
-GraphQL servers: **the N+1 Query problem**.
+Consider a scenario where you are using the following mesh, where `<reviews_api>` is a third-party API that contains reviews for your products by SKU. Each review has a `review`, `customer_name`, and `rating` field.
 
-Fortunately, GraphQL Mesh provides a way to batch requests with specific parameters.
-
-## Enable requests batching
-
-Our
-[`multiple-sources`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources)
-example Gateway:
-
-```mermaid
-graph TD;
-subgraph AA [" "]
-A[Mobile app];
-B[Web app];
-C[Node.js client];
-end
-subgraph BB [" "]
-E[Books REST API];
-F[Authors gRPC API];
-G[Stores GraphQL API];
-end
-Z[Mesh Gateway GraphQL API];
-A --> Z;
-B --> Z;
-C --> Z;
-Z --> E;
-Z --> F;
-Z --> G;
+```json
+{
+    "meshConfig": {
+        "sources": [
+            {
+                "name": "Products",
+                "handler": {
+                    "graphql": {
+                        "endpoint": "https://venia.magento.com/graphql"
+                    }
+                }
+            },
+            {
+                "name": "Reviews API",
+                "handler": {
+                    "graphql": {
+                        "endpoint": "<Reviews_API_URL>",
+                        "useGETForQueries":true
+                    }
+                }
+            }
+        ]
+    }
+}
 ```
 
-Will emit multiple requests to the "Authors" API when resolving the nested `Book.author` field:
+The following query causes multiple calls to the Reviews API:
 
 ```graphql
-query bestSellersByStore {
-  stores {
-    id
-    name
-    bookSells {
-      sellsCount
-      book {
-        id
-        title
-        author {
-          id
-          name
+NEED EXAMPLE
+```
+
+To make a single network request to each source, modify the mesh configuration to contain the `addtionalTypeDef` and `additionalResolver` described below:
+
+```json
+{
+    "meshConfig": {
+        "sources": [
+            {
+                "name": "Products",
+                "handler": {
+                    "graphql": {
+                        "endpoint": " https://venia.magento.com/graphql"
+                    }
+                }
+            },
+            {
+                "name": "Reviews",
+                "handler": {
+                    "graphql": {
+                        "endpoint": " https://development-105661-batching-stage.adobeioruntime.net/api/v1/web/io-graphql/graphql",
+                        "useGETForQueries":true
+                    }
+                }
+            }
+        ],
+        "additionalTypeDefs": "extend type ConfigurableProduct { customer_reviews: productReviewslist} " ,
+        "additionalResolvers" : [
+          {
+            "targetFieldName" : "customer_reviews",
+            "targetTypeName" : "ConfigurableProduct",
+            "sourceName": "Reviews",
+            "sourceTypeName": "Query",
+            "sourceFieldName": "productsReviews",
+            "keysArg": "sku",
+            "keyField": "sku"
+        }],
+        "responseConfig": {
+            "includeHTTPDetails": true
         }
+    }
+}
+```
+
+The custom resolver extends the type `ConfigurableProdcut` with a new `customer_reviews` field, which allows for the nesting review fields inside of queries against the Venia source. The resolver is composed of the following components:
+
+- The target (`targetTypeName`, `targetFieldName`) - describes the queried field.
+- The source (`sourceName`, `sourceTypeName`, `sourceFieldName`) - describes where the data is resolved for the target field.
+- The keys (`keysArg`, `keyField`):
+  - `keysArg` provides the name of the primary key argument. For this example, the `keysArg` field is the argument name used when sending an array of SKUs to fetch multiple reviews.
+  - `keyField` provides the key value for each item in the batched query. For this example, the `keyField` indicates which Product field provides the SKU value to the review service.
+
+The following query uses the custom resolver to batch the nested data, making only one call to each source:
+
+```graphql
+{
+  products(filter: { sku: { in: ["VD03", "VT12"] } }) {
+    items {
+      ... on ConfigurableProduct {
+        sku
+        name
+        customer_reviews {
+          sku
+          reviews {
+            review
+            customer_name
+            rating
+          }
+        }
+        __typename
       }
     }
   }
 }
 ```
 
-```mermaid
-sequenceDiagram
-participant Mesh Gateway
-participant Book.author resolver
-participant Authors API
-Mesh Gateway->>Book.author resolver: Query.stores[0].bookSells[0].book[0].author
-Book.author resolver->>Authors API: GetAuthor(input: \{ id: "123" \})
-Mesh Gateway->>Book.author resolver: Query.stores[0].bookSells[0].book[6].author
-Book.author resolver->>Authors API: GetAuthor(input: \{ id: "754" \})
-Mesh Gateway->>Book.author resolver: Query.stores[0].bookSells[0].book[7].author
-Book.author resolver->>Authors API: GetAuthor(input: \{ id: "332" \})
-```
+<InlineAlert variant="info" slots="text"/>
 
-Fortunately, Mesh allows an extra directive-based configuration to provide a "batching" query that
-will help resolve many record of the same type.
-
-Our current resolver configuration for `Book.author` is the following:
-
-[`.meshrc.yaml`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.meshrc.yaml)
-
-```yaml filename=".meshrc.yaml"
-sources:
-  # …
-transforms:
-  # …
-additionalTypeDefs: |
-  # …
-  extend type Book {
-    author: authors_v1_Author @resolveTo(
-      sourceName: "Authors", # Which source does the target field belong to?
-      sourceTypeName: "Query", # Which root type does the target field belong to?
-      sourceFieldName: "authors_v1_AuthorsService_GetAuthor", # What is the source field name?
-      requiredSelectionSet: "{ authorId }",
-      # What args does this need to take?
-      sourceArgs: {
-        "input.id": "{root.authorId}"
-      }
-    )
-  }
-```
-
-Assuming that the "Authors" is exposing a
-`authors_v1_AuthorsService_GetAuthors(input: authors_v1_GetAuthorsRequest_Input)` with
-`authors_v1_GetAuthorsRequest_Input` being:
-
-```graphql
-input authors_v1_GetAuthorsRequest_Input {
-  ids: [String!]!
-}
-```
-
-We could update our `.meshrc.yaml` configuration as follows:
-
-```yaml filename=".meshrc.yaml"
-sources:
-  # …
-transforms:
-  # …
-
-# Create a resolver with batching to solve N+1 problem
-additionalTypeDefs: |
-  # …
-  extend type Book {
-    author: authors_v1_Author @resolveTo(
-      sourceName: "Authors",
-      sourceFieldName: "authors_v1_AuthorsService_GetAuthors",
-      keyField: "authorId",
-      keysArg: "input.ids"
-    )
-  }
-```
-
-`requiredSelectionSet` and `sourceArgs` got replaced by `keyField` and `keysArg`:
-
-- `keysArg` provides the name of the batching primary key argument (`input.ids` from
-  `authors_v1_GetAuthorsRequest_Input`)
-- `keyField` indicates which `Book` selection-set field should be used to provide the `ids` value
-
-Now, our Mesh Gateway will try to batch calls to the "Authors" API when resolving `Book.author`:
-
-```mermaid
-sequenceDiagram
-participant Mesh Gateway
-participant Book.author resolver
-participant Authors API
-Mesh Gateway->>Book.author resolver: Query.stores[0].bookSells[0].book[0].author
-Mesh Gateway->>Book.author resolver: Query.stores[0].bookSells[0].book[6].author
-Mesh Gateway->>Book.author resolver: Query.stores[0].bookSells[0].book[7].author
-Book.author resolver->>Authors API: GetAuthors(input: \{ ids: ["123", "754", "332"] \})
-```
-
-## Request Batching on the gateway level
-
-Mesh also provides a way to batch requests on the gateway level. This is useful when you want to
-send multiple requests to the gateway in a single HTTP request. This follows
-[Batching RFC](https://github.com/graphql/graphql-over-http/blob/main/rfcs/Batching.md)
-
-```yaml
-serve:
-  batchingLimit: 10 # You have to define an explicit limit for batching
-```
+Use `"includeHTTPDetails": true` to see response details that indicate how many calls your mesh made to each source.
