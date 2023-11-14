@@ -21,6 +21,7 @@ Follow the links below for more information on using API Mesh:
    -  [OpenAPI]
    -  [GraphQL]
    -  [JSON Schemas]
+   -  [SOAP](./handlers/soap.md)
 -  Transforms
    -  [Transforms Overview]
    -  [Encapsulate]
