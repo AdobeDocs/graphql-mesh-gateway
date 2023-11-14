@@ -24,7 +24,7 @@ This release contains the following changes to API Mesh:
 
 <InlineAlert variant="info" slots="text"/>
 
-Due to an internal upgrade, to get CORS response headers when querying your mesh you must provide an `origin` request header with the origin URL as the value. For example, `origin: https://graph.adobe.io`.
+Due to an internal upgrade, to get CORS response headers when querying your mesh, you must provide an `origin` request header with the origin URL as the value. For example, `origin: https://graph.adobe.io`.
 
 ### Bug fixes
 
