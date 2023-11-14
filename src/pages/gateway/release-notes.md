@@ -14,6 +14,26 @@ keywords:
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+# November 14, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Internal monitoring and optimization upgrades.
+
+<InlineAlert variant="info" slots="text"/>
+
+Due to an internal upgrade, to get CORS response headers when querying your mesh, you must provide an `origin` request header with the origin URL as the value. For example, `origin: https://graph.adobe.io`.
+
+### Bug fixes
+
+- Resolved an issue in the CLI where using the `aio api-mesh get --json` command in a workspace with no mesh configuration would return an inconsistent error.
+
+<InlineAlert variant="info" slots="text"/>
+
+To update to the newest version of the CLI, run `aio-update` or `aio plugins:update @adobe/aio-cli-plugin-api-mesh`.
+
 ## October 18, 2023
 
 This release contains the following changes to API Mesh:
