@@ -13,11 +13,11 @@ keywords:
 
 # Edge caching
 
-API Mesh for Adobe Developer App Builder supports edge caching if you provide your own content delivery network (CDN), such as Fastly. Edge caching helps improve website load times and reduces consumption costs associated with bandwidth.
+API Mesh for Adobe Developer App Builder supports edge caching if you provide your own content delivery network (CDN), such as [Fastly](./fastly.md). Edge caching helps improve website load times and reduces consumption costs associated with bandwidth.
 
 <InlineAlert variant="info" slots="text"/>
 
-When using a CDN, you must invalidate the cache after modifying a mesh configuration or you will receive stale information.
+When using a CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information.
 
 ## Cache-control headers
 
@@ -178,82 +178,3 @@ Cache-control header values in your mesh configuration file take precedence over
   }
 }
 ```
-
-## Fastly configuration
-
-API Mesh requires specific configuration settings when using Fastly as a CDN with Adobe Commerce.
-
-To distinguish between requests from users and requests from API Mesh, use the following configuration option to prevent Fastly from caching headers that come directly from API Mesh:
-
-```json
-"x-commerce-bypass-fastly-cache": "true" 
-```
-
-When bypassing the cache, you must also specify which headers should be preserved in the `responseConfig`:
-
-```json
-"responseConfig": {
-  "headers": [
-    "x-magento-cache-id",
-    "x-magento-tags",
-    "set-cookie",
-    "pragma",
-    "cache-control",
-    "expires",
-    "x-content-type-options",
-    "x-xss-protection",
-    "x-platform-server"
-  ]
-}
-```
-
-Using Fastly also requires all queries to be `GET` queries. If you do not use `GET` queries, they will not be cached. To enforce this in your mesh, add the following configuration option:
-
-`"useGETForQueries": true`
-
-### Fastly example mesh
-
-The following example mesh specifies the headers to cache, enables the cache bypass, and sets all queries to pass as `GET` queries.
-
-```json
-{
-  "meshConfig": {
-    "responseConfig": {
-      "includeHTTPDetails": true
-    },
-    "sources": [
-      {
-        "name": "Core",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://venia.magento.com/graphql",
-            "operationHeaders": {
-              "Authorization": "{context.headers['authorization']}",
-              "Content-Type": "application/json",
-              "x-commerce-bypass-fastly-cache": "true"
-            },
-            "useGETForQueries": true
-          }
-        },
-        "responseConfig": {
-          "headers": [
-            "x-magento-cache-id",
-            "x-magento-tags",
-            "set-cookie",
-            "pragma",
-            "cache-control",
-            "expires",
-            "x-content-type-options",
-            "x-xss-protection",
-            "x-platform-server"
-          ]
-        }
-      }
-    ]
-  }
-}
-```
-
-### Fastly Prefixing
-
-API mesh prefixes any Fastly source headers with their source name. For example, a source named "commerce" with an `x-magento-cache-id` header is converted to `x-commerce-magento-cache-id`. However, if your endpoint URL contains "magento", API Mesh assumes you are connecting to an Adobe Commerce instance and does not prefix your headers with a source name. Using the previous example, your header would remain `x-magento-cache-id`.

@@ -43,6 +43,10 @@ module.exports = [
                 title: 'Edge caching and cache control',
                 path: '/gateway/cache-control-headers'
             },
+            {
+                title: 'Fastly configuration',
+                path: '/gateway/fastly'
+            },
         ],
     },
     {
