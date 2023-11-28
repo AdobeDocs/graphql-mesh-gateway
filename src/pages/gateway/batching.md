@@ -45,7 +45,16 @@ Consider a scenario where you are using the following mesh, where `<reviews_api>
 The following query causes multiple calls to the Reviews API:
 
 ```graphql
-NEED EXAMPLE
+{
+  productsReviews(sku: ["VT12","VD03"]) {
+    sku
+    reviews {
+      review
+      customer_name
+      rating
+    }
+  }
+}
 ```
 
 To make a single network request to each source, modify the mesh configuration to contain the `addtionalTypeDef` and `additionalResolver` described below:
@@ -66,7 +75,7 @@ To make a single network request to each source, modify the mesh configuration t
                 "name": "Reviews",
                 "handler": {
                     "graphql": {
-                        "endpoint": " https://development-105661-batching-stage.adobeioruntime.net/api/v1/web/io-graphql/graphql",
+                        "endpoint": "<Reviews_API_URL>",
                         "useGETForQueries":true
                     }
                 }
