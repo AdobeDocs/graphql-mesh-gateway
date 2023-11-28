@@ -148,7 +148,7 @@ In your GraphQL client, run the following GraphQL queries:
 
 These queries demonstrate how you can return data from multiple sources within your mesh with a single request.
 
-The [`storeConfig`](https://developer.adobe.com/commerce/webapi/graphql/schema/store/queries/store-config/) query returns information from the `GraphQL` handler, while the [GetV1DirectoryCountries](https://adobe-commerce.redoc.ly/2.4.5-admin/tag/directorycountries#operation/GetV1DirectoryCountries) query returns information from the `REST`  handler.
+The [`storeConfig`](https://developer.adobe.com/commerce/webapi/graphql/schema/store/queries/store-config/) query returns information from the `GraphQL` handler, while the [GetV1DirectoryCountries](https://adobe-commerce.redoc.ly/2.4.6-admin/tag/directorycountries#operation/GetV1DirectoryCountries) query returns information from the `REST`  handler.
 
 ## Add a transform
 
