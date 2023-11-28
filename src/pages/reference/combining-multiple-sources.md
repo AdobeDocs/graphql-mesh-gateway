@@ -333,9 +333,7 @@ The `additionalTypeDefs` configuration parameter allows you to merge GraphQL wit
 
 If we want to add the `Book.author` field, we first need to know what is the type of Author.
 
-Since the handlers generate most types, it might be hard to guess their correct spelling (e.g. `authors_v1_Author`). A quick way to build an `additionalTypeDefs` is to refer to the generated GraphQL Schema file of each Source that can be found in the [`.mesh/sources`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.mesh/sources/) directory.
-
-For example, the GraphQL Schema of the "Authors" Source can be found at [`.mesh/sources/Authors/schema.graphql`](https://github.com/charlypoly/graphql-mesh-docs-first-gateway/tree/master/packages/multiple-sources/.mesh/sources/Authors/schema.graphql):
+Since the handlers generate most types, it might be hard to guess their correct spelling (e.g. `authors_v1_Author`). A quick way to build an `additionalTypeDefs` is to refer to the generated GraphQL Schema file of each Source.
 
 ```graphql
 schema {
