@@ -65,7 +65,6 @@ If you encounter repeated `429` response codes or for any other security issues,
 [supports GraphQL queries]: https://devdocs.magento.com/guides/v2.4/graphql/index.html
 [GraphQL]: https://graphql.org/
 [GraphQL Mesh]: https://www.graphql-mesh.com/
-[mesh]: https://www.graphql-mesh.com/docs/getting-started/basic-usage
 [Getting started]: getting-started.md
 [Prerequisites]: getting-started.md#Prerequisites
 [Create an Adobe IO account]: getting-started.md#prerequisites
