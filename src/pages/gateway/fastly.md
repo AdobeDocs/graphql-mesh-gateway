@@ -33,14 +33,18 @@ Use the following process to configure edge caching for Adobe Commerce using the
      - **Priority** - **60**
      - **Content**:
 
-        ```vcl
-        if ((req.request == "GET" || req.request == "HEAD") && (req.url.path ~ "/graphql" || req.url "^/api/(.*)") && req.url.qs ~ "query=" && req.http.x-commerce-bypass-fastly-cache == "true") {set req.http.graphql = "1";} else {unset req.http.graphql;} if ( req.url.path !~ "/graphql" && req.url !~ "^/api/(.*)" ) {
-
-        set req.http.Magento-Original-URL = req.url;
-
-        set req.url = querystring.regfilter(req.url,"^(utm_.*|gclid|gdftrk|_ga|mc_.*|trk_.*|dm_i|_ke|sc_.*|fbclid)$");
+        ```csharp
+        if ((req.request == "GET" || req.request == "HEAD") && (req.url.path~"/graphql" || req.url "^/api/(.*)") && req.url.qs~"query=" && req.http.x - commerce - bypass - fastly - cache == "true") {
+          set req.http.graphql = "1";
         }
-        ...
+        else {
+          unset req.http.graphql;
+        }
+        if (req.url.path!~"/graphql" && req.url!~"^/api/(.*)") {
+          set req.http.Magento - Original - URL = req.url;
+
+          set req.url = querystring.regfilter(req.url, "^(utm_.*|gclid|gdftrk|_ga|mc_.*|trk_.*|dm_i|_ke|sc_.*|fbclid)$");
+        }
         ```
 
    - Allows API Mesh to function as a backend:
@@ -49,7 +53,7 @@ Use the following process to configure edge caching for Adobe Commerce using the
      - **Priority** - **1**
      - **Content**:
   
-        ```vcl
+        ```csharp
         backend F_graph_prod_adobe_io {
             .always_use_host_header = true;
             .between_bytes_timeout = 10s;
@@ -82,8 +86,10 @@ Use the following process to configure edge caching for Adobe Commerce using the
      - **Priority** - **10**
      - **Content**:
 
-        ```vcl
-        if(req.http.x-commerce-bypass-fastly-cache == "true") { return(pass); }
+        ```csharp
+        if (req.http.x - commerce - bypass - fastly - cache == "true") {
+          return (pass);
+        }
         ```
 
    - Cache miss - replace the `<mesh_id>` and `<mesh_api_key>` placeholders with the information from your mesh URL, which has the following structure: `https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`:
@@ -92,24 +98,22 @@ Use the following process to configure edge caching for Adobe Commerce using the
      - **Priority** - **60**
      - **Content**:
 
-        ```vcl
-        if (req.url ~ "^/api/") {
-        set req.backend = F_graph_prod_adobe_io;
+        ```csharp
+        if (req.url~"^/api/") {
+          set req.backend = F_graph_prod_adobe_io;
         }
-        //apiMESH prod mapping
-        if (req.url ~ "^/api/<mesh_id>") {
-        set bereq.http.tenantuuid = "<mesh_id>";
-        set bereq.http.x-api-key = "<mesh_api_key>";
-        # Optionally add another environment
-        # }
-        # //apiMESH stage mapping
-        # if (req.url ~ "^/api/<mesh_id>") {
-        # set bereq.http.tenantuuid = "<mesh_id>";
-        # set bereq.http.x-api-key = "<mesh_api_key>";
+        //API Mesh prod mapping
+        if (req.url~"^/api/<mesh_id>") {
+          set bereq.http.x - api - key = "<mesh_api_key>";
+        }
+        # //Optionally add another environment
+        # //API Mesh stage mapping
+        # if (req.url~"^/api/<mesh_id>") {
+        #   set bereq.http.x - api - key = "<mesh_api_key>";
         # }
         ```
 
-    The remaining snippets allow you to query your mesh URL without appending the `api_key`:
+  The following `api_mesh_pass` snippet allows you to query your mesh URL without appending the `api_key`:
 
    - Cache pass - replace the `<mesh_id>` and `<mesh_api_key>` placeholders with the information from your mesh URL, which has the following structure: `https://graph.adobe.io/api/<meshId>/graphql?api_key=<mesh_api_key>`:
      - **Name** - api_mesh_pass
@@ -117,20 +121,18 @@ Use the following process to configure edge caching for Adobe Commerce using the
      - **Priority** - **10**
      - **Content**:
 
-        ```vcl
+        ```csharp
         if (req.url ~ "^/api/") {
-        set req.backend = F_graph_prod_adobe_io;
+          set req.backend = F_graph_prod_adobe_io;
         }
-        //apiMESH prod mapping
+        //API Mesh prod mapping
         if (req.url ~ "^/api/<mesh_id>") {
-        set bereq.http.tenantuuid = "<mesh_id>";
-        set bereq.http.x-api-key = "<mesh_api_key>";
+          set bereq.http.x-api-key = "<mesh_api_key>";
         }
-        # Optionally add another environment
-        # //apiMESH stage mapping
+        # //Optionally add another environment
+        # //API Mesh stage mapping
         # if (req.url ~ "^/api/<mesh_id>") {
-        # set bereq.http.tenantuuid = "<mesh_id>";
-        # set bereq.http.x-api-key = "<mesh_api_key>";
+        #   set bereq.http.x-api-key = "<mesh_api_key>";
         # }
         ```
 
@@ -140,8 +142,10 @@ Use the following process to configure edge caching for Adobe Commerce using the
      - **Priority** - **10**
      - **Content**:
 
-        ```vcl
-        if (req.http.x-commerce-bypass-fastly-cache == "true") {return(pass);}
+        ```csharp
+        if (req.http.x - commerce - bypass - fastly - cache == "true") {
+          return (pass);
+        }
         ```
 
    - Cache deliver:
@@ -150,8 +154,10 @@ Use the following process to configure edge caching for Adobe Commerce using the
      - **Priority** - **10**
      - **Content**:
 
-        ```vcl
-        if (req.http.x-commerce-bypass-fastly-cache == "true") {return(deliver);}
+        ```csharp
+        if (req.http.x - commerce - bypass - fastly - cache == "true") {
+          return (deliver);
+        }
         ```
 
 1. In **Fastly Configuration** > **Backend Settings** click **Create**. Add a new backend with the following information:
@@ -168,7 +174,7 @@ Use the following process to configure edge caching for Adobe Commerce using the
 
 After adding VCL snippets in the [Fastly Setup](#configure-fastly-in-adobe-commerce), your Commerce GraphQL URL is now in the following format with no `api_key` appended: `https://graph.adobe.io/api/<meshId>/graphql`
 
-To distinguish between requests from users and requests from API Mesh, use the following configuration option to prevent Fastly from caching headers that come directly from API Mesh:
+To distinguish between requests from users and requests from API Mesh, use the following source operation header to prevent Fastly from caching headers that come directly from API Mesh:
 
 ```json
 "x-commerce-bypass-fastly-cache": "true" 
