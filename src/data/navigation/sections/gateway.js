@@ -67,6 +67,10 @@ module.exports = [
                 path: '/gateway/hooks',
             },
             {
+                title: 'Batching ',
+                path: '/gateway/batching.md',
+            },
+            {
                 title: 'Extend the schema with custom resolvers',
                 path: '/gateway/extending-unified-schema.md'
             },

@@ -1,7 +1,7 @@
 ---
 title: Batching with API Mesh
 description: Learn how API Mesh uses batching. 
-kewords:
+keywords:
   - API Mesh
   - Extensibility
   - GraphQL
@@ -11,6 +11,8 @@ kewords:
 ---
 
 # Batching with API Mesh for Adobe Developer App Builder
+
+The `n+1` problem occurs when you request multiple pieces of information which causes `n` queries to a source instead of using a single query. Since each query takes approximately the same amount of time, processing many queries can lead to degraded performance. In this example, a Reviews API contains reviews of your products by SKU. Without batching, you would need to query each SKU individually to return the corresponding reviews.
 
 Batching allows you to combine a group of requests into a single request, turning multiple queries into a single one. Compared to sending multiple queries simultaneously, batched requests result in better response times. They also avoid issues with rate-limiting.
 
@@ -57,7 +59,11 @@ The following query causes multiple calls to the Reviews API:
 }
 ```
 
-To make a single network request to each source, modify the mesh configuration to contain the `addtionalTypeDef` and `additionalResolver` described below:
+The `Reviews` source takes an array of product SKUs and returns an array of reviews for each SKU. To make a single network request to the `Reviews` source for multiple SKUs, modify the mesh configuration to contain the `addtionalTypeDef` and `additionalResolver` described below:
+
+<InlineAlert variant="info" slots="text"/>
+
+Request batching using API Mesh requires a source endpoint capable of processing an array of values.
 
 ```json
 {
@@ -107,7 +113,7 @@ The custom resolver extends the type `ConfigurableProdcut` with a new `customer_
   - `keysArg` provides the name of the primary key argument. For this example, the `keysArg` field is the argument name used when sending an array of SKUs to fetch multiple reviews.
   - `keyField` provides the key value for each item in the batched query. For this example, the `keyField` indicates which Product field provides the SKU value to the review service.
 
-The following query uses the custom resolver to batch the nested data, making only one call to each source:
+The following query uses the custom resolver to batch the nested data, making only one call to the `Reviews` source for multiple SKUs:
 
 ```graphql
 {
