@@ -1,5 +1,5 @@
 ---
-title: Edge caching
+title: Cache-control headers
 description: Specifies how to use headers to limit and modify the cache for GET requests.
 keywords:
   - API Mesh
@@ -11,15 +11,15 @@ keywords:
   - Tools
 ---
 
-# Edge caching
+# Cache-control headers
 
-API Mesh for Adobe Developer App Builder supports edge caching if you provide your own content delivery network (CDN), such as [Fastly](./fastly.md). Edge caching helps improve website load times and reduces consumption costs associated with bandwidth.
+API Mesh for Adobe Developer App Builder supports dynamic content caching if you provide a content delivery network (CDN), such as [Fastly](./fastly.md). Dynamic content caching helps improve website load times and reduces consumption costs associated with bandwidth.
 
 <InlineAlert variant="info" slots="text"/>
 
 When using a CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information.
 
-## Cache-control headers
+## Understanding cache-control headers
 
 A CDN's cache-control headers determine how queried information is cached.
 
