@@ -20,7 +20,7 @@ The `n+1` problem occurs when you request multiple pieces of information that ca
 
 ## Example (without batching)
 
-Consider a scenario where you are using the following mesh, where the `Reviews` source is a third-party API that contains reviews for your products by SKU. Each review has a `review`, `customer_name`, and `rating` field.
+Consider a scenario where you are using the following mesh, where the `Reviews` source is a third-party API that contains reviews for your products by SKU. Each review consists of a `review`, `customer_name`, and `rating` field.
 
 ```json
 {
@@ -74,7 +74,7 @@ The [custom resolver](./extending-unified-schema.md) extends the type `Configura
 - The target (`targetTypeName`, `targetFieldName`) - describes the queried field.
 - The source (`sourceName`, `sourceTypeName`, `sourceFieldName`) - describes where the data is resolved for the target field.
 - `requiredSelectionSet` fetches the required arguments.
-- `sourceArgs` - maps the `requiredSelectionSet` argument to the source.
+- `sourceArgs` maps the `requiredSelectionSet` argument to the source.
 
 The following query causes multiple calls to the Reviews API:
 
@@ -148,9 +148,9 @@ Request batching using API Mesh requires a source endpoint capable of processing
 }
 ```
 
-`requiredSelectionSet` and `sourceArgs` are now replaced by `keysarg` and `keyField`:
+`requiredSelectionSet` and `sourceArgs` are replaced with `keysarg` and `keyField`:
 
 - `keysArg` provides the name of the primary key argument. For this example, the `keysArg` field is the argument name used when sending an array of SKUs to fetch multiple reviews.
 - `keyField` provides the key value for each item in the batched query. For this example, the `keyField` indicates which Product field provides the SKU value to the review service.
 
-With the updated mesh, using the same query will make only one call to the `Reviews` source for multiple SKUs.
+With the updated mesh, using the [previous query](#example-without-batching) returns the same information, but only makes one call to the `Reviews` source for multiple SKUs.
