@@ -68,6 +68,8 @@ The following arguments are all optional.
 
 `-p` or `--port` allows you to specify the port number for your local environment. The default is `5000`.
 
+`--select` deploys the mesh artifact in the selected workspace without rebuilding it.
+
 `--debug` enters debug mode. To debug in an IDE such as Visual Studio Code, add the following configuration to your `launch.json` file:
 
   ```json

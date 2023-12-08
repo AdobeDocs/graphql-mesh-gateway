@@ -14,6 +14,16 @@ keywords:
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+# December 14, 2023
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- A `--select` argument is now available for the [`run` command](./command-reference.md#aio-api-meshrun). By providing the `--select` argument, you can run a mesh based on the mesh artifact in the selected workspace instead of rebuilding the mesh.
+
+- Various improvements to server performance.
+
 # November 14, 2023
 
 This release contains the following changes to API Mesh:
