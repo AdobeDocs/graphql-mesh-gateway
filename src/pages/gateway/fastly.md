@@ -1,5 +1,5 @@
 ---
-title: Dynamic cache control with Fastly 
+title: Dynamic cache control with Fastly
 description: Learn how to configure a dynamic cache control with API Mesh using Fastly and Adobe Commerce.
 keywords:
   - API Mesh
