@@ -51,7 +51,7 @@ Using Fastly also requires all queries to be `GET` queries. `POST` queries are n
 
 <InlineAlert variant="info" slots="text"/>
 
-Use the `fastly-debug:1` request header to get more information from Fastly on each request.
+Use the `fastly-debug:1` request header to get more information from Fastly on each request. Adobe does not recommend using this header in a production environment.
 
 ### Fastly example mesh
 
