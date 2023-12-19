@@ -45,7 +45,7 @@ When bypassing the cache, you must also specify which headers should be preserve
 }
 ```
 
-Using Fastly also requires all queries to be `GET` queries. If you do not use `GET` queries, they will not be cached. To enforce this in your mesh, add the following configuration option:
+Using Fastly also requires all queries to be `GET` queries. `POST` queries are not cached. To enforce this in your mesh, add the following configuration option:
 
 `"useGETForQueries": true`
 
@@ -99,7 +99,7 @@ The following example mesh specifies the headers to cache, enables the cache byp
 }
 ```
 
-### Cache Header Prefixing
+### Cache header prefixing
 
 API Mesh prefixes any Fastly source headers with their source name. For example, a source named "commerce" with an `x-magento-cache-id` header is converted to `x-commerce-magento-cache-id`. However, if your endpoint URL contains "magento", API Mesh assumes you are connecting to an Adobe Commerce instance and does not prefix your headers with a source name. Using the previous example, your header would remain `x-magento-cache-id`.
 
@@ -123,7 +123,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
 
 1. In the Adobe Commerce Admin, select **Store** > Settings > **Configuration** > **Advanced** > **System** > **Full Page Cache** and set the **Caching Application** field to **Fastly CDN**.
 
-1. Enter the Fastly credentials you retrieved previously into the **Fastly Service ID** and **Fastly API Token** fields. Then click the Test Credentials button to verify that your credentials are correct.
+1. Enter the Fastly credentials you retrieved previously into the **Fastly Service ID** and **Fastly API Token** fields. Then click the **Test Credentials** button to verify that your credentials are correct.
 
   ![fastly-credentials](../_images/fastly-credentials.png)
 
@@ -276,7 +276,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
 
 Run the following cURL command, replacing `<Commerce-URL>` with your Adobe Commerce storefront URL.
 
-```typescript
+```bash
 curl --globoff --include '<Commerce-URL>/graphql?query={products(search%3A%20%22c%22){items{sku}}}' --header 'Fastly-Debug: 1' -w "\n\ntime_starttransfer: %{time_starttransfer}\n"
 ```
 
