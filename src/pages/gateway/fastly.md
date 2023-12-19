@@ -11,7 +11,7 @@ keywords:
   - Tools
 ---
 
-# Fastly configuration
+# Dynamic cache control with Fastly 
 
 Adding a content delivery network (CDN) for caching dynamic content with API Mesh for Adobe Developer App Builder provides additional security and improved performance. Follow these instructions to integrate API Mesh, Adobe Commerce, and [Fastly](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/cdn/fastly.html?lang=en) (provided with Adobe Commerce Pro accounts).
 
