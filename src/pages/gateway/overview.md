@@ -47,7 +47,7 @@ Basic identification is provided by your Mesh ID and API Key. Additionally, API 
 
 If you require additional authentication or authorization, you can use [custom resolvers](../reference/multiple-apis.md).
 
-Distributed denial-of-service (DDOS) attack protection, rate limiting, and throttling are provided at a global level by graph.adobe.io. For more individualized protection, we recommend adding a Content Delivery Network (CDN), such as Fastly, through [edge caching](cache-control-headers.md).
+Distributed denial-of-service (DDOS) attack protection, rate limiting, and throttling are provided at a global level by graph.adobe.io. For more individualized protection, we recommend adding a Content Delivery Network (CDN), such as [Fastly](./fastly.md), through [edge caching](cache-control-headers.md).
 
 Rate limiting mitigates DDoS threats by preventing any given traffic source from sending too many requests. API Mesh controls the incoming traffic to `graph.adobe.io` by limiting the number of requests that the API can receive within a given time span. When the limit is reached before the time expires, the policy rejects all requests, which avoids any additional load on the API Mesh service and the backend source APIs within your mesh configurations. This is a global policy, covering the entire service, and is based upon your individual API key. In the event you are rate limited, your API will receive a `HTTP 429 Too Many Requests` response status code.
 
