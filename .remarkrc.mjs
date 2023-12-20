@@ -1,9 +1,12 @@
+import remarkHeadingId from 'remark-heading-id';
 import remarkValidateLinks from 'remark-validate-links';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkLintFrontmatterSchema from 'remark-lint-frontmatter-schema';
+import remarkLintNoDeadUrls from 'remark-lint-no-dead-urls';
 
 const remarkConfig = {
 	plugins: [
+		remarkHeadingId,
 		remarkValidateLinks,
 		remarkFrontmatter,
 		[
@@ -18,6 +21,14 @@ const remarkConfig = {
 				},
 			},
 		],
+		[
+			remarkLintNoDeadUrls,
+			{
+				skipUrlPatterns: [
+					'https://www.php.net'
+				]
+			}
+		]
 	],
 };
 export default remarkConfig;

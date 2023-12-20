@@ -40,8 +40,12 @@ module.exports = [
                 path: '/gateway/headers'
             },
             {
-                title: 'Edge caching and cache control',
+                title: 'Cache-control headers',
                 path: '/gateway/cache-control-headers'
+            },
+            {
+                title: 'Dynamic content caching with Fastly',
+                path: '/gateway/fastly'
             },
         ],
     },
@@ -67,6 +71,10 @@ module.exports = [
                 path: '/gateway/hooks',
             },
             {
+                title: 'Batching ',
+                path: '/gateway/batching.md',
+            },
+            {
                 title: 'Extend the schema with custom resolvers',
                 path: '/gateway/extending-unified-schema.md'
             },
@@ -81,6 +89,11 @@ module.exports = [
             {
                 title: `Videos`,
                 path: `https://experienceleague.adobe.com/docs/commerce-learn/api-mesh/getting-started-api-mesh.html`,
+                EventTarget: `_blank`
+            },
+            {
+                title: `Understanding Extensibility`,
+                path: `https://developer.adobe.com/commerce/extensibility/app-development/examples/`,
                 EventTarget: `_blank`
             }
         ]
