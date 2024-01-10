@@ -14,7 +14,7 @@ keywords:
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
-# December 14, 2023
+# January 11, 2023
 
 This release contains the following changes to API Mesh:
 
