@@ -46,6 +46,8 @@ All of these steps can be automated using flags described in the [command refere
 
   The console indicates your server status. If your build is successful, your mesh will be accessible at `http://localhost:5000/graphql` by default.
 
+  Use the `--select` argument with the `run` command to deploy the mesh artifact in the selected workspace without rebuilding it.
+
 <InlineAlert variant="info" slots="text"/>
 
 The `run` command is currently in beta.
