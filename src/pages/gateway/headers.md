@@ -178,7 +178,7 @@ To add CORS headers to your mesh, create a `CORS` object in the `responseConfig`
 -  `exposedHeaders` - a comma-delimited CORS request that contains headers to expose
 -  `maxAge` - the maximum number of seconds the preflight response (the values of the `origin` and `methods` headers) can be cached
   
-When specifying a CORS `origin`, do not enter `*` for the value as this will return unexpected results. Instead, list all applicable origins.
+When specifying a CORS `origin`, do not enter `*` for the value as this will return the origin you are making the request from. Instead, list all applicable origins.
 
 ```JSON
 "CORS": {
