@@ -64,7 +64,7 @@ In this example, we will use `additionalResolvers` to apply a set of discounts t
       }
     ]
   }
-}  
+}
 ```
 
 The previous example contains a `files` object that contains the following `javascript`:
