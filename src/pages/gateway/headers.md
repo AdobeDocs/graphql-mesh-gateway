@@ -61,7 +61,7 @@ You can also inject dynamic values from the context into your headers. For examp
 
 -  [OpenAPI handlers](../reference/handlers/openapi.md#headers-from-context)
 -  [GraphQL handlers](../reference/handlers/graphql.md#headers-from-context)
--  [JSON schema handlers](../reference/handlers/json-schema.md#headers-from-context)
+-  [JSON Schema handlers](../reference/handlers/json-schema.md#headers-from-context)
 
 #### Media types
 
@@ -116,7 +116,7 @@ The `responseConfig.headers` object also allows you to return header values from
 
 <InlineAlert variant="info" slots="text"/>
 
-[JSON schema handlers](../reference/handlers/json-schema.md) do not support `responseConfig` functionality.
+[JSON Schema handlers](../reference/handlers/json-schema.md) do not support `responseConfig` functionality.
 
 ```json
 {

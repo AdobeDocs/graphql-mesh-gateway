@@ -1,6 +1,6 @@
 ---
 title: Handlers | API Mesh for Adobe Developer App Builder
-description: Overview of handlers and sources available in API Mesh.
+description: Learn how handlers define sources for API Mesh and which handlers are available.
 keywords:
   - API Mesh
   - Extensibility
@@ -12,7 +12,7 @@ keywords:
 
 # Handlers
 
-Handlers, or source handlers, allow you to define sources that provide data to your mesh. The following table specifies the handlers supported by API Mesh and the version of each handler:
+Source handlers allow you to define sources that provide data to your mesh. The following table specifies the versions of each handler supported by API Mesh for Adobe Developer App Builder:
 
 | Handler Package Name | Version |
 |------------|------------|
@@ -46,7 +46,7 @@ The following example contains a basic mesh file with an OpenAPI source handler.
 }
 ```
 
-Handlers are located in the sources section of the mesh file. Each `source` will need a `name`, a `handler`, and other key-value pairs that correspond to the `handler` type. In the previous example, the `openapi` handler only requires a `source`.
+Handlers are located in the `sources` section of the mesh file. Each `source` will need a `name`, a `handler`, and other key-value pairs that correspond to the `handler` type. In the previous example, the `openapi` handler only requires a `source`.
 
 ## Reference local files in handlers
 

@@ -9,9 +9,9 @@ keywords:
   - Tools
 ---
 
-# JSON schema handlers
+# JSON Schema handlers
 
-This handler allows you to load any remote REST service and describe its request/response. With this handler, you can easily customize and control the GraphQL schema in API Mesh for Adobe Developer App Builder.
+This handler allows you to load any remote REST service and describe its request and response. JSON Schema handlers allow you to customize and control the GraphQL schema.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -27,9 +27,9 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
 
 <InlineAlert variant="info" slots="text"/>
 
-JSON schema handlers do not support `responseConfig` functionality.
+JSON Schema handlers do not support `responseConfig` functionality.
 
-To get started, use the handler in your Mesh config file:
+The JSON Schema handler uses the following format:
 
 ```json
 {
@@ -38,14 +38,14 @@ To get started, use the handler in your Mesh config file:
       "name": "MyApi",
       "handler": {
         "JsonSchema": {
-          "baseUrl": "https://some-service-url/endpoint-path/",
+          "baseUrl": "https://your-service-url/endpoint/",
           "operations": [
             {
               "type": "Query",
               "field": "users",
               "path": "/users",
               "method": "GET",
-              "responseSchema": "https://my-json-schema/users.json"
+              "responseSchema": "https://json-schema/schema.json"
             }
           ]
         }
@@ -56,6 +56,47 @@ To get started, use the handler in your Mesh config file:
 ```
 
 JSON Schema handlers can also use local sources, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
+
+The following example returns your header values, so you can confirm your headers are functioning properly.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "headersData",
+        "handler": {
+          "JsonSchema": {
+            "baseUrl": "<your baseUrl>",
+            "operationHeaders": {
+              "sample-operation-header": "sample operation value"
+            },
+            "schemaHeaders": {
+              "sample-schema-header": "sample schema value"
+            },
+            "operations": [
+              {
+                "type": "Query",
+                "field": "data",
+                "path": "/getHeadersData",
+                "method": "GET",
+                "responseSchema": "./getHeadersSchema.json"
+              }
+            ],
+            "ignoreErrorResponses": false
+          }
+        }
+      }
+    ],
+    "files": [
+      {
+        "path": "./getHeadersSchema.json",
+        "content": "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"required\":[\"headerKeys\",\"headerValues\",\"headers\"],\"properties\":{\"headerKeys\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"headerValues\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"headers\":{\"type\":\"object\"}}}"
+      }
+    ]
+  }
+}
+```
 
 ## Headers from context
 
@@ -169,11 +210,11 @@ For your `./jsons/MyField.response.json` file, any JSON file can be used.
 
 ## Query Parameters
 
-There are a few methods to define the query parameters, select the one that fits your needs (or combine them):
+There are multiple methods for defining query parameters. Select the method that fits your needs, or combine multiple methods:
 
-### Auto declare
+### Automatically declare query parameters
 
-The mesh automatically generates arguments for operations if needed. Arguments are generated as nullable strings by default.
+API Mesh automatically generates arguments for operations (if needed). Arguments are generated as nullable strings by default.
 
 ```json
 {
@@ -182,7 +223,7 @@ The mesh automatically generates arguments for operations if needed. Arguments a
             "name": "MyGraphQLApi",
             "handler": {
                 "JsonSchema": {
-                    "baseUrl": "https://some-service-url/endpoint-path/",
+                    "baseUrl": "https://your-service/endpoint/",
                     "operations": [
                         {
                             "type": "Query",
@@ -199,9 +240,9 @@ The mesh automatically generates arguments for operations if needed. Arguments a
 }
 ```
 
-### Manual declare
+### Manually declare query parameters
 
-You can define the arguments of the operation using the `argTypeMap` config field, according to the JSON Schema spec.
+You can define the operation's arguments by modifying the `argTypeMap` config field according to the JSON Schema spec.
 
 In this example, we declare a `page` argument as an object with `limit` and `offset` properties:
 
@@ -223,19 +264,9 @@ In this example, we declare a `page` argument as an object with `limit` and `off
 }
 ```
 
-In addition, especially for non-primitive types, the arguments should be added to the path using the `queryParamArgMap` config field.
+Arguments should be added to the path using the `queryParamArgMap` config field, especially for non-primitive types.
 
 Here we add the `page` argument to the query parameters:
-
-```json
-{
-    "queryParamArgMap": {
-        "page": "page"
-    }
-}
-```
-
-And here is the final config:
 
 ```json
 {
@@ -244,7 +275,7 @@ And here is the final config:
             "name": "MyGraphQLApi",
             "handler": {
                 "JsonSchema": {
-                    "baseUrl": "https://some-service-url/endpoint-path/",
+                    "baseUrl": "https://your-service-/endpoint/",
                     "operations": [
                         {
                             "type": "Query",
@@ -310,9 +341,9 @@ In this example, we declare the `limit` parameter with a default value of `10` a
 `queryParams` are automatically added to the query. If the argument is defined both on the handler AND operation level, the operation level argument will be used. -->
 ## Config API reference
 
--  `baseUrl` (type: `String`)
--  `operationHeaders` (type: `JSON`)
--  `schemaHeaders` (type: `JSON`)
+-  `baseUrl` (type: `String`) - URL or file path for your JSON schema.
+-  `schemaHeaders` (type: `JSON`) - JSON object for adding headers to API calls for runtime schema introspection
+-  `operationHeaders` (type: `JSON`) - JSON object for adding headers to API calls for runtime operation execution
 -  `operations` - (required) Array of:
    -  `object`:
       -  `field` (type: `String`, required)
@@ -328,7 +359,7 @@ In this example, we declare the `limit` parameter with a default value of `10` a
          -  Remote files and URLs are not supported. You must provide a local path.
       -  `responseTypeName` (type: `String`)
       -  `argTypeMap` (type: `JSON`)
--  `ignoreErrorResponses` (type: `Boolean`)
+-  `ignoreErrorResponses` (type: `Boolean`) - Flag for ignoring errors in the response
 <!--   
 `path` (type: `String`, required)
 `method` (type: `String (GET | HEAD | POST | PUT | DELETE | CONNECT | OPTIONS | TRACE | PATCH)`)
