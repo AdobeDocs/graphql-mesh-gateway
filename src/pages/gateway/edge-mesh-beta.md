@@ -12,9 +12,9 @@ keywords:
 
 # Edge mesh BETA
 
-<InlineAlert variant="info" slots="text"/>
+<InlineAlert variant="warning" slots="text"/>
 
-This page describes the current status of the API Mesh for Adobe Developer App Builder closed beta program for edge mesh support. This feature is in closed beta and is not accessible to unapproved users, for future updates watch the [release notes](./release-notes.md) page.
+This page describes the current status of the API Mesh for Adobe Developer App Builder closed beta program for edge mesh support. This feature is in closed beta and is not accessible to non-beta users, for future updates watch the [release notes](./release-notes.md) page.
 
 The current API Mesh architecture uses a standard configuration spread across several regions. To increase speeds and provide better benefits to our users, we are introducing a closed beta using the edge deployment of meshes. These edge meshes are stored closer to your data sources to reduce latency and generally improve the API Mesh experience by making meshes more performant and reducing mesh response times.
 
