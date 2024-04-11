@@ -20,6 +20,8 @@ The current API Mesh architecture uses a standard configuration spread across se
 
 ## Benefits
 
+Using edge deployment provides the following benefits:
+
 - Improved response times and enhanced API performance
 - Easier integration with industry-standard tools and third-party products
 - Reduce neighboring meshes potential to degrade mesh performance
