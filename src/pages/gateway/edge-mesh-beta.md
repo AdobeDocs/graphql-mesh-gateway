@@ -63,3 +63,7 @@ Your mesh was successfully built.
 Edge Mesh Status:
 Your mesh was successfully built.
 ```
+
+<InlineAlert variant="info" slots="text"/>
+
+The formatting of responses containing the legacy mesh and edge mesh statuses may change over the course of the beta program.
