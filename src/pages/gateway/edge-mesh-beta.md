@@ -34,11 +34,11 @@ Using edge deployment provides the following benefits:
 
 Due to compatibility limitations during this closed beta, certain features, such as [Hooks](./hooks.md) and [SOAP handlers](./source-handlers.md#soap), are not available in edge meshes.
 
-As part of the closed beta program, you will get access to edge mesh URLs. After you have updated to the latest version. [Create a mesh](./create-mesh.md) or [update an existing mesh](./create-mesh.md#update-an-existing-mesh) to trigger the edge deployment. The `aio api-mesh create` and `aio api-mesh update` commands will include the following information.
+As part of the closed beta program, you will get access to edge mesh URLs. After you have updated to the latest version of the API Mesh CLI plugin, [create a mesh](./create-mesh.md) or [update an existing mesh](./create-mesh.md#update-an-existing-mesh) to trigger the edge deployment. The `aio api-mesh create` and `aio api-mesh update` commands will include the following information.
 
 ```terminal
 Legacy Mesh Endpoint: https://graph.adobe.io/api/123456-123-456-789-1234567890/graphql?api_key=09876543210987654321
-Edge Mesh Endpoint: https://edge-graph.adobe.io/api/123456-123-456-789-1234567890/graphql?api_key=09876543210987654321
+Edge Mesh Endpoint: https://edge-graph.adobe.io/api/123456-123-456-789-1234567890/graphql
 ```
 
 - Legacy Mesh Endpoint - contains the standard production-ready mesh URL
