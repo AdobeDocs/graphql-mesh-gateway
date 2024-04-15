@@ -24,7 +24,7 @@ Using edge deployment provides the following benefits:
 
 - Improved response times and enhanced API performance
 - Easier integration with industry-standard tools and third-party products
-- Reduce neighboring meshes potential to degrade mesh performance
+- Reduce the potential of other hosted meshes to degrade the performance of your mesh
 - Better security and compliance
 - Increased observability
 
@@ -46,7 +46,7 @@ Edge Mesh Endpoint: https://edge-graph.adobe.io/api/123456-123-456-789-123456789
 
 <InlineAlert variant="info" slots="text"/>
 
-While the edge mesh endpoints will be faster and more performant, during this beta phase, these URLs should only be used for testing and staging purposes.
+While the beta edge mesh endpoints will be faster and more performant, you should use these URLs for testing and staging purposes only.
 
 ### Command responses
 
@@ -54,7 +54,7 @@ In addition to the create and update commands, responses to other commands have 
 
 The `aio api-mesh:describe` command contains both the legacy and edge mesh endpoints.
 
-The `aio api-mesh:status` command describes the status of both the legacy and edge mesh builds. This reflects the success of both building your legacy mesh and deploying the edge mesh. Any failures or errors that appear in the `Legacy Mesh Status`, will subsequently affect the edge mesh. So you will need to resolve any errors in your legacy mesh build before using the edge mesh.
+The `aio api-mesh:status` command describes the status of both the legacy and edge mesh builds. This reflects the success of both building your legacy mesh and deploying the edge mesh. Any failures or errors that appear in the `Legacy Mesh Status`, will subsequently affect the edge mesh. Therefore, you must resolve any errors in your legacy mesh build before using the edge mesh.
 
 ```terminal
 Legacy Mesh Status: 
