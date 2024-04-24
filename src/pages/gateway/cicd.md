@@ -1,6 +1,6 @@
 ---
 title: CI/CD for API Mesh
-description: Learn how to setup continuous integration and continuous delivery/deployment for API Mesh .
+description: Learn how to set up continuous integration and continuous delivery/deployment for API Mesh .
 keywords:
   - API Mesh
   - Extensibility
@@ -12,7 +12,7 @@ keywords:
 
 # CI/CD for API Mesh
 
-API Mesh for Adobe Developer App Builder now provides CI/CD through [Github actions](https://docs.github.com/en/actions). This allows developers to build, test, and deploy a mesh faster.
+API Mesh for Adobe Developer App Builder now provides CI/CD through [Github actions](https://docs.github.com/en/actions). This allows developers to build, test, and deploy meshes faster and more reliably.
 
 ## API Mesh authentication
 
@@ -38,7 +38,7 @@ To get an OAuth token to enable CI/CD:
 
 1. Click "Generate access token". Copy and save this token for later use.
 
-## Setup your API Mesh repository
+## Set up your API Mesh repository
 
 A GitHub repository is necessary for hosting your mesh files. If you use another `git` development platform, see [using your own CI/CD](#bring-your-own-cicd).
 
@@ -54,260 +54,184 @@ Once your repository is accessible, clone your repo locally using the following 
 git clone https://github.com/<org>/<project_name>.git
 ```
 
-Go to the project folder with `cd <project_name>` and run the command `aio app init` to bootstrap a new App Builder Application from the [CLI](https://github.com/adobe/aio-cli), the application generator will ask whether to include GitHub Actions based workflows for Build, Test and Deploy.
+You will continue to use this repo to make changes to your mesh.
 
-![bootstrap](assets/bootstrap.png)
+## Create an action
 
-## GitHub actions
+The GitHub action described in this section updates the specified mesh when a PR is merged to the `main` branch of your repository.
 
-The CI/CD workflow relies on Adobe I/O GitHub Actions published on the GitHub Marketplace:
-                                                                              
-* `adobe/aio-cli-setup-action` used to install and configure the [CLI](https://github.com/adobe/aio-cli) on the GitHub infrastructure running the workflow that invoked the action. See [CLI Setup](https://github.com/marketplace/actions/aio-cli-setup).
-* `adobe/aio-apps-action` used to centralize the support for a GitHub workflow to leverage several application specific commands, such as testing via `aio app test` and deployment via `aio app deploy`. See [Apps](https://github.com/adobe/aio-apps-action).                                                                              
- 
-By selecting the CI/CD workflow option, the application code will be initialized with an additional `.github` folder at its root. 
+<InlineAlert variant="info" slots="text"/>
 
-This folder contains default GitHub Workflows that can be customized and extended if needed. 
+Before you can successfully run this workflow, you must configure your [GitHub secrets](#secrets-and-variables).
 
-**pr_test.yml** is the GitHub action that will run the App unit tests on the stage environment by calling `aio app test` against the requested changes. It will run anytime the [pull_request](https://help.github.com/en/actions/reference/events-that-trigger-workflows#pull-request-event-pull_request) event occurs.
+This workflow relies on two existing Adobe I/O GitHub Actions published on the GitHub Marketplace:
 
-```yaml
-name: AIO App CI
+-  `adobe/aio-cli-setup-action` installs and configures the [CLI](https://github.com/adobe/aio-cli) on the GitHub infrastructure. For API Mesh, this action handles authentication.
 
-on: [pull_request]
-jobs:
-  test:
-    name: Test PR
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node-version: ['14']
-        os: [macOS-latest, ubuntu-latest, windows-latest]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install
-        run: npm i
-      - name: Setup CLI
-        uses: adobe/aio-cli-setup-action@1.0.0
-        with:
-          os: ${{ matrix.os }}
-      - name: Build
-        uses: adobe/aio-apps-action@1.0.0
-        with:
-          os: ${{ matrix.os }}
-          command: build
-          AIO_RUNTIME_NAMESPACE: ${{ secrets.AIO_RUNTIME_NAMESPACE_STAGE }}
-      - name: Test
-        uses: adobe/aio-apps-action@1.0.0
-        with:
-          os: ${{ matrix.os }}
-          command: test
-```
+- `adobe/aio-apps-action` centralizes support for a GitHub workflow to leverage application-specific commands, such as deploying via `aio api-mesh:update`.
 
-**deploy_stage.yml** is the GitHub action that will deploy the App Builder App to the stage environment on every new commit on the `master` branch by calling `aio app deploy`. 
-It will run anytime the [push](https://help.github.com/en/actions/reference/events-that-trigger-workflows#push-event-push) event occurs on the `master` branch. 
+In the `.github/workflows` folder, create a `.yml` file with the following contents:
 
-```yaml
-name: AIO App CI
+```yml
+name: CI
 
+# Controls when the workflow will run
 on:
-  push:
-    branches:
-      - master
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  deploy:
-    name: Deploy to Stage
-    runs-on: ${{ matrix.os }}
-    strategy:
-      max-parallel: 1
-      matrix:
-        node-version: ['14']
-        os: [ubuntu-latest]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install
-        run: npm i
-      - name: Setup CLI
-        uses: adobe/aio-cli-setup-action@1.0.0
-        with:
-          os: ${{ matrix.os }}
-      - name: Build
-        uses: adobe/aio-apps-action@1.0.0
-        with:
-          os: ${{ matrix.os }}
-          command: build
-          AIO_RUNTIME_NAMESPACE: ${{ secrets.AIO_RUNTIME_NAMESPACE_STAGE }}
-      - name: Deploy
-        uses: adobe/aio-apps-action@1.0.0
-        with:
-          os: ${{ matrix.os }}
-          command: deploy
-          AIO_RUNTIME_AUTH: ${{ secrets.AIO_RUNTIME_AUTH_STAGE }}
-          AIO_RUNTIME_NAMESPACE: ${{ secrets.AIO_RUNTIME_NAMESPACE_STAGE }}
-```
-
-**deploy_prod.yml** is the GitHub action that will deploy the App Builder App to the production environment by calling `aio app deploy`. It will run anytime the [release](https://help.github.com/en/actions/reference/events-that-trigger-workflows#release-event-release) event occurs. Please read [GitHub's documentation ](https://help.github.com/en/github/administering-a-repository/managing-releases-in-a-repository) to learn how to perform releases. 
-
-```yaml
-name: AIO App CI
-
-on:
-  release:
-    types: [published]
-jobs:
-  deploy:
+  # This workflow contains a single job called "build"
+   deploy:
     name: Deploy to Prod
     runs-on: ${{ matrix.os }}
     strategy:
       max-parallel: 1
       matrix:
-        node-version: ['14']
+        node-version: ['20']
         os: [ubuntu-latest]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm install
         run: npm i
       - name: Setup CLI
-        uses: adobe/aio-cli-setup-action@1.0.0
+        uses: adobe/aio-cli-setup-action@1.3.0
         with:
           os: ${{ matrix.os }}
-      - name: Build
-        uses: adobe/aio-apps-action@1.0.0
+          version: 10.x.x
+      - name: api-mesh-plugin install
+        run: aio plugins:install @adobe/aio-cli-plugin-api-mesh
+      - name: Auth
+        uses: adobe/aio-apps-action@3.3.0
         with:
           os: ${{ matrix.os }}
-          command: build
-          AIO_RUNTIME_NAMESPACE: ${{ secrets.AIO_RUNTIME_NAMESPACE_PROD }}
-      - name: Deploy
-        uses: adobe/aio-apps-action@1.0.0
-        with:
-          os: ${{ matrix.os }}
-          command: deploy
-          AIO_RUNTIME_AUTH: ${{ secrets.AIO_RUNTIME_AUTH_PROD }}
-          AIO_RUNTIME_NAMESPACE: ${{ secrets.AIO_RUNTIME_NAMESPACE_PROD }} 
-```  
-
-The back-end serverless actions get deployed to Runtime, while the SPA gets deployed to the out-of-the-box CDN for every deployment whether to stage or production.    
-
-For that, we'll push the project on GitHub with `git commit "Initial commit" && git push origin master` which will commit the App Builder App to the `master` branch of the GitHub repository.
-
-The GitHub actions defined in `deploy_stage.yml` will run by default. Go to `https://github.com/<org>/<project_name>/actions` to see the workflow running:
-
-![workflow-failure](assets/workflow-failure.png)
-
-**By default, the workflow will fail as we didn't specify the GitHub secrets yet.**
-
-## GitHub secrets
-
-To differentiate stage from production, the GitHub actions rely on [GitHub secrets](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
-Encrypted secrets allow you to store sensitive information, such as access tokens, in your repository. 
-
-By default, the secrets required for `deploy_prod.yml` for the **production environment** are named: 
-* `AIO_RUNTIME_NAMESPACE_PROD`
-* `AIO_RUNTIME_AUTH_PROD`
-
-And the secrets required for `deploy_stage.yml` and `pr_test.yml` for the **stage environment** are named: 
-* `AIO_RUNTIME_NAMESPACE_STAGE`
-* `AIO_RUNTIME_AUTH_STAGE`
-
-To add a secret to your project:
-1. Go to `https://github.com/<org>/<project_name>/settings/secrets`
-2. Type the name of your secret e.g. `AIO_RUNTIME_NAMESPACE_PROD` in the "Name" input box.
-3. Type the value for your secret. 
-
-![secrets](assets/secrets.png)
-
-If you can't add secrets to the repository, the reason could be that:
-* You're not the repository owner if the repository is a user account repository.
-* You don't have admin access for an organization repository.
-* You don't have write access to the repository if you're using the [GitHub Actions secrets API](https://developer.github.com/v3/actions/secrets/#create-or-update-a-secret-for-a-repository)
-
-**The secrets value can be retrieved in the [Developer Console](https://console.adobe.io/)** from where you can download the stage and production namespace and credential.
-
-![developer-console](assets/developer-console.png)  
-
-Follow these steps to retrieve the value for the secrets `AIO_RUNTIME_NAMESPACE_STAGE`, `AIO_RUNTIME_AUTH_STAGE` and `AIO_RUNTIME_NAMESPACE_PROD`, `AIO_RUNTIME_AUTH_PRD`: 
-
-1. Go to the [Developer Console](https://console.adobe.io/)
-2. Select the right org, project and workspace. 
-3. Click on the Download all button on the top right. 
-
-This will download a `json` file like the following:
-
-```
-{
-    "project": {
-        "id": "...",
-        "name": "...",
-        "title": "...",
-        "org": {
-            "id": "...",
-            "name": "...",
-            "ims_org_id": "..."
-        },
-        "workspace": {
-            "id": "...",
-            "name": "...",
-            "title": "...",
-            "description": "...",
-            "action_url": "...",
-            "app_url": "...",
-            "details": {
-                "credentials": [],
-                "services": [],
-                "runtime": {
-                    "namespaces": [
-                        {
-                            "name": AIO_RUNTIME_NAMESPACE_VALUE,
-                            "auth": AIO_RUNTIME_AUTH_VALUE
-                        }
-                    ]
-                }
-            }
-        }
-    }
-}
+          command: oauth_sts
+          CLIENTID: ${{ secrets.CLIENTID_PROD }}
+          CLIENTSECRET: ${{ secrets.CLIENTSECRET_PROD }}
+          TECHNICALACCOUNTID: ${{ secrets.TECHNICALACCID_PROD }}
+          TECHNICALACCOUNTEMAIL: ${{ secrets.TECHNICALACCEMAIL_PROD }}
+          IMSORGID: ${{ secrets.IMSORGID_PROD }}
+          SCOPES: AdobeID, openid, read_organizations, additional_info.projectedProductContext, additional_info.roles, adobeio_api, read_client_secret, manage_client_secrets
+      - name: Select org
+        run: aio console:org:select 123456
+      - name: Select project
+        run: aio console:project:select 1234567890
+      - name: Select workspace
+        run: aio console:workspace:select 12345678901
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
+          echo API_KEY=${{ secrets.API_KEY }} >> .env
+          cat .env
+      - name: api-mesh update
+        run: aio api-mesh:update -c meshConfig.json --env .env 
 ```
 
-Now you can copy the value of `AIO_RUNTIME_NAMESPACE_VALUE` and to `AIO_RUNTIME_AUTH_VALUE` to your GitHub secrets. 
-Simply repeat the steps for your stage / production workspace. 
+This script sets up the CLI, installs the API Mesh plugin (`aio-cli-plugin-api-mesh`), and adds your OAuth token. Once the workflow is configured, running its corresponding job on the GitHub **Actions** tab will update your mesh.
 
-**Alternatively you can also use the CLI to retrieve these values.** 
+Uncomment the following section to automatically trigger this workflow when a PR is merged `main`:
 
-Simply run the following commands:
-
-```
-aio where // Shows you where your CLI config points to in terms of org/project/workspace
-
-aio console org list // List which org you can work with
-aio console org select <orgId> // Select the org you want to work with
-
-aio console project list // List which project you can work with
-aio console project select <projectid> // Select the project you want to work with
-
-aio console workspace list // List which workspace you can work with
-aio console workspace select <wkspId> // Select the workspace you want to work with
-
-aio app use -m // Merge the selected environment settings from the Developer Console into the current working environment.  
+```yml
+push:
+  branches: [ "main" ]
 ```
 
-Then go to the `.env` file in your project and copy the values of `AIO_runtime_namespace` and `AIO_runtime_auth` into your GitHub secrets.
-Simply repeat the steps for stage / production by switching to another workspace with `aio console workspace select <wkspId>`.
+Uncomment the following section to automatically trigger this workflow when a PR to `main` is updated:
+
+```yml
+pull_request:
+  branches: [ "main" ]
+```
+
+For more information see [Events that trigger workflows](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows).
+
+## Secrets and variables
+
+When developing locally, you can store your variables and secrets in your [environment variables file](./developer-tools.md#environment-variables). When using GitHub, you will need to use [secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) and [variables](https://docs.github.com/en/actions/learn-github-actions/variables).
+
+- Variables are for information that is not sensitive, for example, if you are targeting `stage` or `prod`. When viewing your mesh in the Developer Console or by running the `aio api-mesh:get` command, these variables will be exposed.
+
+- Secrets are for sensitive information, such as access tokens. These are never exposed in the Developer Console or when running the `aio api-mesh:get` command.
+
+### Add a secret or variable
+
+<InlineAlert variant="info" slots="text"/>
+
+You need administrative permissions to the target GitHub repository to add secrets or variables.
+
+1. Navigate to `https://github.com/<org>/<project_name>/settings/secrets/actions`.
+
+1. On the Secrets or Variables tab, click either **New repository secret** or **New repository variable**.
+
+1. Enter a name for the secret or variable, such as `CLIENTID_PROD`.
+
+1. Enter the corresponding value for the secret or variable, for example, `123456123456`.
+
+The previously described `yml` file in [Create an action](#create-an-action) requires the following secrets/variables.
+
+```yml
+CLIENTID: ${{ secrets.CLIENTID_PROD }}
+CLIENTSECRET: ${{ secrets.CLIENTSECRET_PROD }}
+TECHNICALACCOUNTID: ${{ secrets.TECHNICALACCID_PROD }}
+TECHNICALACCOUNTEMAIL: ${{ secrets.TECHNICALACCEMAIL_PROD }}
+IMSORGID: ${{ secrets.IMSORGID_PROD }}
+```
+
+For example, if you named a secret `CLIENTID_PROD`, you can call that secret using the `${{ secrets.CLIENTID_PROD }}` format.
+
+The specific secrets required for this workflow are available in the [Developer Console](https://console.adobe.io/) by navigating to the desired workspace within a project and clicking the **Download all** button in the top-right of the screen. This downloads a `JSON` file.
+
+In the file, find the values for the following keys:
+
+- `client_id`
+- `client_secrets`
+- `technical_account_email`
+- `technical_account_id`
+- `ims_org_id`
+
+Create a GitHub secret for each of these items.
+
+You also need to specify the `id` for the organization, project, and workspace in the following section of GitHub workflow. These values are also available in the file downloaded from the Developer Console:
+
+```yml
+- name: Select org
+  run: aio console:org:select 123456
+- name: Select project
+  run: aio console:project:select 1234567890
+- name: Select workspace
+  run: aio console:workspace:select 12345678901
+```
+
+Repeat this process in your local environment, by adding these values as [environment variables](./developer-tools.md#environment-variables).
+
+This CI/CD process corresponds to a single workspace. If you want to create another workflow, for example, to differentiate between `stage` and `prod`, you need to:
+
+-  Duplicate the workflow you created
+-  Replace the workspace `id`
 
 ## Bring your own CI/CD
 
-asdf
+Although GitHub is the recommended CI/CD platform, it is possible to use other CI/CD platforms. You will need to refer to the CI/CD platform's documentation for secrets management and workflow creation, because the syntax of the workflow and variables will be different for each platform.
+
+When using your own CI/CD platform, there are two important considerations:
+
+- The [Adobe I/O CLI](https://github.com/adobe/aio-cli) is the official tool for managing the App Builder Application development lifecycle from bootstrapping to deployment. Use the CLI within a CI/CD workflow for automation purposes.
+
+- Security is a key requirement. Any alternative CI/CD workflows should provide a secret management solution to store the credentials required to deploy an App Builder Application against a specific Workspace. You can set these tokens in an `.aio` file or by using system or environment variables.
+
+The [`aio-apps-action`](https://github.com/adobe/aio-apps-action) can be used as a reference for constructing your own pipeline. This CI/CD Github action for automated deploys generates a token for the CLI to avoid login.
+
+This [App Builder Live demo](https://www.youtube.com/live/lbB2jl2rQZM?feature=share&t=1815) provides a walkthrough of how you might create your own CI/CD pipeline.
