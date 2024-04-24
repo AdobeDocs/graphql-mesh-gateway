@@ -14,6 +14,14 @@ keywords:
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## April 23, 2024
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+Resolved an issue that could cause operation headers to be exposed as query string parameters in the source URL when `useGETForQueries` was set to `true`.
+
 ## April 04, 2024
 
 This release contains the following changes to API Mesh:
