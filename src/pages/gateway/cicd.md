@@ -24,13 +24,13 @@ To get an OAuth token to enable CI/CD:
 
 1. Navigate to the [Adobe Developer Console](https://developer.adobe.com/console) and select your desired workspace.
 
-    [Workspace Card](../_images/workspace-card.png)
+    ![Workspace Card](../_images/workspace-card.png)
 
 1. Click the **Add Service** button and select API.
 
 1. From the list of APIs, select the **I/O Management API** under the Adobe Services filter and click **Next**.
 
-    [IO management API](../_images/io-management-api.png)
+    ![IO management API](../_images/io-management-api.png)
 
 1. With OAuth Server-to-Server selected, click **Save configured API**.
 
