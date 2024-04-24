@@ -12,9 +12,13 @@ keywords:
 
 # CI/CD for API Mesh
 
-API Mesh for Adobe Developer App Builder now provides CI/CD through [Github actions](https://docs.github.com/en/actions).
+API Mesh for Adobe Developer App Builder now provides CI/CD through [Github actions](https://docs.github.com/en/actions). This allows developers to build, test, and deploy a mesh faster.
 
 ## API Mesh authentication
+
+<InlineAlert variant="info" slots="text"/>
+
+[Create your mesh](./create-mesh.md) before beginning this process, the supplied GitHub action only handles mesh updates.
 
 To get an OAuth token to enable CI/CD:
 
@@ -26,28 +30,29 @@ To get an OAuth token to enable CI/CD:
 
 1. From the list of APIs, select the **I/O Management API** under the Adobe Services filter and click **Next**.
 
-    [io management API](../_images/io-management-api.png)
+    [IO management API](../_images/io-management-api.png)
 
 1. With OAuth Server-to-Server selected, click **Save configured API**.
 
+1. Click **OAuth Server-to-Server** inside the I/O Management API.
 
-
-
+1. Click "Generate access token". Copy and save this token for later use.
 
 ## Setup your API Mesh repository
 
-After [creating a local environment](./developer-tools.md#create-a-local-environment), upload your local files to [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories).
+A GitHub repository is necessary for hosting your mesh files. If you use another `git` development platform, see [using your own CI/CD](#bring-your-own-cicd).
+
+After [creating a local environment](./developer-tools.md#create-a-local-environment) by running the `aio api-mesh:init` command, upload your local files to [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories).
 
 <InlineAlert variant="info" slots="text"/>
 
 When running the `aio api-mesh:init` command, ensure that you enable `git` by following the command prompts.
 
+Once your repository is accessible, clone your repo locally using the following command:
 
-
-
-Once your repository is available on GitHub, you can copy your repository url e.g. `https://github.com/<org>/<project_name>.git`.
-
-Then in the command line, use `git clone https://github.com/<org>/<project_name>.git` to clone the repository to your local system.
+```bash
+git clone https://github.com/<org>/<project_name>.git
+```
 
 Go to the project folder with `cd <project_name>` and run the command `aio app init` to bootstrap a new App Builder Application from the [CLI](https://github.com/adobe/aio-cli), the application generator will ask whether to include GitHub Actions based workflows for Build, Test and Deploy.
 
@@ -301,4 +306,8 @@ aio app use -m // Merge the selected environment settings from the Developer Con
 ```
 
 Then go to the `.env` file in your project and copy the values of `AIO_runtime_namespace` and `AIO_runtime_auth` into your GitHub secrets.
-Simply repeat the steps for stage / production by switching to another workspace with `aio console workspace select <wkspId>`.   
+Simply repeat the steps for stage / production by switching to another workspace with `aio console workspace select <wkspId>`.
+
+## Bring your own CI/CD
+
+asdf
