@@ -234,6 +234,6 @@ When using your own CI/CD platform, there are two important considerations:
 
 - Security is a key requirement. Any alternative CI/CD workflows should provide a secret management solution to store the credentials required to deploy an App Builder Application against a specific Workspace. You can set these tokens in an `.aio` file or by using system or environment variables.
 
-The [`aio-apps-action`](https://github.com/adobe/aio-apps-action) can be used as a reference for constructing your own pipeline. This CI/CD Github action for automated deploys generates a token for the CLI to avoid login.
+The [`aio-apps-action`](https://github.com/adobe/aio-apps-action) can be used as a reference for constructing your own pipeline. This CI/CD Github action for automated deploys generates a token for the CLI to avoid login. The Adobe Developer Console documentation provides more information on [generating access tokens programmatically](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/implementation/#generating-access-tokens-programmatically).
 
 This [App Builder Live demo](https://www.youtube.com/live/lbB2jl2rQZM?feature=share&t=1815) provides a walkthrough of how you might create your own CI/CD pipeline.
