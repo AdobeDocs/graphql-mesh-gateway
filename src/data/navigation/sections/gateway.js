@@ -79,7 +79,7 @@ module.exports = [
                 path: '/gateway/extending-unified-schema.md'
             },
             {
-                title: 'CI/CD for API Mesh',
+                title: 'CI/CD walkthrough',
                 path: '/gateway/cicd.md'
             },
             {

@@ -12,9 +12,13 @@ keywords:
 
 # CI/CD for API Mesh
 
-API Mesh for Adobe Developer App Builder now provides CI/CD through [Github actions](https://docs.github.com/en/actions). This allows developers to build, test, and deploy meshes faster and more reliably.
+API Mesh for Adobe Developer App Builder now provides CI/CD through [Github actions](https://docs.github.com/en/actions). CI/CD ensures rapid, reliable software delivery, which fosters agility and quality throughout the development lifecycle.
 
-## API Mesh authentication
+<InlineAlert variant="info" slots="text"/>
+
+API Mesh and App Builder use the same tools and infrastructure to provide CI/CD. See [CI/CD in App Builder](https://developer.adobe.com/app-builder/docs/resources/ci-cd/) for more information.
+
+## 1. Add Authentication to your workspace
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -22,7 +26,7 @@ API Mesh for Adobe Developer App Builder now provides CI/CD through [Github acti
 
 To get an OAuth token to enable CI/CD:
 
-1. Navigate to the [Adobe Developer Console](https://developer.adobe.com/console) and select your desired workspace.
+1. Navigate to the [Adobe Developer Console](https://developer.adobe.com/console) and select the workspace that contains your mesh.
 
     ![Workspace Card](../_images/workspace-card.png)
 
@@ -36,9 +40,7 @@ To get an OAuth token to enable CI/CD:
 
 1. Click **OAuth Server-to-Server** inside the I/O Management API.
 
-1. Click "Generate access token". Copy and save this token for later use.
-
-## Set up your API Mesh repository
+## 2. Set up your API Mesh repository
 
 A GitHub repository is necessary for hosting your mesh files. If you use another `git` development platform, see [using your own CI/CD](#bring-your-own-cicd).
 
@@ -56,13 +58,13 @@ git clone https://github.com/<org>/<project_name>.git
 
 You will continue to use this repo to make changes to your mesh.
 
-## Create an action
+## 3. Create a GitHub action
 
 The GitHub action described in this section updates the specified mesh when a PR is merged to the `main` branch of your repository.
 
 <InlineAlert variant="info" slots="text"/>
 
-Before you can successfully run this workflow, you must configure your [GitHub secrets](#secrets-and-variables).
+Before you can successfully run this workflow, you must configure your [GitHub secrets](#4-configure-your-secrets-and-variables).
 
 This workflow relies on two existing Adobe I/O GitHub Actions published on the GitHub Marketplace:
 
@@ -158,7 +160,7 @@ pull_request:
 
 For more information see [Events that trigger workflows](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows).
 
-## Secrets and variables
+## 4, Configure your secrets and variables
 
 When developing locally, you can store your variables and secrets in your [environment variables file](./developer-tools.md#environment-variables). When using GitHub, you will need to use [secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) and [variables](https://docs.github.com/en/actions/learn-github-actions/variables).
 
@@ -180,7 +182,7 @@ You need administrative permissions to the target GitHub repository to add secre
 
 1. Enter the corresponding value for the secret or variable, for example, `123456123456`.
 
-The previously described `yml` file in [Create an action](#create-an-action) requires the following secrets/variables.
+The previously described `yml` file in [Create an action](#3-create-a-github-action) requires the following secrets/variables.
 
 ```yml
 CLIENTID: ${{ secrets.CLIENTID_PROD }}
