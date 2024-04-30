@@ -164,9 +164,9 @@ For more information see [Events that trigger workflows](https://docs.github.com
 
 When developing locally, you can store your variables and secrets in your [environment variables file](./developer-tools.md#environment-variables). When using GitHub, you will need to use [secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) and [variables](https://docs.github.com/en/actions/learn-github-actions/variables).
 
-- Variables are for information that is not sensitive, for example, if you are targeting `stage` or `prod`. When viewing your mesh in the Developer Console or by running the `aio api-mesh:get` command, these variables will be exposed.
+- Variables are for information that is not sensitive, for example, a variable could determine if you are targeting `stage` or `prod`. Additionally, you can configure variables to carry different values based on the environment you are using.
 
-- Secrets are for sensitive information, such as access tokens. These are never exposed in the Developer Console or when running the `aio api-mesh:get` command.
+- Secrets are for sensitive information, such as access tokens. These are never exposed in the Github code repo.
 
 ### Add a secret or variable
 
