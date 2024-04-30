@@ -58,7 +58,74 @@ git clone https://github.com/<org>/<project_name>.git
 
 You will continue to use this repo to make changes to your mesh.
 
-## 3. Create a GitHub action
+## 3. Configure your secrets and variables
+
+When developing locally, you can store your variables and secrets in your [environment variables file](./developer-tools.md#environment-variables). When using GitHub, you will need to use [secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) and [variables](https://docs.github.com/en/actions/learn-github-actions/variables).
+
+- Variables are for information that is not sensitive, for example, a variable could determine if you are targeting `stage` or `prod`. Additionally, you can configure variables to carry different values based on the environment you are using.
+
+- Secrets are for sensitive information, such as access tokens. These are never exposed in the Github code repo.
+
+### Add a secret or variable
+
+<InlineAlert variant="info" slots="text"/>
+
+You need administrative permissions to the target GitHub repository to add secrets or variables.
+
+1. Navigate to `https://github.com/<org>/<project_name>/settings/secrets/actions`.
+
+1. On the Secrets or Variables tab, click either **New repository secret** or **New repository variable**.
+
+1. Enter a name for the secret or variable, such as `CLIENTID_PROD`.
+
+1. Enter the corresponding value for the secret or variable, for example, `123456123456`.
+
+The previously described `yml` file in [Create an action](#3-create-a-github-action) requires the following secrets/variables.
+
+```yml
+CLIENTID: ${{ secrets.CLIENTID_PROD }}
+CLIENTSECRET: ${{ secrets.CLIENTSECRET_PROD }}
+TECHNICALACCOUNTID: ${{ secrets.TECHNICALACCID_PROD }}
+TECHNICALACCOUNTEMAIL: ${{ secrets.TECHNICALACCEMAIL_PROD }}
+IMSORGID: ${{ secrets.IMSORGID_PROD }}
+ORGID: ${{ secrets.ORGID_PROD }}
+PROJECTID: ${{ secrets.PROJECTID_PROD }}
+WORKSPACEID: ${{ secrets.WORKSPACEID_PROD }}
+```
+
+For example, if you named a secret `CLIENTID_PROD`, you can call that secret using the `${{ secrets.CLIENTID_PROD }}` format.
+
+The specific secrets required for this workflow are available in the [Developer Console](https://console.adobe.io/) by navigating to the desired workspace within a project and clicking the **Download all** button in the top-right of the screen. This downloads a `JSON` file.
+
+In the file, find the values for the following keys:
+
+- `client_id`
+- `client_secrets`
+- `technical_account_email`
+- `technical_account_id`
+- `ims_org_id`
+
+Create a GitHub secret for each of these items.
+
+You also need to specify the `id` for the organization, project, and workspace in the following section of GitHub workflow. These values are also available in the file downloaded from the Developer Console:
+
+```yml
+- name: Select org
+  run: aio console:org:select 123456
+- name: Select project
+  run: aio console:project:select 1234567890
+- name: Select workspace
+  run: aio console:workspace:select 12345678901
+```
+
+Repeat this process in your local environment, by adding these values as [environment variables](./developer-tools.md#environment-variables).
+
+This CI/CD process corresponds to a single workspace. If you want to create another workflow, for example, to differentiate between `stage` and `prod`, you need to:
+
+-  Duplicate the workflow you created
+-  Replace the workspace `id`
+
+## 4. Create a GitHub action
 
 The GitHub action described in this section updates the specified mesh when a PR is merged to the `main` branch of your repository.
 
@@ -127,11 +194,11 @@ jobs:
           IMSORGID: ${{ secrets.IMSORGID_PROD }}
           SCOPES: AdobeID, openid, read_organizations, additional_info.projectedProductContext, additional_info.roles, adobeio_api, read_client_secret, manage_client_secrets
       - name: Select org
-        run: aio console:org:select 123456
+        run: aio console:org:select ${{ secrets.ORGID_PROD }}
       - name: Select project
-        run: aio console:project:select 1234567890
+        run: aio console:project:select ${{ secrets.PROJECTID_PROD }}
       - name: Select workspace
-        run: aio console:workspace:select 12345678901
+        run: aio console:workspace:select ${{ secrets.WORKSPACEID_PROD }}
       - name: 'Create env file'
         run: |
           touch .env
@@ -160,69 +227,6 @@ pull_request:
 
 For more information see [Events that trigger workflows](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows).
 
-## 4, Configure your secrets and variables
-
-When developing locally, you can store your variables and secrets in your [environment variables file](./developer-tools.md#environment-variables). When using GitHub, you will need to use [secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions) and [variables](https://docs.github.com/en/actions/learn-github-actions/variables).
-
-- Variables are for information that is not sensitive, for example, a variable could determine if you are targeting `stage` or `prod`. Additionally, you can configure variables to carry different values based on the environment you are using.
-
-- Secrets are for sensitive information, such as access tokens. These are never exposed in the Github code repo.
-
-### Add a secret or variable
-
-<InlineAlert variant="info" slots="text"/>
-
-You need administrative permissions to the target GitHub repository to add secrets or variables.
-
-1. Navigate to `https://github.com/<org>/<project_name>/settings/secrets/actions`.
-
-1. On the Secrets or Variables tab, click either **New repository secret** or **New repository variable**.
-
-1. Enter a name for the secret or variable, such as `CLIENTID_PROD`.
-
-1. Enter the corresponding value for the secret or variable, for example, `123456123456`.
-
-The previously described `yml` file in [Create an action](#3-create-a-github-action) requires the following secrets/variables.
-
-```yml
-CLIENTID: ${{ secrets.CLIENTID_PROD }}
-CLIENTSECRET: ${{ secrets.CLIENTSECRET_PROD }}
-TECHNICALACCOUNTID: ${{ secrets.TECHNICALACCID_PROD }}
-TECHNICALACCOUNTEMAIL: ${{ secrets.TECHNICALACCEMAIL_PROD }}
-IMSORGID: ${{ secrets.IMSORGID_PROD }}
-```
-
-For example, if you named a secret `CLIENTID_PROD`, you can call that secret using the `${{ secrets.CLIENTID_PROD }}` format.
-
-The specific secrets required for this workflow are available in the [Developer Console](https://console.adobe.io/) by navigating to the desired workspace within a project and clicking the **Download all** button in the top-right of the screen. This downloads a `JSON` file.
-
-In the file, find the values for the following keys:
-
-- `client_id`
-- `client_secrets`
-- `technical_account_email`
-- `technical_account_id`
-- `ims_org_id`
-
-Create a GitHub secret for each of these items.
-
-You also need to specify the `id` for the organization, project, and workspace in the following section of GitHub workflow. These values are also available in the file downloaded from the Developer Console:
-
-```yml
-- name: Select org
-  run: aio console:org:select 123456
-- name: Select project
-  run: aio console:project:select 1234567890
-- name: Select workspace
-  run: aio console:workspace:select 12345678901
-```
-
-Repeat this process in your local environment, by adding these values as [environment variables](./developer-tools.md#environment-variables).
-
-This CI/CD process corresponds to a single workspace. If you want to create another workflow, for example, to differentiate between `stage` and `prod`, you need to:
-
--  Duplicate the workflow you created
--  Replace the workspace `id`
 
 ## Bring your own CI/CD
 
