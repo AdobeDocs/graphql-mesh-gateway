@@ -227,7 +227,6 @@ pull_request:
 
 For more information see [Events that trigger workflows](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows).
 
-
 ## Bring your own CI/CD
 
 Although GitHub is the recommended CI/CD platform, it is possible to use other CI/CD platforms. You will need to refer to the CI/CD platform's documentation for secrets management and workflow creation, because the syntax of the workflow and variables will be different for each platform.
