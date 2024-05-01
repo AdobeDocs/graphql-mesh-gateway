@@ -1,6 +1,6 @@
 ---
 title: CI/CD for API Mesh
-description: Learn how to set up continuous integration and delivery/deployment for API Mesh .
+description: Learn how to set up continuous integration and delivery/deployment for API Mesh.
 keywords:
   - API Mesh
   - Extensibility
@@ -19,6 +19,8 @@ API Mesh for Adobe Developer App Builder now provides CI/CD through [Github acti
 API Mesh and App Builder use the same tools and infrastructure to provide CI/CD. See [CI/CD in App Builder](https://developer.adobe.com/app-builder/docs/resources/ci-cd/) for more information.
 
 ## 1. Add Authentication to your workspace
+
+This step adds the I/O Management API to your workspace. Proceed to the next step if it is already installed.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -80,7 +82,7 @@ To add secrets or variables, you must have administrative permissions in the tar
 
 1. Enter the corresponding value for the secret or variable, for example, `123456123456`.
 
-The previously described `yml` file in [Create an action](#3-create-a-github-action) requires the following secrets/variables.
+The next section, [Create an action](#4-create-a-github-action), describes a `yml` file that requires the following secrets/variables:
 
 ```yml
 CLIENTID: ${{ secrets.CLIENTID_PROD }}
@@ -95,7 +97,7 @@ WORKSPACEID: ${{ secrets.WORKSPACEID_PROD }}
 
 For example, if you named a secret `CLIENTID_PROD`, you can call that secret using the `${{ secrets.CLIENTID_PROD }}` format.
 
-The specific secrets required for this workflow are available in the [Developer Console](https://console.adobe.io/) by navigating to the desired workspace within a project and clicking the **Download all** button in the top-right of the screen. This downloads a `JSON` file.
+The specific secrets required for this workflow are available in the [Developer Console](https://developer.adobe.com/console) by navigating to the desired workspace within a project and clicking the **Download all** button in the top-right of the screen. This downloads a `JSON` file.
 
 In the file, find the values for the following keys:
 
@@ -127,17 +129,13 @@ This CI/CD process corresponds to a single workspace. If you want to create anot
 
 ## 4. Create a GitHub action
 
-The GitHub action described in this section updates the specified mesh when a PR is merged to the `main` branch of your repository.
-
-<InlineAlert variant="info" slots="text"/>
-
-Before you can successfully run this workflow, you must configure your [GitHub secrets](#4-configure-your-secrets-and-variables).
+The GitHub action described in this section updates the specified mesh when a PR is merged to the `main` branch of your repository. This step uses the variables and secrets you configured in the previous section.
 
 This workflow relies on two existing Adobe I/O GitHub Actions published on the GitHub Marketplace:
 
--  `adobe/aio-cli-setup-action` installs and configures the [CLI](https://github.com/adobe/aio-cli) on the GitHub infrastructure. For API Mesh, this action handles authentication.
+-  [`adobe/aio-cli-setup-action`](https://github.com/adobe/aio-cli-setup-action) installs and configures the [CLI](https://github.com/adobe/aio-cli) on the GitHub infrastructure. For API Mesh, this action handles authentication.
 
-- `adobe/aio-apps-action` centralizes support for a GitHub workflow to leverage application-specific commands, such as deploying via `aio api-mesh:update`.
+- [`adobe/aio-apps-action`](https://github.com/adobe/aio-apps-action) centralizes support for a GitHub workflow to leverage application-specific commands, such as deploying via `aio api-mesh:update`.
 
 In the `.github/workflows` folder, create a `.yml` file with the following contents:
 
