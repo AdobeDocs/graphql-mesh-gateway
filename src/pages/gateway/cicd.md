@@ -1,6 +1,6 @@
 ---
 title: CI/CD for API Mesh
-description: Learn how to set up continuous integration and continuous delivery/deployment for API Mesh .
+description: Learn how to set up continuous integration and delivery/deployment for API Mesh .
 keywords:
   - API Mesh
   - Extensibility
@@ -70,11 +70,11 @@ When developing locally, you can store your variables and secrets in your [envir
 
 <InlineAlert variant="info" slots="text"/>
 
-You need administrative permissions to the target GitHub repository to add secrets or variables.
+To add secrets or variables, you must have administrative permissions in the target GitHub repository.
 
 1. Navigate to `https://github.com/<org>/<project_name>/settings/secrets/actions`.
 
-1. On the Secrets or Variables tab, click either **New repository secret** or **New repository variable**.
+1. On the **Secrets** or **Variables** tab, click either **New repository secret** or **New repository variable**.
 
 1. Enter a name for the secret or variable, such as `CLIENTID_PROD`.
 
@@ -229,7 +229,7 @@ For more information see [Events that trigger workflows](https://docs.github.com
 
 ## Bring your own CI/CD
 
-Although GitHub is the recommended CI/CD platform, it is possible to use other CI/CD platforms. You will need to refer to the CI/CD platform's documentation for secrets management and workflow creation, because the syntax of the workflow and variables will be different for each platform.
+Although GitHub is the recommended CI/CD platform, you can use other CI/CD platforms. Refer to the alternative CI/CD platform's documentation for secrets management and workflow creation, because the syntax of the workflow and variables will be different for each platform.
 
 When using your own CI/CD platform, there are two important considerations:
 
