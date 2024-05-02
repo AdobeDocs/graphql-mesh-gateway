@@ -1,5 +1,5 @@
 ---
-title: Developer tools
+title: Local development
 description: Learn how to use development tools to create a local environment and use environment variables with API Mesh.
 keywords:
   - API Mesh
@@ -10,7 +10,7 @@ keywords:
   - Tools
 ---
 
-# Developer tools
+# Local development
 
 The processes covered in this topic allow developers to set up a local environment, use environment variables, and directly reference files in API Mesh for Adobe Developer App Builder.
 

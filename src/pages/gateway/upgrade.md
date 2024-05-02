@@ -98,7 +98,7 @@ Additionally, due to our new asynchronous architecture, the create/update comman
 
 ### CORS formatting change
 
-[CORS headers](headers.md#cors-headers) now have the following format:
+[CORS headers](cors.md) now have the following format:
 
 ```json
   "responseConfig": {
@@ -108,7 +108,7 @@ Additionally, due to our new asynchronous architecture, the create/update comman
   }
 ```
 
-Additionally, the `preflightContinue` field is no longer needed and will cause an error if used. Refer to the [CORS headers](headers.md#cors-headers) example for more information.
+Additionally, the `preflightContinue` field is no longer needed and will cause an error if used. Refer to the [CORS headers](cors.md) example for more information.
 
 ### Update existing meshes
 

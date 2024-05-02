@@ -10,7 +10,7 @@ keywords:
   - Tools
 ---
 
-# API Mesh walkthrough
+# API Mesh tutorial
 
 This walkthrough covers the basic actions you can perform in a mesh using API Mesh for Adobe Developer App Builder.
 
