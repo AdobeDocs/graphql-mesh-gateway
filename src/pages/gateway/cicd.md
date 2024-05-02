@@ -102,10 +102,12 @@ The specific secrets required for this workflow are available in the [Developer 
 In the file, find the values for the following keys:
 
 - `client_id`
-- `client_secrets`
+- `client_secret`
 - `technical_account_email`
 - `technical_account_id`
 - `ims_org_id`
+- Project ID - `project` > `id`
+- Workspace ID - `project` > `workspace` > `id`
 
 Create a GitHub secret for each of these items.
 
@@ -113,11 +115,11 @@ You also need to specify the `id` for the organization, project, and workspace i
 
 ```yml
 - name: Select org
-  run: aio console:org:select 123456
+  run: aio console:org:select ${{ secrets.ORGID_PROD }}
 - name: Select project
-  run: aio console:project:select 1234567890
+  run: aio console:project:select ${{ secrets.PROJECTID_PROD }}
 - name: Select workspace
-  run: aio console:workspace:select 12345678901
+  run: aio console:workspace:select ${{ secrets.WORKSPACEID_PROD }}
 ```
 
 Repeat this process in your local environment, by adding these values as [environment variables](./developer-tools.md#environment-variables).
@@ -171,8 +173,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install
-        run: npm i
       - name: Setup CLI
         uses: adobe/aio-cli-setup-action@1.3.0
         with:
