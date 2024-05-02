@@ -14,6 +14,34 @@ keywords:
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## April 23, 2024
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+Resolved an issue that could cause operation headers to be exposed as query string parameters in the source URL when `useGETForQueries` was set to `true`.
+
+## April 04, 2024
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+Resolved an issue that prevented resolvers from updating when updating a mesh.
+
+## January 30, 2024
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+Resolved a `MODULE_NOT_FOUND` error in the `@adobe/aio-cli-plugin-api-mesh` CLI. If you encounter this error, upgrade to version `3.2.2 (latest)`.
+
+<InlineAlert variant="info" slots="text"/>
+
+To update to the newest version of the CLI, run `aio-update` or `aio plugins:update @adobe/aio-cli-plugin-api-mesh`.
+
 ## January 11, 2023
 
 This release contains the following changes to API Mesh:

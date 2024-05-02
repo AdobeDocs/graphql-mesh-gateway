@@ -40,12 +40,12 @@ In this example, we will use `additionalResolvers` to apply a set of discounts t
         "name": "DiscountsAPI",
         "handler": {
           "JsonSchema": {
-            "baseUrl": "https://raw.githubusercontent.com/AdobeDocs/graphql-mesh-gateway/main/src/pages/_examples/discounts-api.json",
+            "baseUrl": "https://raw.githubusercontent.com/AdobeDocs/graphql-mesh-gateway/main/src/pages/_examples",
             "operations": [
               {
                 "type": "Query",
                 "field": "discounts",
-                "path": "/",
+                "path": "/discounts-api.json",
                 "method": "GET",
                 "responseSample": "https://raw.githubusercontent.com/AdobeDocs/graphql-mesh-gateway/main/src/pages/_examples/discounts-api.json"
               }
