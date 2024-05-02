@@ -86,7 +86,7 @@ Instead, use the following methods:
 
 -  [OpenAPI handlers](../reference/handlers/openapi.md#headers-from-context)
 -  [GraphQL handlers](../reference/handlers/graphql.md#headers-from-context)
--  [JSON schema handlers](../reference/handlers/json-schema.md#headers-from-context)
+-  [JSON Schema handlers](../reference/handlers/json-schema.md#headers-from-context)
 
 ### Mesh create and update time
 
