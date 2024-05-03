@@ -9,7 +9,34 @@ keywords:
   - Tools
 ---
 
-# GraphQL handlers
+## GraphQL endpoints
+
+The [GraphQL] handler allows you to connect to a GraphQL endpoint.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "PWA",
+        "handler": {
+          "graphql": {
+            "endpoint": "your_Venia_url"
+          }
+        }
+      },
+      {
+        "name": "AEM",
+        "handler": {
+          "graphql": {
+            "endpoint": "<your_AEM_url>"
+          }
+        }
+      }
+    ]
+  },
+}
+```
 
 This handler allows you to load remote GraphQL schemas as part of your mesh. The GraphQL handler uses the following format:
 

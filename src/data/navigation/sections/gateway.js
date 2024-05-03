@@ -31,7 +31,7 @@ module.exports = [
                 pages: [
                     {
                         title: 'Overview',
-                        path: '/reference/handlers/index'
+                        path: '/gateway/source-handlers'
                     },
                     {
                         title: 'OpenAPI',
@@ -58,6 +58,10 @@ module.exports = [
                     {
                         title: 'Overview',
                         path: '/reference/transforms/index'
+                    },
+                    {
+                        title: 'Bare vs wrap transforms',
+                        path: '/reference/transforms/bare-vs-wrap'
                     },
                     {
                         title: 'Encapsulate',
@@ -151,7 +155,7 @@ module.exports = [
         pages: [
 
             {
-                title: 'API Mesh walkthrough',
+                title: 'API Mesh tutorial',
                 path: '/gateway/mesh_walkthrough'
             },
 

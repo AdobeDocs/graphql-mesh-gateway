@@ -11,6 +11,40 @@ keywords:
 
 # JSON Schema handlers
 
+The [JSON] handler allows you to load a single remote REST endpoint and define the request and response structures using pre-defined JSON schema files.
+
+<InlineAlert variant="warning" slots="text"/>
+
+The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.
+
+```json
+{
+  "meshConfig": {
+      "sources": [
+          {
+              "name": "carts",
+              "handler": {
+                  "JsonSchema": {
+                      "baseUrl": "<your_Commerce_url>",
+                      "operations": [
+                          {
+                              "type": "Query",
+                              "field": "data",
+                              "path": "/cart",
+                              "method": "GET",
+                              "responseSchema": "./carts-response-schema.json"
+                          }
+                      ]
+                  }
+              }
+          }
+      ]
+  },
+}
+```
+
+For more information, see the [JSON Schema Config API Reference](../reference/handlers/json-schema.md#config-api-reference).
+
 This handler allows you to load any remote REST service and describe its request and response. JSON Schema handlers allow you to customize and control the GraphQL schema.
 
 <InlineAlert variant="info" slots="text"/>

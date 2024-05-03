@@ -12,30 +12,35 @@ keywords:
 
 # Add source handlers
 
-API Mesh for Adobe Developer App Builder only supports the following [source handlers]:
+Source handlers allow you to define sources, such as APIs, that provide data to your mesh. Each handler in your mesh corresponds to an API or other source that you can specify. API Mesh for Adobe Developer App Builder currently supports the following handlers:
 
--  OpenAPI
--  GraphQL
--  JSON schemas
--  SOAP (Experimental)
+-  [OpenAPI](../reference/handlers/openapi.md)
+-  [GraphQL](../reference/handlers/graphql.md)
+-  [JSON schemas](../reference/handlers/json-schema.md)
+-  [SOAP](../reference/handlers/soap.md) (Experimental)
 
-Whenever a source schema is modified, you must [update your mesh](./create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
-
-<InlineAlert variant="info" slots="text"/>
-
-We will add support for additional handlers in future releases.
+Whenever a schema is modified, you must [update your mesh](./create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
 
 <InlineAlert variant="warning" slots="text"/>
 
 Only alphanumerical characters are allowed in source handler names.
 
-## OpenAPI
+## Package versions
 
-The [OpenAPI] handler allows you to connect to an OpenAPI-compliant REST service endpoint or static Swagger schemas using a `.json` or `.yaml` file.
+The following table specifies the versions of each handler supported by API Mesh for Adobe Developer App Builder:
+
+| Handler Package Name | Version |
+|------------|------------|
+[`openapi`](../reference/handlers/openapi.md) | `0.33.39`
+[`graphql`](../reference/handlers/graphql.md) | `0.34.13`
+[`JsonSchema`](../reference/handlers/json-schema.md) | `0.35.38`
+[`soap`](../reference/handlers/soap.md) | `0.14.25`
 
 <InlineAlert variant="info" slots="text"/>
 
-When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition. API Mesh does not accept a wildcard (`*/*`) as a content type.
+Whenever a source schema is modified, you must [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
+
+The following example contains a basic mesh file with an OpenAPI source handler.
 
 ```json
 {
@@ -54,120 +59,51 @@ When using a Swagger schema, API Mesh can only access `application/json` content
 }
 ```
 
-<InlineAlert variant="info" slots="text"/>
+Handlers are located in the `sources` section of the mesh file. Each `source` will need a `name`, a `handler`, and other key-value pairs that correspond to the `handler` type. In the previous example, the `openapi` handler only requires a `source`.
 
-For more information, see the [OpenAPI Config API Reference](../reference/handlers/openapi.md#config-api-reference).
+- `name` - an alphanumeric name to distinguish between other handlers
+- `handler`- the type of handler you want to use, for example `openapi`
+- Handler specific data - the key-value pairs that correspond to your specified handler
 
-## GraphQL endpoints
-
-The [GraphQL] handler allows you to connect to a GraphQL endpoint.
-
-```json
-{
-  "meshConfig": {
-    "sources": [
-      {
-        "name": "PWA",
-        "handler": {
-          "graphql": {
-            "endpoint": "your_Venia_url"
-          }
-        }
-      },
-      {
-        "name": "AEM",
-        "handler": {
-          "graphql": {
-            "endpoint": "<your_AEM_url>"
-          }
-        }
-      }
-    ]
-  },
-}
-```
+## Reference local files in handlers
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see the [GraphQL Config API Reference](../reference/handlers/graphql.md#config-api-reference).
+To reference files directly, refer to [local development](./developer-tools.md#reference-files-directly).
 
-## JSON schemas
-
-The [JSON] handler allows you to load a single remote REST endpoint and define the request and response structures using pre-defined JSON schema files.
-
-<InlineAlert variant="warning" slots="text"/>
-
-The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.
+You can reference local files as sources in handlers using the following format:
 
 ```json
 {
-  "meshConfig": {
-      "sources": [
-          {
-              "name": "carts",
-              "handler": {
-                  "JsonSchema": {
-                      "baseUrl": "<your_Commerce_url>",
-                      "operations": [
-                          {
-                              "type": "Query",
-                              "field": "data",
-                              "path": "/cart",
-                              "method": "GET",
-                              "responseSchema": "./carts-response-schema.json"
-                          }
-                      ]
-                  }
-              }
-          }
-      ]
-  },
-}
-```
-
-For more information, see the [JSON Schema Config API Reference](../reference/handlers/json-schema.md#config-api-reference).
-
-## SOAP
-
-<InlineAlert variant="warning" slots="text"/>
-
-The SOAP handler is experimental and should not be used in production deployments.
-
-The SOAP handler allows you to consume [SOAP](https://soapui.org) `WSDL` files and generate a remote executable schema for those services.
-
-```json
-{
-  "meshConfig": {
-    "sources": [
-      {
-        "name": "SoapSource",
-        "handler": {
-          "soap": {
-            "source": "http://<Commerce Host>/soap?wsdl&services=customerCustomerRepositoryV1",
-            "wsdl": "http://<Commerce Host>/soap?wsdl&services=customerCustomerRepositoryV1",
-            "operationHeaders": {
-              "x-operation-header-key": "sample-x-operation-header-value"
+    "meshConfig": {
+        "sources": [
+            {
+                "name": "CommerceREST",
+                "handler": {
+                    "openapi": {
+                        "source": "your_Commerce_API"
+                    }
+                }
             },
-            "schemaHeaders": {
-              "x-schema-header-key": "sample-x-schema-header-value"
+            {
+                "name": "CommerceRESTV2",
+                "handler": {
+                    "openapi": {
+                        "source": "./CommerceRestV2.json"
+                    }
+                }
             }
-          }
-        }
-      }
-    ]
-  }
+        ],
+        "files": [
+            {
+                "path": "./CommerceRestV2.json",
+                "content": <LOCAL_FILE_CONTENT>
+            }
+        ]
+    }
 }
 ```
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see the [SOAP handler reference](../reference/handlers/soap.md#config-api-reference).
-
-<!-- Link Definitions -->
-
-[GraphQL Mesh]: getting-started.md
-[source handlers]: source-handlers.md
-[header]: headers.md
-[OpenAPI]: /reference/handlers/openapi.md
-[GraphQL]: /reference/handlers/graphql.md
-[JSON]: /reference/handlers/json-schema.md
+Only `JS` and `JSON` files are supported using this method.

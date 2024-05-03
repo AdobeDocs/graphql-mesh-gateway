@@ -9,7 +9,41 @@ keywords:
   - Tools
 ---
 
-# SOAP
+## SOAP handlers
+
+<InlineAlert variant="warning" slots="text"/>
+
+The SOAP handler is experimental and should not be used in production deployments.
+
+The SOAP handler allows you to consume [SOAP](https://soapui.org) `WSDL` files and generate a remote executable schema for those services.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "SoapSource",
+        "handler": {
+          "soap": {
+            "source": "http://<Commerce Host>/soap?wsdl&services=customerCustomerRepositoryV1",
+            "wsdl": "http://<Commerce Host>/soap?wsdl&services=customerCustomerRepositoryV1",
+            "operationHeaders": {
+              "x-operation-header-key": "sample-x-operation-header-value"
+            },
+            "schemaHeaders": {
+              "x-schema-header-key": "sample-x-schema-header-value"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+<InlineAlert variant="info" slots="text"/>
+
+For more information, see the [SOAP handler reference](../reference/handlers/soap.md#config-api-reference).
 
 <InlineAlert variant="warning" slots="text"/>
 
