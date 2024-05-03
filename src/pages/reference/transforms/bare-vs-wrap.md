@@ -232,7 +232,6 @@ Example:
 
 When you want to use `wrap`, you can omit the `mode` property since this is already applied by default.
 
-
 <!-- Link Definitions -->
 [Introduction]: index.md
 [encapsulate]: encapsulate.md
