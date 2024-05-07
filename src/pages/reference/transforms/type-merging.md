@@ -384,5 +384,5 @@ formatted as `\"\"\" arg1: "value", arg2: "value" \"\"\"`.
    -  `argsExpr` (type: `String`) - Advanced use only; This argument specifies a string expression that allows more customization of the input arguments. Rules for evaluation of this argument are as follows:
    -  Basic object parsing of the input key: `"arg1: $key.arg1, arg2: $key.arg2"`
    -  Any expression enclosed by double brackets will be evaluated once for each of the requested keys, and then sent as a list: `"input: \{ keys: [[$key]] }"`
-   -  Selections from the key can be referenced by using the $ sign and dot notation, for example `upcs: [[$key.upc]]`, so that `$key.upc` refers to the `upc` field of the key.
+   -  Selections from the key can be referenced by using the $ sign and dot notation, for example `upcs: [[$key.upc]]` so that `$key.upc` refers to the `upc` field of the key.
 -  `additionalConfiguration` (type: `Any`) - The path to a code file that has an additional type merging configuration
