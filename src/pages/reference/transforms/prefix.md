@@ -92,7 +92,6 @@ For information about `bare` and `wrap` modes, read the [dedicated section](./ba
 }
 ```
 
-
 ## Config API Reference
 
 -  `mode` (type: `String` (`bare` | `wrap`)) - Specify to apply prefix transform to bare schema or by wrapping original schema
