@@ -35,7 +35,7 @@ When using a Swagger schema, API Mesh can only access `application/json` content
 }
 ```
 
-You can import a remote or local schema `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers](index.md#reference-local-files-in-handlers) for more information.
+You can import a remote or local schema `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers](../../gateway/source-handlers.md#reference-local-files-in-handlers) for more information.
 
 <InlineAlert variant="info" slots="text"/>
 

@@ -25,20 +25,9 @@ Whenever a schema is modified, you must [update your mesh](./create-mesh.md#upda
 
 Only alphanumerical characters are allowed in source handler names.
 
-## Package versions
-
-The following table specifies the versions of each handler supported by API Mesh for Adobe Developer App Builder:
-
-| Handler Package Name | Version |
-|------------|------------|
-[`openapi`](../reference/handlers/openapi.md) | `0.33.39`
-[`graphql`](../reference/handlers/graphql.md) | `0.34.13`
-[`JsonSchema`](../reference/handlers/json-schema.md) | `0.35.38`
-[`soap`](../reference/handlers/soap.md) | `0.14.25`
-
 <InlineAlert variant="info" slots="text"/>
 
-Whenever a source schema is modified, you must [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
+Whenever a source schema is modified, you must [update your mesh](./create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
 
 The following example contains a basic mesh file with an OpenAPI source handler.
 
@@ -107,3 +96,14 @@ You can reference local files as sources in handlers using the following format:
 <InlineAlert variant="info" slots="text"/>
 
 Only `JS` and `JSON` files are supported using this method.
+
+## Package versions
+
+The following table specifies the GraphQL Mesh versions of each handler supported by API Mesh for Adobe Developer App Builder:
+
+| Handler Package Name | Version |
+|------------|------------|
+[`openapi`](../reference/handlers/openapi.md) | `0.33.39`
+[`graphql`](../reference/handlers/graphql.md) | `0.34.13`
+[`JsonSchema`](../reference/handlers/json-schema.md) | `0.35.38`
+[`soap`](../reference/handlers/soap.md) | `0.14.25`

@@ -12,6 +12,44 @@ keywords:
 
 # `replaceField` transform
 
+[Replace field] transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "PWA",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://example2.com/graphql"
+          }
+        },
+        "transforms": [
+          {
+            "replaceField": {
+              "replacements": [
+                {
+                  "from": {
+                    "type": "Query",
+                    "field": "parent"
+                  },
+                  "to": {
+                    "type": "<your_API_Response>",
+                    "field": "child"
+                  },
+                  "scope": "hoistvalue"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
 The `replaceField` transform allows you to replace the configuration properties of a GraphQL field (source) with the ones of another field (target).
 
 The `replace-field` transforms allow you to replace the configuration properties of one field with another. This allows you to hoist field values from a subfield to its parent.
@@ -21,7 +59,7 @@ It can be customized to completely replace and/or compose resolve functions with
 
 <InlineAlert variant="info" slots="text"/>
 
-Currently, this transform supports `bare` mode only. For information about `bare` and `wrap` modes, read the [dedicated section](index.md#two-different-modes).
+Currently, this transform supports `bare` mode only. For information about `bare` and `wrap` modes, read [`bare` vs `wrap`](./bare-vs-wrap.md).
 
 ## Usage
 

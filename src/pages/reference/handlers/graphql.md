@@ -55,7 +55,7 @@ This handler allows you to load remote GraphQL schemas as part of your mesh. The
 }
 ```
 
-GraphQL handlers can also use local sources, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
+GraphQL handlers can also use local sources, see [Reference local file handlers](../../gateway/source-handlers.md#reference-local-files-in-handlers) for more information.
 
 ## Headers from context
 

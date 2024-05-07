@@ -12,286 +12,159 @@ keywords:
 
 # Transforms
 
-While [handlers] let you bring outside sources into API Mesh for Adobe Developer App Builder, [transforms] allow you to modify the schema to control the contents of your GraphQL requests and responses.
+While [handlers](./source-handlers.md) let you bring outside sources into API Mesh for Adobe Developer App Builder, transforms allow you to modify the schema to control the contents of your GraphQL requests and responses.
+
+Transforms are specified as a list of objects, and they are executed in order. You can apply them [to a specific handler or the entire mesh](#handler-vs-mesh-transforms).
+
+## Transforms available
 
 API Mesh currently supports the following [transforms]:
 
--  [Rename](#rename)
--  [Prefix](#prefix)
--  [Filter Schema](#filter-schema)
--  [Replace Field](#replace-field)
--  [Type Merging](#type-merging)
--  [Naming Convention](#naming-convention)
-<!-- -  [Hooks](#hooks) -->
+-  [Rename](../reference/transforms/rename.md)
+-  [Prefix](../reference/transforms/prefix.md)
+-  [Filter Schema](../reference/transforms/filter-schema.md)
+-  [Replace Field](../reference/transforms/replace-field.md)
+-  [Type Merging](../reference/transforms/type-merging.md)
+-  [Naming Convention](../reference/transforms/naming-convention.md)
+-  [Hooks](./hooks.md)
 
-Additionally, the following transforms are available but are not fully supported by API Mesh at this time. This means that your mesh will accept the transform, but we have not tested the transform thoroughly and you may encounter errors. Additionally, certain transform options may be disabled due to security concerns.
+Additionally, the following transforms are available but are not fully supported by API Mesh at this time. This means that your mesh will accept the transform, but we have not tested the transform thoroughly, and you could encounter errors. Additionally, certain transform options may be disabled due to security concerns.
 
--  [Encapsulate]
--  [Federation]
+-  [Encapsulate](../reference/transforms/encapsulate.md)
+-  [Federation](../reference/transforms/federation.md)
 -  [Hoist field](../reference/transforms/replace-field.md#scope-hoistvalue)
 
 Other transforms are not supported.
 
-## Prefix
+## Handler vs mesh transforms
 
-The [Prefix] transform allows you to add prefixes to existing types and root operations. `prefix` is similar to `rename` in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query. In contrast with `rename`, `prefix` is simpler and only allows you to append a prefix to the existing name. In the example below, we differentiate our sources by adding an "AEM_" prefix to the [AEM] source and a  "Venia_" prefix to the [PWA] source.
+When adding a transform to your mesh, you can choose to have the transform affect a single source (handler) or the entire mesh.
 
-```json
-{
-  "meshConfig": {
-    "sources": [
-      {
-        "name": "AEM",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://example1.com/graphql"
-          }
-        },
-        "transforms": [
-          {
-            "prefix": {
-              "includeRootOperations": true,
-              "value": "AEM_"
-            }
-          }
-        ]
-      },
-       {
-        "name": "PWA",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://example2.com/graphql"
-          }
-        },
-        "transforms": [
-          {
-            "prefix": {
-              "includeRootOperations": true,
-              "value": "Venia_"
-            }
-          }
-        ]
-      }
-    ]
-  },
-}
-```
-
-## Rename
-
-[Rename] transforms allow you to rename a GraphQL field, type, or field argument. Renaming allows you to avoid conflicting names, simplify complicated names, and make queries look more like mutations. In the example below, we rename a long API field name from `integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost` to the shorter `CreateCustomerToken`.
-
-`rename` elements can contain arrays of individual renaming operations, defined in separate `renames` objects. Each of these objects must define the `from` and `to` values.
-
-<InlineAlert variant="info" slots="text"/>
-
-You can use [RegEx flags] to enable the use of regular expressions when renaming using this transform. For example, you could use the key-value pair `field: api(.*)` in the `from` object to rename any field of the corresponding type that begins with "api".
+The following example uses the `prefix` transform to prefix "REST_" to all queries and mutations from the REST source.
 
 ```json
 {
   "meshConfig": {
     "sources": [
       {
-        "name": "CommerceREST",
+        "name": "REST",
         "handler": {
           "openapi": {
-            "source": "https://www.example.com/rest/all/schema?services=all"
+            "source": "https://venia.magento.com/rest/all/schema"
           }
         },
-          "transforms": [
-            {
-              "rename": {
-              "renames": [
-                {
-                  "from": {
-                    "type": "Mutation",
-                    "field": "integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost"
-                  },
-                  "to": {
-                    "type": "Mutation",
-                    "field": "CreateCustomerToken"
-                  }
-                }
-              ]
+        "transforms": [
+          {
+            "prefix": {
+              "includeRootOperations": true,
+              "value": "REST_"
             }
           }
         ]
-      }
-    ]
-  },
-}
-```
-
-## Filter schema
-
-The [Filter Schema] transform allows you to specify which schema elements to include or exclude in your mesh. You can include or exclude entire queries and mutations, or place restrictions on which types can appear in your calls.
-
-For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed. In the example below, the deprecated Adobe Commerce `category` and `customerOrders` queries are filtered out of the [PWA] handler.
-
-```json
-{
-  "meshConfig": {
-    "sources": [
-      {
-        "name": "AEM",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://example1.com/graphql"
-          }
-        }
       },
       {
-        "name": "PWA",
+        "name": "GraphQL",
         "handler": {
           "graphql": {
-            "endpoint": "https://example2.com/graphql"
+            "endpoint": "https://venia.magento.com/graphql"
           }
-        },
-        "transforms": [
-          {
-            "filterSchema": {
-              "filters": [
-                "Query.!category",
-                "Query.!customerOrders"
-              ]
-            }
-          }
-        ]
-      }
-    ]
-  },
-}
-```
-
-## Replace Field
-
-[Replace field] transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
-
-```json
-{
-  "meshConfig": {
-    "sources": [
-      {
-        "name": "PWA",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://example2.com/graphql"
-          }
-        },
-        "transforms": [
-          {
-            "replaceField": {
-              "replacements": [
-                {
-                  "from": {
-                    "type": "Query",
-                    "field": "parent"
-                  },
-                  "to": {
-                    "type": "<your_API_Response>",
-                    "field": "child"
-                  },
-                  "scope": "hoistvalue"
-                }
-              ]
-            }
-          }
-        ]
+        }
       }
     ]
   }
 }
 ```
 
-## Type Merging
-
-[Type Merging] allows you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [example].
-
-## Naming Convention
-
-[Naming Convention] transforms allow you to apply casing and other conventions to your response. In the example below, `enumValues` fields are converted to uppercase, while `fieldNames` are converted to camel case to enforce consistency.
+Conversely, the following example uses `prefix` to apply the "ADOBE_" prefix to every source in the mesh.
 
 ```json
 {
   "meshConfig": {
     "sources": [
       {
-        "name": "PWA",
+        "name": "REST",
+        "handler": {
+          "openapi": {
+            "source": "https://venia.magento.com/rest/all/schema"
+          }
+        }
+      },
+      {
+        "name": "GraphQL",
         "handler": {
           "graphql": {
-            "endpoint": "https://example2.com/graphql"
+            "endpoint": "https://venia.magento.com/graphql"
           }
-        },
-        "transforms": [
-          {
-            "namingConvention": {
-              "enumValues": "upperCase",
-              "fieldNames": "camelCase"
-            }
-          }
+        }
+      }
+    ],
+    "transforms": [
+      {
+        "prefix": {
+          "includeRootOperations": true,
+          "value": "ADOBE_"
+        }
+      }
+    ]
+  }
+}
+```
+
+## Working with transforms
+
+When working with transforms, consider the following:
+
+- Transforms are processed in order
+- Having many transforms in a mesh should not impact performance
+- Transforms at the mesh level will impact `additionalResolvers`
+
+### Transform order
+
+The following transform will fail. The mesh will not find the `Customer` type to filter by, because the `namingConvetion` transform converted it to lowercase (`customer`):
+
+```json
+...
+    "transforms": [
+      {
+        "namingConvention": {
+          "typeNames": "lowerCase",
+        }
+      },
+      {
+        "filterSchema": [
+          "Query.Customer"
         ]
       }
     ]
-  },
-}
-```
-<!-- 
-## Hooks
-
-Adobe created the [Hooks](hooks.md) transform to allow you to invoke composable local and remote functions on a targeted node.
-
-<CodeBlock slots="heading, code" repeat="4" languages="ts, ts, ts, ts" />
-
-### `beforeAll`
-
-```ts
-interface BeforeAllTransformObject {
-  composer: string;
-  blocking?: boolean;
-}
+...
 ```
 
-### `before`
+### Transforms and `additionalResolvers`
 
-```ts
-interface BeforeHooksTransformObject {
-  target: string;
-  composer: string;
-  blocking?: boolean;
-}
-```
+Use caution when applying mesh-level transforms; modifying the schema at this level will impact any `additionalResolvers`. For example, if you use `filterSchema` to remove a type, an `additionalResolver` will not be able to access that type.
 
-### `after`
+## Versions
 
-```ts
-interface AfterHooksTransformObject {
-  target: string;
-  composer: string;
-}
-```
+The following table specifies the GraphQL Mesh versions of each transform supported by API Mesh for Adobe Developer App Builder:
 
-### `afterAll`
-
-```ts
-interface AfterAllTransformObject {
-  composer: string;
-}
-``` -->
+| Transform | Version |
+|------------|------------|
+[encapsulate] | `0.4.21`
+[federation] | `0.11.14`
+[filterSchema] | `0.15.23`
+[namingConvention] | `0.13.22`
+[prefix] | `0.12.22`
+[rename] | `0.14.22`
+[replaceField] | `0.4.20`
+[typeMerging] | `0.5.20`
 
 <!-- Link Definitions -->
-[AEM]: https://experienceleague.adobe.com/docs/experience-manager-cloud-service.html
-[PWA]: https://developer.adobe.com/commerce/pwa-studio/
-[GraphQL Mesh]: getting-started.md
-[handlers]: source-handlers.md
-[transforms]: /reference/transforms/index.md
-[RegEx flags]: /reference/transforms/rename.md#config-api-reference
-[Introduction]: /reference/transforms/index.md
-[Encapsulate]: /reference/transforms/encapsulate.md
-[Federation]: /reference/transforms/federation.md
-[Filter schema]: /reference/transforms/filter-schema.md
-[Naming Convention]: /reference/transforms/naming-convention.md
-[Prefix]: /reference/transforms/prefix.md
-[Rename]: /reference/transforms/rename.md
-[Replace field]: /reference/transforms/replace-field.md
-[Type Merging]: /reference/transforms/type-merging.md
-[example]: /reference/multiple-apis.md#merging-types-from-different-sources-using-type-merging
+[Introduction]: index.md
+[encapsulate]: ../reference/transforms/encapsulate.md
+[federation]: ../reference/transforms/federation.md
+[filterSchema]: ../reference/transforms/filter-schema.md
+[namingConvention]: ../reference/transforms/naming-convention.md
+[prefix]: ../reference/transforms/prefix.md
+[rename]: ../reference/transforms/rename.md
+[replaceField]: ../reference/transforms/replace-field.md
+[typeMerging]: ../reference/transforms/type-merging.md

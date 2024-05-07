@@ -43,7 +43,7 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
 }
 ```
 
-For more information, see the [JSON Schema Config API Reference](../reference/handlers/json-schema.md#config-api-reference).
+For more information, see the [JSON Schema Config API Reference](../../gateway/source-handlers.md#reference-local-files-in-handlers).
 
 This handler allows you to load any remote REST service and describe its request and response. JSON Schema handlers allow you to customize and control the GraphQL schema.
 
@@ -89,7 +89,7 @@ The JSON Schema handler uses the following format:
 }
 ```
 
-JSON Schema handlers can also use local sources, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
+JSON Schema handlers can also use local sources, see [Reference local file handlers](../../gateway/source-handlers.md#reference-local-files-in-handlers) for more information.
 
 The following example returns your header values, so you can confirm your headers are functioning properly.
 

@@ -125,7 +125,7 @@ You can confirm that your variables were updated successfully by running the [`a
 
 ## Reference files directly
 
-In addition to [qualifying the `content` of a file manually](../reference/handlers/index.md#reference-local-files-in-handlers), you can directly reference a file in your mesh for automatic conversion. The following restrictions apply:
+In addition to [qualifying the `content` of a file manually](./source-handlers.md#reference-local-files-in-handlers), you can directly reference a file in your mesh for automatic conversion. The following restrictions apply:
 
 - Only `JS` and `JSON` file formats are allowed.
 - The referenced file's path must be less than 25 characters.

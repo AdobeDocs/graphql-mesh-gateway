@@ -14,7 +14,7 @@ keywords:
 
 [Combining multiple Sources](../reference/combining-multiple-sources.md) explains how `additionalResolvers` can shape and augment the unified schema with custom resolvers.
 
-Alternatively, using the `additionalResolvers` config allows you to upload a custom resolver as a [`JavaScript` file](../reference/handlers/index.md#reference-local-files-in-handlers) to the Mesh.
+Alternatively, using the `additionalResolvers` config allows you to upload a custom resolver as a [`JavaScript` file](./source-handlers.md#reference-local-files-in-handlers) to the Mesh.
 
 ## Programmatic `additionalResolvers`
 
