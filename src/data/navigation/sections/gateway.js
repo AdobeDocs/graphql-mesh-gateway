@@ -1,25 +1,25 @@
 module.exports = [
     {
         title: 'Overview',
-        path: '/gateway/overview',
+        path: '/gateway/',
         pages: [
             {
                 title: 'What is API Mesh?',
-                path: '/gateway/overview'
+                path: '/gateway/'
             },
             {
                 title: `Use cases`,
                 path: `/gateway/use-cases`,
             },            
             {
-                title: `Security features`,
+                title: `Security`,
                 path: `/gateway/security`,
             }
         ],
     },
     {
-        title: 'Working with your mesh',
-        path: '/gateway/create-mesh/',
+        title: 'API Mesh basics',
+        path: '/gateway/getting-started/',
         pages: [
             {
                 title: 'Getting started',
@@ -109,7 +109,7 @@ module.exports = [
     },
     {
         title: 'Advanced Features',
-        path: '/gateway/command-reference',
+        path: '/gateway/cache-control-headers',
         pages: [
             {
                 title: 'Caching',
@@ -159,49 +159,15 @@ module.exports = [
     },
     {
         title: 'Best practices',
-        path: '/gateway/command-reference',
+        path: '/gateway/batching',
         pages: [
-
-            {
-                title: 'API Mesh tutorial',
-                path: '/gateway/mesh_walkthrough'
-            },
-
             {
                 title: 'Batching ',
                 path: '/gateway/batching',
             },
             {
-                title: 'CI/CD walkthrough',
+                title: 'CI/CD implementation',
                 path: '/gateway/cicd.md'
-            },
-            {
-                title: 'Release notes',
-                path: '/gateway/release-notes'
-            },
-            {
-                title: 'Upgrade versions',
-                path: '/gateway/upgrade'
-            },
-            {
-                title: `Videos`,
-                path: `https://experienceleague.adobe.com/docs/commerce-learn/api-mesh/getting-started-api-mesh.html`,
-                EventTarget: `_blank`
-            },
-            {
-                title: `Understanding Extensibility`,
-                path: `https://developer.adobe.com/commerce/extensibility/app-development/examples/`,
-                EventTarget: `_blank`
-            },
-        ]
-    },
-    {
-        title: 'Best practices',
-        path: '/gateway/command-reference',
-        pages: [
-            {
-                title: 'Batching ',
-                path: '/gateway/batching',
             },
             {
                 title: 'Multiple APIs',
@@ -215,7 +181,7 @@ module.exports = [
     },
 {
     title: 'Release information',
-    path: '/gateway/command-reference',
+    path: '/gateway/release-notes',
     pages: [
         {
             title: 'Release notes',
@@ -229,7 +195,7 @@ module.exports = [
     },
     {
     title: 'Additional resources',
-    path: '/gateway/command-reference',
+    path: '/gateway/mesh_walkthrough',
     pages: [
 
         {

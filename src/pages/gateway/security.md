@@ -1,5 +1,5 @@
 ---
-title: Security features
+title: Security
 description: Learn about the security used in API Mesh.
 keywords:
   - API Mesh
@@ -10,13 +10,15 @@ keywords:
   - Tools
 ---
 
-# Security features
+# Security
 
 The data plane used by API Mesh is public but requires a MeshID and an API Key to access. We recommend storing your API Key in a header, instead of using the API Key appended to your mesh's URL.
 
 Basic authorization is provided by your Mesh ID and API Key. Additionally, API Mesh honors any downstream authorization headers provided by your [sources](source-handlers.md).
 
 If you require additional authentication or authorization, you can use [custom resolvers](../reference/multiple-apis.md).
+
+## DDoS and rate limiting
 
 Distributed denial-of-service (DDoS) attack protection, rate limiting, and throttling are provided at a global level by Adobe I/O Runtime. For more individualized protection, we recommend adding a Content Delivery Network (CDN), such as [Fastly](./fastly.md), through [edge caching](cache-control-headers.md).
 
