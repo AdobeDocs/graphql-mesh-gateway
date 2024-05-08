@@ -172,6 +172,10 @@ module.exports = [
                 path: '/gateway/batching',
             },
             {
+                title: 'CI/CD walkthrough',
+                path: '/gateway/cicd.md'
+            },
+            {
                 title: 'Release notes',
                 path: '/gateway/release-notes'
             },
