@@ -38,7 +38,7 @@ Other transforms are not supported.
 
 ## Handler vs mesh transforms
 
-When adding a transform to your mesh, you can choose to have the transform affect a single source (handler) or the entire mesh.
+When adding a transform to your mesh, you can choose to have the transform affect a single source (handler) or the entire mesh. The following examples use [`prefix` transforms](../reference/transforms/prefix.md), which are the preferred method of avoiding conflicting object names across multiple schemas.
 
 The following example uses the `prefix` transform to prefix "REST_" to all queries and mutations from the REST source.
 
