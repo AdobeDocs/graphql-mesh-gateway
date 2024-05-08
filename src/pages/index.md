@@ -10,10 +10,6 @@ keywords:
   - Tools
 ---
 
-<InlineAlert variant="warning" slots="text"/>
-
-Update to the latest API Mesh CLI package to avoid any interruptions. For more information refer to the [release notes](gateway/release-notes.md#august-30-2023).
-
 <Hero slots="image, heading, text"/>
 
 ![API Mesh](_images/home-bg.jpeg)

@@ -7,6 +7,14 @@ module.exports = [
                 title: 'What is API Mesh?',
                 path: '/gateway/overview'
             },
+            {
+                title: `Use cases`,
+                path: `/gateway/use-cases`,
+            },            
+            {
+                title: `Security features`,
+                path: `/gateway/security`,
+            }
         ],
     },
     {
