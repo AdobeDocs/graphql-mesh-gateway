@@ -99,15 +99,18 @@ For example, if you named a secret `CLIENTID_PROD`, you can call that secret usi
 
 The specific secrets required for this workflow are available in the [Developer Console](https://developer.adobe.com/console) by navigating to the desired workspace within a project and clicking the **Download all** button in the top-right of the screen. This downloads a `JSON` file.
 
-In the file, find the values for the following keys:
+The following table lists the variable name and its corresponding location in the downloaded `JSON` file:
 
-- `client_id`
-- `client_secret`
-- `technical_account_email`
-- `technical_account_id`
-- `ims_org_id`
-- Project ID - `project` > `id`
-- Workspace ID - `project` > `workspace` > `id`
+| Variable name in Github | Name defined in downloaded JSON |
+| ---------- | ------- |
+| CLIENTID | `client_id` |
+| CLIENTSECRET | `client_secret` |
+| TECHNICALACCOUNTID | `technical_account_email` |
+| TECHNICALACCOUNTEMAIL | `technical_account_id` |
+| IMSORGID | `ims_org_id` |
+| ORGID | `project` > `org` > `id` |
+| PROJECTID | `project` > `id` |
+| WORKSPACEID | `project` > `workspace` > `id` |
 
 Create a GitHub secret for each of these items.
 
