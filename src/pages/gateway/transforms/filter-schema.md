@@ -12,7 +12,7 @@ keywords:
 
 # `filterSchema` transform
 
-The [Filter Schema] transform allows you to specify which schema elements to include or exclude in your mesh. You can include or exclude entire queries and mutations, or place restrictions on which types can appear in your calls.
+The `filterSchema` transform allows you to specify which schema elements to include or exclude in your mesh. You can include or exclude entire queries and mutations, or place restrictions on which types can appear in your calls.
 
 For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed. In the example below, the deprecated Adobe Commerce `category` and `customerOrders` queries are filtered out of the [PWA] handler.
 
@@ -50,11 +50,6 @@ For example, you might want to exclude deprecated queries, mutations, and types 
   },
 }
 ```
-
-The `filterSchema` transform allows you to specify which schema elements to include or exclude in your mesh.
-You can include or exclude entire queries and mutations and restrict which types can appear in your calls or which fields can appear in specific types.
-
-For example, you might want to exclude deprecated queries, mutations, and types from your schema so that your integration is not affected when these entities are removed.
 
 ## Usage
 

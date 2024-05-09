@@ -12,7 +12,7 @@ keywords:
 
 # `replaceField` transform
 
-[Replace field] transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
+`replaceField` transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
 
 ```json
 {
@@ -49,13 +49,6 @@ keywords:
   }
 }
 ```
-
-The `replaceField` transform allows you to replace the configuration properties of a GraphQL field (source) with the ones of another field (target).
-
-The `replace-field` transforms allow you to replace the configuration properties of one field with another. This allows you to hoist field values from a subfield to its parent.
-
-Use this transform to clean up redundant queries or replace field types.
-It can be customized to completely replace and/or compose resolve functions with a great degree of customization.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -235,123 +228,7 @@ type Author {
   age: String
 }
 ```
-<!-- 
-## Custom composers
 
-Performing value hoisting or replacing the entire field config is powerful, but it might not always fully satisfy custom needs.
-For instance, if you applied transforms to the bare schema (such as field renaming), the built-in value hoisting functionality won't work because you'd need to hoist the child property provided by the original schema, and not the renamed version.
-
-The transform allows you to assign composers to replace the rule, which lets you define your custom logic on top of fields' resolve functions.
-
-A composer is a function that wraps the resolve function, giving you access to this before it is executed. You can then intercept its output value so that finally you can also define a custom return value.
-
-Let's look at an example.
-Currently, our `Book` type has a `code` field; we want to replace this field and turn it into a boolean. Our logic assumes that if we have a book code, it means this book is available in our store.
-Eventually, we want to completely replace `code` with `isAvailable`; as you can see, this requires implementing custom logic.
-
-```json
-{
-  "transforms": [
-    {
-      "replaceField": {
-        "typeDefs": "type NewBook {\n  isAvailable: Boolean\n}\n",
-        "replacements": [
-          {
-            "from": {
-              "type": "Book",
-              "field": "code"
-            },
-            "to": {
-              "type": "NewBook",
-              "field": "isAvailable"
-            },
-            "composer": "./customComposers.ts#isAvailable"
-          }
-        ]
-      }
-    }
-  ]
-}
-```
-
-```js
-// customResolvers.js
-
-module.exports = {
-  isAvailable: next => async (root, args, context, info) => {
-    // 'next' is the field resolve function
-    const code = await next(root, args, context, info)
-    return Boolean(code)
-  }
-}
-```
-
-Now our `code` field will return a Boolean as per custom logic implemented through the javascript function above.
-
-## Renaming fields
-
-If we continue to elaborate on what we did above, when attaching composers to field resolvers to implement custom logic; it seems logical that a field that has been changed in Type and so return value, even with the addition of custom logic, has certainly evolved from the original field and so it would probably be best to rename it.
-
-replaceField transform allows you to do that directly as part of the replacements rules; you just need to pass the `name` property to define a new name for your target field.
-
-Let's wrap this up by adding a finishing touch to our schema:
-
-```json
-{
-  "transforms": [
-    {
-      "replaceField": {
-        "typeDefs": "type NewBook {\n  isAvailable: Boolean\n}\n",
-        "replacements": [
-          {
-            "from": {
-              "type": "Query",
-              "field": "books"
-            },
-            "to": {
-              "type": "BooksApiResponse",
-              "field": "books"
-            },
-            "scope": "hoistValue"
-          },
-          {
-            "from": {
-              "type": "Book",
-              "field": "code"
-            },
-            "to": {
-              "type": "NewBook",
-              "field": "isAvailable"
-            },
-            "composer": "./customResolvers.js#isAvailable",
-            "name": "isAvailable"
-          }
-        ]
-      }
-    }
-  ]
-}
-```
-
-And now we have the following shiny GraphQL schema:
-
-```graphql
-type Query {
-  books: [Book]
-}
-
-type Book {
-  title: String!
-  author: Author!
-  isAvailable: Boolean
-}
-
-type Author {
-  name: String!
-  age: Int!
-}
-```
- -->
 ## Config API Reference
 
 -  `typeDefs` (type: `Any`) - Additional type definitions, used to replace field types

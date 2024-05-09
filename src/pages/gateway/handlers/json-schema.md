@@ -9,13 +9,13 @@ keywords:
   - Tools
 ---
 
-# JSON Schema handlers
+# `JsonSchema` handlers
 
-The [JSON] handler allows you to load a single remote REST endpoint and define the request and response structures using pre-defined JSON schema files.
+The `JsonSchema` handler allows you to load a single remote REST endpoint and define the request and response structures using pre-defined JSON schema files.
 
 <InlineAlert variant="warning" slots="text"/>
 
-The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.
+The `JsonSchema` source uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.
 
 ```json
 {
@@ -43,21 +43,13 @@ The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme t
 }
 ```
 
-For more information, see the [JSON Schema Config API Reference](../../gateway/./handlers/index.md#reference-local-files-in-handlers).
-
 This handler allows you to load any remote REST service and describe its request and response. JSON Schema handlers allow you to customize and control the GraphQL schema.
-
-<InlineAlert variant="info" slots="text"/>
 
 If your REST service's request or response format is modified, you must update your mesh configuration file with the modified request or response. Then [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
 
 If your source handler's schema is modified, you must [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
 
 For more information on creating JSON schemas, refer to this [JSON schema tutorial](https://json-schema.org/learn/getting-started-step-by-step.html).
-
-<InlineAlert variant="warning" slots="text"/>
-
-The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.
 
 <InlineAlert variant="info" slots="text"/>
 

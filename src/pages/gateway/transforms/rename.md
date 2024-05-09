@@ -12,7 +12,7 @@ keywords:
 
 # `rename` transform
 
-[Rename] transforms allow you to rename a GraphQL field, type, or field argument. Renaming allows you to avoid conflicting names, simplify complicated names, and make queries look more like mutations. In the example below, we rename a long API field name from `integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost` to the shorter `CreateCustomerToken`.
+`rename` transforms allow you to rename a GraphQL field, type, or field argument. Renaming allows you to avoid conflicting names, simplify complicated names, and make queries look more like mutations. In the example below, we rename a long API field name from `integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost` to the shorter `CreateCustomerToken`.
 
 `rename` elements can contain arrays of individual renaming operations, defined in separate `renames` objects. Each of these objects must define the `from` and `to` values.
 
@@ -54,16 +54,6 @@ You can use [RegEx flags] to enable the use of regular expressions when renaming
   },
 }
 ```
-
-The `rename` transform allows you to rename:
-
--  GraphQL types
--  GraphQL fields
--  GraphQL field arguments
-
-The `rename` transform helps you avoid conflicting names, simplify complicated names and make queries look more like mutations.
-
-`rename` elements can contain arrays of individual renaming operations, defined in separate renames objects. Each of these objects must define the `from` and `to` values.
 
 ## Usage
 

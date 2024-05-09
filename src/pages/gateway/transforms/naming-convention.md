@@ -39,8 +39,6 @@ keywords:
 }
 ```
 
-The `naming-convention` transforms allow you to apply casing and other conventions to your response.
-
 ## Usage
 
 The following example converts all of your `fieldNames` to lower case in the Adobe Commerce source:

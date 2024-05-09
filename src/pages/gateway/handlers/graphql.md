@@ -9,9 +9,9 @@ keywords:
   - Tools
 ---
 
-## GraphQL endpoints
+# `graphql` handlers
 
-The [GraphQL] handler allows you to connect to a GraphQL endpoint.
+The `graphql` handler allows you to connect to a GraphQL endpoint.
 
 ```json
 {
@@ -59,6 +59,8 @@ GraphQL handlers can also use local sources, see [Reference local file handlers]
 
 ## Headers from context
 
+The following example indicates how to pass authorization headers to a GraphQL endpoint.
+
 ```json
 {
   "sources": [
@@ -81,27 +83,6 @@ GraphQL handlers can also use local sources, see [Reference local file handlers]
 <InlineAlert variant="info" slots="text"/>
 
 Header names are automatically converted to lowercase.
-
-<!--
-### From Environment Variable
-
-```json
-{
-  "sources": [
-    {
-      "name": "MyGraphQLApi",
-      "handler": {
-        "graphql": {
-        "endpoint": "https://my-service-url/graphql",
-          "operationHeaders": {
-            "Authorization": "Bearer {env.MY_API_TOKEN}"
-          }
-        }
-      }
-    }
-  ]
-}
-``` -->
 
 ## Fetching SDL or introspection from CDN
 
@@ -130,117 +111,6 @@ In this case, CLI's `build` command won't save the introspection in the artifact
 ## Local Schemas
 
 We recommend providing a local schema by using the [`additionalTypeDefs`](../../gateway/extending-unified-schema.md) and [`additionalResolvers`](../multiple-apis.md#extending-graphql-schema-with-additionaltypedefs) configuration options.
-<!-- 
-## Fetch Strategies and Multiple HTTP endpoints for the same source
-
-If you want to have an advanced fetch strategy for the GraphQL source such as retrying twice or timeout in 30 seconds etc.
-Also, you can have different HTTP endpoints for a single source, and you can configure Mesh to get a better execution flow.
-
-For example, you can make a request to both endpoints and return the fastest response with `race` strategy.
-
-All `fetch` strategies can be combined to create the ultimate execution flow:
-
-### `retry`
-
-The `retry` mechanism allows you to specify the retry attempts for a single GraphQL endpoint/source.
-
-The retry flow will execute in both conditions: a network error, or due to a runtime error.
-
-```json
-{
-    "sources": [
-        {
-            "name": "uniswapv2",
-            "handler": {
-                "graphql": {
-                    "endpoint": "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2",
-                    "retry": 2
-                }
-            }
-        }
-    ]
-}
-```
-
-### `timeout`
-
-The `timeout` mechanism allows you to specify the `timeout` for a given GraphQL endpoint.
-
-```json
-{
-    "sources": [
-        {
-            "name": "uniswapv2",
-            "handler": {
-                "graphql": {
-                    "endpoint": "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2",
-                    "timeout": 5000
-                }
-            }
-        }
-    ]
-}
-```
-
-### `fallback`
-
-The `fallback` mechanism allows you to specify more than one GraphQL endpoint, for the same source.
-
-This is helpful if you have a fallback endpoint for the same GraphQL API.
-
-```json
-{
-    "sources": [
-        {
-            "name": "uniswapv2",
-            "handler": {
-                "graphql": {
-                    "strategy": "fallback",
-                    "sources": [
-                        {
-                            "endpoint": "https://bad-uniswap-v2-api.com",
-                            "retry": 2,
-                            "timeout": 5000
-                        },
-                        {
-                            "endpoint": "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2"
-                        }
-                    ]
-                }
-            }
-        }
-    ]
-}
-```
-
-### `race`
-
-The `race` mechanism allows you to specify more than one GraphQL endpoint, for the same source, and race on every execution.
-
-If you have different places that the service is deployed, this is useful to get the fastest response by racing them.
-
-```json
-{
-    "sources": [
-        {
-            "name": "uniswapv2",
-            "handler": {
-                "graphql": {
-                    "strategy": "race",
-                    "sources": [
-                        {
-                            "endpoint": "https://bad-uniswap-v2-api.com"
-                        },
-                        {
-                            "endpoint": "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2"
-                        }
-                    ]
-                }
-            }
-        }
-    ]
-}
-``` -->
 
 ## Config API reference
 

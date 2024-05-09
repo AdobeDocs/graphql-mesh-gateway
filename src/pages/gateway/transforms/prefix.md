@@ -12,7 +12,7 @@ keywords:
 
 # `prefix` transform
 
-The [Prefix] transform allows you to add prefixes to existing types and root operations. `prefix` is similar to `rename` in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query. In contrast with `rename`, `prefix` is simpler and only allows you to append a prefix to the existing name.
+The `prefix` transform allows you to add prefixes to existing types and root operations. `prefix` is similar to `rename` in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query. In contrast with `rename`, `prefix` is simpler and only allows you to append a prefix to the existing name.
 
 You can use it to easily "namespace" APIs in your unified API and avoid conflicts.
 

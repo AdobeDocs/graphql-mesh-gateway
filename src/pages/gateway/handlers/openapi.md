@@ -10,7 +10,7 @@ keywords:
   - Tools
 ---
 
-# `openapi` handler
+# `openapi` handlers
 
 The `openapi` handler allows you to connect to an OpenAPI-compliant REST service endpoint or static Swagger schema using a `.json` or `.yaml` file.
 

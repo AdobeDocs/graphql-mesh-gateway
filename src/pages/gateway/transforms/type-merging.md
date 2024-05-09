@@ -12,8 +12,7 @@ keywords:
 
 # `typeMerging` transform
 
-[Type Merging] allows you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [example].
-Type Merge transforms allow you to combine multiple sources by merging a type from each source, by using the [Type Merging](https://graphql-tools.com/docs/stitch-type-merging) approach of Schema Stitching.
+Type Merging allows you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [example].
 
 For example, you could combine responses from two different APIs on a single field, provided you rename the fields you want to stitch to the same name.
 
