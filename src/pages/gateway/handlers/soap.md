@@ -43,7 +43,7 @@ The SOAP handler allows you to consume [SOAP](https://soapui.org) `WSDL` files a
 
 <InlineAlert variant="info" slots="text"/>
 
-For more information, see the [SOAP handler reference](../../gateway/source-handlers.md#reference-local-files-in-handlers).
+For more information, see the [SOAP handler reference](../../gateway/./handlers/index.md#reference-local-files-in-handlers).
 
 <InlineAlert variant="warning" slots="text"/>
 

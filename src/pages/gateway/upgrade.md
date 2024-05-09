@@ -53,7 +53,7 @@ Additionally, due to our new asynchronous architecture, the create/update comman
 <!-- 
 ### Update existing meshes
 
-API Mesh now runs on updated versions of GraphQL Mesh [handlers](source-handlers.md) and [transforms](transforms.md). To move to the new codebase and enable these upgrades, update your existing meshes.
+API Mesh now runs on updated versions of GraphQL Mesh [handlers](./handlers/index.md) and [transforms](./transforms/index.md). To move to the new codebase and enable these upgrades, update your existing meshes.
 
 1. [Select the workspace](work-with-mesh.md#select-a-project-or-workspace) that contains the mesh you want to update.
 

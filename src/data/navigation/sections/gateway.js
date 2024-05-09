@@ -35,27 +35,27 @@ module.exports = [
             },
             {
                 title: 'Add sources to your mesh',
-                path: '/gateway/source-handlers',
+                path: '/gateway/handlers',
                 pages: [
                     {
                         title: 'Overview',
-                        path: '/gateway/source-handlers'
+                        path: '/gateway/handlers'
                     },
                     {
                         title: 'OpenAPI',
-                        path: '/reference/handlers/openapi'
+                        path: '/gateway/handlers/openapi'
                     },
                     {
                         title: 'GraphQL',
-                        path: '/reference/handlers/graphql'
+                        path: '/gateway/handlers/graphql'
                     },
                     {
                         title: 'JSON schemas',
-                        path: '/reference/handlers/json-schema'
+                        path: '/gateway/handlers/json-schema'
                     },
                     {
                         title: 'SOAP',
-                        path: '/reference/handlers/soap'
+                        path: '/gateway/handlers/soap'
                     },
                 ]
             },
@@ -65,43 +65,43 @@ module.exports = [
                 pages: [
                     {
                         title: 'Overview',
-                        path: '/reference/transforms/index'
+                        path: '/gateway/transforms/'
                     },
                     {
                         title: 'Bare vs wrap transforms',
-                        path: '/reference/transforms/bare-vs-wrap'
+                        path: '/gateway/transforms/bare-vs-wrap'
                     },
                     {
                         title: 'Encapsulate',
-                        path: '/reference/transforms/encapsulate'
+                        path: '/gateway/transforms/encapsulate'
                     },
                     {
                         title: 'Federation',
-                        path: '/reference/transforms/federation'
+                        path: '/gateway/transforms/federation'
                     },
                     {
                         title: 'Filter schema',
-                        path: '/reference/transforms/filter-schema'
+                        path: '/gateway/transforms/filter-schema'
                     },
                     {
                         title: 'Naming convention',
-                        path: '/reference/transforms/naming-convention'
+                        path: '/gateway/transforms/naming-convention'
                     },
                     {
                         title: 'Prefix',
-                        path: '/reference/transforms/prefix'
+                        path: '/gateway/transforms/prefix'
                     },
                     {
                         title: 'Rename',
-                        path: '/reference/transforms/rename'
+                        path: '/gateway/transforms/rename'
                     },
                     {
                         title: 'Replace field',
-                        path: '/reference/transforms/replace-field'
+                        path: '/gateway/transforms/replace-field'
                     },
                     {
                         title: 'Type merging',
-                        path: '/reference/transforms/type-merging'
+                        path: '/gateway/transforms/type-merging'
                     }      
                 ]
             },
@@ -126,13 +126,13 @@ module.exports = [
                 ]
             },
             {
+                title: 'CORS headers',
+                path: '/gateway/cors'
+            },
+            {
                 title: 'Extend your mesh',
                 path: '/gateway/cors',
                 pages: [
-                    {
-                        title: 'CORS headers',
-                        path: '/gateway/cors'
-                    },
                     {
                         title: 'Extend the schema with custom resolvers',
                         path: '/gateway/extending-unified-schema'
@@ -140,7 +140,7 @@ module.exports = [
                 ]
             },
             {
-                title: 'Headers',
+                title: 'Request and response headers',
                 path: '/gateway/headers'
             },
             {
@@ -171,11 +171,11 @@ module.exports = [
             },
             {
                 title: 'Multiple APIs',
-                path: '/reference/multiple-apis.md'
+                path: '/gateway/multiple-apis.md'
             },
             {
                 title: 'Combining multiple sources',
-                path: '/reference/combining-multiple-sources.md'
+                path: '/gateway/combining-multiple-sources.md'
             },
         ]
     },

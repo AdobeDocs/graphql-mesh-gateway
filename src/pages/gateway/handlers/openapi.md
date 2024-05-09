@@ -1,5 +1,5 @@
 ---
-title: OpenAPI | API Mesh for Adobe Developer App Builder
+title: OpenAPI handler
 description: Learn how to integrate OpenAPI schemas with the OpenAPI handler.
 keywords:
   - API Mesh
@@ -10,13 +10,17 @@ keywords:
   - Tools
 ---
 
-# OpenAPI handlers
+# `openapi` handler
 
-The OpenAPI handler allows you to connect to an OpenAPI-compliant REST service endpoint or static Swagger schemas using a `.json` or `.yaml` file.
+The `openapi` handler allows you to connect to an OpenAPI-compliant REST service endpoint or static Swagger schema using a `.json` or `.yaml` file.
 
 <InlineAlert variant="info" slots="text"/>
 
-When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition. API Mesh does not accept a wildcard (`*/*`) as a content type.
+When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition.
+
+<InlineAlert variant="warning" slots="text"/>
+
+API Mesh does not accept a wildcard (`*/*`) as a content type.
 
 ```json
 {
@@ -26,7 +30,7 @@ When using a Swagger schema, API Mesh can only access `application/json` content
         "name": "CommerceREST",
         "handler": {
           "openapi": {
-            "source": "your_Commerce_API"
+            "source": "https://venia.magento.com/rest/"
           }
         },
       }
@@ -35,15 +39,11 @@ When using a Swagger schema, API Mesh can only access `application/json` content
 }
 ```
 
-You can import a remote or local schema `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers](../../gateway/source-handlers.md#reference-local-files-in-handlers) for more information.
+To import a remote or local schema using `.json` or `.yaml`, use a local source, see [Reference local file handlers](../../gateway/./handlers/index.md#reference-local-files-in-handlers) for more information.
 
 <InlineAlert variant="info" slots="text"/>
 
 If your source handler's schema is modified, you must [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
-
-<InlineAlert variant="info" slots="text"/>
-
-Since the OpenAPI handler is based on the [JSON Schema handler](json-schema.md), [JSON Schema handler configurations](./json-schema.md#config-api-reference) also apply to the OpenAPI handler.
 
 ## Naming conventions
 
@@ -54,7 +54,7 @@ The OpenAPI handler uses the following naming conventions:
 The `operationId` is only modified when necessary according to the GraphQL spec:
 
   - The following characters are replaced with an underscore (`_`): white space, `.`, `/`, `:` and `-`.
-  - Characters that are not digits or Latin letters are replaced with their character codes.
+  - Characters that are not digits or Latin alphabet letters are replaced with their character codes.
   - If the first character of a name is a digit, it is prefixed with an underscore (`_`), because GraphQL does not allow initial digits.
 
 ### Unnamed types
@@ -63,11 +63,10 @@ Unnamed types use path-based naming. This means a type in your schema could be s
 
 ## Headers from context
 
+The following example demonstrates how to include authentication headers in the context of your mesh.
+
 ```json
-{
-  "sources": [
-    {
-      "name": "MyGraphQLApi",
+...
       "handler": {
         "openapi": {
           "source": "./my-schema.json",
@@ -76,16 +75,14 @@ Unnamed types use path-based naming. This means a type in your schema could be s
           }
         }
       }
-    }
-  ]
-}
+...
 ```
 
-## Advanced cookies handling
+## Advanced cookie handling
 
 When building a web application cookies are often used for secure authentication. Conversely, mobile applications tend to use an HTTP header.
 
-### Setting and Unsetting cookies
+### Setting and unsetting cookies
 
 To set the cookie for the web application, we need to access the HTTP response that is sent back to the client by using `additionalResolvers`. To do this, we need to create two new resolvers, one for login and one for logout.
 

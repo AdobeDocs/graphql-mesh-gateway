@@ -1,1 +1,0 @@
-<script>window.location.replace("../../gateway/source-handlers/")</script>

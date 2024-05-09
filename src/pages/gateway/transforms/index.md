@@ -12,7 +12,7 @@ keywords:
 
 # Transforms
 
-While [handlers](./source-handlers.md) let you bring outside sources into API Mesh for Adobe Developer App Builder, transforms allow you to modify the schema to control the contents of your GraphQL requests and responses.
+While [handlers](../handlers/index.md) let you bring outside sources into API Mesh for Adobe Developer App Builder, transforms allow you to modify the schema to control the contents of your GraphQL requests and responses.
 
 Transforms are specified as a list of objects, and they are executed in order. You can apply them [to a specific handler or the entire mesh](#handler-vs-mesh-transforms).
 
@@ -20,25 +20,25 @@ Transforms are specified as a list of objects, and they are executed in order. Y
 
 API Mesh currently supports the following [transforms]:
 
--  [Rename](../reference/transforms/rename.md)
--  [Prefix](../reference/transforms/prefix.md)
--  [Filter Schema](../reference/transforms/filter-schema.md)
--  [Replace Field](../reference/transforms/replace-field.md)
--  [Type Merging](../reference/transforms/type-merging.md)
--  [Naming Convention](../reference/transforms/naming-convention.md)
--  [Hooks](./hooks.md)
+-  [Rename](./rename.md)
+-  [Prefix](./prefix.md)
+-  [Filter Schema](./filter-schema.md)
+-  [Replace Field](./replace-field.md)
+-  [Type Merging](./type-merging.md)
+-  [Naming Convention](./naming-convention.md)
+-  [Hooks](../hooks.md)
 
 Additionally, the following transforms are available but are not fully supported by API Mesh at this time. This means that your mesh will accept the transform, but we have not tested the transform thoroughly, and you could encounter errors. Additionally, certain transform options may be disabled due to security concerns.
 
--  [Encapsulate](../reference/transforms/encapsulate.md)
--  [Federation](../reference/transforms/federation.md)
--  [Hoist field](../reference/transforms/replace-field.md#scope-hoistvalue)
+-  [Encapsulate](./encapsulate.md)
+-  [Federation](./federation.md)
+-  [Hoist field](./replace-field.md#scope-hoistvalue)
 
 Other transforms are not supported.
 
 ## Handler vs mesh transforms
 
-When adding a transform to your mesh, you can choose to have the transform affect a single source (handler) or the entire mesh. The following examples use [`prefix` transforms](../reference/transforms/prefix.md), which are the preferred method of avoiding conflicting object names across multiple schemas.
+When adding a transform to your mesh, you can choose to have the transform affect a single source (handler) or the entire mesh. The following examples use [`prefix` transforms](./prefix.md), which are the preferred method of avoiding conflicting object names across multiple schemas.
 
 The following example uses the `prefix` transform to prefix "REST_" to all queries and mutations from the REST source.
 
@@ -160,11 +160,11 @@ The following table specifies the GraphQL Mesh versions of each transform suppor
 
 <!-- Link Definitions -->
 [Introduction]: index.md
-[encapsulate]: ../reference/transforms/encapsulate.md
-[federation]: ../reference/transforms/federation.md
-[filterSchema]: ../reference/transforms/filter-schema.md
-[namingConvention]: ../reference/transforms/naming-convention.md
-[prefix]: ../reference/transforms/prefix.md
-[rename]: ../reference/transforms/rename.md
-[replaceField]: ../reference/transforms/replace-field.md
-[typeMerging]: ../reference/transforms/type-merging.md
+[encapsulate]: ./encapsulate.md
+[federation]: ./federation.md
+[filterSchema]: ./filter-schema.md
+[namingConvention]: ./naming-convention.md
+[prefix]: ./prefix.md
+[rename]: ./rename.md
+[replaceField]: ./replace-field.md
+[typeMerging]: ./type-merging.md
