@@ -56,7 +56,7 @@ Hooks are plugins that accept the following arguments:
 
 - `composer` (string) - The local or remote file location of the function you want to execute.
   
-    You must add any local scripts to the mesh's [`files` array](././handlers/index.md#reference-local-files-in-handlers). [Local vs remote functions](#local-vs-remote-functions) describes when to use a local or remote function.
+    You must add any local scripts to the mesh's [`files` array](./handlers/index.md#reference-local-files-in-handlers). [Local vs remote functions](#local-vs-remote-functions) describes when to use a local or remote function.
 
     **NOTE**: Local composer functions are limited to 30 seconds. If `blocking` is set to `true` and the function takes longer than 30 seconds, you will receive a `Timeout Error`. If you repeatedly encounter this error, consider using a [remote composer](#local-vs-remote-functions).
 
@@ -159,7 +159,7 @@ Avoid using local composers if:
 
 - The composer uses restricted constructs, such as `setTimeout`, `setInterval`, `for`, `while`, `console`, `process`, `global`, or `throw`.
 
-Local composers require adding any local scripts to the mesh's [`files` array](././handlers/index.md#reference-local-files-in-handlers).
+Local composers require adding any local scripts to the mesh's [`files` array](./handlers/index.md#reference-local-files-in-handlers).
 
 ```json
 {

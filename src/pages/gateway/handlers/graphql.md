@@ -55,11 +55,11 @@ This handler allows you to load remote GraphQL schemas as part of your mesh. The
 }
 ```
 
-GraphQL handlers can also use local sources, see [Reference local file handlers](../../gateway/./handlers/index.md#reference-local-files-in-handlers) for more information.
+GraphQL handlers can also use local sources, see [Reference local file handlers](../../gateway/handlers/index.md#reference-local-files-in-handlers) for more information.
 
 ## Headers from context
 
-The following example indicates how to pass authorization headers to a GraphQL endpoint.
+The following example shows how to pass authorization headers to a GraphQL endpoint.
 
 ```json
 {

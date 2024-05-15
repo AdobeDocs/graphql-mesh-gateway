@@ -131,7 +131,7 @@ module.exports = [
             },
             {
                 title: 'Extend your mesh',
-                path: '/gateway/cors',
+                path: '/gateway/extending-unified-schema',
                 pages: [
                     {
                         title: 'Extend the schema with custom resolvers',

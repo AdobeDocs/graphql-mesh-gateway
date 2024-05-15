@@ -81,7 +81,7 @@ The JSON Schema handler uses the following format:
 }
 ```
 
-JSON Schema handlers can also use local sources, see [Reference local file handlers](../../gateway/./handlers/index.md#reference-local-files-in-handlers) for more information.
+JSON Schema handlers can also use local sources, see [Reference local file handlers](../../gateway/handlers/index.md#reference-local-files-in-handlers) for more information.
 
 The following example returns your header values, so you can confirm your headers are functioning properly.
 

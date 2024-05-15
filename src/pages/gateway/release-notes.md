@@ -101,7 +101,7 @@ This release contains the following changes to API Mesh:
 ### Enhancements
 
 - [GraphQL aliasing](https://graphql.org/learn/queries/) is now enabled.
-  - As a part of this enhancement, several [handler](././handlers/index.md) and [transform](./transforms/index.md) packages have been updated.
+  - As a part of this enhancement, several [handler](./handlers/index.md) and [transform](./transforms/index.md) packages have been updated.
 
 ## August 30, 2023
 

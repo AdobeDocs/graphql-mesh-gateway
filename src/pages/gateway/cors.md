@@ -1,5 +1,5 @@
 ---
-title: Headers
+title: CORS headers
 description: Learn how to use CORS headers with API Mesh for Adobe Developer App Builder.
 keywords:
   - API Mesh
@@ -27,7 +27,7 @@ To add CORS headers to your mesh, create a `CORS` object in the `responseConfig`
 -  `exposedHeaders` - a comma-delimited CORS request that contains headers to expose
 -  `maxAge` - the maximum number of seconds the preflight response (the values of the `origin` and `methods` headers) can be cached
   
-When specifying a CORS `origin`, list all applicable origins. Do not enter `*` for the value as this will return the request's origin.
+When specifying a CORS `origin`, list all applicable origins. Do not enter `*` for the value, as this will return the request's origin.
 
 ```JSON
 "CORS": {
