@@ -12,13 +12,13 @@ keywords:
 
 # OpenAPI handlers
 
-This handler allows you to load remote or local [OpenAPI (2/3) and Swagger](https://swagger.io) schemas.
+This handler allows you to load remote or local [OpenAPI (2.0-3.0) and Swagger](https://swagger.io) schemas.
 
 <InlineAlert variant="info" slots="text"/>
 
 When using a Swagger schema, API Mesh can only access `application/json` content from the Swagger API definition. API Mesh does not accept a wildcard (`*/*`) as a content type.
 
-You can import it using remote/local `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers](index.md#reference-local-files-in-handlers) for more information.
+You can import a remote or local schema `.json` or `.yaml`. To use a local source with an API handler, see [Reference local file handlers](index.md#reference-local-files-in-handlers) for more information.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -43,7 +43,7 @@ To get started, use the handler in your Mesh config file:
 
 <InlineAlert variant="info" slots="text"/>
 
-This handler is based on the [JSON Schema handler](json-schema.md), so its configurations also apply to the `openapi` handler.
+Since the OpenAPI handler is based on the [JSON Schema handler](json-schema.md), [JSON Schema handler configurations](./json-schema.md#config-api-reference) also apply to the OpenAPI handler.
 <!-- 
 ## Overriding default Query/Mutation operations
 
@@ -82,20 +82,21 @@ See the following example:
 }
 ``` -->
 
-## Naming convention
+## Naming conventions
 
-We use the `operationId` for names, and aim to keep it as close as possible to the origin.
+The OpenAPI handler uses the following naming conventions:
 
 ### Type naming
 
-We adjust the `operationId` only when necessary according to the GraphQL spec:
-    - Characters, such as white space, `.`, `/`, `:` and `-`, are replaced with an underscore (`_`).
-    - Other characters which are not digits or Latin letters are replaced with their character codes.
-    - If the first character of a name is a digit, we prefix it with an underscore (`_`), because GraphQL does not allow initial digits.
+The `operationId` is only modified when necessary according to the GraphQL spec:
+
+  - The following characters are replaced with an underscore (`_`): white space, `.`, `/`, `:` and `-`.
+  - Characters that are not digits or Latin letters are replaced with their character codes.
+  - If the first character of a name is a digit, it is prefixed with an underscore (`_`), because GraphQL does not allow initial digits.
 
 ### Unnamed types
 
-We use path-based naming. So names could be structured like `query_getUsers_items_firstName`.
+Unnamed types use path-based naming. This means a type in your schema could be structured like `query_getUsers_items_firstName`.
 
 ## Headers from context
 
@@ -141,7 +142,7 @@ We use path-based naming. So names could be structured like `query_getUsers_item
 
 ## Advanced cookies handling
 
-When building a web application, for security reasons, cookies are often used for authentication. Mobile applications on the other end, tend to use an HTTP header.
+When building a web application cookies are often used for secure authentication. Conversely, mobile applications tend to use an HTTP header.
 
 <!-- 
 ### Accepting one cookie, header, or context value
@@ -195,11 +196,9 @@ Of course, `node-fetch` needs to be added to your project:
 
 `npm install node-fetch` -->
 
-### Setting / Unsetting the cookie
+### Setting and Unsetting cookies
 
-Of course, being able to use your mesh as a Gateway for both the mobile application and web application is nice, but there's one thing missing: the setting of the cookie for the web application.
-
-For that, we need to access the HTTP response that is sent back to the client. Luckily, we can do so in `additionalResolvers`. So we need to create two new resolvers, one for login and one for logout, and manage the cookie in their code.
+To set the cookie for the web application, we need to access the HTTP response that is sent back to the client by using `additionalResolvers`. To do this, we need to create two new resolvers, one for login and one for logout.
 
 The first step is to edit the `mesh.json` file, and add the following at the end:
 
@@ -250,7 +249,7 @@ module.exports = { resolvers }
 
 ## Callbacks as Subscriptions
 
-The OpenAPI handler can process OAS Callbacks as GraphQL Subscriptions. It uses your PubSub implementation to consume the data. But you have to define webhooks for individual callbacks to make it work.
+The OpenAPI handler can process OpenAPI Spec Callbacks as GraphQL Subscriptions, by using your Publish-subscribe pattern PubSub implementation to consume the data. However, you need to define webhooks for callbacks individually.
 
 ## Loading source from a CDN
 
@@ -276,14 +275,15 @@ API Mesh supports loading sources from a CDN or schema registry by using the `so
 
 ## Config API reference
 
--  `source` (type: `Any`, required) - A pointer to your API source - could be a local file, remote file, or url endpoint
+-  `source` (type: `Any`, required) - Reference to your API source, such as a local file, a remote file, or a URL endpoint
 -  `sourceFormat` (type: `String (json | yaml)`) - Format of the source file
--  `operationHeaders` (type: `JSON`) - JSON object representing the Headers to add to the runtime of the API calls
--  `schemaHeaders` (type: `JSON`) - If you are using a remote URL endpoint to fetch your schema, you can set headers for the HTTP request to fetch your schema.
--  `baseUrl` (type: `String`) - Specifies the URL that all paths will be based on.
-Overrides the server object in the OAS.
--  `qs` (type: `JSON`) - JSON object representing the query search parameters to add to the API calls
--  `includeHttpDetails` (type: `Boolean`) - Include HTTP Response details to the result object
+-  `schemaHeaders` (type: `JSON`) - JSON object for adding headers to API calls for runtime schema introspection
+   -  If you are using a remote URL endpoint, you can set headers for the HTTP request to fetch your schema.
+-  `operationHeaders` (type: `JSON`) - JSON object for adding headers to API calls for runtime operation execution
+-  `baseUrl` (type: `String`) - URL that all paths are based on
+   -  The `baseURL` overrides the server object in the OpenAPI Spec.
+-  `qs` (type: `JSON`) - JSON object for the query search parameters to add to the API call
+-  `includeHttpDetails` (type: `Boolean`) - Flag for including HTTP Response details in the result object
 
 <!-- 
 `addLimitArgument` (type: `Boolean`) - Auto-generate a 'limit' argument for all fields that return lists of objects, including ones produced by links
