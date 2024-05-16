@@ -15,7 +15,7 @@ The `JsonSchema` handler allows you to load a single remote REST endpoint and de
 
 <InlineAlert variant="warning" slots="text"/>
 
-The `JsonSchema` source uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.
+The `JsonSchema` source uses a different capitalization scheme than other handlers. Using the camel case `jsonSchema` will result in an error.
 
 ```json
 {
@@ -42,8 +42,6 @@ The `JsonSchema` source uses a different capitalization scheme than other handle
   },
 }
 ```
-
-This handler allows you to load any remote REST service and describe its request and response. JSON Schema handlers allow you to customize and control the GraphQL schema.
 
 If your REST service's request or response format is modified, you must update your mesh configuration file with the modified request or response. Then [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
 

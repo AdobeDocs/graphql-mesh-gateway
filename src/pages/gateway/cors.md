@@ -29,38 +29,52 @@ To add CORS headers to your mesh, create a `CORS` object in the `responseConfig`
   
 When specifying a CORS `origin`, list all applicable origins. Do not enter `*` for the value, as this will return the request's origin.
 
-```JSON
-"CORS": {
-        "maxAge": 60480,
-        "methods": [
-          "GET",
-          "POST",
-          "PUT",
-          "HEAD",
-          "OPTIONS"
-        ],
-        "origin": ["<origin1>", "<origin2>"]
-      } 
-```
+The following examples show how to use CORS with a single origin or with multiple origins:
+
+<CodeBlock slots="heading, code" repeat="2" languages="json, json" />
+
+#### Single origin
 
 ```json
 {
 ...
-    "responseConfig": {
-      "CORS": {
-        "origin": "https://www.domain.com",
-        "methods": [
-          "GET",
-          "POST"
-        ],
-        "maxAge": 60480,
-        "credentials": true,
-        "exposedHeaders": [
-          "Content-Range",
-          "X-Content-Range"
-        ]
-      }
+  "responseConfig": {
+    "CORS": {
+      "origin": "https://www.domain.com",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "maxAge": 60480,
+      "credentials": true,
+      "exposedHeaders": [
+        "Content-Range",
+        "X-Content-Range"
+      ]
     }
+  }
+...
+}
+```
+
+#### Multiple origins
+
+```json
+{
+...
+  "responseConfig": {
+    "CORS": {
+      "maxAge": 60480,
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "HEAD",
+        "OPTIONS"
+      ],
+      "origin": ["<origin1>", "<origin2>"]
+    } 
+  } 
 ...
 }
 ```
