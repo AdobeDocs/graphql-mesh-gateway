@@ -20,7 +20,7 @@ This release contains the following changes to API Mesh:
 
 ### Bug fixes
 
-Resolved an unexpected error that could occur when implementing CI/CD.
+Resolved an unexpected error that could occur when implementing [CI/CD](./cicd.md).
 
 ## April 23, 2024
 
