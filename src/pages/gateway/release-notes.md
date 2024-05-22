@@ -48,7 +48,7 @@ Resolved a `MODULE_NOT_FOUND` error in the `@adobe/aio-cli-plugin-api-mesh` CLI.
 
 <InlineAlert variant="info" slots="text"/>
 
-To update to the newest version of the CLI, run `aio-update` or `aio plugins:update @adobe/aio-cli-plugin-api-mesh`.
+To update to the newest version of the CLI, run `aio update` or `aio plugins:install @adobe/aio-cli-plugin-api-mesh`.
 
 ## January 11, 2023
 
@@ -78,7 +78,7 @@ Due to an internal upgrade, to get CORS response headers when querying your mesh
 
 <InlineAlert variant="info" slots="text"/>
 
-To update to the newest version of the CLI, run `aio-update` or `aio plugins:update @adobe/aio-cli-plugin-api-mesh`.
+To update to the newest version of the CLI, run `aio update` or `aio plugins:install @adobe/aio-cli-plugin-api-mesh`.
 
 ## October 18, 2023
 
@@ -100,7 +100,7 @@ A [`run` command](./command-reference.md#aio-api-meshrun) beta is now available,
 
 Beta features may not be fully supported.
 
-To update to the newest version of the CLI, run `aio-update` or `aio plugins:update @adobe/aio-cli-plugin-api-mesh`.
+To update to the newest version of the CLI, run `aio update` or `aio plugins:install @adobe/aio-cli-plugin-api-mesh`.
 
 ## September 21, 2023
 
@@ -117,7 +117,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-Due to upcoming changes in the [Adobe I/O Extensible CLI](https://developer.adobe.com/runtime/docs/guides/tools/cli_install/), the [API Mesh CLI](./getting-started.md#configure-your-environment) may encounter an `Unable to create API key` error when running an `aio api-mesh create` command on a workspace that has an existing API key. To resolve this run `aio-update` or `aio plugins:update @adobe/aio-cli-plugin-api-mesh` to ensure you have version `3.0.0` of the API Mesh plugin.
+Due to upcoming changes in the [Adobe I/O Extensible CLI](https://developer.adobe.com/runtime/docs/guides/tools/cli_install/), the [API Mesh CLI](./getting-started.md#configure-your-environment) may encounter an `Unable to create API key` error when running an `aio api-mesh create` command on a workspace that has an existing API key. To resolve this run `aio update` or `aio plugins:install @adobe/aio-cli-plugin-api-mesh` to ensure you have version `3.0.0` of the API Mesh plugin.
 
 Alternatively, if updating your plugin is not an option, you can manually [delete the credential](https://developer.adobe.com/developer-console/docs/guides/credentials/#api-key) from Adobe Developer Console by navigating to **API Keys** in the appropriate workspace and clicking **Delete Credential**.
 
