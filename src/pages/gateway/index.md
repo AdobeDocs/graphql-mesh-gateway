@@ -12,21 +12,11 @@ keywords:
 
 # What is API Mesh for Adobe Developer App Builder?
 
-API Mesh is a decoupled API platform that enables enterprise and mid-market developers to integrate private or third-party APIs and other software interfaces with Adobe products using Adobe IO. This allows businesses that need to access functionality across multiple systems to provide better end-user experiences. API Mesh allows developers to configure multiple APIs and other sources and serve them through a single gateway. Developers can query the combined sources through a single [GraphQL] query. Adobe Commerce, for example, also [supports GraphQL queries].
+API Mesh enables developers to integrate third-party APIs with other Adobe products, like App Builder, Adobe IO Gateway, or other serverless technologies.
 
-API Mesh enables developers to integrate third-party APIs with other Adobe products, like App Builder, Adobe IO Gateway, or other serverless technologies. By integrating multiple APIs, developers can allow these external systems to synchronize data, and participate in distributed workflows.
+By integrating multiple APIs, developers can allow these external systems to synchronize data, and participate in distributed workflows.
 
-<InlineAlert variant="info" slots="text"/>
-
-[GraphQL] is a query language for your API that lets you query exactly the information you need and only the information you need. [GraphQL Mesh] allows you to use GraphQL to query multiple data sources simultaneously.
-
-## Benefits of using GraphQL
-
-[GraphQL] has several advantages over REST and other APIs:
-
--  **GraphQL has predictable responses**: With GraphQL, you specify what information your response should contain.
--  **Faster response time**: Since you can control what data appears in your response, there is less extraneous data slowing down your calls.
--  **Defined Schema**: With its well-defined set of types, GraphQL lets you know what data you can query.
+API Mesh allows developers to configure multiple APIs and other sources and serve them through a gateway. Developers can query the combined sources through a single [GraphQL] query.
 
 ## Features
 
@@ -42,6 +32,18 @@ API Mesh enables developers to integrate third-party APIs with other Adobe produ
    -  [Create an Adobe IO account]
    -  [Configure your environment]
 -  [Create a mesh]
+
+## Benefits of using GraphQL
+
+<InlineAlert variant="info" slots="text"/>
+
+[GraphQL] is a query language for your API that lets you query exactly the information you need and only the information you need. [GraphQL Mesh] allows you to use GraphQL to query multiple data sources simultaneously.
+
+[GraphQL] has several advantages over REST and other APIs:
+
+-  **GraphQL has predictable responses**: With GraphQL, you specify what information your response should contain.
+-  **Faster response time**: Since you can control what data appears in your response, there is less extraneous data slowing down your calls.
+-  **Defined Schema**: With its well-defined set of types, GraphQL lets you know what data you can query.
 
 <!-- Link Definitions -->
 [supports GraphQL queries]: https://devdocs.magento.com/guides/v2.4/graphql/index.html
