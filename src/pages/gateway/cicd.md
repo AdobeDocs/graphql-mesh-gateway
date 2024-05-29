@@ -89,9 +89,9 @@ CLIENTID: ${{ secrets.CLIENTID_PROD }}
 CLIENTSECRET: ${{ secrets.CLIENTSECRET_PROD }}
 TECHNICALACCOUNTID: ${{ secrets.TECHNICALACCID_PROD }}
 TECHNICALACCOUNTEMAIL: ${{ secrets.TECHNICALACCEMAIL_PROD }}
-IMSORGID: ${{ secrets.IMSORGID_PROD }}
-ORGID: ${{ secrets.ORGID_PROD }}
-PROJECTID: ${{ secrets.PROJECTID_PROD }}
+IMSORGID: ${{ secrets.IMSORGID }}
+ORGID: ${{ secrets.ORGID }}
+PROJECTID: ${{ secrets.PROJECTID }}
 WORKSPACEID: ${{ secrets.WORKSPACEID_PROD }}
 ```
 
@@ -200,12 +200,6 @@ jobs:
         run: aio console:project:select ${{ secrets.PROJECTID_PROD }}
       - name: Select workspace
         run: aio console:workspace:select ${{ secrets.WORKSPACEID_PROD }}
-      - name: 'Create env file'
-        run: |
-          touch .env
-          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
-          echo API_KEY=${{ secrets.API_KEY }} >> .env
-          cat .env
       - name: api-mesh update
         run: aio api-mesh:update -c meshConfig.json --env .env 
 ```
