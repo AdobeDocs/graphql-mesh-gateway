@@ -173,10 +173,6 @@ module.exports = [
                 title: 'Multiple APIs',
                 path: '/gateway/multiple-apis.md'
             },
-            {
-                title: 'Combining multiple sources',
-                path: '/gateway/combining-multiple-sources.md'
-            },
         ]
     },
 {

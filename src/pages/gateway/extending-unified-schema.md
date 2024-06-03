@@ -12,7 +12,7 @@ keywords:
 
 # Extend the schema with custom resolvers
 
-[Combining multiple Sources](./combining-multiple-sources.md) explains how `additionalResolvers` can shape and augment the unified schema with custom resolvers.
+The [multiple APIs](./multiple-apis.md) topic explains how `additionalResolvers` can shape and augment the unified schema with custom resolvers.
 
 Alternatively, using the `additionalResolvers` config allows you to upload a custom resolver as a [`JavaScript` file](./handlers/index.md#reference-local-files-in-handlers) to the Mesh.
 
