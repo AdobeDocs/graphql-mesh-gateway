@@ -62,7 +62,7 @@ In this example, we will use `additionalResolvers` to apply a set of discounts t
 }
 ```
 
-Create a `javascript` file named `additional-resolvers.js` in the same directory as your mesh. Add the following contents to the file:
+Create a JavaScript file named `additional-resolvers.js` in the same directory as your mesh. Add the following contents to the file:
 
 <CodeBlock slots="heading, code" repeat="1" languages="js" />
 
