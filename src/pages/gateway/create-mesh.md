@@ -304,12 +304,12 @@ To access the gateway and perform GraphQL queries, you need to provide an API Ke
 You can return to the Project Overview page whenever you need to retrieve your API Key.
 
 <!-- Link Definitions -->
-[handlers]: source-handlers.md
-[transforms]: transforms.md
+[handlers]: ./handlers/index.md
+[transforms]: ./transforms/index.md
 [venia]: https://developer.adobe.com/commerce/pwa-studio/guides/packages/venia/
 [Adobe Developer Console]: https://developer.adobe.com/console
 [create a project]: https://developer.adobe.com/developer-console/docs/guides/projects/#create-a-new-project
-[create a mesh]: create-mesh.md
+[create a mesh]: ./create-mesh.md
 [creating a templated project]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/
 [workspaces]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/#workspaces
 [Prerequisites]: ./getting-started.md#prerequisites

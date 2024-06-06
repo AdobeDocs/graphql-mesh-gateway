@@ -32,7 +32,7 @@ Using edge deployment provides the following benefits:
 
 <InlineAlert variant="info" slots="text"/>
 
-Due to compatibility limitations during this closed beta, certain features, such as [Hooks](./hooks.md) and [SOAP handlers](./source-handlers.md#soap), are not available in edge meshes.
+Due to compatibility limitations during this closed beta, certain features, such as [Hooks](./hooks.md) and [SOAP handlers](./handlers/soap.md), are not available in edge meshes.
 
 As part of the closed beta program, you will get access to edge mesh URLs. After you have updated to the latest version of the [API Mesh CLI plugin](./getting-started.md#configure-your-environment), [create a mesh](./create-mesh.md) or [update an existing mesh](./create-mesh.md#update-an-existing-mesh) to trigger the edge deployment. The `aio api-mesh create` and `aio api-mesh update` commands will include the following information.
 

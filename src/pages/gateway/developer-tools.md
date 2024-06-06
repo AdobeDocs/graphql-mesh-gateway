@@ -1,5 +1,5 @@
 ---
-title: Developer tools
+title: Local development
 description: Learn how to use development tools to create a local environment and use environment variables with API Mesh.
 keywords:
   - API Mesh
@@ -10,7 +10,7 @@ keywords:
   - Tools
 ---
 
-# Developer tools
+# Local development
 
 The processes covered in this topic allow developers to set up a local environment, use environment variables, and directly reference files in API Mesh for Adobe Developer App Builder.
 
@@ -125,7 +125,7 @@ You can confirm that your variables were updated successfully by running the [`a
 
 ## Reference files directly
 
-In addition to [qualifying the `content` of a file manually](../reference/handlers/index.md#reference-local-files-in-handlers), you can directly reference a file in your mesh for automatic conversion. The following restrictions apply:
+In addition to [qualifying the `content` of a file manually](./handlers/index.md#reference-local-files-in-handlers), you can directly reference a file in your mesh for automatic conversion. The following restrictions apply:
 
 - Only `JS` and `JSON` file formats are allowed.
 - The referenced file's path must be less than 25 characters.
