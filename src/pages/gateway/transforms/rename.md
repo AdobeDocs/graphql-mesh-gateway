@@ -10,17 +10,50 @@ keywords:
   - Tools
 ---
 
-# rename transform
+# `rename` transform
 
-The `rename` transform allows you to rename:
+`rename` transforms allow you to rename a GraphQL field, type, or field argument. Renaming allows you to avoid conflicting names, simplify complicated names, and make queries look more like mutations. In the example below, we rename a long API field name from `integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost` to the shorter `CreateCustomerToken`.
 
--  GraphQL types
--  GraphQL fields
--  GraphQL field arguments
+`rename` elements can contain arrays of individual renaming operations, defined in separate `renames` objects. Each of these objects must define the `from` and `to` values.
 
-The `rename` transform helps you avoid conflicting names, simplify complicated names and make queries look more like mutations.
+<InlineAlert variant="info" slots="text"/>
 
-`rename` elements can contain arrays of individual renaming operations, defined in separate renames objects. Each of these objects must define the `from` and `to` values.
+You can use [RegEx flags] to enable the use of regular expressions when renaming using this transform. For example, you could use the key-value pair `field: api(.*)` in the `from` object to rename any field of the corresponding type that begins with "api".
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "CommerceREST",
+        "handler": {
+          "openapi": {
+            "source": "https://www.example.com/rest/all/schema?services=all"
+          }
+        },
+          "transforms": [
+            {
+              "rename": {
+              "renames": [
+                {
+                  "from": {
+                    "type": "Mutation",
+                    "field": "integrationCustomerTokenServiceV1CreateCustomerAccessTokenPost"
+                  },
+                  "to": {
+                    "type": "Mutation",
+                    "field": "CreateCustomerToken"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+}
+```
 
 ## Usage
 

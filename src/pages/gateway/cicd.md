@@ -200,12 +200,6 @@ jobs:
         run: aio console:project:select ${{ secrets.PROJECTID_PROD }}
       - name: Select workspace
         run: aio console:workspace:select ${{ secrets.WORKSPACEID_PROD }}
-      - name: 'Create env file'
-        run: |
-          touch .env
-          echo API_ENDPOINT="https://xxx.execute-api.us-west-2.amazonaws.com" >> .env
-          echo API_KEY=${{ secrets.API_KEY }} >> .env
-          cat .env
       - name: api-mesh update
         run: aio api-mesh:update -c meshConfig.json --env .env 
 ```

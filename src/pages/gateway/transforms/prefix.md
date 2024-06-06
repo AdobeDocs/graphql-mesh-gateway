@@ -12,8 +12,7 @@ keywords:
 
 # `prefix` transform
 
-The `prefix` transform allows you to prefix GraphQL types and GraphQL root operations (under `Query/Mutation`). `prefix` is similar to [`rename`](/docs/transforms/rename) in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query.
-In contrast with `rename`, `prefix` is simpler and only allows you to append a `prefix` to the existing name.
+The `prefix` transform allows you to add prefixes to existing types and root operations. `prefix` is similar to `rename` in that it allows you to modify names to avoid conflicts, simplify complicated names, and change the appearance of your query. In contrast with `rename`, `prefix` is simpler and only allows you to append a prefix to the existing name.
 
 You can use it to easily "namespace" APIs in your unified API and avoid conflicts.
 
@@ -48,7 +47,50 @@ The following example adds the `commerce_` prefix to all Adobe Commerce source t
 
 <InlineAlert variant="info" slots="text"/>
 
-For information about `bare` and `wrap` modes, read the [dedicated section](/reference/transforms/index.md#two-different-modes).
+For information about `bare` and `wrap` modes, read the [dedicated section](./bare-vs-wrap.md).
+
+ In the example below, we differentiate our sources by adding an "AEM_" prefix to the [AEM] source and a "Venia_" prefix to the [PWA] source.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "AEM",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://example1.com/graphql"
+          }
+        },
+        "transforms": [
+          {
+            "prefix": {
+              "includeRootOperations": true,
+              "value": "AEM_"
+            }
+          }
+        ]
+      },
+       {
+        "name": "PWA",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://example2.com/graphql"
+          }
+        },
+        "transforms": [
+          {
+            "prefix": {
+              "includeRootOperations": true,
+              "value": "Venia_"
+            }
+          }
+        ]
+      }
+    ]
+  },
+}
+```
 
 ## Config API Reference
 
