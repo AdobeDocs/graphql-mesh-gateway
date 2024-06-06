@@ -9,21 +9,45 @@ keywords:
   - Tools
 ---
 
-# JSON Schema handlers
+# `JsonSchema` handlers
 
-This handler allows you to load any remote REST service and describe its request and response. JSON Schema handlers allow you to customize and control the GraphQL schema.
+The `JsonSchema` handler allows you to load a single remote REST endpoint and define the request and response structures using pre-defined JSON schema files.
 
-<InlineAlert variant="info" slots="text"/>
+<InlineAlert variant="warning" slots="text"/>
+
+The `JsonSchema` source uses a different capitalization scheme than other handlers. Using the camel case `jsonSchema` will result in an error.
+
+```json
+{
+  "meshConfig": {
+      "sources": [
+          {
+              "name": "carts",
+              "handler": {
+                  "JsonSchema": {
+                      "baseUrl": "<your_Commerce_url>",
+                      "operations": [
+                          {
+                              "type": "Query",
+                              "field": "data",
+                              "path": "/cart",
+                              "method": "GET",
+                              "responseSchema": "./carts-response-schema.json"
+                          }
+                      ]
+                  }
+              }
+          }
+      ]
+  },
+}
+```
 
 If your REST service's request or response format is modified, you must update your mesh configuration file with the modified request or response. Then [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
 
 If your source handler's schema is modified, you must [update your mesh](../../gateway/create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
 
 For more information on creating JSON schemas, refer to this [JSON schema tutorial](https://json-schema.org/learn/getting-started-step-by-step.html).
-
-<InlineAlert variant="warning" slots="text"/>
-
-The `JsonSchema` source in GraphQL Mesh uses a different capitalization scheme than other handlers. Using `jsonSchema` will result in an error.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -55,7 +79,7 @@ The JSON Schema handler uses the following format:
 }
 ```
 
-JSON Schema handlers can also use local sources, see [Reference local file handlers](../handlers/index.md#reference-local-files-in-handlers) for more information.
+JSON Schema handlers can also use local sources, see [Reference local file handlers](../../gateway/handlers/index.md#reference-local-files-in-handlers) for more information.
 
 The following example returns your header values, so you can confirm your headers are functioning properly.
 

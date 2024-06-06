@@ -12,7 +12,32 @@ keywords:
 
 # `naming-convention` transform
 
-The `naming-convention` transforms allow you to apply casing and other conventions to your response.
+`naming-convention` transforms allow you to apply casing and other conventions to your response. In the example below, `enumValues` fields are converted to uppercase, while `fieldNames` are converted to camel case to enforce consistency.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "PWA",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://example2.com/graphql"
+          }
+        },
+        "transforms": [
+          {
+            "namingConvention": {
+              "enumValues": "upperCase",
+              "fieldNames": "camelCase"
+            }
+          }
+        ]
+      }
+    ]
+  },
+}
+```
 
 ## Usage
 
@@ -44,7 +69,7 @@ The following example converts all of your `fieldNames` to lower case in the Ado
 
 <InlineAlert variant="info" slots="text"/>
 
-For information about `bare` and `wrap` modes, please read the [dedicated section](index.md#two-different-modes)
+For information about `bare` and `wrap` modes, please read [`bare` vs `wrap`](./bare-vs-wrap.md).
 
 ## Config API Reference
 

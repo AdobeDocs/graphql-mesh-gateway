@@ -1,5 +1,5 @@
 ---
-title: API Mesh walkthrough
+title: API Mesh tutorial
 description: This guide walks you through creating and updating a mesh in API mesh.
 keywords:
   - API Mesh
@@ -10,9 +10,9 @@ keywords:
   - Tools
 ---
 
-# API Mesh walkthrough
+# API Mesh tutorial
 
-This walkthrough covers the basic actions you can perform in a mesh using API Mesh for Adobe Developer App Builder.
+This tutorial covers the basic actions you can perform in a mesh using API Mesh for Adobe Developer App Builder.
 
 ## Prerequisites
 
