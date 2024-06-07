@@ -10,9 +10,9 @@ keywords:
   - Tools
 ---
 
-# typeMerge transform
+# `typeMerging` transform
 
-Type Merge transforms allow you to combine multiple sources by merging a type from each source, by using the [Type Merging](https://graphql-tools.com/docs/stitch-type-merging) approach of Schema Stitching.
+Type Merging allows you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename] the fields you want to stitch to the same name. For more information, see this [example].
 
 For example, you could combine responses from two different APIs on a single field, provided you rename the fields you want to stitch to the same name.
 
@@ -383,5 +383,5 @@ formatted as `\"\"\" arg1: "value", arg2: "value" \"\"\"`.
    -  `argsExpr` (type: `String`) - Advanced use only; This argument specifies a string expression that allows more customization of the input arguments. Rules for evaluation of this argument are as follows:
    -  Basic object parsing of the input key: `"arg1: $key.arg1, arg2: $key.arg2"`
    -  Any expression enclosed by double brackets will be evaluated once for each of the requested keys, and then sent as a list: `"input: \{ keys: [[$key]] }"`
-   -  Selections from the key can be referenced by using the $ sign and dot notation, for example `"upcs: [[$key.upc]]"`, so that `$key.upc` refers to the `upc` field of the key.
+   -  Selections from the key can be referenced by using the $ sign and dot notation, for example `upcs: [[$key.upc]]` so that `$key.upc` refers to the `upc` field of the key.
 -  `additionalConfiguration` (type: `Any`) - The path to a code file that has an additional type merging configuration

@@ -12,9 +12,9 @@ keywords:
 
 # Extend the schema with custom resolvers
 
-[Combining multiple Sources](../reference/combining-multiple-sources.md) explains how `additionalResolvers` can shape and augment the unified schema with custom resolvers.
+The [multiple APIs](./multiple-apis.md) topic explains how `additionalResolvers` can shape and augment the unified schema with custom resolvers.
 
-Alternatively, using the `additionalResolvers` config allows you to upload a custom resolver as a [`JavaScript` file](../reference/handlers/index.md#reference-local-files-in-handlers) to the Mesh.
+Alternatively, using the `additionalResolvers` config allows you to upload a custom resolver as a [`JavaScript` file](./handlers/index.md#reference-local-files-in-handlers) to the Mesh.
 
 ## Programmatic `additionalResolvers`
 
@@ -32,7 +32,8 @@ In this example, we will use `additionalResolvers` to apply a set of discounts t
         "name": "Venia",
         "handler": {
           "graphql": {
-            "endpoint": "https://venia.magento.com/graphql"
+            "endpoint": "https://venia.magento.com/graphql",
+            "useGETForQueries": true
           }
         }
       },
@@ -56,18 +57,16 @@ In this example, we will use `additionalResolvers` to apply a set of discounts t
     ],
     "additionalResolvers": [
       "./additional-resolvers.js"
-    ],
-    "files": [
-      {
-        "path": "./additional-resolvers.js",
-        "content": "\r\nmodule.exports = {\r\n\tresolvers: {\r\n\t\tConfigurableProduct: {\r\n\t\t\tspecial_price: {\r\n\t\t\t\tselectionSet: \"{ name price_range { maximum_price { final_price { value } } } }\",\r\n\t\t\t\tresolve: (root, args, context, info) => {\r\n\t\t\t\t\tlet max = 0;\r\n\r\n\t\t\t\t\ttry {\r\n\t\t\t\t\t\tmax = root.price_range.maximum_price.final_price.value;\r\n\t\t\t\t\t} catch (e) {\r\n\t\t\t\t\t\t// ignore\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t\treturn context.DiscountsAPI.Query.discounts(\r\n\t\t\t\t\t\t{ root, args, context, info, selectionSet: \"{ name discount }\" }\r\n\t\t\t\t\t)\r\n\t\t\t\t\t\t.then((response) => {\r\n\t\t\t\t\t\t\tconst discountConfig = response.find((discount) => discount.name === root.name);\r\n\r\n\t\t\t\t\t\t\tif (discountConfig) {\r\n\t\t\t\t\t\t\t\treturn max * ((100 - discountConfig.discount) / 100);\r\n\t\t\t\t\t\t\t} else {\r\n\t\t\t\t\t\t\t\treturn max\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t})\r\n\t\t\t\t\t\t.catch(() => {\r\n\t\t\t\t\t\t\treturn null;\r\n\t\t\t\t\t\t});\r\n\t\t\t\t},\r\n\t\t\t},\r\n\t\t},\r\n\t},\r\n};\r\n"
-      }
     ]
   }
 }
 ```
 
-The previous example contains a `files` object that contains the following `javascript`:
+Create a JavaScript file named `additional-resolvers.js` in the same directory as your mesh. Add the following contents to the file:
+
+<CodeBlock slots="heading, code" repeat="1" languages="js" />
+
+#### `additional-resolvers.js`
 
 ```js
 module.exports = {
@@ -81,7 +80,8 @@ module.exports = {
                     try {
                         max = root.price_range.maximum_price.final_price.value;
                     } catch (e) {
-                        // ignore
+                        // set a default value
+                        max = 0;
                     }
 
                     return context.DiscountsAPI.Query.discounts({

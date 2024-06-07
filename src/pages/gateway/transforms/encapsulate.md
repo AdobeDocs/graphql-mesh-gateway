@@ -46,7 +46,7 @@ type mySchemaMutation {
 }
 ```
 
-This transformer is useful when you have multiple APIs in your Mesh Gateway and you wish to have it wrapped with a name to better understand where each field is coming from.
+This transform is useful when you have multiple APIs in your Mesh Gateway and you wish to have it wrapped with a name to better understand where each field is coming from.
 
 ## Usage
 
