@@ -219,7 +219,7 @@ These mutations are executed sequentially, calling one source after the other. W
 
 ## HIPAA compliance
 
-If your mesh's sources contain Protected Health Information (PHI), add the `"HIPAA": true` to your mesh configuration file. This flag ensures that your mesh is compliant with the Health Insurance Portability and Accountability Act (HIPAA).
+If your mesh's sources contain Protected Health Information (PHI), add `"HIPAA": true` to your mesh configuration file. This flag ensures that your mesh is compliant with the Health Insurance Portability and Accountability Act (HIPAA).
 
 ```json
 {
