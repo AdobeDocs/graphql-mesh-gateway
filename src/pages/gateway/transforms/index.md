@@ -18,7 +18,7 @@ Transforms are specified as a list of objects, and they are executed in order. Y
 
 ## Transforms available
 
-API Mesh currently supports the following [transforms]:
+API Mesh currently supports the following transforms:
 
 -  [Rename](./rename.md)
 -  [Prefix](./prefix.md)

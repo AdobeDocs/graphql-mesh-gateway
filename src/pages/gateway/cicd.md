@@ -12,7 +12,7 @@ keywords:
 
 # CI/CD for API Mesh
 
-API Mesh for Adobe Developer App Builder now provides CI/CD through [Github actions](https://docs.github.com/en/actions). CI/CD ensures rapid, reliable software delivery, which fosters agility and quality throughout the development lifecycle.
+API Mesh for Adobe Developer App Builder now provides CI/CD through [GitHub actions](https://docs.github.com/en/actions). CI/CD ensures rapid, reliable software delivery, which fosters agility and quality throughout the development lifecycle.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -66,7 +66,7 @@ When developing locally, you can store your variables and secrets in your [envir
 
 - Variables are for information that is not sensitive, for example, a variable could determine if you are targeting `stage` or `prod`. Additionally, you can configure variables to carry different values based on the environment you are using.
 
-- Secrets are for sensitive information, such as access tokens. These are never exposed in the Github code repo.
+- Secrets are for sensitive information, such as access tokens. These are never exposed in the GitHub code repo.
 
 ### Add a secret or variable
 
@@ -101,7 +101,7 @@ The specific secrets required for this workflow are available in the [Developer 
 
 The following table lists the variable name and its corresponding location in the downloaded `JSON` file:
 
-| Variable name in Github | Name defined in downloaded JSON |
+| Variable name in GitHub | Name defined in downloaded JSON |
 | ---------- | ------- |
 | CLIENTID | `client_id` |
 | CLIENTSECRET | `client_secret` |
@@ -232,6 +232,6 @@ When using your own CI/CD platform, there are two important considerations:
 
 - Security is a key requirement. Any alternative CI/CD workflows should provide a secret management solution to store the credentials required to deploy an App Builder Application against a specific Workspace. You can set these tokens in an `.aio` file or by using system or environment variables.
 
-The [`aio-apps-action`](https://github.com/adobe/aio-apps-action) can be used as a reference for constructing your own pipeline. This CI/CD Github action for automated deploys generates a token for the CLI to avoid login. The Adobe Developer Console documentation provides more information on [generating access tokens programmatically](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/implementation/#generating-access-tokens-programmatically).
+The [`aio-apps-action`](https://github.com/adobe/aio-apps-action) can be used as a reference for constructing your own pipeline. This CI/CD GitHub action for automated deploys generates a token for the CLI to avoid login. The Adobe Developer Console documentation provides more information on [generating access tokens programmatically](https://developer.adobe.com/developer-console/docs/guides/authentication/ServerToServerAuthentication/implementation/#generating-access-tokens-programmatically).
 
 This [App Builder Live demo](https://www.youtube.com/live/lbB2jl2rQZM?feature=share&t=1815) provides a walkthrough of how you might create your own CI/CD pipeline.
