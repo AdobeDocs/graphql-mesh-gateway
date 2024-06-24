@@ -14,14 +14,6 @@ keywords:
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
-## Jun 20, 2024
-
-This release contains the following changes to API Mesh:
-
-### Enhancements
-
-API Mesh now supports HIPAA compliance. To create a mesh that contains Protected Health Information (PHI), refer to [HIPAA Compliance](./work-with-mesh.md#hipaa-compliance).
-
 ## May 21, 2024
 
 This release contains the following changes to API Mesh:
