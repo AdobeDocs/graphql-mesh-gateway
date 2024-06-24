@@ -1,11 +1,11 @@
 module.exports = [
     {
         title: 'Overview',
-        path: '/gateway/',
+        path: '/gateway/index.md',
         pages: [
             {
                 title: 'What is API Mesh?',
-                path: '/gateway/'
+                path: '/gateway/index.md'
             },
             {
                 title: `Use cases`,
@@ -109,7 +109,7 @@ module.exports = [
     },
     {
         title: 'Advanced Features',
-        path: '/gateway/command-reference.md',
+        path: '/gateway/cache-control-headers.md',
         pages: [
             {
                 title: 'Caching',
@@ -171,7 +171,7 @@ module.exports = [
     },
     {
         title: 'Release information',
-        path: '/gateway/release-notes',
+        path: '/gateway/release-notes.md',
         pages: [
             {
                 title: 'Release notes',
