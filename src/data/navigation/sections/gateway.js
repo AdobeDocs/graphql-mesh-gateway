@@ -30,6 +30,10 @@ module.exports = [
                 path: '/gateway/create-mesh'
             },
             {
+                title: 'Create a mesh from a template',
+                path: '/gateway/template'
+            },
+            {
                 title: 'Work with your mesh',
                 path: '/gateway/work-with-mesh'
             },

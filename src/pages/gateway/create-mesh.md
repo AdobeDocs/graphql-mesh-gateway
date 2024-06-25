@@ -1,5 +1,5 @@
 ---
-title: Create a Mesh
+title: Create a mesh
 description: Create a configuration file for your mesh, access the gateway, and update your configuration file.
 keywords:
   - API Mesh
