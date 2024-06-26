@@ -18,7 +18,7 @@ keywords:
 
 <InlineAlert variant="info" slots="text"/>
 
-You can use [RegEx flags] to enable the use of regular expressions when renaming using this transform. For example, you could use the key-value pair `field: api(.*)` in the `from` object to rename any field of the corresponding type that begins with "api".
+You can use RegEx flags to enable the use of regular expressions when renaming using this transform. For example, you could use the key-value pair `field: api(.*)` in the `from` object to rename any field of the corresponding type that begins with "api".
 
 ```json
 {

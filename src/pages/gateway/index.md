@@ -16,4 +16,4 @@ API Mesh enables developers to integrate third-party APIs with other Adobe produ
 
 By integrating multiple APIs, developers can allow these external systems to synchronize data, and participate in distributed workflows.
 
-API Mesh allows developers to configure multiple APIs and other sources and serve them through a gateway. Developers can query the combined sources through a single [GraphQL] query.
+API Mesh allows developers to configure multiple APIs and other sources and serve them through a gateway. Developers can query the combined sources through a single GraphQL query.

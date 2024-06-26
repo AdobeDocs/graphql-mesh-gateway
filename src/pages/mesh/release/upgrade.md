@@ -13,7 +13,7 @@ keywords:
 
 # Upgrade versions
 
-This page lists breaking changes between versions of API Mesh for Adobe Developer App Builder. For a list of new features and resolved issues, refer to the [release notes](index.md).
+This page lists breaking changes between versions of API Mesh for Adobe Developer App Builder. For a list of new features and resolved issues, refer to the [release notes](./index.md).
 
 ## Software updates
 
