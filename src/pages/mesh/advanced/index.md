@@ -12,7 +12,7 @@ keywords:
 
 # Command Reference
 
-API Mesh for Adobe Developer App Builder CLI allows you to manage and modify meshes. This page covers commands exclusive to API Mesh. For authorization and other Adobe I/O Extensible CLI commands, refer to the [Adobe IO CLI command list]. For installation instructions, refer to [Getting Started].
+API Mesh for Adobe Developer App Builder CLI allows you to manage and modify meshes. This page covers commands exclusive to API Mesh. For authorization and other Adobe I/O Extensible CLI commands, refer to the [Adobe IO CLI command list](https://github.com/adobe/aio-cli#commands). For installation instructions, refer to [Getting Started](../basic/index.md).
 
 ## aio api-mesh:init
 
@@ -101,7 +101,7 @@ Server is running on http://localhost:5000/graphql
 
 ## aio api-mesh:create
 
-Creates a new mesh based on the settings in the specified `JSON` file in your working directory. After creating your mesh, you will receive a `meshId`, like `12a3b4c5-6d78-4012-3456-7e890fa1bcde`, to refer to it in the future. For more information, see [Creating a mesh].
+Creates a new mesh based on the settings in the specified `JSON` file in your working directory. After creating your mesh, you will receive a `meshId`, like `12a3b4c5-6d78-4012-3456-7e890fa1bcde`, to refer to it in the future. For more information, see [Creating a mesh](../basic/create-mesh.md).
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -146,7 +146,7 @@ aio api-mesh:status
 
 ## aio api-mesh:update
 
-Updates the mesh for the workspace you select based on the settings specified in the `JSON` file. For more information, see [Updating a mesh].
+Updates the mesh for the workspace you select based on the settings specified in the `JSON` file. For more information, see [Updating a mesh](../basic/create-mesh.md#update-an-existing-mesh).
 
 ### Usage
 
@@ -601,9 +601,3 @@ aio api-mesh:source:install "AEM Assets API"@0.0.1
 ```bash
 Successfully updated the mesh with the id: MESH_ID
 ```
-
-<!-- Link Definitions -->
-[Getting Started]: ../basic/index.md
-[Adobe IO CLI command list]: https://github.com/adobe/aio-cli#commands
-[Creating a mesh]: ../basic/create-mesh.md
-[Updating a mesh]: ../basic/create-mesh.md#update-an-existing-mesh

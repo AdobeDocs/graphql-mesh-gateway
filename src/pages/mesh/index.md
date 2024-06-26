@@ -16,7 +16,7 @@ API Mesh enables developers to integrate third-party APIs with other Adobe produ
 
 By integrating multiple APIs, developers can allow these external systems to synchronize data, and participate in distributed workflows.
 
-API Mesh allows developers to configure multiple APIs and other sources and serve them through a gateway. Developers can query the combined sources through a single [GraphQL] query.
+API Mesh allows developers to configure multiple APIs and other sources and serve them through a gateway. Developers can query the combined sources through a single [GraphQL](https://graphql.org/) query.
 
 ## Features
 
@@ -27,30 +27,20 @@ API Mesh allows developers to configure multiple APIs and other sources and serv
 
 ## Where to go next
 
--  [Getting started]
-   -  [Prerequisites]
-   -  [Create an Adobe IO account]
-   -  [Configure your environment]
--  [Create a mesh]
+-  [Getting started](./basic/index.md)
+   -  [Prerequisites](./basic/index.md#Prerequisites)
+   -  [Create an Adobe IO account](./basic/index.md#prerequisites)
+   -  [Configure your environment](./basic/index.md#configure-your-environment)
+-  [Create a mesh](./basic/create-mesh.md)
 
 ## Benefits of using GraphQL
 
 <InlineAlert variant="info" slots="text"/>
 
-[GraphQL] is a query language for your API that lets you query exactly the information you need and only the information you need. [GraphQL Mesh] allows you to use GraphQL to query multiple data sources simultaneously.
+[GraphQL](https://graphql.org/) is a query language for your API that lets you query exactly the information you need and only the information you need. API Mesh allows you to use GraphQL to query multiple data sources simultaneously.
 
-[GraphQL] has several advantages over REST and other APIs:
+GraphQL has several advantages over REST and other APIs:
 
 -  **GraphQL has predictable responses**: With GraphQL, you specify what information your response should contain.
 -  **Faster response time**: Since you can control what data appears in your response, there is less extraneous data slowing down your calls.
 -  **Defined Schema**: With its well-defined set of types, GraphQL lets you know what data you can query.
-
-<!-- Link Definitions -->
-[supports GraphQL queries]: https://devdocs.magento.com/guides/v2.4/graphql/index.html
-[GraphQL]: https://graphql.org/
-[GraphQL Mesh]: https://www.graphql-mesh.com/
-[Getting started]: ./basic/index.md
-[Prerequisites]: ./basic/index.md#Prerequisites
-[Create an Adobe IO account]: ./basic/index.md#prerequisites
-[Configure your environment]: ./basic/index.md#configure-your-environment
-[Create a mesh]: ./basic/create-mesh.md

@@ -16,15 +16,15 @@ This page provides the basic steps for creating your first mesh.
 
 ## Requirements
 
-Before creating a mesh, create a project or a templated project and workspace for the mesh. For other requirements see [Prerequisites].
+Before creating a mesh, create a project or a templated project and workspace for the mesh. For other requirements see [Prerequisites](./index.md#prerequisites).
 
 ### Create a project
 
-When you [create a mesh], you must assign the mesh to a specific project. To create a new project, log in to the [Adobe Developer Console] and [create a project].
+When you [create a mesh](../basic/create-mesh.md), you must assign the mesh to a specific project. To create a new project, log in to the [Adobe Developer Console](https://developer.adobe.com/console) and [create a project](https://developer.adobe.com/developer-console/docs/guides/projects/#create-a-new-project).
 
 ### Add a workspace to your project
 
-If you are [creating a templated project], you can add [workspaces]. Workspaces allow you to create separate environments. You can also create workspaces for each developer on your team.
+If you are [creating a templated project](https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/), you can add [workspaces](https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/#workspaces). Workspaces allow you to create separate environments. You can also create workspaces for each developer on your team.
 
 Workspaces that already have an API mesh will have "API Mesh" displayed on their workspace card in the developer console. To learn more about viewing, deleting, or selecting projects and workspaces, see [Projects and workspaces](work-with-mesh.md#projects-and-workspaces).
 
@@ -36,9 +36,9 @@ Workspaces that already have an API mesh will have "API Mesh" displayed on their
 
 When creating or updating a mesh, the file to upload must have the `.json` filename extension.
 
-1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers] and [transforms]. In this example, the file name is `mesh.json`.
+1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers](./handlers/index.md) and [transforms](./transforms/index.md). In this example, the file name is `mesh.json`.
 
-  The following mesh file can be used with minimal setup to access the endpoint of the [Venia] demo store.
+  The following mesh file can be used with minimal setup to access the endpoint of the [Venia](https://developer.adobe.com/commerce/pwa-studio/guides/packages/venia/) demo store.
 
   ``` json
   {
@@ -81,13 +81,13 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
 
 <InlineAlert variant="info" slots="text"/>
 
-Refer to the [command reference] for a detailed description of `aio api-mesh:create`.
+Refer to the [command reference](../advanced/index.md#aio-api-meshcreate) for a detailed description of `aio api-mesh:create`.
 
 ### Access the gateway
 
-The `aio api-mesh:create` response automatically assigns you an API key and subscribes that API key to the mesh service. You can also retrieve the API key by viewing the project in the [Adobe Developer Console].
+The `aio api-mesh:create` response automatically assigns you an API key and subscribes that API key to the mesh service. You can also retrieve the API key by viewing the project in the [Adobe Developer Console](https://developer.adobe.com/console).
 
-After you [create a mesh], you can access the GraphQL endpoint in any GraphQL browser by modifying the following URL: `https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`
+After you [create a mesh](../basic/create-mesh.md), you can access the GraphQL endpoint in any GraphQL browser by modifying the following URL: `https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -203,7 +203,7 @@ The following example adds both an Adobe Commerce instance (with Catalog Service
 
 ## Update an existing mesh
 
-If you make any changes to your mesh file, such as adding [transforms], you must publish them before the changes will be reflected in your gateway. Additionally, if a source schema is modified, you must update your mesh to allow API Mesh to cache any changes.
+If you make any changes to your mesh file, such as adding [transforms](./transforms/index.md), you must publish them before the changes will be reflected in your gateway. Additionally, if a source schema is modified, you must update your mesh to allow API Mesh to cache any changes.
 
 The following command updates the mesh in the selected workspace with the settings specified in the `update-mesh.json` file.
 
@@ -257,7 +257,7 @@ aio api-mesh:update update-mesh.json
 
 ## View your mesh in the Adobe Developer Console
 
-As an alternative to running the [`aio api-mesh:get`](../advanced/index.md#aio-api-meshget) command, you can view your mesh details by selecting the **API Mesh** section in the desired workspace in the [Adobe Developer Console].
+As an alternative to running the [`aio api-mesh:get`](../advanced/index.md#aio-api-meshget) command, you can view your mesh details by selecting the **API Mesh** section in the desired workspace in the [Adobe Developer Console](https://developer.adobe.com/console).
 
 On the API Mesh Details screen, you can use the tabs to view different segments of your mesh.
 
@@ -279,7 +279,7 @@ Only mesh owners can create API Keys. If you do not have access to [Adobe Develo
 
 To access the gateway and perform GraphQL queries, you need to provide an API Key to authorize access to your mesh. To create your API Key:
 
-1. In [Adobe Developer Console], select the desired organization from the dropdown in the top-right corner.
+1. In [Adobe Developer Console](https://developer.adobe.com/console), select the desired organization from the dropdown in the top-right corner.
 
     ![create a project](../../_images/create-project.png)
 
@@ -302,15 +302,3 @@ To access the gateway and perform GraphQL queries, you need to provide an API Ke
     ![api key](../../_images/api-key.png)
 
 You can return to the Project Overview page whenever you need to retrieve your API Key.
-
-<!-- Link Definitions -->
-[handlers]: /handlers/index.md
-[transforms]: ./transforms/index.md
-[venia]: https://developer.adobe.com/commerce/pwa-studio/guides/packages/venia/
-[Adobe Developer Console]: https://developer.adobe.com/console
-[create a project]: https://developer.adobe.com/developer-console/docs/guides/projects/#create-a-new-project
-[create a mesh]: ../basic/create-mesh.md
-[creating a templated project]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/
-[workspaces]: https://developer.adobe.com/developer-console/docs/guides/projects/projects-template/#workspaces
-[Prerequisites]: ./index.md#prerequisites
-[command reference]: ../advanced/index.md#aio-api-meshcreate

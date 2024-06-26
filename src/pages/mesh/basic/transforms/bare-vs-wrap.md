@@ -242,15 +242,3 @@ Example:
 <InlineAlert variant="info" slots="text"/>
 
 When you want to use `wrap`, you can omit the `mode` property since this is already applied by default.
-
-<!-- Link Definitions -->
-[Introduction]: index.md
-[encapsulate]: encapsulate.md
-[federation]: federation.md
-[filterSchema]: filter-schema.md
-[namingConvention]: naming-convention.md
-[prefix]: prefix.md
-[rename]: rename.md
-[replaceField]: replace-field.md
-[typeMerging]: type-merging.md
-[Transforms]: /basic/transforms/

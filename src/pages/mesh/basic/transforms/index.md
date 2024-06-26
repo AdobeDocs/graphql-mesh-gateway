@@ -18,7 +18,7 @@ Transforms are specified as a list of objects, and they are executed in order. Y
 
 ## Transforms available
 
-API Mesh currently supports the following [transforms]:
+API Mesh currently supports the following transforms:
 
 -  [Rename](./rename.md)
 -  [Prefix](./prefix.md)
@@ -149,22 +149,11 @@ The following table specifies the GraphQL Mesh versions of each transform suppor
 
 | Transform | Version |
 |------------|------------|
-[encapsulate] | `0.4.21`
-[federation] | `0.11.14`
-[filterSchema] | `0.15.23`
-[namingConvention] | `0.13.22`
-[prefix] | `0.12.22`
-[rename] | `0.14.22`
-[replaceField] | `0.4.20`
-[typeMerging] | `0.5.20`
-
-<!-- Link Definitions -->
-[Introduction]: index.md
-[encapsulate]: ./encapsulate.md
-[federation]: ./federation.md
-[filterSchema]: ./filter-schema.md
-[namingConvention]: ./naming-convention.md
-[prefix]: ./prefix.md
-[rename]: ./rename.md
-[replaceField]: ./replace-field.md
-[typeMerging]: ./type-merging.md
+[encapsulate]( ./encapsulate.md) | `0.4.21`
+[federation](./federation.md) | `0.11.14`
+[filterSchema](./filter-schema.md) | `0.15.23`
+[namingConvention](./naming-convention.md) | `0.13.22`
+[prefix](./prefix.md) | `0.12.22`
+[rename](./rename.md) | `0.14.22`
+[replaceField](./replace-field.md) | `0.4.20`
+[typeMerging](./type-merging.md) | `0.5.20`
