@@ -14,7 +14,7 @@ keywords:
 
 <InlineAlert variant="warning" slots="text"/>
 
-This page describes the current status of the API Mesh for Adobe Developer App Builder closed beta program for edge mesh support. This feature is in closed beta and is not accessible to non-beta users. For future updates watch the [release notes](./release-notes.md) page.
+This page describes the current status of the API Mesh for Adobe Developer App Builder closed beta program for edge mesh support. This feature is in closed beta and is not accessible to non-beta users. For future updates watch the [release notes](../mesh/release/index.md) page.
 
 The current API Mesh architecture uses a standard configuration spread across several regions. To improve response times and provide better benefits to our users, we are introducing a closed beta using the edge deployment of meshes. These edge meshes are stored closer to your data sources to reduce latency and generally improve the API Mesh experience by making meshes more performant.
 
@@ -32,9 +32,9 @@ Using edge deployment provides the following benefits:
 
 <InlineAlert variant="info" slots="text"/>
 
-Due to compatibility limitations during this closed beta, certain features, such as [Hooks](./hooks.md) and [SOAP handlers](./handlers/soap.md), are not available in edge meshes.
+Due to compatibility limitations during this closed beta, certain features, such as [Hooks](../mesh/advanced/hooks.md) and [SOAP handlers](../mesh/basic/handlers/soap.md), are not available in edge meshes.
 
-As part of the closed beta program, you will get access to edge mesh URLs. After you have updated to the latest version of the [API Mesh CLI plugin](./getting-started.md#configure-your-environment), [create a mesh](./create-mesh.md) or [update an existing mesh](./create-mesh.md#update-an-existing-mesh) to trigger the edge deployment. The `aio api-mesh create` and `aio api-mesh update` commands will include the following information.
+As part of the closed beta program, you will get access to edge mesh URLs. After you have updated to the latest version of the [API Mesh CLI plugin](../mesh/basic/index.md#configure-your-environment), [create a mesh](../mesh/basic/create-mesh.md) or [update an existing mesh](../mesh/basic/create-mesh.md#update-an-existing-mesh) to trigger the edge deployment. The `aio api-mesh create` and `aio api-mesh update` commands will include the following information.
 
 ```terminal
 Legacy Mesh Endpoint: https://graph.adobe.io/api/123456-123-456-789-1234567890/graphql?api_key=09876543210987654321

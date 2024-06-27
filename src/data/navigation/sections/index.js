@@ -1,3 +1,3 @@
-const gateway = require("./gateway");
+const mesh = require("./mesh");
 
-module.exports = [...gateway];
+module.exports = [...mesh];
