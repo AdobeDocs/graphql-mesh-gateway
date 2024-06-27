@@ -10,7 +10,7 @@ keywords:
   - Tools
 ---
 
-# Add source handlers
+# Source handlers
 
 Source handlers allow you to define sources, such as APIs, that provide data to your mesh. Each handler in your mesh corresponds to an API or other source that you can specify. API Mesh for Adobe Developer App Builder currently supports the following handlers:
 

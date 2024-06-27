@@ -14,7 +14,7 @@ keywords:
 
 While [handlers](../handlers/index.md) let you bring outside sources into API Mesh for Adobe Developer App Builder, transforms allow you to modify the schema to control the contents of your GraphQL requests and responses.
 
-Transforms are specified as a list of objects, and they are executed in order. You can apply them [to a specific handler or the entire mesh](#handler-vs-mesh-transforms).
+Transforms are specified as a list of objects, and they are executed in order. You can apply them [to a specific handler or the entire mesh](#handler-level-transforms-and-mesh-level-transforms).
 
 ## Transforms available
 
@@ -36,7 +36,7 @@ Additionally, the following transforms are available but are not fully supported
 
 Other transforms are not supported.
 
-## Handler vs mesh transforms
+## Handler-level transforms and mesh-level transforms
 
 When adding a transform to your mesh, you can choose to have the transform affect a single source (handler) or the entire mesh. The following examples use [`prefix` transforms](./prefix.md), which are the preferred method of avoiding conflicting object names across multiple schemas.
 

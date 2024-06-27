@@ -38,7 +38,7 @@ module.exports = [
                 path: "/mesh/basic/handlers/",
                 pages: [
                     {
-                        title: "Overview",
+                        title: "Handlers",
                         path: "/mesh/basic/handlers/"
                     },
                     {
@@ -64,7 +64,7 @@ module.exports = [
                 path: "/mesh/basic/transforms/",
                 pages: [
                     {
-                        title: "Overview",
+                        title: "Transforms",
                         path: "/mesh/basic/transforms/"
                     },
                     {
@@ -116,6 +116,10 @@ module.exports = [
                 path: "/mesh/advanced/"
             },
             {
+                title: "Local development",
+                path: "/mesh/advanced/developer-tools.md"
+            },
+            {
                 title: "Caching",
                 path: "/mesh/advanced/caching/",
                 pages: [
@@ -144,10 +148,6 @@ module.exports = [
             {
                 title: "Hooks",
                 path: "/mesh/advanced/hooks.md",
-            },
-            {
-                title: "Local development",
-                path: "/mesh/advanced/developer-tools.md"
             },
         ]
     },

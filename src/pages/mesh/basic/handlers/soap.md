@@ -9,7 +9,7 @@ keywords:
   - Tools
 ---
 
-## `soap` handlers
+# `soap` handlers
 
 <InlineAlert variant="warning" slots="text"/>
 
@@ -82,7 +82,7 @@ The experimental SOAP handler has the following limitations:
 - `context.headers` are not available inside `operationHeaders`
 - `mutations` must be used when querying
 
-### Querying
+## Querying
 
 When querying a SOAP source inside a mesh, use a `mutation` instead of a `query`, as illustrated in the following example:
 
