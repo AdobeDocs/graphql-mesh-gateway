@@ -53,7 +53,7 @@ The OpenAPI handler uses the following naming conventions:
 
 The `operationId` is only modified when necessary according to the GraphQL spec:
 
-  - The following characters are replaced with an underscore (`_`): white space, `.`, `/`, `:` and `-`.
+  - The following characters are replaced with an underscore (`_`): whitespace, `.`, `/`, `:` and `-`.
   - Characters that are not digits or Latin alphabet letters are replaced with their character codes.
   - If the first character of a name is a digit, it is prefixed with an underscore (`_`), because GraphQL does not allow initial digits.
 

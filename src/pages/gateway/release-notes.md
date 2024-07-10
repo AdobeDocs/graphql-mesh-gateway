@@ -18,7 +18,7 @@ The following sections indicate when updates were made to API Mesh for Adobe Dev
 
 This release contains the following changes to API Mesh:
 
-### Bug fixes
+### Bugfixes
 
 Resolved an unexpected error that could occur when implementing [CI/CD](./cicd.md).
 
@@ -26,7 +26,7 @@ Resolved an unexpected error that could occur when implementing [CI/CD](./cicd.m
 
 This release contains the following changes to API Mesh:
 
-### Bug fixes
+### Bugfixes
 
 Resolved an issue that could cause operation headers to be exposed as query string parameters in the source URL when `useGETForQueries` was set to `true`.
 
@@ -34,7 +34,7 @@ Resolved an issue that could cause operation headers to be exposed as query stri
 
 This release contains the following changes to API Mesh:
 
-### Bug fixes
+### Bugfixes
 
 Resolved an issue that prevented resolvers from updating when updating a mesh.
 
@@ -42,7 +42,7 @@ Resolved an issue that prevented resolvers from updating when updating a mesh.
 
 This release contains the following changes to API Mesh:
 
-### Bug fixes
+### Bugfixes
 
 Resolved a `MODULE_NOT_FOUND` error in the `@adobe/aio-cli-plugin-api-mesh` CLI. If you encounter this error, upgrade to version `3.2.2 (latest)`.
 
@@ -72,7 +72,7 @@ This release contains the following changes to API Mesh:
 
 Due to an internal upgrade, to get CORS response headers when querying your mesh, you must provide an `origin` request header with the origin URL as the value. For example, `origin: https://graph.adobe.io`.
 
-### Bug fixes
+### Bugfixes
 
 - Resolved an issue in the CLI where using the `aio api-mesh get --json` command in a workspace with no mesh configuration would return an inconsistent error.
 
@@ -84,7 +84,7 @@ To update to the newest version of the CLI, run `aio update` or `aio plugins:ins
 
 This release contains the following changes to API Mesh:
 
-### Bug fixes
+### Bugfixes
 
 Performance fixes.
 
@@ -140,7 +140,7 @@ This release contains the following changes to API Mesh:
   - The SOAP handler is experimental and should not be used in production deployments.
 - Added internal logging improvements.
 
-### Bug fixes
+### Bugfixes
 
 - Removed a configuration option that was enabled but not supported.
 - Resolved a `500 Internal Server Error` that could occur when deleting a mesh.
@@ -150,7 +150,7 @@ This release contains the following changes to API Mesh:
 
 This release contains the following changes to API Mesh:
 
-### Bug fixes
+### Bugfixes
 
 - A previous release introduced an issue that could cause unnecessary delays on GraphQL requests. This issue has been resolved and could result in improved performance.
 
@@ -158,7 +158,7 @@ This release contains the following changes to API Mesh:
 
 This release contains the following changes to API Mesh:
 
-### Bug fixes
+### Bugfixes
 
 - Resolved an issue where error details from GraphQL sources appeared as a generic error. API Mesh now forwards the error details from the GraphQL source.
 

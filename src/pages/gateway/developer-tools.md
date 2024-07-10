@@ -32,7 +32,7 @@ All of these steps can be automated using flags described in the [command refere
 
 1. Select the directory to install the dev environment in.
 
-1. Indicate if you want this environment to be a `git` project. (Requires [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).) Git is required for [CI/CD](./cicd.md).
+1. Indicate if you want this environment to be a `git` project. (Requires [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).) Git is required for [CI/CD](./cicd.md).
 
 1. Specify whether you want to use Node Package Manager (`npm`) or `yarn`. (Requires [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) or [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable).)
 

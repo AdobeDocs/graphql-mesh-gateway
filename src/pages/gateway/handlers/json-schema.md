@@ -11,7 +11,7 @@ keywords:
 
 # `JsonSchema` handlers
 
-The `JsonSchema` handler allows you to load a single remote REST endpoint and define the request and response structures using pre-defined JSON schema files.
+The `JsonSchema` handler allows you to load a single remote REST endpoint and define the request and response structures using predefined JSON schema files.
 
 <InlineAlert variant="warning" slots="text"/>
 

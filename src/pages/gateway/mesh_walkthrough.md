@@ -227,7 +227,7 @@ Now we will apply the `prefix` transform to prevent conflicting field names betw
 
 ## Add a source
 
-You can use the [source commands](command-reference.md#aio-api-meshsourceinstall) to install preconfigured first and third-party sources. You can find available sources by running the `aio api-mesh:source:discover` command or visiting the Adobe [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo.
+You can use the [source commands](command-reference.md#aio-api-meshsourceinstall) to install preconfigured first and third-party sources. You can find available sources by running the `aio api-mesh:source:discover` command or visiting the Adobe [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repository.
 
 1. Run the following source command. The response might ask you to reselect your Workspace and Project.
 
