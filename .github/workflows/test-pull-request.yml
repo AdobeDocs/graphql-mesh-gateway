@@ -87,4 +87,3 @@
   
         - name: Build site
           run: yarn build
-  
