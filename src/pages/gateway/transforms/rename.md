@@ -18,7 +18,7 @@ keywords:
 
 <InlineAlert variant="info" slots="text"/>
 
-You can use regular expression flags to enable the use of regular expressions when renaming using this transform. For example, you could use the key-value pair `field: api(.*)` in the `from` object to rename any field of the corresponding type that begins with "API".
+You can use regular expression flags to enable the use of regular expressions when renaming using this transform. For example, you could use the key-value pair `field: api(.*)` in the `from` object to rename any field of the corresponding type that begins with "api".
 
 ```json
 {
@@ -100,7 +100,7 @@ The `type` and `field` values are required when renaming a field `argument`.
 
 You can use regular expression flags to enable the use of regular expressions when renaming using this transform. This way you can rename multiple types, fields, or both.
 
-For example, you could use the key-value pair field: `Api(.*)` in the `from` object to rename any field of the corresponding type that begins with "API".
+For example, you could use the key-value pair field: `Api(.*)` in the `from` object to rename any field of the corresponding type that begins with "api".
 
 ```json
 [
