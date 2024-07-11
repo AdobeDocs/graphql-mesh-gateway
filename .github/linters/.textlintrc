@@ -3,9 +3,12 @@
     "terminology": {
       "severity" : "warning",
       "exclude": [
+        "bug[- ]fix(es)?",
         "white[- ]space"
       ],
       "terms": [
+        ["bug[- ]fix", "bugfix"],
+        ["bug-?fixes", "bug fixes"],
         ["white-?space", "white space"]
       ]
    }
