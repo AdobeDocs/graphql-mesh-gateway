@@ -102,7 +102,9 @@ The following example mesh configuration uses a header reflection service to dem
 
 Do not use sensitive data with this example, since it is designed to display your secrets as headers.
 
-<CodeBlock slots="heading, code" repeat="2" languages="json, yaml" />
+The **JSON file** tab contains a more readable version of the JSON file that appears in the mesh in the `files` object.
+
+<CodeBlock slots="heading, code" repeat="3" languages="json, yaml, json" />
 
 #### `mesh.json`
 
@@ -153,6 +155,37 @@ AEM:
 API_KEY: $COMMERCE_API_KEY
 ```
 
+#### JSON file
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "headerKeys",
+    "headerValues",
+    "headers"
+  ],
+  "properties": {
+    "headerKeys": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "headerValues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "headers": {
+      "type": "object"
+    }
+  }
+}
+```
+
 Use the following GraphQL query to retrieve the headers:
 
 <CodeBlock slots="heading, code" repeat="2" languages="json, json" />
@@ -181,6 +214,8 @@ Use the following GraphQL query to retrieve the headers:
         "cf-visitor": "{\"scheme\":\"https\"}",
         "connection": "Keep-Alive",
         "host": "header-reflection-service",
+        "secretaemeader": "abcabcdefdefxyzxyz",
+        "secretheader": "\\/root",
         "x-forwarded-proto": "https",
         "x-real-ip": "0.0.0.0"
       }
@@ -194,7 +229,9 @@ Use the following GraphQL query to retrieve the headers:
 
 The following example provides a simple authorization test. This mesh only returns a valid response, if the `TOKEN` in the `secrets.yaml` file is also passed as an authorization header in the request. If the token does not match, the mesh will return an unauthorized error.
 
-<CodeBlock slots="heading, code" repeat="2" languages="json, yaml" />
+The **JavaScript file** tab contains a more readable version of the Javascript that appears in the mesh in the `files` object.
+
+<CodeBlock slots="heading, code" repeat="3" languages="json, yaml, javascript" />
 
 #### `mesh.json`
 
@@ -235,6 +272,33 @@ The following example provides a simple authorization test. This mesh only retur
 
 ```yaml
 TOKEN: "abcabcdefdefxyzxyz"
+```
+
+#### JavaScript file
+
+```javascript
+module.exports = {
+    isAuth: ({
+        context
+    }) => {
+        const {
+            headers,
+            secrets
+        } = context;
+
+        if (headers.authorization != secrets.TOKEN) {
+            return {
+                status: "ERROR",
+                message: "Unauthorized",
+            };
+        } else {
+            return {
+                status: "SUCCESS",
+                message: "Authorized",
+            };
+        }
+    },
+};
 ```
 
 After adding the token from the `secrets.yaml` file to your authorization header, run the following query:
