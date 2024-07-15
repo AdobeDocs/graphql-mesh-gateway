@@ -14,6 +14,14 @@ keywords:
 
 The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
 
+## July 18, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+API Mesh now supports including secrets in your mesh configuration file. For more information, see [Secrets management](../advanced/secrets.md).
+
 ## May 21, 2024
 
 This release contains the following changes to API Mesh:
