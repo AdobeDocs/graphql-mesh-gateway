@@ -1,6 +1,6 @@
 ---
 title: CORS headers
-description: Learn how to use CORS headers with API Mesh for Adobe Developer App Builder.
+description: Learn about using CORS headers with API Mesh for Adobe Developer App Builder.
 keywords:
   - API Mesh
   - Extensibility
