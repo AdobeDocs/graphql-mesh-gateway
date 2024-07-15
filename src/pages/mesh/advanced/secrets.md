@@ -24,7 +24,7 @@ Create a `secrets.yaml` file that contains your secrets. You can modify the file
 secret: "secret-value"
 ```
 
-The following example contains a Bash command as a value for the `HOME` secret. API Mesh supports Bash commands with or without brackets, such as `$HOME` or `$[HOME]`.
+The following example contains a Bash command as a value for the `TOKEN` secret. API Mesh supports Bash commands with or without brackets, such as `$TOKEN` or `$[TOKEN]`.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -32,12 +32,11 @@ Bash commands are not supported in Windows environments.
 
 ```yaml
 AEM: 
-  TOKEN: "my-token"
+  TOKEN: $TOKEN
   AEMUSERNAME: "user-name"
   adminname: "admin-name"
 
-HOME: '\${HOME}'
-```
+API_KEY: ${COMMERCE_API_KEY}
 
 <InlineAlert variant="warning" slots="text"/>
 
@@ -59,7 +58,7 @@ Once you have created your `secrets.yaml` file, you can reference the secrets in
           "graphql": {
             "endpoint": "venia.magento.com/graphql",
             "operationHeaders": {
-              "secret": "{context.<secret_file>.<secret-name>}"
+              "secret": "{context.secrets.<secret-name>}"
             }
           }
         }
@@ -126,7 +125,7 @@ Do not use sensitive data with this example, since it is designed to display you
               }
             ],
             "operationHeaders": {
-              "secretHeader": "{context.secrets.HOME}",
+              "secretHeader": "{context.secrets.API_KEY}",
               "secretAEMHeader": "{context.secrets.AEM.TOKEN}"
             }
           }
@@ -151,7 +150,7 @@ AEM:
   AEMUSERNAME: "user-name"
   adminname: "admin-name"
 
-HOME: '\${HOME}'
+API_KEY: $COMMERCE_API_KEY
 ```
 
 Use the following GraphQL query to retrieve the headers:

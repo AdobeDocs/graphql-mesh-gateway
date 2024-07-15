@@ -133,7 +133,7 @@ aio api-mesh:create [FILE]
 
 `--help` provides information on the specified command.
 
-`--secrets [FILE]` allows you to provide a separate file that defines your [secrets](./secrets.md).
+`--secrets [FILE]` allows you to provide a separate YAML file that defines your [secrets](./secrets.md).
 
 ### Example
 
@@ -174,7 +174,7 @@ aio api-mesh:update [FILE]
 
 `--help` provides information on the specified command.
 
-`--secrets [FILE]` allows you to provide a separate file that defines your [secrets](./secrets.md).
+`--secrets [FILE]` allows you to provide a separate YAML file that defines your [secrets](./secrets.md).
 
 ### Example
 
