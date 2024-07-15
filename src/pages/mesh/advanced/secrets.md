@@ -82,6 +82,7 @@ When you create or update a mesh that you want to include secrets in, add the `-
 ```bash
 aio api-mesh create mesh.json --secrets secrets.yaml
 ```
+
 #### Update
 
 ```bash
