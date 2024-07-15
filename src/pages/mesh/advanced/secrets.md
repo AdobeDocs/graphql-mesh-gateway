@@ -37,6 +37,7 @@ AEM:
   adminname: "admin-name"
 
 API_KEY: ${COMMERCE_API_KEY}
+```
 
 <InlineAlert variant="warning" slots="text"/>
 
@@ -44,9 +45,19 @@ You cannot escape the `$` character in secrets files. This means that a secret's
 
 ## Add secrets to your mesh configuration file
 
-Once you have created your `secrets.yaml` file, you can reference the secrets in your mesh configuration file using the following format:
+Once you have created your `secrets.yaml` file, you can reference the secrets in your mesh configuration file. You can use secrets in the following locations:
 
-<!-- if this example isn't valid, we need to replace it with another very simple example. -->
+- Headers
+  - Operational headers
+- JavaScript files
+  - Local hooks
+  - Additional resolvers
+
+When using secrets with operational headers, use the template literals syntax, for example, `{context.secrets.<SECRET_NAME>}`.
+
+When using secrets in JavaScript files using hooks or resolvers, use the secret in context, for example, `const secretValue = context.secrets.<SECRET_NAME>`.
+
+The following file provides an example using operational headers:
 
 ```json
 {
