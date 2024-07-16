@@ -31,10 +31,9 @@ The following example contains a Bash command as a value for the `TOKEN` secret.
 Bash commands are not supported in Windows environments.
 
 ```yaml
-AEM: 
-  TOKEN: $TOKEN
-  AEMUSERNAME: "user-name"
-  adminname: "admin-name"
+TOKEN: $TOKEN
+AEM_USERNAME: "user-name"
+adminname: "admin-name"
 
 API_KEY: ${COMMERCE_API_KEY}
 ```
@@ -139,7 +138,7 @@ The **JSON file** tab contains a more readable version of the JSON file that app
             ],
             "operationHeaders": {
               "secretHeader": "{context.secrets.API_KEY}",
-              "secretAEMHeader": "{context.secrets.AEM.TOKEN}"
+              "secretAEMHeader": "{context.secrets.TOKEN}"
             }
           }
         }
@@ -152,10 +151,9 @@ The **JSON file** tab contains a more readable version of the JSON file that app
 #### `secrets.yaml`
 
 ```yaml
-AEM: 
-  TOKEN: "my-token"
-  AEMUSERNAME: "user-name"
-  adminname: "admin-name"
+TOKEN: "my-token"
+AEMUSERNAME: "user-name"
+adminname: "admin-name"
 
 API_KEY: $COMMERCE_API_KEY
 ```
