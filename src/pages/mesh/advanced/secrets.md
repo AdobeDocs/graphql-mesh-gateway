@@ -112,7 +112,7 @@ The following example mesh configuration uses a header reflection service to dem
 
 Do not use sensitive data with this example, since it is designed to display your secrets as headers.
 
-The **JSON file** tab contains a more readable version of the JSON file that appears in the mesh in the `files` object.
+The `getHeadersSchema.json` tab contains the JSON file referenced in the example mesh's `operations` object. This file provides the required response schema. Copy the file into the same folder as your `mesh.json` file before creating or updating your mesh.
 
 <CodeBlock slots="heading, code" repeat="3" languages="json, yaml, json" />
 
@@ -158,7 +158,7 @@ adminname: "admin-name"
 API_KEY: $COMMERCE_API_KEY
 ```
 
-#### ./getHeadersSchema.json
+#### `getHeadersSchema.json`
 
 ```json
 {
@@ -232,7 +232,7 @@ Use the following GraphQL query to retrieve the headers:
 
 The following example provides a simple authorization test. This mesh only returns a valid response, if the `TOKEN` in the `secrets.yaml` file is also passed as an authorization header in the request. If the token does not match, the mesh will return an unauthorized error.
 
-The **JavaScript file** tab contains a more readable version of the Javascript that appears in the mesh in the `files` object.
+The `hooks.js` tab contains the JavaScript file referenced in the example mesh's `plugins` object. This file provides the required composer. Copy the file into the same folder as your `mesh.json` file before creating or updating your mesh.
 
 <CodeBlock slots="heading, code" repeat="3" languages="json, yaml, javascript" />
 
@@ -271,7 +271,7 @@ The **JavaScript file** tab contains a more readable version of the Javascript t
 TOKEN: "abcabcdefdefxyzxyz"
 ```
 
-#### ./hooks.js
+#### `hooks.js`
 
 ```javascript
 module.exports = {
