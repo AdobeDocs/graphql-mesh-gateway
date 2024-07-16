@@ -145,12 +145,6 @@ The **JSON file** tab contains a more readable version of the JSON file that app
         }
       }
     ],
-    "files": [
-      {
-        "path": "./getHeadersSchema.json",
-        "content": "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"required\":[\"headerKeys\",\"headerValues\",\"headers\"],\"properties\":{\"headerKeys\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"headerValues\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"headers\":{\"type\":\"object\"}}}"
-      }
-    ]
   }
 }
 ```
@@ -166,7 +160,7 @@ AEM:
 API_KEY: $COMMERCE_API_KEY
 ```
 
-#### JSON file
+#### ./getHeadersSchema.json
 
 ```json
 {
@@ -269,12 +263,6 @@ The **JavaScript file** tab contains a more readable version of the Javascript t
         }
       }
     ],
-    "files": [
-      {
-        "path": "./hooks.js",
-        "content": "module.exports = {\r\n  isAuth: ({ context }) => {\r\n    const { headers, secrets } = context;\r\n\r\n    if (headers.authorization != secrets.TOKEN) {\r\n      return {\r\n        status: \"ERROR\",\r\n        message: \"Unauthorized\",\r\n      };\r\n    } else {\r\n      return {\r\n        status: \"SUCCESS\",\r\n        message: \"Authorized\",\r\n      };\r\n    }\r\n  },\r\n};\r\n"
-      }
-    ]
   }
 }
 ```
@@ -285,7 +273,7 @@ The **JavaScript file** tab contains a more readable version of the Javascript t
 TOKEN: "abcabcdefdefxyzxyz"
 ```
 
-#### JavaScript file
+#### ./hooks.js
 
 ```javascript
 module.exports = {
