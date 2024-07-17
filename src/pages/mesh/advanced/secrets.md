@@ -12,7 +12,7 @@ keywords:
 
 # Secrets management
 
-API Mesh for Adobe Developer App Builder allows you to manage secrets or variables for a mesh. You can use these secrets in your mesh configuration file to securely manage sensitive information. When creating or updating a mesh, you can provide a separate file that defines your secrets. API Mesh encrypts secrets using AES 512-bit encryption.
+API Mesh for Adobe Developer App Builder allows you to manage secrets for a mesh. You can use these secrets in your mesh configuration file to securely manage sensitive information. When creating or updating a mesh, you can provide a separate file that defines your secrets. API Mesh encrypts secrets using AES 512-bit encryption.
 
 For security purposes, you cannot receive the secrets once you define them when creating or updating a mesh. For example, running an `aio api-mesh get` command returns your mesh with the values defined within the mesh configuration file, such as `{context.secrets.SECRET}` and does not return the actual secret's value.
 
@@ -20,22 +20,20 @@ For security purposes, you cannot receive the secrets once you define them when 
 
 Create a YAML file, such as `secrets.yaml`, to define your secrets. The file name must end with the `yaml` or `yml` file extension. Each line in the files defines a different secret.
 
-```yaml
-secret: "secret-value"
-```
-
-The following example contains a Bash command as a value for the `TOKEN` secret. API Mesh supports Bash commands with or without brackets, such as `$TOKEN` or `$[TOKEN]`.
+The following example contains a Bash variable as a value for the `TOKEN` secret. API Mesh supports strings and numbers with or without single or double quotes and Bash variables with or without brackets, such as `$TOKEN` or `$[TOKEN]`.
 
 <InlineAlert variant="info" slots="text"/>
 
-Bash commands are not supported in Windows environments.
+Bash variables are not supported in Windows.
 
 ```yaml
 TOKEN: $TOKEN
+USERNAME: user-name
+adminname: 'admin-name'
 AEM_USERNAME: "user-name"
-adminname: "admin-name"
 
 API_KEY: ${COMMERCE_API_KEY}
+API_KEY2: $COMMERCE_API_KEY
 ```
 
 <InlineAlert variant="warning" slots="text"/>
