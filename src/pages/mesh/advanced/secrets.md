@@ -16,9 +16,9 @@ API Mesh for Adobe Developer App Builder allows you to manage secrets or variabl
 
 For security purposes, you cannot receive the secrets once you define them when creating or updating a mesh. For example, running an `aio api-mesh get` command returns your mesh with the values defined within the mesh configuration file, such as `{context.secrets.SECRET}` and does not return the actual secret's value.
 
-## Create a `secrets.yaml` file
+## Create a secrets file
 
-Create a `secrets.yaml` file that contains your secrets. You can modify the file name as necessary. Secrets management only supports the `yaml` and `yml` file extensions. The file should be in the following format:
+Create a YAML file, such as `secrets.yaml`, to define your secrets. The file name must end with the `yaml` or `yml` file extension. Each line in the files defines a different secret.
 
 ```yaml
 secret: "secret-value"
@@ -307,7 +307,7 @@ After adding the token from the `secrets.yaml` file to your authorization header
 ```graphql
 {
   storeConfig {
-    base_Url
+    base_url
   }
 }
 ```
@@ -318,7 +318,7 @@ After adding the token from the `secrets.yaml` file to your authorization header
 {
   "data": {
     "storeConfig": {
-      "base_url": "cache_url"
+      "base_url": "https://www.example.com"
     }
   },
   "extensions": {}
