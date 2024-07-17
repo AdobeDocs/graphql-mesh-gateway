@@ -38,7 +38,7 @@ API_KEY2: $COMMERCE_API_KEY
 
 <InlineAlert variant="warning" slots="text"/>
 
-You cannot escape the `$` character in secrets files. This means that a secret's value cannot contain `$`, unless it is part of a Bash command.
+You cannot escape the `$` character in secrets files. This means that a secret's value cannot contain `$`, unless it is part of a Bash variable.
 
 ## Add secrets to your mesh configuration file
 
