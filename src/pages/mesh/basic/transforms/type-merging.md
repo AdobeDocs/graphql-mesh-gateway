@@ -12,11 +12,7 @@ keywords:
 
 # `typeMerging` transform
 
-<<<<<<< HEAD:src/pages/gateway/transforms/type-merging.md
-Type Merging allows you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename](./rename.md) the fields you want to stitch to the same name. For more information, see this [example](../multiple-apis.md).
-=======
 Type Merging allows you to combine multiple sources by merging a type from each source. For example, you could combine responses from two different APIs on a single field, provided you [rename](./rename.md) the fields you want to stitch to the same name.
->>>>>>> main:src/pages/mesh/basic/transforms/type-merging.md
 
 For example, you could combine responses from two different APIs on a single field, provided you rename the fields you want to stitch to the same name.
 
