@@ -189,7 +189,7 @@ API_KEY: $COMMERCE_API_KEY
 }
 ```
 
-Use the following GraphQL query to retrieve the headers:
+Use the following GraphQL query to retrieve the headers. This query will vary depending on the header reflection service you are using.
 
 <CodeBlock slots="heading, code" repeat="2" languages="json, json" />
 
