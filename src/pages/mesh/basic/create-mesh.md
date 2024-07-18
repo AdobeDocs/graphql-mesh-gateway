@@ -36,7 +36,7 @@ Workspaces that already have an API mesh will have "API Mesh" displayed on their
 
 When creating or updating a mesh, the file to upload must have the `.json` filename extension.
 
-1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers](./handlers/index.md) and [transforms](./transforms/index.md). In this example, the filenameis `mesh.json`.
+1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers](./handlers/index.md) and [transforms](./transforms/index.md). In this example, the filename is `mesh.json`.
 
   The following mesh file can be used with minimal setup to access the endpoint of the [Venia](https://developer.adobe.com/commerce/pwa-studio/guides/packages/venia/) demo store.
 
@@ -63,7 +63,7 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
     aio auth:login
     ```
 
-1. Run the following command to create a mesh. In this example, the filenameis `mesh.json`.
+1. Run the following command to create a mesh. In this example, the filename is `mesh.json`.
 
     ```bash
     aio api-mesh:create mesh.json
