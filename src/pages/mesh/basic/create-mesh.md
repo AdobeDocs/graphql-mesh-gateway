@@ -212,7 +212,7 @@ The following example adds both an Adobe Commerce instance (with Catalog Service
 
 <InlineAlert variant="info" slots="text"/>
 
-The previous example mesh includes a `prefix` transform for the `CatalogService` source to prevent schema conflicts. This transform adds the `catalog_` prefix to all root operations in the source.
+The previous example mesh includes a [`prefix` transform](./transforms/prefix.md) for the `CatalogService` source to prevent schema conflicts. This transform adds the `catalog_` prefix to all root operations in the source.
 
 ## Update an existing mesh
 
