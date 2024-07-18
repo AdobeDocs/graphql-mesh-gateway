@@ -36,7 +36,7 @@ Workspaces that already have an API mesh will have "API Mesh" displayed on their
 
 When creating or updating a mesh, the file to upload must have the `.json` filename extension.
 
-1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers](./handlers/index.md) and [transforms](./transforms/index.md). In this example, the file name is `mesh.json`.
+1. Create and save a JSON configuration file that defines the properties of your mesh. Your mesh is defined by a combination of [handlers](./handlers/index.md) and [transforms](./transforms/index.md). In this example, the filenameis `mesh.json`.
 
   The following mesh file can be used with minimal setup to access the endpoint of the [Venia](https://developer.adobe.com/commerce/pwa-studio/guides/packages/venia/) demo store.
 
@@ -63,7 +63,7 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
     aio auth:login
     ```
 
-1. Run the following command to create a mesh. In this example, the file name is `mesh.json`.
+1. Run the following command to create a mesh. In this example, the filenameis `mesh.json`.
 
     ```bash
     aio api-mesh:create mesh.json
@@ -95,7 +95,7 @@ For security purposes, we recommend moving your API key from the provided link i
 
 ### Create a mesh from a source
 
-The `aio api-mesh:source` commands provide several prebuilt mesh sources that you can use to create your mesh file, for example `mesh.json`. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. Once approved, these sources will be available for selection in the CLI.
+The `aio api-mesh:source` commands provide several prebuilt mesh sources that you can use to create your mesh file, for example `mesh.json`. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repository. Once approved, these sources will be available for selection in the CLI.
 
 Currently, this feature serves as a way for you to quickly copy an example mesh.
 
