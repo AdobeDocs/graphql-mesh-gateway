@@ -5,6 +5,6 @@ module.exports = [
   },
   {
     title: "API Mesh",
-    path: "/gateway/",
+    path: "/mesh/",
   },
 ];
