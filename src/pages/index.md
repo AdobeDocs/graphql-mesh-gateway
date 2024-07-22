@@ -10,28 +10,26 @@ keywords:
   - Tools
 ---
 
-<InlineAlert variant="warning" slots="text"/>
-
-Update to the latest API Mesh CLI package to avoid any interruptions. For more information refer to the [release notes](gateway/release-notes.md#august-30-2023).
-
 <Hero slots="image, heading, text"/>
 
 ![API Mesh](_images/home-bg.jpeg)
 
 # API Mesh for Adobe Developer App Builder
 
-API Mesh for Adobe Developer App Builder is a decoupled API platform that enables enterprise and mid-market developers to integrate private and third-party APIs and other software interfaces with Adobe products using Adobe IO.
+API Mesh for Adobe Developer App Builder is an orchestration layer that enables developers to seamlessly integrate private and third-party APIs with Adobe products and APIs.
 
-API Mesh allows developers to combine multiple data sources into a single GraphQL endpoint. Unlike working with APIs, the GraphQL query language lets you determine the information the response contains.
+API Mesh allows developers to combine multiple data sources into a single, queryable GraphQL endpoint. [GraphQL](https://graphql.org/) allows you to determine the information the response contains, unlike REST APIs, which have fixed response formats.
 
-By serving multiple sources through a single gateway and providing customized responses, API Mesh creates a better end-user experience for accessing your backend services.
+By serving multiple sources through a single gateway and providing customized responses, API Mesh creates a better user experience for accessing your backend services.
 
 ## Features
 
 -  **Adobe API Manager** - A reverse proxy that accepts most API calls for many backend services
 -  **Configurable Integrations** - Low/No-code method to integrate with your own private APIs with Adobe Commerce, other Adobe products, and third-party APIs
--  **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones
+-  **Backward Compatibility** - Preserve existing APIs while gradually adopting new ones
 -  **Extensibility** - Customize and extend your APIs directly in the gateway without making changes to the API source
+
+![api mesh diagram](./_images/api-mesh-diagram.png)
 
 ### Related information
 
@@ -39,15 +37,9 @@ Use the following sections to learn more about the API Mesh and extensibility at
 
 <DiscoverBlock slots="link, text"/>
 
-[API Mesh for Adobe Developer App Builder](gateway/index.md)
+[API Mesh for Adobe Developer App Builder](mesh/index.md)
 
 Allows developers to integrate private and third-party APIs and other software interfaces with Adobe Commerce and other Adobe products using Adobe IO.
-
-<DiscoverBlock slots="link, text"/>
-
-[Reference documentation](./reference/)
-
-View the reference documentation to learn detailed information about using handlers and transforms with API Mesh.
 
 <DiscoverBlock slots="link, text"/>
 
@@ -64,7 +56,3 @@ Makes Commerce transactional data available to App Builder using Adobe I/O. You 
 ## Contributing to this documentation
 
 We encourage you to participate in our open documentation initiative. If you have suggestions, corrections, additions, or deletions for this documentation, check out the source on [GitHub](https://github.com/AdobeDocs/graphql-mesh-gateway) and open a pull request.
-
-<!-- Link Definitions -->
-
-[GraphQL]: https://graphql.org/

@@ -8,7 +8,7 @@ This is a [Gatsby](https://www.gatsbyjs.com/) project that uses the [Adobe I/O T
 
 To build the site locally:
 
-1. Clone this repo.
+1. Clone this repository.
 1. Install project dependencies.
 
    ```bash

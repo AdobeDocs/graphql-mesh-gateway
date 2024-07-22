@@ -1,14 +1,10 @@
 module.exports = [
   {
-    title: "API Mesh",
+    title: "Home",
     path: "/",
   },
   {
-    title: "Gateway",
-    path: "/gateway/",
-  },
-  {
-    title: "GraphQL Mesh Reference",
-    path: "/reference/"
+    title: "API Mesh",
+    path: "/mesh/",
   },
 ];
