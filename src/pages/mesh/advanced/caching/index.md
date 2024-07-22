@@ -13,7 +13,7 @@ keywords:
 
 # Cache-control headers
 
-API Mesh for Adobe Developer App Builder supports dynamic content caching if you provide a content delivery network (CDN), such as [Fastly](./fastly.md). Dynamic content caching helps improve website load times and reduces consumption costs associated with bandwidth.
+API Mesh for Adobe Developer App Builder supports dynamic content caching if you provide a content delivery network (CDN), such as [Fastly](./fastly.md). Dynamic content caching helps improve site load times and reduces consumption costs associated with bandwidth.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -23,7 +23,7 @@ When using a CDN, you must invalidate the cache after modifying a mesh configura
 
 A CDN's cache-control headers determine how queried information is cached.
 
-When a browser or a GET request accesses a URL, the site's response headers typically include a `cache-control` header, which determines how long the site will allow its data to be cached. For example, a website could have the following response header:
+When a browser or a GET request accesses a URL, the site's response headers typically include a `cache-control` header, which determines how long the site will allow its data to be cached. For example, a site could have the following response header:
 
 ```html
 cache-control: max-age=0

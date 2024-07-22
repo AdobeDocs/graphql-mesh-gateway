@@ -382,11 +382,11 @@ Mesh Endpoint: https://graph.adobe.io/api/12a3b4c5-6d78-4012-3456-7e890fa1bcde/g
 
 ## aio api-mesh:source:discover
 
-Lists all available sources. Select a source to view its configuration file and copy its content to your clipboard. You can also view available sources directly in the [api-mesh-sources](https://github.com/adobe/api-mesh-sources/tree/main/connectors) repo.
+Lists all available sources. Select a source to view its configuration file and copy its content to your clipboard. You can also view available sources directly in the [api-mesh-sources](https://github.com/adobe/api-mesh-sources/tree/main/connectors) repository.
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](../basic/create-mesh.md#create-a-mesh-from-a-source) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repository. See [Create a mesh from a source](../basic/create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 
@@ -455,7 +455,7 @@ Prints the specified source's mesh file and allows you to copy it to the clipboa
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](../basic/create-mesh.md#create-a-mesh-from-a-source) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repository. See [Create a mesh from a source](../basic/create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 
@@ -548,7 +548,7 @@ The `install` command adds the specified source to the currently selected worksp
 
 <InlineAlert variant="info" slots="text"/>
 
-Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repo. See [Create a mesh from a source](../basic/create-mesh.md#create-a-mesh-from-a-source) for more information.
+Sources are prebuilt mesh configuration files that are formatted for a specific combination of handlers. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repository. See [Create a mesh from a source](../basic/create-mesh.md#create-a-mesh-from-a-source) for more information.
 
 ### Usage
 
