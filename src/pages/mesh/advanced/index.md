@@ -68,7 +68,11 @@ The following arguments are all optional.
 
 `-p` or `--port` allows you to specify the port number for your local environment. The default is `5000`.
 
-`--select` deploys the mesh artifact in the selected workspace without rebuilding it.
+`--select` deploys the mesh artifact in the selected workspace without rebuilding it. The select command will not download [secrets](./secrets.md) as artifacts. To use secrets with the `--select` flag, combine it with the `--secrets` flag and provide a local file that contains your secrets.
+
+  ```bash
+  aio api-mesh:run mesh.json --select --secrets secrets.yaml
+  ```
 
 `--debug` enters debug mode. To debug in an IDE such as Visual Studio Code, add the following configuration to your `launch.json` file:
 
@@ -129,6 +133,8 @@ aio api-mesh:create [FILE]
 
 `--help` provides information on the specified command.
 
+`--secrets [FILE]` allows you to provide a separate YAML file that defines your [secrets](./secrets.md).
+
 ### Example
 
 ```bash
@@ -167,6 +173,8 @@ aio api-mesh:update [FILE]
 `--env` allows you to provide an environment variables file. Refer to [developer tools](./developer-tools.md#environment-variables) for more information.
 
 `--help` provides information on the specified command.
+
+`--secrets [FILE]` allows you to provide a separate YAML file that defines your [secrets](./secrets.md).
 
 ### Example
 
@@ -222,7 +230,7 @@ Four possible responses reflect the status of your mesh:
 
 ## aio api-mesh:get
 
-Retrieves the current `JSON` mesh file for the workspace you select.
+Retrieves the current `JSON` mesh file for the workspace you select. Any [secrets](secrets.md) you defined when creating the mesh are not included in the response.
 
 ### Usage
 
