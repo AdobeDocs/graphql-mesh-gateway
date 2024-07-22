@@ -28,7 +28,6 @@ This release contains the following changes to API Mesh:
 - Fixed an issue where multiple `Set-Cookie` response headers could be concatenated in a single response.
 - Equals signs (`=`) are now allowed in [environment variables](../advanced/developer-tools.md#environment-variables).
 
-
 ## May 21, 2024
 
 This release contains the following changes to API Mesh:
