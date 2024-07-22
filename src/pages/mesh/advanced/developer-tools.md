@@ -52,6 +52,21 @@ All of these steps can be automated using flags described in the [command refere
 
 The `run` command is currently in beta.
 
+### Local development files
+
+The `aio api-mesh:init` command creates the following files locally:
+
+- `.devcontainer/devcontainer.json` - Allows the mesh to run local development in a container, such as GitHub Codespaces.
+- `.github/workflows/deploy.yaml` - Adds example workflows for GitHub Actions, such as [CI/CD](../best-practices/cicd.md).
+- `.vscode/launch.json` - sets up a debug configuration for Visual Studio Code and GitHub Codespaces.
+- `.env` - A sample [environment variables](#environment-variables) file.
+- `mesh.json` - A sample mesh configuration file.
+- `README.md` - Provides basic information about local development.
+
+<InlineAlert variant="info" slots="text"/>
+
+Other files will vary depending on your selections during the `aio api-mesh:init` dialog.
+
 ## Environment variables
 
 Environment variables allow developers to make changes to a single variable, with one or more occurrences, across multiple meshes. An `.env` file will be created automatically when running the [`init` command](../advanced/index.md#aio-api-meshinit).

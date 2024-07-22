@@ -12,7 +12,21 @@ keywords:
 
 # Release notes
 
-The following sections indicate when updates were made to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading versions.
+The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
+
+## July 22, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- API Mesh now supports including secrets in your mesh configuration file. For more information, see [Secrets management](../advanced/secrets.md).
+- Several new files are available in [local development](../advanced/developer-tools.md#local-development-files) after running the `aio api-mesh init` command. These files enhance the developer experience and facilitate future enhancements.
+
+### Bug fixes
+
+- Fixed an issue where multiple `Set-Cookie` response headers could be concatenated in a single response.
+- Equals signs (`=`) are now allowed in [environment variables](../advanced/developer-tools.md#environment-variables).
 
 ## May 21, 2024
 
