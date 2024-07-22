@@ -20,7 +20,7 @@ API Mesh for Adobe Developer App Builder is an orchestration layer that enables 
 
 API Mesh allows developers to combine multiple data sources into a single, queryable GraphQL endpoint. [GraphQL](https://graphql.org/) allows you to determine the information the response contains, unlike REST APIs, which have fixed response formats.
 
-By serving multiple sources through a single gateway and providing customized responses, API Mesh creates a better end-user experience for accessing your backend services.
+By serving multiple sources through a single gateway and providing customized responses, API Mesh creates a better user experience for accessing your backend services.
 
 ## Features
 
