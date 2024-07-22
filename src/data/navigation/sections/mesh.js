@@ -149,6 +149,10 @@ module.exports = [
                 title: "Hooks",
                 path: "/mesh/advanced/hooks.md",
             },
+            {
+                title: "Secrets management",
+                path: "/mesh/advanced/secrets.md"
+            }
         ]
     },
     {
