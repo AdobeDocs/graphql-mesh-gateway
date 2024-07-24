@@ -97,5 +97,5 @@ For information about `bare` and `wrap` modes, read the [dedicated section](./ba
 -  `mode` (type: `String` (`bare` | `wrap`)) - Specify to apply prefix transform to bare schema or by wrapping original schema
 -  `value` (type: `String`) - The prefix to apply to the schema types. By default, the prefix is the API name.
 -  `ignore` (type: `Array of String`, required) - List of ignored types
--  `includeRootOperations` (type: `Boolean`) - Changes root types and changes the field names (default: false)
--  `includeTypes` (type: `Boolean`) - Changes types (default: true)
+-  `includeRootOperations` (type: `Boolean`) - Adds the prefix to root types and field names (default: false)
+-  `includeTypes` (type: `Boolean`) - Adds the prefix to types (default: true)
