@@ -155,51 +155,64 @@ You can also create a mesh automatically when [bootstrapping a new app through t
 
 ## Mesh example
 
-The following example adds both an Adobe Commerce instance (with Catalog Service enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Catalog Service are different, therefore you must configure them separately.
+The following example adds both an Adobe Commerce instance (with Catalog Service enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Catalog Service are different, so you must configure them separately.
 
 ```json
-    {
-      "meshConfig": {
-        "sources": [
-          {
-            "name": "Commerce",
-            "handler": {
-              "graphql": {
-                "endpoint": "https://<your_commerce_site>/graphql/"
-              }
-            }
-          },
-          {
-            "name": "AEM",
-            "handler": {
-              "graphql": {
-                "endpoint": "https://<your_AEM_site>/endpoint.json"
-              }
-            }
-          },
-          {
-            "name": "CatalogService",
-              "handler": {
-                "graphql": {
-                  "endpoint": "https://catalog-service.adobe.io/graphql/",
-                  "operationHeaders": {
-                    "x-api-key": "<api_key>",
-                    "Magento-Environment-Id": "<your_environment_id>",
-                    "Magento-Website-Code": "base",
-                    "Magento-Customer-Group": "<customer_group_value>",
-                    "Magento-Store-Code": "main_website_store",
-                    "Magento-Store-View-Code": "default"
-                  },
-                  "schemaHeaders": {
-                    "x-api-key": "<api_key>"
-                  }
-                }
-              }
-            }
-          ]
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Commerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://<your_commerce_site>/graphql/"
+          }
         }
-    }
+      },
+      {
+        "name": "AEM",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://<your_AEM_site>/endpoint.json"
+          }
+        }
+      },
+      {
+        "name": "CatalogService",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://catalog-service.adobe.io/graphql/",
+            "operationHeaders": {
+              "x-api-key": "<api_key>",
+              "Magento-Environment-Id": "<your_environment_id>",
+              "Magento-Website-Code": "base",
+              "Magento-Customer-Group": "<customer_group_value>",
+              "Magento-Store-Code": "main_website_store",
+              "Magento-Store-View-Code": "default"
+            },
+            "schemaHeaders": {
+              "x-api-key": "<api_key>"
+            }
+          }
+        },
+        "transforms": [
+          {
+            "prefix": {
+              "includeRootOperations": true,
+              "includeTypes": false,
+              "value": "catalog_"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
 ```
+
+<InlineAlert variant="info" slots="text"/>
+
+The previous example mesh includes a [`prefix` transform](./transforms/prefix.md) for the `CatalogService` source to prevent schema conflicts. This transform adds the `catalog_` prefix to all root operations in the source.
 
 ## Update an existing mesh
 
