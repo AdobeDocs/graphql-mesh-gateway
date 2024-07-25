@@ -139,7 +139,27 @@ module.exports = [
             },
             {
                 title: "Extend your mesh",
-                path: "/mesh/advanced/extending-unified-schema.md",
+                path: "/mesh/advanced/extend/",
+                pages: [
+                    {
+                        title: "Extend your schema with AdditionalTypeDefs",
+                        path: "/mesh/advanced/extend/"
+                    },
+                    {
+                        title: "Customize resolved values with AdditionalResolvers",
+                        path: "/mesh/advanced/extend/resolvers",
+                        pages: [
+                            {
+                                title: "Declarative resolvers",
+                                path: "/mesh/advanced/extend/resolvers"
+                            },
+                            {
+                                title: "Programmatic resolvers",
+                                path: "/mesh/advanced/extend/resolvers/programmatic-resolvers.md"
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 title: "Request and response headers",
