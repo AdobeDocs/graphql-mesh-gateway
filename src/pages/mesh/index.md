@@ -25,6 +25,14 @@ API Mesh allows developers to configure multiple APIs and other sources and serv
 -  **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones
 -  **Extensibility** - Customize and extend all of your APIs directly in the gateway without making changes to the API source
 
+With API Mesh on the edge:
+
+- Improved response times and enhanced API performance
+- Easier integration with industry-standard tools and third-party products
+- Reduced potential of other hosted meshes degrading the performance of your mesh
+- Better security and compliance
+- Increased observability
+
 ## Where to go next
 
 -  [Getting started](./basic/index.md)

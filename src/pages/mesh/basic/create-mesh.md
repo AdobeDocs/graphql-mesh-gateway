@@ -32,6 +32,10 @@ Workspaces that already have an API mesh will have "API Mesh" displayed on their
 
 ## Create a mesh
 
+When you create or update a mesh configuration, API Mesh requires some processing time before your mesh is available. If you intend to perform several create or update commands, consider using our [local development](../advanced/developer-tools.md#create-a-local-environment) feature to test your mesh configuration locally.
+
+Refer to the [command reference](../advanced/index.md#aio-api-meshcreate) for a detailed description of `aio api-mesh:create`.
+
 <InlineAlert variant="info" slots="text"/>
 
 When creating or updating a mesh, the file to upload must have the `.json` filename extension.
@@ -77,11 +81,25 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
 
 1. When you are prompted to confirm that you want to create a mesh, select **Yes**. If you want to automatically confirm the creation, add the `-c` or `--autoConfirmAction` flag to your create command.
 
-  The `aio api-mesh:create` response assigns you a `meshId`. Use the [`aio api-mesh:status`](../advanced/index.md#aio-api-meshstatus) command to see the status of your mesh creation. You can run the [`aio api-mesh:describe`](../advanced/index.md#aio-api-meshdescribe) command to get your `apiKey` and a GraphQL endpoint that you can use to query your mesh.
+### Access your mesh URLs
+
+The `aio api-mesh:create` response assigns you a `meshId`. Use the [`aio api-mesh:status`](../advanced/index.md#aio-api-meshstatus) command to see the status of your mesh creation. You can run the [`aio api-mesh:describe`](../advanced/index.md#aio-api-meshdescribe) command to get your `apiKey` and a GraphQL endpoint that you can use to query your mesh.
+
+Until Adobe deprecates legacy mesh URLs, the response to the `aio api-mesh:describe` command will list both the legacy and edge mesh URLs. The legacy mesh URL is a standard mesh URL, which Adobe will deprecate later this year. The edge mesh URL offers improved response times. API Mesh stores edge meshes closer to your data sources to reduce latency and generally improve the API Mesh experience by making meshes more performant. Edge meshes provide the following advantages:
+
+- Improved response times and enhanced API performance
+- Easier integration with industry-standard tools and third-party products
+- Reduced potential of other hosted meshes degrading the performance of your mesh
+- Better security and compliance
+- Increased observability
+
+<InlineAlert variant="warning" slots="text"/>
+
+Edge meshes do not currently support Hooks or SOAP handlers. If you need to use these features, you must use a legacy mesh. These features will be available in edge meshes in the future.
 
 <InlineAlert variant="info" slots="text"/>
 
-Refer to the [command reference](../advanced/index.md#aio-api-meshcreate) for a detailed description of `aio api-mesh:create`.
+Legacy mesh URLs will be deprecated in the future. Use the edge mesh URLs whenever possible.
 
 ### Access the gateway
 
@@ -93,7 +111,7 @@ After you [create a mesh](../basic/create-mesh.md), you can access the GraphQL e
 
 For security purposes, we recommend moving your API key from the provided link into a request header. The header key is `x-api-key` and the header value is your API key.
 
-### Create a mesh from a source
+## Create a mesh from a source
 
 The `aio api-mesh:source` commands provide several prebuilt mesh sources that you can use to create your mesh file, for example `mesh.json`. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repository. Once approved, these sources will be available for selection in the CLI.
 
@@ -125,7 +143,7 @@ Alternatively, you can use the [aio api-mesh:source:get](../advanced/index.md#ai
 
 Refer to the [Command reference](../advanced/index.md#aio-api-meshsourceinstall) flags to learn how to replace variables in the source mesh configuration.
 
-### Create a mesh from a template
+## Create a mesh from a template
 
 You can also create a mesh automatically when [bootstrapping a new app through the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli):
 
