@@ -274,10 +274,10 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
 
 ## Test your configuration
 
-Run the following cURL command, replacing `<Commerce-URL>` with your Adobe Commerce storefront URL.
+Run the following cURL command, replacing `<Commerce-URL>` and `<Magento-Cache-Id>` with your Adobe Commerce storefront values.
 
 ```bash
-curl --globoff --include '<Commerce-URL>/api/<meshId>/graphql?query={products(search%3A%20%22c%22){items{sku}}}' --header 'Fastly-Debug: 1' -w "\n\ntime_starttransfer: %{time_starttransfer}\n"
+curl --globoff --include '<Commerce-URL>/api/<meshId>/graphql?query={products(search%3A%20%22c%22){items{sku}}}' --header 'x-magento-cache-id: <Magento-Cache-Id>' --header 'Fastly-Debug: 1' -w "\n\ntime_starttransfer: %{time_starttransfer}\n"
 ```
 
 Review the values of the `x-cache` and `x-cache-hits` headers to determine if the cache is being used. The first time you run this query, the headers should return:
