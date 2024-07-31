@@ -208,7 +208,7 @@ module.exports = [
                 path: "/mesh/advanced/developer-tools.md"
             },           
             {
-                title: "secrets management",
+                title: "Secrets management",
                 path: "/mesh/advanced/secrets.md"
             },
         ]
