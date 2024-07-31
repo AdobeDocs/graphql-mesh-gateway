@@ -194,6 +194,10 @@ aio api-mesh:status
 
 Retrieves the current status of your create or update command.
 
+<InlineAlert variant="info" slots="text"/>
+
+If your mesh is taking too long to build, consider using [local development](./developer-tools.md#create-a-local-environment).
+
 ### Example
 
 ```bash
