@@ -32,6 +32,12 @@ With API Mesh on the edge:
 
 You will receive both a legacy mesh endpoint and an edge mesh endpoint, when running the `aio api-mesh describe` command. Legacy meshes will be deprecated later this year. Adobe recommends using edge meshes for the best performance. Refer to [Access your mesh URLs](../basic/create-mesh.md#access-your-mesh-urls) for more information.
 
+The following commands will take slightly longer to complete. Consider using [local development](../advanced/developer-tools.md#local-development-files) for testing and development purposes:
+
+- `aio api-mesh create`
+- `aio api-mesh update`
+- `aio api-mesh delete`
+
 <InlineAlert variant="info" slots="text"/>
 
 Due to compatibility limitations, certain features, such as [Hooks](../advanced/hooks.md) and [SOAP handlers](../basic/handlers/soap.md), are not available in edge meshes. These features will be available in a future release.
