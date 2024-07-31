@@ -16,7 +16,7 @@ The data plane used by API Mesh is public but requires a MeshID and an Adobe I/O
 
 API Mesh honors any downstream authorization headers provided by your [sources](./basic/handlers/index.md).
 
-If you require additional authentication or authorization, you can use [custom resolvers](./best-practices/multiple-apis.md).
+If you require additional authentication or authorization, you can use [custom resolvers](./advanced/extend/resolvers/index.md).
 
 ## DDoS and rate limiting
 
