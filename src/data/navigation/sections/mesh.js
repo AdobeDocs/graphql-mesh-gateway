@@ -162,7 +162,11 @@ module.exports = [
                                 path: "/mesh/advanced/extend/resolvers/programmatic-resolvers.md"
                             }
                         ]
-                    }
+                    },
+                    {
+                        title: "Batching ",
+                        path: "/mesh/advanced/extend/batching.md"
+                    },
                 ]
             },
             {
@@ -185,7 +189,7 @@ module.exports = [
         pages: [
             {
                 title: "Batching ",
-                path: "/mesh/best-practices/",
+                path: "/mesh/advanced/extend/batching.md"
             },
             {
                 title: "Performance testing ",
@@ -196,8 +200,16 @@ module.exports = [
                 path: "/mesh/best-practices/cicd.md"
             },
             {
-                title: "Multiple APIs",
-                path: "/mesh/best-practices/multiple-apis.md"
+                title: "Custom resolvers",
+                path: "/mesh/advanced/extend/index.md"
+            },
+            {
+                title: "Local development",
+                path: "/mesh/advanced/developer-tools.md"
+            },           
+            {
+                title: "secrets management",
+                path: "/mesh/advanced/secrets.md"
             },
         ]
     },

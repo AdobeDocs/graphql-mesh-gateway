@@ -110,7 +110,7 @@ In this case, CLI's `build` command won't save the introspection in the artifact
 
 ## Local Schemas
 
-We recommend providing a local schema by using the [`additionalTypeDefs`](../../advanced/extending-unified-schema.md) and [`additionalResolvers`](../../best-practices/multiple-apis.md#extending-graphql-schema-with-additionaltypedefs) configuration options.
+We recommend providing a local schema by using the [`additionalTypeDefs`](../../advanced/extend/index.md) and [`additionalResolvers`](../../advanced/extend/resolvers/programmatic-resolvers.md#additional-resolversjs) configuration options.
 
 ## Config API reference
 
