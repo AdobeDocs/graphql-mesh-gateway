@@ -33,6 +33,10 @@ With API Mesh on the edge:
 - Better security and compliance
 - Increased observability
 
+<InlineAlert variant="info" slots="text"/>
+
+Due to the nature of caching, you may need to perform a few queries to warm the cache, before seeing a performance increase.
+
 ## Where to go next
 
 -  [Getting started](./basic/index.md)
