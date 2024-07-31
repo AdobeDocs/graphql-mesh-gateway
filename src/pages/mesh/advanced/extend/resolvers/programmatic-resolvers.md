@@ -14,7 +14,9 @@ keywords:
 
 While [Configuration-based resolvers (declarative)](./index.md) explains how `additionalResolvers` can shape and augment the unified schema with configuration changes, programmatic resolvers shape the schema programmatically using JavaScript.
 
-The `additionalResolvers` config allows you to upload a custom resolver as a [`JavaScript` file](../basic/handlers/index.md#reference-local-files-in-handlers) to the Mesh.
+You can also use custom resolvers to batch repeated queries and get better response times. For more information, see [Batching](../batching.md).
+
+The `additionalResolvers` config allows you to upload a custom resolver as a [`JavaScript` file](../../../basic/handlers/index.md#reference-local-files-in-handlers) to the Mesh.
 
 ## Programmatic `additionalResolvers`
 
@@ -246,48 +248,3 @@ In the following response, you can see that the "Roxana Cropped Sweater" and the
     "extensions": {}
 }
 ```
-
-## Batching requests between sources to prevent an N+1 problem
-
-In the following example, we want to have a field called `author` under `Book` property and point it to the `author` property. For more information on `additionalTypeDefs`, see [Extend your schema](../index.md).
-
-Normally, we would use the following definitions:
-
-```json
-{
-  "additionalTypeDefs": "extend type Book {\n  author: Author\n}\n",
-  "additionalResolvers": [
-    {
-      "sourceName": "AuthorService",
-      "sourceTypeName": "Query",
-      "sourceFieldName": "author",
-      "sourceArgs": {
-        "id": "{root.authorId}"
-      },
-      "targetTypeName": "Book",
-      "targetFieldName": "author",
-      "requiredSelectionSet": "{authorId}"
-    }
-  ]
-}
-```
-
-This creates an N+1 problem that we can solve by using the following format:
-
-```json
-{
-  "additionalResolvers": [
-    {
-      "sourceName": "AuthorService",
-      "sourceTypeName": "Query",
-      "sourceFieldName": "authors",
-      "keyField": "authorId",
-      "keysArg": "ids",
-      "targetTypeName": "Book",
-      "targetFieldName": "author"
-    }
-  ]
-}
-```
-
-Now your mesh will batch the queries of `Book.author` by using the `authorId` field in `Query.authors`.

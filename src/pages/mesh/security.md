@@ -16,7 +16,7 @@ The data plane used by API Mesh is public but requires a MeshID and an API Key t
 
 Basic authorization is provided by your Mesh ID and API Key. Additionally, API Mesh honors any downstream authorization headers provided by your [sources](./basic/handlers/index.md).
 
-If you require additional authentication or authorization, you can use [custom resolvers](./best-practices/multiple-apis.md).
+If you require additional authentication or authorization, you can use [custom resolvers](./advanced/extend/resolvers/index.md).
 
 ## DDoS and rate limiting
 

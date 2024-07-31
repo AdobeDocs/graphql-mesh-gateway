@@ -80,7 +80,7 @@ Imagine you have two different services, `Books` and `Authors`, which are exposi
   }
   ```
 
-Then you could use the [`Rename`](../basic/transforms/rename.md) transform to rename `AuthorWithBooks` to `Author`.
+Then you could use the [`Rename`](../../basic/transforms/rename.md) transform to rename `AuthorWithBooks` to `Author`.
 
   ```json
   [
@@ -136,7 +136,7 @@ After that `rename`, you would expect the following query to work, but it will f
   }
   ```
 
-You could add [`additionalResolvers`](./resolvers/declarative-resolvers.md), extract `books` from `AuthorWithBooks`, and return it as a `books` field of `Author` type, but this is unnecessarily complicated. So instead, we'll use Type Merging.
+You could add [`additionalResolvers`](./resolvers/programmatic-resolvers.md), extract `books` from `AuthorWithBooks`, and return it as a `books` field of `Author` type, but this is unnecessarily complicated. So instead, we'll use Type Merging.
 
 The following example indicates how to fetch entities from different sources:
 
@@ -219,7 +219,7 @@ The following example indicates how to fetch entities from different sources:
 
 Now the previous query will work as expected.
 
-[Learn more about the Type Merging transform](../basic/transforms/type-merging.md).
+[Learn more about the Type Merging transform](../../basic/transforms/type-merging.md).
 
 ## Batching requests between sources to prevent an N+1 problem
 
@@ -378,4 +378,4 @@ You can also transform your existing non-federated schemas into a federated serv
 
 <InlineAlert variant="info" slots="text"/>
 
- You can view the [federation transformer](../basic/transforms/federation.md) documentation to learn more about adding federation metadata to a non-federated GraphQL Schema.
+ You can view the [federation transformer](../../basic/transforms/federation.md) documentation to learn more about adding federation metadata to a non-federated GraphQL Schema.
