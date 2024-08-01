@@ -251,7 +251,7 @@ In the following response, you can see that the "Roxana Cropped Sweater" and the
 
 ## `fetch` with programmatic resolvers
 
-Instead of adding another [source handler](../basic/handlers/index.md), [edge meshes](../release/index.md#august-xx-2024) can interact with third-party services using the `fetch` method.
+Instead of adding another [source handler](../../../basic/handlers/index.md), [edge meshes](../../../release/index.md#august-xx-2024) can interact with third-party services using the `fetch` method.
 
 The script below uses a programmatic resolver to fetch discounts from a remote server. In this case, we are using the Discounts API discussed in [Programmatic `additionalResolvers`](#programmatic-additionalresolvers).
 
