@@ -171,7 +171,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
      - **Content**:
 
         ```csharp
-        if (req.http.x - commerce - bypass - fastly - cache == "true") {
+        if (req.http.x-commerce-bypass-fastly-cache == "true") {
           return (pass);
         }
         ```
@@ -190,7 +190,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
           unset req.http.graphql;
         }
         if (req.url.path !~ "/graphql" && req.url !~ "^/api/(.*)") {
-          set req.http.Magento - Original - URL = req.url;
+          set req.http.Magento-Original-URL = req.url;
 
           set req.url = querystring.regfilter(req.url, "^(utm_.*|gclid|gdftrk|_ga|mc_.*|trk_.*|dm_i|_ke|sc_.*|fbclid)$");
         }
