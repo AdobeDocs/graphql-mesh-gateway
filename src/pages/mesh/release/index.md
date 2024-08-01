@@ -10,6 +10,10 @@ keywords:
   - Tools
 ---
 
+import MigrationNotice from '/src/_includes/migration-notice.md'
+
+<MigrationNotice />
+
 # Release notes
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
