@@ -34,6 +34,10 @@ module.exports = [
                 path: "/mesh/basic/work-with-mesh.md"
             },
             {
+                title: "Local development",
+                path: "/mesh/advanced/developer-tools.md"
+            },
+            {
                 title: "Add sources to your mesh",
                 path: "/mesh/basic/handlers/",
                 pages: [
