@@ -10,6 +10,10 @@ keywords:
   - Tools
 ---
 
+import MigrationNotice from '/src/_includes/migration-notice.md'
+
+<MigrationNotice />
+
 # What is API Mesh for Adobe Developer App Builder?
 
 API Mesh enables developers to integrate third-party APIs with other Adobe products, like App Builder, Adobe IO Gateway, or other serverless technologies.

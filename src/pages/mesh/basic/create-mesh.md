@@ -85,7 +85,9 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
 
 The `aio api-mesh:create` response assigns you a `meshId`. Use the [`aio api-mesh:status`](../advanced/index.md#aio-api-meshstatus) command to see the status of your mesh creation. You can run the [`aio api-mesh:describe`](../advanced/index.md#aio-api-meshdescribe) command to get your `apiKey` and a GraphQL endpoint that you can use to query your mesh.
 
-Until Adobe deprecates legacy mesh URLs, the response to the `aio api-mesh:describe` command will list both the legacy and edge mesh URLs. The legacy mesh URL is a standard mesh URL, which Adobe will deprecate later this year. The edge mesh URL offers improved response times. API Mesh stores edge meshes closer to your data sources to reduce latency and generally improve the API Mesh experience by making meshes more performant. Edge meshes provide the following advantages:
+Until Adobe migrates all legacy mesh URLs, the response to the `aio api-mesh:describe` command will list both the legacy and edge mesh URLs. The legacy mesh URL is a standard mesh URL, which Adobe will migrate soon. See the [migration notice](../release/migration.md) for more information.
+
+The edge mesh URL offers improved response times. API Mesh stores edge meshes closer to your data sources to reduce latency and generally improve the API Mesh experience by making meshes more performant. Edge meshes provide the following advantages:
 
 - Improved response times and enhanced API performance
 - Easier integration with industry-standard tools and third-party products
