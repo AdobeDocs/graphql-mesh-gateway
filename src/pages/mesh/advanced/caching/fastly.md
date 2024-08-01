@@ -19,7 +19,7 @@ Adding a content delivery network (CDN) for caching dynamic content with API Mes
 
 <InlineAlert variant="info" slots="text"/>
 
-After adding VCL snippets in the [Fastly Setup](#configure-fastly-in-adobe-commerce), your Commerce GraphQL URL is now in the following format with no `api_key` appended: `https://graph.adobe.io/api/<meshId>/graphql`
+After adding VCL snippets in the [Fastly Setup](#configure-fastly-in-adobe-commerce), your Commerce GraphQL URL is now in the following format with no `api_key` appended: `<Commerce-URL>/api/<meshId>/graphql`
 
 To distinguish between requests from users and requests from API Mesh, use the following source operation header to prevent Fastly from caching headers that come directly from API Mesh:
 
@@ -70,7 +70,7 @@ The following example mesh specifies the headers to cache, enables the cache byp
           "graphql": {
             "endpoint": "https://venia.magento.com/graphql",
             "operationHeaders": {
-              "x-magento-cache-id": "{context.headers['x-magentocache-id']}",
+              "x-magento-cache-id": "{context.headers['x-magento-cache-id']}",
               "Store": "{context.headers['store']}" ,
               "Authorization": "{context.headers['authorization']}",
               "Content-Type": "application/json",
@@ -171,7 +171,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
      - **Content**:
 
         ```csharp
-        if (req.http.x - commerce - bypass - fastly - cache == "true") {
+        if (req.http.x-commerce-bypass-fastly-cache == "true") {
           return (pass);
         }
         ```
@@ -189,8 +189,8 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         else {
           unset req.http.graphql;
         }
-        if (req.url.path!~"/graphql" && req.url!~"^/api/(.*)") {
-          set req.http.Magento - Original - URL = req.url;
+        if (req.url.path !~ "/graphql" && req.url !~ "^/api/(.*)") {
+          set req.http.Magento-Original-URL = req.url;
 
           set req.url = querystring.regfilter(req.url, "^(utm_.*|gclid|gdftrk|_ga|mc_.*|trk_.*|dm_i|_ke|sc_.*|fbclid)$");
         }
@@ -203,17 +203,17 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
      - **Content**:
 
         ```csharp
-        if (req.url~"^/api/") {
+        if (req.url ~ "^/api/") {
           set req.backend = F_graph_prod_adobe_io;
         }
         //API Mesh prod mapping
-        if (req.url~"^/api/<mesh_id>") {
-          set bereq.http.x - api - key = "<mesh_api_key>";
+        if (req.url ~ "^/api/<mesh_id>") {
+          set bereq.http.x-api-key = "<mesh_api_key>";
         }
         # //Optionally add another mesh
         # //API Mesh stage mapping
-        # if (req.url~"^/api/<mesh_id>") {
-        #   set bereq.http.x - api - key = "<mesh_api_key>";
+        # if (req.url ~ "^/api/<mesh_id>") {
+        #   set bereq.http.x-api-key = "<mesh_api_key>";
         # }
         ```
 
@@ -247,7 +247,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
      - **Content**:
 
         ```csharp
-        if (req.http.x - commerce - bypass - fastly - cache == "true") {
+        if (req.http.x-commerce-bypass-fastly-cache == "true") {
           return (pass);
         }
         ```
@@ -259,7 +259,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
      - **Content**:
 
         ```csharp
-        if (req.http.x - commerce - bypass - fastly - cache == "true") {
+        if (req.http.x-commerce-bypass-fastly-cache == "true") {
           return (deliver);
         }
         ```
@@ -274,10 +274,10 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
 
 ## Test your configuration
 
-Run the following cURL command, replacing `<Commerce-URL>` with your Adobe Commerce storefront URL.
+Run the following cURL command, replacing `<Commerce-URL>` and `<Magento-Cache-Id>` with your Adobe Commerce storefront values.
 
 ```bash
-curl --globoff --include '<Commerce-URL>/graphql?query={products(search%3A%20%22c%22){items{sku}}}' --header 'Fastly-Debug: 1' -w "\n\ntime_starttransfer: %{time_starttransfer}\n"
+curl --globoff --include '<Commerce-URL>/api/<meshId>/graphql?query={products(search%3A%20%22c%22){items{sku}}}' --header 'x-magento-cache-id: <Magento-Cache-Id>' --header 'Fastly-Debug: 1' -w "\n\ntime_starttransfer: %{time_starttransfer}\n"
 ```
 
 Review the values of the `x-cache` and `x-cache-hits` headers to determine if the cache is being used. The first time you run this query, the headers should return:
