@@ -14,6 +14,16 @@ keywords:
 
 Batching allows you to combine a group of requests into a single request, turning multiple queries into a single one. Compared to sending multiple queries simultaneously, batched requests result in better response times. They also avoid issues with rate-limiting.
 
+<InlineAlert variant="info" slots="text"/>
+
+Batching is only possible if the APIs included in your mesh support batching.
+
+The following graphics depict the difference between queries with batched and unbatched calls:
+
+![unbatched](../../../_images/unbatched.png)
+
+![batched](../../../_images/batched.png)
+
 ## The `n+1` problem
 
 The `n+1` problem occurs when you request multiple pieces of information that cause the system to make multiple (`n`) queries to a source instead of using a single query. Since each query takes approximately the same amount of time, processing many queries can lead to degraded performance. In this example, a Reviews API contains reviews of your products by SKU. Without batching, you would need to query each SKU individually to return the corresponding reviews.
@@ -100,7 +110,9 @@ The following query causes multiple calls to the Reviews API:
 }
 ```
 
-## Batching example
+## Batching with declarative resolvers
+
+The following example explains how to use batching inside your mesh configuration file by using [declarative resolvers](./index.md).
 
 The `Reviews` source takes an array of product SKUs and returns an array of reviews for each SKU. To make a single network request to the `Reviews` source for multiple SKUs, add `keysArg` and `keyField` to your mesh.
 
@@ -110,47 +122,151 @@ Request batching using API Mesh requires a source endpoint capable of processing
 
 ```json
 {
-    "meshConfig": {
-        "sources": [
-            {
-                "name": "Products",
-                "handler": {
-                    "graphql": {
-                        "endpoint": " https://venia.magento.com/graphql"
-                    }
-                }
-            },
-            {
-                "name": "Reviews",
-                "handler": {
-                    "graphql": {
-                        "endpoint": "<Reviews_API_URL>",
-                        "useGETForQueries":true
-                    }
-                }
-            }
-        ],
-        "additionalTypeDefs": "extend type ConfigurableProduct { customer_reviews: productReviewslist} " ,
-        "additionalResolvers" : [
-          {
-            "targetFieldName" : "customer_reviews",
-            "targetTypeName" : "ConfigurableProduct",
-            "sourceName": "Reviews",
-            "sourceTypeName": "Query",
-            "sourceFieldName": "productsReviews",
-            "keysArg": "sku",
-            "keyField": "sku"
-        }],
-        "responseConfig": {
-            "includeHTTPDetails": true
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Products",
+        "handler": {
+          "graphql": {
+            "endpoint": " https://venia.magento.com/graphql"
+          }
         }
+      },
+      {
+        "name": "Reviews",
+        "handler": {
+          "graphql": {
+            "endpoint": "<Reviews_API_URL>",
+            "useGETForQueries": true
+          }
+        }
+      }
+    ],
+    "additionalTypeDefs": "extend type ConfigurableProduct { customer_reviews: productReviewslist} ",
+    "additionalResolvers": [
+      {
+        "targetFieldName": "customer_reviews",
+        "targetTypeName": "ConfigurableProduct",
+        "sourceName": "Reviews",
+        "sourceTypeName": "Query",
+        "sourceFieldName": "productsReviews",
+        "keysArg": "sku",
+        "keyField": "sku"
+      }
+    ],
+    "responseConfig": {
+      "includeHTTPDetails": true
     }
+  }
 }
 ```
 
 `requiredSelectionSet` and `sourceArgs` are replaced with `keysarg` and `keyField`:
 
 - `keysArg` provides the name of the primary key argument. For this example, the `keysArg` field is the argument name used when sending an array of SKUs to fetch multiple reviews.
-- `keyField` provides the key-value for each item in the batched query. For this example, the `keyField` indicates which Product field provides the SKU value to the review service.
+- `keyField` provides the key value for each item in the batched query. For this example, the `keyField` indicates which Product field provides the SKU value to the review service.
 
 With the updated mesh, using the [previous query](#example-without-batching) returns the same information, but only makes one call to the `Reviews` source for multiple SKUs.
+
+## Batching with programmatic resolvers
+
+The following example explains how to use batching inside your mesh configuration file by using [programmatic resolvers](./resolvers/programmatic-resolvers.md).
+
+In the following example, `args.skus` creates an array of SKUs to query instead of querying each SKU individually. The `valuesFromResults` object is optional and allows you to filter, sort, and transform your results.
+
+In the following example, you would create your mesh configuration file (`mesh.json`) and the referenced JavaScript file (`resolver.js`) in the same directory.
+
+<CodeBlock slots="heading, code" repeat="2" languages="json, javascript" />
+
+#### `mesh.json`
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Commerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        }
+      },
+      {
+        "name": "DiscountsAPI",
+        "handler": {
+          "JsonSchema": {
+            "baseUrl": "https://raw.githubusercontent.com/AdobeDocs/graphql-mesh-gateway/main/src/pages/_examples/discounts-api.json",
+            "operations": [
+              {
+                "type": "Query",
+                "field": "discounts",
+                "path": "/getDiscounts?skus={args.skus}",
+                "method": "GET",
+                "responseSample": "https://raw.githubusercontent.com/AdobeDocs/graphql-mesh-gateway/main/src/pages/_examples/random-discount.json",
+                "argTypeMap": {
+                  "skus": {
+                    "type": "array"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "additionalResolvers": [
+      "./resolver.js"
+    ]
+  }
+}
+```
+
+#### `resolver.js`
+
+```javascript
+module.exports = {
+  resolvers: {
+    ConfigurableProduct: {
+      special_price: {
+        selectionSet: "{ name price_range { maximum_price { final_price { value } } } }",
+        resolve: (root, args, context, info) => {
+          return context.DiscountsAPI.Query.discounts({
+              root,
+              key: root.sku,
+              argsFromKeys: (skus) => ({
+                skus
+              }),
+              valuesFromResults: (results) =>
+                results.map(({
+                  discount
+                }) => discount),
+              context,
+              info,
+              selectionSet: "{ sku discount }",
+            })
+            .then((discount) => {
+              let max = 0;
+
+              try {
+                max = root.price_range.maximum_price.final_price.value;
+              } catch (e) {
+                max = 0;
+              }
+
+              if (discount) {
+                return max * ((100 - discount) / 100);
+              } else {
+                return max;
+              }
+            })
+            .catch((e) => {
+              context.logger.error(e);
+              return null;
+            });
+        },
+      },
+    },
+  },
+};
+```
