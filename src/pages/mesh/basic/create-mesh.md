@@ -87,11 +87,11 @@ The `aio api-mesh:create` response assigns you a `meshId`. Use the [`aio api-mes
 
 Until Adobe migrates all legacy mesh URLs, the response to the `aio api-mesh:describe` command will list both the legacy and edge mesh URLs. The legacy mesh URL is a standard mesh URL, which Adobe will migrate soon. See the [migration notice](../release/migration.md) for more information.
 
-The edge mesh URL offers improved response times. API Mesh stores edge meshes closer to your data sources to reduce latency and generally improve the API Mesh experience by making meshes more performant. Edge meshes provide the following advantages:
+The edge mesh URL offers several benefits because the edge is closer to your data sources. Edge meshes can provide the following advantages:
 
 - Improved response times and enhanced API performance
 - Easier integration with industry-standard tools and third-party products
-- Reduced potential of other hosted meshes degrading the performance of your mesh
+- Enhanced performance reliability through inherent tenant isolation
 - Better security and compliance
 - Increased observability
 
