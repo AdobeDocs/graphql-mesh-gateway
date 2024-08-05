@@ -115,13 +115,9 @@ Legacy mesh URLs will be deprecated in the future. Use the edge mesh URLs whenev
 
 ### Access the gateway
 
-The `aio api-mesh:create` response automatically assigns you an API key and subscribes that API key to the mesh service. You can also retrieve the API key by viewing the project in the [Adobe Developer Console](https://developer.adobe.com/console).
-
-After you [create a mesh](../basic/create-mesh.md), you can access the GraphQL endpoint in any GraphQL browser by modifying the following URL: `https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`
-
 <InlineAlert variant="info" slots="text"/>
 
-For security purposes, we recommend moving your API key from the provided link into a request header. The header key is `x-api-key` and the header value is your API key.
+API Mesh no longer requires API keys. Adobe I/O automatically handles the authorization process.
 
 ## Create a mesh from a source
 
@@ -309,39 +305,3 @@ On the API Mesh Details screen, you can use the tabs to view different segments 
 To download a copy of your mesh file, click the **Download Mesh Schema** button at the top of the API Mesh Details screen.
 
 ![download mesh](../../_images/download-mesh-schema.png)
-
-## Manually create an API Key (optional)
-
-<InlineAlert variant="warning" slots="text"/>
-
-API keys are now automatically generated and associated with your project as part of the mesh creation process. Use the following process if you need to manually add an API to a project.
-
-<InlineAlert variant="info" slots="text"/>
-
-Only mesh owners can create API Keys. If you do not have access to [Adobe Developer Console], contact your mesh owner.
-
-To access the gateway and perform GraphQL queries, you need to provide an API Key to authorize access to your mesh. To create your API Key:
-
-1. In [Adobe Developer Console](https://developer.adobe.com/console), select the desired organization from the dropdown in the top-right corner.
-
-    ![create a project](../../_images/create-project.png)
-
-1. Select an existing project or [create a new one](#create-a-project).
-
-1. Inside the project, click **Add API**.
-
-    ![add an api](../../_images/add-api.png)
-
-1. Select **API Mesh for Adobe Developer App Builder** and click **Next**.
-
-    ![add an api mesh](../../_images/add-api-mesh.png)
-
-1. The **Allowed Domain** field is not currently enforced. Enter any valid test domain to proceed.
-
-    ![add an allowed domain](../../_images/allowed-domain.png)
-
-1. Click **Save configured API**. Copy your **API Key** from the Project Overview page.
-
-    ![api key](../../_images/api-key.png)
-
-You can return to the Project Overview page whenever you need to retrieve your API Key.

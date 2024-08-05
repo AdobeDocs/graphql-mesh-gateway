@@ -329,11 +329,7 @@ Successfully retrieved mesh {
 
 ## aio api-mesh:delete
 
-Deletes the mesh from the selected workspace and unsubscribes the API key from the API Mesh service.
-
-<InlineAlert variant="info" slots="text"/>
-
-The `aio api-mesh:delete` command does not delete the API key in case other services use it.
+Deletes the mesh from the selected workspace.
 
 ### Usage
 

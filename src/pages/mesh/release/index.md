@@ -46,6 +46,10 @@ The following commands will take slightly longer to complete. Consider using [lo
 
 Due to compatibility limitations, certain features, such as [Hooks](../advanced/hooks.md) and [SOAP handlers](../basic/handlers/soap.md), are not available in edge meshes. These features will be available in a future release.
 
+<InlineAlert variant="info" slots="text"/>
+
+With the migration to edge, API Mesh no longer requires API keys.
+
 ## July 22, 2024
 
 This release contains the following changes to API Mesh:
