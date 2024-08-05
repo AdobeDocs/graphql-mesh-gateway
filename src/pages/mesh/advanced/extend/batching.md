@@ -20,7 +20,11 @@ Batching is only possible if the APIs included in your mesh support batching.
 
 The following graphics depict the difference between queries with batched and unbatched calls:
 
+## Unbatched
+
 ![unbatched](../../../_images/unbatched.png)
+
+## Batched
 
 ![batched](../../../_images/batched.png)
 
