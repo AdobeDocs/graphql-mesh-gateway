@@ -168,6 +168,10 @@ module.exports = [
                 path: "/mesh/best-practices/",
             },
             {
+                title: "Performance testing ",
+                path: "/mesh/best-practices/performance.md",
+            },
+            {
                 title: "CI/CD implementation",
                 path: "/mesh/best-practices/cicd.md"
             },

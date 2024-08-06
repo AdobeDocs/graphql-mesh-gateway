@@ -83,6 +83,10 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
 
 ### Access your mesh URLs
 
+<InlineAlert variant="info" slots="text"/>
+
+If you have an allowlist, consider adding the [edge mesh IP addresses](https://www.cloudflare.com/ips/).
+
 The `aio api-mesh:create` response assigns you a `meshId`. Use the [`aio api-mesh:status`](../advanced/index.md#aio-api-meshstatus) command to see the status of your mesh creation. You can run the [`aio api-mesh:describe`](../advanced/index.md#aio-api-meshdescribe) command to get your `apiKey` and a GraphQL endpoint that you can use to query your mesh.
 
 After successfully running the status command, the response provides both legacy and edge URLs:
@@ -112,6 +116,16 @@ Edge meshes do not currently support Hooks or SOAP handlers. If you need to use 
 <InlineAlert variant="info" slots="text"/>
 
 Legacy mesh URLs will be deprecated in the future. Use the edge mesh URLs whenever possible.
+
+## Optimizing edge mesh performance
+
+Edge meshes are resilient and performant because they exist closer to where the query originates, in over 330 locations in 120 countries. This means that your queries can hit a server that has not cached your mesh, causing a cold start.
+
+If you are using an API platform or a GraphQL client, add the [`Connection: Keep-Alive`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Keep-Alive) header to your requests. This header keeps the connection to the server open for future requests, which can significantly improve performance because it ensures you are hitting a warm cache. Using this header also prevents the unnecessary repetition of several steps of the [HTTP handshake](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection_management_in_HTTP_1.x).
+
+<InlineAlert variant="info" slots="text"/>
+
+Some platforms and command-line tools, such as cURL, do not respect the `Connection: Keep-Alive` header. Consider [priming your mesh](../best-practices/performance.md) to improve performance.
 
 ### Access the gateway
 
