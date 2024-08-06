@@ -14,7 +14,7 @@ keywords:
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
-## August 05, 2024
+## August 06, 2024
 
 This release contains the following changes to API Mesh:
 
@@ -27,7 +27,6 @@ This release contains the following changes to API Mesh:
 
 - Resolved an issue where the selected Org, Project, and Workspace were not saved between CLI commands.
 - Resolved a `CANNOT FIND MODULE` error that could occur when using the `aio api-mesh run` command.
-- Added internal logging for the `MODULE_NOT_FOUND` error.
 
 ## July 22, 2024
 
