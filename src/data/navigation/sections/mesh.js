@@ -142,11 +142,11 @@ module.exports = [
                 path: "/mesh/advanced/extend/",
                 pages: [
                     {
-                        title: "Extend your schema with AdditionalTypeDefs",
+                        title: "Extend your schema",
                         path: "/mesh/advanced/extend/"
                     },
                     {
-                        title: "Customize resolved values with AdditionalResolvers",
+                        title: "Customize resolved values",
                         path: "/mesh/advanced/extend/resolvers",
                         pages: [
                             {
