@@ -49,6 +49,15 @@ The `additionalResolvers` field will make our new field executable in the unifie
 }
 ```
 
+### Configuration options
+
+- The target (`targetTypeName`, `targetFieldName`) - describes the queried field.
+- The source (`sourceName`, `sourceTypeName`, `sourceFieldName`) - describes where the data is resolved for the target field.
+- `requiredSelectionSet` fetches the required arguments.
+- `sourceArgs` maps the `requiredSelectionSet` argument to the source.
+- `keysArg` provides the name of the primary key argument. For this example, the `keysArg` field is the argument name used when sending an array of SKUs to fetch multiple reviews.
+- `keyField` provides the key-value for each item in the batched query. For this example, the `keyField` indicates which Product field provides the SKU value to the review service.
+
 ## Combining Schemas using declarative API
 
 We learned that we can combine multiple APIs in a mesh using `additionalTypeDefs` and `additionalResolvers`.
