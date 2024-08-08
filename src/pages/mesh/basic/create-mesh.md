@@ -127,12 +127,6 @@ If you are using an API platform or a GraphQL client, add the [`Connection: Keep
 
 Some platforms and command-line tools, such as cURL, do not respect the `Connection: Keep-Alive` header. Consider [priming your mesh](../best-practices/performance.md) to improve performance.
 
-### Access the gateway
-
-<InlineAlert variant="info" slots="text"/>
-
-API Mesh no longer requires API keys. Adobe I/O automatically handles the authorization process.
-
 ## Create a mesh from a source
 
 The `aio api-mesh:source` commands provide several prebuilt mesh sources that you can use to create your mesh file, for example `mesh.json`. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repository. Once approved, these sources will be available for selection in the CLI.
