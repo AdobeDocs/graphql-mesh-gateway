@@ -1,6 +1,6 @@
 ---
 title: Best practices for API Mesh
-description: Learn how about best practices for API Mesh.
+description: Learn about best practices for API Mesh.
 keywords:
   - API Mesh
   - Extensibility
