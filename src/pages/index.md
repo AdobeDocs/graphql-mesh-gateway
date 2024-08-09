@@ -10,6 +10,10 @@ keywords:
   - Tools
 ---
 
+import MigrationNotice from '/src/_includes/migration-notice.md'
+
+<MigrationNotice />
+
 <Hero slots="image, heading, text"/>
 
 ![API Mesh](_images/home-bg.jpeg)

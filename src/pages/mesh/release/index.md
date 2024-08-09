@@ -10,15 +10,53 @@ keywords:
   - Tools
 ---
 
+import MigrationNotice from '/src/_includes/migration-notice.md'
+
+<MigrationNotice />
+
 # Release notes
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
-## August 06, 2024
+## August 15, 2024
 
 This release contains the following changes to API Mesh:
 
 ### Enhancements
+
+API Mesh at the Edge - The current API Mesh architecture uses a standard configuration spread across multiple regions. To improve response times and provide better benefits to our users, we are introducing edge deployment for meshes. Edge meshes exist closer to your data sources, which reduces latency and generally improves the user experience by making meshes more performant. Edge meshes provide the following benefits:
+
+With API Mesh on the edge:
+
+- Improved response times and enhanced API performance
+- Easier integration with industry-standard tools and third-party products
+- Reduced potential of other hosted meshes degrading the performance of your mesh
+- Better security and compliance
+- Increased observability
+
+You will receive both a legacy mesh endpoint and an edge mesh endpoint, when running the `aio api-mesh describe` command. Legacy meshes will be deprecated later this year. Adobe recommends using edge meshes for the best performance. Refer to [Access your mesh URLs](../basic/create-mesh.md#access-your-mesh-urls) for more information.
+
+<InlineAlert variant="info" slots="text"/>
+
+If you have an allowlist, consider adding the [edge mesh IP addresses](https://www.cloudflare.com/ips/).
+
+The following commands will take slightly longer to complete. Consider using [local development](../advanced/developer-tools.md#local-development-files) for testing and development purposes:
+
+- `aio api-mesh create`
+- `aio api-mesh update`
+- `aio api-mesh delete`
+
+<InlineAlert variant="info" slots="text"/>
+
+Due to compatibility limitations, certain features, such as [Hooks](../advanced/hooks.md) and [SOAP handlers](../basic/handlers/soap.md), are not available in edge meshes. These features will be available in a future release.
+
+<InlineAlert variant="info" slots="text"/>
+
+With the migration to edge, API Mesh no longer requires API keys.
+
+## August 06, 2024
+
+This release contains the following changes to API Mesh:
 
 - You can now escape the `$` character in [secrets](../advanced/secrets.md) files by using a backslash (`\`). For example, `SECRET: \$SECRET`.
 - Improved error handling when secrets contained in a mesh configuration are not found in the associated secrets `yaml` file.

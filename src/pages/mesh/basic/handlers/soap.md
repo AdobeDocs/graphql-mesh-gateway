@@ -15,6 +15,10 @@ keywords:
 
 The SOAP handler is experimental and should not be used in production deployments.
 
+<InlineAlert variant="warning" slots="text"/>
+
+Edge meshes do not currently support Hooks. If you are using hooks, you must use a legacy mesh. Hooks will be available in edge meshes in the future.
+
 The SOAP handler allows you to consume [SOAP](https://soapui.org) `WSDL` files and generate a remote executable schema for those services.
 
 ```json
