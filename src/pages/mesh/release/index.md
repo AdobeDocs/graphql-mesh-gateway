@@ -18,7 +18,7 @@ import MigrationNotice from '/src/_includes/migration-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
-## August XX, 2024
+## August 15, 2024
 
 This release contains the following changes to API Mesh:
 
@@ -53,6 +53,18 @@ Due to compatibility limitations, certain features, such as [Hooks](../advanced/
 <InlineAlert variant="info" slots="text"/>
 
 With the migration to edge, API Mesh no longer requires API keys.
+
+## August 06, 2024
+
+This release contains the following changes to API Mesh:
+
+- You can now escape the `$` character in [secrets](../advanced/secrets.md) files by using a backslash (`\`). For example, `SECRET: \$SECRET`.
+- Improved error handling when secrets contained in a mesh configuration are not found in the associated secrets `yaml` file.
+
+### Bug fixes
+
+- Resolved an issue where the selected Org, Project, and Workspace were not saved between CLI commands.
+- Resolved a `CANNOT FIND MODULE` error that could occur when using the `aio api-mesh run` command.
 
 ## July 22, 2024
 
