@@ -14,6 +14,20 @@ keywords:
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## August 06, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- You can now escape the `$` character in [secrets](../advanced/secrets.md) files by using a backslash (`\`). For example, `SECRET: \$SECRET`.
+- Improved error handling when secrets contained in a mesh configuration are not found in the associated secrets `yaml` file.
+
+### Bug fixes
+
+- Resolved an issue where the selected Org, Project, and Workspace were not saved between CLI commands.
+- Resolved a `CANNOT FIND MODULE` error that could occur when using the `aio api-mesh run` command.
+
 ## July 22, 2024
 
 This release contains the following changes to API Mesh:
