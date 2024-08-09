@@ -177,7 +177,7 @@ You can also create a mesh automatically when [bootstrapping a new app through t
 
 1. Indicate if you want to create a sample mesh.
 
-1. After the process completes, you are provided a link to your [API mesh endpoint](#access-the-gateway).
+1. After the process completes, you are provided a link to your [API mesh endpoint](#access-your-mesh-urls).
 
 1. When you are ready, you can deploy your app by running the following command:
 
