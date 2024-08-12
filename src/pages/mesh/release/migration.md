@@ -39,4 +39,4 @@ Edge meshes can take slightly longer to build than legacy meshes. Wait two or th
 Migration Start Date: TBD
 Expected Completion Date: TBD
 
-If you have any questions or concerns, please do not hesitate to reach out to our team directly by email at [contact].
+If you have any questions or concerns, reach out to our team directly by email at [contact].

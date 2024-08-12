@@ -34,11 +34,13 @@ With API Mesh on the edge:
 - Better security and compliance
 - Increased observability
 
-You will receive both a legacy mesh endpoint and an edge mesh endpoint, when running the `aio api-mesh describe` command. Legacy meshes will be deprecated later this year. Adobe recommends using edge meshes for the best performance. Refer to [Access your mesh URLs](../basic/create-mesh.md#access-your-mesh-urls) for more information.
+Adobe recommends using edge meshes for the best performance. Refer to [Access your mesh URLs](../basic/create-mesh.md#access-your-mesh-urls) for more information.
+
+After updating your mesh, the `aio api-mesh describe` command contains both a legacy mesh endpoint and an edge mesh endpoint. Legacy meshes will be deprecated later this year.
 
 <InlineAlert variant="info" slots="text"/>
 
-If you have an allowlist, consider adding the [edge mesh IP addresses](https://www.cloudflare.com/ips/).
+If you have an allowlist, add the [edge mesh IP addresses](https://www.cloudflare.com/ips/).
 
 The following commands will take slightly longer to complete. Consider using [local development](../advanced/developer-tools.md#local-development-files) for testing and development purposes:
 
