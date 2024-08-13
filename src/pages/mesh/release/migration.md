@@ -12,7 +12,7 @@ keywords:
 
 # Important migration notice
 
-As part of our ongoing commitment to provide you with the best possible experience, we are enhancing API Mesh's infrastructure to run at the edge in over 200 global regions.
+As part of our ongoing commitment to provide you with the best possible experience, we are enhancing API Mesh's infrastructure to run at the edge in 330 global locations.
 
 Multiple partners are already using the updated version of API Mesh and have seen significant improvements in performance and reliability.
 
