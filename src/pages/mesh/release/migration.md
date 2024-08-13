@@ -38,7 +38,6 @@ Edge meshes can take slightly longer to build than legacy meshes. Wait two or th
 If you intend to use Fastly, follow [Configure Fastly for edge meshes](../advanced/caching/fastly.md#configure-fastly-for-edge-meshes).
 
 ## Key Dates
-<!-- need to add date and contact info -->
 
 Migration Start Date: August 15, 2024
 Expected Completion Date: October 15, 2024
