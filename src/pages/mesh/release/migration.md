@@ -43,4 +43,4 @@ If you intend to use Fastly, follow [Configure Fastly for edge meshes](../advanc
 Migration Start Date: August 15, 2024
 Expected Completion Date: October 15, 2024
 
-If you have any questions or concerns, contact our team directly, by emailing nrobichaud@adobe.com and pganapat@adobe.com or by joining the [#app-builder-community](https://adobeioruntime.slack.com/archives/C02BQJZQXU4) Slack channel.
+If you have any questions or concerns, contact our team directly, by emailing nrobichaud@adobe.com and pganapat@adobe.com or by joining the [#app-builder-community](https://magentocommeng.slack.com/archives/C04KT43Q75K) Slack channel.
