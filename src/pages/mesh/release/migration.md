@@ -33,6 +33,10 @@ Multiple partners are already using the updated version of API Mesh and have see
 
 Edge meshes can take slightly longer to build than legacy meshes. Wait two or three minutes before running the `aio api-mesh: status` command. Consider using [local development](../advanced/developer-tools.md#local-development-files) for testing and development purposes.
 
+## Fastly and edge meshes
+
+If you intend to use Fastly, follow [Configure Fastly for edge meshes](../advanced/caching/fastly.md#configure-fastly-for-edge-meshes).
+
 ## Key Dates
 <!-- need to add date and contact info -->
 

@@ -15,6 +15,92 @@ keywords:
 
 Adding a content delivery network (CDN) for caching dynamic content with API Mesh for Adobe Developer App Builder provides additional security and improved performance. Follow these instructions to integrate API Mesh, Adobe Commerce, and [Fastly](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/cdn/fastly.html?lang=en) (provided with Adobe Commerce Pro accounts).
 
+## Configure Fastly for edge meshes
+
+There are two requirements for using edge meshes with Fastly:
+
+- You must [set your TLS](https://docs.fastly.com/en/guides/enabling-tls-1-3-through-fastly) minimum and maximum versions to TLS `1.3`.
+- You must add the following [custom VCL](https://docs.fastly.com/en/guides/uploading-custom-vcl) to configure Fastly as a backend:
+
+  **Custom VCL in Fastly**
+
+  ```csharp
+  # Backend declaration
+  backend F_edge_sandbox_graph_adobe_io {
+      .always_use_host_header = true;
+      .between_bytes_timeout = 10s;
+      .connect_timeout = 1s;
+      .dynamic = true;
+      .first_byte_timeout = 15s;
+      .host = "edge-sandbox-graph.adobe.io";
+      .host_header = "edge-sandbox-graph.adobe.io";
+      .max_connections = 200;
+      .port = "443";
+      .share_key = "XXXXXXXXXXXXXXXX";
+      .ssl = true;
+      .ssl_cert_hostname = "edge-sandbox-graph.adobe.io";
+      .ssl_check_cert = always;
+      .ssl_sni_hostname = "edge-sandbox-graph.adobe.io";
+      .probe = {
+          .dummy = true;
+          .initial = 5;
+          .request = "HEAD / HTTP/1.1" "Host: edge-sandbox-graph.adobe.io" "Connection: close";
+          .threshold = 1;
+          .timeout = 2s;
+          .window = 5;
+      }
+  }
+  # Subroutine
+  sub vcl_recv {
+      if (req.url ~ "^/api/") {
+          set req.backend = F_edge_sandbox_graph_adobe_io;
+      }
+  } 
+  ```
+
+  **Custom VCL in Adobe Commerce**
+
+  For more information on the configuration process, see [Configure Fastly in Adobe Commerce](#configure-fastly-in-adobe-commerce).
+
+     - **Name** - api_mesh_backend
+     - **Type** - **init**
+     - **Priority** - **1**
+     - **Content**:
+  
+        ```csharp
+        # Backend declaration
+        backend F_edge_sandbox_graph_adobe_io {
+            .always_use_host_header = true;
+            .between_bytes_timeout = 10s;
+            .connect_timeout = 1s;
+            .dynamic = true;
+            .first_byte_timeout = 15s;
+            .host = "edge-sandbox-graph.adobe.io";
+            .host_header = "edge-sandbox-graph.adobe.io";
+            .max_connections = 200;
+            .port = "443";
+            .share_key = "XXXXXXXXXXXXXXXX";
+            .ssl = true;
+            .ssl_cert_hostname = "edge-sandbox-graph.adobe.io";
+            .ssl_check_cert = always;
+            .ssl_sni_hostname = "edge-sandbox-graph.adobe.io";
+            .probe = {
+                .dummy = true;
+                .initial = 5;
+                .request = "HEAD / HTTP/1.1" "Host: edge-sandbox-graph.adobe.io" "Connection: close";
+                .threshold = 1;
+                .timeout = 2s;
+                .window = 5;
+            }
+        }
+        # Subroutine
+        sub vcl_recv {
+            if (req.url ~ "^/api/") {
+                set req.backend = F_edge_sandbox_graph_adobe_io;
+            }
+        } 
+        ```
+
 ## Configure headers in API Mesh
 
 <InlineAlert variant="info" slots="text"/>
@@ -131,37 +217,44 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
 
   **NOTE**: The `Priority` of each VCL snippet determines the order in which VCL subroutines are executed. The following `Priority` fields only apply to the default configuration of Adobe Commerce. If you have other custom snippets, you will need to adjust the priorities accordingly.
 
-   - Allows API Mesh to function as a [Fastly backend](https://developer.fastly.com/reference/vcl/declarations/backend/):
+   - Allows API Mesh to function as a [Fastly backend](https://developer.fastly.com/reference/vcl/declarations/backend/). If you added this VCL as part of [Configure Fastly for edge meshes](#configure-fastly-for-edge-meshes), you do not need to add it again.
      - **Name** - api_mesh_backend
      - **Type** - **init**
      - **Priority** - **1**
      - **Content**:
   
         ```csharp
-        backend F_graph_prod_adobe_io {
+        # Backend declaration
+        backend F_edge_sandbox_graph_adobe_io {
             .always_use_host_header = true;
             .between_bytes_timeout = 10s;
             .connect_timeout = 1s;
             .dynamic = true;
             .first_byte_timeout = 15s;
-            .host = "graph.adobe.io";
-            .host_header = "graph.adobe.io";
+            .host = "edge-sandbox-graph.adobe.io";
+            .host_header = "edge-sandbox-graph.adobe.io";
             .max_connections = 200;
             .port = "443";
             .share_key = "XXXXXXXXXXXXXXXX";
             .ssl = true;
-            .ssl_cert_hostname = "graph.adobe.io";
+            .ssl_cert_hostname = "edge-sandbox-graph.adobe.io";
             .ssl_check_cert = always;
-            .ssl_sni_hostname = "graph.adobe.io";
+            .ssl_sni_hostname = "edge-sandbox-graph.adobe.io";
             .probe = {
                 .dummy = true;
                 .initial = 5;
-                .request = "HEAD / HTTP/1.1" "Host: graph.adobe.io" "Connection: close";
+                .request = "HEAD / HTTP/1.1" "Host: edge-sandbox-graph.adobe.io" "Connection: close";
                 .threshold = 1;
                 .timeout = 2s;
                 .window = 5;
             }
         }
+        # Subroutine
+        sub vcl_recv {
+            if (req.url ~ "^/api/") {
+                set req.backend = F_edge_sandbox_graph_adobe_io;
+            }
+        } 
         ```
 
    - Enables the bypass header in API Mesh:
