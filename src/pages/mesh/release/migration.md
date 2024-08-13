@@ -16,6 +16,10 @@ As part of our ongoing commitment to provide you with the best possible experien
 
 Multiple partners are already using the updated version of API Mesh and have seen significant improvements in performance and reliability.
 
+<InlineAlert variant="info" slots="text"/>
+
+Due to compatibility limitations, certain features, such as [hooks](../advanced/hooks.md), [SOAP handlers](../basic/handlers/soap.md), and [`replaceField` transforms](../basic/transforms/replace-field.md) are not available in edge meshes. These features will be available in a future release.
+
 ## Why the change?
 
 - Improved response times and enhanced API performance
