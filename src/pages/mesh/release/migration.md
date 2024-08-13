@@ -40,7 +40,7 @@ If you intend to use Fastly, follow [Configure Fastly for edge meshes](../advanc
 ## Key Dates
 <!-- need to add date and contact info -->
 
-Migration Start Date: TBD
-Expected Completion Date: TBD
+Migration Start Date: August 15, 2024
+Expected Completion Date: October 15, 2024
 
-If you have any questions or concerns, reach out to our team directly by email at [contact].
+If you have any questions or concerns, contact our team directly, by emailing nrobichaud@adobe.com and pganapat@adobe.com or by joining the [#app-builder-community](https://adobeioruntime.slack.com/archives/C02BQJZQXU4) Slack channel.
