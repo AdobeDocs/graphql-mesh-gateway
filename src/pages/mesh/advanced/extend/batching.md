@@ -184,7 +184,11 @@ In the following example, `args.skus` creates an array of SKUs to query instead 
 
 In the following example, you would create your mesh configuration file (`mesh.json`) and the referenced JavaScript file (`resolver.js`) in the same directory.
 
-<CodeBlock slots="heading, code" repeat="2" languages="json, javascript" />
+<InlineAlert variant="info" slots="text"/>
+
+For more detailed information on the `resolvers.js` file, see [Programmatic Resolvers](./resolvers/programmatic-resolvers.md#additional-resolversjs).
+
+<CodeBlock slots="heading, code" repeat="3" languages="json, javascript, graphql" />
 
 #### `mesh.json`
 
@@ -277,4 +281,28 @@ module.exports = {
     },
   },
 };
+```
+
+#### Sample query
+
+```graphql
+{
+  products(filter: { sku: { in: ["VD03", "VT12"] } }) {
+    items {
+      ... on ConfigurableProduct {
+        sku
+        name
+        customer_reviews {
+          sku
+          reviews {
+            review
+            customer_name
+            rating
+          }
+        }
+        __typename
+      }
+    }
+  }
+}
 ```
