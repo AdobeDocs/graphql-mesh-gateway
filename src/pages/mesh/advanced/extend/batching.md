@@ -22,7 +22,7 @@ The following graphics depict the difference between queries with batched and un
 
 ## Unbatched
 
-If your sources do not support batching, each query runs separately. 
+If your sources do not support batching, each query runs separately.
 
 ![unbatched](../../../_images/unbatched.png)
 
@@ -83,16 +83,16 @@ Consider a scenario where you are using the following mesh, where the `Reviews` 
 }
 ```
 
-<InlineAlert variant="info" slots="text"/>
-
-Use `"includeHTTPDetails": true` to see response details that indicate how many calls your mesh made to each source.
-
-The [custom resolver](./index.md) extends the type `ConfigurableProduct` with a new `customer_reviews` field, which allows nesting review fields inside of queries against the Venia source. The resolver is composed of the following components:
+The [custom resolver](../extend/index.md) extends the type `ConfigurableProduct` with a new `customer_reviews` field, which allows nesting review fields inside of queries against the Venia source. The resolver is composed of the following components:
 
 - The target (`targetTypeName`, `targetFieldName`) - describes the queried field.
 - The source (`sourceName`, `sourceTypeName`, `sourceFieldName`) - describes where the data is resolved for the target field.
 - `requiredSelectionSet` fetches the required arguments.
 - `sourceArgs` maps the `requiredSelectionSet` argument to the source.
+
+<InlineAlert variant="info" slots="text"/>
+
+Use `"includeHTTPDetails": true` to see response details that indicate how many calls your mesh made to each source.
 
 The following query causes multiple calls to the Reviews API:
 
@@ -120,7 +120,7 @@ The following query causes multiple calls to the Reviews API:
 
 ## Batching with declarative resolvers
 
-The following example explains how to use batching inside your mesh configuration file by using [declarative resolvers](./index.md).
+The following example explains how to use batching inside your mesh configuration file by using [declarative resolvers](./resolvers/index.md).
 
 The `Reviews` source takes an array of product SKUs and returns an array of reviews for each SKU. To make a single network request to the `Reviews` source for multiple SKUs, add `keysArg` and `keyField` to your mesh.
 
