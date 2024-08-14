@@ -22,9 +22,13 @@ The following graphics depict the difference between queries with batched and un
 
 ## Unbatched
 
+If your sources do not support batching, each query occurs separately.
+
 ![unbatched](../../../_images/unbatched.png)
 
 ## Batched
+
+If your sources support batching, and you batch with [declarative](#batching-with-declarative-resolvers) or [programmatic resolvers](#batching-with-programmatic-resolvers), multiple queries combine to form a single request.
 
 ![batched](../../../_images/batched.png)
 
