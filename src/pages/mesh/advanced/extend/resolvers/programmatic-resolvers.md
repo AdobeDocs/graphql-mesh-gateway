@@ -125,6 +125,10 @@ Running the following query results in a response that lists the original `maxim
 
 In the following response, you can see that the "Roxana Cropped Sweater" and the "Hanna Sweater" we specified in our `discounts-api.json` file have a `special_price` that is 10% less than their `value`.
 
+<InlineAlert variant="info" slots="text"/>
+
+To see a similar programmatic resolver that uses batching and logging, see [Batching with programmatic resolvers](../batching.md).
+
 <CodeBlock slots="heading, code" repeat="2" languages="graphql, json" />
 
 #### GraphQL Query

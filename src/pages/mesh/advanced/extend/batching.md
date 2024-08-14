@@ -186,7 +186,7 @@ In the following example, you would create your mesh configuration file (`mesh.j
 
 <InlineAlert variant="info" slots="text"/>
 
-For more detailed information on the `resolvers.js` file, see [Programmatic Resolvers](./resolvers/programmatic-resolvers.md#additional-resolversjs).
+The `resolvers.js` file contains similar logic to the `additionalResolvers.js` file in [Programmatic Resolvers](./resolvers/programmatic-resolvers.md#additional-resolversjs), but adds batching and logging.
 
 <CodeBlock slots="heading, code" repeat="3" languages="json, javascript, graphql" />
 
