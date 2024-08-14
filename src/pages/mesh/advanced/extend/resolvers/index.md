@@ -58,7 +58,7 @@ The `additionalResolvers` field will make our new field executable in the unifie
 - `keysArg` provides the name of the primary key argument. For this example, the `keysArg` field is the argument name used when sending an array of SKUs to fetch multiple reviews.
 - `keyField` provides the key-value for each item in the batched query. For this example, the `keyField` indicates which Product field provides the SKU value to the review service.
 
-## Combining Schemas using declarative API
+## Combining schemas using declarative API
 
 We learned that we can combine multiple APIs in a mesh using `additionalTypeDefs` and `additionalResolvers`.
 

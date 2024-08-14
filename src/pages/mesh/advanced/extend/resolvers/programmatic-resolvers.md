@@ -12,7 +12,7 @@ keywords:
 
 # Programmatic resolvers
 
-While [Configuration-based resolvers (declarative)](./index.md) explains how `additionalResolvers` can shape and augment the unified schema with configuration changes, programmatic resolvers shape the schema programmatically using JavaScript.
+While [Configuration-based (declarative) resolvers](./index.md) explains how `additionalResolvers` can shape and augment the unified schema with configuration changes, programmatic resolvers shape the schema programmatically using JavaScript.
 
 You can also use custom resolvers to batch repeated queries and get better response times. For more information, see [Batching](../batching.md).
 
