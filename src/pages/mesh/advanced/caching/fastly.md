@@ -24,6 +24,8 @@ There are two requirements for using edge meshes with Fastly:
 
   **Custom VCL in Fastly**
 
+The following VCL points the Fastly backend to `edge-graph.adobe.io` which corresponds to the `Production` workspace in your project.
+
   ```csharp
   # Backend declaration
   backend F_edge_graph_adobe_io {
