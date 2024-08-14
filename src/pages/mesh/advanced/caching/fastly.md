@@ -26,7 +26,7 @@ There are two requirements for using edge meshes with Fastly:
 
   ```csharp
   # Backend declaration
-  backend F_edge_sandbox_graph_adobe_io {
+  backend F_edge_graph_adobe_io {
       .always_use_host_header = true;
       .between_bytes_timeout = 10s;
       .connect_timeout = 1s;
@@ -53,7 +53,7 @@ There are two requirements for using edge meshes with Fastly:
   # Subroutine
   sub vcl_recv {
       if (req.url ~ "^/api/") {
-          set req.backend = F_edge_sandbox_graph_adobe_io;
+          set req.backend = F_edge_graph_adobe_io;
       }
   } 
   ```
@@ -69,7 +69,7 @@ There are two requirements for using edge meshes with Fastly:
   
         ```csharp
         # Backend declaration
-        backend F_edge_sandbox_graph_adobe_io {
+        backend F_edge_graph_adobe_io {
             .always_use_host_header = true;
             .between_bytes_timeout = 10s;
             .connect_timeout = 1s;
@@ -96,7 +96,7 @@ There are two requirements for using edge meshes with Fastly:
         # Subroutine
         sub vcl_recv {
             if (req.url ~ "^/api/") {
-                set req.backend = F_edge_sandbox_graph_adobe_io;
+                set req.backend = F_edge_graph_adobe_io;
             }
         } 
         ```
@@ -225,7 +225,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
   
         ```csharp
         # Backend declaration
-        backend F_edge_sandbox_graph_adobe_io {
+        backend F_edge_graph_adobe_io {
             .always_use_host_header = true;
             .between_bytes_timeout = 10s;
             .connect_timeout = 1s;
@@ -252,7 +252,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         # Subroutine
         sub vcl_recv {
             if (req.url ~ "^/api/") {
-                set req.backend = F_edge_sandbox_graph_adobe_io;
+                set req.backend = F_edge_graph_adobe_io;
             }
         } 
         ```
