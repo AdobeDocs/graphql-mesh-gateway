@@ -22,84 +22,86 @@ There are two requirements for using edge meshes with Fastly:
 - You must [set your TLS](https://docs.fastly.com/en/guides/enabling-tls-1-3-through-fastly) minimum and maximum versions to TLS `1.3`.
 - You must add the following [custom VCL](https://docs.fastly.com/en/guides/uploading-custom-vcl) to configure Fastly as a backend:
 
-  **Custom VCL in Fastly**
+**Custom VCL in Fastly**
 
-  ```csharp
-  # Backend declaration
-  backend F_edge_graph_adobe_io {
-      .always_use_host_header = true;
-      .between_bytes_timeout = 10s;
-      .connect_timeout = 1s;
-      .dynamic = true;
-      .first_byte_timeout = 15s;
-      .host = "edge-graph.adobe.io";
-      .host_header = "edge-graph.adobe.io";
-      .max_connections = 200;
-      .port = "443";
-      .share_key = "XXXXXXXXXXXXXXXX";
-      .ssl = true;
-      .ssl_cert_hostname = "edge-graph.adobe.io";
-      .ssl_check_cert = always;
-      .ssl_sni_hostname = "edge-graph.adobe.io";
-      .probe = {
-          .dummy = true;
-          .initial = 5;
-          .request = "HEAD / HTTP/1.1" "Host: edge-graph.adobe.io" "Connection: close";
-          .threshold = 1;
-          .timeout = 2s;
-          .window = 5;
-      }
-  }
-  # Subroutine
-  sub vcl_recv {
-      if (req.url ~ "^/api/") {
-          set req.backend = F_edge_graph_adobe_io;
-      }
-  } 
-  ```
+The following VCL points the Fastly backend to `edge-graph.adobe.io` which corresponds to the `Production` workspace in your project.
 
-  **Custom VCL in Adobe Commerce**
+```csharp
+# Backend declaration
+backend F_edge_graph_adobe_io {
+    .always_use_host_header = true;
+    .between_bytes_timeout = 10s;
+    .connect_timeout = 1s;
+    .dynamic = true;
+    .first_byte_timeout = 15s;
+    .host = "edge-graph.adobe.io";
+    .host_header = "edge-graph.adobe.io";
+    .max_connections = 200;
+    .port = "443";
+    .share_key = "XXXXXXXXXXXXXXXX";
+    .ssl = true;
+    .ssl_cert_hostname = "edge-graph.adobe.io";
+    .ssl_check_cert = always;
+    .ssl_sni_hostname = "edge-graph.adobe.io";
+    .probe = {
+        .dummy = true;
+        .initial = 5;
+        .request = "HEAD / HTTP/1.1" "Host: edge-graph.adobe.io" "Connection: close";
+        .threshold = 1;
+        .timeout = 2s;
+        .window = 5;
+    }
+}
+# Subroutine
+sub vcl_recv {
+    if (req.url ~ "^/api/") {
+        set req.backend = F_edge_graph_adobe_io;
+    }
+} 
+```
 
-  For more information on the configuration process, see [Configure Fastly in Adobe Commerce](#configure-fastly-in-adobe-commerce).
+**Custom VCL in Adobe Commerce**
 
-     - **Name** - api_mesh_backend
-     - **Type** - **init**
-     - **Priority** - **1**
-     - **Content**:
-  
-        ```csharp
-        # Backend declaration
-        backend F_edge_graph_adobe_io {
-            .always_use_host_header = true;
-            .between_bytes_timeout = 10s;
-            .connect_timeout = 1s;
-            .dynamic = true;
-            .first_byte_timeout = 15s;
-            .host = "edge-graph.adobe.io";
-            .host_header = "edge-graph.adobe.io";
-            .max_connections = 200;
-            .port = "443";
-            .share_key = "XXXXXXXXXXXXXXXX";
-            .ssl = true;
-            .ssl_cert_hostname = "edge-graph.adobe.io";
-            .ssl_check_cert = always;
-            .ssl_sni_hostname = "edge-graph.adobe.io";
-            .probe = {
-                .dummy = true;
-                .initial = 5;
-                .request = "HEAD / HTTP/1.1" "Host: edge-graph.adobe.io" "Connection: close";
-                .threshold = 1;
-                .timeout = 2s;
-                .window = 5;
-            }
-        }
-        # Subroutine
-        sub vcl_recv {
-            if (req.url ~ "^/api/") {
-                set req.backend = F_edge_graph_adobe_io;
-            }
-        } 
-        ```
+For more information on the configuration process, see [Configure Fastly in Adobe Commerce](#configure-fastly-in-adobe-commerce).
+
+- **Name** - api_mesh_backend
+- **Type** - **init**
+- **Priority** - **1**
+- **Content**:
+
+```csharp
+# Backend declaration
+backend F_edge_graph_adobe_io {
+    .always_use_host_header = true;
+    .between_bytes_timeout = 10s;
+    .connect_timeout = 1s;
+    .dynamic = true;
+    .first_byte_timeout = 15s;
+    .host = "edge-graph.adobe.io";
+    .host_header = "edge-graph.adobe.io";
+    .max_connections = 200;
+    .port = "443";
+    .share_key = "XXXXXXXXXXXXXXXX";
+    .ssl = true;
+    .ssl_cert_hostname = "edge-graph.adobe.io";
+    .ssl_check_cert = always;
+    .ssl_sni_hostname = "edge-graph.adobe.io";
+    .probe = {
+        .dummy = true;
+        .initial = 5;
+        .request = "HEAD / HTTP/1.1" "Host: edge-graph.adobe.io" "Connection: close";
+        .threshold = 1;
+        .timeout = 2s;
+        .window = 5;
+    }
+}
+# Subroutine
+sub vcl_recv {
+    if (req.url ~ "^/api/") {
+        set req.backend = F_edge_graph_adobe_io;
+    }
+} 
+```
 
 ## Configure headers in API Mesh
 

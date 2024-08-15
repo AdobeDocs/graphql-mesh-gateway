@@ -48,10 +48,6 @@ All of these steps can be automated using flags described in the [command refere
 
   Use the `--select` argument with the `run` command to deploy the mesh artifact in the selected workspace without rebuilding it.
 
-<InlineAlert variant="info" slots="text"/>
-
-The `run` command is currently in beta.
-
 ### Local development files
 
 The `aio api-mesh:init` command creates the following files locally:

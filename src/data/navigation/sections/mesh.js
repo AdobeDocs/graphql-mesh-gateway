@@ -146,11 +146,11 @@ module.exports = [
                 path: "/mesh/advanced/extend/",
                 pages: [
                     {
-                        title: "Extend your schema with AdditionalTypeDefs",
+                        title: "Extend your schema",
                         path: "/mesh/advanced/extend/"
                     },
                     {
-                        title: "Customize resolved values with AdditionalResolvers",
+                        title: "Customize resolved values",
                         path: "/mesh/advanced/extend/resolvers",
                         pages: [
                             {
@@ -221,6 +221,10 @@ module.exports = [
                 title: "Release notes",
                 path: "/mesh/release/"
             },
+            {
+                title: "Migration notice",
+                path: "/mesh/release/migration.md"
+            }, 
             {
                 title: "Upgrade versions",
                 path: "/mesh/release/upgrade.md"
