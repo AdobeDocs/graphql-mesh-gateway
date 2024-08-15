@@ -1,6 +1,6 @@
 ---
-title: Extend the schema with custom resolvers
-description: Learn how to extend the unified schema with resolvers.
+title: Programmatic resolvers
+description: Learn how to extend the unified schema with code-based resolvers.
 keywords:
   - API Mesh
   - Extensibility
@@ -10,11 +10,13 @@ keywords:
   - Tools
 ---
 
-# Extend the schema with custom resolvers
+# Programmatic resolvers
 
-The [multiple APIs](../best-practices/multiple-apis.md) topic explains how `additionalResolvers` can shape and augment the unified schema with custom resolvers.
+While [Configuration-based (declarative) resolvers](../resolvers/index.md) explains how `additionalResolvers` can shape and augment the unified schema with configuration changes, programmatic resolvers shape the schema programmatically using JavaScript.
 
-Alternatively, using the `additionalResolvers` config allows you to upload a custom resolver as a [`JavaScript` file](../basic/handlers/index.md#reference-local-files-in-handlers) to the Mesh.
+You can also use custom resolvers to batch repeated queries and get better response times. For more information, see [Batching](../batching.md).
+
+The `additionalResolvers` config allows you to upload a custom resolver as a [`JavaScript` file](../../../basic/handlers/index.md#reference-local-files-in-handlers) to the Mesh.
 
 ## Programmatic `additionalResolvers`
 
@@ -122,6 +124,10 @@ This `javascript` file targets the `special_price` field on `ConfigurableProduct
 Running the following query results in a response that lists the original `maximum_price` value and the `special_price` that was calculated using the `DiscountsAPI` file. In this example, we are searching for "sweater", but you could modify it to search for any products.
 
 In the following response, you can see that the "Roxana Cropped Sweater" and the "Hanna Sweater" we specified in our `discounts-api.json` file have a `special_price` that is 10% less than their `value`.
+
+<InlineAlert variant="info" slots="text"/>
+
+To see a similar programmatic resolver that uses batching and logging, see [Batching with programmatic resolvers](../batching.md).
 
 <CodeBlock slots="heading, code" repeat="2" languages="graphql, json" />
 
