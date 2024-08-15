@@ -94,7 +94,6 @@ The [custom resolver](../extend/index.md) extends the type `ConfigurableProduct`
 - `requiredSelectionSet` fetches the required arguments.
 - `sourceArgs` maps the `requiredSelectionSet` argument to the source.
 
-
 <InlineAlert variant="info" slots="text"/>
 
 Use `"includeHTTPDetails": true` to see response details that indicate how many calls your mesh made to each source.
