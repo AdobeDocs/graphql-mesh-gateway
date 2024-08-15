@@ -16,6 +16,10 @@ keywords:
 
 The hooks feature is currently in development and will be expanded in future releases. Only `beforeAll` hooks are currently available.
 
+<InlineAlert variant="warning" slots="text"/>
+
+Edge meshes do not currently support hooks. If you are using hooks, you must use a legacy mesh. Hooks will be available in edge meshes in the future.
+
 Hooks allow you to invoke a composable [local or remote](#local-vs-remote-functions) function on a targeted node.
 
 Some use cases for the `Hooks` include:

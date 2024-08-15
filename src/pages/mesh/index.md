@@ -10,6 +10,10 @@ keywords:
   - Tools
 ---
 
+import MigrationNotice from '/src/_includes/migration-notice.md'
+
+<MigrationNotice />
+
 # What is API Mesh for Adobe Developer App Builder?
 
 API Mesh enables developers to integrate third-party APIs with other Adobe products, like App Builder, Adobe IO Gateway, or other serverless technologies.
@@ -24,6 +28,18 @@ API Mesh allows developers to configure multiple APIs and other sources and serv
 -  **Configurable Integrations** - Low/No-code method to integrate with your own private APIs with Adobe Commerce and other Adobe products, and third-party APIs
 -  **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones
 -  **Extensibility** - Customize and extend all of your APIs directly in the gateway without making changes to the API source
+
+With API Mesh on the edge:
+
+- Improved response times and enhanced API performance
+- Easier integration with industry-standard tools and third-party products
+- Reduced potential of other hosted meshes degrading the performance of your mesh
+- Better security and compliance
+- Increased observability
+
+<InlineAlert variant="info" slots="text"/>
+
+Due to the nature of caching, you may need to run a few queries to warm the cache before you see a performance increase.
 
 ## Where to go next
 
