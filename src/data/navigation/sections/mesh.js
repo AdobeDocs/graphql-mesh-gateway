@@ -186,6 +186,10 @@ module.exports = [
         path: "/mesh/release/",
         pages: [
             {
+                title: "Migration notice",
+                path: "/mesh/release/migration.md"
+            }, 
+            {
                 title: "Release notes",
                 path: "/mesh/release/"
             },
