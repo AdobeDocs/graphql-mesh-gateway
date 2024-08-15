@@ -32,6 +32,10 @@ Workspaces that already have an API mesh will have "API Mesh" displayed on their
 
 ## Create a mesh
 
+When you create or update a mesh configuration, API Mesh requires some processing time before your mesh is available. If you intend to perform several create or update commands, consider using our [local development](../advanced/developer-tools.md#create-a-local-environment) feature to test your mesh configuration locally.
+
+Refer to the [command reference](../advanced/index.md#aio-api-meshcreate) for a detailed description of `aio api-mesh:create`.
+
 <InlineAlert variant="info" slots="text"/>
 
 When creating or updating a mesh, the file to upload must have the `.json` filename extension.
@@ -77,23 +81,53 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
 
 1. When you are prompted to confirm that you want to create a mesh, select **Yes**. If you want to automatically confirm the creation, add the `-c` or `--autoConfirmAction` flag to your create command.
 
-  The `aio api-mesh:create` response assigns you a `meshId`. Use the [`aio api-mesh:status`](../advanced/index.md#aio-api-meshstatus) command to see the status of your mesh creation. You can run the [`aio api-mesh:describe`](../advanced/index.md#aio-api-meshdescribe) command to get your `apiKey` and a GraphQL endpoint that you can use to query your mesh.
+### Access your mesh URLs
 
 <InlineAlert variant="info" slots="text"/>
 
-Refer to the [command reference](../advanced/index.md#aio-api-meshcreate) for a detailed description of `aio api-mesh:create`.
+If you have an allowlist, consider adding the [edge mesh IP addresses](https://www.cloudflare.com/ips/).
 
-### Access the gateway
+The `aio api-mesh:create` response assigns you a `meshId`. Use the [`aio api-mesh:status`](../advanced/index.md#aio-api-meshstatus) command to see the status of your mesh creation. You can run the [`aio api-mesh:describe`](../advanced/index.md#aio-api-meshdescribe) command to get your `apiKey` and a GraphQL endpoint that you can use to query your mesh.
 
-The `aio api-mesh:create` response automatically assigns you an API key and subscribes that API key to the mesh service. You can also retrieve the API key by viewing the project in the [Adobe Developer Console](https://developer.adobe.com/console).
+After successfully running the status command, the response provides both legacy and edge URLs:
 
-After you [create a mesh](../basic/create-mesh.md), you can access the GraphQL endpoint in any GraphQL browser by modifying the following URL: `https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`
+  ```terminal
+  Legacy Mesh Status: 
+  Your mesh was successfully built.
+  *********************************
+  Edge Mesh Status:
+  Your mesh was successfully built.
+  ```
+
+Until Adobe migrates all legacy mesh URLs, the response to the `aio api-mesh:describe` command will list both the legacy and edge mesh URLs. The legacy mesh URL is a standard mesh URL, which Adobe will migrate soon. See the [migration notice](../release/migration.md) for more information.
+
+The edge mesh URL offers several benefits because the edge is closer to your data sources. Edge meshes can provide the following advantages:
+
+- Improved response times and enhanced API performance
+- Easier integration with industry-standard tools and third-party products
+- Enhanced performance reliability through inherent tenant isolation
+- Better security and compliance
+- Increased observability
+
+<InlineAlert variant="warning" slots="text"/>
+
+Edge meshes do not currently support Hooks or SOAP handlers. If you need to use these features, you must use a legacy mesh. These features will be available in edge meshes in the future.
 
 <InlineAlert variant="info" slots="text"/>
 
-For security purposes, we recommend moving your API key from the provided link into a request header. The header key is `x-api-key` and the header value is your API key.
+Legacy mesh URLs will be deprecated in the future. Use the edge mesh URLs whenever possible.
 
-### Create a mesh from a source
+## Optimizing edge mesh performance
+
+Edge meshes are resilient and performant because they exist closer to the origin of your query, in over 330 locations in 120 countries. This means that your queries can hit a server that has not cached your mesh, causing a cold start.
+
+If you are using an API platform or a GraphQL client, add the [`Connection: Keep-Alive`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Keep-Alive) header to your requests. This header keeps the connection to the server open for future requests, which can significantly improve performance because it ensures you are hitting a warm cache. Using this header also prevents the unnecessary repetition of several steps of the [HTTP handshake](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection_management_in_HTTP_1.x).
+
+<InlineAlert variant="info" slots="text"/>
+
+Some platforms and command-line tools, such as cURL, do not respect the `Connection: Keep-Alive` header. Consider [priming your mesh](../best-practices/performance.md) to improve performance.
+
+## Create a mesh from a source
 
 The `aio api-mesh:source` commands provide several prebuilt mesh sources that you can use to create your mesh file, for example `mesh.json`. Each source contains a mesh configuration file designed for a specific first or third-party source. Third parties can submit their sources as a pull request to the [api-mesh-sources](https://github.com/adobe/api-mesh-sources) repository. Once approved, these sources will be available for selection in the CLI.
 
@@ -125,7 +159,7 @@ Alternatively, you can use the [aio api-mesh:source:get](../advanced/index.md#ai
 
 Refer to the [Command reference](../advanced/index.md#aio-api-meshsourceinstall) flags to learn how to replace variables in the source mesh configuration.
 
-### Create a mesh from a template
+## Create a mesh from a template
 
 You can also create a mesh automatically when [bootstrapping a new app through the CLI](https://developer.adobe.com/app-builder/docs/getting_started/first_app/#4-bootstrapping-new-app-using-the-cli):
 
@@ -143,7 +177,7 @@ You can also create a mesh automatically when [bootstrapping a new app through t
 
 1. Indicate if you want to create a sample mesh.
 
-1. After the process completes, you are provided a link to your [API mesh endpoint](#access-the-gateway).
+1. After the process completes, you are provided a link to your [API mesh endpoint](#access-your-mesh-urls).
 
 1. When you are ready, you can deploy your app by running the following command:
 
@@ -279,39 +313,3 @@ On the API Mesh Details screen, you can use the tabs to view different segments 
 To download a copy of your mesh file, click the **Download Mesh Schema** button at the top of the API Mesh Details screen.
 
 ![download mesh](../../_images/download-mesh-schema.png)
-
-## Manually create an API Key (optional)
-
-<InlineAlert variant="warning" slots="text"/>
-
-API keys are now automatically generated and associated with your project as part of the mesh creation process. Use the following process if you need to manually add an API to a project.
-
-<InlineAlert variant="info" slots="text"/>
-
-Only mesh owners can create API Keys. If you do not have access to [Adobe Developer Console], contact your mesh owner.
-
-To access the gateway and perform GraphQL queries, you need to provide an API Key to authorize access to your mesh. To create your API Key:
-
-1. In [Adobe Developer Console](https://developer.adobe.com/console), select the desired organization from the dropdown in the top-right corner.
-
-    ![create a project](../../_images/create-project.png)
-
-1. Select an existing project or [create a new one](#create-a-project).
-
-1. Inside the project, click **Add API**.
-
-    ![add an api](../../_images/add-api.png)
-
-1. Select **API Mesh for Adobe Developer App Builder** and click **Next**.
-
-    ![add an api mesh](../../_images/add-api-mesh.png)
-
-1. The **Allowed Domain** field is not currently enforced. Enter any valid test domain to proceed.
-
-    ![add an allowed domain](../../_images/allowed-domain.png)
-
-1. Click **Save configured API**. Copy your **API Key** from the Project Overview page.
-
-    ![api key](../../_images/api-key.png)
-
-You can return to the Project Overview page whenever you need to retrieve your API Key.

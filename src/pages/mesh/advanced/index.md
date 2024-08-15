@@ -50,10 +50,6 @@ Local workspace created successfully
 
 ## aio api-mesh:run
 
-<InlineAlert variant="info" slots="text"/>
-
-This command is currently in beta.
-
 [Deploys a mesh locally](./developer-tools.md#create-a-local-environment). You only need to run this command if you want to work with your mesh locally for testing. Run `aio api-mesh:init` before running this command.
 
 ### Usage
@@ -194,6 +190,10 @@ aio api-mesh:status
 
 Retrieves the current status of your create or update command.
 
+<InlineAlert variant="info" slots="text"/>
+
+If your mesh is taking too long to build, consider using [local development](./developer-tools.md#create-a-local-environment).
+
 ### Example
 
 ```bash
@@ -207,7 +207,11 @@ Four possible responses reflect the status of your mesh:
 - Success - Your mesh was successfully created or updated.
 
   ```terminal
-  Success: Your mesh has been successfully built.
+  Legacy Mesh Status: 
+  Your mesh was successfully built.
+  *********************************
+  Edge Mesh Status:
+  Your mesh was successfully built.
   ```
 
 - Pending - Your mesh is queued and awaiting processing.
@@ -227,6 +231,10 @@ Four possible responses reflect the status of your mesh:
   ```terminal
   Unable to get the mesh status. If the error persists please contact support. RequestId: 1234567890
   ```
+
+<InlineAlert variant="info" slots="text"/>
+
+Since this command describes the status of both the legacy and edge mesh builds, any failures or errors that appear in the `Legacy Mesh Status`, will subsequently affect the edge mesh. This means you must resolve any errors in your legacy mesh build before using the edge mesh URL.
 
 ## aio api-mesh:get
 
@@ -317,11 +325,7 @@ Successfully retrieved mesh {
 
 ## aio api-mesh:delete
 
-Deletes the mesh from the selected workspace and unsubscribes the API key from the API Mesh service.
-
-<InlineAlert variant="info" slots="text"/>
-
-The `aio api-mesh:delete` command does not delete the API key in case other services use it.
+Deletes the mesh from the selected workspace.
 
 ### Usage
 
@@ -351,7 +355,7 @@ Successfully deleted 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 
 ## aio api-mesh:describe
 
-Describes the mesh for the selected workspace.
+Describes the mesh for the selected workspace. The description includes [legacy and edge mesh endpoints](../basic/create-mesh.md#access-your-mesh-urls).
 
 ### Usage
 
@@ -377,7 +381,8 @@ Org ID: 123456789
 Project ID: 1234567890123456789
 Workspace ID: 2345678901234567890
 Mesh ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
-Mesh Endpoint: https://graph.adobe.io/api/12a3b4c5-6d78-4012-3456-7e890fa1bcde/graphql?api_key=12a3b4c5-6d78-4012-3456-7e890fa1bcde
+Legacy Mesh Endpoint: https://graph.adobe.io/api/123456-123-456-789-1234567890/graphql?api_key=09876543210987654321
+Edge Mesh Endpoint: https://edge-graph.adobe.io/api/123456-123-456-789-1234567890/graphql
 ```
 
 ## aio api-mesh:source:discover

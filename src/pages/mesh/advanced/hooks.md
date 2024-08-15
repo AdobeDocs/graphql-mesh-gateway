@@ -16,6 +16,10 @@ keywords:
 
 The hooks feature is currently in development and will be expanded in future releases. Only `beforeAll` hooks are currently available.
 
+<InlineAlert variant="warning" slots="text"/>
+
+Edge meshes do not currently support hooks. If you are using hooks, you must use a legacy mesh. Hooks will be available in edge meshes in the future.
+
 Hooks allow you to invoke a composable [local or remote](#local-vs-remote-functions) function on a targeted node.
 
 Some use cases for the `Hooks` include:
@@ -31,7 +35,7 @@ Some use cases for the `Hooks` include:
 
 <InlineAlert variant="info" slots="text"/>
 
-You cannot use hooks to modify the request or the response. If you want to manipulate data, we recommend that you use [custom resolvers](./extending-unified-schema.md).
+You cannot use hooks to modify the request or the response. If you want to manipulate data, we recommend that you use [custom resolvers](./extend/resolvers/index.md).
 
 Hooks increase processing time. Use them sparingly if processing time is important. Hooks are executed in the order you provide them. However, any `blocking` hooks execute before non-blocking hooks.
 

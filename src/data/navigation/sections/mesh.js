@@ -38,6 +38,10 @@ module.exports = [
                 path: "/mesh/basic/work-with-mesh.md"
             },
             {
+                title: "Local development",
+                path: "/mesh/advanced/developer-tools.md"
+            },
+            {
                 title: "Add sources to your mesh",
                 path: "/mesh/basic/handlers/",
                 pages: [
@@ -143,7 +147,31 @@ module.exports = [
             },
             {
                 title: "Extend your mesh",
-                path: "/mesh/advanced/extending-unified-schema.md",
+                path: "/mesh/advanced/extend/",
+                pages: [
+                    {
+                        title: "Extend your schema",
+                        path: "/mesh/advanced/extend/"
+                    },
+                    {
+                        title: "Customize resolved values",
+                        path: "/mesh/advanced/extend/resolvers",
+                        pages: [
+                            {
+                                title: "Declarative resolvers",
+                                path: "/mesh/advanced/extend/resolvers"
+                            },
+                            {
+                                title: "Programmatic resolvers",
+                                path: "/mesh/advanced/extend/resolvers/programmatic-resolvers.md"
+                            }
+                        ]
+                    },
+                    {
+                        title: "Batching ",
+                        path: "/mesh/advanced/extend/batching.md"
+                    },
+                ]
             },
             {
                 title: "Request and response headers",
@@ -165,15 +193,27 @@ module.exports = [
         pages: [
             {
                 title: "Batching ",
-                path: "/mesh/best-practices/",
+                path: "/mesh/advanced/extend/batching.md"
+            },
+            {
+                title: "Performance testing ",
+                path: "/mesh/best-practices/performance.md",
             },
             {
                 title: "CI/CD implementation",
                 path: "/mesh/best-practices/cicd.md"
             },
             {
-                title: "Multiple APIs",
-                path: "/mesh/best-practices/multiple-apis.md"
+                title: "Custom resolvers",
+                path: "/mesh/advanced/extend/index.md"
+            },
+            {
+                title: "Local development",
+                path: "/mesh/advanced/developer-tools.md"
+            },           
+            {
+                title: "Secrets management",
+                path: "/mesh/advanced/secrets.md"
             },
         ]
     },
@@ -185,6 +225,10 @@ module.exports = [
                 title: "Release notes",
                 path: "/mesh/release/"
             },
+            {
+                title: "Migration notice",
+                path: "/mesh/release/migration.md"
+            }, 
             {
                 title: "Upgrade versions",
                 path: "/mesh/release/upgrade.md"
