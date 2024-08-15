@@ -176,7 +176,6 @@ Request batching using API Mesh requires a source endpoint capable of processing
 `requiredSelectionSet` and `sourceArgs` are replaced with `keysarg` and `keyField`:
 
 - `keysArg` provides the name of the primary key argument. For this example, the `keysArg` field is the argument name used when sending an array of SKUs to fetch multiple reviews.
-
 - `keyField` provides the key value for each item in the batched query. For this example, the `keyField` indicates which Product field provides the SKU value to the review service.
 
 With the updated mesh, using the [previous query](#example-without-batching) returns the same information, but only makes one call to the `Reviews` source for multiple SKUs.
