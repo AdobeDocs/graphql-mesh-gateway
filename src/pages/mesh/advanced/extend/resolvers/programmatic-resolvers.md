@@ -252,3 +252,60 @@ To see a similar programmatic resolver that uses batching and logging, see [Batc
     "extensions": {}
 }
 ```
+
+## `fetch` with programmatic resolvers
+
+Instead of adding another [source handler](../../../basic/handlers/index.md), [edge meshes](../../../release/index.md#august-15-2024) can interact with third-party services using the `fetch` method.
+
+The script below uses a programmatic resolver to fetch discounts from a remote server. In this case, we are using the Discounts API discussed in [Programmatic `additionalResolvers`](#programmatic-additionalresolvers).
+
+```javascript
+module.exports = {
+  resolvers: {
+    ConfigurableProduct: {
+      special_price: {
+        selectionSet:
+          "{ name price_range { maximum_price { final_price { value } } } }",
+        resolve: (root, args, context) => {
+          let max = 0;
+
+          try {
+            max = root.price_range.maximum_price.final_price.value;
+          } catch (e) {
+            // ignore
+          }
+
+          context.logger.log("Fetching discounts from remote server");
+
+          return globalThis
+            .fetch(
+              "raw.githubusercontent.com/AdobeDocs/graphql-mesh-gateway/main/src/pages/_examples/discounts-api.json"
+            )
+            .then((response) => {
+              if (response) {
+                return response.json();
+              }
+
+              return [];
+            })
+            .then((discounts) => {
+              const discountConfig = discounts.find(
+                (discount) => discount.name === root.name
+              );
+
+              if (discountConfig) {
+                return max * ((100 - discountConfig.discount) / 100);
+              } else {
+                return max;
+              }
+            })
+            .catch((err) => {
+              context.logger.log(err.message);
+              return err.message;
+            });
+        },
+      },
+    },
+  },
+};
+```
