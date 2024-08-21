@@ -10,9 +10,9 @@ keywords:
   - Tools
 ---
 
-import MigrationNotice from '/src/_includes/migration-notice.md'
+import UpdateNotice from '/src/_includes/update-notice.md'
 
-<MigrationNotice />
+<UpdateNotice />
 
 # Release notes
 
@@ -36,7 +36,7 @@ With API Mesh on the edge:
 
 Adobe recommends using edge meshes for the best performance. Refer to [Access your mesh URLs](../basic/create-mesh.md#access-your-mesh-urls) for more information.
 
-After updating your mesh, the `aio api-mesh describe` command contains both a legacy mesh endpoint and an edge mesh endpoint. Legacy meshes will be deprecated later this year.
+After updating your mesh, the `aio api-mesh describe` command contains both a legacy mesh endpoint and an edge mesh endpoint. Legacy meshes will be removed later this year.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -58,7 +58,7 @@ Due to compatibility limitations, certain features, such as [hooks](../advanced/
 
 <InlineAlert variant="info" slots="text"/>
 
-With the migration to edge, API Mesh no longer requires API keys.
+With the update to edge, API Mesh no longer requires API keys.
 
 ## August 06, 2024
 
