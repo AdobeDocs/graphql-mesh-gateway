@@ -115,7 +115,7 @@ Edge meshes do not currently support Hooks or SOAP handlers. If you need to use 
 
 <InlineAlert variant="info" slots="text"/>
 
-Legacy mesh URLs will be deprecated in the future. Use the edge mesh URLs whenever possible.
+Legacy mesh URLs will be removed in the future. Use the edge mesh URLs whenever possible.
 
 ## Optimizing edge mesh performance
 

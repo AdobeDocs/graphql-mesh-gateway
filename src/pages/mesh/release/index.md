@@ -36,7 +36,7 @@ With API Mesh on the edge:
 
 Adobe recommends using edge meshes for the best performance. Refer to [Access your mesh URLs](../basic/create-mesh.md#access-your-mesh-urls) for more information.
 
-After updating your mesh, the `aio api-mesh describe` command contains both a legacy mesh endpoint and an edge mesh endpoint. Legacy meshes will be deprecated later this year.
+After updating your mesh, the `aio api-mesh describe` command contains both a legacy mesh endpoint and an edge mesh endpoint. Legacy meshes will be removed later this year.
 
 <InlineAlert variant="info" slots="text"/>
 
