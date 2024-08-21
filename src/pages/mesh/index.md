@@ -10,9 +10,9 @@ keywords:
   - Tools
 ---
 
-import MigrationNotice from '/src/_includes/migration-notice.md'
+import UpdateNotice from '/src/_includes/update-notice.md'
 
-<MigrationNotice />
+<UpdateNotice />
 
 # What is API Mesh for Adobe Developer App Builder?
 

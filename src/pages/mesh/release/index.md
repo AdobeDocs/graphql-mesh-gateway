@@ -10,9 +10,9 @@ keywords:
   - Tools
 ---
 
-import MigrationNotice from '/src/_includes/migration-notice.md'
+import UpdateNotice from '/src/_includes/update-notice.md'
 
-<MigrationNotice />
+<UpdateNotice />
 
 # Release notes
 
@@ -58,7 +58,7 @@ Due to compatibility limitations, certain features, such as [hooks](../advanced/
 
 <InlineAlert variant="info" slots="text"/>
 
-With the migration to edge, API Mesh no longer requires API keys.
+With the update to edge, API Mesh no longer requires API keys.
 
 ## August 06, 2024
 
