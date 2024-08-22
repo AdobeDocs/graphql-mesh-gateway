@@ -12,7 +12,7 @@ keywords:
 
 # Performance testing
 
-When you performance test edge meshes on Adobe Developer App Builder, you need to account for cold starts to get an accurate measurement of the performance.
+When performance testing edge meshes on API Mesh for Adobe Developer App Builder, you need to account for cold starts to get an accurate measurement of the performance.
 
 If applicable, you should use the `Connection: Keep-Alive` header described in [Optimizing edge mesh performance](../basic/create-mesh.md#optimizing-edge-mesh-performance).
 

@@ -60,6 +60,14 @@ Due to compatibility limitations, certain features, such as [hooks](../advanced/
 
 With the update to edge, API Mesh no longer requires API keys.
 
+### Performance testing
+
+When performance testing edge meshes in API Mesh, you need to account for cold starts to get an accurate measurement of the performance.
+
+If applicable, you should use the `Connection: Keep-Alive` header described in [Optimizing edge mesh performance](../basic/create-mesh.md#optimizing-edge-mesh-performance).
+
+Alternatively, you can manually warm the cache using the process described in [Performance testing](../best-practices/performance.md#performance-testing).
+
 ## August 06, 2024
 
 This release contains the following changes to API Mesh:
