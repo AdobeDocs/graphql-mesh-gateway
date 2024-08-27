@@ -10,9 +10,9 @@ keywords:
   - Tools
 ---
 
-import MigrationNotice from '/src/_includes/migration-notice.md'
+import UpdateNotice from '/src/_includes/update-notice.md'
 
-<MigrationNotice />
+<UpdateNotice />
 
 # Release notes
 
@@ -36,7 +36,7 @@ With API Mesh on the edge:
 
 Adobe recommends using edge meshes for the best performance. Refer to [Access your mesh URLs](../basic/create-mesh.md#access-your-mesh-urls) for more information.
 
-After updating your mesh, the `aio api-mesh describe` command contains both a legacy mesh endpoint and an edge mesh endpoint. Legacy meshes will be deprecated later this year.
+After updating your mesh, the `aio api-mesh describe` command contains both a legacy mesh endpoint and an edge mesh endpoint. Legacy meshes will be removed later this year.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -58,7 +58,15 @@ Due to compatibility limitations, certain features, such as [hooks](../advanced/
 
 <InlineAlert variant="info" slots="text"/>
 
-With the migration to edge, API Mesh no longer requires API keys.
+With the update to edge, API Mesh no longer requires API keys.
+
+### Performance testing
+
+When performance testing edge meshes in API Mesh, you need to account for cold starts to get an accurate measurement of the performance.
+
+If applicable, you should use the `Connection: Keep-Alive` header described in [Optimizing edge mesh performance](../basic/create-mesh.md#optimizing-edge-mesh-performance).
+
+Alternatively, you can manually warm the cache using the process described in [Performance testing](../best-practices/performance.md#performance-testing).
 
 ## August 06, 2024
 

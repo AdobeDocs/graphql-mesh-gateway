@@ -33,9 +33,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adobe/gatsby-theme-aio@npm:4.14.9":
-  version: 4.14.9
-  resolution: "@adobe/gatsby-theme-aio@npm:4.14.9"
+"@adobe/gatsby-theme-aio@npm:4.14.10":
+  version: 4.14.10
+  resolution: "@adobe/gatsby-theme-aio@npm:4.14.10"
   dependencies:
     "@adobe/focus-ring-polyfill": ^0.1.5
     "@adobe/gatsby-source-github-file-contributors": ^0.3.1
@@ -131,7 +131,7 @@ __metadata:
     gatsby: ^4.22.0
     react: ^17.0.2
     react-dom: ^17.0.2
-  checksum: 022e7c9b2698e2eac3fab0750454454c87a2f860c6eb6692543ba9d05103c4e23e149e150e442d8c1d206fe73e89be4f8e2c983e31ef3528e21b4cdbcb929bcc
+  checksum: 32a5e03af2a846c0ad2b9b29a33b683cafebfda6061bf22bb17e3300d233f45e65e698f52d6e43d51ed2e35e60b865ca59b430ef30ed1dcd2db41b879f4ad24c
   languageName: node
   linkType: hard
 
@@ -8718,9 +8718,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"elliptic@npm:^6.5.3":
-  version: 6.5.4
-  resolution: "elliptic@npm:6.5.4"
+"elliptic@npm:^6.5.3, elliptic@npm:^6.5.5":
+  version: 6.5.7
+  resolution: "elliptic@npm:6.5.7"
   dependencies:
     bn.js: ^4.11.9
     brorand: ^1.1.0
@@ -8729,22 +8729,7 @@ __metadata:
     inherits: ^2.0.4
     minimalistic-assert: ^1.0.1
     minimalistic-crypto-utils: ^1.0.1
-  checksum: d56d21fd04e97869f7ffcc92e18903b9f67f2d4637a23c860492fbbff5a3155fd9ca0184ce0c865dd6eb2487d234ce9551335c021c376cd2d3b7cb749c7d10f4
-  languageName: node
-  linkType: hard
-
-"elliptic@npm:^6.5.5":
-  version: 6.5.6
-  resolution: "elliptic@npm:6.5.6"
-  dependencies:
-    bn.js: ^4.11.9
-    brorand: ^1.1.0
-    hash.js: ^1.0.0
-    hmac-drbg: ^1.0.1
-    inherits: ^2.0.4
-    minimalistic-assert: ^1.0.1
-    minimalistic-crypto-utils: ^1.0.1
-  checksum: 213d778ccfe99ec8f0f871b1cc96a10ac3763d9175215d0a9dc026f291e5f50fea6f635e4e47b4506f9ada25aeb703bd807d8737b880dbb24d092a3001c6d97d
+  checksum: af0ffddffdbc2fea4eeec74388cd73e62ed5a0eac6711568fb28071566319785df529c968b0bf1250ba4bc628e074b2d64c54a633e034aa6f0c6b152ceb49ab8
   languageName: node
   linkType: hard
 
@@ -11480,7 +11465,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "graphql-mesh-gateway@workspace:."
   dependencies:
-    "@adobe/gatsby-theme-aio": 4.14.9
+    "@adobe/gatsby-theme-aio": 4.14.10
     gatsby: 4.22.0
     gatsby-plugin-html-comments: ^1.0.0
     react: ^17.0.0

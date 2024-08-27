@@ -99,7 +99,7 @@ After successfully running the status command, the response provides both legacy
   Your mesh was successfully built.
   ```
 
-Until Adobe migrates all legacy mesh URLs, the response to the `aio api-mesh:describe` command will list both the legacy and edge mesh URLs. The legacy mesh URL is a standard mesh URL, which Adobe will migrate soon. See the [migration notice](../release/migration.md) for more information.
+Until Adobe migrates all legacy mesh URLs, the response to the `aio api-mesh:describe` command will list both the legacy and edge mesh URLs. The legacy mesh URL is a standard mesh URL, which Adobe will migrate soon. See the [update notice](../release/update.md) for more information.
 
 The edge mesh URL offers several benefits because the edge is closer to your data sources. Edge meshes can provide the following advantages:
 
@@ -115,11 +115,11 @@ Edge meshes do not currently support Hooks or SOAP handlers. If you need to use 
 
 <InlineAlert variant="info" slots="text"/>
 
-Legacy mesh URLs will be deprecated in the future. Use the edge mesh URLs whenever possible.
+Legacy mesh URLs will be removed in the future. Use the edge mesh URLs whenever possible.
 
 ## Optimizing edge mesh performance
 
-Edge meshes are resilient and performant because they exist closer to the origin of your query, in over 330 locations in 120 countries. This means that your queries can hit a server that has not cached your mesh, causing a cold start.
+Edge meshes are resilient and performant because they exist closer to the origin of your query, in over 330 locations in 120 countries. This means that your queries can hit a server that has not initialized your mesh, causing a cold start.
 
 If you are using an API platform or a GraphQL client, add the [`Connection: Keep-Alive`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Keep-Alive) header to your requests. This header keeps the connection to the server open for future requests, which can significantly improve performance because it ensures you are hitting a warm cache. Using this header also prevents the unnecessary repetition of several steps of the [HTTP handshake](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection_management_in_HTTP_1.x).
 
