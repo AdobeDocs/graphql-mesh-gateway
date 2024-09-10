@@ -614,3 +614,115 @@ aio api-mesh:source:install "AEM Assets API"@0.0.1
 ```bash
 Successfully updated the mesh with the id: MESH_ID
 ```
+
+## aio api-mesh api-mesh log-list
+
+The `log-list` command lists the last 15 events for your mesh by rayID.
+
+### Usage
+
+```bash
+aio api-mesh log-list
+```
+
+### Flags
+
+The following arguments are all optional. If you do not supply them, the terminal response will prompt you for the information.
+
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
+
+`--filename` allows you to download a YAML or JSON list of rayIDs with the specified filename.
+
+`--json` outputs the logs in JSON format.
+
+### Response
+
+```terminal
+Selected organization: <ORG_NAME>
+Selected project: <PROJECT_NAME>
+Select workspace: <WORKSPACE_NAME>
+ Ray id           Timestamp      Response status Level          
+ ──────────────── ────────────── ─────────────── ────────────── 
+ 1a123456789abcd1 1724766278577  200             log            
+ 1a123456789abcd2 1724766287188  200             log            
+ 1a123456789abcd3 1724766286997  200             log            
+ 1a123456789abcd4 1724766280810  200             error
+ ```
+
+## aio api-mesh get-logs
+
+After finding the desired rayID with the [`aio api-mesh log-list` command](#aio-api-mesh-api-mesh-log-list), you can use the following command to retrieve the logs for a specific rayID:
+
+### Usage
+
+```bash
+aio api-mesh get-logs <rayID>
+```
+
+### Flags
+
+The following arguments are all optional. If you do not supply them, the terminal response will prompt you for the information.
+
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
+
+#### Example
+
+The following example gets the log for the `1a123456789abcd0` rayID:
+
+```bash
+aio api-mesh get-logs 1a123456789abcd0
+```
+
+### Response
+
+```terminal
+EventTimestampMs : 1724660422500
+Exceptions : []
+Logs : [{'Level': 'log', 'Message': ['[object Object]'], 'TimestampMs': 1724660422580}, {'Level': 'log', 'Message': ['{"sources":[{"name":"venia","handler":{"graphql":{"useGETForQueries":true,"endpoint":"https://venia.magento.com/graphql","operationHeaders":{"x-test-header":"{context.headers[\'x-test-header\']}"}}}}],"responseConfig":{"includeHTTPDetails":true},"additionalResolvers":[],"plugins":[{"httpDetailsExtensions":{}}]}'], 'TimestampMs': 1724660422500}]
+Outcome : ok
+MeshId : 12a3b4c5-6d78-4012-3456-7e890fa1bcde
+RayId : 1a123456789abcd0
+MeshUrl : https://edge-graph.adobe.io/api/REDACTED/graphql
+RequestMethod : POST
+RequestStatus : 200 
+```
+
+## aio api-mesh log-get-bulk
+
+The `log-get-bulk` command creates a CSV file with logs for the selected mesh during the specified time range. The maximum time range is 30 minutes.
+
+### Usage
+
+```bash
+aio api-mesh log-get-bulk --startTime YYYY-MM-DDTHH:MM:SSZ --endTime YYYY-MM-DDTHH:MM:SSZ --filename mesh_logs.csv
+```
+
+### Flags
+
+The following arguments are all optional. If you do not supply them, the terminal response will prompt you for the information.
+
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
+
+`startTime` the start time for log collection in the format `YYYY-MM-DDTHH:MM:SSZ`.
+
+`endTime` the end time for log collection in the format `YYYY-MM-DDTHH:MM:SSZ`.
+
+`filename` specifies the name of the file to output the logs to.
+
+#### Example
+
+The following example bulk downloads logs as a file named `mesh_logs.csv` for the specified time range:
+
+```bash
+aio api-mesh log-get-bulk --startTime 2024-08-27T21:31:39Z --endTime 2024-08-27T21:55:54Z --filename mesh_logs.csv
+```
+
+### Response
+
+```terminal
+Expected file size is 500 KB. Confirm mesh_logs.csv download? (y/n)`
+...
+Successfully downloaded the logs to mesh_logs.csv.
+```
+
+The downloaded file will look similar to [this example](../../_examples/bulk-logs.csv).

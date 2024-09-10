@@ -170,12 +170,16 @@ module.exports = [
                 ]
             },
             {
-                title: "Request and response headers",
-                path: "/mesh/advanced/headers.md"
-            },
-            {
                 title: "Hooks",
                 path: "/mesh/advanced/hooks.md",
+            },
+            {
+                title: "Logging",
+                path: "/mesh/advanced/logging.md",
+            },
+            {
+                title: "Request and response headers",
+                path: "/mesh/advanced/headers.md"
             },
             {
                 title: "Secrets management",
