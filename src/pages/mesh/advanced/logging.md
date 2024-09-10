@@ -30,7 +30,7 @@ By default, the events display in YAML. Use the `--json` flag to use JSON format
 
 After finding the relevant rayID, use the `aio api-mesh get-logs` command to retrieve the logs for that rayID.
 
-For more information see [`aio api-mesh log-list`](./index.md#aio-api-mesh-log-list).
+For more information see [`aio api-mesh log-list`](./index.md#aio-api-mesh-api-mesh-log-list).
 
 ## Display a single log by rayID
 
