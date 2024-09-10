@@ -615,7 +615,7 @@ aio api-mesh:source:install "AEM Assets API"@0.0.1
 Successfully updated the mesh with the id: MESH_ID
 ```
 
-## aio api-mesh api-mesh log-list
+## aio api-mesh log-list
 
 The `log-list` command lists the last 15 events for your mesh by rayID.
 
