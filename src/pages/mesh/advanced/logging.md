@@ -50,6 +50,6 @@ Use the following command to create a CSV file with logs for the selected mesh d
 aio api-mesh log-get-bulk --startTime 2024-08-27T21:31:39Z --endTime 2024-08-27T21:55:54Z --filename mesh_logs.csv
 ```
 
-The time format is `YYYY-MM-DDTHH:MM:SSZ`.
+The time format is `YYYY-MM-DDTHH:MM:SSZ`. You must convert your local time to UTC.
 
 For more information see [`aio api-mesh log-get-bulk`](./index.md#aio-api-mesh-log-get-bulk).

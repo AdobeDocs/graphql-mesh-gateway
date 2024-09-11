@@ -627,11 +627,13 @@ aio api-mesh log-list
 
 ### Flags
 
-The following arguments are all optional. If you do not supply them, the terminal response will prompt you for the information.
-
-`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
+The following arguments are required:
 
 `--filename` allows you to download a YAML or JSON list of rayIDs with the specified filename.
+
+The following arguments are optional.
+
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
 
 `--json` outputs the logs in JSON format.
 
@@ -661,7 +663,7 @@ aio api-mesh get-logs <rayID>
 
 ### Flags
 
-The following arguments are all optional. If you do not supply them, the terminal response will prompt you for the information.
+The following arguments are optional.
 
 `-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
 
@@ -699,15 +701,17 @@ aio api-mesh log-get-bulk --startTime YYYY-MM-DDTHH:MM:SSZ --endTime YYYY-MM-DDT
 
 ### Flags
 
-The following arguments are all optional. If you do not supply them, the terminal response will prompt you for the information.
+The following arguments are optional required:
+
+`--startTime` the start time for log collection in the format `YYYY-MM-DDTHH:MM:SSZ`. You must convert your local time to UTC.
+
+`--endTime` the end time for log collection in the format `YYYY-MM-DDTHH:MM:SSZ`. You must convert your local time to UTC.
+
+`--filename` specifies the name of the file to output the logs to.
+
+The following arguments are optional:
 
 `-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
-
-`startTime` the start time for log collection in the format `YYYY-MM-DDTHH:MM:SSZ`.
-
-`endTime` the end time for log collection in the format `YYYY-MM-DDTHH:MM:SSZ`.
-
-`filename` specifies the name of the file to output the logs to.
 
 #### Example
 
