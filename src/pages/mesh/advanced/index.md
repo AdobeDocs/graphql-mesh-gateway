@@ -651,7 +651,7 @@ Select workspace: <WORKSPACE_NAME>
 
 ## aio api-mesh:log-get
 
-After finding the desired rayID with the [`aio api-mesh log-list` command](#aio-api-mesh-log-list), you can use the following command to retrieve the logs for a specific rayID:
+After finding the desired rayID with the [`aio api-mesh log-list` command](#aio-api-meshlog-list), you can use the following command to retrieve the logs for a specific rayID:
 
 ### Usage
 
