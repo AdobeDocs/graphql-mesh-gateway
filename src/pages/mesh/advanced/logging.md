@@ -34,7 +34,7 @@ For more information see [`aio api-mesh:log-list`](./index.md#aio-api-mesh:log-l
 
 ## Display a single log by rayID
 
-After finding the desired rayID with the [`aio api-mesh log-list`](#display-recent-events) command, you can use the following command to retrieve the logs for a specific rayID:
+After finding the desired rayID with the [`aio api-mesh:log-list`](#display-recent-events) command, you can use the following command to retrieve the logs for a specific rayID:
 
 ```bash
 aio api-mesh:log-get 1a123456789abcd0
