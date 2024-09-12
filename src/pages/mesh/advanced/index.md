@@ -615,23 +615,21 @@ aio api-mesh:source:install "AEM Assets API"@0.0.1
 Successfully updated the mesh with the id: MESH_ID
 ```
 
-## aio api-mesh log-list
+## aio api-mesh:log-list
 
 The `log-list` command lists the last 15 events for your mesh by rayID.
 
 ### Usage
 
 ```bash
-aio api-mesh log-list
+aio api-mesh:log-list
 ```
 
 ### Flags
 
-The following arguments are required:
+The following arguments are optional:
 
-`--filename` allows you to download a YAML or JSON list of rayIDs with the specified filename.
-
-The following arguments are optional.
+`--filename` allows you to download a CSV list of rayIDs with the specified filename.
 
 `-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
 
@@ -651,14 +649,14 @@ Select workspace: <WORKSPACE_NAME>
  1a123456789abcd4 1724766280810  200             error
  ```
 
-## aio api-mesh log-get
+## aio api-mesh:log-get
 
 After finding the desired rayID with the [`aio api-mesh log-list` command](#aio-api-mesh-log-list), you can use the following command to retrieve the logs for a specific rayID:
 
 ### Usage
 
 ```bash
-aio api-mesh log-get <rayID>
+aio api-mesh:log-get <rayID>
 ```
 
 ### Flags
@@ -672,7 +670,7 @@ The following arguments are optional.
 The following example gets the log for the `1a123456789abcd0` rayID:
 
 ```bash
-aio api-mesh log-get 1a123456789abcd0
+aio api-mesh:log-get 1a123456789abcd0
 ```
 
 ### Response
@@ -689,19 +687,19 @@ RequestMethod : POST
 RequestStatus : 200 
 ```
 
-## aio api-mesh log-get-bulk
+## aio api-mesh:log-get-bulk
 
 The `log-get-bulk` command creates a CSV file with logs for the selected mesh during the specified time range. The maximum time range is 30 minutes.
 
 ### Usage
 
 ```bash
-aio api-mesh log-get-bulk --startTime YYYY-MM-DDTHH:MM:SSZ --endTime YYYY-MM-DDTHH:MM:SSZ --filename mesh_logs.csv
+aio api-mesh:log-get-bulk --startTime YYYY-MM-DDTHH:MM:SSZ --endTime YYYY-MM-DDTHH:MM:SSZ --filename mesh_logs.csv
 ```
 
 ### Flags
 
-The following arguments are optional required:
+The following arguments are required:
 
 `--startTime` the start time for log collection in the format `YYYY-MM-DDTHH:MM:SSZ`. You must convert your local time to UTC.
 
@@ -718,7 +716,7 @@ The following arguments are optional:
 The following example bulk downloads logs as a file named `mesh_logs.csv` for the specified time range:
 
 ```bash
-aio api-mesh log-get-bulk --startTime 2024-08-27T21:31:39Z --endTime 2024-08-27T21:55:54Z --filename mesh_logs.csv
+aio api-mesh:log-get-bulk --startTime 2024-08-27T21:31:39Z --endTime 2024-08-27T21:55:54Z --filename mesh_logs.csv
 ```
 
 ### Response
