@@ -651,14 +651,14 @@ Select workspace: <WORKSPACE_NAME>
  1a123456789abcd4 1724766280810  200             error
  ```
 
-## aio api-mesh get-logs
+## aio api-mesh log-get
 
 After finding the desired rayID with the [`aio api-mesh log-list` command](#aio-api-mesh-log-list), you can use the following command to retrieve the logs for a specific rayID:
 
 ### Usage
 
 ```bash
-aio api-mesh get-logs <rayID>
+aio api-mesh log-get <rayID>
 ```
 
 ### Flags
@@ -672,7 +672,7 @@ The following arguments are optional.
 The following example gets the log for the `1a123456789abcd0` rayID:
 
 ```bash
-aio api-mesh get-logs 1a123456789abcd0
+aio api-mesh log-get 1a123456789abcd0
 ```
 
 ### Response
