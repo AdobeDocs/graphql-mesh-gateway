@@ -15,7 +15,6 @@ keywords:
 
 Adding a content delivery network (CDN) for caching dynamic content with API Mesh for Adobe Developer App Builder provides additional security and improved performance. Follow these instructions to integrate API Mesh, Adobe Commerce, and [Fastly](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/cdn/fastly.html?lang=en) (provided with Adobe Commerce Pro accounts).
 
-
 ## Configure headers in API Mesh
 
 <InlineAlert variant="info" slots="text"/>
@@ -133,7 +132,6 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
   **NOTE**: The `Priority` of each VCL snippet determines the order in which VCL subroutines are executed. The following `Priority` fields only apply to the default configuration of Adobe Commerce. If you have other custom snippets, you will need to adjust the priorities accordingly.
 
    - Allows API Mesh to function as a [Fastly backend](https://developer.fastly.com/reference/vcl/declarations/backend/).
-     
      - **Name** - api_mesh_backend
      - **Type** - **init**
      - **Priority** - **1**
@@ -170,7 +168,6 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         ```
 
    - Enables the bypass header in API Mesh:
-     
      - **Name** - api_mesh_recv
      - **Type** - **recv**
      - **Priority** - **10**
@@ -183,7 +180,6 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         ```
 
    - Determines what GraphQL can be cached:
-     
      - **Name** - api_mesh_recv_graphql
      - **Type** - **recv**
      - **Priority** - **60**
@@ -203,7 +199,6 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         ```
 
    - Cache miss:
-
      - **Name** - api_mesh_miss
      - **Type** - **miss**
      - **Priority** - **60**
@@ -251,9 +246,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         }
         ```
 
-
 In **Fastly Configuration** click **Upload VCL to Fastly**. Click **Save Config**.
-
 
 ## Test your configuration
 
