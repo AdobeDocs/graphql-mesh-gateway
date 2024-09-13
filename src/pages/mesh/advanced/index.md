@@ -633,8 +633,6 @@ The following arguments are optional:
 
 `-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
 
-`--json` outputs the logs in JSON format.
-
 ### Response
 
 ```terminal

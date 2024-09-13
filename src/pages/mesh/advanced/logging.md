@@ -26,7 +26,7 @@ The following command displays the 15 most recent events by rayID and the status
 aio api-mesh:log-list 
 ```
 
-By default, the events display in YAML. Use the `--json` flag to use JSON formatting.
+By default, the events display in YAML.
 
 The rayID is a unique identifier that is associated with every request made through an edge mesh. After finding the relevant rayID, use the `aio api-mesh:log-get` command to retrieve the logs for that rayID.
 
