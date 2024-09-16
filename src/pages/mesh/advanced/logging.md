@@ -10,13 +10,13 @@ keywords:
   - Tools
 ---
 
-<InlineAlert variant="info" slots="text"/>
-
-Only edge meshes support logging.
-
 # Logging
 
 API Mesh for Adobe Developer App Builder allows you to use logs to monitor and debug issues with your mesh and its sources. After [getting a list](#display-recent-requests) of recent logs by rayID, you can [look up a recent log](#display-a-single-log-by-rayid). Alternatively, you can [export logs in bulk](#export-bulk-logs) for a specific time range.
+
+<InlineAlert variant="info" slots="text"/>
+
+Only [edge meshes](../basic/create-mesh.md#access-your-mesh-urls) support logging.
 
 ## Display recent requests
 
