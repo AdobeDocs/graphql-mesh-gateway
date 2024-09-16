@@ -17,7 +17,7 @@ Adding a content delivery network (CDN) for caching dynamic content with API Mes
 
 ## Configure Fastly for edge meshes
 
-You must add the following [custom VCL](https://docs.fastly.com/en/guides/uploading-custom-vcl) to configure Fastly as a backend:
+You must add the following [custom VCL](https://experienceleague.adobe.com/en/docs/commerce-cloud-service/user-guide/cdn/custom-vcl-snippets/fastly-vcl-custom-snippets) to configure Fastly as a backend:
 
 **Custom VCL in Fastly**
 
