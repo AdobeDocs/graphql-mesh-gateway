@@ -617,7 +617,7 @@ Successfully updated the mesh with the id: MESH_ID
 
 ## aio api-mesh:log-list
 
-The `log-list` command lists the last 15 events for your mesh by rayID.
+The `log-list` command lists the most recent requests for your mesh by rayID. By default, the command shows the 15 most recent requests.
 
 ### Usage
 
@@ -629,9 +629,9 @@ aio api-mesh:log-list
 
 The following arguments are optional:
 
-`--filename` allows you to download a CSV list of rayIDs with the specified filename.
+`--filename` allows you to download a CSV list of rayIDs with the specified filename. This flag exports all requests from the last 15 minutes.
 
-`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to make new selections. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
 
 ### Response
 
@@ -661,7 +661,7 @@ aio api-mesh:log-get <rayID>
 
 The following arguments are optional.
 
-`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to make new selections. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
 
 #### Example
 
@@ -687,7 +687,7 @@ RequestStatus : 200
 
 ## aio api-mesh:log-get-bulk
 
-The `log-get-bulk` command creates a CSV file with logs for the selected mesh during the specified time range. The maximum time range is 30 minutes.
+The `log-get-bulk` command creates a CSV file with logs for the selected mesh during the specified time range. The maximum time range is 30 minutes and only logs from the last 30 days are accessible.
 
 ### Usage
 
@@ -707,7 +707,7 @@ The following arguments are required:
 
 The following arguments are optional:
 
-`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to create a mesh in a different workspace. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
+`-i` or `--ignoreCache` ignores the cached organization, project, and workspace, which allows you to make new selections. You can also manually [modify the cache](../basic/work-with-mesh.md#projects-and-workspaces).
 
 #### Example
 

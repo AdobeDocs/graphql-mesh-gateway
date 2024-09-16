@@ -16,17 +16,17 @@ Only edge meshes support logging.
 
 # Logging
 
-API Mesh for Adobe Developer App Builder allows you to use logs to monitor and debug issues with your mesh and its sources. After [getting a list](#display-recent-events) of recent logs by rayID, you can [look up a recent log](#display-a-single-log-by-rayid). Alternatively, you can [export logs in bulk](#export-bulk-logs) or for a specific time range.
+API Mesh for Adobe Developer App Builder allows you to use logs to monitor and debug issues with your mesh and its sources. After [getting a list](#display-recent-requests) of recent logs by rayID, you can [look up a recent log](#display-a-single-log-by-rayid). Alternatively, you can [export logs in bulk](#export-bulk-logs) for a specific time range.
 
-## Display recent events
+## Display recent requests
 
-The following command displays the 15 most recent events by rayID and the status of those events:
+The following command displays the 15 most recent requests by rayID and the status of those requests:
 
 ```bash
 aio api-mesh:log-list 
 ```
 
-By default, the events display in YAML.
+By default, the requests display in YAML.
 
 The rayID is a unique identifier that is associated with every request made through an edge mesh. After finding the relevant rayID, use the `aio api-mesh:log-get` command to retrieve the logs for that rayID.
 
@@ -34,7 +34,7 @@ For more information see [`aio api-mesh:log-list`](./index.md#aio-api-meshlog-li
 
 ## Display a single log by rayID
 
-After finding the desired rayID with the [`aio api-mesh:log-list`](#display-recent-events) command, you can use the following command to retrieve the logs for a specific rayID:
+After finding the desired rayID with the [`aio api-mesh:log-list`](#display-recent-requests) command, you can use the following command to retrieve the logs for a specific rayID:
 
 ```bash
 aio api-mesh:log-get 1a123456789abcd0
