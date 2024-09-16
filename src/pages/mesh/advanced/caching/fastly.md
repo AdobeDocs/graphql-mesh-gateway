@@ -17,14 +17,15 @@ Adding a content delivery network (CDN) for caching dynamic content with API Mes
 
 ## Configure Fastly for edge meshes
 
-There are two requirements for using edge meshes with Fastly:
-
-- You must [set your TLS](https://docs.fastly.com/en/guides/enabling-tls-1-3-through-fastly) minimum and maximum versions to TLS `1.3`.
-- You must add the following [custom VCL](https://docs.fastly.com/en/guides/uploading-custom-vcl) to configure Fastly as a backend:
+You must add the following [custom VCL](https://docs.fastly.com/en/guides/uploading-custom-vcl) to configure Fastly as a backend:
 
 **Custom VCL in Fastly**
 
 The following VCL points the Fastly backend to `edge-graph.adobe.io` which corresponds to the `Production` workspace in your project.
+
+<InlineAlert variant="info" slots="text"/>
+
+This backend declaration specifies the minimum and maximum TLS version as `1.3`.
 
 ```csharp
 # Backend declaration
@@ -43,6 +44,8 @@ backend F_edge_graph_adobe_io {
     .ssl_cert_hostname = "edge-graph.adobe.io";
     .ssl_check_cert = always;
     .ssl_sni_hostname = "edge-graph.adobe.io";
+    .max_tls_version = "1.3";
+    .min_tls_version = "1.3";
     .probe = {
         .dummy = true;
         .initial = 5;
