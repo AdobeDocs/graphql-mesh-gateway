@@ -109,6 +109,8 @@ After you [create](../../basic/create-mesh.md#create-a-mesh) or [update](../../b
 
 ## Configure Fastly in Adobe Commerce
 
+### Add VCL snippets
+
 After setting up your API Mesh, open your Adobe Commerce Admin and use the following steps to configure dynamic content caching with the provided Fastly CDN. You will need access to the following prerequisites:
 
 - Adobe Commerce
@@ -174,18 +176,16 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
      - **Content**:
 
         ```csharp
+        # set mesh backend for /api/ requests
+        if (req.url ~ "^/api/") {
+          set req.backend = F_edge_graph_adobe_io;
+        }
+        
         if (req.http.x-commerce-bypass-fastly-cache == "true") {
           return (pass);
         }
-        ```
 
-   - Determines what GraphQL can be cached:
-     - **Name** - api_mesh_recv_graphql
-     - **Type** - **recv**
-     - **Priority** - **60**
-     - **Content**:
-
-        ```csharp
+        # Determines what GraphQL can be cached
         if ((req.request == "GET" || req.request == "HEAD") && (req.url.path ~ "/graphql" || req.url ~ "^/api/(.*)") && req.url.qs ~ "query=") {
           set req.http.graphql = "1";
         } else {
@@ -195,30 +195,6 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         if (req.url.path !~ "/graphql" && req.url !~ "^/api/(.*)") {
           set req.http.Magento-Original-URL = req.url;
           set req.url = querystring.regfilter(req.url, "^(utm_.*|gclid|gdftrk|_ga|mc_.*|trk_.*|dm_i|_ke|sc_.*|fbclid)$");
-        }
-        ```
-
-   - Cache miss:
-     - **Name** - api_mesh_miss
-     - **Type** - **miss**
-     - **Priority** - **60**
-     - **Content**:
-
-        ```csharp
-        if (req.url ~ "^/api/") {
-          set req.backend = F_edge_graph_adobe_io;
-        }
-        ```
-
-   - Cache pass:
-     - **Name** - api_mesh_pass
-     - **Type** - **pass**
-     - **Priority** - **10**
-     - **Content**:
-
-        ```csharp
-        if (req.url ~ "^/api/") {
-          set req.backend = F_edge_graph_adobe_io;
         }
         ```
 
@@ -247,6 +223,23 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         ```
 
 In **Fastly Configuration** click **Upload VCL to Fastly**. Click **Save Config**.
+
+### Configure default backend
+
+The default backend must not handle the "/api/" requests. To achieve, we are adding a condition to the existing backend.
+
+- In **Fastly Configuration > Backend Settings**, click on the wheel of the backend named **<project_id>.magento.cloud**.
+
+- Here, click on "Create a new request condition" like :
+
+     - **Name** - default_backend
+     - **Apply if...**:
+
+        ```csharp
+        req.url !~ "^/api/"
+        ```
+- Click on "Create" of the condition
+- Click on "Create" of the backend
 
 ## Test your configuration
 
