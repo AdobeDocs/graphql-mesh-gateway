@@ -19,7 +19,7 @@ Adding a content delivery network (CDN) for caching dynamic content with API Mes
 
 <InlineAlert variant="info" slots="text"/>
 
-After adding VCL snippets in the [Fastly Setup](#configure-fastly-in-adobe-commerce), your Commerce GraphQL URL is now in the following format : `<Commerce-URL>/api/<meshId>/graphql`
+After adding VCL snippets in the [Fastly Setup](#configure-fastly-in-adobe-commerce), your Commerce GraphQL URL is now in the following format: `<Commerce-URL>/api/<meshId>/graphql`
 
 To distinguish between requests from users and requests from API Mesh, use the following source operation header to prevent Fastly from caching headers that come directly from API Mesh:
 
@@ -108,6 +108,8 @@ API Mesh prefixes any Fastly source headers with their source name. For example,
 After you [create](../../basic/create-mesh.md#create-a-mesh) or [update](../../basic/create-mesh.md#update-an-existing-mesh) your mesh, run an [`aio api-mesh:describe`](../../advanced/index.md#aio-api-meshdescribe) command to view your mesh URL. Run a query against this URL to confirm that your mesh is working correctly.
 
 ## Configure Fastly in Adobe Commerce
+
+The following sections describe how to configure Fastly in Adobe Commerce.
 
 ### Add VCL snippets
 
@@ -226,11 +228,11 @@ In **Fastly Configuration** click **Upload VCL to Fastly**. Click **Save Config*
 
 ### Configure default backend
 
-The default backend must not handle the "/api/" requests. To achieve, we are adding a condition to the existing backend.
+The default backend does not handle "/api/" requests. To allow API requests, add a condition to the existing backend:
 
-- In **Fastly Configuration > Backend Settings**, click on the wheel of the backend named **<project_id>.magento.cloud**.
+1. In **Fastly Configuration > Backend Settings**, click on the gear icon next to **<project_id>.magento.cloud**.
 
-- Here, click on "Create a new request condition" like :
+1. Click **Create a new request condition** and add a condition like the following example:
 
      - **Name** - default_backend
      - **Apply if...**:
@@ -239,8 +241,8 @@ The default backend must not handle the "/api/" requests. To achieve, we are add
         req.url !~ "^/api/"
         ```
 
-- Click on "Create" of the condition
-- Click on "Create" of the backend
+1. Click **Create** on the condition.
+1. Click **Create** on the backend.
 
 ## Test your configuration
 
