@@ -39,7 +39,7 @@ Edge meshes can take slightly longer to build than legacy meshes. Wait two or th
 
 ## Fastly and edge meshes
 
-If you intend to use Fastly, follow [Configure Fastly for edge meshes](../advanced/caching/fastly.md#configure-fastly-for-edge-meshes).
+If you intend to use Fastly, follow [Configure Fastly for edge meshes](../advanced/caching/fastly.md).
 
 ## Key Dates
 

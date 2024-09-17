@@ -44,7 +44,7 @@ If you have an allowlist, add the [edge mesh IP addresses](https://www.cloudflar
 
 <InlineAlert variant="info" slots="text"/>
 
-If you intend to use Fastly, follow [Configure Fastly for edge meshes](../advanced/caching/fastly.md#configure-fastly-for-edge-meshes).
+If you intend to use Fastly, follow [Configure Fastly for edge meshes](../advanced/caching/fastly.md).
 
 The following commands will take slightly longer to complete. Consider using [local development](../advanced/developer-tools.md#local-development-files) for testing and development purposes:
 
