@@ -238,6 +238,7 @@ The default backend must not handle the "/api/" requests. To achieve, we are add
         ```csharp
         req.url !~ "^/api/"
         ```
+
 - Click on "Create" of the condition
 - Click on "Create" of the backend
 
