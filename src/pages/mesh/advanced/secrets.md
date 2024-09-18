@@ -213,7 +213,7 @@ Use the following GraphQL query to retrieve the headers. This query will vary de
         "cf-ipcountry": "US",
         "cf-ray": "abc123abc123",
         "cf-visitor": "{\"scheme\":\"https\"}",
-        "connection": "Keep-Alive",
+        "connection": "keep-alive",
         "host": "header-reflection-service",
         "secretaemeader": "abcabcdefdefxyzxyz",
         "secretheader": "\\/root",

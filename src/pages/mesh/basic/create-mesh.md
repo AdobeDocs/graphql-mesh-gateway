@@ -121,11 +121,11 @@ Legacy mesh URLs will be removed in the future. Use the edge mesh URLs whenever 
 
 Edge meshes are resilient and performant because they exist closer to the origin of your query, in over 330 locations in 120 countries. This means that your queries can hit a server that has not initialized your mesh, causing a cold start.
 
-If you are using an API platform or a GraphQL client, add the [`Connection: Keep-Alive`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Keep-Alive) header to your requests. This header keeps the connection to the server open for future requests, which can significantly improve performance because it ensures you are hitting a warm cache. Using this header also prevents the unnecessary repetition of several steps of the [HTTP handshake](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection_management_in_HTTP_1.x).
+If you are using an API platform or a GraphQL client, add the [`Connection: keep-alive`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Keep-Alive) header to your requests. This header keeps the connection to the server open for future requests, which can significantly improve performance because it ensures you are hitting a warm cache. Using this header also prevents the unnecessary repetition of several steps of the [HTTP handshake](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection_management_in_HTTP_1.x).
 
 <InlineAlert variant="info" slots="text"/>
 
-Some platforms and command-line tools, such as cURL, do not respect the `Connection: Keep-Alive` header. Consider [priming your mesh](../best-practices/performance.md) to improve performance.
+Some platforms and command-line tools, such as cURL, do not respect the `Connection: keep-alive` header. Consider [priming your mesh](../best-practices/performance.md) to improve performance.
 
 ## Create a mesh from a source
 
