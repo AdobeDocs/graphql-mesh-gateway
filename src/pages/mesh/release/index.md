@@ -24,7 +24,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-Improved performance during cold starts for edge meshes. To benefit from this enhancement, your edge mesh must be in a "Production" workspace. For previously created meshes, you must run the `aio api-mesh update` command on your Production edge mesh before you can benefit from this enhancement.
+Improved performance during cold starts for edge meshes. To benefit from this enhancement, your edge mesh must be in a ["Production" workspace](../basic/work-with-mesh.md#projects-and-workspaces) on the Adobe Developer console. For previously created meshes, you must run the `aio api-mesh update` command on your Production edge mesh before you can benefit from this enhancement.
 
 ## August 15, 2024
 
