@@ -226,6 +226,21 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
 
 In **Fastly Configuration** click **Upload VCL to Fastly**. Click **Save Config**.
 
+#### Configure Fastly Next-Gen WAF
+
+If you are using Adobe Commerce with Fastly Next-Gen WAF enabled, you must add the following VCL snippet, which prevents the WAF from inspecting the request twice. Not adding this snippet causes the Next-Gen WAF to strip headers from the request, which can cause errors.
+
+- **Name** - api_mesh_inspection
+- **Type** - **recv**
+- **Priority** - **1**
+- **Content**:
+
+  ```csharp
+  if (table.lookup(eds_domains, req.http.Host)  &&  req.url ~ "/graphql"){
+    set req.http.x-sigsci-no-inspection = "disabled";
+  }
+  ```
+
 ### Configure default backend
 
 The default backend does not handle "/api/" requests. To allow API requests, add a condition to the existing backend:
