@@ -44,7 +44,7 @@ If you have an allowlist, add the [edge mesh IP addresses](https://www.cloudflar
 
 <InlineAlert variant="info" slots="text"/>
 
-If you intend to use Fastly, follow [Configure Fastly for edge meshes](../advanced/caching/fastly.md#configure-fastly-for-edge-meshes).
+If you intend to use Fastly, follow [Configure Fastly for edge meshes](../advanced/caching/fastly.md).
 
 The following commands will take slightly longer to complete. Consider using [local development](../advanced/developer-tools.md#local-development-files) for testing and development purposes:
 
@@ -64,7 +64,7 @@ With the update to edge, API Mesh no longer requires API keys.
 
 When performance testing edge meshes in API Mesh, you need to account for cold starts to get an accurate measurement of the performance.
 
-If applicable, you should use the `Connection: Keep-Alive` header described in [Optimizing edge mesh performance](../basic/create-mesh.md#optimizing-edge-mesh-performance).
+If applicable, you should use the `Connection: keep-alive` header described in [Optimizing edge mesh performance](../basic/create-mesh.md#optimizing-edge-mesh-performance).
 
 Alternatively, you can manually warm the cache using the process described in [Performance testing](../best-practices/performance.md#performance-testing).
 

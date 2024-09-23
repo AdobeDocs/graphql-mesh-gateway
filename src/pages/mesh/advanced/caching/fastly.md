@@ -15,99 +15,11 @@ keywords:
 
 Adding a content delivery network (CDN) for caching dynamic content with API Mesh for Adobe Developer App Builder provides additional security and improved performance. Follow these instructions to integrate API Mesh, Adobe Commerce, and [Fastly](https://experienceleague.adobe.com/docs/commerce-cloud-service/user-guide/cdn/fastly.html?lang=en) (provided with Adobe Commerce Pro accounts).
 
-## Configure Fastly for edge meshes
-
-There are two requirements for using edge meshes with Fastly:
-
-- You must [set your TLS](https://docs.fastly.com/en/guides/enabling-tls-1-3-through-fastly) minimum and maximum versions to TLS `1.3`.
-- You must add the following [custom VCL](https://docs.fastly.com/en/guides/uploading-custom-vcl) to configure Fastly as a backend:
-
-**Custom VCL in Fastly**
-
-The following VCL points the Fastly backend to `edge-graph.adobe.io` which corresponds to the `Production` workspace in your project.
-
-```csharp
-# Backend declaration
-backend F_edge_graph_adobe_io {
-    .always_use_host_header = true;
-    .between_bytes_timeout = 10s;
-    .connect_timeout = 1s;
-    .dynamic = true;
-    .first_byte_timeout = 15s;
-    .host = "edge-graph.adobe.io";
-    .host_header = "edge-graph.adobe.io";
-    .max_connections = 200;
-    .port = "443";
-    .share_key = "XXXXXXXXXXXXXXXX";
-    .ssl = true;
-    .ssl_cert_hostname = "edge-graph.adobe.io";
-    .ssl_check_cert = always;
-    .ssl_sni_hostname = "edge-graph.adobe.io";
-    .probe = {
-        .dummy = true;
-        .initial = 5;
-        .request = "HEAD / HTTP/1.1" "Host: edge-graph.adobe.io" "Connection: close";
-        .threshold = 1;
-        .timeout = 2s;
-        .window = 5;
-    }
-}
-# Subroutine
-sub vcl_recv {
-    if (req.url ~ "^/api/") {
-        set req.backend = F_edge_graph_adobe_io;
-    }
-} 
-```
-
-**Custom VCL in Adobe Commerce**
-
-For more information on the configuration process, see [Configure Fastly in Adobe Commerce](#configure-fastly-in-adobe-commerce).
-
-- **Name** - api_mesh_backend
-- **Type** - **init**
-- **Priority** - **1**
-- **Content**:
-
-```csharp
-# Backend declaration
-backend F_edge_graph_adobe_io {
-    .always_use_host_header = true;
-    .between_bytes_timeout = 10s;
-    .connect_timeout = 1s;
-    .dynamic = true;
-    .first_byte_timeout = 15s;
-    .host = "edge-graph.adobe.io";
-    .host_header = "edge-graph.adobe.io";
-    .max_connections = 200;
-    .port = "443";
-    .share_key = "XXXXXXXXXXXXXXXX";
-    .ssl = true;
-    .ssl_cert_hostname = "edge-graph.adobe.io";
-    .ssl_check_cert = always;
-    .ssl_sni_hostname = "edge-graph.adobe.io";
-    .probe = {
-        .dummy = true;
-        .initial = 5;
-        .request = "HEAD / HTTP/1.1" "Host: edge-graph.adobe.io" "Connection: close";
-        .threshold = 1;
-        .timeout = 2s;
-        .window = 5;
-    }
-}
-# Subroutine
-sub vcl_recv {
-    if (req.url ~ "^/api/") {
-        set req.backend = F_edge_graph_adobe_io;
-    }
-} 
-```
-
 ## Configure headers in API Mesh
 
 <InlineAlert variant="info" slots="text"/>
 
-After adding VCL snippets in the [Fastly Setup](#configure-fastly-in-adobe-commerce), your Commerce GraphQL URL is now in the following format with no `api_key` appended: `<Commerce-URL>/api/<meshId>/graphql`
+After adding VCL snippets in the [Fastly Setup](#configure-fastly-in-adobe-commerce), your Commerce GraphQL URL is now in the following format: `<Commerce-URL>/api/<meshId>/graphql`
 
 To distinguish between requests from users and requests from API Mesh, use the following source operation header to prevent Fastly from caching headers that come directly from API Mesh:
 
@@ -197,6 +109,10 @@ After you [create](../../basic/create-mesh.md#create-a-mesh) or [update](../../b
 
 ## Configure Fastly in Adobe Commerce
 
+The following sections describe how to configure Fastly in Adobe Commerce.
+
+### Add VCL snippets
+
 After setting up your API Mesh, open your Adobe Commerce Admin and use the following steps to configure dynamic content caching with the provided Fastly CDN. You will need access to the following prerequisites:
 
 - Adobe Commerce
@@ -219,7 +135,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
 
   **NOTE**: The `Priority` of each VCL snippet determines the order in which VCL subroutines are executed. The following `Priority` fields only apply to the default configuration of Adobe Commerce. If you have other custom snippets, you will need to adjust the priorities accordingly.
 
-   - Allows API Mesh to function as a [Fastly backend](https://developer.fastly.com/reference/vcl/declarations/backend/). If you added this VCL as part of [Configure Fastly for edge meshes](#configure-fastly-for-edge-meshes), you do not need to add it again.
+   - Allows API Mesh to function as a [Fastly backend](https://developer.fastly.com/reference/vcl/declarations/backend/).
      - **Name** - api_mesh_backend
      - **Type** - **init**
      - **Priority** - **1**
@@ -242,6 +158,8 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
             .ssl_cert_hostname = "edge-graph.adobe.io";
             .ssl_check_cert = always;
             .ssl_sni_hostname = "edge-graph.adobe.io";
+            .max_tls_version = "1.3";
+            .min_tls_version = "1.3";
             .probe = {
                 .dummy = true;
                 .initial = 5;
@@ -251,12 +169,6 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
                 .window = 5;
             }
         }
-        # Subroutine
-        sub vcl_recv {
-            if (req.url ~ "^/api/") {
-                set req.backend = F_edge_graph_adobe_io;
-            }
-        } 
         ```
 
    - Enables the bypass header in API Mesh:
@@ -266,73 +178,26 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
      - **Content**:
 
         ```csharp
+        # set mesh backend for /api/ requests
+        if (req.url ~ "^/api/") {
+          set req.backend = F_edge_graph_adobe_io;
+        }
+        
         if (req.http.x-commerce-bypass-fastly-cache == "true") {
           return (pass);
         }
-        ```
 
-   - Determines what GraphQL can be cached:
-     - **Name** - api_mesh_recv2
-     - **Type** - **recv**
-     - **Priority** - **60**
-     - **Content**:
-
-        ```csharp
-        if ((req.request == "GET" || req.request == "HEAD") && (req.url.path~"/graphql" || req.url "^/api/(.*)") && req.url.qs~"query=") {
+        # Determines what GraphQL can be cached
+        if ((req.request == "GET" || req.request == "HEAD") && (req.url.path ~ "/graphql" || req.url ~ "^/api/(.*)") && req.url.qs ~ "query=") {
           set req.http.graphql = "1";
-        }
-        else {
+        } else {
           unset req.http.graphql;
         }
+        
         if (req.url.path !~ "/graphql" && req.url !~ "^/api/(.*)") {
           set req.http.Magento-Original-URL = req.url;
-
           set req.url = querystring.regfilter(req.url, "^(utm_.*|gclid|gdftrk|_ga|mc_.*|trk_.*|dm_i|_ke|sc_.*|fbclid)$");
         }
-        ```
-
-   - Cache miss - replace the `<mesh_id>` and `<mesh_api_key>` placeholders with the information from your API Mesh URL, which has the following structure: `https://graph.adobe.io/api/<meshId>/graphql?api_key=<your_apiKey>`. You can retrieve this information by running an [`aio api-mesh:describe`](../../advanced/index.md#aio-api-meshdescribe) command:
-     - **Name** - api_mesh_miss
-     - **Type** - **miss**
-     - **Priority** - **60**
-     - **Content**:
-
-        ```csharp
-        if (req.url ~ "^/api/") {
-          set req.backend = F_graph_prod_adobe_io;
-        }
-        //API Mesh prod mapping
-        if (req.url ~ "^/api/<mesh_id>") {
-          set bereq.http.x-api-key = "<mesh_api_key>";
-        }
-        # //Optionally add another mesh
-        # //API Mesh stage mapping
-        # if (req.url ~ "^/api/<mesh_id>") {
-        #   set bereq.http.x-api-key = "<mesh_api_key>";
-        # }
-        ```
-
-  The following `api_mesh_pass` snippet allows you to query your mesh URL without appending the `api_key`:
-
-   - Cache pass - replace the `<mesh_id>` and `<mesh_api_key>` placeholders with the information from your mesh URL, which has the following structure: `https://graph.adobe.io/api/<meshId>/graphql?api_key=<mesh_api_key>`:
-     - **Name** - api_mesh_pass
-     - **Type** - **pass**
-     - **Priority** - **10**
-     - **Content**:
-
-        ```csharp
-        if (req.url ~ "^/api/") {
-          set req.backend = F_graph_prod_adobe_io;
-        }
-        //API Mesh prod mapping
-        if (req.url ~ "^/api/<mesh_id>") {
-          set bereq.http.x-api-key = "<mesh_api_key>";
-        }
-        # //Optionally add another environment
-        # //API Mesh stage mapping
-        # if (req.url ~ "^/api/<mesh_id>") {
-        #   set bereq.http.x-api-key = "<mesh_api_key>";
-        # }
         ```
 
    - Cache fetch:
@@ -359,13 +224,25 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         }
         ```
 
-1. In **Fastly Configuration** > **Backend Settings** click **Create**. Add a new backend with the following information:
+In **Fastly Configuration** click **Upload VCL to Fastly**. Click **Save Config**.
 
-   - **Condition** - `req.url ~ "^/api/(.*)" ,`
-   - **Address** - **graph.adobe.io**
-   - **Priority** - **8**
+### Configure default backend
 
-1. In **Fastly Configuration** click **Upload VCL to Fastly**. Click **Save Config**.
+The default backend does not handle "/api/" requests. To allow API requests, add a condition to the existing backend:
+
+1. In **Fastly Configuration > Backend Settings**, click on the gear icon next to **<project_id>.magento.cloud**.
+
+1. Click **Create a new request condition** and add a condition like the following example:
+
+     - **Name** - default_backend
+     - **Apply if...**:
+
+        ```csharp
+        req.url !~ "^/api/"
+        ```
+
+1. Click **Create** on the condition.
+1. Click **Create** on the backend.
 
 ## Test your configuration
 
@@ -378,14 +255,14 @@ curl --globoff --include '<Commerce-URL>/api/<meshId>/graphql?query={products(se
 Review the values of the `x-cache` and `x-cache-hits` headers to determine if the cache is being used. The first time you run this query, the headers should return:
 
 ```yaml
-x-cache: MISS, MISS
+x-cache: MISS, MISS, MISS
 x-cache-hits: 0
 ```
 
 Two `MISS` values and `0` hits indicate that the cache was not used in this query. Run the cURL command again and you should see the values change to the following:
 
 ```yaml
-x-cache: MISS, HIT
+x-cache: MISS, HIT, MISS
 x-cache-hits: 1 
 ```
 

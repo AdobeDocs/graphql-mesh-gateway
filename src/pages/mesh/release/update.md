@@ -39,7 +39,7 @@ Edge meshes can take slightly longer to build than legacy meshes. Wait two or th
 
 ## Fastly and edge meshes
 
-If you intend to use Fastly, follow [Configure Fastly for edge meshes](../advanced/caching/fastly.md#configure-fastly-for-edge-meshes).
+If you intend to use Fastly, follow [Configure Fastly for edge meshes](../advanced/caching/fastly.md).
 
 ## Key Dates
 
@@ -52,6 +52,6 @@ If you have any questions or concerns, contact our team directly, by emailing nr
 
 When performance testing edge meshes in API Mesh, you need to account for cold starts to get an accurate measurement of the performance.
 
-If applicable, you should use the `Connection: Keep-Alive` header described in [Optimizing edge mesh performance](../basic/create-mesh.md#optimizing-edge-mesh-performance).
+If applicable, you should use the `Connection: keep-alive` header described in [Optimizing edge mesh performance](../basic/create-mesh.md#optimizing-edge-mesh-performance).
 
 Alternatively, you can manually warm the cache using the process described in [Performance testing](../best-practices/performance.md#performance-testing).
