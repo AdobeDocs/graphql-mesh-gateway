@@ -131,7 +131,7 @@ aio api-mesh:create [FILE] [-i] [-c] [--json] [-e <value>] [-s <value>] [--help]
 
 `--json` outputs the `json` of the created mesh.
 
-`e` or `--env` allows you to provide an environment variables file. Refer to [developer tools](./developer-tools.md#environment-variables) for more information.
+`-e` or `--env` allows you to provide an environment variables file. Refer to [developer tools](./developer-tools.md#environment-variables) for more information.
 
 `--secrets [FILE]` allows you to provide a separate YAML file that defines your [secrets](./secrets.md).
 
@@ -172,9 +172,9 @@ aio api-mesh:update [FILE] [-i] [-c] [-e <value>] [-s <value>] [--help]
 
 `-c` or `--autoConfirmAction` automatically confirms the mesh update instead of prompting the user to confirm.
 
-`e` or `--env` allows you to provide an environment variables file. Refer to [developer tools](./developer-tools.md#environment-variables) for more information.
+`-e` or `--env` allows you to provide an environment variables file. Refer to [developer tools](./developer-tools.md#environment-variables) for more information.
 
-`s` or `--secrets [FILE]` allows you to provide a separate YAML file that defines your [secrets](./secrets.md).
+`-s` or `--secrets [FILE]` allows you to provide a separate YAML file that defines your [secrets](./secrets.md).
 
 `--help` provides information on the specified command.
 
