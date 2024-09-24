@@ -247,7 +247,7 @@ In **Fastly Configuration** click **Upload VCL to Fastly**. Click **Save Config*
 
 #### Configure Fastly Next-Gen WAF
 
-If you are using Adobe Commerce with Fastly Next-Gen WAF enabled, you must add the following VCL snippet, which prevents the WAF from inspecting the request twice. Not adding this snippet causes the Next-Gen WAF to strip headers from the request, which can cause errors.
+If you are using Adobe Commerce with Fastly Next-Gen WAF enabled, you must add the following VCL snippet, which prevents the WAF from inspecting the request twice. If you do not add this snippet, the Next-Gen WAF strips headers from the request, which can cause errors.
 
 - **Name** - api_mesh_inspection
 - **Type** - **recv**
