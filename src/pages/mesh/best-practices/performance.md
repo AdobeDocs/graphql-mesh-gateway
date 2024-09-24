@@ -14,7 +14,7 @@ keywords:
 
 When performance testing edge meshes on API Mesh for Adobe Developer App Builder, you need to account for cold starts to get an accurate measurement of the performance.
 
-If your mesh existed before the September 23, 2024 release, you must run the `aio api-mesh update` command on your edge mesh before you can benefit from this enhancement.
+If your mesh existed before the September 24, 2024 release, you must run the `aio api-mesh update` command on your edge mesh before you can benefit from this enhancement.
 
 If applicable, you should use the `Connection: keep-alive` header described in [Optimizing edge mesh performance](../basic/create-mesh.md#optimizing-edge-mesh-performance).
 
