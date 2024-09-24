@@ -14,7 +14,7 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 <UpdateNotice />
 
-## September 24, 2024
+## September 26, 2024
 
 This release contains the following changes to API Mesh:
 
