@@ -63,6 +63,12 @@ You can also inject dynamic values from the context into your headers. For examp
 -  [GraphQL handlers](../basic/handlers/graphql.md#headers-from-context)
 -  [JSON Schema handlers](../basic/handlers/json-schema.md#headers-from-context)
 
+#### Request ID header
+
+The `x-request-id` header allows you to track and debug requests by assigning a user-specified ID number. If you provide this ID in the request header, then the response includes the header.
+
+`x-request-id: ABC123`
+
 #### Media types
 
 Depending on the type of information you are passing in a header, your source might require that you specify a [media type](https://www.iana.org/assignments/media-types/media-types.xhtml), which tells the mesh and your sources how to interpret the data you are passing. Use the `Content-Type` key-value pair in the `operationHeaders` object to define your content format.
