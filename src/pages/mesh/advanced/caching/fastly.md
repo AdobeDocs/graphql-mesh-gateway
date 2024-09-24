@@ -145,12 +145,13 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         # Backend declaration
         backend F_edge_graph_adobe_io {
             .always_use_host_header = true;
-            .between_bytes_timeout = 10s;
-            .connect_timeout = 1s;
+            .between_bytes_timeout = 30s;
+            .connect_timeout = 30s;
             .dynamic = true;
             .first_byte_timeout = 15s;
             .host = "edge-graph.adobe.io";
             .host_header = "edge-graph.adobe.io";
+            .keepalive_time = 25s;
             .max_connections = 200;
             .port = "443";
             .share_key = "XXXXXXXXXXXXXXXX";
@@ -222,6 +223,24 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         if (req.http.x-commerce-bypass-fastly-cache == "true") {
           return (deliver);
         }
+        ```
+
+     - **Name** - keep-alive-vcl-miss
+       - **Type** - **miss**
+       - **Priority** - **100**
+       - **Content**:
+
+        ```csharp
+        set bereq.http.Connection = "keep-alive";
+        ```
+
+     - **Name** - keep-alive-vcl-pass
+       - **Type** - **pass**
+       - **Priority** - **100**
+       - **Content**:
+
+        ```csharp
+        set bereq.http.Connection = "keep-alive";
         ```
 
 In **Fastly Configuration** click **Upload VCL to Fastly**. Click **Save Config**.
