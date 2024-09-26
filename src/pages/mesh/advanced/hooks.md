@@ -18,7 +18,7 @@ The hooks feature is currently in development and will be expanded in future rel
 
 <InlineAlert variant="warning" slots="text"/>
 
-Edge meshes do not currently support hooks. If you are using hooks, you must use a legacy mesh. Hooks will be available in edge meshes in the future.
+Edge meshes do not currently support local hooks. If you are using local hooks, you must use a legacy mesh. Remote hooks continue to function as expected. Local hooks will be available in edge meshes in the future.
 
 Hooks allow you to invoke a composable [local or remote](#local-vs-remote-functions) function on a targeted node.
 

@@ -1,0 +1,6 @@
+EventTimestampMs,Exceptions,Logs,Outcome,MeshId,RayID,URL,Request Method,Response Status,Level
+1724972578046,[],[],ok,12a3b4c5-6d78-4012-3456-7e890fa1bcde,8bb02bf4b8c1394c,https://edge-graph.adobe.io/api/REDACTED/graphql,POST,400,log
+1724972573312,[],[],ok,12a3b4c5-6d78-4012-3456-7e890fa1bcde,8bb02bd72a4a394c,https://edge-graph.adobe.io/api/REDACTED/graphql,POST,200,log
+1724972603576,[],"[{'Level': 'error', 'Message': ['{""meshId"":""12a3b4c5-6d78-4012-3456-7e890fa1bcde"",""requestId"":""21a3b4c5-6d78-4012-3456-7e890fa1bcde""}', 'SyntaxError parsing response body. Invalid JSON format.'], 'TimestampMs': 1724972603576}]",ok,12a3b4c5-6d78-4012-3456-7e890fa1bcde,8bb02c942ca6394c,https://edge-graph.adobe.io/api/REDACTED/graphql?query=query+%7B%0A++%23+storeConfig%7B%0A++base_%0A++base_currency_code%0A++code%0A++locale%0A++welcome%0A%7D%0A%7D,GET,200,log
+1724972641966,[],[],ok,12a3b4c5-6d78-4012-3456-7e890fa1bcde,8bb02d84395f399a,https://edge-graph.adobe.io/api/REDACTED/graphql,POST,200,log
+1724972603688,[],[],ok,12a3b4c5-6d78-4012-3456-7e890fa1bcde,8bb02c94fd99394c,https://edge-graph.adobe.io/api/REDACTED/graphql,POST,200,log

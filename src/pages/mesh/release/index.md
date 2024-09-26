@@ -14,6 +14,14 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 <UpdateNotice />
 
+## September 26, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+Edge logging - API Mesh now supports detailed logging for [edge meshes](../release/update.md). See [Logging](../advanced/logging.md) for more information. You will need to [update your CLI](../release/upgrade.md#upgrade-versions) to the latest version to access the new commands.
+
 # Release notes
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
