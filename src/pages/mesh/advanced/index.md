@@ -666,7 +666,7 @@ After finding the desired rayID with the [`aio api-mesh:log-list` command](#aio-
 ### Usage
 
 ```bash
-aio api-mesh:log-get [RAYID] [-i] [--help]
+aio api-mesh:log-get RAYID [-i] [--help]
 ```
 
 ### Flags
