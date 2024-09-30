@@ -18,6 +18,20 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## October 01, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added the ability to run scheduled performance tests on your edge mesh. For more information, see [schedule performance testing](../advanced/developer-tools.md#schedule-performance-testing).
+- Increased edge mesh query timeout from `30` seconds to `60` seconds.
+
+### Bug fixes
+
+- Resolved an issue where the `aio api-mesh log list --filename` command would return an error if the filename included special characters.
+- Resolved an issue that caused `500` errors when using a `GET` request with a body.
+
 ## September 26, 2024
 
 This release contains the following changes to API Mesh:
