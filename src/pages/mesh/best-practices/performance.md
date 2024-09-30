@@ -10,6 +10,8 @@ keywords:
   - Tools
 ---
 
+import Performance from '/src/_includes/performance-schedule.md'
+
 # Performance testing
 
 When performance testing edge meshes on API Mesh for Adobe Developer App Builder, you need to account for cold starts to get an accurate measurement of the performance.
@@ -35,3 +37,5 @@ If you are not using the `keep-alive` header, you can prime your mesh by repeati
   }
 }
 ```
+
+<Performance />
