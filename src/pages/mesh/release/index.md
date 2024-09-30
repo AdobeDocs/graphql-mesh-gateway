@@ -25,7 +25,7 @@ This release contains the following changes to API Mesh:
 ### Enhancements
 
 - Added the ability to run scheduled performance tests on your edge mesh. For more information, see [schedule performance testing](../advanced/developer-tools.md#schedule-performance-testing).
-- Increased edge mesh query timeout from `30` seconds to `60` seconds.
+- Increased the edge mesh query timeout from `30` seconds to `60` seconds.
 
 ### Bug fixes
 
