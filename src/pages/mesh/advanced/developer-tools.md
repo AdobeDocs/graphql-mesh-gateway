@@ -218,4 +218,6 @@ Then the mesh is updated to include the minified, stringified file:
 
 You can confirm that your file was attached successfully by running the [`aio api-mesh:get` command](../advanced/index.md#aio-api-meshget).
 
+## Schedule performance testing
+
 <Performance />

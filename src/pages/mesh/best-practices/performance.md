@@ -38,4 +38,6 @@ If you are not using the `keep-alive` header, you can prime your mesh by repeati
 }
 ```
 
+## Schedule performance testing
+
 <Performance />

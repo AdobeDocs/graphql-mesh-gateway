@@ -1,6 +1,4 @@
 
-## Schedule performance testing
-
 After [creating a local environment](https://developer.adobe.com/graphql-mesh-gateway/mesh/advanced/developer-tools/#create-a-local-environment), you can enable scheduled performance testing in GitHub.
 
 <InlineAlert variant="info" slots="text"/>
