@@ -10,6 +10,8 @@ keywords:
   - Tools
 ---
 
+import Performance from '/src/_includes/performance-schedule.md'
+
 # Local development
 
 The processes covered in this topic allow developers to set up a local environment, use environment variables, and directly reference files in API Mesh for Adobe Developer App Builder.
@@ -215,3 +217,7 @@ Then the mesh is updated to include the minified, stringified file:
 ```
 
 You can confirm that your file was attached successfully by running the [`aio api-mesh:get` command](../advanced/index.md#aio-api-meshget).
+
+## Schedule performance testing
+
+<Performance />
