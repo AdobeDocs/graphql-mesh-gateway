@@ -5,13 +5,13 @@ After [creating a local environment](https://developer.adobe.com/graphql-mesh-ga
 
 To add variables, you must have administrative permissions in the target GitHub repository.
 
-1. In your browser, navigate to `https://github.com/<org>/<project_name>/settings/secrets/actions`.
+1. In your browser, navigate to `https://github.com/<org>/<project_name>/settings/variables/actions`.
 
 1. On the **Variables** tab, click **New repository variable**.
 
-1. Enter a name for the secret or variable, such as `DURATION`.
+1. Enter a name for the variable, such as `DURATION`.
 
-1. Enter the corresponding value for the secret or variable, for example, `600`.
+1. Enter the corresponding value for the variable, for example, `600`.
 
 1. Repeat this process for all the following variables:
   
