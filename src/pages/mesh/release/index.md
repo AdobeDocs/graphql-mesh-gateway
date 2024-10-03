@@ -18,6 +18,14 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## October 03, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+Added a confirmation message when you use the [`aio api-mesh log-list`](../advanced/index.md#aio-api-meshlog-list) command with the `--filename` flag.
+
 ## October 01, 2024
 
 This release contains the following changes to API Mesh:
