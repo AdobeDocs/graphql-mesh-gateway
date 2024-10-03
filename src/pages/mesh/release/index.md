@@ -24,7 +24,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-Added a confirmation message when you use the [`aio api-mesh log-list`](../advanced/index.md#aio-api-meshlog-list) command with the `--filename` flag.
+Added a success message when you use the [`aio api-mesh log-list`](../advanced/index.md#aio-api-meshlog-list) command with the `--filename` flag that confirms file creation.
 
 ## October 01, 2024
 
