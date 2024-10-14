@@ -43,7 +43,7 @@ keywords:
 
 The following example converts all of your `fieldNames` to lower case in the Adobe Commerce source:
 
-```JSON
+```json
 {
   "meshConfig": {
     "sources": [
