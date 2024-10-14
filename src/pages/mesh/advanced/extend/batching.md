@@ -201,7 +201,7 @@ The `resolvers.js` file contains similar logic to the `additionalResolvers.js` f
   "meshConfig": {
     "sources": [
       {
-        "name": "Venia",
+        "name": "AdobeCommerce",
         "handler": {
           "graphql": {
             "endpoint": "https://venia.magento.com/graphql"
