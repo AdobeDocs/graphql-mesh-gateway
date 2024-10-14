@@ -201,7 +201,7 @@ The `resolvers.js` file contains similar logic to the `additionalResolvers.js` f
   "meshConfig": {
     "sources": [
       {
-        "name": "Commerce",
+        "name": "Venia",
         "handler": {
           "graphql": {
             "endpoint": "https://venia.magento.com/graphql"
@@ -212,14 +212,15 @@ The `resolvers.js` file contains similar logic to the `additionalResolvers.js` f
         "name": "DiscountsAPI",
         "handler": {
           "JsonSchema": {
-            "baseUrl": "https://raw.githubusercontent.com/AdobeDocs/graphql-mesh-gateway/main/src/pages/_examples/discounts-api.json",
+            "baseUrl": "https://random-discounts-generator.apimesh-adobe-test.workers.dev",
             "operations": [
               {
                 "type": "Query",
                 "field": "discounts",
                 "path": "/getDiscounts?skus={args.skus}",
                 "method": "GET",
-                "responseSample": "https://raw.githubusercontent.com/AdobeDocs/graphql-mesh-gateway/main/src/pages/_examples/random-discount.json",
+                "requestSample": "https://random-discounts-generator.apimesh-adobe-test.workers.dev/getDiscounts?skus=[%27abc%27,%20%27xyz%27]",
+                "responseSample": "https://random-discounts-generator.apimesh-adobe-test.workers.dev/getDiscounts?skus=[%27abc%27,%20%27xyz%27]",
                 "argTypeMap": {
                   "skus": {
                     "type": "array"
@@ -231,9 +232,7 @@ The `resolvers.js` file contains similar logic to the `additionalResolvers.js` f
         }
       }
     ],
-    "additionalResolvers": [
-      "./resolver.js"
-    ]
+    "additionalResolvers": ["./resolvers.js"]
   }
 }
 ```
@@ -245,22 +244,19 @@ module.exports = {
   resolvers: {
     ConfigurableProduct: {
       special_price: {
-        selectionSet: "{ name price_range { maximum_price { final_price { value } } } }",
+        selectionSet:
+          "{ name price_range { maximum_price { final_price { value } } } }",
         resolve: (root, args, context, info) => {
           return context.DiscountsAPI.Query.discounts({
-              root,
-              key: root.sku,
-              argsFromKeys: (skus) => ({
-                skus
-              }),
-              valuesFromResults: (results) =>
-                results.map(({
-                  discount
-                }) => discount),
-              context,
-              info,
-              selectionSet: "{ sku discount }",
-            })
+            root,
+            key: root.sku,
+            argsFromKeys: (skus) => ({ skus }),
+            valuesFromResults: (results) =>
+              results.map(({ discount }) => discount),
+            context,
+            info,
+            selectionSet: "{ sku discount }",
+          })
             .then((discount) => {
               let max = 0;
 
@@ -291,20 +287,17 @@ module.exports = {
 
 ```graphql
 {
-  products(filter: { sku: { in: ["VD03", "VT12"] } }) {
+  products(filter: {sku: {in: ["VD03", "VT12"]}}) {
     items {
-      ... on ConfigurableProduct {
-        sku
-        name
-        customer_reviews {
-          sku
-          reviews {
-            review
-            customer_name
-            rating
+      name
+      sku
+      special_price
+      price_range {
+        maximum_price {
+          final_price {
+            value
           }
         }
-        __typename
       }
     }
   }
