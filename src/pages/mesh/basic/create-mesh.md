@@ -111,7 +111,7 @@ The edge mesh URL offers several benefits because the edge is closer to your dat
 
 <InlineAlert variant="warning" slots="text"/>
 
-Edge meshes do not currently support Hooks or SOAP handlers. If you need to use these features, you must use a legacy mesh. These features will be available in edge meshes in the future.
+Edge meshes do not currently support SOAP handlers. If you need to use these features, you must use a legacy mesh. These features will be available in edge meshes in the future.
 
 <InlineAlert variant="info" slots="text"/>
 
