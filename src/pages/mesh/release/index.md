@@ -18,6 +18,19 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## October XYZXX, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- [`beforeAll` hooks](../advanced/hooks.md) now work with [edge meshes](../basic/create-mesh.md#access-your-mesh-urls). <!-- CEXT-2904 >
+- Enhancements to performance and stability. <!-- various tickets>
+
+### Bug fixes
+
+- Resolved an issue that caused meshes with `openapi` handlers to send the wrong content type header when working with the Adobe Commerce REST API. <!-- CEXT-3661 >
+
 ## October 03, 2024
 
 This release contains the following changes to API Mesh:
