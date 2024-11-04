@@ -84,38 +84,79 @@ The following example shows how to pass authorization headers to a GraphQL endpo
 
 Header names are automatically converted to lowercase.
 
-## Fetching SDL or introspection from CDN
+## Provide an introspection file
 
-Consider a scenario where introspection is disabled in the production environment of your GraphQL source, and you want to provide your SDL or introspection separately:
+If introspection is disabled in the production environment of your GraphQL source, and you want to provide your schema definition or introspection separately, you can use the `source` field to provide an introspection file:
 
 ```json
 {
+  "meshConfig": {
     "sources": [
-        {
-            "name": "MyGraphQLApi",
-            "handler": {
-                "graphql": {
-                    "endpoint": "https://your-service/graphql",
-                    "operationHeaders": {
-                        "Authorization": "Bearer {context.headers['GITHUB_TOKEN']}"
-                    }
-                }
-            }
+      {
+        "name": "Adobe_Commerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql",
+            "source": "./schema.graphql"
+          }
         }
+      }
     ]
+  },
 }
 ```
-
-In this case, CLI's `build` command won't save the introspection in the artifacts, so your Mesh won't start if the `source` URL is down.
 
 ## Local Schemas
 
 We recommend providing a local schema by using the [`additionalTypeDefs`](../../advanced/extend/index.md) and [`additionalResolvers`](../../advanced/extend/resolvers/programmatic-resolvers.md#additional-resolversjs) configuration options.
 
+However, you can use a local GraphQL Schema as a source by referencing a local file in the `source` field:
+
+<CodeBlock slots="heading, code" repeat="2" languages="json, ts" />
+
+#### mesh.json
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Adobe_Commerce",
+        "handler": {
+          "graphql": {
+            "source": "./my-local-schema.ts"
+          }
+        }
+      }
+    ]
+  },
+}
+```
+
+#### file.ts
+
+```ts
+import { makeExecutableSchema } from '@graphql-tools/schema'
+ 
+export default makeExecutableSchema({
+  typeDefs: /* GraphQL */ `
+    type Query {
+      foo: String
+    }
+  `,
+  resolvers: {
+    Query: {
+      foo: () => 'FOO'
+    }
+  }
+})
+```
+
 ## Config API reference
 
 -  `endpoint` (type: `String`, required) - URL or file path for your remote GraphQL endpoint
    -  Local file types must be `.js` or `.ts`.
+-  `source` (type: `String`) - Path to the introspection file
 -  `schemaHeaders` (type: `Any`) - JSON object for adding headers to API calls for runtime schema introspection
 -  `operationHeaders` (type: `JSON`) - JSON object for adding headers to API calls for runtime operation execution
 -  `useGETForQueries` (type: `Boolean`) - An HTTP GET method for query operations

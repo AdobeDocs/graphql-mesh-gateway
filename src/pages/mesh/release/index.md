@@ -18,7 +18,7 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
-## October XYZXX, 2024
+## November 04, 2024
 
 This release contains the following changes to API Mesh:
 
@@ -26,6 +26,7 @@ This release contains the following changes to API Mesh:
 
 - [`beforeAll` hooks](../advanced/hooks.md) now work with [edge meshes](../basic/create-mesh.md#access-your-mesh-urls). <!-- CEXT-2904 >
 - Enhancements to performance and stability. <!-- various tickets>
+- The `source` field is now available for GraphQL handlers, allowing you to [provide an introspection file](../basic/handlers/graphql.md#provide-an-introspection-file). <!-- CEXT-3760 >
 
 ### Bug fixes
 
