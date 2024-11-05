@@ -24,13 +24,9 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-- [`beforeAll` hooks](../advanced/hooks.md) now work with [edge meshes](../basic/create-mesh.md#access-your-mesh-urls). <!-- CEXT-2904 >
-- Enhancements to performance and stability. <!-- various tickets>
-- The `source` field is now available for GraphQL handlers, allowing you to [provide an introspection file](../basic/handlers/graphql.md#provide-an-introspection-file). <!-- CEXT-3760 >
-
-### Bug fixes
-
-- Resolved an issue that caused meshes with `openapi` handlers to send the wrong content type header when working with the Adobe Commerce REST API. <!-- CEXT-3661 >
+- [`beforeAll` hooks](../advanced/hooks.md) now work with [edge meshes](../basic/create-mesh.md#access-your-mesh-urls).
+- The `source` field is now available for GraphQL handlers, allowing you to [provide an introspection file](../basic/handlers/graphql.md#provide-an-introspection-file).
+- Enhancements to performance and stability.
 
 ## October 03, 2024
 

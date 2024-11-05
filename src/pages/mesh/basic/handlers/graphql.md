@@ -86,7 +86,25 @@ Header names are automatically converted to lowercase.
 
 ## Provide an introspection file
 
-If introspection is disabled in the production environment of your GraphQL source, and you want to provide your schema definition or introspection separately, you can use the `source` field to provide an introspection file:
+If introspection is disabled in the production environment of your GraphQL source, and you want to provide your schema definition or introspection separately, you can use the `source` field to provide an online or local introspection file:
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "test_automation",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql",
+            "source": "https://<domain>/myFile.graphql"
+          }
+        }
+      }
+    ]
+  }
+}
+```
 
 ```json
 {
@@ -97,60 +115,24 @@ If introspection is disabled in the production environment of your GraphQL sourc
         "handler": {
           "graphql": {
             "endpoint": "https://venia.magento.com/graphql",
-            "source": "./schema.graphql"
+            "source": "schema.graphql"
           }
         }
       }
+    ],
+    "files": [
+      {
+        "path": "schema.graphql",
+        "content": "type Query {hello: String}"
+      }
     ]
-  },
+  }
 }
 ```
 
 ## Local Schemas
 
 We recommend providing a local schema by using the [`additionalTypeDefs`](../../advanced/extend/index.md) and [`additionalResolvers`](../../advanced/extend/resolvers/programmatic-resolvers.md#additional-resolversjs) configuration options.
-
-However, you can use a local GraphQL Schema as a source by referencing a local file in the `source` field:
-
-<CodeBlock slots="heading, code" repeat="2" languages="json, ts" />
-
-#### mesh.json
-
-```json
-{
-  "meshConfig": {
-    "sources": [
-      {
-        "name": "Adobe_Commerce",
-        "handler": {
-          "graphql": {
-            "source": "./my-local-schema.ts"
-          }
-        }
-      }
-    ]
-  },
-}
-```
-
-#### file.ts
-
-```ts
-import { makeExecutableSchema } from '@graphql-tools/schema'
- 
-export default makeExecutableSchema({
-  typeDefs: /* GraphQL */ `
-    type Query {
-      foo: String
-    }
-  `,
-  resolvers: {
-    Query: {
-      foo: () => 'FOO'
-    }
-  }
-})
-```
 
 ## Config API reference
 
