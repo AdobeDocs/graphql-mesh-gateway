@@ -17,7 +17,7 @@ The SOAP handler is experimental and should not be used in production deployment
 
 <InlineAlert variant="warning" slots="text"/>
 
-Edge meshes do not currently support SOAP handlers. If you are using SOAP handlers, you must use a legacy mesh. SOAP handlers will be available in edge meshes in the future.
+Edge meshes do not support SOAP handlers.
 
 The SOAP handler allows you to consume [SOAP](https://soapui.org) `WSDL` files and generate a remote executable schema for those services.
 
