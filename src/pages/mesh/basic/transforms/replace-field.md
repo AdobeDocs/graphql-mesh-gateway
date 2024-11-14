@@ -14,7 +14,7 @@ keywords:
 
 <InlineAlert variant="warning" slots="text"/>
 
-Edge meshes do not currently support the `replaceField` transform. If you attempt to create an edge mesh with the `replaceField` transform, your edge mesh will not progress past the provisioning status. If you are using this transform, you must use the legacy mesh endpoint. `replaceField` transforms will be available in edge meshes in the future.
+Edge meshes do not currently support the `replaceField` transform. If you attempt to create an edge mesh with the `replaceField` transform, your edge mesh will not progress past the provisioning status.
 
 `replaceField` transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
 

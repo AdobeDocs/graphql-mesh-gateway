@@ -16,7 +16,7 @@ Cross-origin resource sharing (CORS) allows you to pass resources that are usual
 
 <InlineAlert variant="info" slots="text"/>
 
-To get CORS response headers when querying your mesh, you must provide an `origin` request header with the origin URL as the value. For example, `origin: https://graph.adobe.io`.
+To get CORS response headers when querying your mesh, you must provide an `origin` request header with the origin URL as the value. For example, `origin: https://edge-graph.adobe.io`.
 
 To add CORS headers to your mesh, create a `CORS` object in the `responseConfig` object, using the following key-value pairs:
 

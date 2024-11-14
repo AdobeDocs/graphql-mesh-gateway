@@ -18,6 +18,14 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## November 22, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Edge meshes are now the only available mesh option. Legacy meshes are no longer available.
+
 ## November 04, 2024
 
 This release contains the following changes to API Mesh:
@@ -83,8 +91,6 @@ With API Mesh on the edge:
 - Increased observability
 
 Adobe recommends using edge meshes for the best performance. Refer to [Access your mesh URLs](../basic/create-mesh.md#access-your-mesh-urls) for more information.
-
-After updating your mesh, the `aio api-mesh describe` command contains both a legacy mesh endpoint and an edge mesh endpoint. Legacy meshes will be removed later this year.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -198,7 +204,7 @@ This release contains the following changes to API Mesh:
 
 <InlineAlert variant="info" slots="text"/>
 
-Due to an internal upgrade, to get CORS response headers when querying your mesh, you must provide an `origin` request header with the origin URL as the value. For example, `origin: https://graph.adobe.io`.
+Due to an internal upgrade, to get CORS response headers when querying your mesh, you must provide an `origin` request header with the origin URL as the value. For example, `origin: https://edge-graph.adobe.io`.
 
 ### Bug fixes
 
