@@ -26,6 +26,15 @@ This release contains the following changes to API Mesh:
 
 - Edge meshes are now the only available mesh option. Legacy meshes are no longer available.
 
+## November 19, 2024
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Resolved an issue where special characters in an Org, Project, or Workspace name could cause a provisioning error.
+- Resolved an issue where fetching a source with multiple `set-cookie` headers caused an unexpected server error.
+
 ## November 04, 2024
 
 This release contains the following changes to API Mesh:
