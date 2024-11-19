@@ -17,7 +17,7 @@ This tutorial covers the basic actions you can perform in a mesh using API Mesh 
 ## Prerequisites
 
 - An Adobe IO account to access the [Adobe Developer Console](https://developer.adobe.com/console)
-- Install [`Node.js`](https://nodejs.org/en/download/)
+- Install [`Node.js`](https://nodejs.org/en/download/package-manager)
   - You can run `node -v` and `npm -v` to determine if `node.js` is successfully installed.
   
   NOTE: Restart your IDE after installing `node`.
