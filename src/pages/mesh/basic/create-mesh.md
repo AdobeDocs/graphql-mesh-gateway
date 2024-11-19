@@ -92,7 +92,7 @@ The `aio api-mesh:create` response assigns you a `meshId`. Use the [`aio api-mes
 After successfully running the status command, the response provides the mesh URL:
 
   ```terminal
-  Edge Mesh Status:
+  Mesh Status:
   Your mesh was successfully built.
   ```
 

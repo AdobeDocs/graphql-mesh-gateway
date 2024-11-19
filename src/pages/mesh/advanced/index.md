@@ -213,25 +213,26 @@ Four possible responses reflect the status of your mesh:
 - Success - Your mesh was successfully created or updated.
 
   ```terminal
-  Mesh was successfully built.
+  Mesh was built successfully.
   ```
 
 - Pending - Your mesh is queued and awaiting processing.
 
   ```terminal
-  Pending: Your mesh is awaiting processing.
+  Pending: Mesh is awaiting processing.
   ```
 
 - Building - Our servers are currently processing your mesh.
 
   ```terminal
-  Pending: Your mesh is currently being provisioned. Wait a few minutes before checking again.
+  Pending: Mesh is currently building. Wait a few minutes before checking again.
   ```
 
 - Error - Your mesh encountered an error.
 
   ```terminal
-  Unable to get the mesh status. If the error persists please contact support. RequestId: 1234567890
+  Mesh build has errors.
+  RequestId: 1234567890
   ```
 
 ## aio api-mesh:get
