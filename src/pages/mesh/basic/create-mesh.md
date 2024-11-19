@@ -89,7 +89,7 @@ If you have an allowlist, consider adding the [edge mesh IP addresses](https://w
 
 The `aio api-mesh:create` response assigns you a `meshId`. Use the [`aio api-mesh:status`](../advanced/index.md#aio-api-meshstatus) command to see the status of your mesh creation. You can run the [`aio api-mesh:describe`](../advanced/index.md#aio-api-meshdescribe) command to get your `apiKey` and a GraphQL endpoint that you can use to query your mesh.
 
-After successfully running the status command, the response provides the edge URL:
+After successfully running the status command, the response provides the mesh URL:
 
   ```terminal
   Edge Mesh Status:

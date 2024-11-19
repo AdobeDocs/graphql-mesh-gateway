@@ -213,8 +213,7 @@ Four possible responses reflect the status of your mesh:
 - Success - Your mesh was successfully created or updated.
 
   ```terminal
-  Edge Mesh Status:
-  Your mesh was successfully built.
+  Mesh was successfully built.
   ```
 
 - Pending - Your mesh is queued and awaiting processing.
@@ -382,7 +381,7 @@ Org ID: 123456789
 Project ID: 1234567890123456789
 Workspace ID: 2345678901234567890
 Mesh ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
-Edge Mesh Endpoint: https://edge-graph.adobe.io/api/123456-123-456-789-1234567890/graphql
+Mesh Endpoint: https://edge-graph.adobe.io/api/123456-123-456-789-1234567890/graphql
 ```
 
 ## aio api-mesh:source:discover
