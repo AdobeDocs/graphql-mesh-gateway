@@ -18,6 +18,25 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## November 19, 2024
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Resolved an issue where special characters in an Org, Project, or Workspace name could cause a provisioning error.
+- Resolved an issue where fetching a source with multiple `set-cookie` headers caused an unexpected server error.
+
+## November 04, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- [`beforeAll` hooks](../advanced/hooks.md) now work with [edge meshes](../basic/create-mesh.md#access-your-mesh-urls).
+- The `source` field is now available for GraphQL handlers, allowing you to [provide an introspection file](../basic/handlers/graphql.md#provide-an-introspection-file).
+- Enhancements to performance and stability.
+
 ## October 03, 2024
 
 This release contains the following changes to API Mesh:
