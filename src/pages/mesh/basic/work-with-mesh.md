@@ -216,3 +216,26 @@ Due to the limitations of API Mesh, responses contain both the newly created ali
 When you query a mesh using chained mutations, the mesh makes a separate call to the source for each mutation. This happens because GraphQL requests execute when the GraphQL server receives them, instead of proxying the calls. Because API Mesh supports multiple sources, it evaluates batched mutations and separates the information based on the source it is associated with.
 
 These mutations are executed sequentially, calling one source after the other. When you call a source directly, it will only need one API call, but it will execute the batch mutations sequentially by calling their respective resolvers. These calls are more overt in API Mesh, because they are made by a network call, instead of an internal call. This means you will see multiple calls for chained mutations.
+
+## Disable introspection
+
+If your schema contains sensitive information, you can prevent introspection and disable auto-completion by adding the `disableIntrospection` configuration option to your mesh.
+
+```json
+{
+  "meshConfig": {
+    "sources":[
+      {
+      "name":"Adobe Commerce",
+      "handler": {
+          "graphql": 
+          {
+            "endpoint":"https://venia.magento.com/graphql",
+            "disableIntrospection":"true"
+          }
+        }
+      }
+    ]
+  }
+}
+```
