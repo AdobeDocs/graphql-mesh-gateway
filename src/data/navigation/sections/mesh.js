@@ -57,10 +57,6 @@ module.exports = [
                         title: "JSON schemas",
                         path: "/mesh/basic/handlers/json-schema.md"
                     },
-                    {
-                        title: "SOAP",
-                        path: "/mesh/basic/handlers/soap.md"
-                    },
                 ]
             },
             {

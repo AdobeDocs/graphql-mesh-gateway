@@ -43,7 +43,7 @@ The transformed schema replaces the original schema from the handler, so API Mes
 `bare` mode provides performance improvements over `wrap` mode, however, it needs to access the bare schema. Here are some reasons this might not work:
 
 -  Your data source already "speaks" GraphQL
-  `bare` won't work since it cannot replace a native GraphQL schema. This is not the same as transforming a "translated" GraphQL schema (e.g. from JSON-schema, OpenApi, SOAP, etc.).
+  `bare` won't work since it cannot replace a native GraphQL schema. This is not the same as transforming a "translated" GraphQL schema.
   Instead, we suggest that you apply the `wrap` transforms to your GraphQL data source and `bare` transforms to sources "translated" into GraphQL.
 
 -  You are applying transforms at the all-sources (root) level
@@ -62,8 +62,8 @@ Example:
     {
       "name": "Countries",
       "handler": {
-        "soap": {
-          "wsdl": "https://webservices.../wso?WSDL"
+        "graphql": {
+          "endpoint": "https://api.../graphql"
         }
       }
     },
@@ -147,7 +147,7 @@ The `wrap` mode is the default mode for schema manipulation transforms because i
 
 -  Working with fixed-schema sources
 
-    As mentioned, `wrap` is the only mode that works for sources that "speak" GraphQL natively. However, when you work with fixed schema sources, such as JSON-schema, OpenApi, or SOAP. Schema wrapping might have some undesired effects. For example, you won't have access to the original "fixed-contract" response from your data source.
+    As mentioned, `wrap` is the only mode that works for sources that "speak" GraphQL natively. However, when you work with fixed schema sources, such as JSON-schema or OpenApi, schema wrapping might have some undesired effects. For example, you won't have access to the original "fixed-contract" response from your data source.
 
     This might not be ideal, for example, when implementing custom resolvers, where you might want to access several properties returned by your REST service to compute custom data. Still, you will only be able to access properties requested with the GraphQL query.
 

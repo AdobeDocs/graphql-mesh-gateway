@@ -109,10 +109,6 @@ The edge mesh URL offers several benefits because the edge is closer to your dat
 - Better security and compliance
 - Increased observability
 
-<InlineAlert variant="warning" slots="text"/>
-
-Edge meshes do not support SOAP handlers.
-
 <InlineAlert variant="info" slots="text"/>
 
 Legacy mesh URLs will be removed in the future. Use the edge mesh URLs whenever possible.
