@@ -224,6 +224,7 @@ If your schema contains sensitive information, you can prevent introspection and
 ```json
 {
   "meshConfig": {
+    "disableIntrospection":"true",
     "sources":[
       {
       "name":"Adobe Commerce",
@@ -231,7 +232,6 @@ If your schema contains sensitive information, you can prevent introspection and
           "graphql": 
           {
             "endpoint":"https://venia.magento.com/graphql",
-            "disableIntrospection":"true"
           }
         }
       }
