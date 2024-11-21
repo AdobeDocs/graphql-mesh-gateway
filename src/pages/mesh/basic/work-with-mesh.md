@@ -219,7 +219,7 @@ These mutations are executed sequentially, calling one source after the other. W
 
 ## Disable introspection
 
-If your schema contains sensitive information, you can prevent introspection and disable auto-completion by adding the `disableIntrospection` configuration option to your mesh.
+If your schema contains sensitive information, you can prevent introspection and disable auto-completion by adding the `disableIntrospection` configuration option to your mesh. `disableIntrospection` defaults to `false`. To disable introspection, set it to `true`.
 
 ```json
 {
