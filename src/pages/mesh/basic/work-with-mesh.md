@@ -224,7 +224,7 @@ If your schema contains sensitive information, you can prevent introspection and
 ```json
 {
   "meshConfig": {
-    "disableIntrospection":"true",
+    "disableIntrospection":true,
     "sources":[
       {
       "name":"Adobe Commerce",
