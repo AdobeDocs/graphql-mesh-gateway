@@ -18,6 +18,18 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## November 25, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added a configuration option allowing you to [disable introspection](../basic/work-with-mesh.md#disable-introspection) on your mesh for security purposes.
+
+### Bug fixes
+
+- Resolved an error where specific special characters in a Project, Workspace, or Organization name could cause issues with provisioning.
+
 ## November 19, 2024
 
 This release contains the following changes to API Mesh:
