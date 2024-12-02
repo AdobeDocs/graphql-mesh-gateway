@@ -213,34 +213,27 @@ Four possible responses reflect the status of your mesh:
 - Success - Your mesh was successfully created or updated.
 
   ```terminal
-  Legacy Mesh Status: 
-  Your mesh was successfully built.
-  *********************************
-  Edge Mesh Status:
-  Your mesh was successfully built.
+  Mesh was built successfully.
   ```
 
 - Pending - Your mesh is queued and awaiting processing.
 
   ```terminal
-  Pending: Your mesh is awaiting processing.
+  Pending: Mesh is awaiting processing.
   ```
 
 - Building - Our servers are currently processing your mesh.
 
   ```terminal
-  Pending: Your mesh is currently being provisioned. Wait a few minutes before checking again.
+  Pending: Mesh is currently building. Wait a few minutes before checking again.
   ```
 
 - Error - Your mesh encountered an error.
 
   ```terminal
-  Unable to get the mesh status. If the error persists please contact support. RequestId: 1234567890
+  Mesh build has errors.
+  RequestId: 1234567890
   ```
-
-<InlineAlert variant="info" slots="text"/>
-
-Since this command describes the status of both the legacy and edge mesh builds, any failures or errors that appear in the `Legacy Mesh Status`, will subsequently affect the edge mesh. This means you must resolve any errors in your legacy mesh build before using the edge mesh URL.
 
 ## aio api-mesh:get
 
@@ -363,7 +356,7 @@ Successfully deleted 12a3b4c5-6d78-4012-3456-7e890fa1bcde
 
 ## aio api-mesh:describe
 
-Describes the mesh for the selected workspace. The description includes [legacy and edge mesh endpoints](../basic/create-mesh.md#access-your-mesh-urls).
+Describes the mesh for the selected workspace.
 
 ### Usage
 
@@ -389,8 +382,7 @@ Org ID: 123456789
 Project ID: 1234567890123456789
 Workspace ID: 2345678901234567890
 Mesh ID: 12a3b4c5-6d78-4012-3456-7e890fa1bcde
-Legacy Mesh Endpoint: https://graph.adobe.io/api/123456-123-456-789-1234567890/graphql?api_key=09876543210987654321
-Edge Mesh Endpoint: https://edge-graph.adobe.io/api/123456-123-456-789-1234567890/graphql
+Mesh Endpoint: https://edge-graph.adobe.io/api/123456-123-456-789-1234567890/graphql
 ```
 
 ## aio api-mesh:source:discover

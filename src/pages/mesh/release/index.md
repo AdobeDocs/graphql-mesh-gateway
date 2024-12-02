@@ -24,7 +24,20 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
+- Edge meshes are now the only available mesh option. Legacy meshes are no longer available.
 - We have removed the SOAP handler because it is not compatible with edge meshes.
+
+## November 25, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added a configuration option allowing you to [disable introspection](../basic/work-with-mesh.md#disable-introspection) on your mesh for security purposes.
+
+### Bug fixes
+
+- Resolved an error where specific special characters in a Project, Workspace, or Organization name could cause issues with provisioning.
 
 ## November 19, 2024
 
@@ -100,8 +113,6 @@ With API Mesh on the edge:
 - Increased observability
 
 Adobe recommends using edge meshes for the best performance. Refer to [Access your mesh URLs](../basic/create-mesh.md#access-your-mesh-urls) for more information.
-
-After updating your mesh, the `aio api-mesh describe` command contains both a legacy mesh endpoint and an edge mesh endpoint. Legacy meshes will be removed later this year.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -215,7 +226,7 @@ This release contains the following changes to API Mesh:
 
 <InlineAlert variant="info" slots="text"/>
 
-Due to an internal upgrade, to get CORS response headers when querying your mesh, you must provide an `origin` request header with the origin URL as the value. For example, `origin: https://graph.adobe.io`.
+Due to an internal upgrade, to get CORS response headers when querying your mesh, you must provide an `origin` request header with the origin URL as the value. For example, `origin: https://edge-graph.adobe.io`.
 
 ### Bug fixes
 
