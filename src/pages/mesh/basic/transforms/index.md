@@ -23,7 +23,7 @@ API Mesh currently supports the following transforms:
 -  [Rename](./rename.md)
 -  [Prefix](./prefix.md)
 -  [Filter Schema](./filter-schema.md)
--  [Replace Field](./replace-field.md)
+-  [Replace Field](./replace-field.md)(deprecated)
 -  [Type Merging](./type-merging.md)
 -  [Naming Convention](./naming-convention.md)
 -  [Hooks](../../advanced/hooks.md)
@@ -32,7 +32,6 @@ Additionally, the following transforms are available but are not fully supported
 
 -  [Encapsulate](./encapsulate.md)
 -  [Federation](./federation.md)
--  [Hoist field](./replace-field.md#scope-hoistvalue)
 
 Other transforms are not supported.
 
@@ -155,5 +154,4 @@ The following table specifies the GraphQL Mesh versions of each transform suppor
 [namingConvention](./naming-convention.md) | `0.13.22`
 [prefix](./prefix.md) | `0.12.22`
 [rename](./rename.md) | `0.14.22`
-[replaceField](./replace-field.md) | `0.4.20`
 [typeMerging](./type-merging.md) | `0.5.20`

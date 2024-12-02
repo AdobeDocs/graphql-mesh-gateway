@@ -26,6 +26,18 @@ This release contains the following changes to API Mesh:
 
 - Edge meshes are now the only available mesh option. Legacy meshes are no longer available.
 
+## November 25, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added a configuration option allowing you to [disable introspection](../basic/work-with-mesh.md#disable-introspection) on your mesh for security purposes.
+
+### Bug fixes
+
+- Resolved an error where specific special characters in a Project, Workspace, or Organization name could cause issues with provisioning.
+
 ## November 19, 2024
 
 This release contains the following changes to API Mesh:
@@ -117,7 +129,7 @@ The following commands will take slightly longer to complete. Consider using [lo
 
 <InlineAlert variant="info" slots="text"/>
 
-Due to compatibility limitations, certain features, such as [hooks](../advanced/hooks.md), [SOAP handlers](../basic/handlers/soap.md), and [`replaceField` transforms](../basic/transforms/replace-field.md) are not available in edge meshes. These features will be available in a future release.
+Due to compatibility limitations, certain features, such as [hooks](../advanced/hooks.md), [SOAP handlers](../basic/handlers/soap.md), and [`replaceField` transforms](../basic/transforms/replace-field.md) are not available in edge meshes.
 
 <InlineAlert variant="info" slots="text"/>
 
