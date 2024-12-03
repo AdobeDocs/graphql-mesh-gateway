@@ -26,10 +26,6 @@ This release contains the following changes to API Mesh:
 
 - Edge meshes are now the only available mesh option. Legacy meshes are no longer available.
 
-<InlineAlert variant="info" slots="text"/>
-
-Nonfunctional legacy mesh URLs (graph.adobe.io) will continue to display in the CLI alongside the functional edge mesh URLs (edge-graph.adobe.io) until the CLI update scheduled for 12/05/2024.
-
 ## November 25, 2024
 
 This release contains the following changes to API Mesh:
