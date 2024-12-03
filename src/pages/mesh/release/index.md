@@ -18,13 +18,17 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
-## December 2, 2024
+## December 03, 2024
 
 This release contains the following changes to API Mesh:
 
 ### Enhancements
 
 - Edge meshes are now the only available mesh option. Legacy meshes are no longer available.
+
+<InlineAlert variant="info" slots="text"/>
+
+Nonfunctional legacy mesh URLs (graph.adobe.io) will continue to display in the CLI alongside the functional edge mesh URLs (edge-graph.adobe.io) until the CLI update scheduled for 12/05/2024.
 
 ## November 25, 2024
 

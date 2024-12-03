@@ -30,7 +30,7 @@ Due to compatibility limitations, certain features, such as [SOAP handlers](../b
 
 ## What does this mean for you?
 
-- **Continuity**: Legacy meshes are disabled as of **December 2, 2024**. You must use the `edge-graph.adobe.io` URL to ensure your application does not face any downtime.
+- **Continuity**: Legacy meshes are disabled as of **December 03, 2024**. You must use the `edge-graph.adobe.io` URL to ensure your application does not face any downtime.
 - **Action Required**: Upgrade your [aio-cli plugin to the latest version](./upgrade.md#upgrade-versions). You will see minor changes to the CLI experience to display a new "mesh" endpoint. This means your mesh is provisioned to the new API Mesh infrastructure. Going forward, you will need to use the "mesh" endpoint for all applications to ensure functionality past the completion date. See [create a mesh](../basic/create-mesh.md#access-your-mesh-urls) for more information.
 
 <InlineAlert variant="info" slots="text"/>
