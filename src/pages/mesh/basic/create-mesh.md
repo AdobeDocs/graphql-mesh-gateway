@@ -89,17 +89,12 @@ If you have an allowlist, consider adding the [edge mesh IP addresses](https://w
 
 The `aio api-mesh:create` response assigns you a `meshId`. Use the [`aio api-mesh:status`](../advanced/index.md#aio-api-meshstatus) command to see the status of your mesh creation. You can run the [`aio api-mesh:describe`](../advanced/index.md#aio-api-meshdescribe) command to get your `apiKey` and a GraphQL endpoint that you can use to query your mesh.
 
-After successfully running the status command, the response provides both legacy and edge URLs:
+After successfully running the status command, the response provides the mesh URL:
 
   ```terminal
-  Legacy Mesh Status: 
-  Your mesh was successfully built.
-  *********************************
-  Edge Mesh Status:
+  Mesh Status:
   Your mesh was successfully built.
   ```
-
-Until Adobe migrates all legacy mesh URLs, the response to the `aio api-mesh:describe` command will list both the legacy and edge mesh URLs. The legacy mesh URL is a standard mesh URL, which Adobe will migrate soon. See the [update notice](../release/update.md) for more information.
 
 The edge mesh URL offers several benefits because the edge is closer to your data sources. Edge meshes can provide the following advantages:
 
@@ -112,10 +107,6 @@ The edge mesh URL offers several benefits because the edge is closer to your dat
 <InlineAlert variant="warning" slots="text"/>
 
 Edge meshes do not support SOAP handlers.
-
-<InlineAlert variant="info" slots="text"/>
-
-Legacy mesh URLs will be removed in the future. Use the edge mesh URLs whenever possible.
 
 ## Optimizing edge mesh performance
 
