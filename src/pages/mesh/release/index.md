@@ -18,7 +18,7 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
-## December 04, 2024
+## December 05, 2024
 
 This release contains the following changes to API Mesh:
 
@@ -27,7 +27,7 @@ This release contains the following changes to API Mesh:
 - We have removed the SOAP handler because it is not compatible with edge meshes.
 - Security improvements.
 
-## December 02, 2024
+## December 03, 2024
 
 This release contains the following changes to API Mesh:
 
