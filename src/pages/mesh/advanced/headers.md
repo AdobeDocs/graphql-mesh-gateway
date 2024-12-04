@@ -18,6 +18,10 @@ To specify headers for your mesh, you can add them inside the `JSON` file that d
 
 Request headers provide more information about the request context. Currently, you can add request headers to your [mesh config](#add-request-headers-in-your-mesh-file).
 
+<InlineAlert variant="info" slots="text"/>
+
+API Mesh limits request headers to a maximum of 500.
+
 ### Add request headers in your mesh file
 
 To add headers directly to a source handler in your mesh JSON file, add the `operationHeaders` object with key-value pairs for your headers. The following example defines the `Store` header for the Commerce source and multiple headers for the LiveSearch source.

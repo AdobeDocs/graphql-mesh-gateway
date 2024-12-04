@@ -25,6 +25,7 @@ This release contains the following changes to API Mesh:
 ### Enhancements
 
 - We have removed the SOAP handler because it is not compatible with edge meshes.
+- You can now pass a maximum of 500 headers to your mesh.
 - Security improvements.
 
 ## December 03, 2024
