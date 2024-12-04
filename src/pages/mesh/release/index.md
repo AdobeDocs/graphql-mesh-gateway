@@ -301,7 +301,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-- ~~Added the SOAP handler~~ (deprecated) to API Mesh.
+- ~~Added the SOAP handler~~ (removed) to API Mesh.
   - The SOAP handler is experimental and should not be used in production deployments.
 - Added internal logging improvements.
 
