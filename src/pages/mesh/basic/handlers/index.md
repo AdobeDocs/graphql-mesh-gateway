@@ -17,7 +17,6 @@ Source handlers allow you to define sources, such as APIs, that provide data to 
 -  [OpenAPI](./openapi.md)
 -  [GraphQL](./graphql.md)
 -  [JSON schemas](./json-schema.md)
--  [SOAP](./soap.md) (Experimental)
 
 Whenever a schema is modified, you must [update your mesh](../create-mesh.md#update-an-existing-mesh) to allow API Mesh to cache any changes.
 
@@ -106,4 +105,3 @@ The following table specifies the GraphQL Mesh versions of each handler supporte
 [`openapi`](./openapi.md) | `0.33.39`
 [`graphql`](./graphql.md) | `0.34.13`
 [`JsonSchema`](./json-schema.md) | `0.35.38`
-[`soap`](./soap.md) | `0.14.25`

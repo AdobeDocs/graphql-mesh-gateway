@@ -18,7 +18,7 @@ Multiple partners are already using the updated version of API Mesh and have see
 
 <InlineAlert variant="info" slots="text"/>
 
-Due to compatibility limitations, certain features, such as [SOAP handlers](../basic/handlers/soap.md), and [`replaceField` transforms](../basic/transforms/replace-field.md) are not available in edge meshes.
+Due to compatibility limitations, certain features, such as [`replaceField` transforms](../basic/transforms/replace-field.md) are not available in edge meshes.
 
 ## Why the change?
 

@@ -16,7 +16,11 @@ To specify headers for your mesh, you can add them inside the `JSON` file that d
 
 ## Request headers
 
-Request headers provide more information about the request context. Currently, you can add request headers to your [mesh config](#add-request-headers-in-your-mesh-file).
+Request headers provide more information about the request context. You can add request headers to your [mesh config](#add-request-headers-in-your-mesh-file).
+
+<InlineAlert variant="info" slots="text"/>
+
+API Mesh limits request headers to a maximum of 500.
 
 ### Add request headers in your mesh file
 

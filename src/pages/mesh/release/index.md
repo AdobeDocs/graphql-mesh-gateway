@@ -18,6 +18,16 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## December 05, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- We have removed the SOAP handler because it is not compatible with edge meshes.
+- You can now pass a maximum of 500 headers to your mesh.
+- Security improvements.
+
 ## December 03, 2024
 
 This release contains the following changes to API Mesh:
@@ -129,7 +139,7 @@ The following commands will take slightly longer to complete. Consider using [lo
 
 <InlineAlert variant="info" slots="text"/>
 
-Due to compatibility limitations, certain features, such as [hooks](../advanced/hooks.md), [SOAP handlers](../basic/handlers/soap.md), and [`replaceField` transforms](../basic/transforms/replace-field.md) are not available in edge meshes.
+Due to compatibility limitations, certain features, such as [hooks](../advanced/hooks.md), SOAP handlers, and [`replaceField` transforms](../basic/transforms/replace-field.md) are not available in edge meshes.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -291,7 +301,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-- Added the [SOAP handler](../basic/handlers/soap.md) to API Mesh.
+- ~~Added the SOAP handler~~ (removed) to API Mesh.
   - The SOAP handler is experimental and should not be used in production deployments.
 - Added internal logging improvements.
 

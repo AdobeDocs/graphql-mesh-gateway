@@ -104,10 +104,6 @@ The edge mesh URL offers several benefits because the edge is closer to your dat
 - Better security and compliance
 - Increased observability
 
-<InlineAlert variant="warning" slots="text"/>
-
-Edge meshes do not support SOAP handlers.
-
 ## Optimizing edge mesh performance
 
 Edge meshes are resilient and performant because they exist closer to the origin of your query, in over 330 locations in 120 countries. This means that your queries can hit a server that has not initialized your mesh, causing a cold start.
