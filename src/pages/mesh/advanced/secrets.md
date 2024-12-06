@@ -12,7 +12,7 @@ keywords:
 
 # Secrets management
 
-API Mesh for Adobe Developer App Builder allows you to manage secrets for a mesh. You can use these secrets in your mesh configuration file to securely manage sensitive information. When creating or updating a mesh, you can provide a separate file that defines your secrets. API Mesh encrypts secrets using AES 512-bit encryption.
+API Mesh for Adobe Developer App Builder allows you to manage secrets for a mesh. You can use these secrets in your mesh configuration file to securely manage sensitive information. When creating or updating a mesh, you can provide a separate file that defines your secrets. API Mesh encrypts secrets using AES-256 encryption.
 
 For security purposes, you cannot receive the secrets once you define them when creating or updating a mesh. For example, running an `aio api-mesh get` command returns your mesh with the values defined within the mesh configuration file, such as `{context.secrets.SECRET}` and does not return the actual secret's value.
 
