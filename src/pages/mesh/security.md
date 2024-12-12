@@ -20,8 +20,8 @@ If you require additional authentication or authorization, you can use [custom r
 
 ## DDoS and rate limiting
 
-Distributed denial-of-service (DDoS) attack protection, rate limiting, and throttling are provided at a global level by Adobe I/O Runtime. For more individualized protection, we recommend adding a Content Delivery Network (CDN), such as [Fastly](./advanced/caching/fastly.md), through [edge caching](./advanced/caching/).
+API Mesh provides distributed denial-of-service (DDoS) attack protection at a global level through Adobe I/O Runtime. API mesh also provides a Web Application Firewall (WAF) that protects your mesh endpoints. For more individualized protection, we recommend adding a Content Delivery Network (CDN), such as [Fastly](./advanced/caching/fastly.md), through [edge caching](./advanced/caching/).
 
-Rate limiting mitigates DDoS threats by preventing a traffic source from sending too many requests. API Mesh controls the incoming traffic to our servers by limiting the number of requests that the API can receive within a given period. If the limit is reached before the time expires, the policy rejects all requests, which avoids any additional load on the API Mesh service and the backend source APIs within your mesh configurations. This is a global policy, covering the entire service. In the event you are rate limited, your mesh will produce an `HTTP 429 Too Many Requests` response status code.
+Rate limiting mitigates DDoS threats by preventing a traffic source from sending too many requests. API Mesh controls the incoming traffic to our servers by limiting the number of requests that the API can receive within a given period. If the limit is reached before the time expires, the policy rejects all requests, which avoids any additional load on the API Mesh service and the backend source APIs within your mesh configurations. This is a global policy, covering the entire service. In the event you are rate limited, your mesh will produce the following response status code: `HTTP 429 Too Many Requests`.
 
 If you encounter repeated `429` response codes, or for any other security issues, contact API Mesh support through Zendesk.
