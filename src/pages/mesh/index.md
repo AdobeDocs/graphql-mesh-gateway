@@ -27,7 +27,8 @@ API Mesh allows developers to configure multiple APIs and other sources and serv
 -  **API Mesh** - A reverse proxy that accepts most API calls for many backend services
 -  **Configurable Integrations** - Low/No-code method to integrate with your own private APIs with Adobe Commerce and other Adobe products, and third-party APIs
 -  **Backwards Compatibility** - Preserve existing APIs while gradually adopting new ones
--  **Extensibility** - Customize and extend all of your APIs directly in the gateway without making changes to the API source
+-  **Extensibility** - Customize and extend all your APIs directly in the gateway without making changes to the API source
+-  **Advanced Security** - Web application firewall (WAF) and distributed denial-of-service (DDoS) protection for all your APIs
 
 With API Mesh on the edge:
 
