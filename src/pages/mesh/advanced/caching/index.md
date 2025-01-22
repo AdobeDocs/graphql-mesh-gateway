@@ -56,7 +56,7 @@ To enable caching in API Mesh, add `"cache": true` to your `responseConfig` in y
 
 ### Request headers
 
-API mesh users can add cache-control headers to [request headers](#as-request-headers) or to a [mesh configuration file](#in-the-mesh-configuration-file).
+API mesh users can add cache-control headers to request headers or to a [mesh configuration file](#in-the-mesh-configuration-file).
 
 <InlineAlert variant="info" slots="text"/>
 
