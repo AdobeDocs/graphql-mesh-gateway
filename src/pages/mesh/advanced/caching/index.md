@@ -216,11 +216,11 @@ Cache-control header values in your mesh configuration file take precedence over
 
 ## Use your own CDN
 
-You can also [provide your own content delivery network (CDN)](#use-your-own-cdn), such as [Fastly](./fastly.md).
+While we recommend using the [native API Mesh caching](#api-mesh-native-caching) functionality, you can also provide your own content delivery network (CDN), such as Fastly. Refer to the [Fastly caching example](./fastly.md) for more information.
 
 <InlineAlert variant="info" slots="text"/>
 
-When using a CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information.
+When using your own CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information.
 
 <InlineAlert variant="info" slots="text"/>
 
