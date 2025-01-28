@@ -182,6 +182,22 @@ Example 2
 
   - no-store
 
+Example 3
+
+Public and private headers are mutually exclusive, since `private` is more restrictive, API Mesh selects the values associated with the `private` header.
+
+- Source 1 response headers
+
+  - public, max-age=30, s-maxage=600
+
+- Source 2 response headers
+
+  - private, max-age=60
+
+- Combined HTTP response headers
+
+  - private, max-age=30
+
 ### In the mesh configuration file
 
 To set your own values for cache-control headers, add a `Cache-Control` key-value pair to the `responseConfig` object in your mesh configuration file.
@@ -215,6 +231,8 @@ Cache-control header values in your mesh configuration file take precedence over
 ```
 
 ## Use your own CDN
+
+To disable native caching in API Mesh and use your own CDN, ensure that your `responseConfig` contains `"cache": false` to avoid double caching.
 
 While we recommend using the [native API Mesh caching](#api-mesh-native-caching) functionality, you can also provide your own content delivery network (CDN), such as Fastly. Refer to the [Fastly caching example](./fastly.md) for more information.
 
