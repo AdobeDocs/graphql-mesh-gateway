@@ -24,15 +24,8 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-- [Native caching](../advanced/caching/index.md) is now available for edge meshes.
-
-## February 4, 2025
-
-This release contains the following changes to API Mesh:
-
-### Enhancements
-
-- [Local development](../advanced/developer-tools.md) is now available for edge meshes and includes [new features](../advanced/developer-tools.md#keyboard-shortcuts) to interact with your local mesh.
+- [Native caching](../advanced/caching/index.md) closed beta is now available for edge meshes.
+- [Local development](../advanced/developer-tools.md) is now available for edge meshes.
   - [Hooks](../advanced/hooks.md) are currently not supported in local development.
 - Internal authorization improvements.
 
