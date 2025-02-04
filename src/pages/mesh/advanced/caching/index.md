@@ -200,7 +200,7 @@ While we recommend using the [native API Mesh caching](#api-mesh-native-caching)
 
 <InlineAlert variant="info" slots="text"/>
 
-When using your own CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information. There is currently no way to manually invalidate your cache, instead you must wait for the Time to Live (`TTL`) to expire on the cached content.
+When using your own CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information.
 
 <InlineAlert variant="info" slots="text"/>
 
