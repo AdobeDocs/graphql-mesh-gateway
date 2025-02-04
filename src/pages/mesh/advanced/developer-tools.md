@@ -54,16 +54,6 @@ All of these steps can be automated using flags described in the [command refere
 
   Use the `--select` argument with the `run` command to deploy the mesh artifact in the selected workspace without rebuilding it.
 
-### Keyboard shortcuts
-
-Once your mesh is running, you can use the following keyboard shortcuts in the CLI:
-
-- `b` - Opens the local GraphQL server in your default browser.
-- `d` - Opens developer tools in your default browser.
-- `l` - Launches Cloudflare, allowing you to deploy to production if you have appropriate permissions.
-- `c` - Clears the contents of the console.
-- `x` - Exits the local environment.
-
 ### Local development files
 
 The `aio api-mesh:init` command creates the following files locally:
