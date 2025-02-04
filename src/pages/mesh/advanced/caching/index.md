@@ -72,13 +72,13 @@ When cache-control header values from multiple sources conflict, API Mesh select
 
 If no sources in the query return a `cache-control` header, then caching is skipped.
 
-If you have three sources included in a query, and only one source includes a `cache-control` header, the combined response from all three sources gets cached based on the directives of the source that triggers caching.
+If you have multiple sources included in a query, and only one source includes a `cache-control` header, the combined response from all sources gets cached based on the directives of the source that triggers caching.
 
 The `no-store` directive supersedes all other directives. If your source's cache-control headers contain this directive, then the mesh does not return other headers.
 
 <InlineAlert variant="info" slots="text"/>
 
-You can also use a header value of `x-include-metadata=true` to return all headers.
+You can also include a request header value of `x-include-metadata=true` to return response headers from all sources .
 
 If your source's cache-control headers contain conflicting values for the following directives, the mesh selects the lowest value:
 
