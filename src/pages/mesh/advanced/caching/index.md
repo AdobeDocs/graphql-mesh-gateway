@@ -25,7 +25,7 @@ When a browser or a GET request accesses a URL, the site's response headers typi
 cache-control: max-age=3600
 ```
 
-A value of `3600` means that this site wants to serve [fresh](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) data for `3600` seconds (1 hour) after generating the response. After `3600` seconds, the data is considered stale and the browser must request a new response from the server.
+A `max-age` value of `3600` means that this site wants to serve [fresh](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) data for `3600` seconds (1 hour) after generating the response. After `3600` seconds, the data is considered stale and the browser must request a new response from the server.
 
 Alternatively, a site could have the following response header:
 
