@@ -18,6 +18,14 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## February 6, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- [Native caching](../advanced/caching/index.md) is now available for edge meshes.
+
 ## February 4, 2025
 
 This release contains the following changes to API Mesh:
