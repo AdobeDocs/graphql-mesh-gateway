@@ -22,6 +22,14 @@ Native caching is currently in closed beta.
 When a browser or a GET request accesses a URL, the site's response headers typically include a `cache-control` header, which determines how long the site will allow its data to be cached. For example, a site could have the following response header:
 
 ```html
+cache-control: max-age=3600
+```
+
+A value of `3600` means that this site wants to serve [fresh](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) data for `3600` seconds (1 hour) after generating the response. After `3600` seconds, the data is considered stale and the browser must request a new response from the server.
+
+Alternatively, a site could have the following response header:
+
+```html
 cache-control: max-age=0
 ```
 
