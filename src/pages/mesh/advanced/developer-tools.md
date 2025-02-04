@@ -60,7 +60,7 @@ Once your mesh is running, you can use the following keyboard shortcuts in the C
 
 - `b` - Opens the local GraphQL server in your default browser.
 - `d` - Opens developer tools in your default browser.
-- `l` - Launches Cloudflare allowing you to deploy to production if you have appropriate permissions.
+- `l` - Launches Cloudflare, allowing you to deploy to production if you have appropriate permissions.
 - `c` - Clears the contents of the console.
 - `x` - Exits the local environment.
 
