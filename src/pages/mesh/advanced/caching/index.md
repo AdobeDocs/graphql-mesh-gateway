@@ -204,20 +204,6 @@ Cache-control header values in your mesh configuration file take precedence over
 }
 ```
 
-## Use your own CDN
-
-To disable native caching in API Mesh and use your own CDN, ensure that your `responseConfig` contains `"cache": false` to avoid double caching.
-
-While we recommend using the [native API Mesh caching](#api-mesh-native-caching) functionality, you can also provide your own content delivery network (CDN), such as Fastly. Refer to the [Fastly caching example](./fastly.md) for more information.
-
-<InlineAlert variant="info" slots="text"/>
-
-When using your own CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information.
-
-<InlineAlert variant="info" slots="text"/>
-
-`POST` requests are typically not supported when bringing your own CDN.
-
 ## Verifying the caching behavior using response headers
 
 You can verify the caching behavior of GraphQL requests based on the values of the returned response headers when caching is enabled.
@@ -235,3 +221,17 @@ The following response headers are returned when caching is enabled:
 - `Expires` - UTC date when the cached response expires.
 
 - `Last-Modified` - UTC date when the cached response was stored.
+
+## Use your own CDN
+
+To disable native caching in API Mesh and use your own CDN, ensure that your `responseConfig` contains `"cache": false` to avoid double caching.
+
+While we recommend using the [native API Mesh caching](#api-mesh-native-caching) functionality, you can also provide your own content delivery network (CDN), such as Fastly. Refer to the [Fastly caching example](./fastly.md) for more information.
+
+<InlineAlert variant="info" slots="text"/>
+
+When using your own CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information.
+
+<InlineAlert variant="info" slots="text"/>
+
+`POST` requests are typically not supported when bringing your own CDN.
