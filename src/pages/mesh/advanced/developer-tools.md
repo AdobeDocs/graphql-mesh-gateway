@@ -16,6 +16,10 @@ import Performance from '/src/_includes/performance-schedule.md'
 
 The processes covered in this topic allow developers to set up a local environment, use environment variables, and directly reference files in API Mesh for Adobe Developer App Builder.
 
+<InlineAlert variant="info" slots="text"/>
+
+[Hooks](./hooks.md) are currently not supported in local development.
+
 ## Create a local environment
 
 A local development environment for API Mesh allows you to run a local version for development and testing purposes.
@@ -49,6 +53,16 @@ All of these steps can be automated using flags described in the [command refere
   The console indicates your server status. If your build is successful, your mesh will be accessible at `http://localhost:5000/graphql` by default.
 
   Use the `--select` argument with the `run` command to deploy the mesh artifact in the selected workspace without rebuilding it.
+
+### Keyboard shortcuts
+
+Once your mesh is running, you can use the following keyboard shortcuts in the CLI:
+
+- `b` - Opens the local GraphQL server in your default browser.
+- `d` - Opens developer tools in your default browser.
+- `l` - Launches Cloudflare, allowing you to deploy to production if you have appropriate permissions.
+- `c` - Clears the contents of the console.
+- `x` - Exits the local environment.
 
 ### Local development files
 
