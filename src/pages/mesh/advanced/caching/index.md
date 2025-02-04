@@ -15,6 +15,10 @@ keywords:
 
 API Mesh supports dynamic content caching [natively](#api-mesh-native-caching) using standard [HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching). You can also [provide your own content delivery network (CDN)](#use-your-own-cdn), such as [Fastly](./fastly.md). Dynamic content caching helps improve site load times and reduces consumption costs associated with bandwidth. A CDN's cache-control headers determine how queried information is cached.
 
+<InlineAlert variant="info" slots="text"/>
+
+Native caching is currently in closed beta.
+
 When a browser or a GET request accesses a URL, the site's response headers typically include a `cache-control` header, which determines how long the site will allow its data to be cached. For example, a site could have the following response header:
 
 ```html
