@@ -78,7 +78,7 @@ The `no-store` directive supersedes all other directives. If your source's cache
 
 <InlineAlert variant="info" slots="text"/>
 
-You can also include a request header value of `x-include-metadata=true` to return response headers from all sources .
+You can also include a request header value of `x-include-metadata=true` to return response headers from all sources.
 
 If your source's cache-control headers contain conflicting values for the following directives, the mesh selects the lowest value:
 
@@ -204,7 +204,7 @@ When using your own CDN, you must invalidate the cache after modifying a mesh co
 
 <InlineAlert variant="info" slots="text"/>
 
-`POST` requests are not supported when bringing your own CDN.
+`POST` requests are typically not supported when bringing your own CDN.
 
 ## Verifying the caching behavior using response headers
 
@@ -217,8 +217,6 @@ The following response headers are returned when caching is enabled:
 - `Age` - On cache `HIT`, cached response age in seconds.
 
 - `Cache-Status` - `HIT` or `MISS`.
-
-- `Date` - Date of the response in UTC.
 
 - `Etag` - Unique identifier for a response.
 
