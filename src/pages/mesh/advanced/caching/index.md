@@ -13,7 +13,7 @@ keywords:
 
 # Cache-control headers
 
-API Mesh supports dynamic content caching [natively](#api-mesh-native-caching). You can also [provide your own content delivery network (CDN)](#use-your-own-cdn), such as [Fastly](./fastly.md). Dynamic content caching helps improve site load times and reduces consumption costs associated with bandwidth. A CDN's cache-control headers determine how queried information is cached.
+API Mesh supports dynamic content caching [natively](#api-mesh-native-caching) using standard [HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching). You can also [provide your own content delivery network (CDN)](#use-your-own-cdn), such as [Fastly](./fastly.md). Dynamic content caching helps improve site load times and reduces consumption costs associated with bandwidth. A CDN's cache-control headers determine how queried information is cached.
 
 When a browser or a GET request accesses a URL, the site's response headers typically include a `cache-control` header, which determines how long the site will allow its data to be cached. For example, a site could have the following response header:
 
@@ -196,7 +196,7 @@ Public and private headers are mutually exclusive, since `private` is more restr
 
 - Combined HTTP response headers
 
-  - private, max-age=30
+  - private, max-age=30, s-maxage=600
 
 ### In the mesh configuration file
 
