@@ -54,69 +54,31 @@ To enable caching in API Mesh, add `"cache": true` to your `responseConfig` in y
 }
 ```
 
-### Request headers
-
-API mesh users can add cache-control headers to request headers or to a [mesh configuration file](#in-the-mesh-configuration-file).
-
 <InlineAlert variant="info" slots="text"/>
 
 Currently, query-level caching is not supported.
-
-The following example provides an example mesh configuration to [return forwarded headers](../headers.md#return-forwarded-headers).
-
-<InlineAlert variant="info" slots="text"/>
-
-You can also use a header value of `x-include-metadata=true` to return all headers.
-
-When the response includes cache-control values, only the [most restrictive values](#how-conflicting-header-values-are-resolved) are returned.
-
-```json
-{
-  "meshConfig": {
-    "responseConfig": {
-        "headers": {
-      "Cache-Control": "max-age=50,min-fresh=6,stale-if-error=20,public,must-revalidate"
-        }
-    },
-    "sources": [
-      {
-        "name": "venia",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://venia.magento.com/graphql"
-          }
-        }
-      }
-    ]
-  }
-}
-```
 
 <InlineAlert variant="info" slots="text"/>
 
 GET requests are limited to 2,048 characters.
 
-###  Response headers
+## Response headers
 
-The following response headers are returned when caching is enabled:
+You can control how caching works by modifying the directives within the `cache-control` response headers returned by the sources. At least one source included in the GraphQL query must return a `cache-control` header to consider the entire request for caching. You do not need to explicitly include the `cache-control` header in the source's `responseConfig`.
 
-- `Age` - On cache `HIT`, cached response age in seconds.
-
-- `Cache-Status` - `HIT` or `MISS`.
-
-- `Date` - Date of the response in UTC.
-
-- `Etag` - Unique identifier for a response.
-
-- `Expires` - UTC date when the cached response expires.
-
-- `Last-Modified` - UTC date when the cached response was stored.
-
-#### How conflicting header values are resolved
+### Resolving conflicts between sources
 
 When cache-control header values from multiple sources conflict, API Mesh selects the lowest and most restrictive value. The following section explains which values are returned when [cache-control directives](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) conflict.
 
+If no sources in the query return a `cache-control` header, then caching is skipped.
+
+If you have three sources included in a query, and only one source includes a `cache-control` header, the combined response from all three sources gets cached based on the directives of the source that triggers caching.
+
 The `no-store` directive supersedes all other directives. If your source's cache-control headers contain this directive, then the mesh does not return other headers.
+
+<InlineAlert variant="info" slots="text"/>
+
+You can also use a header value of `x-include-metadata=true` to return all headers.
 
 If your source's cache-control headers contain conflicting values for the following directives, the mesh selects the lowest value:
 
@@ -198,7 +160,7 @@ Public and private headers are mutually exclusive, since `private` is more restr
 
   - private, max-age=30, s-maxage=600
 
-### In the mesh configuration file
+### Overriding cache-control using mesh-level `responseConfig`
 
 To set your own values for cache-control headers, add a `Cache-Control` key-value pair to the `responseConfig` object in your mesh configuration file.
 
@@ -238,8 +200,28 @@ While we recommend using the [native API Mesh caching](#api-mesh-native-caching)
 
 <InlineAlert variant="info" slots="text"/>
 
-When using your own CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information.
+When using your own CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information. There is currently no way to manually invalidate your cache, instead you must wait for the Time to Live (`TTL`) to expire on the cached content.
 
 <InlineAlert variant="info" slots="text"/>
 
 `POST` requests are not supported when bringing your own CDN.
+
+## Verifying the caching behavior using response headers
+
+You can verify the caching behavior of GraphQL requests based on the values of the returned response headers when caching is enabled.
+
+**Response headers**
+
+The following response headers are returned when caching is enabled:
+
+- `Age` - On cache `HIT`, cached response age in seconds.
+
+- `Cache-Status` - `HIT` or `MISS`.
+
+- `Date` - Date of the response in UTC.
+
+- `Etag` - Unique identifier for a response.
+
+- `Expires` - UTC date when the cached response expires.
+
+- `Last-Modified` - UTC date when the cached response was stored.
