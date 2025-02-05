@@ -224,9 +224,9 @@ The following response headers are returned when caching is enabled:
 
 ## Use your own CDN
 
-To disable native caching in API Mesh and use your own CDN, ensure that your `responseConfig` contains `"cache": false` to avoid double caching.
-
 While we recommend using the [native API Mesh caching](#api-mesh-native-caching) functionality, you can also provide your own content delivery network (CDN), such as Fastly. Refer to the [Fastly caching example](./fastly.md) for more information.
+
+To disable native caching in API Mesh and use your own CDN, ensure that your `responseConfig` contains `"cache": false` to avoid double caching.
 
 <InlineAlert variant="info" slots="text"/>
 
