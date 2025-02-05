@@ -158,7 +158,7 @@ Example 2
 
 Example 3
 
-Public and private headers are mutually exclusive, since `private` is more restrictive, API Mesh selects the values associated with the `private` header.
+Public and private headers are mutually exclusive. Since `private` is more restrictive, API Mesh selects the values associated with the `private` header.
 
 - Source 1 response headers
 
