@@ -18,6 +18,16 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## February 6, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- [Local development](../advanced/developer-tools.md) is now available for edge meshes.
+  - [Hooks](../advanced/hooks.md) are currently not supported in local development.
+- Internal authorization improvements.
+
 ## January 09, 2025
 
 This release contains the following changes to API Mesh:
