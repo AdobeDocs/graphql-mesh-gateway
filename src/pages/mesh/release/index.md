@@ -18,6 +18,20 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## February 19, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Authorization improvements to the CLI. To install the latest version of the API Mesh plugin, run the following command:
+
+  ```bash
+  aio plugins:install @adobe/aio-cli-plugin-api-mesh
+  ```
+
+- The CLI now notifies you when a new version of the `aio-cli-plugin-api-mesh` plugin is available.
+
 ## February 6, 2025
 
 This release contains the following changes to API Mesh:
