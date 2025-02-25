@@ -18,6 +18,14 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## February 27, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+You can now invalidate your cache by using the `aio-api mesh:purge` command.
+
 ## February 26, 2025
 
 This release contains the following changes to API Mesh:
