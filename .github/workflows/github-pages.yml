@@ -1,26 +1,20 @@
-# The workflow is based on a starter workflow https://github.com/actions/starter-workflows/blob/main/pages/gatsby.yml
 name: Deploy Gatsby site to Pages
 
 on: workflow_dispatch
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
-# Default to bash
 defaults:
   run:
     shell: bash
 
 jobs:
   call-workflow-deploy-to-pages:
-    uses: commerce-docs/commerce-testing/.github/workflows/deploy-to-pages.yml@ds_pages
-    secrets: inherit
+    uses: AdobeDocs/commerce-php/.github/workflows/deploy-to-pages_job.yml@main
