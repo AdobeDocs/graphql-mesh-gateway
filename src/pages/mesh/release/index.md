@@ -14,6 +14,10 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 <UpdateNotice />
 
+# Release notes
+
+The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
+
 ## March 03, 2025
 
 This release contains the following changes to API Mesh:
@@ -21,10 +25,6 @@ This release contains the following changes to API Mesh:
 ### Enhancements
 
 Improved the information provided in the CLI when requesting the status of a provisioning mesh with the [`aio api-mesh:status` command](../advanced/index.md#aio-api-meshstatus).
-
-# Release notes
-
-The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
 ## February 26, 2025
 
