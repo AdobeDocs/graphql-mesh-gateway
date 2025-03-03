@@ -24,7 +24,9 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-Improved the information provided in the CLI when requesting the status of a provisioning mesh with the [`aio api-mesh:status` command](../advanced/index.md#aio-api-meshstatus).
+- [Hooks](../advanced/hooks.md) are now supported in local development for edge meshes.
+
+- Improved the information provided in the CLI when requesting the status of a provisioning mesh with the [`aio api-mesh:status` command](../advanced/index.md#aio-api-meshstatus).
 
 ## February 26, 2025
 

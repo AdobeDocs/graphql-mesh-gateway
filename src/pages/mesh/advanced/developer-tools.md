@@ -16,10 +16,6 @@ import Performance from '/src/_includes/performance-schedule.md'
 
 The processes covered in this topic allow developers to set up a local environment, use environment variables, and directly reference files in API Mesh for Adobe Developer App Builder.
 
-<InlineAlert variant="info" slots="text"/>
-
-[Hooks](./hooks.md) are currently not supported in local development.
-
 ## Create a local environment
 
 A local development environment for API Mesh allows you to run a local version for development and testing purposes.
