@@ -222,6 +222,18 @@ The following response headers are returned when caching is enabled:
 
 - `Last-Modified` - UTC date when the cached response was stored.
 
+## Purge the cache
+
+To purge your cache, use the following command.
+
+<InlineAlert variant="warning" slots="text"/>
+
+This will delete all cached responses for the mesh.
+
+```bash
+aio api-mesh cache purge -a
+```
+
 ## Use your own CDN
 
 While we recommend using the [native API Mesh caching](#api-mesh-native-caching) functionality, you can also provide your own content delivery network (CDN), such as Fastly. Refer to the [Fastly caching example](./fastly.md) for more information.
