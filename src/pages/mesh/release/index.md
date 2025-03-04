@@ -31,6 +31,10 @@ This release contains the following changes to API Mesh:
 
 This release contains the following changes to API Mesh:
 
+### Enhancements
+
+- Introspection queries, mutations, and errors are no longer cached.
+
 ### Bug fixes
 
 - Resolved an issue that could cause truncated logs.
@@ -55,6 +59,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
+- [Native caching](../advanced/caching/index.md) closed beta is now available for edge meshes.
 - [Local development](../advanced/developer-tools.md) is now available for edge meshes.
   - [Hooks](../advanced/hooks.md) are currently not supported in local development.
 - Internal authorization improvements.
