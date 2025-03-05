@@ -742,19 +742,23 @@ The `aio api-mesh:cache:purge` command deletes all cached responses for the mesh
 ### Usage
 
 ```bash
-aio `aio api-mesh:cache:purge` [--a]
+aio `aio api-mesh:cache:purge` [-a] [-c] [--help]
 ```
 
 ### Flags
 
 The following arguments are required:
 
-`-a` this indicates that you want to delete all cached responses for the mesh. Currently, this is the only option.
+`-a` or `--all` indicates that you want to delete all cached responses for the mesh. Currently, this is the only option.
+
+`-c` or `--autoConfirmAction` automatically confirms the cache purge instead of prompting the user to confirm.
+
+`--help` provides information on the specified command.
 
 #### Example
 
 ```bash
-aio `aio api-mesh:cache:purge` [--all]
+aio `aio api-mesh:cache:purge` -a
 ```
 
 ### Response

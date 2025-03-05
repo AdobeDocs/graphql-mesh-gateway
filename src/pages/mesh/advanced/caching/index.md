@@ -231,8 +231,16 @@ To purge your cache, use the following command.
 This will delete all cached responses for the mesh.
 
 ```bash
-aio api-mesh cache purge -a
+aio api-mesh:cache:purge -a
 ```
+
+Confirm that you want to purge the cache by selecting `Yes`. You can also auto confirm the purge by adding the `--autoConfirmAction` or `-c` flag.
+
+```bash
+aio api-mesh:cache:purge -a -c
+```
+
+For more information, refer to the [Command reference](../index.md#pu).
 
 ## Use your own CDN
 
