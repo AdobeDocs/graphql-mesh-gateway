@@ -240,7 +240,7 @@ Confirm that you want to purge the cache by selecting `Yes`. You can also auto c
 aio api-mesh:cache:purge -a -c
 ```
 
-For more information, refer to the [Command reference](../index.md#pu).
+For more information, refer to the [Command reference](../index.md#aio-api-meshcachepurge).
 
 ## Use your own CDN
 
