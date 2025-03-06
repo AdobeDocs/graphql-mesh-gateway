@@ -18,7 +18,7 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
-## March 04, 2025
+## March 06, 2025
 
 This release contains the following changes to API Mesh:
 
