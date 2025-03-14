@@ -18,6 +18,14 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## March 18, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+This release adds the ability to [enable caching for sources without cache-control headers](../advanced/caching/index.md#enable-caching-for-sources-without-cache-control-headers).
+
 ## March 06, 2025
 
 This release contains the following changes to API Mesh:
@@ -25,6 +33,15 @@ This release contains the following changes to API Mesh:
 ### Enhancements
 
 You can now invalidate your cache by using the [`aio-api mesh:cache:purge` command](../advanced/caching/index.md#purge-the-cache).
+
+## March 03, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- [Hooks](../advanced/hooks.md) are now supported in local development for edge meshes.
+- Improved the information provided in the CLI when requesting the status of a provisioning mesh with the [`aio api-mesh:status` command](../advanced/index.md#aio-api-meshstatus).
 
 ## February 26, 2025
 

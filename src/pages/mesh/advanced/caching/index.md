@@ -242,6 +242,41 @@ aio api-mesh:cache:purge -a -c
 
 For more information, refer to the [Command reference](../index.md#aio-api-meshcachepurge).
 
+## Enable caching for sources without cache-control headers
+
+To cache responses from sources that do not return cache-control headers, use API Mesh to set a default cache-control directive in your mesh configuration file. This directive applies to all sources that do not return cache-control headers, but still respects the cache-control headers of sources that do return them and [resolves conflicts between sources](#resolving-conflicts-between-sources).
+
+Enabling a default cache-control directive can help with the following use cases:
+
+- Cache responses from third-party APIs that do not return cache-control headers
+- Reduce latency and network hops
+- Simplify architecture by not using a CDN
+
+To configure a default cache-control directive, add a `cacheControl` key-value pair to `responseConfig.cache` in your mesh configuration file. Use the `cacheControl` key to specify the default cache-control directives for the source. If a cacheable query does not return a cache-control header, the default value is applied.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Adobe Commerce API",
+        "handler": {
+          "openapi": {
+            "source": "<your_endpoint>"
+          },
+          "responseConfig": {
+            "cache": {
+              "cacheControl": "public, max-age=100"
+            }
+          }
+        }
+      },
+      ...
+    ]
+  }
+}
+```
+
 ## Use your own CDN
 
 While we recommend using the [native API Mesh caching](#api-mesh-native-caching) functionality, you can also provide your own content delivery network (CDN), such as Fastly. Refer to the [Fastly caching example](./fastly.md) for more information.
