@@ -249,6 +249,11 @@ module.exports = [
                 title: "Understanding Extensibility",
                 path: "https://developer.adobe.com/commerce/extensibility/app-development/examples/",
                 EventTarget: "_blank"
+            },
+            {
+                title: "Contact support",
+                path: "https://experienceleague.adobe.com/home?support-tab=home#support",
+                EventTarget: "_blank"
             }
         ]
     }
