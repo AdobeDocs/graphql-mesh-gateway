@@ -239,3 +239,17 @@ If your schema contains sensitive information, you can prevent introspection and
   }
 }
 ```
+
+## URL encoding
+
+API Mesh only supports single-encoded URL parameters. Double-encoded and subsequent requests are not supported. Refer to the following examples for more information.
+
+**Accepted requests**:
+
+`/organizations/1234567890%40AdobeOrg/projects/0987654321/workspaces/3210987654321/meshes/12a3b4c5-6d78-4012-3456-7e890fa1bcde`
+
+`/organizations/1234567890@AdobeOrg/projects/0987654321/workspaces/3210987654321/meshes/12a3b4c5-6d78-4012-3456-7e890fa1bcde`
+
+**Unaccepted requests**:
+
+`/organizations/1234567890%2540AdobeOrg/projects/0987654321/workspaces/3210987654321/meshes/12a3b4c5-6d78-4012-3456-7e890fa1bcde`
