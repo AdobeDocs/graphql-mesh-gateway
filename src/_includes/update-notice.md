@@ -5,4 +5,4 @@
 
 [Update the API Mesh CLI](../pages/mesh/basic/index.md#install-the-aio-cli) to the latest version to avoid encoding issues.
 
-[Update CLI](../pages/mesh/basic/index.md#install-the-aio-cli)
+[Update CLI](src/pages/mesh/basic/index.md#install-the-aio-cli)
