@@ -217,6 +217,8 @@ When you query a mesh using chained mutations, the mesh makes a separate call to
 
 These mutations are executed sequentially, calling one source after the other. When you call a source directly, it will only need one API call, but it will execute the batch mutations sequentially by calling their respective resolvers. These calls are more overt in API Mesh, because they are made by a network call, instead of an internal call. This means you will see multiple calls for chained mutations.
 
+For more information on chain mutations, refer to the [chain mutation code samples](https://github.com/adobe/adobe-commerce-samples/tree/main/api-mesh/chain-mutations).
+
 ## Disable introspection
 
 If your schema contains sensitive information, you can prevent introspection and disable auto-completion by adding the `disableIntrospection` configuration option to your mesh. `disableIntrospection` defaults to `false`. To disable introspection, set it to `true`.
