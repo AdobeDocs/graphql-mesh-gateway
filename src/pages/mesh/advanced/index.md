@@ -698,7 +698,7 @@ The `log-get-bulk` command creates a CSV file with logs for the selected mesh du
 ### Usage
 
 ```bash
-aio api-mesh:log-get-bulk [--startTime <value>] [--endTime <value>] [--filename <value>] [-i] [--help]
+aio api-mesh:log-get-bulk [--startTime <value>] [--endTime <value>] [--filename <value>] [--past <value>] [--from <value>] [-i] [--help]
 ```
 
 ### Flags
@@ -710,6 +710,10 @@ The following arguments are required:
 `--endTime` the end time for log collection in the format `YYYY-MM-DDTHH:MM:SSZ`. You must convert your local time to UTC.
 
 `--filename` specifies the name of the file to output the logs to.
+
+`--past` specifies the number of minutes in the past to get logs. The maximum value is `30`.
+
+`--from` specifies the number of minutes before a specific time to get logs. The maximum value is `30`.
 
 The following arguments are optional:
 
