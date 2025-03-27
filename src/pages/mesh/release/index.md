@@ -18,6 +18,15 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## March 27, 2025
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Resolved an encoding issue that could cause problems when interacting with a mesh. Update your CLI to the latest version, if you experience similar issues.
+- Resolved an issue that prevented certain `additionalResolvers` from functioning correctly when using [local development](../advanced/developer-tools.md).
+
 ## March 03, 2025
 
 This release contains the following changes to API Mesh:
