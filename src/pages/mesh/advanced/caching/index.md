@@ -41,6 +41,11 @@ For more information on specific cache-control directives and how to use them, s
 
 Edge caching is a feature of API Mesh that allows you to cache responses from your sources. When you enable caching, API Mesh caches responses for a specified amount of time. This feature helps reduce the load on your sources and improves the performance of your mesh.
 
+Using API Mesh's native caching feature:
+
+- Reduces latency and network hops
+- Simplifies architecture by using API Mesh's CDN
+
 ### Enable caching
 
 To enable caching in API Mesh, add `"cache": true` to your `responseConfig` in your mesh configuration file. Caching is disabled by default.
@@ -241,6 +246,35 @@ aio api-mesh:cache:purge -a -c
 ```
 
 For more information, refer to the [Command reference](../index.md#aio-api-meshcachepurge).
+
+## Enable caching for sources without cache-control headers
+
+To cache responses from sources that do not return cache-control headers, use API Mesh to set a default cache-control directive in your mesh configuration file. This directive applies to all sources that do not return cache-control headers, but still respects the cache-control headers of sources that do return them and [resolves conflicts between sources](#resolving-conflicts-between-sources).
+
+To configure a default cache-control directive, add a `cacheControl` key-value pair to `responseConfig.cache` in your mesh configuration file. Use the `cacheControl` key to specify the default cache-control directives for the source. If a cacheable query does not return a cache-control header, the default value is applied.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Adobe Commerce API",
+        "handler": {
+          "openapi": {
+            "source": "<your_endpoint>"
+          },
+          "responseConfig": {
+            "cache": {
+              "cacheControl": "public, max-age=100"
+            }
+          }
+        }
+      },
+      ...
+    ]
+  }
+}
+```
 
 ## Use your own CDN
 
