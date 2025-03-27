@@ -22,10 +22,22 @@ The following sections list updates to API Mesh for Adobe Developer App Builder.
 
 This release contains the following changes to API Mesh:
 
+### Enhancements
+
+This release adds the ability to [enable caching for sources without cache-control headers](../advanced/caching/index.md#enable-caching-for-sources-without-cache-control-headers).
+
 ### Bug fixes
 
 - Resolved an encoding issue that could cause problems when interacting with a mesh. [Update your CLI to the latest version](./upgrade.md#software-updates), if you experience similar issues.
 - Resolved an issue that prevented certain `additionalResolvers` from functioning correctly when using [local development](../advanced/developer-tools.md).
+
+## March 06, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+You can now invalidate your cache by using the [`aio-api mesh:cache:purge` command](../advanced/caching/index.md#purge-the-cache).
 
 ## March 03, 2025
 
@@ -39,6 +51,10 @@ This release contains the following changes to API Mesh:
 ## February 26, 2025
 
 This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Introspection queries, mutations, and errors are no longer cached.
 
 ### Bug fixes
 
@@ -64,6 +80,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
+- [Native caching](../advanced/caching/index.md) closed beta is now available for edge meshes.
 - [Local development](../advanced/developer-tools.md) is now available for edge meshes.
   - [Hooks](../advanced/hooks.md) are currently not supported in local development.
 - Internal authorization improvements.
