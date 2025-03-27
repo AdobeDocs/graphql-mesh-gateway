@@ -53,17 +53,3 @@ aio api-mesh:log-get-bulk --startTime 2024-08-27T21:31:39Z --endTime 2024-08-27T
 The time format is `YYYY-MM-DDTHH:MM:SSZ`. You must convert your local time to UTC.
 
 For more information see [`aio api-mesh:log-get-bulk`](./index.md#aio-api-meshlog-get-bulk).
-<!-- 
-## Export bulk logs with a relative time range
-
-You can use the `--past` flag to specify the number of minutes in the past to get logs. The maximum value is `30mins`.
-
-```bash
-aio api-mesh:log-get-bulk --past 30mins --filename mesh_logs.csv
-```
- 
-You can also use the `--past` flag with the `--from` flag to specify the number of minutes prior to a specific time to get logs. The maximum value is `30mins`.
-
-```bash
-aio api-mesh:log-get-bulk --past 30mins --from 2024-08-27T21:31:39Z --filename mesh_logs.csv
-``` -->
