@@ -178,6 +178,8 @@ You can also create a mesh automatically when [bootstrapping a new app through t
 
 The following example adds both an Adobe Commerce instance (with Catalog Service enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Catalog Service are different, so you must configure them separately.
 
+For another example, refer to the [API Mesh multiple sources sample](https://github.com/adobe/adobe-commerce-samples/tree/main/api-mesh/commerce-and-catalog).
+
 ```json
 {
   "meshConfig": {
