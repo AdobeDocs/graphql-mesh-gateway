@@ -698,7 +698,7 @@ The `log-get-bulk` command creates a CSV file with logs for the selected mesh du
 ### Usage
 
 ```bash
-aio api-mesh:log-get-bulk [--startTime <value>] [--endTime <value>] [--filename <value>] [--past <value>] [-i] [--help]
+aio api-mesh:log-get-bulk [--startTime <value>] [--endTime <value>] [--filename <value>] [-i] [--help]
 ```
 
 ### Flags
