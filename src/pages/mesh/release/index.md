@@ -21,10 +21,10 @@ The following sections list updates to API Mesh for Adobe Developer App Builder.
 ## March 27, 2025
 
 This release contains the following changes to API Mesh:
-
+<!-- 
 ### Enhancements
 
-- The [`log-get-bulk` command](../advanced/logging.md#export-bulk-logs-with-a-relative-time-range) now supports abstract start and end times.
+- The [`log-get-bulk` command](../advanced/logging.md#export-bulk-logs-with-a-relative-time-range) now supports abstract start and end times. -->
 
 ### Bug fixes
 
