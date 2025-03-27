@@ -28,7 +28,7 @@ This release adds the ability to [enable caching for sources without cache-contr
 
 ### Bug fixes
 
-- Resolved an encoding issue that could cause problems when interacting with a mesh. Update your CLI to the latest version, if you experience similar issues.
+- Resolved an encoding issue that could cause problems when interacting with a mesh. [Update your CLI to the latest version](./upgrade.md#software-updates), if you experience similar issues.
 - Resolved an issue that prevented certain `additionalResolvers` from functioning correctly when using [local development](../advanced/developer-tools.md).
 
 ## March 06, 2025
