@@ -711,9 +711,9 @@ The following arguments are required:
 
 `--filename` specifies the name of the file to output the logs to.
 
-`--past` specifies the number of minutes in the past to get logs. The maximum value is `30`.
+`--past` specifies the number of minutes in the past to get logs. The maximum value is `30mins`.
 
-`--from` specifies the number of minutes before a specific time to get logs. The maximum value is `30`.
+<!-- `--from` specifies the number of minutes before a specific time to get logs. The maximum value is `30mins`. -->
 
 The following arguments are optional:
 

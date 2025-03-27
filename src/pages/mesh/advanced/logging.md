@@ -56,14 +56,14 @@ For more information see [`aio api-mesh:log-get-bulk`](./index.md#aio-api-meshlo
 
 ## Export bulk logs with a relative time range
 
-You can use the `--past` flag to specify the number of minutes in the past to get logs. The maximum value is `30`.
+You can use the `--past` flag to specify the number of minutes in the past to get logs. The maximum value is `30mins`.
 
 ```bash
-aio api-mesh:log-get-bulk --past 30 --filename mesh_logs.csv
+aio api-mesh:log-get-bulk --past 30mins --filename mesh_logs.csv
 ```
-
-You can also use the `--past` flag with the `--from` flag to specify the number of minutes prior to a specific time to get logs. The maximum value is `30`.
+<!-- 
+You can also use the `--past` flag with the `--from` flag to specify the number of minutes prior to a specific time to get logs. The maximum value is `30mins`.
 
 ```bash
-aio api-mesh:log-get-bulk --past 30 --from 2024-08-27T21:31:39Z --filename mesh_logs.csv
-```
+aio api-mesh:log-get-bulk --past 30mins --from 2024-08-27T21:31:39Z --filename mesh_logs.csv
+``` -->
