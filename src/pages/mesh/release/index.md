@@ -24,7 +24,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-This release adds the ability to [enable caching for sources without cache-control headers](../advanced/caching/index.md#enable-caching-for-sources-without-cache-control-headers).
+This release adds the ability to [enable caching for sources without cache-control headers](../advanced/caching/cache-control-headers.md#enable-caching-for-sources-without-cache-control-headers).
 
 ### Bug fixes
 
@@ -37,7 +37,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-You can now invalidate your cache by using the [`aio-api mesh:cache:purge` command](../advanced/caching/index.md#purge-the-cache).
+You can now invalidate your cache by using the [`aio-api mesh:cache:purge` command](../advanced/caching/cache-control-headers.md#purge-the-cache).
 
 ## March 03, 2025
 
