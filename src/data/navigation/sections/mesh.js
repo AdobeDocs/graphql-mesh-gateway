@@ -250,8 +250,13 @@ module.exports = [
                 EventTarget: "_blank"
             },
             {
-                title: "Understanding Extensibility",
+                title: "Understanding extensibility",
                 path: "https://developer.adobe.com/commerce/extensibility/app-development/examples/",
+                EventTarget: "_blank"
+            },
+            {
+                title: "Commerce code samples",
+                path: "https://github.com/adobe/adobe-commerce-samples/tree/main/api-mesh",
                 EventTarget: "_blank"
             },
             {

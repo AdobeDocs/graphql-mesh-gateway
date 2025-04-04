@@ -18,6 +18,14 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## April 03, 2025
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Resolved an issue where breakpoints were not respected in local development when using the `aio api-mesh run` command.
+
 ## March 27, 2025
 
 This release contains the following changes to API Mesh:
