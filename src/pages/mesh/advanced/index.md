@@ -734,3 +734,37 @@ Successfully downloaded the logs to mesh_logs.csv.
 ```
 
 The downloaded file will look similar to [this example](../../_examples/bulk-logs.csv).
+
+## aio api-mesh:cache:purge
+
+The `aio api-mesh:cache:purge` command deletes all cached responses for the mesh.
+
+### Usage
+
+```bash
+aio `aio api-mesh:cache:purge` [-a] [-c] [--help]
+```
+
+### Flags
+
+The following arguments are required:
+
+`-a` or `--all` indicates that you want to delete all cached responses for the mesh. Currently, this is the only option.
+
+`-c` or `--autoConfirmAction` automatically confirms the cache purge instead of prompting the user to confirm.
+
+`--help` provides information on the specified command.
+
+#### Example
+
+```bash
+aio `aio api-mesh:cache:purge` -a
+```
+
+### Response
+
+```terminal
+? Cache will purge ALL data related to source `mesh-name`. Do you wish to continue? (Y/n) Y
+
+Successfully purged cache for mesh <meshId> .
+```
