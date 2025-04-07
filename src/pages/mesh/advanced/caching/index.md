@@ -41,7 +41,7 @@ For API Mesh to cache a response, the request and response must meet the followi
 
 **Response**
 
-- The response status must be `200`.
+- The response status must be in the range `200` - `299`.
 - The response body cannot contain errors, as defined by [GraphQL specification](https://spec.graphql.org/October2021/#sec-Errors).
 - The response `cache-control` header must contain public [cache eligible directives](./cache-control-headers.md#response-headers).
 
@@ -56,9 +56,9 @@ When considering PCI or HIPPA compliance as it relates to caching, you should un
 
 ## Source-driven caching
 
-API Mesh implements a source-driven caching model where your data sources are responsible for properly handling caching behavior, specifically for personalized content. Sources must provide appropriate [cache-control headers](./cache-control-headers.md), set proper cache directives for personalized data, and implement correct cache [invalidation](./cache-control-headers.md#purge-the-cache) strategies.
+API Mesh implements a source-driven caching model. Your data sources are responsible for directing caching behavior by returning appropriate [cache-control headers](./cache-control-headers.md). You must ensure that sources serving personalized content return appropriate cache-control directives. API Mesh will never cache responses containing the `private` or `no-store` directives.
 
-The mesh will respect and forward these cache directives, unless [overridden](./cache-control-headers.md#overriding-cache-control-using-mesh-level-responseconfig) at the mesh level, but your sources must ensure proper caching behavior for personalized content through appropriate header settings and cache control mechanisms.
+The mesh will respect and forward these cache directives at the mesh level, but your sources must ensure proper caching behavior for personalized content through appropriate header settings and cache control mechanisms.
 
 ## Enable native caching
 
