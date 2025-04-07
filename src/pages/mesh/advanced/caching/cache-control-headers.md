@@ -129,38 +129,6 @@ Public and private headers are mutually exclusive. Since `private` is more restr
 
   - private, max-age=30, s-maxage=600
 
-### Overriding cache-control using mesh-level `responseConfig`
-
-To set your own values for cache-control headers, add a `Cache-Control` key-value pair to the `responseConfig` object in your mesh configuration file.
-
-<InlineAlert variant="info" slots="text"/>
-
-Cache-control header values in your mesh configuration file take precedence over other conflicting values for your sources and are always included in the response.
-
-#### Mesh Example
-
-```json
-{
-  "meshConfig": {
-    "responseConfig": {
-        "headers": {
-      "Cache-Control": "max-age=50,min-fresh=6,stale-if-error=20,public,must-revalidate"
-        }
-    },
-    "sources": [
-      {
-        "name": "venia",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://venia.magento.com/graphql"
-          }
-        }
-      }
-    ]
-  }
-}
-```
-
 ## Verifying the caching behavior using response headers
 
 You can verify the caching behavior of GraphQL requests based on the values of the returned response headers when caching is enabled.
