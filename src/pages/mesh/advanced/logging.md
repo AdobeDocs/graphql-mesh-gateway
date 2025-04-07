@@ -53,3 +53,41 @@ aio api-mesh:log-get-bulk --startTime 2024-08-27T21:31:39Z --endTime 2024-08-27T
 The time format is `YYYY-MM-DDTHH:MM:SSZ`. You must convert your local time to UTC.
 
 For more information see [`aio api-mesh:log-get-bulk`](./index.md#aio-api-meshlog-get-bulk).
+
+## Log forwarding
+
+Log forwarding allows you to forward logs from API Mesh to a third-party service.
+
+### Set up log forwarding
+
+1. Run the following command to set up log forwarding:
+
+  ```bash
+  aio api-mesh config set log-forwarding
+  ```
+
+1. Select your log forwarding destination from the list of available options. (Currently, only New Relic is supported.)
+
+1. Enter the base URI.
+
+1. Enter the license key.
+
+1. If the license key is not valid, you see an error message.
+
+1. If the license key is valid, you see a success message.
+
+### Get the log forwarding configuration
+
+To retrieve an existing log forwarding configuration, run the following command:
+
+```bash
+aio api-mesh:config get log-forwarding
+```
+
+### Delete the log forwarding configuration
+
+To delete the log forwarding configuration, and effectively disable log forwarding, run the following command:
+
+```bash
+aio api-mesh:config delete log-forwarding
+```
