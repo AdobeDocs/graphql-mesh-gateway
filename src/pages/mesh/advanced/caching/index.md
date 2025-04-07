@@ -56,7 +56,7 @@ When considering PCI or HIPPA compliance as it relates to caching, you should un
 
 ## Source-driven caching
 
-API Mesh implements a source-driven caching model where your data sources are responsible for properly handling caching behavior, specifically for personalized content. Sources must provide appropriate [cache-control headers](./cache-control-headers.md), set proper cache directives for personalized data, and implement correct cache [invalidation](./cache-control-headers.md#invalidate-the-cache) strategies.
+API Mesh implements a source-driven caching model where your data sources are responsible for properly handling caching behavior, specifically for personalized content. Sources must provide appropriate [cache-control headers](./cache-control-headers.md), set proper cache directives for personalized data, and implement correct cache [invalidation](./cache-control-headers.md#purge-the-cache) strategies.
 
 The mesh will respect and forward these cache directives, unless [overridden](./cache-control-headers.md#overriding-cache-control-using-mesh-level-responseconfig) at the mesh level, but your sources must ensure proper caching behavior for personalized content through appropriate header settings and cache control mechanisms.
 
