@@ -98,4 +98,3 @@ Currently, query-level caching is not supported.
 <InlineAlert variant="info" slots="text"/>
 
 GET requests are limited to 2,048 characters.
-
