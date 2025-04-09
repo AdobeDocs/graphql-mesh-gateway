@@ -56,7 +56,7 @@ When considering PCI or HIPPA compliance as it relates to caching, you should un
 
 ## Source-driven caching
 
-API Mesh implements a source-driven caching model. Your data sources are responsible for directing caching behavior by returning appropriate [cache-control headers](./cache-control-headers.md). 
+API Mesh implements a source-driven caching model. Your data sources are responsible for directing caching behavior by returning appropriate [cache-control headers](./cache-control-headers.md).
 
 <InlineAlert variant="warning" slots="text"/>
 
@@ -102,7 +102,6 @@ Currently, query-level caching is not supported.
 <InlineAlert variant="info" slots="text"/>
 
 GET requests are limited to 2,048 characters.
-
 
 ## Verifying the caching behavior using response headers
 
