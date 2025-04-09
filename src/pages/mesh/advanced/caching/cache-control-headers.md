@@ -129,44 +129,6 @@ Public and private headers are mutually exclusive. Since `private` is more restr
 
   - private, max-age=30, s-maxage=600
 
-## Verifying the caching behavior using response headers
-
-You can verify the caching behavior of GraphQL requests based on the values of the returned response headers when caching is enabled.
-
-**Response headers**
-
-The following response headers are returned when caching is enabled:
-
-- `Age` - On cache `HIT`, cached response age in seconds.
-
-- `Cache-Status` - `HIT` or `MISS`.
-
-- `Etag` - Unique identifier for a response.
-
-- `Expires` - UTC date when the cached response expires.
-
-- `Last-Modified` - UTC date when the cached response was stored.
-
-## Purge the cache
-
-To purge your cache, use the following command.
-
-<InlineAlert variant="warning" slots="text"/>
-
-This will delete all cached responses for the mesh.
-
-```bash
-aio api-mesh:cache:purge -a
-```
-
-Confirm that you want to purge the cache by selecting `Yes`. You can also auto confirm the purge by adding the `--autoConfirmAction` or `-c` flag.
-
-```bash
-aio api-mesh:cache:purge -a -c
-```
-
-For more information, refer to the [Command reference](../index.md#aio-api-meshcachepurge).
-
 ## Enable caching for sources without cache-control headers
 
 To cache responses from sources that do not return cache-control headers, use API Mesh to set a default cache-control directive in your mesh configuration file. This directive applies to all sources that do not return cache-control headers, but still respects the cache-control headers of sources that do return them and [resolves conflicts between sources](#resolving-conflicts-between-sources).
@@ -195,17 +157,3 @@ To configure a default cache-control directive, add a `cacheControl` key-value p
   }
 }
 ```
-
-## Use your own CDN
-
-While we recommend using the native [API Mesh caching](./index.md) functionality, you can also provide your own content delivery network (CDN), such as Fastly. Refer to the [Fastly caching example](./fastly.md) for more information.
-
-To disable native caching in API Mesh and use your own CDN, ensure that your `responseConfig` contains `"cache": false` to avoid double caching.
-
-<InlineAlert variant="info" slots="text"/>
-
-When using your own CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information.
-
-<InlineAlert variant="info" slots="text"/>
-
-`POST` requests are typically not supported when bringing your own CDN.
