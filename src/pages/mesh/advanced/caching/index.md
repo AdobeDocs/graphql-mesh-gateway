@@ -68,10 +68,6 @@ The mesh will respect and forward these cache directives at the mesh level, but 
 
 API Mesh supports dynamic content caching natively using standard [HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching).
 
-<InlineAlert variant="info" slots="text"/>
-
-Native caching is currently in closed beta.
-
 To enable caching in API Mesh, add `"cache": true` to your `responseConfig` in your mesh configuration file. Caching is disabled by default.
 
 ```json
@@ -94,6 +90,8 @@ To enable caching in API Mesh, add `"cache": true` to your `responseConfig` in y
   }
 }
 ```
+
+You should [purge your cache](#purge-the-cache) every time you [update your mesh](../../basic/create-mesh.md#update-an-existing-mesh) configuration, if the changes could impact the cache.
 
 <InlineAlert variant="info" slots="text"/>
 
