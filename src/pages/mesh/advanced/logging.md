@@ -56,7 +56,9 @@ For more information see [`aio api-mesh:log-get-bulk`](./index.md#aio-api-meshlo
 
 ## Log forwarding
 
-Log forwarding allows you to forward logs from API Mesh to a third-party service.
+Log forwarding allows you to forward logs from API Mesh to a user-owned third-party service.
+
+Using a third-party service allows you to control throttling, log size limits, and log retention policies.
 
 ### Set up log forwarding
 
@@ -68,9 +70,12 @@ Log forwarding allows you to forward logs from API Mesh to a third-party service
 
 1. Select your log forwarding destination from the list of available options. (Currently, only New Relic is supported.)
 
-1. Enter the base URI.
+1. Enter the base URI. Base URIs vary by region. If you do not know your New Relic instance's region, refer to the browser URL of your New Relic home page:
 
-1. Enter the license key.
+   - URLs beginning with `https://one.newrelic.com/` should use the `https://log-api.newrelic.com/log/v1` URI format.
+   - URLs beginning with `https://one.eu.newrelic.com/` should use the `https://log-api.eu.newrelic.com/log/v1` URI format.
+
+1. Enter the license key. You can get this from the New Relic API keys screen, using the **INGEST - LICENSE API** key type.
 
 1. If the license key is not valid, you see an error message.
 
