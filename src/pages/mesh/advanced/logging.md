@@ -85,6 +85,8 @@ To retrieve an existing log forwarding configuration, run the following command:
 aio api-mesh:config get log-forwarding
 ```
 
+For security reasons, the license key is not displayed in the output.
+
 ### Delete the log forwarding configuration
 
 To delete the log forwarding configuration, and effectively disable log forwarding, run the following command:
