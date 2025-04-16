@@ -18,6 +18,16 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## April 17, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- You can now [forward logs](../advanced/logging.md#log-forwarding) to New Relic using the [`aio api-mesh config set log-forwarding`](../advanced/index.md#aio-api-meshconfig) command.
+
+- The CLI now warns you if you have `includeHTTPDetails` set to `true` in your mesh configuration. This is a security risk and should not be used in production.
+
 ## April 03, 2025
 
 This release contains the following changes to API Mesh:

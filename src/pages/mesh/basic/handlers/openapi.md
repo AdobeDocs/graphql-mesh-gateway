@@ -170,3 +170,4 @@ API Mesh supports loading sources from a CDN or schema registry by using the `so
    -  The `baseURL` overrides the server object in the OpenAPI Spec.
 -  `qs` (type: `JSON`) - JSON object for the query search parameters to add to the API call
 -  `includeHttpDetails` (type: `Boolean`) - Flag for including HTTP Response details in the result object
+   -  You should only set `includeHttpDetails` to `true` in local development environments. Setting it to `true` in production can expose sensitive information.
