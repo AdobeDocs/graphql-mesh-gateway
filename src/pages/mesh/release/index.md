@@ -24,7 +24,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-- You can now [forward logs](../advanced/logging.md#log-forwarding) to New Relic using the [`aio api-mesh config set log-forwarding`](../advanced/index.md#aio-api-meshconfig) command.
+- A new **experimental** feature allows you to [forward logs](../advanced/logging.md#log-forwarding) to New Relic using the [`aio api-mesh config set log-forwarding`](../advanced/index.md#aio-api-meshconfig) command.
 
 - The CLI now warns you if you have `includeHTTPDetails` set to `true` in your mesh configuration. This is a security risk and should not be used in production.
 
