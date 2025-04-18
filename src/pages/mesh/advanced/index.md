@@ -768,3 +768,37 @@ aio `aio api-mesh:cache:purge` -a
 
 Successfully purged cache for mesh <meshId> .
 ```
+
+## aio api-mesh:config
+
+The `config` command allows you to manage the configuration for your mesh. Currently, it is only used for log forwarding.
+
+### Usage
+
+```bash
+aio api-mesh:config set log-forwarding
+```
+
+```bash
+aio api-mesh:config get log-forwarding
+```
+
+```bash
+aio api-mesh:config delete log-forwarding
+```
+
+### Flags
+
+`--help` provides information on the specified command.
+
+### Example
+
+```bash
+aio api-mesh:config set log-forwarding
+```
+
+### Response
+
+```terminal
+Log forwarding details set successfully.
+```

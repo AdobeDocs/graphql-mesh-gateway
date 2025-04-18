@@ -53,3 +53,48 @@ aio api-mesh:log-get-bulk --startTime 2024-08-27T21:31:39Z --endTime 2024-08-27T
 The time format is `YYYY-MM-DDTHH:MM:SSZ`. You must convert your local time to UTC.
 
 For more information see [`aio api-mesh:log-get-bulk`](./index.md#aio-api-meshlog-get-bulk).
+
+## Log forwarding
+
+<InlineAlert variant="warning" slots="text"/>
+
+Log forwarding is an experimental feature and may not function as expected.
+
+Log forwarding allows you to forward logs from API Mesh to a user-owned third-party service.
+
+Using a third-party service allows you to control throttling, log size limits, and log retention policies.
+
+### Set up log forwarding
+
+1. Run the following command to set up log forwarding:
+
+  ```bash
+  aio api-mesh config set log-forwarding
+  ```
+
+1. Select your log forwarding destination from the list of available options. (Currently, only New Relic is supported.)
+
+1. Enter the base URI. Base URIs vary by region. If you do not know your New Relic instance's region, refer to the browser URL of your New Relic home page:
+
+   - URLs beginning with `https://one.newrelic.com/` should use the `https://log-api.newrelic.com/log/v1` URI format.
+   - URLs beginning with `https://one.eu.newrelic.com/` should use the `https://log-api.eu.newrelic.com/log/v1` URI format.
+
+1. Enter the license key. You can get this from the New Relic API keys screen, using the **INGEST - LICENSE API** key type.
+
+### Get the log forwarding configuration
+
+To retrieve an existing log forwarding configuration, run the following command:
+
+```bash
+aio api-mesh:config get log-forwarding
+```
+
+For security reasons, the license key is not displayed in the output.
+
+### Delete the log forwarding configuration
+
+To delete the log forwarding configuration, and effectively disable log forwarding, run the following command:
+
+```bash
+aio api-mesh:config delete log-forwarding
+```

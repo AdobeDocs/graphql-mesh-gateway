@@ -26,6 +26,16 @@ This release contains the following changes to API Mesh:
 
 - This release introduces [native caching](../advanced/caching/index.md#enable-native-caching) for API Mesh, including how to [verify caching behavior using response headers](../advanced/caching/index.md#verifying-the-caching-behavior-using-response-headers). It also provides guidance on [source-driven caching](../advanced/caching/index.md#source-driven-caching).
 
+## April 17, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- A new **experimental** feature allows you to [forward logs](../advanced/logging.md#log-forwarding) to New Relic using the [`aio api-mesh config set log-forwarding`](../advanced/index.md#aio-api-meshconfig) command.
+
+- The CLI now warns you if you have `includeHTTPDetails` set to `true` in your mesh configuration. This is a security risk and should not be used in production.
+
 ## April 03, 2025
 
 This release contains the following changes to API Mesh:
