@@ -85,49 +85,13 @@ If your source's cache-control headers contain any of the following directives, 
 
 The following example scenarios indicate the resulting `Response header` from two conflicting sources:
 
-Example 1
+| Source 1 Response Headers | Source 2 Response Headers | Combined HTTP Response Headers |
+|-------------------------|-------------------------|------------------------------|
+| `max-age=3600, stale-while-revalidate=60, stale-if-error=3600` | `max-age:600, stale-if-error=60` | `max-age=600, stale-while-revalidate=60, stale-if-error=60` |
+| `max-age=3600, stale-while-revalidate=60, stale-if-error=3600` | `no-store` | `no-store` |
+| `public, max-age=30, s-maxage=600` | `private, max-age=60` | `private, max-age=30, s-maxage=600` |
 
-- Source 1 response headers
-
-  - max-age=3600, stale-while-revalidate=60, stale-if-error=3600
-
-- Source 2 response headers
-
-  - max-age:600, stale-if-error=60
-
-- Combined HTTP response headers
-
-  - max-age=600, stale-while-revalidate=60, stale-if-error=60
-
-Example 2
-
-- Source 1 response headers
-
-  - max-age=3600, stale-while-revalidate=60, stale-if-error=3600
-  
-- Source 2 response headers
-
-  - no-store
-
-- Combined HTTP response headers
-
-  - no-store
-
-Example 3
-
-Public and private headers are mutually exclusive. Since `private` is more restrictive, API Mesh selects the values associated with the `private` header.
-
-- Source 1 response headers
-
-  - public, max-age=30, s-maxage=600
-
-- Source 2 response headers
-
-  - private, max-age=60
-
-- Combined HTTP response headers
-
-  - private, max-age=30, s-maxage=600
+Public and private headers are mutually exclusive. In the last example, since `private` is more restrictive, API Mesh selects the values associated with the `private` header.
 
 ## Enable caching for sources without cache-control headers
 
