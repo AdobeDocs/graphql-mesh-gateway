@@ -121,11 +121,11 @@ The following response headers are returned when caching is enabled:
 
 ## Purge the cache
 
+<InlineAlert variant="info" slots="text"/>
+
+When you delete a mesh, the mesh's [caching configuration](../advanced/caching/index.md) is also deleted. You can either let the cache expire based on its preconfigured Time to Live (TTL) or [purge the cache](../advanced/caching/index.md#purge-the-cache).
+
 To purge your cache, use the following command.
-
-<InlineAlert variant="warning" slots="text"/>
-
-This will delete all cached responses for the mesh.
 
 ```bash
 aio api-mesh:cache:purge -a
@@ -136,6 +136,10 @@ Confirm that you want to purge the cache by selecting `Yes`. You can also auto c
 ```bash
 aio api-mesh:cache:purge -a -c
 ```
+
+<InlineAlert variant="warning" slots="text"/>
+
+Purging the cache will delete all cached responses for the mesh.
 
 For more information, refer to the [Command reference](../index.md#aio-api-meshcachepurge).
 
