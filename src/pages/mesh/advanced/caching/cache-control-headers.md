@@ -13,7 +13,7 @@ keywords:
 
 # Cache-control headers
 
-When a browser or a GET request accesses a URL, the site's response headers typically include a `cache-control` header, which determines how long the site will allow its data to be cached. For example, a site could have the following response header:
+When a browser, `fetch` request, or CDN request accesses a URL, the site's response headers typically include a `cache-control` header, which determines how long the site will allow its data to be cached. For example, a site could have the following response header:
 
 ```html
 cache-control: max-age=3600
