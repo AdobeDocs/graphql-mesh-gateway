@@ -18,6 +18,19 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
 
+## April 22, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- This release introduces [native caching](../advanced/caching/index.md#enable-native-caching) for API Mesh, including how to [verify caching behavior using response headers](../advanced/caching/index.md#verifying-the-caching-behavior-using-response-headers). It also provides guidance on [source-driven caching](../advanced/caching/index.md#source-driven-caching).
+- Logging now includes HTTP details. To see these changes, perform a [mesh update](../basic/create-mesh.md#update-an-existing-mesh).
+
+### Bug fixes
+
+- [Deleting a mesh](../basic/create-mesh.md#delete-a-mesh) will now also delete the mesh's [logging configuration](../advanced/logging.md).
+
 ## April 17, 2025
 
 This release contains the following changes to API Mesh:
@@ -82,6 +95,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
+- [Native caching](../advanced/caching/index.md) closed beta is now available for edge meshes.
 - [Local development](../advanced/developer-tools.md) is now available for edge meshes.
   - [Hooks](../advanced/hooks.md) are currently not supported in local development.
 - Internal authorization improvements.
@@ -275,31 +289,3 @@ This release contains the following changes to API Mesh:
 ### Bug fixes
 
 Resolved an unexpected error that could occur when implementing [CI/CD](../best-practices/cicd.md).
-
-## April 23, 2024
-
-This release contains the following changes to API Mesh:
-
-### Bug fixes
-
-Resolved an issue that could cause operation headers to be exposed as query string parameters in the source URL when `useGETForQueries` was set to `true`.
-
-## April 04, 2024
-
-This release contains the following changes to API Mesh:
-
-### Bug fixes
-
-Resolved an issue that prevented resolvers from updating when updating a mesh.
-
-## January 30, 2024
-
-This release contains the following changes to API Mesh:
-
-### Bug fixes
-
-Resolved a `MODULE_NOT_FOUND` error in the `@adobe/aio-cli-plugin-api-mesh` CLI. If you encounter this error, upgrade to version `3.2.2 (latest)`.
-
-<InlineAlert variant="info" slots="text"/>
-
-To update to the newest version of the CLI, run `aio update` or `aio plugins:install @adobe/aio-cli-plugin-api-mesh`.

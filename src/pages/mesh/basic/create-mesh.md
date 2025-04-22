@@ -291,6 +291,20 @@ aio api-mesh:update update-mesh.json
     }
 ```
 
+## Delete a mesh
+
+To delete a mesh, run the following command:
+
+```bash
+aio api-mesh:delete
+```
+
+Refer to the [Command reference](../advanced/index.md#aio-api-meshdelete) for more information.
+
+<InlineAlert variant="info" slots="text"/>
+
+When you delete a mesh, the mesh's [caching configuration](../advanced/caching/index.md) is also deleted. You can either let the cache expire based on its preconfigured Time to Live (TTL) or [purge the cache](../advanced/caching/index.md#purge-the-cache).
+
 ## View your mesh in the Adobe Developer Console
 
 As an alternative to running the [`aio api-mesh:get`](../advanced/index.md#aio-api-meshget) command, you can view your mesh details by selecting the **API Mesh** section in the desired workspace in the [Adobe Developer Console](https://developer.adobe.com/console).
