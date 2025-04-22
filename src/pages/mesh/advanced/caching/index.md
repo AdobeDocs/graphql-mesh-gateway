@@ -123,7 +123,7 @@ The following response headers are returned when caching is enabled:
 
 <InlineAlert variant="info" slots="text"/>
 
-When you delete a mesh, the mesh's [caching configuration](../advanced/caching/index.md) is also deleted. You can either let the cache expire based on its preconfigured Time to Live (TTL) or [purge the cache](../advanced/caching/index.md#purge-the-cache).
+When you delete a mesh, the mesh's caching configuration is also deleted. You can either let the cache expire based on its preconfigured Time to Live (TTL) or purge the cache.
 
 To purge your cache, use the following command.
 
