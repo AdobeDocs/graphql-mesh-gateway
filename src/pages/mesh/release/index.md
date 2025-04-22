@@ -30,7 +30,6 @@ This release contains the following changes to API Mesh:
 ### Bug fixes
 
 - [Deleting a mesh](../basic/create-mesh.md#delete-a-mesh) will now also delete the mesh's [logging configuration](../advanced/logging.md).
-- Resolved an issue that could cause above average response times.
 
 ## April 17, 2025
 
