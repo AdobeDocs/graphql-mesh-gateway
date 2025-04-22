@@ -108,7 +108,7 @@ module.exports = [
         ],
     },
     {
-        title: "Advanced Features",
+        title: "Advanced features",
         path: "/mesh/advanced/",
         pages: [
             {
