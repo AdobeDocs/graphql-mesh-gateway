@@ -26,7 +26,7 @@ This release contains the following changes to API Mesh:
 
 - This release introduces [native caching](../advanced/caching/index.md#enable-native-caching) for API Mesh, including how to [verify caching behavior using response headers](../advanced/caching/index.md#verifying-the-caching-behavior-using-response-headers). It also provides guidance on [source-driven caching](../advanced/caching/index.md#source-driven-caching).
 - Logging now includes HTTP details. To see these changes, perform a [mesh update](../basic/create-mesh.md#update-an-existing-mesh).
-- The [`log-get-bulk` command](../advanced/logging.md#export-bulk-logs-with-a-relative-time-range) now supports getting the logs from the last `x` minutes.
+- The [`log-get-bulk` command](../advanced/logging.md#export-bulk-logs-with-a-relative-time-range) now allows you to specify the number of minutes in the past to get logs.
 
 ### Bug fixes
 
