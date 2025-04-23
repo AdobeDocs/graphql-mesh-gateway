@@ -1,6 +1,6 @@
 ---
-title: Cache-control headers
-description: Specifies how to use headers to limit and modify the cache for GET requests.
+title: Caching
+description: Specifies how to use headers the native caching functionality of API Mesh for Adobe Developer App Builder.
 keywords:
   - API Mesh
   - Extensibility
@@ -11,170 +11,148 @@ keywords:
   - Tools
 ---
 
-# Cache-control headers
+# Caching
 
-API Mesh for Adobe Developer App Builder supports dynamic content caching if you provide a content delivery network (CDN), such as [Fastly](./fastly.md). Dynamic content caching helps improve site load times and reduces consumption costs associated with bandwidth.
+API Mesh for Adobe Developer App Builder, uses dynamic content caching, which provides the following benefits:
 
-<InlineAlert variant="info" slots="text"/>
+- Reduced load on your sources
+- Reduced latency and network hops
+- Reduced bandwidth consumption
+- Improved mesh performance
+- Improved load times
+- Simplified architecture ([native caching](#enable-native-caching) only)
 
-When using a CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information.
+If you want to cache API Mesh responses, you have two options:
 
-## Understanding cache-control headers
+- [Native caching](#enable-native-caching) - Use API Mesh's native caching feature without having to bring your own CDN
+- [Third-party caching](./fastly.md) - Provide your own third-party CDN, such as Fastly
 
-A CDN's cache-control headers determine how queried information is cached.
+Regardless of the option you choose, you can configure your [cache-control headers](./cache-control-headers.md) to control how long a response is cached.
 
-When a browser or a GET request accesses a URL, the site's response headers typically include a `cache-control` header, which determines how long the site will allow its data to be cached. For example, a site could have the following response header:
+## Caching requirements
 
-```html
-cache-control: max-age=0
+For API Mesh to cache a response, the request and response must meet the following requirements:
+
+**Request**
+
+- The request method must be `GET` or `POST`.
+- The request must be a query operation type.
+- The request must not be an introspection query.
+
+**Response**
+
+- The response status must be in the range `200` - `299`.
+- The response body cannot contain errors, as defined by [GraphQL specification](https://spec.graphql.org/October2021/#sec-Errors).
+- The response `cache-control` header must contain public [cache eligible directives](./cache-control-headers.md#response-headers).
+
+## Compliance
+
+When considering PCI or HIPPA compliance as it relates to caching, you should understand the following:
+
+- API Mesh caching is disabled by default.
+  - You must opt in to caching, by configuring `meshConfig.responseConfig.cache: true`.
+- When caching is configured, API Mesh acts as a public cache driven by cache-control headers returned from your sources.
+- API Mesh is a gateway and is unaware of the compliance requirements of your sources. You should understand your sources and ensure they return appropriate cache-control headers to prevent caching of sensitive data.
+
+## Source-driven caching
+
+API Mesh implements a source-driven caching model. Your data sources are responsible for directing caching behavior by returning appropriate [cache-control headers](./cache-control-headers.md).
+
+<InlineAlert variant="warning" slots="text"/>
+
+You must ensure that sources serving personalized content return appropriate cache-control directives. API Mesh will never cache responses containing the `private` or `no-store` directives.
+
+The mesh will respect and forward these cache directives at the mesh level, but your sources must ensure proper caching behavior for personalized content through appropriate header settings and cache control mechanisms.
+
+## Enable native caching
+
+API Mesh supports dynamic content caching natively using standard [HTTP caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching).
+
+To enable caching in API Mesh, add `"cache": true` to your `responseConfig` in your mesh configuration file. Caching is disabled by default.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Adobe Commerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        }
+      }
+    ],
+    "responseConfig": {
+      "includeHTTPDetails": true,
+      "cache": true
+    }
+  }
+}
 ```
 
-The `max-age=0` cache-control directive means that this site wants to serve [fresh](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) data until `0` seconds after the response is generated, which basically means it never wants to cache data. This could also be achieved with a `no-store` directive.
-
-For more information on specific cache-control directives and how they can be used, see the [Mozilla Developer Network's cache control guide](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control).
-
-## Using cache-control headers with API Mesh
-
-API mesh users can add cache-control headers to [request headers](#as-request-headers) or to a [mesh configuration file](#in-the-mesh-configuration-file).
+You should [purge your cache](#purge-the-cache) every time you [update your mesh](../../basic/create-mesh.md#update-an-existing-mesh) configuration, if the changes could impact the cache.
 
 <InlineAlert variant="info" slots="text"/>
 
 Currently, query-level caching is not supported.
 
-### As request headers
+<InlineAlert variant="info" slots="text"/>
 
-Use a mesh configuration similar to the example below to [return forwarded headers](../headers.md#return-forwarded-headers).
+GET requests are limited to 2,048 characters.
+
+## Verifying the caching behavior using response headers
+
+You can verify the caching behavior of GraphQL requests based on the values of the returned response headers when caching is enabled.
+
+**Response headers**
+
+The following response headers are returned when caching is enabled:
+
+- `Age` - On cache `HIT`, cached response age in seconds.
+
+- `Cache-Status` - `HIT` or `MISS`.
+
+- `Etag` - Unique identifier for a response.
+
+- `Expires` - UTC date when the cached response expires.
+
+- `Last-Modified` - UTC date when the cached response was stored.
+
+## Purge the cache
 
 <InlineAlert variant="info" slots="text"/>
 
-You can also use a header value of `x-include-metadata=true` to return all headers.
+When you delete a mesh, the mesh's caching configuration is also deleted. You can either let the cache expire based on its preconfigured Time to Live (TTL) or purge the cache.
 
-When the response includes cache-control values, only the [most restrictive values](#how-conflicting-header-values-are-resolved) are returned.
+To purge your cache, use the following command.
 
-```json
-{
-  "meshConfig": {
-    "responseConfig": {
-        "headers": {
-      "Cache-Control": "max-age=50,min-fresh=6,stale-if-error=20,public,must-revalidate"
-        }
-    },
-    "sources": [
-      {
-        "name": "venia",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://venia.magento.com/graphql"
-          }
-        }
-      }
-    ]
-  }
-}
+```bash
+aio api-mesh:cache:purge -a
 ```
 
-<InlineAlert variant="info" slots="text"/>
+Confirm that you want to purge the cache by selecting `Yes`. You can also auto confirm the purge by adding the `--autoConfirmAction` or `-c` flag.
 
-POST requests are not supported, and GET requests are limited to 2,048 characters.
-
-#### How conflicting header values are resolved
-
-When cache-control header values from multiple sources conflict, API Mesh selects the lowest or most restrictive value. The following section explains which values are returned when [cache-control directives](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) conflict.
-
-The `no-store` directive supersedes all other directives. If your source's cache-control headers contain this directive, then the mesh does not return other headers.
-
-If your source's cache-control headers contain conflicting values for the following directives, the mesh selects the lowest value:
-
-- `min-fresh`
-
-- `max-age`
-
-- `max-stale`
-
-- `s-maxage`
-
-- `stale-if-error`
-
-- `stale-while-revalidate`
-
-If your source's cache-control headers contain any of the following directives, the mesh adds the directive to the `cache-control` response.
-
-- `public`
-
-- `private`
-
-- `immutable`
-
-- `no-cache`
-
-- `no-transform`
-
-- `must-revalidate`
-
-- `proxy-revalidate`
-
-- `must-understand`
-
-**Examples**
-
-The following example scenarios indicate the resulting `Response header` from two conflicting sources:
-
-Example 1
-
-- Source 1 response headers
-
-  - max-age=3600, stale-while-revalidate=60, stale-if-error=3600
-
-- Source 2 response headers
-
-  - max-age:600, stale-if-error=60
-
-- Combined HTTP response headers
-
-  - max-age=600, stale-while-revalidate=60, stale-if-error=60
-
-Example 2
-
-- Source 1 response headers
-
-  - max-age=3600, stale-while-revalidate=60, stale-if-error=3600
-  
-- Source 2 response headers
-
-  - no-store
-
-- Combined HTTP response headers
-
-  - no-store
-
-### In the mesh configuration file
-
-To set your own values for cache-control headers, add a `Cache-Control` key-value pair to the `responseConfig` object in your mesh configuration file.
-
-<InlineAlert variant="info" slots="text"/>
-
-Cache-control header values in your mesh configuration file take precedence over other conflicting values for your sources and are always included in the response.
-
-#### Mesh Example
-
-```json
-{
-  "meshConfig": {
-    "responseConfig": {
-        "headers": {
-      "Cache-Control": "max-age=50,min-fresh=6,stale-if-error=20,public,must-revalidate"
-        }
-    },
-    "sources": [
-      {
-        "name": "venia",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://venia.magento.com/graphql"
-          }
-        }
-      }
-    ]
-  }
-}
+```bash
+aio api-mesh:cache:purge -a -c
 ```
+
+<InlineAlert variant="warning" slots="text"/>
+
+Purging the cache will delete all cached responses for the mesh.
+
+For more information, refer to the [Command reference](../index.md#aio-api-meshcachepurge).
+
+## Use your own CDN
+
+While we recommend using the native [API Mesh caching](./index.md) functionality, you can also provide your own content delivery network (CDN), such as Fastly. Refer to the [Fastly caching example](./fastly.md) for more information.
+
+To disable native caching in API Mesh and use your own CDN, ensure that your `responseConfig` contains `"cache": false` to avoid double caching.
+
+<InlineAlert variant="info" slots="text"/>
+
+When using your own CDN, you must invalidate the cache after modifying a mesh configuration, or you will receive stale information.
+
+<InlineAlert variant="info" slots="text"/>
+
+`POST` requests are typically not supported when bringing your own CDN.

@@ -90,6 +90,10 @@ PORT=9000
 
 The following mesh uses the preceding `.env` file to populate the name and endpoint for the first source, as well as the state of the `includeHTTPDetails` flag.
 
+<InlineAlert variant="info" slots="text"/>
+
+You should only set `includeHttpDetails` to `true` in local development environments. Setting it to `true` in production can expose sensitive information.
+
 ```json
 {
     "meshConfig": {
