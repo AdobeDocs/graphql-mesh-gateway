@@ -172,7 +172,7 @@ When reflecting headers, the following headers are included in the response to a
 - `cf-ray` - Generated automatically
 - `x-request-id` - Generated automatically, if the header is not provided in the request
 
-These headers allow you to track and debug requests by assigning a request-specific ID number. If you provide the `x-request-id` in the request header, then the response includes this header. For example:
+These headers allow you to track and debug requests by assigning a request-specific ID numbers. If you provide your own `x-request-id` in the request header, then the response includes the specified header instead of an automatically generated one. For example:
 
 ```json
 {
