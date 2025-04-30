@@ -16,15 +16,23 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 # Release notes
 
-The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
+The following sections list updates to API Mesh for Adobe Developer App Builder.
 
-## April 30, 2025
+To use the latest enhancements, update your CLI to the latest version:
+
+```bash
+aio plugins:install @adobe/aio-cli-plugin-api-mesh
+```
+
+## May 05, 2025
 
 This release contains the following changes to API Mesh:
 
 ### Enhancements
 
+- Added response the `cf-ray` and `x-request-id` response headers to assist with [tracking and debugging](../advanced/headers.md#response-tracking-and-debugging).
 - Added support for 32-character New Relic license keys when using [log forwarding](../advanced/logging.md#log-forwarding).
+- Updated the Adobe Commerce samples repository with a new [response caching example](https://github.com/adobe/adobe-commerce-samples/blob/main/api-mesh/response-caching/README.md).
 
 ## April 22, 2025
 
