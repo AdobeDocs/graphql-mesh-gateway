@@ -174,7 +174,11 @@ When reflecting headers, the following headers are included in the response to a
 
 These headers allow you to track and debug requests by assigning a request-specific ID number. If you provide the `x-request-id` in the request header, then the response includes this header. For example:
 
-`x-request-id: ABC123`
+```json
+{
+  "x-request-id": "my-request-id"
+}
+```
 
 ## Retrieving handler details
 
