@@ -30,7 +30,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-- Added response the `cf-ray` and `x-request-id` response headers to assist with [tracking and debugging](../advanced/headers.md#response-tracking-and-debugging).
+- Added the `cf-ray` and `x-request-id` response headers, which are passed in subrequests to your mesh sources, to assist with [tracking and debugging](../advanced/headers.md#response-tracking-and-debugging).
 - Added support for 32-character New Relic license keys when using [log forwarding](../advanced/logging.md#log-forwarding).
 - Updated the Adobe Commerce samples repository with a new [response caching example](https://github.com/adobe/adobe-commerce-samples/blob/main/api-mesh/response-caching/README.md).
 

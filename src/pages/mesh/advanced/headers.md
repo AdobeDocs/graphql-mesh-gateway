@@ -167,12 +167,12 @@ Including metadata prefixes the returned response headers with their source name
 
 ### Response tracking and debugging
 
-When reflecting headers, the following headers are included in the response to assist with tracking and debugging:
+The following headers are included in subrequests to your mesh sources to assist with tracking and debugging:
 
 - `cf-ray` - Generated automatically
 - `x-request-id` - Generated automatically, if the header is not provided in the request
 
-These headers allow you to track and debug requests by assigning a request-specific ID numbers. If you provide your own `x-request-id` in the request header, then the response includes the specified header instead of an automatically generated one. For example:
+These headers allow you to track and debug requests by assigning a request-specific ID numbers. If you provide your own `x-request-id` in the request header, then the subrequests to sources will include the specified header instead of an automatically generated one. For example:
 
 ```json
 {
