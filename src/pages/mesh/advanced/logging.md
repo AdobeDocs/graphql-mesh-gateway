@@ -89,6 +89,10 @@ Using a third-party service allows you to control throttling, log size limits, a
 
 1. Enter the license key. You can get this from the New Relic API keys screen, using the **INGEST - LICENSE API** key type.
 
+<InlineAlert variant="info" slots="text"/>
+
+API Mesh supports both the 32-character and 40-character New Relic license keys.
+
 ### Get the log forwarding configuration
 
 To retrieve an existing log forwarding configuration, run the following command:
