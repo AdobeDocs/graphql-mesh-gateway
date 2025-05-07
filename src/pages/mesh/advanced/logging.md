@@ -91,7 +91,7 @@ Using a third-party service allows you to control throttling, log size limits, a
 
 <InlineAlert variant="info" slots="text"/>
 
-API Mesh supports both the 32-character New Relic license keys (`NRAK-XXXX...`) and the end-of-life 40-character license keys (`...XXXX-NRAL`).
+API Mesh supports both the 32-character and 40-character New Relic license keys.
 
 ### Get the log forwarding configuration
 
