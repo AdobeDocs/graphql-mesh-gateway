@@ -29,6 +29,10 @@ If you want to cache API Mesh responses, you have two options:
 
 Regardless of the option you choose, you can configure your [cache-control headers](./cache-control-headers.md) to control how long a response is cached.
 
+<InlineAlert variant="info" slots="text"/>
+
+To see examples for response caching, refer to the [Commerce code samples repository](https://github.com/adobe/adobe-commerce-samples/blob/main/api-mesh/response-caching/README.md).
+
 ## Caching requirements
 
 For API Mesh to cache a response, the request and response must meet the following requirements:
