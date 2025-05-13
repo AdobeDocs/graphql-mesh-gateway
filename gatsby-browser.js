@@ -1,3 +1,5 @@
+const isBrowser = typeof window !== "undefined";
+
 export const onClientEntry = () => {
     // set adobe analytics window object
     if (isBrowser) {
@@ -11,32 +13,32 @@ export const onClientEntry = () => {
     }
   };
 
-  export const onRouteUpdate = ({ location, prevLocation }) => {
-    if (isBrowser) {
-      function watchAndFireAnalytics() {
+export const onRouteUpdate = ({ location, prevLocation }) => {
+if (isBrowser) {
+    function watchAndFireAnalytics() {
+    // eslint-disable-next-line no-undef
+    if (typeof window._satellite !== 'undefined') {
         // eslint-disable-next-line no-undef
-        if (typeof window._satellite !== 'undefined') {
-          // eslint-disable-next-line no-undef
-          _satellite.track('state',
-            {
-              xdm: {},
-              data: {
-                _adobe_corpnew: {
-                  web: {
-                    webPageDetails: {
-                      customPageName: location.href
-                    }
-                  }
+        _satellite.track('state',
+        {
+            xdm: {},
+            data: {
+            _adobe_corpnew: {
+                web: {
+                webPageDetails: {
+                    customPageName: location.href
                 }
-              }
+                }
             }
-          );
-  
-          clearInterval(intervalId);
+            }
         }
-      }
-  
-      // watch if analytics is online then track page
-      const intervalId = setInterval(watchAndFireAnalytics, 1000);
+        );
+
+        clearInterval(intervalId);
     }
-  }
+    }
+
+    // watch if analytics is online then track page
+    const intervalId = setInterval(watchAndFireAnalytics, 1000);
+}
+}
