@@ -24,6 +24,19 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## May 22, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- [Log forwarding](../advanced/logging.md#log-forwarding) now forwards key request and response headers, and HTTP access logs in addition to worker logs.
+- Standardized error messages for improved usability and debugging.
+
+### Bug fixes
+
+- Fixed an issue where OpenAPI handlers with `int64` format properties could cause errors when querying.
+
 ## May 12, 2025
 
 This release contains the following changes to API Mesh:
