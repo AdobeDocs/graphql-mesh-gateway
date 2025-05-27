@@ -157,7 +157,7 @@ Avoid using local composers if:
 
 - The composer has complex or nested loops.
 
-- The composer uses restricted constructs, such as `setTimeout`, `setInterval`, `for`, `while`, `console`, `process`, `global`, or `throw`.
+- The function uses restricted constructs, including: `alert`, `debugger`, `eval`, `new Function()`, `process`, `setInterval`, `setTimeout`, `WebAssembly`, or `window`.
 
 Local composers require adding any local scripts to the mesh's [`files` array](../basic/handlers/index.md#reference-local-files-in-handlers).
 
@@ -192,6 +192,61 @@ Local composers require adding any local scripts to the mesh's [`files` array](.
     ]
   }
 }
+```
+
+Local composers also support `globalThis.fetch()`.
+
+The following example could be used as a `beforeAll` hook that validates an authorization token against a remote authorization endpoint using `globalThis.fetch()`.
+
+```js
+module.exports = {
+  validateToken: async ({ context }) => {
+    const { headers } = context;
+    const { authorization } = headers;
+    
+    if (!authorization) {
+      return {
+        status: "ERROR",
+        message: "Authorization header is missing",
+      };
+    }
+    
+    try {
+      // Validate the token against a remote authorization service
+      const response = await globalThis.fetch("https://auth.example.com/validate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token: authorization.replace("Bearer ", "") }),
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok || !result.valid) {
+        return {
+          status: "ERROR",
+          message: "Invalid authorization token",
+        };
+      }
+      
+      return {
+        status: "SUCCESS",
+        message: "Token validated successfully",
+        data: {
+          headers: {
+            "x-user-id": result.userId,
+          },
+        },
+      };
+    } catch (error) {
+      return {
+        status: "ERROR",
+        message: `Token validation failed: ${error.message}`,
+      };
+    }
+  },
+};
 ```
 
 ### `remote` composers
