@@ -24,7 +24,15 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
-## May 22, 2024
+## May 29, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Local composers now support [fetching from remote origins](../advanced/hooks.md#fetching-from-remote-origins) using `globalThis.fetch()`.
+
+## May 22, 2025
 
 This release contains the following changes to API Mesh:
 

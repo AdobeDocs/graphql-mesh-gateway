@@ -194,7 +194,9 @@ Local composers require adding any local scripts to the mesh's [`files` array](.
 }
 ```
 
-Local composers also support `globalThis.fetch()`.
+#### Fetching from remote origins
+
+Local composers also support fetching from remote origins using `globalThis.fetch()`.
 
 The following example could be used as a `beforeAll` hook that validates an authorization token against a remote authorization endpoint using `globalThis.fetch()`.
 
