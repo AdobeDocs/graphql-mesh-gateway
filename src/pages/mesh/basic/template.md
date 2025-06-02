@@ -16,7 +16,7 @@ API Mesh for Adobe Developer App Builder provides a straightforward way to [crea
 
 ## Clone the repository
 
-From the API Mesh template repository page, click the **Use this template** button to create a new repository based on the template.
+From the [API Mesh template repository](https://github.com/adobe-commerce/api-mesh-starter-kit/), click the **Use this template** button to create a new repository based on the template.
 
 ## Create a project and workspace
 
