@@ -26,7 +26,7 @@ In the Adobe Developer Console, create a project and workspace and add the API M
 
 In the Developer Console, click the **Download** button in the top-right corner of the Project Overview page.
 
-In your cloned repository, [add the following configuration variables](https://docs.github.com/en/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository) from the JSON file.
+In your cloned repository, add the following [configuration variables](https://docs.github.com/en/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository) from the JSON file.
 
 | Variable name in GitHub | Name defined in downloaded JSON |
 | ---------- | ------- |
@@ -51,15 +51,13 @@ Once your codespace loads, and the `yarn start` command completes, click the **P
 
 `https://name-for-site-123456abc-5000.app.github.dev/graphql`
 
-<InlineAlert variant="info" slots="text"/>
+<InlineAlert variant="info" slots="text" repeat="2"/>
 
-<p>
 Do not use this URL for production purposes. Instead, use the endpoint provided when [publishing](#modify-and-publish-your-mesh).
 
 This URL is accessible over the internet based on the permissions of your repository and whether the server is running or not. For example, if your repository is private, users will need to log in to access the URL. If your repository is public, users can access the URL without logging in.
-</p>
 
-Now test the following simple query by adding it to the query window and clicking the **Play** (Execute Query) button:
+Now test the following query by adding it to the query window and clicking the **Play** (Execute Query) button:
 
 ```graphql
 {
