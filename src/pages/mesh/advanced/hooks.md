@@ -196,9 +196,9 @@ Local composers require adding any local scripts to the mesh's [`files` array](.
 
 #### Fetching from remote origins
 
-Local composers also support fetching from remote origins using `globalThis.fetch()`.
+Local composers also support fetching from remote origins using `fetch()`.
 
-The following example could be used as a `beforeAll` hook that validates an authorization token against a remote authorization endpoint using `globalThis.fetch()`.
+The following example could be used as a `beforeAll` hook that validates an authorization token against a remote authorization endpoint using `fetch()`.
 
 ```js
 module.exports = {
@@ -215,7 +215,7 @@ module.exports = {
     
     try {
       // Validate the token against a remote authorization service
-      const response = await globalThis.fetch("https://auth.example.com/validate", {
+      const response = await fetch("https://auth.adobe.com/validate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
