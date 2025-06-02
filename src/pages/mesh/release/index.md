@@ -16,7 +16,227 @@ import UpdateNotice from '/src/_includes/update-notice.md'
 
 # Release notes
 
-The following sections list updates to API Mesh for Adobe Developer App Builder. Refer to the [Upgrade version](upgrade.md) for more information on upgrading.
+The following sections list updates to API Mesh for Adobe Developer App Builder.
+
+To use the latest enhancements, update your CLI to the latest version:
+
+```bash
+aio plugins:install @adobe/aio-cli-plugin-api-mesh
+```
+
+## May 22, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- [Log forwarding](../advanced/logging.md#log-forwarding) now forwards key request and response headers, and HTTP access logs in addition to worker logs.
+- Standardized error messages for improved usability and debugging.
+
+### Bug fixes
+
+- Fixed an issue where OpenAPI handlers with `int64` format properties could cause errors when querying.
+
+## May 12, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added the `cf-ray` and `x-request-id` response headers, which are passed in subrequests to your mesh sources, to assist with [tracking and debugging](../advanced/headers.md#response-tracking-and-debugging).
+- Added support for older New Relic license keys when using [log forwarding](../advanced/logging.md#log-forwarding).
+- Updated the Adobe Commerce samples repository with a new [response caching example](https://github.com/adobe/adobe-commerce-samples/blob/main/api-mesh/response-caching/README.md).
+
+## April 22, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- This release introduces [native caching](../advanced/caching/index.md#enable-native-caching) for API Mesh, including how to [verify caching behavior using response headers](../advanced/caching/index.md#verifying-the-caching-behavior-using-response-headers). It also provides guidance on [source-driven caching](../advanced/caching/index.md#source-driven-caching).
+- Logging now includes HTTP details. To see these changes, perform a [mesh update](../basic/create-mesh.md#update-an-existing-mesh).
+- The [`log-get-bulk` command](../advanced/logging.md#export-bulk-logs-with-a-relative-time-range) now allows you to specify the number of minutes in the past to get logs.
+
+### Bug fixes
+
+- [Deleting a mesh](../basic/create-mesh.md#delete-a-mesh) will now also delete the mesh's [logging configuration](../advanced/logging.md).
+
+## April 17, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- A new **experimental** feature allows you to [forward logs](../advanced/logging.md#log-forwarding) to New Relic using the [`aio api-mesh config set log-forwarding`](../advanced/index.md#aio-api-meshconfig) command.
+
+- The CLI now warns you if you have `includeHTTPDetails` set to `true` in your mesh configuration. This is a security risk and should not be used in production.
+
+## April 03, 2025
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Resolved an issue where breakpoints were not respected in local development when using the `aio api-mesh run` command.
+
+## March 27, 2025
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Resolved an encoding issue that could cause problems when interacting with a mesh. [Update your CLI to the latest version](./upgrade.md#software-updates), if you experience similar issues.
+- Resolved an issue that prevented certain `additionalResolvers` from functioning correctly when using [local development](../advanced/developer-tools.md).
+
+## March 03, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- [Hooks](../advanced/hooks.md) are now supported in local development for edge meshes.
+- Improved the information provided in the CLI when requesting the status of a provisioning mesh with the [`aio api-mesh:status` command](../advanced/index.md#aio-api-meshstatus).
+
+## February 26, 2025
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Resolved an issue that could cause truncated logs.
+
+## February 19, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Authorization improvements to the CLI. To install the latest version of the API Mesh plugin, run the following command:
+
+  ```bash
+  aio plugins:install @adobe/aio-cli-plugin-api-mesh
+  ```
+
+- The CLI now notifies you when a new version of the `aio-cli-plugin-api-mesh` plugin is available.
+
+## February 6, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- [Native caching](../advanced/caching/index.md) closed beta is now available for edge meshes.
+- [Local development](../advanced/developer-tools.md) is now available for edge meshes.
+  - [Hooks](../advanced/hooks.md) are currently not supported in local development.
+- Internal authorization improvements.
+
+## January 09, 2025
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Fixed an issue where downstream errors were not logged correctly.
+- Internal efficiency improvements.
+
+## December 10, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Internal logging improvements.
+
+### Bug fixes
+
+- Resolved an issue where [creating a mesh from a template](../basic/create-mesh.md#create-a-mesh-from-a-template) caused an error.
+
+## December 05, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- We have removed the SOAP handler because it is not compatible with edge meshes.
+- You can now pass a maximum of 500 headers to your mesh.
+- Security improvements.
+
+## December 03, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Edge meshes are now the only available mesh option. Legacy meshes are no longer available.
+
+## November 25, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added a configuration option allowing you to [disable introspection](../basic/work-with-mesh.md#disable-introspection) on your mesh for security purposes.
+
+### Bug fixes
+
+- Resolved an error where specific special characters in a Project, Workspace, or Organization name could cause issues with provisioning.
+
+## November 19, 2024
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Resolved an issue where special characters in an Org, Project, or Workspace name could cause a provisioning error.
+- Resolved an issue where fetching a source with multiple `set-cookie` headers caused an unexpected server error.
+
+## November 04, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- [`beforeAll` hooks](../advanced/hooks.md) now work with [edge meshes](../basic/create-mesh.md#access-your-mesh-urls).
+- The `source` field is now available for GraphQL handlers, allowing you to [provide an introspection file](../basic/handlers/graphql.md#provide-an-introspection-file).
+- Enhancements to performance and stability.
+
+## October 03, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+Added a success message when you use the [`aio api-mesh log-list`](../advanced/index.md#aio-api-meshlog-list) command with the `--filename` flag that confirms file creation.
+
+## October 01, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added the ability to run scheduled performance tests on your edge mesh. For more information, see [schedule performance testing](../advanced/developer-tools.md#schedule-performance-testing).
+- Increased the edge mesh query timeout from `30` seconds to `60` seconds.
+
+### Bug fixes
+
+- Resolved an issue where the `aio api-mesh log list --filename` command would return an error if the filename included special characters.
+- Resolved an issue that caused `500` errors when using a `GET` request with a body.
+
+## September 26, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+Edge logging - API Mesh now supports detailed logging for [edge meshes](../release/update.md). See [Logging](../advanced/logging.md) for more information. You will need to [update your CLI](../release/upgrade.md#upgrade-versions) to the latest version to access the new commands.
+
+## September 24, 2024
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+Improved performance during cold starts for edge meshes. For previously created meshes, you must run the `aio api-mesh update` command on your edge mesh before you can benefit from this enhancement.
 
 ## August 15, 2024
 
@@ -36,8 +256,6 @@ With API Mesh on the edge:
 
 Adobe recommends using edge meshes for the best performance. Refer to [Access your mesh URLs](../basic/create-mesh.md#access-your-mesh-urls) for more information.
 
-After updating your mesh, the `aio api-mesh describe` command contains both a legacy mesh endpoint and an edge mesh endpoint. Legacy meshes will be removed later this year.
-
 <InlineAlert variant="info" slots="text"/>
 
 If you have an allowlist, add the [edge mesh IP addresses](https://www.cloudflare.com/ips/).
@@ -54,7 +272,7 @@ The following commands will take slightly longer to complete. Consider using [lo
 
 <InlineAlert variant="info" slots="text"/>
 
-Due to compatibility limitations, certain features, such as [hooks](../advanced/hooks.md), [SOAP handlers](../basic/handlers/soap.md), and [`replaceField` transforms](../basic/transforms/replace-field.md) are not available in edge meshes. These features will be available in a future release.
+Due to compatibility limitations, certain features, such as [hooks](../advanced/hooks.md), SOAP handlers, and [`replaceField` transforms](../basic/transforms/replace-field.md) are not available in edge meshes.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -101,151 +319,3 @@ This release contains the following changes to API Mesh:
 ### Bug fixes
 
 Resolved an unexpected error that could occur when implementing [CI/CD](../best-practices/cicd.md).
-
-## April 23, 2024
-
-This release contains the following changes to API Mesh:
-
-### Bug fixes
-
-Resolved an issue that could cause operation headers to be exposed as query string parameters in the source URL when `useGETForQueries` was set to `true`.
-
-## April 04, 2024
-
-This release contains the following changes to API Mesh:
-
-### Bug fixes
-
-Resolved an issue that prevented resolvers from updating when updating a mesh.
-
-## January 30, 2024
-
-This release contains the following changes to API Mesh:
-
-### Bug fixes
-
-Resolved a `MODULE_NOT_FOUND` error in the `@adobe/aio-cli-plugin-api-mesh` CLI. If you encounter this error, upgrade to version `3.2.2 (latest)`.
-
-<InlineAlert variant="info" slots="text"/>
-
-To update to the newest version of the CLI, run `aio update` or `aio plugins:install @adobe/aio-cli-plugin-api-mesh`.
-
-## January 11, 2023
-
-This release contains the following changes to API Mesh:
-
-### Enhancements
-
-- A `--select` argument is now available for the [`run` command](../advanced/index.md#aio-api-meshrun). By providing the `--select` argument, you can run a mesh based on the mesh artifact in the selected workspace instead of rebuilding the mesh.
-
-- Various improvements to server performance.
-
-## November 14, 2023
-
-This release contains the following changes to API Mesh:
-
-### Enhancements
-
-- Internal monitoring and optimization upgrades.
-
-<InlineAlert variant="info" slots="text"/>
-
-Due to an internal upgrade, to get CORS response headers when querying your mesh, you must provide an `origin` request header with the origin URL as the value. For example, `origin: https://graph.adobe.io`.
-
-### Bug fixes
-
-- Resolved an issue in the CLI where using the `aio api-mesh get --json` command in a workspace with no mesh configuration would return an inconsistent error.
-
-<InlineAlert variant="info" slots="text"/>
-
-To update to the newest version of the CLI, run `aio update` or `aio plugins:install @adobe/aio-cli-plugin-api-mesh`.
-
-## October 18, 2023
-
-This release contains the following changes to API Mesh:
-
-### Bug fixes
-
-Performance fixes.
-
-## October 09, 2023
-
-This release contains the following changes to API Mesh:
-
-### Enhancements
-
-A [`run` command](../advanced/index.md#aio-api-meshrun) beta is now available, which allows you to [create a local API Mesh environment](../advanced/developer-tools.md#create-a-local-environment) for development and testing purposes. The `run` command works in concert with the [`init` command](../advanced/index.md#aio-api-meshinit) and [environment variables](../advanced/developer-tools.md#environment-variables) to provide more robust developer tooling.
-
-<InlineAlert variant="info" slots="text"/>
-
-Beta features may not be fully supported.
-
-To update to the newest version of the CLI, run `aio update` or `aio plugins:install @adobe/aio-cli-plugin-api-mesh`.
-
-## September 21, 2023
-
-This release contains the following changes to API Mesh:
-
-### Enhancements
-
-- [GraphQL aliasing](https://graphql.org/learn/queries/) is now enabled.
-  - As a part of this enhancement, several [handler](../basic/handlers/index.md) and [transform](../basic/transforms/index.md) packages have been updated.
-
-## August 30, 2023
-
-This release contains the following changes to API Mesh:
-
-### Enhancements
-
-Due to upcoming changes in the [Adobe I/O Extensible CLI](https://developer.adobe.com/runtime/docs/guides/tools/cli_install/), the [API Mesh CLI](../basic/index.md#configure-your-environment) may encounter an `Unable to create API key` error when running an `aio api-mesh create` command on a workspace that has an existing API key. To resolve this run `aio update` or `aio plugins:install @adobe/aio-cli-plugin-api-mesh` to ensure you have version `3.0.0` of the API Mesh plugin.
-
-Alternatively, if updating your plugin is not an option, you can manually [delete the credential](https://developer.adobe.com/developer-console/docs/guides/credentials/#api-key) from Adobe Developer Console by navigating to **API Keys** in the appropriate workspace and clicking **Delete Credential**.
-
-## August 17, 2023
-
-This release contains the following changes to API Mesh:
-
-### Enhancements
-
-- Added support for [aliasing](../basic/work-with-mesh.md#aliasing).
-- Added internal caching improvements. You may notice improvements to response time.
-
-## July 31, 2023
-
-This release contains the following changes to API Mesh:
-
-### Enhancements
-
-- Added the [SOAP handler](../basic/handlers/soap.md) to API Mesh.
-  - The SOAP handler is experimental and should not be used in production deployments.
-- Added internal logging improvements.
-
-### Bug fixes
-
-- Removed a configuration option that was enabled but not supported.
-- Resolved a `500 Internal Server Error` that could occur when deleting a mesh.
-- Resolved a `400 Bad Request` that could occur when updating a mesh.
-
-## June 29, 2023
-
-This release contains the following changes to API Mesh:
-
-### Bug fixes
-
-- A previous release introduced an issue that could cause unnecessary delays on GraphQL requests. This issue has been resolved and could result in improved performance.
-
-## June 27, 2023
-
-This release contains the following changes to API Mesh:
-
-### Bug fixes
-
-- Resolved an issue where error details from GraphQL sources appeared as a generic error. API Mesh now forwards the error details from the GraphQL source.
-
-## June 15, 2023
-
-This release contains the following changes to API Mesh:
-
-### Enhancements
-
-- Added support for automatically importing files for [local `hooks`](../advanced/hooks.md#local-composers).

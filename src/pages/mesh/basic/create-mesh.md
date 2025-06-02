@@ -89,17 +89,12 @@ If you have an allowlist, consider adding the [edge mesh IP addresses](https://w
 
 The `aio api-mesh:create` response assigns you a `meshId`. Use the [`aio api-mesh:status`](../advanced/index.md#aio-api-meshstatus) command to see the status of your mesh creation. You can run the [`aio api-mesh:describe`](../advanced/index.md#aio-api-meshdescribe) command to get your `apiKey` and a GraphQL endpoint that you can use to query your mesh.
 
-After successfully running the status command, the response provides both legacy and edge URLs:
+After successfully running the status command, the response provides the mesh URL:
 
   ```terminal
-  Legacy Mesh Status: 
-  Your mesh was successfully built.
-  *********************************
-  Edge Mesh Status:
+  Mesh Status:
   Your mesh was successfully built.
   ```
-
-Until Adobe migrates all legacy mesh URLs, the response to the `aio api-mesh:describe` command will list both the legacy and edge mesh URLs. The legacy mesh URL is a standard mesh URL, which Adobe will migrate soon. See the [update notice](../release/update.md) for more information.
 
 The edge mesh URL offers several benefits because the edge is closer to your data sources. Edge meshes can provide the following advantages:
 
@@ -108,14 +103,6 @@ The edge mesh URL offers several benefits because the edge is closer to your dat
 - Enhanced performance reliability through inherent tenant isolation
 - Better security and compliance
 - Increased observability
-
-<InlineAlert variant="warning" slots="text"/>
-
-Edge meshes do not currently support Hooks or SOAP handlers. If you need to use these features, you must use a legacy mesh. These features will be available in edge meshes in the future.
-
-<InlineAlert variant="info" slots="text"/>
-
-Legacy mesh URLs will be removed in the future. Use the edge mesh URLs whenever possible.
 
 ## Optimizing edge mesh performance
 
@@ -190,6 +177,8 @@ You can also create a mesh automatically when [bootstrapping a new app through t
 ## Mesh example
 
 The following example adds both an Adobe Commerce instance (with Catalog Service enabled) and an Adobe Experience Manager instance to the mesh. The GraphQL endpoints for Commerce and Catalog Service are different, so you must configure them separately.
+
+For another example, refer to the [API Mesh multiple sources sample](https://github.com/adobe/adobe-commerce-samples/tree/main/api-mesh/commerce-and-catalog).
 
 ```json
 {
@@ -301,6 +290,20 @@ aio api-mesh:update update-mesh.json
         }
     }
 ```
+
+## Delete a mesh
+
+To delete a mesh, run the following command:
+
+```bash
+aio api-mesh:delete
+```
+
+Refer to the [Command reference](../advanced/index.md#aio-api-meshdelete) for more information.
+
+<InlineAlert variant="info" slots="text"/>
+
+When you delete a mesh, the mesh's [caching configuration](../advanced/caching/index.md) is also deleted. You can either let the cache expire based on its preconfigured Time to Live (TTL) or [purge the cache](../advanced/caching/index.md#purge-the-cache).
 
 ## View your mesh in the Adobe Developer Console
 

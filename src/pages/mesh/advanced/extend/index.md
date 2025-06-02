@@ -16,6 +16,11 @@ This topic describes how to use multiple APIs. Your mesh can merge different dat
 
 In addition to `@apollo/gateway`, API Mesh supports subscriptions out-of-box.
 
+Refer to the following custom resolver examples for more information:
+
+- [Add a custom field](https://github.com/adobe/adobe-commerce-samples/tree/main/api-mesh/custom-field)
+- [Mock a field](https://github.com/adobe/adobe-commerce-samples/tree/main/api-mesh/mock-response)
+
 [Learn more key differences between Schema Stitching and Apollo Federation](https://product.voxmedia.com/2020/11/2/21494865/to-federate-or-stitch-a-graphql-gateway-revisited)
 
 ## Extending GraphQL Schema with `additionalTypeDefs`

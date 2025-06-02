@@ -18,7 +18,7 @@ This guide provides you with the basic steps you need to set up your API managem
 
 Before you can begin using the API Mesh, you must install:
 
--  [Node.js](https://nodejs.org/en/download/)
+-  [Node.js](https://nodejs.org/en/download/package-manager)
 
 -  [nvm](https://github.com/nvm-sh/nvm) 18.x.x (Mac/Linux) or [nvm-windows](https://github.com/coreybutler/nvm-windows) (Windows)
 

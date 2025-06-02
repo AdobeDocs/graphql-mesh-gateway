@@ -84,29 +84,51 @@ The following example shows how to pass authorization headers to a GraphQL endpo
 
 Header names are automatically converted to lowercase.
 
-## Fetching SDL or introspection from CDN
+## Provide an introspection file
 
-Consider a scenario where introspection is disabled in the production environment of your GraphQL source, and you want to provide your SDL or introspection separately:
+If introspection is disabled in the production environment of your GraphQL source, and you want to provide your schema definition or introspection separately, you can use the `source` field to provide an online or local introspection file:
 
 ```json
 {
+  "meshConfig": {
     "sources": [
-        {
-            "name": "MyGraphQLApi",
-            "handler": {
-                "graphql": {
-                    "endpoint": "https://your-service/graphql",
-                    "operationHeaders": {
-                        "Authorization": "Bearer {context.headers['GITHUB_TOKEN']}"
-                    }
-                }
-            }
+      {
+        "name": "test_automation",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql",
+            "source": "https://<domain>/myFile.graphql"
+          }
         }
+      }
     ]
+  }
 }
 ```
 
-In this case, CLI's `build` command won't save the introspection in the artifacts, so your Mesh won't start if the `source` URL is down.
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "Adobe_Commerce",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql",
+            "source": "schema.graphql"
+          }
+        }
+      }
+    ],
+    "files": [
+      {
+        "path": "schema.graphql",
+        "content": "type Query {hello: String}"
+      }
+    ]
+  }
+}
+```
 
 ## Local Schemas
 
@@ -116,6 +138,7 @@ We recommend providing a local schema by using the [`additionalTypeDefs`](../../
 
 -  `endpoint` (type: `String`, required) - URL or file path for your remote GraphQL endpoint
    -  Local file types must be `.js` or `.ts`.
+-  `source` (type: `String`) - Path to the introspection file
 -  `schemaHeaders` (type: `Any`) - JSON object for adding headers to API calls for runtime schema introspection
 -  `operationHeaders` (type: `JSON`) - JSON object for adding headers to API calls for runtime operation execution
 -  `useGETForQueries` (type: `Boolean`) - An HTTP GET method for query operations

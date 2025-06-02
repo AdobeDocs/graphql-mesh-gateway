@@ -216,3 +216,42 @@ Due to the limitations of API Mesh, responses contain both the newly created ali
 When you query a mesh using chained mutations, the mesh makes a separate call to the source for each mutation. This happens because GraphQL requests execute when the GraphQL server receives them, instead of proxying the calls. Because API Mesh supports multiple sources, it evaluates batched mutations and separates the information based on the source it is associated with.
 
 These mutations are executed sequentially, calling one source after the other. When you call a source directly, it will only need one API call, but it will execute the batch mutations sequentially by calling their respective resolvers. These calls are more overt in API Mesh, because they are made by a network call, instead of an internal call. This means you will see multiple calls for chained mutations.
+
+For more information on chain mutations, refer to the [chain mutation code samples](https://github.com/adobe/adobe-commerce-samples/tree/main/api-mesh/chain-mutations).
+
+## Disable introspection
+
+If your schema contains sensitive information, you can prevent introspection and disable auto-completion by adding the `disableIntrospection` configuration option to your mesh. `disableIntrospection` defaults to `false`. To disable introspection, set it to `true`.
+
+```json
+{
+  "meshConfig": {
+    "disableIntrospection":true,
+    "sources":[
+      {
+      "name":"Adobe Commerce",
+      "handler": {
+          "graphql": 
+          {
+            "endpoint":"https://venia.magento.com/graphql",
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+## URL encoding
+
+API Mesh only supports single-encoded URL parameters. Double-encoded and subsequent requests are not supported. Refer to the following examples for more information.
+
+**Accepted requests**:
+
+`/organizations/1234567890%40AdobeOrg/projects/0987654321/workspaces/3210987654321/meshes/12a3b4c5-6d78-4012-3456-7e890fa1bcde`
+
+`/organizations/1234567890@AdobeOrg/projects/0987654321/workspaces/3210987654321/meshes/12a3b4c5-6d78-4012-3456-7e890fa1bcde`
+
+**Unaccepted requests**:
+
+`/organizations/1234567890%2540AdobeOrg/projects/0987654321/workspaces/3210987654321/meshes/12a3b4c5-6d78-4012-3456-7e890fa1bcde`

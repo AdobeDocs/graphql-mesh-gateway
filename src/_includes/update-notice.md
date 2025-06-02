@@ -1,8 +1,8 @@
 
 <AnnouncementBlock slots="heading, text, button" />
 
-### Update notice for legacy mesh URLs
+### Update to the latest CLI version
 
-API Mesh now runs at the edge, and legacy mesh URLs will be removed later this year. Click the **Update notice** to find more information on how to update your mesh:
+[Update the API Mesh CLI](/src/pages/mesh/release/upgrade.md#software-updates) to the latest version to avoid encoding issues.
 
-[Update notice](/src/pages/mesh/release/update.md)
+[Update CLI](/src/pages/mesh/release/upgrade.md#software-updates)

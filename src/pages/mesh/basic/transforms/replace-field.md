@@ -12,55 +12,23 @@ keywords:
 
 # `replaceField` transform
 
-<InlineAlert variant="warning" slots="text"/>
+The `replaceField` transform is deprecated. If you attempt to create an edge mesh with the `replaceField` transform, your edge mesh will not progress past the provisioning status. Alternatively, you can use the following `additonalResolvers` method.
 
-Edge meshes do not currently support the `replaceField` transform. If you attempt to create an edge mesh with the `replaceField` transform, your edge mesh will not progress past the provisioning status. If you are using this transform, you must use the legacy mesh endpoint. `replaceField` transforms will be available in edge meshes in the future.
+## Replacing fields with `additionalResolvers`
 
-`replaceField` transforms allow you to replace the configuration properties of one field with another, which allows you to hoist field values from a subfield to its parent. Use this transform to clean up redundant queries or replace field types. In the example below, the `parent` field is being replaced by the `child` field.
+Previously, the `replaceField` transform allowed you to replace the configuration properties of one field with another, hoisting field values from a subfield to its parent. This transform allowed you to clean up redundant queries or replace field types.
 
-```json
-{
-  "meshConfig": {
-    "sources": [
-      {
-        "name": "PWA",
-        "handler": {
-          "graphql": {
-            "endpoint": "https://example2.com/graphql"
-          }
-        },
-        "transforms": [
-          {
-            "replaceField": {
-              "replacements": [
-                {
-                  "from": {
-                    "type": "Query",
-                    "field": "parent"
-                  },
-                  "to": {
-                    "type": "<your_API_Response>",
-                    "field": "child"
-                  },
-                  "scope": "hoistvalue"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    ]
-  }
-}
-```
+Since the `replaceField` transform is deprecated, you can achieve the same functionality by using [`additionalResolvers`](../../advanced/extend/resolvers/index.md) in your mesh configuration. The `additionalResolvers` property allows you to add custom resolvers to your mesh. These resolvers can replace fields, hoist values, or perform other custom logic.
 
 <InlineAlert variant="info" slots="text"/>
 
-Currently, this transform supports `bare` mode only. For information about `bare` and `wrap` modes, read [`bare` vs `wrap`](./bare-vs-wrap.md).
+Custom resolvers can hoist and replace existing fields as long as the field types are the same. If the field types are different, you can [extend](../../advanced/extend/index.md) the type to include a new field and hide the original field using a [`filterSchema` transform](./filter-schema.md).
 
-## Usage
+The following example hoists the Adobe Commerce `name` field from the `ProductInterface` to the `label` field of `ProductImage` by adding the `replace.js` resolver to the mesh configuration.
 
-The following example hoists the Adobe Commerce `name` field from the `ProductInterface` to the `label` field of `ProductImage`:
+<CodeBlock slots="heading, code" repeat="2" languages="json, javascript" />
+
+#### `mesh.json`
 
 ```json
 {
@@ -73,31 +41,31 @@ The following example hoists the Adobe Commerce `name` field from the `ProductIn
             "endpoint": "https://venia.magento.com/graphql"
           }
         },
-        "transforms": [
-          {
-            "replaceField": {
-              "replacements": [
-                {
-                  "to": {
-                    "type": "ProductImage",
-                    "field": "label"
-                  },
-                  "from": {
-                    "type": "ProductInterface",
-                    "field": "name"
-                  },
-                  "scope": "hoistValue"
-                }
-              ]
-            }
-          }
-        ]
       }
     ]
+    "additionalResolvers": ["./replace.js"]
   }
 }
 ```
 
+#### `replace.js`
+
+```javascript
+module.exports = {
+    resolvers: {
+        SimpleProduct: {
+            name: {
+                selectionSet: '{ name image { label } }',
+                resolve: (root) => {
+                    return root.image.label;
+                }
+            }
+        }
+    }
+} 
+```
+
+<!-- 
 ## How the transform works
 
 `from` defines your source, the field in the schema you want to replace.
@@ -245,4 +213,4 @@ type Author {
       -  `field` (type: `String`, required)
    -  `scope` (type: `String (config | hoistValue)`)
    -  `composer` (type: `Any`)
-   -  `name` (type: `String`)
+   -  `name` (type: `String`) -->

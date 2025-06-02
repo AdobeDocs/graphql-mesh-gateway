@@ -61,10 +61,6 @@ module.exports = [
                         title: "JSON schemas",
                         path: "/mesh/basic/handlers/json-schema.md"
                     },
-                    {
-                        title: "SOAP",
-                        path: "/mesh/basic/handlers/soap.md"
-                    },
                 ]
             },
             {
@@ -116,7 +112,7 @@ module.exports = [
         ],
     },
     {
-        title: "Advanced Features",
+        title: "Advanced features",
         path: "/mesh/advanced/",
         pages: [
             {
@@ -132,8 +128,12 @@ module.exports = [
                 path: "/mesh/advanced/caching/",
                 pages: [
                     {
-                        title: "Cache-control headers",
+                        title: "Caching in API Mesh",
                         path: "/mesh/advanced/caching/"
+                    },
+                    {
+                        title: "Cache-control headers",
+                        path: "/mesh/advanced/caching/cache-control-headers.md"
                     },
                     {
                         title: "Dynamic content caching with Fastly",
@@ -174,12 +174,16 @@ module.exports = [
                 ]
             },
             {
-                title: "Request and response headers",
-                path: "/mesh/advanced/headers.md"
-            },
-            {
                 title: "Hooks",
                 path: "/mesh/advanced/hooks.md",
+            },
+            {
+                title: "Logging",
+                path: "/mesh/advanced/logging.md",
+            },
+            {
+                title: "Request and response headers",
+                path: "/mesh/advanced/headers.md"
             },
             {
                 title: "Secrets management",
@@ -250,8 +254,18 @@ module.exports = [
                 EventTarget: "_blank"
             },
             {
-                title: "Understanding Extensibility",
+                title: "Understanding extensibility",
                 path: "https://developer.adobe.com/commerce/extensibility/app-development/examples/",
+                EventTarget: "_blank"
+            },
+            {
+                title: "Commerce code samples",
+                path: "https://github.com/adobe/adobe-commerce-samples/tree/main/api-mesh",
+                EventTarget: "_blank"
+            },
+            {
+                title: "Contact support",
+                path: "https://experienceleague.adobe.com/home?support-tab=home#support",
                 EventTarget: "_blank"
             }
         ]

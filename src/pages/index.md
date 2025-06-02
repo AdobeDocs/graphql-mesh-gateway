@@ -32,6 +32,7 @@ By serving multiple sources through a single gateway and providing customized re
 -  **Configurable Integrations** - Low/No-code method to integrate with your own private APIs with Adobe Commerce, other Adobe products, and third-party APIs
 -  **Backward Compatibility** - Preserve existing APIs while gradually adopting new ones
 -  **Extensibility** - Customize and extend your APIs directly in the gateway without making changes to the API source
+-  **Advanced Security** - Web application firewall (WAF) and distributed denial-of-service (DDoS) protection for all your APIs
 
 ![api mesh diagram](./_images/api-mesh-diagram.png)
 
