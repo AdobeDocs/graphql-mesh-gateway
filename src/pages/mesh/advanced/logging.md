@@ -77,7 +77,7 @@ Using a third-party service allows you to control throttling, log size limits, a
 1. Run the following command to set up log forwarding:
 
   ```bash
-  aio api-mesh config set log-forwarding
+  aio api-mesh:config set log-forwarding
   ```
 
 1. Select your log forwarding destination from the list of available options. (Currently, only New Relic is supported.)
@@ -109,4 +109,20 @@ To delete the log forwarding configuration, and effectively disable log forwardi
 
 ```bash
 aio api-mesh:config delete log-forwarding
+```
+
+### Get log forwarding errors
+
+To get a list of log forwarding errors, use the `aio api-mesh:config get log-forwarding errors` command.
+
+Similar to the other log forwarding commands, you can use either the `--past` flag to get logs within the past `x` minutes or the `--startTime` and `--endTime` flags to get logs from a specific time range.
+
+The maximum `past` time and the maximum time range between `startTime` and `endTime` is `30` minutes.
+
+```bash
+aio api-mesh:config get log-forwarding errors --startTime YYYY-MM-DDTHH: MM: SSZ --endTime YYYY-MM-DDTHH: MM: SSZ –-filename error-logs. csv
+```
+
+```bash
+aio api-mesh:config get log-forwarding errors --past 30 --filename error-logs.csv
 ```
