@@ -113,16 +113,8 @@ aio api-mesh:config delete log-forwarding
 
 ### Get log forwarding errors
 
-To get a list of log forwarding errors, use the `aio api-mesh:config get log-forwarding errors` command.
-
-Similar to the other log forwarding commands, you can use either the `--past` flag to get logs within the past `x` minutes or the `--startTime` and `--endTime` flags to get logs from a specific time range.
-
-The maximum `past` time and the maximum time range between `startTime` and `endTime` is `30` minutes.
+To get a list of the last 10 log forwarding errors, use the following command:
 
 ```bash
-aio api-mesh:config get log-forwarding errors --startTime YYYY-MM-DDTHH: MM: SSZ --endTime YYYY-MM-DDTHH: MM: SSZ –-filename error-logs. csv
-```
-
-```bash
-aio api-mesh:config get log-forwarding errors --past 30 --filename error-logs.csv
+aio api-mesh:config get log-forwarding errors
 ```
