@@ -24,6 +24,14 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## June 04, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- You can now [create a mesh from a template](../basic/create-mesh.md#create-a-mesh-from-a-template) using the `aio api-mesh create --template` command.
+
 ## May 22, 2024
 
 This release contains the following changes to API Mesh:
