@@ -30,6 +30,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
+- You can now [create a mesh from a template](../basic/create-mesh.md#create-a-mesh-from-a-template) using the `aio api-mesh create --template` command.
 - You can now get a list of [log forwarding errors](../advanced/logging.md#get-log-forwarding-errors) using the `aio api-mesh:config get log-forwarding errors` command.
 - Local composers now support [fetching from remote origins](../advanced/hooks.md#fetching-from-remote-origins) using `fetch()`.
 
