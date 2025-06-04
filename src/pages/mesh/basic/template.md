@@ -43,7 +43,7 @@ In your cloned repository, add the following [configuration variables](https://d
 
 <InlineAlert variant="info" slots="text"/>
 
-When working with codespaces, make sure to follow Github's [security best practices](https://docs.github.com/en/codespaces/reference/security-in-github-codespaces).
+When working with codespaces, make sure to follow GitHub's [security best practices](https://docs.github.com/en/codespaces/reference/security-in-github-codespaces).
 
 After configuring your variables, click the **Code** dropdown in your repository and select the **Codespaces** tab. Click **Create Codespace**. The codespace will automatically set up the environment for you.
 
