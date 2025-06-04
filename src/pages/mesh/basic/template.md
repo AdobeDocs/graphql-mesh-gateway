@@ -32,8 +32,8 @@ In your cloned repository, add the following [configuration variables](https://d
 | ---------- | ------- |
 | CLIENTID | `client_id` |
 | CLIENTSECRET | `client_secret` |
-| TECHNICALACCOUNTID | `technical_account_email` |
-| TECHNICALACCOUNTEMAIL | `technical_account_id` |
+| TECHNICALACCOUNTID | `technical_account_id` |
+| TECHNICALACCOUNTEMAIL | `technical_account_email` |
 | IMSORGID | `ims_org_id` |
 | ORGID | `project` > `org` > `id` |
 | PROJECTID | `project` > `id` |
