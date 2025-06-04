@@ -108,7 +108,7 @@ module.exports = [
         ],
     },
     {
-        title: "Advanced Features",
+        title: "Advanced features",
         path: "/mesh/advanced/",
         pages: [
             {
@@ -124,8 +124,12 @@ module.exports = [
                 path: "/mesh/advanced/caching/",
                 pages: [
                     {
-                        title: "Cache-control headers",
+                        title: "Caching in API Mesh",
                         path: "/mesh/advanced/caching/"
+                    },
+                    {
+                        title: "Cache-control headers",
+                        path: "/mesh/advanced/caching/cache-control-headers.md"
                     },
                     {
                         title: "Dynamic content caching with Fastly",

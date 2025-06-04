@@ -12,7 +12,7 @@ keywords:
 
 # Request and response headers
 
-To specify headers for your mesh, you can add them inside the `JSON` file that describes your mesh, or you can add them when querying. Currently, you can add [request headers](#request-headers) and [response headers](#response-headers), which both can contain [cache-control headers](./caching/).
+To specify headers for your mesh, you can add them inside the `JSON` file that describes your mesh, or you can add them when querying. Currently, you can add [request headers](#request-headers) and [response headers](#response-headers), which both can contain [cache-control headers](./caching/cache-control-headers.md).
 
 ## Request headers
 
@@ -66,12 +66,6 @@ You can also inject dynamic values from the context into your headers. For examp
 -  [OpenAPI handlers](../basic/handlers/openapi.md#headers-from-context)
 -  [GraphQL handlers](../basic/handlers/graphql.md#headers-from-context)
 -  [JSON Schema handlers](../basic/handlers/json-schema.md#headers-from-context)
-
-#### Request ID header
-
-The `x-request-id` header allows you to track and debug requests by assigning a user-specified ID number. If you provide this ID in the request header, then the response includes the header.
-
-`x-request-id: ABC123`
 
 #### Media types
 
@@ -168,6 +162,21 @@ Including metadata prefixes the returned response headers with their source name
           "x-commerce-cache-control": "max-age=1800",
         }
     }
+}
+```
+
+### Response tracking and debugging
+
+The following headers are included in subrequests to your mesh sources to assist with tracking and debugging:
+
+- `cf-ray` - Generated automatically
+- `x-request-id` - Generated automatically, if the header is not provided in the request
+
+These headers allow you to track and debug requests by assigning a request-specific ID numbers. If you provide your own `x-request-id` in the request header, then the subrequests to sources will include the specified header instead of an automatically generated one. For example:
+
+```json
+{
+  "x-request-id": "my-request-id"
 }
 ```
 

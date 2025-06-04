@@ -698,7 +698,7 @@ The `log-get-bulk` command creates a CSV file with logs for the selected mesh du
 ### Usage
 
 ```bash
-aio api-mesh:log-get-bulk [--startTime <value>] [--endTime <value>] [--filename <value>] [-i] [--help]
+aio api-mesh:log-get-bulk [--startTime <value>] [--endTime <value>] [--filename <value>] [--past <value>] [-i] [--help]
 ```
 
 ### Flags
@@ -710,6 +710,8 @@ The following arguments are required:
 `--endTime` the end time for log collection in the format `YYYY-MM-DDTHH:MM:SSZ`. You must convert your local time to UTC.
 
 `--filename` specifies the name of the file to output the logs to.
+
+`--past` specifies the number of minutes in the past to get logs. The maximum value is `30`.
 
 The following arguments are optional:
 
@@ -734,3 +736,71 @@ Successfully downloaded the logs to mesh_logs.csv.
 ```
 
 The downloaded file will look similar to [this example](../../_examples/bulk-logs.csv).
+
+## aio api-mesh:cache:purge
+
+The `aio api-mesh:cache:purge` command deletes all cached responses for the mesh.
+
+### Usage
+
+```bash
+aio `aio api-mesh:cache:purge` [-a] [-c] [--help]
+```
+
+### Flags
+
+The following arguments are required:
+
+`-a` or `--all` indicates that you want to delete all cached responses for the mesh. Currently, this is the only option.
+
+`-c` or `--autoConfirmAction` automatically confirms the cache purge instead of prompting the user to confirm.
+
+`--help` provides information on the specified command.
+
+#### Example
+
+```bash
+aio `aio api-mesh:cache:purge` -a
+```
+
+### Response
+
+```terminal
+? Cache will purge ALL data related to source `mesh-name`. Do you wish to continue? (Y/n) Y
+
+Successfully purged cache for mesh <meshId> .
+```
+
+## aio api-mesh:config
+
+The `config` command allows you to manage the configuration for your mesh. Currently, it is only used for log forwarding.
+
+### Usage
+
+```bash
+aio api-mesh:config set log-forwarding
+```
+
+```bash
+aio api-mesh:config get log-forwarding
+```
+
+```bash
+aio api-mesh:config delete log-forwarding
+```
+
+### Flags
+
+`--help` provides information on the specified command.
+
+### Example
+
+```bash
+aio api-mesh:config set log-forwarding
+```
+
+### Response
+
+```terminal
+Log forwarding details set successfully.
+```
