@@ -53,3 +53,39 @@ API Mesh allows you to use [secrets](./advanced/secrets.md) in your mesh configu
 ## Tenant isolation
 
 API Mesh provides tenant isolation by default. The combination of Enterprise Organization, Project, and Workspace namespace defines a granular tenant, which is isolated for each mesh.
+
+## Security Responsibilities Summary
+
+API Mesh relies on a shared responsibility security and operational model. These responsibilities are shared between Adobe and customers. Each party bears distinct responsibility for securing and operating API Mesh.
+
+The following summary tables use the RACI model to show the security responsibilities shared between Adobe and customers.
+
+R — Responsible
+A — Accountable
+C — Consulted
+I — Informed
+
+| Task | Adobe | Customers | CDN Provider |
+|------|-------|-----------|--------------|
+| DDoS Protection | R | I | R |
+| Defining API Mesh WAF rules | R | | |
+| Deploying API Mesh WAF rules | R | | |
+| Deploying infrastructure updates into production | R | | A |
+| Deploying infrastructure updates into staging | R | | A |
+| Creating, updating, or deleting mesh configurations | | R | |
+| Deploying mesh configurations into production | A | R | |
+| Deploying mesh configurations into staging | A | R | |
+| Integrating external applications and extensions | | R | |
+| Configuring logging | | R | |
+| Accessing Experience League support portal | R | C | |
+| Following API Mesh security best practices | | R | |
+| Resolving API Mesh customer security issues | C | R | C |
+| Resolving API Mesh security issues | R | | |
+| Resolving CDN security issues | A | | R |
+| Assisting Adobe with security research (software) | R | C | |
+| Assisting Adobe with security research (scans/audits) | R | C | |
+| Performing PCI ASV scans on API Mesh | R | | |
+| Remediating API Mesh PCI scans | R | | |
+| Performing PCI ASV scans on origin APIs | | R | |
+| Remediating origin API PCI scans | | R | |
+| Monitoring security logs | R | I* | |
