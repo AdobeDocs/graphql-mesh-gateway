@@ -16,11 +16,11 @@ This page provides the basic steps for creating your first mesh.
 
 ## Requirements
 
-Before creating a mesh, create a project or a templated project and workspace for the mesh. For other requirements see [Prerequisites](./index.md#prerequisites).
+Before creating a mesh, create a project or a templated project and workspace for the mesh. For other requirements see [Prerequisites](index.md#prerequisites).  https://developer.adobe.com/graphql-mesh-gateway/mesh/basic/#prerequisites
 
 ### Create a project
 
-When you [create a mesh](../basic/create-mesh.md), you must assign the mesh to a specific project. To create a new project, log in to the [Adobe Developer Console](https://developer.adobe.com/console) and [create a project](https://developer.adobe.com/developer-console/docs/guides/projects/#create-a-new-project).
+When you create a mesh, you must assign the mesh to a specific project. To create a new project, log in to the [Adobe Developer Console](https://developer.adobe.com/console) and [create a project](https://developer.adobe.com/developer-console/docs/guides/projects/#create-a-new-project).
 
 ### Add a workspace to your project
 
