@@ -16,7 +16,7 @@ This page provides the basic steps for creating your first mesh.
 
 ## Requirements
 
-Before creating a mesh, create a project or a templated project and workspace for the mesh. For other requirements see [Prerequisites](index.md#prerequisites).
+Before creating a mesh, create a project or a templated project and workspace for the mesh. For other requirements see [Prerequisites](../basic/index.md#prerequisites).
 
 ### Create a project
 
