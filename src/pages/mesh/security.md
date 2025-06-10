@@ -88,4 +88,4 @@ I — Informed
 | Remediating API Mesh PCI scans | R | | |
 | Performing PCI ASV scans on origin APIs | | R | |
 | Remediating origin API PCI scans | | R | |
-| Monitoring security logs | R | I* | |
+| Monitoring security logs | R | I | |
