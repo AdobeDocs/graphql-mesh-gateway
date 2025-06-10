@@ -25,7 +25,7 @@ This tutorial covers the basic actions you can perform in a mesh using API Mesh 
 - Install a Node Version Manager (`nvm`)
   - (macOS and Linux) - [Node Version Manager](https://github.com/nvm-sh/nvm)
   - (Windows) - [nvm-windows](https://github.com/coreybutler/nvm-windows)
-- Install the [Adobe `aio` CLI](https://developer.adobe.com/runtime/docs/guides/tools/cli_install/) with the following command:
+- Install the [Adobe `aio` CLI](https://developer.adobe.com/app-builder/docs/guides/runtime_guides/tools/cli-install) with the following command:
 
   ```bash
   npm install -g @adobe/aio-cli
