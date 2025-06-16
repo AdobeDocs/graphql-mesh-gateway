@@ -36,7 +36,9 @@ If you encounter repeated `429` response codes, or for any other security issues
 
 ## GraphQL introspection
 
-Adobe recommends [disabling introspection](./basic/work-with-mesh.md#disable-introspection) in production environments. GraphQL Introspection queries expose the underlying unified schema and allow crawling of your mesh, enabling the testing of all combinations of queries and mutations available.
+While introspection is useful for developers using your APIs, if you are using APIs that are intended for your applications only, introspection is likely not needed.
+
+As a general API security strategy, Adobe recommends [disabling introspection](./basic/work-with-mesh.md#disable-introspection) in production environments to reduce your attack surface.
 
 ## Restrict CORS domains
 
@@ -65,7 +67,7 @@ A — Accountable
 C — Consulted
 I — Informed
 
-| Task | Adobe | Customers | CDN Provider |
+| Task | Adobe | Customers | CDN Provider[^1] |
 |------|-------|-----------|--------------|
 | DDoS Protection | R | I | R |
 | Defining API Mesh WAF rules | R | | |
@@ -89,3 +91,5 @@ I — Informed
 | Performing PCI ASV scans on origin APIs | | R | |
 | Remediating origin API PCI scans | | R | |
 | Monitoring security logs | R | I | |
+
+[^1] The CDN provider column refers to a CDN managed and provided by API Mesh.
