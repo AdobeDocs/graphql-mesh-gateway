@@ -56,7 +56,7 @@ API Mesh allows you to use [secrets](./advanced/secrets.md) in your mesh configu
 
 API Mesh provides tenant isolation by default. The combination of Enterprise Organization, Project, and Workspace namespace defines a granular tenant, which is isolated for each mesh.
 
-## Security Responsibilities Summary
+## Security responsibilities summary
 
 API Mesh relies on a shared responsibility security and operational model. These responsibilities are shared between Adobe and customers. Each party bears distinct responsibility for securing and operating API Mesh.
 
