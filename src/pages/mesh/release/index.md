@@ -24,6 +24,14 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## June 16, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Resolved a `500` error that could occur when fetching a GraphQL source.
+
 ## June 05, 2025
 
 This release contains the following changes to API Mesh:
