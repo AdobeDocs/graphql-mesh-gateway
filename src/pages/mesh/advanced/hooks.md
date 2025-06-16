@@ -157,7 +157,7 @@ Avoid using local composers if:
 
 - The composer has complex or nested loops.
 
-- The composer uses restricted constructs, such as `setTimeout`, `setInterval`, `for`, `while`, `console`, `process`, `global`, or `throw`.
+- The function uses restricted constructs, including: `alert`, `debugger`, `eval`, `new Function()`, `process`, `setInterval`, `setTimeout`, `WebAssembly`, or `window`.
 
 Local composers require adding any local scripts to the mesh's [`files` array](../basic/handlers/index.md#reference-local-files-in-handlers).
 
@@ -192,6 +192,63 @@ Local composers require adding any local scripts to the mesh's [`files` array](.
     ]
   }
 }
+```
+
+#### Fetching from remote origins
+
+Local composers also support fetching from remote origins using `fetch()`.
+
+The following example could be used as a `beforeAll` hook that validates an authorization token against a remote authorization endpoint using `fetch()`.
+
+```js
+module.exports = {
+  validateToken: async ({ context }) => {
+    const { headers } = context;
+    const { authorization } = headers;
+    
+    if (!authorization) {
+      return {
+        status: "ERROR",
+        message: "Authorization header is missing",
+      };
+    }
+    
+    try {
+      // Validate the token against a remote authorization service
+      const response = await fetch("https://auth.adobe.com/validate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ token: authorization.replace("Bearer ", "") }),
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok || !result.valid) {
+        return {
+          status: "ERROR",
+          message: "Invalid authorization token",
+        };
+      }
+      
+      return {
+        status: "SUCCESS",
+        message: "Token validated successfully",
+        data: {
+          headers: {
+            "x-user-id": result.userId,
+          },
+        },
+      };
+    } catch (error) {
+      return {
+        status: "ERROR",
+        message: `Token validation failed: ${error.message}`,
+      };
+    }
+  },
+};
 ```
 
 ### `remote` composers
@@ -423,4 +480,71 @@ The return signature of a composer is the same for local and remote functions.
     }
   }
 }
+```
+
+## `onFetch` hooks
+
+You can use the `onFetch` plugin to intercept and modify HTTP requests before they are sent to your GraphQL sources.
+
+The `onFetch` plugin can assist with the following use cases:
+
+- **Authentication**: Adding dynamic auth tokens or API keys
+- **Conditional Headers**: Adding headers based on query content or user context
+- **Request Tracking**: Adding correlation IDs or request timestamps  
+- **Request Modification**: Transforming request body or parameters
+- **Logging**: Adding custom logging or metrics
+
+The `onFetch` plugin can also access your execution parameters, such as: `root`, `args`, `context`, and `info`.
+
+The following example adds a custom header (`x-md5-hash`) to the request. This could be used to add a hash of the request body to the request headers for security purposes.
+
+<CodeBlock slots="heading, code" repeat="2" languages="json, js" />
+
+#### `mesh.json`
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "CommerceAPI",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql"
+          }
+        }
+      }
+    ],
+    "plugins": [
+      {
+        "onFetch": [
+          {
+            "source": "commerceAPI",
+            "handler": "./handleOnFetch.js"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+#### `handleOnFetch.js`
+
+```js
+async function handleOnFetch(data) {
+  const { context } = data;
+  const { log } = context;
+
+  try {
+    data.options.headers["x-md5-hash"] = "test header value";
+  } catch (e) {
+    log(`Error setting hash header: ${e.message}`);
+  }
+}
+
+module.exports = {
+  default: handleOnFetch,
+  __esModule: true,
+};
 ```

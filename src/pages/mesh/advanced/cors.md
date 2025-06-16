@@ -37,23 +37,25 @@ The following examples show how to use CORS with a single origin or with multipl
 
 ```json
 {
-...
-  "responseConfig": {
-    "CORS": {
-      "origin": "https://www.<your-domain>.com",
-      "methods": [
-        "GET",
-        "POST"
-      ],
-      "maxAge": 60480,
-      "credentials": true,
-      "exposedHeaders": [
-        "Content-Range",
-        "X-Content-Range"
-      ]
+  "meshConfig": {
+    ...
+    "responseConfig": {
+      "CORS": {
+        "origin": "https://www.<your-domain>.com",
+        "methods": [
+          "GET",
+          "POST"
+        ],
+        "maxAge": 60480,
+        "credentials": true,
+        "exposedHeaders": [
+          "Content-Range",
+          "X-Content-Range"
+        ]
+      }
     }
+    ...
   }
-...
 }
 ```
 
@@ -61,20 +63,22 @@ The following examples show how to use CORS with a single origin or with multipl
 
 ```json
 {
-...
-  "responseConfig": {
-    "CORS": {
-      "maxAge": 60480,
-      "methods": [
-        "GET",
-        "POST",
-        "PUT",
-        "HEAD",
-        "OPTIONS"
-      ],
-      "origin": ["<origin1>", "<origin2>"]
+  "meshConfig": {
+    ...
+    "responseConfig": {
+      "CORS": {
+        "maxAge": 60480,
+        "methods": [
+          "GET",
+          "POST",
+          "PUT",
+          "HEAD",
+          "OPTIONS"
+        ],
+        "origin": ["<origin1>", "<origin2>"]
+      } 
     } 
-  } 
-...
+    ...
+  }
 }
 ```
