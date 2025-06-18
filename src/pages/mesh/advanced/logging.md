@@ -116,7 +116,7 @@ aio api-mesh:config:delete:log-forwarding
 To get a list of the last 10 log forwarding errors, use the following command:
 
 ```bash
-aio api-mesh:config:get:log-forwarding errors
+aio api-mesh:config:get:log-forwarding:errors
 ```
 
 ## Logging dashboard
