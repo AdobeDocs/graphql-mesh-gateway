@@ -39,7 +39,7 @@ This release contains the following changes to API Mesh:
 ### Enhancements
 
 - You can now [create a mesh from a template](../basic/create-mesh.md#create-a-mesh-from-a-template) using the `aio api-mesh create --template` command.
-- You can now get a list of [log forwarding errors](../advanced/logging.md#get-log-forwarding-errors) using the `aio api-mesh:config get log-forwarding errors` command.
+- You can now get a list of [log forwarding errors](../advanced/logging.md#get-log-forwarding-errors) using the `aio api-mesh:config:get:log-forwarding errors` command.
 - Local composers now support [fetching from remote origins](../advanced/hooks.md#fetching-from-remote-origins) using `fetch()`.
 
 ## May 22, 2025
@@ -85,7 +85,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-- A new **experimental** feature allows you to [forward logs](../advanced/logging.md#log-forwarding) to New Relic using the [`aio api-mesh:config set log-forwarding`](../advanced/index.md#aio-api-meshconfig) command.
+- A new **experimental** feature allows you to [forward logs](../advanced/logging.md#log-forwarding) to New Relic using the [`aio api-mesh:config:set:log-forwarding`](../advanced/index.md#aio-api-meshconfig) command.
 
 - The CLI now warns you if you have `includeHTTPDetails` set to `true` in your mesh configuration. This is a security risk and should not be used in production.
 
