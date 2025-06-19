@@ -780,19 +780,19 @@ You can use the `log-forwarding errors` subcommand to get a list of [log forward
 ### Usage
 
 ```bash
-aio api-mesh:config set log-forwarding
+aio api-mesh:config:set:log-forwarding
 ```
 
 ```bash
-aio api-mesh:config get log-forwarding
+aio api-mesh:config:get:log-forwarding
 ```
 
 ```bash
-aio api-mesh:config get log-forwarding errors
+aio api-mesh:config:get:log-forwarding errors
 ```
 
 ```bash
-aio api-mesh:config delete log-forwarding
+aio api-mesh:config:delete:log-forwarding
 ```
 
 ### Flags
@@ -802,7 +802,7 @@ aio api-mesh:config delete log-forwarding
 ### Example
 
 ```bash
-aio api-mesh:config set log-forwarding
+aio api-mesh:config:set:log-forwarding
 ```
 
 ### Response

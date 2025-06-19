@@ -77,7 +77,7 @@ Using a third-party service allows you to control throttling, log size limits, a
 1. Run the following command to set up log forwarding:
 
   ```bash
-  aio api-mesh:config set log-forwarding
+  aio api-mesh:config:set:log-forwarding
   ```
 
 1. Select your log forwarding destination from the list of available options. (Currently, only New Relic is supported.)
@@ -98,7 +98,7 @@ API Mesh supports both the 32-character and 40-character New Relic license keys.
 To retrieve an existing log forwarding configuration, run the following command:
 
 ```bash
-aio api-mesh:config get log-forwarding
+aio api-mesh:config:get:log-forwarding
 ```
 
 For security reasons, the license key is not displayed in the output.
@@ -108,7 +108,7 @@ For security reasons, the license key is not displayed in the output.
 To delete the log forwarding configuration, and effectively disable log forwarding, run the following command:
 
 ```bash
-aio api-mesh:config delete log-forwarding
+aio api-mesh:config:delete:log-forwarding
 ```
 
 ### Get log forwarding errors
@@ -116,5 +116,256 @@ aio api-mesh:config delete log-forwarding
 To get a list of the last 10 log forwarding errors, use the following command:
 
 ```bash
-aio api-mesh:config get log-forwarding errors
+aio api-mesh:config:get:log-forwarding:errors
+```
+
+## Logging dashboard
+
+If you are using New Relic, you can import the logging dashboard to your New Relic account.
+
+1. Go to the [New Relic One](https://one.newrelic.com/) home page.
+
+1. Click the **Dashboards** icon in the left navigation.
+
+1. Click the **Import** button.
+
+1. Select the `logging.json` file and click **Import**.
+
+For more information see [Import a dashboard](https://docs.newrelic.com/docs/query-your-data/explore-query-data/dashboards/manage-your-dashboard/#dash-json).
+
+The [example dashboard](#example-dashboard) displays: request count, request method, request method aggregate, worker logs, and access logs. You can alternatively use the following queries:
+
+<CodeBlock slots="heading, code" repeat="2" languages="graphql, json" />
+
+#### Query mesh logs
+
+```sql
+SELECT `Exceptions`, `Logs` as Logs, `RayID` as RayId, `Request.Method`, `Request.URL`, `Response.Status`, `ScriptTags`, `meshId` as meshId, logtype FROM Log SINCE 7 days ago ORDER by timestamp DESC LIMIT MAX WHERE meshId = '' AND ('' = '' OR RayID = '') and logtype = 'mesh_logs'
+```
+
+#### Query access logs
+
+```sql
+FROM Log SELECT ClientIP AS 'Client IP', RayID, ClientDeviceType AS 'Device', ClientRequestMethod AS 'Method', ClientRequestURI AS 'URI', EdgeColoCode AS 'Edge', EdgeServerIP AS 'Edge IP', ClientRequestSource AS 'Request Source', CacheCacheStatus AS 'Cache Status', EdgeResponseStatus AS 'Response Status', EdgeResponseBytes AS 'Response Bytes', EdgeResponseContentType AS 'Content Type', OriginResponseStatus AS 'Origin Response', OriginIP, WorkerCPUTime, WorkerWallTimeUs WHERE CacheCacheStatus IS NOT NULL AND ClientRequestSource != 'edgeWorkerCacheAPI' AND ('' = '' OR RayID = '') and meshId = '' and logtype = 'access_logs'
+```
+
+### Example dashboard
+
+```json
+{
+  "name": "Log forwarding test stage",
+  "description": null,
+  "permissions": "PUBLIC_READ_WRITE",
+  "pages": [
+    {
+      "name": "Mesh Details",
+      "description": null,
+      "widgets": [
+        {
+          "title": "Request Count",
+          "layout": {
+            "column": 1,
+            "row": 1,
+            "width": 4,
+            "height": 3
+          },
+          "linkedEntityGuids": null,
+          "visualization": {
+            "id": "viz.line"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": false
+            },
+            "legend": {
+              "enabled": true
+            },
+            "markers": {
+              "displayedTypes": {
+                "criticalViolations": false,
+                "deployments": true,
+                "relatedDeployments": true,
+                "warningViolations": false
+              }
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  3371751
+                ],
+                "query": "SELECT count(*)\nFROM Log\nWHERE logtype = 'mesh_logs' AND `meshId` = {{mesh_id}}\nSINCE 7 days ago\nTIMESERIES\nLIMIT MAX"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            },
+            "thresholds": {
+              "isLabelVisible": true
+            },
+            "yAxisLeft": {
+              "zero": true
+            },
+            "yAxisRight": {
+              "zero": true
+            }
+          }
+        },
+        {
+          "title": "Request Method Over Time",
+          "layout": {
+            "column": 5,
+            "row": 1,
+            "width": 4,
+            "height": 3
+          },
+          "linkedEntityGuids": null,
+          "visualization": {
+            "id": "viz.line"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": false
+            },
+            "legend": {
+              "enabled": true
+            },
+            "markers": {
+              "displayedTypes": {
+                "criticalViolations": false,
+                "deployments": true,
+                "relatedDeployments": true,
+                "warningViolations": false
+              }
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  3371751
+                ],
+                "query": "WITH `Request.Method` as requestMethod\nSELECT count(*)\nFROM Log\nFACET requestMethod\nWHERE `logtype` = 'mesh_logs' AND `meshId` = {{mesh_id}}\nSINCE 7 days ago\nTIMESERIES\nLIMIT MAX\n"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            },
+            "thresholds": {
+              "isLabelVisible": true
+            },
+            "yAxisLeft": {
+              "zero": true
+            },
+            "yAxisRight": {
+              "zero": true
+            }
+          }
+        },
+        {
+          "title": "Request Method Aggregate",
+          "layout": {
+            "column": 9,
+            "row": 1,
+            "width": 4,
+            "height": 3
+          },
+          "linkedEntityGuids": null,
+          "visualization": {
+            "id": "viz.table"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": false
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  3371751
+                ],
+                "query": "WITH `Request.Method` AS requestMethod, `Response.Status` as responseStatus\nSELECT count(*)\nFROM Log\nFACET requestMethod, responseStatus\nSINCE 7 days ago\nWHERE requestMethod is NOT NULL AND `meshId` = {{mesh_id}}"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            }
+          }
+        },
+        {
+          "title": "Worker Logs",
+          "layout": {
+            "column": 1,
+            "row": 4,
+            "width": 12,
+            "height": 4
+          },
+          "linkedEntityGuids": null,
+          "visualization": {
+            "id": "viz.table"
+          },
+          "rawConfiguration": {
+            "facet": {
+              "showOtherSeries": false
+            },
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  3371751
+                ],
+                "query": "SELECT `Exceptions`, `Logs` as Logs, `RayID` as RayId, `Request.Method`, `Request.URL`, `Response.Status`, `ScriptTags`, `meshId` as meshId, logtype\nFROM Log\nSINCE 7 days ago\nORDER by timestamp DESC\nLIMIT MAX\nWHERE meshId = {{mesh_id}} AND ({{ray_id}} = '' OR RayID = {{ray_id}}) and logtype = 'mesh_logs' --AND (RayId = '92c8e9ce78c65a1a')"
+              }
+            ],
+            "platformOptions": {
+              "ignoreTimeRange": false
+            }
+          }
+        },
+        {
+          "title": "Access Logs",
+          "layout": {
+            "column": 1,
+            "row": 8,
+            "width": 12,
+            "height": 3
+          },
+          "linkedEntityGuids": null,
+          "visualization": {
+            "id": "logger.log-table-widget"
+          },
+          "rawConfiguration": {
+            "nrqlQueries": [
+              {
+                "accountIds": [
+                  3371751
+                ],
+                "query": "FROM Log SELECT ClientIP AS 'Client IP', RayID, ClientDeviceType AS 'Device', ClientRequestMethod AS 'Method', ClientRequestURI AS 'URI', EdgeColoCode AS 'Edge', EdgeServerIP AS 'Edge IP', ClientRequestSource AS 'Request Source', CacheCacheStatus AS 'Cache Status', EdgeResponseStatus AS 'Response Status', EdgeResponseBytes AS 'Response Bytes', EdgeResponseContentType AS 'Content Type', OriginResponseStatus AS 'Origin Response', OriginIP, WorkerCPUTime, WorkerWallTimeUs WHERE CacheCacheStatus IS NOT NULL AND ClientRequestSource != 'edgeWorkerCacheAPI' AND ({{ray_id}}='' OR RayID = {{ray_id}}) and meshId = {{mesh_id}} and logtype = 'access_logs'\n"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "name": "mesh_id",
+      "items": null,
+      "defaultValues": [],
+      "nrqlQuery": null,
+      "options": {},
+      "title": "Mesh ID",
+      "type": "STRING",
+      "isMultiSelection": null,
+      "replacementStrategy": "STRING"
+    },
+    {
+      "name": "ray_id",
+      "items": null,
+      "defaultValues": [],
+      "nrqlQuery": null,
+      "options": {},
+      "title": "Ray ID",
+      "type": "STRING",
+      "isMultiSelection": null,
+      "replacementStrategy": "STRING"
+    }
+  ]
+}
 ```
