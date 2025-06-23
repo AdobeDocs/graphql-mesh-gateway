@@ -225,7 +225,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         }
         ```
 
-     - **Name** - keep-alive-vcl-miss
+     - **Name** - keep_alive_vcl_miss
        - **Type** - **miss**
        - **Priority** - **100**
        - **Content**:
@@ -234,7 +234,7 @@ After setting up your API Mesh, open your Adobe Commerce Admin and use the follo
         set bereq.http.Connection = "keep-alive";
         ```
 
-     - **Name** - keep-alive-vcl-pass
+     - **Name** - keep_alive_vcl_pass
        - **Type** - **pass**
        - **Priority** - **100**
        - **Content**:
