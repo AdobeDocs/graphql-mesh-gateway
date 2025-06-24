@@ -24,6 +24,14 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## June 24, 2025
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Fixed an error that could occur when using the `aio api-mesh:run` command with unreferenced files in your mesh configuration.
+
 ## June 16, 2025
 
 This release contains the following changes to API Mesh:
