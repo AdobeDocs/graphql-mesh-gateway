@@ -136,6 +136,98 @@ interface AfterAllTransformObject {
 }
 ```
 
+### `beforeSource`
+
+The `beforeSource` hook allows you to insert a function before querying a specific source. This is useful for adding source-specific authentication, logging, or request modification before making requests to individual GraphQL sources.
+
+<InlineAlert variant="info" slots="text"/>
+
+The [`beforeSource` hook](#beforesource-hooks) uses source names as keys in the configuration object to specify which source the hook should target.
+
+```json
+"hooks": {
+    "beforeSource": {
+        "source1": [
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": true|false
+            },
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": true|false
+            }
+        ],
+        "source2": [
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": true|false
+            },
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": true|false
+            }
+        ]
+    }
+}
+```
+
+```ts
+interface BeforeSourceTransformObject {
+  [sourceName: string]: Array<{
+    composer: string;
+    blocking: boolean;
+  }>;
+}
+```
+
+### `afterSource`
+
+The [`afterSource` hook](#aftersource-hooks) allows you to insert a function after querying a specific source, but before returning the response. This is useful for logging source responses, transforming data, or triggering events after source operations complete.
+
+<InlineAlert variant="info" slots="text"/>
+
+The `afterSource` hook uses source names as keys in the configuration object to specify which source the hook should target.
+
+<InlineAlert variant="info" slots="text"/>
+
+`afterSource` hooks support blocking behavior to control whether the response waits for the hook to complete.
+
+```json
+"hooks": {
+    "afterSource": {
+        "source1": [
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": true|false
+            },
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": true|false
+            }
+        ],
+        "source2": [
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": true|false
+            },
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": true|false
+            }
+        ]
+    }
+}
+```
+
+```ts
+interface AfterSourceTransformObject {
+  [sourceName: string]: Array<{
+    composer: string;
+    blocking: boolean;
+  }>;
+}
+```
+
 ## Local vs remote functions
 
 `local` composers are defined within your `mesh.json` file, whereas `remote` composers are only referenced within your mesh file. Local and remote composers have different advantages and limitations.
@@ -459,6 +551,169 @@ async function publishEvent(event) {
   } catch (err) {
     return new Response(
       { status: "ERROR", message: err.message },
+      { status: 500 }
+    );
+  }
+}
+```
+
+### `beforeSource` hooks
+
+`beforeSource` hook composers accept the following arguments:
+
+- `sourceName` - The name of the targeted source.
+- `request` - The request configuration object.
+- `operation` - The GraphQL operation definition node.
+
+`beforeSource` hook composers can be local or remote. You can configure multiple hooks for each source, which execute in the specified order.
+
+#### Local composer example
+
+This composer adds source-specific headers before making requests to the Adobe Commerce API.
+
+```js
+module.exports = {
+  beforeMagentoRequest: ({ sourceName, request, operation }) => {
+    // Add Commerce-specific authentication headers
+    const commerceHeaders = {
+      "x-magento-store": "default",
+      "x-magento-customer-token": request.headers?.authorization?.replace("Bearer ", "") || "",
+    };
+    
+    return {
+      status: "SUCCESS",
+      message: "Commerce headers added",
+      data: {
+        headers: commerceHeaders,
+      },
+    };
+  },
+};
+```
+
+#### Remote composer example
+
+This remote composer validates source-specific authentication before making requests.
+
+```js
+addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
+
+async function handleRequest(event) {
+  try {
+    const { sourceName, request, operation } = await event.request.json();
+    
+    // Validate source-specific authentication
+    if (sourceName === "CommerceApi" && !request.headers["x-magento-token"]) {
+      return new Response(
+        JSON.stringify({
+          status: "ERROR",
+          message: "Commerce token required for this source",
+        }),
+        { status: 401 }
+      );
+    }
+    
+    return new Response(
+      JSON.stringify({
+        status: "SUCCESS",
+        message: "Source validation passed",
+      }),
+      { status: 200 }
+    );
+  } catch (err) {
+    return new Response(
+      JSON.stringify({
+        status: "ERROR",
+        message: err.message,
+      }),
+      { status: 500 }
+    );
+  }
+}
+```
+
+### `afterSource` hooks
+
+`afterSource` hook composers accept the following arguments:
+
+- `sourceName` - The name of the targeted source.
+- `request` - The request configuration object.
+- `operation` - The GraphQL operation definition node.
+- `response` - The response object from the source.
+- `setResponse` - Function to modify the response.
+
+`afterSource` hook composers can be local or remote. Multiple hooks can be configured for each source, and they will be executed in order.
+
+#### Local composer example
+
+This composer logs source responses and modifies the response after source operations.
+
+```js
+module.exports = {
+  afterMagentoResponse: ({ sourceName, request, operation, response, setResponse }) => {
+    console.log(`Source ${sourceName} returned response:`, response);
+    
+    // Modify the response if needed
+    if (sourceName === "MagentoMonolithApi") {
+      // Example: Add custom headers to the response
+      const modifiedResponse = new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: {
+          ...Object.fromEntries(response.headers.entries()),
+          "x-processed-by": "magento-hook",
+        },
+      });
+      
+      setResponse(modifiedResponse);
+    }
+    
+    return {
+      status: "SUCCESS",
+      message: "Source response processed",
+    };
+  },
+};
+```
+
+#### Remote composer example
+
+This remote composer publishes events after source operations complete.
+
+```js
+addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
+
+async function handleRequest(event) {
+  try {
+    const { sourceName, request, operation, response } = await event.request.json();
+    
+    // Publish source completion event
+    await fetch("https://events.adobe.com/publish", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        event: "source_completed",
+        sourceName,
+        timestamp: new Date().toISOString(),
+        responseStatus: response.status,
+      }),
+    });
+    
+    return new Response(
+      JSON.stringify({
+        status: "SUCCESS",
+        message: "Source event published",
+      }),
+      { status: 200 }
+    );
+  } catch (err) {
+    return new Response(
+      JSON.stringify({
+        status: "ERROR",
+        message: err.message,
+      }),
       { status: 500 }
     );
   }
