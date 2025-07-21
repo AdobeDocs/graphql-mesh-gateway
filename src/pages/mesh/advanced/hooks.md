@@ -12,13 +12,9 @@ keywords:
 
 # Hooks
 
-<InlineAlert variant="info" slots="text"/>
-
-The hooks feature is currently in development and will be expanded in future releases. Only `beforeAll` hooks are currently available.
-
 Hooks allow you to invoke a composable [local or remote](#local-vs-remote-functions) function on a targeted node.
 
-Some use cases for the `Hooks` include:
+Some use cases for the `hooks` include:
 
 -  Authenticating a user before all operations
 
@@ -81,7 +77,7 @@ The `beforeAll` hook allows you to insert a function before the query takes plac
 
 <InlineAlert variant="info" slots="text"/>
 
-The `beforeAll` hook is a singular hook.
+The [`beforeAll` hook](#beforeall-hooks) is a singular hook.
 
 ```json
 "plugins": [
@@ -122,10 +118,13 @@ interface AfterHooksTransformObject {
   composer: string;
 }
 ```
+-->
 
 ### `afterAll`
 
-The `afterAll` hook allows you to insert a function after the entire operation resolves, but before the response is returned.
+The [`afterAll` hook](#afterall-hooks) allows you to insert a function after the entire operation resolves, but before the response is returned.
+
+`afterAll` hooks allow a user to provide a function or an endpoint to invoke after executing the operation. `afterAll` hooks can be used for logging or triggering events. Each hook can be blocking or non-blocking. Non-blocking hooks will not wait for the completion of the execution.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -135,7 +134,7 @@ The `afterAll` hook allows you to insert a function after the entire operation r
 interface AfterAllTransformObject {
   composer: string;
 }
-``` -->
+```
 
 ## Local vs remote functions
 
@@ -406,10 +405,10 @@ async function handleRequest(event) {
     }
 }
 ```
-<!-- 
-### `after` and `afterAll` hook composer
 
-`after` and `afterAll` hook composers accept the following arguments:
+### `afterAll` hooks
+
+`afterAll` hook composers accept the following arguments:
 
 -  `key` - The name of the field
 
@@ -417,7 +416,7 @@ async function handleRequest(event) {
 
 -  `data` - The resolved value of the field
 
-`after` and `afterAll` hook composers can be local or remote.
+`afterAll` hook composers can be local or remote.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -433,7 +432,7 @@ Due to the limitations of `JSON` serialization and de-serialization, some comple
 module.exports = {
   publishEvent: (key, data) => {
     publisher.send("Resolved %s to %o", key, data);
-    // It is unnecessary to return anything from here, because after hooks are non blocking.
+    // It is unnecessary to return anything from here, because afterAll hooks are non blocking.
   },
 };
 ```
@@ -464,7 +463,7 @@ async function publishEvent(event) {
     );
   }
 }
-``` -->
+```
 
 ### Return signatures
 
