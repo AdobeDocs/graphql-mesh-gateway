@@ -502,17 +502,21 @@ async function handleRequest(event) {
 
 `afterAll` hook composers accept the following arguments:
 
--  `key` - The name of the field
-
-    In `afterAll` hooks, the `key` argument defaults to `ROOT`.
-
--  `data` - The resolved value of the field
+- `payload` - An object containing the operation result with the following structure:
+  - `result.data` - The resolved data from the operation.
+  - `result.errors` - Any errors from the operation.
+  - `context` - The request context.
+  - `document` - The GraphQL operation document.
 
 `afterAll` hook composers can be local or remote.
 
 <InlineAlert variant="info" slots="text"/>
 
 Due to the limitations of `JSON` serialization and de-serialization, some complex `JSON` fields inside a remote function's arguments might not function correctly over the `HTTPS` call.
+
+<InlineAlert variant="info" slots="text"/>
+
+Local hook functions have a 30-second timeout. If a local hook function takes longer than 30 seconds, it will timeout and return an error. Non-blocking hooks will not cause the operation to fail even if they timeout.
 
 ### Examples
 
@@ -522,9 +526,42 @@ Due to the limitations of `JSON` serialization and de-serialization, some comple
 
 ```js
 module.exports = {
-  publishEvent: (key, data) => {
-    publisher.send("Resolved %s to %o", key, data);
-    // It is unnecessary to return anything from here, because afterAll hooks are non blocking.
+  metaData: async (payload) => {
+    const originalData = payload.result?.data || {};
+    const originalErrors = payload.result?.errors || [];
+    
+    console.log('AfterAll Hook: Adding simple audit trail');
+    
+    // Extract dynamic information from the GraphQL request/response
+    const queriedFields = Object.keys(originalData);
+    const primaryQuery = queriedFields.length > 0 ? queriedFields[0] : 'unknown';
+    const queryDocument = payload.document || '';
+    const operationType = queryDocument.toString().includes('mutation') ? 'mutation' : 'query';
+    
+    // Calculate response size
+    const responseSize = JSON.stringify(originalData).length;
+    
+    // Add comprehensive dynamic audit metadata
+    const auditData = {
+      ...originalData,
+      _metaData: {
+        primaryQuery: primaryQuery,
+        operationType: operationType,
+        responseSizeBytes: responseSize,
+        processedBy: 'local-hook'
+      }
+    };
+    
+    return {
+      status: 'SUCCESS',
+      message: `Audit trail added for ${primaryQuery} ${operationType}`,
+      data: {
+        result: {
+          data: auditData,
+          errors: originalErrors
+        }
+      }
+    };
   },
 };
 ```
@@ -534,23 +571,46 @@ module.exports = {
 ```js
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
 
-async function publishEvent(event) {
+async function handleRequest(event) {
   try {
-    const { key, data } = await event.request.json();
-    fetch(EVENT_BUS_URL, {
-      method: "POST",
-      body: {
-        key,
-        data,
-      },
-    });
+    const payload = await event.request.json();
+    const { result, context, document } = payload;
+    
+    // Add a new 'sale_price' field that provides 20% discount for all products
+    if (result.data?.products?.items) {
+      result.data.products.items.forEach(product => {
+        if (product.price_range?.minimum_price?.final_price?.value) {
+          const originalPrice = product.price_range.minimum_price.final_price.value;
+          const salePrice = originalPrice * 0.8; // 20% discount
+          
+          product.sale_price = {
+            value: Math.round(salePrice * 100) / 100,
+            currency: product.price_range.minimum_price.final_price.currency,
+            discount_percent: 20
+          };
+        }
+      });
+    }
+    
     return new Response(
-      { status: "SUCCESS", message: "Published Event" },
+      JSON.stringify({
+        status: "SUCCESS",
+        message: "Price modification applied",
+        data: {
+          result: {
+            data: result.data,
+            errors: result.errors || []
+          }
+        }
+      }),
       { status: 200 }
     );
   } catch (err) {
     return new Response(
-      { status: "ERROR", message: err.message },
+      JSON.stringify({
+        status: "ERROR",
+        message: err.message
+      }),
       { status: 500 }
     );
   }
