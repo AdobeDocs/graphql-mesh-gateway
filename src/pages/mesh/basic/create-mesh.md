@@ -335,4 +335,4 @@ The deployment history includes the following information:
 - **Deployed By** - The user who deployed this mesh version.
 - **Status** - The deployment status, such as`Success` or `Failed`.
 - **Logs** - Any errors or other exceptions that occured when deploying the mesh.
-- **Config** - An icon that you can click to download the mesh configuration file for that specific deployment. 
+- **Config** - An icon that you can click to download the mesh configuration file for that specific deployment.
