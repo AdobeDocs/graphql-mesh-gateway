@@ -321,8 +321,6 @@ To download a copy of your mesh file, click the **Download Mesh Schema** button 
 
 On the Mesh Configuration tab, you can view the mesh configuration for the currently active mesh.
 
-![mesh configuration](../../_images/mesh-configuration.png)
-
 ### Deployment history
 
 On the Deployment History tab, you can view the history of your mesh deployments.
