@@ -255,6 +255,8 @@ aio api-mesh:get [FILE] [-i] [--json] [--help]
 
 `--json` outputs the file as JSON.
 
+`--active` retrieves the active mesh (as indicated in the [developer console UI](../basic/create-mesh.md#deployment-history)). This is the most recent successfully deployed mesh.
+
 `--help` provides information on the specified command.
 
 ### Example

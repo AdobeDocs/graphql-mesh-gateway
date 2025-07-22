@@ -24,6 +24,16 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## July 24, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added a new user interface to the [developer console](../basic/create-mesh.md#deployment-history) that allows you to view the deployment history for your mesh.
+
+- Added an `--active` flag to the [`aio api-mesh:get`](../advanced/index.md#aio-api-meshget) command that allows you to retrieve the most recent successfully deployed mesh.
+
 ## June 24, 2025
 
 This release contains the following changes to API Mesh:

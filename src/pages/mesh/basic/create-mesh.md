@@ -316,3 +316,27 @@ On the API Mesh Details screen, you can use the tabs to view different segments 
 To download a copy of your mesh file, click the **Download Mesh Schema** button at the top of the API Mesh Details screen.
 
 ![download mesh](../../_images/download-mesh-schema.png)
+
+### Deployment history
+
+On the Deployment History tab, you can view the history of your mesh deployments.
+
+![deployment history](../../_images/deployment-history.png)
+
+The deployment history includes the following information:
+
+- **Active** - A green checkmark indicates the currently active mesh, which is the most recent successfully deployed mesh.
+- **Version** - A unique alphanumeric string that indicates the version of your mesh.
+- **Deployed On** - The time and date when this version of the mesh was created or updated.
+- **Deployed By** - The user who deployed this mesh version.
+- **Status** - The deployment status, such as`Success` or `Failed`.
+- **Logs** - Any errors or other exceptions that occured when deploying the mesh.
+- **Config** - An icon that you can click to download the mesh configuration file for that specific deployment. 
+
+### Mesh configuration
+
+On the Mesh Configuration tab, you can view the mesh configuration for the currently active mesh.
+
+![mesh configuration](../../_images/mesh-configuration.png)
+
+The mesh configuration includes the following information:
