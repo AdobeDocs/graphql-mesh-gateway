@@ -97,6 +97,10 @@ Public and private headers are mutually exclusive. In the last example, since `p
 
 To cache responses from sources that do not return cache-control headers, use API Mesh to set a default cache-control directive in your mesh configuration file. This directive applies to all sources that do not return cache-control headers, but still respects the cache-control headers of sources that do return them and [resolves conflicts between sources](#resolving-conflicts-between-sources).
 
+<InlineAlert variant="info" slots="text"/>
+
+`cacheControl` headers cannot be overridden by your mesh configuration.
+
 To configure a default cache-control directive, add a `cacheControl` key-value pair to `responseConfig.cache` in your mesh configuration file. Use the `cacheControl` key to specify the default cache-control directives for the source. If a cacheable query does not return a cache-control header, the default value is applied.
 
 ```json
