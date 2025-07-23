@@ -99,7 +99,7 @@ To cache responses from sources that do not return cache-control headers, use AP
 
 <InlineAlert variant="info" slots="text"/>
 
-Cache control headers cannot be overridden by your mesh configuration.
+`cacheControl` headers cannot be overridden by your mesh configuration.
 
 To configure a default cache-control directive, add a `cacheControl` key-value pair to `responseConfig.cache` in your mesh configuration file. Use the `cacheControl` key to specify the default cache-control directives for the source. If a cacheable query does not return a cache-control header, the default value is applied.
 
