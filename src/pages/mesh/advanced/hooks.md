@@ -150,21 +150,21 @@ The [`beforeSource` hook](#beforesource-hooks) uses source names as keys in the 
         "source1": [
             {
                 "composer": "<Local or Remote file>",
-                "blocking": true|false
+                "blocking": true
             },
             {
                 "composer": "<Local or Remote file>",
-                "blocking": true|false
+                "blocking": true
             }
         ],
         "source2": [
             {
                 "composer": "<Local or Remote file>",
-                "blocking": true|false
+                "blocking": false
             },
             {
                 "composer": "<Local or Remote file>",
-                "blocking": true|false
+                "blocking": false
             }
         ]
     }
@@ -184,13 +184,9 @@ interface BeforeSourceTransformObject {
 
 The [`afterSource` hook](#aftersource-hooks) allows you to insert a function after querying a specific source, but before returning the response. This is useful for logging source responses, transforming data, or triggering events after source operations complete.
 
-<InlineAlert variant="info" slots="text"/>
-
 The `afterSource` hook uses source names as keys in the configuration object to specify which source the hook should target.
 
-<InlineAlert variant="info" slots="text"/>
-
-`afterSource` hooks support blocking behavior to control whether the response waits for the hook to complete.
+`afterSource` hooks additionally support blocking behavior to control whether the response waits for the hook to complete.
 
 ```json
 "hooks": {
@@ -198,21 +194,21 @@ The `afterSource` hook uses source names as keys in the configuration object to 
         "source1": [
             {
                 "composer": "<Local or Remote file>",
-                "blocking": true|false
+                "blocking": true
             },
             {
                 "composer": "<Local or Remote file>",
-                "blocking": true|false
+                "blocking": true
             }
         ],
         "source2": [
             {
                 "composer": "<Local or Remote file>",
-                "blocking": true|false
+                "blocking": false
             },
             {
                 "composer": "<Local or Remote file>",
-                "blocking": true|false
+                "blocking": false
             }
         ]
     }
@@ -514,8 +510,6 @@ async function handleRequest(event) {
 
 Due to the limitations of `JSON` serialization and de-serialization, some complex `JSON` fields inside a remote function's arguments might not function correctly over the `HTTPS` call.
 
-<InlineAlert variant="info" slots="text"/>
-
 Local hook functions have a 30-second timeout. If a local hook function takes longer than 30 seconds, it will timeout and return an error. Non-blocking hooks will not cause the operation to fail even if they timeout.
 
 ### Examples
@@ -627,9 +621,13 @@ async function handleRequest(event) {
 
 `beforeSource` hook composers can be local or remote. You can configure multiple hooks for each source, which execute in the specified order.
 
-#### Local composer example
+#### Examples
 
-This composer adds source-specific headers before making requests to the Adobe Commerce API.
+The local composer example adds source-specific headers before making requests to the Adobe Commerce API. The remote composer example validates source-specific authentication before making requests.
+
+<CodeBlock slots="heading, code" repeat="2" languages="js, js" />
+
+#### Local composer example
 
 ```js
 module.exports = {
@@ -652,8 +650,6 @@ module.exports = {
 ```
 
 #### Remote composer example
-
-This remote composer validates source-specific authentication before making requests.
 
 ```js
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
@@ -704,9 +700,13 @@ async function handleRequest(event) {
 
 `afterSource` hook composers can be local or remote. Multiple hooks can be configured for each source, and they will be executed in order.
 
-#### Local composer example
+#### Examples
 
-This composer logs source responses and modifies the response after source operations.
+The local composer example logs source responses and modifies the response after source operations. The remote composer example publishes events after source operations complete.
+
+<CodeBlock slots="heading, code" repeat="2" languages="js, js" />
+
+#### Local composer example
 
 ```js
 module.exports = {
@@ -737,8 +737,6 @@ module.exports = {
 ```
 
 #### Remote composer example
-
-This remote composer publishes events after source operations complete.
 
 ```js
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
