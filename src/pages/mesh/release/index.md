@@ -30,7 +30,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-- Added support for `.graphql` files in the [`files` array](../advanced/developer-tools.md#reference-local-files-in-handlers).
+- Added support for `.graphql` files in the [`files` array](../advanced/developer-tools.md#reference-files-directly).
 
 ## June 24, 2025
 
