@@ -24,6 +24,18 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## July 24, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- The following hooks are now supported:
+
+  - [`afterAll`](../advanced/hooks.md#afterall) - Runs after querying all sources.
+  - [`beforeSource`](../advanced/hooks.md#beforesource) - Runs before querying a source.
+  - [`afterSource`](../advanced/hooks.md#aftersource) - Runs after querying a source.
+
 ## June 24, 2025
 
 This release contains the following changes to API Mesh:
