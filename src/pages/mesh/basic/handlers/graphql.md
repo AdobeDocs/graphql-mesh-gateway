@@ -137,7 +137,7 @@ We recommend providing a local schema by using the [`additionalTypeDefs`](../../
 ## Config API reference
 
 -  `endpoint` (type: `String`, required) - URL or file path for your remote GraphQL endpoint
-   -  Local file types must be `.js` or `.ts`.
+   -  Local file types must be `.js`, `.ts`, or `.graphql`.
 -  `source` (type: `String`) - Path to the introspection file
 -  `schemaHeaders` (type: `Any`) - JSON object for adding headers to API calls for runtime schema introspection
 -  `operationHeaders` (type: `JSON`) - JSON object for adding headers to API calls for runtime operation execution
