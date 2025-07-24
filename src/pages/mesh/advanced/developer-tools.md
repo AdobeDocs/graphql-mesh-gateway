@@ -151,6 +151,10 @@ In addition to [qualifying the `content` of a file manually](../basic/handlers/i
 
 The following example references the `requestParams.json` file. When this mesh is created or updated, the contents of that file are automatically minified, stringified, and added to the `files` array.
 
+<InlineAlert variant="info" slots="text"/>
+
+The files array supports `.js`, `.ts`, and `.graphql` file formats.
+
 ```json
 {
   "meshConfig": {
