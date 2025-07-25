@@ -17,6 +17,75 @@ module.exports = {
     pages: pages,
     subPages: subPages,
   },
-  plugins: [`@adobe/gatsby-theme-aio`],
+  plugins: [
+    {
+      resolve: '@adobe/gatsby-theme-aio',
+      options: {
+        algolia: {
+          query: `
+            {
+              site {
+                pathPrefix
+              }
+              github {
+                repository
+              },
+              allFile(
+                filter: {absolutePath: {regex: "/src/pages/"}, internal: {mediaType: {in: ["text/markdown", "text/mdx", "text/x-markdown"]}}}
+              ) {
+                nodes {
+                  id
+                  internal {
+                    contentDigest
+                  }
+                  birthTime(difference: "days")
+                  changeTime(difference: "days")
+                  modifiedTime(fromNow: true)
+                  icon
+                  isNew
+                  howRecent
+                  size
+                  childMdx {
+                    excerpt(pruneLength: 200)
+                    frontmatter {
+                      title
+                      description
+                      keywords
+                      category
+                      featured
+                      openAPISpec
+                      jsDoc
+                      frameSrc
+                      frameHeight
+                      contributors
+                      edition
+                      editionObjects {
+                        type
+                        tooltip
+                      }
+                      hideBreadcrumbNav
+                      contributor_name
+                      contributor_link
+                      noIndex
+                    }
+                    headings {
+                      value
+                      depth
+                    }
+                    wordCount {
+                      words
+                    }
+                    fileAbsolutePath
+                    slug
+                    mdxAST
+                  }
+                }
+              }
+            }
+          `
+        }
+      }
+    }
+  ],
   pathPrefix: process.env.PATH_PREFIX || '/graphql-mesh-gateway/'
 };
