@@ -11,10 +11,16 @@
  */
 
 import React from 'react';
-import {withPrefix} from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
+import { Edition } from './src/@adobe/gatsby-theme-aio/components/Edition';
 
-export const onRenderBody = ({setHeadComponents}) => {
-  setHeadComponents([
-    <script src={withPrefix('/redirections.js')}></script>
-  ]);
+// Define the components that will be available in MDX files
+const components = {
+  // Register the Edition component for inline use
+  Edition
+};
+
+// Wrap the root element with the MDXProvider
+export const wrapRootElement = ({ element }) => {
+  return <MDXProvider components={components}>{element}</MDXProvider>;
 };
