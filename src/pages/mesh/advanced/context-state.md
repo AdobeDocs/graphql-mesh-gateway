@@ -71,12 +71,11 @@ You can also provide the following:
 
 - Time-to-live (TTL) - (Optional) provide a TTL in seconds for the entry. The TTL defaults to `604800` seconds (7 days). TTL values must be between `60` seconds and `604800` seconds (7 days).
 
-- Blocking - (Optional) provide a blocking flag for the operation. Defaults to `false` allowing mesh to proceed with code execution without waiting for a response. If blocking is `true`, the mesh will wait for a response, which allows you to ensure the operation was successful. 
+- Blocking - (Optional) provide a blocking flag for the operation. Defaults to `false` allowing mesh to proceed with code execution without waiting for a response. If blocking is `true`, the mesh will wait for a response, which allows you to ensure the operation was successful.
 
 <InlineAlert variant="info" slots="text"/>
 
 Setting the blocking flag to `true` can add latency to the overall query responses.
-
 
 - Put a simple entry:
 
@@ -122,7 +121,7 @@ Get allows users to fetch a value for a given key.
 
 ### Delete a key
 
-Delete allows users to delete a key and its associated value. A delete propagates to all edge locations. 
+Delete allows users to delete a key and its associated value. A delete propagates to all edge locations.
 
 You can also provide the following:
 
@@ -146,7 +145,7 @@ Setting the blocking flag to `true` can add latency to the overall query respons
 
 ## Adobe Commerce as a Cloud Service (SaaS) REST example
 
-&#8203;<Edition name="saas" /> 
+&#8203;<Edition name="saas" />
 
 **Prerequisites**
 
@@ -310,7 +309,6 @@ Setting the blocking flag to `true` can add latency to the overall query respons
 
 1. Then use product queries to ensure the authorization header is set in requests to the commerce REST source. Refer to the [server-to-server authentication](https://developer.adobe.com/commerce/webapi/rest/authentication/server-to-server/) for examples.
 
-
 ## Hooks example
 
 The following example shows how context state can be used in a [hook](./hooks.md) to cache a service-to-service token.
@@ -407,4 +405,4 @@ module.exports = {
     },
   },
 };
-``` 
+```
