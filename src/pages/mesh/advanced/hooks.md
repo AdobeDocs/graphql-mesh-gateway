@@ -253,7 +253,7 @@ Local composers require adding any local scripts to the mesh's [`files` array](.
   "meshConfig": {
     "sources": [
       {
-        "name": "MagentoMonolithApi",
+        "name": "Commerce",
         "handler": {
           "graphql": {
             "endpoint": "https://venia.magento.com/graphql"
@@ -355,7 +355,7 @@ When using `remote` composers, you could see decreased performance, because `rem
   "meshConfig": {
     "sources": [
       {
-        "name": "MagentoMonolithApi",
+        "name": "Commerce",
         "handler": {
           "graphql": {
             "endpoint": "https://venia.magento.com/graphql"
@@ -631,11 +631,11 @@ The local composer example adds source-specific headers before making requests t
 
 ```js
 module.exports = {
-  beforeMagentoRequest: ({ sourceName, request, operation }) => {
+  beforeCommerceRequest: ({ sourceName, request, operation }) => {
     // Add Commerce-specific authentication headers
     const commerceHeaders = {
-      "x-magento-store": "default",
-      "x-magento-customer-token": request.headers?.authorization?.replace("Bearer ", "") || "",
+      "x-commerce-store": "default",
+      "x-commerce-customer-token": request.headers?.authorization?.replace("Bearer ", "") || "",
     };
     
     return {
@@ -659,7 +659,7 @@ async function handleRequest(event) {
     const { sourceName, request, operation } = await event.request.json();
     
     // Validate source-specific authentication
-    if (sourceName === "CommerceApi" && !request.headers["x-magento-token"]) {
+    if (sourceName === "CommerceApi" && !request.headers["x-commerce-token"]) {
       return new Response(
         JSON.stringify({
           status: "ERROR",
@@ -710,18 +710,18 @@ The local composer example logs source responses and modifies the response after
 
 ```js
 module.exports = {
-  afterMagentoResponse: ({ sourceName, request, operation, response, setResponse }) => {
+  afterCommerceResponse: ({ sourceName, request, operation, response, setResponse }) => {
     console.log(`Source ${sourceName} returned response:`, response);
     
     // Modify the response if needed
-    if (sourceName === "MagentoMonolithApi") {
+    if (sourceName === "Commerce") {
       // Example: Add custom headers to the response
       const modifiedResponse = new Response(response.body, {
         status: response.status,
         statusText: response.statusText,
         headers: {
           ...Object.fromEntries(response.headers.entries()),
-          "x-processed-by": "magento-hook",
+          "x-processed-by": "commerce-hook",
         },
       });
       
