@@ -552,6 +552,7 @@ module.exports = {
 ```
 
 ## `context.logger`
+
 <InlineAlert variant="info" slots="text"/>
 
 `context.logger` is only available in local hooks. For remote hooks, use language-specific logging, such as `console.log` in JavaScript.

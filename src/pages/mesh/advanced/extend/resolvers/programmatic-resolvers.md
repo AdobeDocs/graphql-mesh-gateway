@@ -324,7 +324,6 @@ module.exports = {
 
 The following example resolver calculates a product's final price by adding a 10% markup to the base price.
 
-
 ```javascript
 module.exports = {
   resolvers: {
