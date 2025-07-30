@@ -337,6 +337,6 @@ The deployment history includes the following information:
 - **Version** - A unique alphanumeric string that indicates the version of your mesh.
 - **Deployed On** - The time and date when this version of the mesh was created or updated.
 - **Deployed By** - The user who deployed this mesh version.
-- **Status** - The deployment status, such as`Success`, `Provisioning`, or `Failed`.
+- **Status** - The deployment status, such as`Success`, `Provisioning`, or `Error`.
 - **Error Logs** - An icon that you can click to download any errors or other exceptions that occurred when deploying the mesh. If there are no errors, the icon will not appear.
 - **Config** - An icon that you can click to download the mesh configuration file for that specific deployment.
