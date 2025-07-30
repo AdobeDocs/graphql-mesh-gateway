@@ -309,13 +309,11 @@ When you delete a mesh, the mesh's [caching configuration](../advanced/caching/i
 
 As an alternative to running the [`aio api-mesh:get`](../advanced/index.md#aio-api-meshget) command, you can view your mesh details by selecting the **API Mesh** section in the desired workspace in the [Adobe Developer Console](https://developer.adobe.com/console).
 
-On the API Mesh Details screen, you can use the tabs to view different segments of your mesh.
+On the API Mesh details screen, you can use the tabs to view information about your mesh.
 
 ![api mesh details](../../_images/api-mesh-details.png)
 
-To download a copy of your mesh file, click the **Download Mesh Schema** button at the top of the API Mesh Details screen.
-
-![download mesh](../../_images/download-mesh-schema.png)
+To download a copy of your mesh file, click the **Download Mesh Config** button on the **Active Config** tab.
 
 ### Mesh configuration
 
