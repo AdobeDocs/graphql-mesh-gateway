@@ -313,7 +313,7 @@ On the API Mesh details screen, you can use the tabs to view information about y
 
 ![api mesh details](../../_images/api-mesh-details.png)
 
-To download a copy of your mesh file, click the **Download Mesh Config** button on the **Active Config** tab.
+To download a copy of your mesh file, click the **Download Mesh Config** button on the **Active Config** (or **Config**) tab.
 
 ### Mesh configuration
 
