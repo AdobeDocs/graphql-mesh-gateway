@@ -38,6 +38,14 @@ This release contains the following changes to API Mesh:
 
 This release contains the following changes to API Mesh:
 
+### Enhancements
+
+- Added support for `.graphql` files in the [`files` array](../advanced/developer-tools.md#reference-files-directly).
+
+## June 24, 2025
+
+This release contains the following changes to API Mesh:
+
 ### Bug fixes
 
 - Fixed an error that could occur when using the `aio api-mesh:run` command with unreferenced files in your mesh configuration.
