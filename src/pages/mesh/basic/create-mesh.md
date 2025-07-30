@@ -309,10 +309,34 @@ When you delete a mesh, the mesh's [caching configuration](../advanced/caching/i
 
 As an alternative to running the [`aio api-mesh:get`](../advanced/index.md#aio-api-meshget) command, you can view your mesh details by selecting the **API Mesh** section in the desired workspace in the [Adobe Developer Console](https://developer.adobe.com/console).
 
-On the API Mesh Details screen, you can use the tabs to view different segments of your mesh.
+On the API Mesh details screen, you can use the tabs to view information about your mesh.
 
 ![api mesh details](../../_images/api-mesh-details.png)
 
-To download a copy of your mesh file, click the **Download Mesh Schema** button at the top of the API Mesh Details screen.
+To download a copy of your mesh file, click the **Download Mesh Config** button on the **Active Config** (or **Config**) tab.
 
-![download mesh](../../_images/download-mesh-schema.png)
+### Mesh configuration
+
+On the **Active Config** tab, you can view the mesh configuration for the currently active mesh. If you have not successfully deployed a mesh, the **Config** tab displays the latest mesh configuration file that you uploaded.
+
+### API playground
+
+The developer console user interface provides a GraphQL Playground for testing your mesh. Click the **Open Playground** button to open a Yoga GraphiQL client in your browser.
+
+If you have introspection enabled, you can use the **Documentation Explorer** to view the schema for your mesh.
+
+### Deployment history
+
+On the Deployment History tab, you can view the history of your mesh deployments.
+
+![deployment history](../../_images/deployment-history.png)
+
+The deployment history includes the following information:
+
+- **Active** - A green checkmark indicates the currently active mesh, which is the most recent successfully deployed mesh.
+- **Version** - A unique alphanumeric string that indicates the version of your mesh.
+- **Deployed On** - The time and date when this version of the mesh was created or updated.
+- **Deployed By** - The user who deployed this mesh version.
+- **Status** - The deployment status, such as`Success`, `Provisioning`, or `Error`.
+- **Error Logs** - An icon that you can click to download any errors or other exceptions that occurred when deploying the mesh. If there are no errors, the icon will not appear.
+- **Config** - An icon that you can click to download the mesh configuration file for that specific deployment.
