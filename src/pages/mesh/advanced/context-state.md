@@ -14,7 +14,7 @@ keywords:
 
 API Mesh uses context state to provide a concise interface allowing developers to persist reusable values.
 
-You can interact with state keys by using the`get`, `put`, and `delete` commands. These values are globally distributed, making them available at the edge.
+You can interact with state keys by using the `get`, `put`, and `delete` commands. These values are globally distributed, making them available at the edge.
 
 This state is available to all [hooks](./hooks.md) and [resolvers](./extend/index.md).
 
@@ -32,7 +32,7 @@ As stated in the [security responsibility matrix](../security.md#security-respon
 
 ## Mesh configuration
 
-To enable context state in your mesh, add `"enabled": true` to your mesh configuration:
+To enable context state in your mesh, add `"enabled": true` to `state` in your mesh configuration:
 
 ```json
 {

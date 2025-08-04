@@ -24,6 +24,14 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## August 07, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added [context state](../advanced/context-state.md) to allow persisting reusable values for hooks and resolvers.
+
 ## June 24, 2025
 
 This release contains the following changes to API Mesh:
