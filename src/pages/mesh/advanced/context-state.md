@@ -208,7 +208,9 @@ Setting the blocking flag to `true` can add latency to the overall query respons
      * @returns {boolean}
      */
     function isTokenValid({ accessToken, expiresIn }) {
-        return accessToken && expiresIn && Date.now() < expiresIn * 1000;
+	const now = Date.now();
+	const expires = now + (expiresIn * 1000);
+	return accessToken && now < expires;
     }
 
     module.exports = {
