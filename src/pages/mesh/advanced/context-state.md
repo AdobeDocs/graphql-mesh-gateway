@@ -149,7 +149,7 @@ Setting the blocking flag to `true` can add latency to the overall query respons
 
 **Prerequisites**
 
-- Add the **Adobe Commerce as a Cloud Service** API to your Developer Console workspace.
+- [Add the **Adobe Commerce as a Cloud Service** API](../basic/create-mesh.md#add-a-workspace-to-your-project) to your Developer Console workspace.
 - Create an **OAuth Server-to-Server** credential for `client id`, `client secret`, and `scope`.
 
 1. Create a secrets file for your mesh that contains the OAuth `client id`, `client secret`, and `scopes`.
