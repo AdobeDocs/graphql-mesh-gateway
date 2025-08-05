@@ -32,7 +32,7 @@ Workspaces that already have an API mesh will have "API Mesh" displayed on their
 
 After creating a workspace:
 
-1. Click the **Add Service** button on your workspace card.
+1. In your workspace, click the **Add Service** button and select **API**.
 1. Filter by **Adobe Experience Platform**.
 1. Select the **API Mesh for Adobe Developer App Builder** service.
 
