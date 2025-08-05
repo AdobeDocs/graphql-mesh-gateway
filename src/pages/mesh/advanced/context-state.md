@@ -47,11 +47,11 @@ To enable context state in your mesh, add `"enabled": true` to `state` in your m
 
 ## Interact with state
 
-To interact with state, you can use the `get`, `put`, and `delete` commands.
-
 <InlineAlert variant="info" slots="text"/>
 
 Context state is intended for ephemeral entries and not long-term persistence.
+
+To interact with state, you can use the `get`, `put`, and `delete` commands.
 
 ```typescript
 interface StateApi {
