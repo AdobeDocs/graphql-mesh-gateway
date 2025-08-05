@@ -63,15 +63,15 @@ interface StateApi {
 
 ### Put a key-value pair
 
-Put allows you to put a value for a given key. A put is replicated to a globally available and fault-tolerant store. When an edge mesh attempts to get an entry, it will check a cache local to the edge serving the request. If the entry is not found, it will fetch the entry from the closest global replica of the entry. The entry is then cached on the edge for future reuse.
+The `put` command allows you to assign or update a value for a given key. A put is replicated to a globally available and fault-tolerant store. When an edge mesh attempts to get an entry, it will check a cache local to the edge serving the request. If the entry is not found, it will fetch the entry from the closest global replica of the entry. The entry is then cached on the edge for future reuse.
 
 Context state is eventually consistent. Generally, entries are available instantly within the edge they are created in. It may take 60 seconds or more for changes to propagate globally.
 
 You can also provide the following:
 
-- Time-to-live (TTL) - (Optional) provide a TTL in seconds for the entry. The TTL defaults to `604800` seconds (7 days). TTL values must be between `60` seconds and `604800` seconds (7 days).
+- Time-to-live (TTL) - (Optional) provide a TTL in seconds for the entry. The TTL defaults to `604800` seconds (7 days). TTL values must be between `60`  and `604800` seconds.
 
-- Blocking - (Optional) provide a blocking flag for the operation. Defaults to `false` allowing mesh to proceed with code execution without waiting for a response. If blocking is `true`, the mesh will wait for a response, which allows you to ensure the operation was successful.
+- Blocking - (Optional) provide a blocking flag for the operation. Defaults to `false`, allowing the mesh to proceed with code execution without waiting for a response. If blocking is `true`, the mesh will wait for a response, which allows you to ensure the operation was successful.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -105,7 +105,7 @@ Setting the blocking flag to `true` can add latency to the overall query respons
 
 When adding a key-value pair, you have the following limitations:
 
-- Key and Value type must be `string` or `binary`
+- Key and value type must be `string` or `binary`
 - Maximum key size of `512 bytes`
 - Maximum value size of `1 MB`
 
@@ -309,7 +309,7 @@ Setting the blocking flag to `true` can add latency to the overall query respons
     } 
     ```
 
-1. Then use product queries to ensure the authorization header is set in requests to the commerce REST source. Refer to the [server-to-server authentication](https://developer.adobe.com/commerce/webapi/rest/authentication/server-to-server/) for examples.
+1. Then use product queries to ensure the authorization header is set in requests to the Commerce REST source. Refer to the [server-to-server authentication](https://developer.adobe.com/commerce/webapi/rest/authentication/server-to-server/) for examples.
 
 ## Hooks example
 
