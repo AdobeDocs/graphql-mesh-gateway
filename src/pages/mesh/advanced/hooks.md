@@ -684,8 +684,7 @@ module.exports = {
     const responseSize = JSON.stringify(originalData).length;
     
     // Add comprehensive dynamic audit metadata
-    const auditData = {
-      ...originalData,
+    const extensions = {
       _metaData: {
         primaryQuery: primaryQuery,
         operationType: operationType,
@@ -699,8 +698,9 @@ module.exports = {
       message: `Audit trail added for ${primaryQuery} ${operationType}`,
       data: {
         result: {
-          data: auditData,
-          errors: originalErrors
+          data: originalData,
+          errors: originalErrors,
+          extensions,
         }
       }
     };
@@ -790,7 +790,9 @@ module.exports = {
       status: "SUCCESS",
       message: "Commerce headers added",
       data: {
-        headers: commerceHeaders,
+        request: {
+                headers: commerceHeaders,
+        }
       },
     };
   },
@@ -873,7 +875,13 @@ module.exports = {
         },
       });
       
-      setResponse(modifiedResponse);
+      return {
+            status: "SUCCESS",
+            message: "Source response processed",
+            data: {
+                  response: modifiedResponse,
+            }
+      };
     }
     
     return {
