@@ -70,12 +70,10 @@ Hooks are plugins that accept the following arguments:
 
 ## Hook payload
 
-All hooks receive the following payload:
+All hooks receive the following payload. Specific hooks extend their types based on additional data they may provide in the payload as described in the [creating composers](#creating-composers) section.
 
 ```ts
-/**
- * Logger utility.
- */
+// Logger utility
 interface Logger {
 	debug: (...args: any[]) => void;
 	info: (...args: any[]) => void;
@@ -83,21 +81,19 @@ interface Logger {
 	error: (...args: any[]) => void;
 }
 
-/**
- * State API interface for managing key-value pairs.
- */
+// State API interface for managing key-value pairs
 export interface StateApi {
 	/**
-	 * Get a value by key.
-	 * @param key Key to retrieve.
+	 * Get a value by key
+	 * @param key Key to retrieve
 	 */
 	get(key: string): Promise<string | null>;
 
 	/**
-	 * Put a key-value pair with optional TTL.
-	 * @param key Key to store.
-	 * @param value Value to store.
-	 * @param config Optional configuration object that may contain a TTL value in seconds.
+	 * Put a key-value pair with optional TTL
+	 * @param key Key to store
+	 * @param value Value to store
+	 * @param config Optional configuration object that may contain a TTL value in seconds
 	 */
 	put(key: string, value: string, config?: { ttl?: number }): Promise<void>;
 
@@ -108,110 +104,64 @@ export interface StateApi {
 	delete(key: string): Promise<void>;
 }
 
-/**
- * Context available within a hook function payload.
- */
+// Context available within a hook function payload.
 interface HookPayloadContext {
-	/**
-	 * Request from the client.
-	 */
+	// Request from the client
 	request: Request;
 
-	/**
-	 * GraphQL parameters.
-	 */
+	// GraphQL parameters
 	params: GraphQLParams;
 
-	/**
-	 * Request body.
-	 */
+	// Request body
 	body?: unknown;
 
-	/**
-	 * Request headers.
-	 */
+	// Request headers
 	headers?: Record<string, string>;
 
-	/**
-	 * Secrets.
-	 */
+	// Secrets
 	secrets?: Record<string, string>;
 
-	/**
-	 * State API.
-	 */
+	// State API
 	state?: StateApi;
 
-	/**
-	 * Common logger.
-	 */
+	// Common logger
 	logger?: Logger;
 }
 
-/**
- * Payload that all hook function receives.
- */
+// Payload that all hook functions receive
 interface HookPayload {
 	context: HookFunctionPayloadContext;
 
-	/**
-	 * GraphQL document node.
-	 */
+	// GraphQL document node
 	document?: DocumentNode;
 };
 
-/**
- * Payload that all source hook function receives. Source hook functions include beforeSource and afterSource.
- */
+// Payload that all source hook functions receive, including beforeSource and afterSource.
 interface SourceHookPayload extends HookPayload {
-	/**
-	 * Name of the source.
-	 */
+	// Name of the source
 	sourceName?: string;
 };
 ```
 
-Then specific hooks extend there types based on additional data they may provide in the payload:
+## Hook response
 
-### beforeSource
+Hooks have the following response. Response information for specific hooks is described in the [Creating composers](#creating-composers) section.
 
 ```ts
 /**
- * Before source hook function payload.
+ * Hook response status.
  */
-interface BeforeSourceHookPayload extends SourceHookPayload {
-	/**
-	 * Request init to be made to the a source fetch request. Includes body, headers, method, etc.
-	 */
-	request: RequestInit;
+export enum HookResponseStatus {
+	SUCCESS = 'SUCCESS',
+	ERROR = 'ERROR',
 }
-```
 
-### afterSource
-
-```ts
 /**
- * After source hook function payload.
+ * Response from a hook.
  */
-interface AfterSourceHookPayload extends SourceHookPayload {
-	/**
-	 * Response from the source fetch request. Includes body, headers, status, statusText, etc.
-	 */
-	response: Response;
-}
-```
-
-### afterAll
-
-```ts
-/**
- * After all hook function payload.
- */
-interface AfterAllHookPayload extends HookPayload {
-	/**
-	 * GraphQL result to be returned to the client. Includes data, errors, and extensions.
-	 */
-	result: GraphQLResult;
+interface HookResponse {
+	status: HookResponseStatus;
+	message: string;
 }
 ```
 
@@ -531,21 +481,31 @@ A composer can be a local function or a remote serverless function. Composer sig
 
 ### `beforeAll` hooks
 
-`beforeAll` hooks can receive the following fields as objects during runtime:
-<!--
+`beforeAll` hooks have the following payload and response:
 
-`root` - The resolver's return value for this field's root or parent
+<CodeBlock slots="heading, code" repeat="2" languages="ts, ts" />
 
-`params` - An object that contains all GraphQL arguments provided for this field
+#### Payload
 
-For example, when executing `query{ user(id: "4") }`, the `params` object passed to the resolver is `{ "id": "4" }`
--->
+```ts
+interface HookPayload {
+	context: HookFunctionPayloadContext;
+	// GraphQL document node.
+	document?: DocumentNode;
+};
+```
 
-- `context` - An object containing information about the request.
-  
-    For example, `context` can contain `headers`, the `body` of the request, and the request `object`.
+#### Response
 
-- `document` - A GraphQL representation of the query.
+```ts
+interface BeforeAllHookResponse extends HookResponse {
+	data?: {
+		headers?: {
+			[headerName: string]: string;
+		};
+	};
+}
+```
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -644,13 +604,28 @@ async function handleRequest(event) {
 
 ### `afterAll` hooks
 
-`afterAll` hook composers accept the following arguments:
+`afterAll` hook composers have the following payload and response:
 
-- `payload` - An object containing the operation result with the following structure:
-  - `result.data` - The resolved data from the operation.
-  - `result.errors` - Any errors from the operation.
-  - `context` - The request context.
-  - `document` - The GraphQL operation document.
+<CodeBlock slots="heading, code" repeat="2" languages="ts, ts" />
+
+#### Payload
+
+```ts
+interface AfterAllHookPayload extends HookPayload {
+	// GraphQL result to be returned to the client. Includes data, errors, and extensions.
+	result: GraphQLResult;
+}
+```
+
+#### Response
+
+```ts
+interface AfterAllHookResponse extends HookResponse {
+	data?: {
+		result?: GraphQLResult;
+	};
+}
+```
 
 `afterAll` hook composers can be local or remote.
 
@@ -761,11 +736,35 @@ async function handleRequest(event) {
 
 ### `beforeSource` hooks
 
-`beforeSource` hook composers accept the following arguments:
+`beforeSource` hooks have the following payload and response:
 
-- `sourceName` - The name of the targeted source.
-- `request` - The request configuration object.
-- `operation` - The GraphQL operation definition node.
+<CodeBlock slots="heading, code" repeat="2" languages="ts, ts" />
+
+#### Payload
+
+```ts
+interface BeforeSourceHookPayload extends SourceHookPayload {
+	// Request init made to the source fetch request. Includes body, headers, method.
+	request: RequestInit;
+}
+```
+
+#### Response
+
+```ts
+interface BeforeSourceHookResponse extends HookResponse {
+	data?: {
+		request?:
+			| RequestInit
+			| {
+					body?: string | ReadableStream<Uint8Array>;
+					headers?: Record<string, string>;
+					method?: string;
+					url?: string;
+			  };
+	};
+}
+```
 
 `beforeSource` hook composers can be local or remote. You can configure multiple hooks for each source, which execute in the specified order.
 
@@ -840,13 +839,36 @@ async function handleRequest(event) {
 
 ### `afterSource` hooks
 
-`afterSource` hook composers accept the following arguments:
+`afterSource` hooks have the following payload and response:
 
-- `sourceName` - The name of the targeted source.
-- `request` - The request configuration object.
-- `operation` - The GraphQL operation definition node.
-- `response` - The response object from the source.
-- `setResponse` - Function to modify the response.
+<CodeBlock slots="heading, code" repeat="2" languages="ts, ts" />
+
+#### Payload
+
+```ts
+interface AfterSourceHookPayload extends SourceHookPayload {
+	// Response from the source fetch request. Includes body, headers, status, statusText.
+	response: Response;
+}
+```
+
+#### Response
+
+```ts
+interface AfterSourceHookResponse extends HookResponse {
+	data?: {
+		response?:
+			| Response
+			| {
+					body?: string | ReadableStream<Uint8Array>;
+					headers?: Record<string, string>;
+					status?: number;
+					statusText?: string;
+			  };
+	};
+}
+
+```
 
 `afterSource` hook composers can be local or remote. Multiple hooks can be configured for each source, and they will be executed in order.
 
