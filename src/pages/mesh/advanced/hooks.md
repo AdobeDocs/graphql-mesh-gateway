@@ -67,6 +67,154 @@ Hooks are plugins that accept the following arguments:
 <!--
     Blocking hooks are executed before non-blocking hooks. and the node's `target` will not be invoked. If multiple objects use the same `target`, an unsuccessful response means that the `target` is not called for the remainder of the operation.
 -->
+
+## Hook payload
+
+All hooks receive the following payload:
+
+```ts
+/**
+ * Logger utility.
+ */
+interface Logger {
+	debug: (...args: any[]) => void;
+	info: (...args: any[]) => void;
+	warn: (...args: any[]) => void;
+	error: (...args: any[]) => void;
+}
+
+/**
+ * State API interface for managing key-value pairs.
+ */
+export interface StateApi {
+	/**
+	 * Get a value by key.
+	 * @param key Key to retrieve.
+	 */
+	get(key: string): Promise<string | null>;
+
+	/**
+	 * Put a key-value pair with optional TTL.
+	 * @param key Key to store.
+	 * @param value Value to store.
+	 * @param config Optional configuration object that may contain a TTL value in seconds.
+	 */
+	put(key: string, value: string, config?: { ttl?: number }): Promise<void>;
+
+	/**
+	 * Delete a key-value pair.
+	 * @param key Key to delete.
+	 */
+	delete(key: string): Promise<void>;
+}
+
+/**
+ * Context available within a hook function payload.
+ */
+interface HookPayloadContext {
+	/**
+	 * Request from the client.
+	 */
+	request: Request;
+
+	/**
+	 * GraphQL parameters.
+	 */
+	params: GraphQLParams;
+
+	/**
+	 * Request body.
+	 */
+	body?: unknown;
+
+	/**
+	 * Request headers.
+	 */
+	headers?: Record<string, string>;
+
+	/**
+	 * Secrets.
+	 */
+	secrets?: Record<string, string>;
+
+	/**
+	 * State API.
+	 */
+	state?: StateApi;
+
+	/**
+	 * Common logger.
+	 */
+	logger?: Logger;
+}
+
+/**
+ * Payload that all hook function receives.
+ */
+interface HookPayload {
+	context: HookFunctionPayloadContext;
+
+	/**
+	 * GraphQL document node.
+	 */
+	document?: DocumentNode;
+};
+
+/**
+ * Payload that all source hook function receives. Source hook functions include beforeSource and afterSource.
+ */
+interface SourceHookPayload extends HookPayload {
+	/**
+	 * Name of the source.
+	 */
+	sourceName?: string;
+};
+```
+
+Then specific hooks extend there types based on additional data they may provide in the payload:
+
+### beforeSource
+
+```ts
+/**
+ * Before source hook function payload.
+ */
+interface BeforeSourceHookPayload extends SourceHookPayload {
+	/**
+	 * Request init to be made to the a source fetch request. Includes body, headers, method, etc.
+	 */
+	request: RequestInit;
+}
+```
+
+### afterSource
+
+```ts
+/**
+ * After source hook function payload.
+ */
+interface AfterSourceHookPayload extends SourceHookPayload {
+	/**
+	 * Response from the source fetch request. Includes body, headers, status, statusText, etc.
+	 */
+	response: Response;
+}
+```
+
+### afterAll
+
+```ts
+/**
+ * After all hook function payload.
+ */
+interface AfterAllHookPayload extends HookPayload {
+	/**
+	 * GraphQL result to be returned to the client. Includes data, errors, and extensions.
+	 */
+	result: GraphQLResult;
+}
+```
+
 ## Types of hooks
 
 <!-- The following sections describe how to invoke hooks at different points during the query. -->
