@@ -744,7 +744,7 @@ async function handleRequest(event) {
 
 ```ts
 interface BeforeSourceHookPayload extends SourceHookPayload {
-	// Request init made to the source fetch request. Includes body, headers, method.
+	// Request init to be used in the source fetch request. Includes body, headers, method.
 	request: RequestInit;
 }
 ```
