@@ -56,8 +56,8 @@ To interact with state, you can use the `get`, `put`, and `delete` commands.
 ```typescript
 interface StateApi {
     get(key: string): Promise<string | null>;
-    put(key: string, value: string, config?: { ttl?: number, blocking?: boolean }): Promise<void>;
-    delete(key: string, config?: { blocking?: boolean }): Promise<void>
+    put(key: string, value: string, config?: { ttl?: number }): Promise<void>;
+    delete(key: string): Promise<void>
 } 
 ```
 
@@ -71,11 +71,7 @@ You can also provide the following:
 
 - Time-to-live (TTL) - (Optional) provide a TTL in seconds for the entry. The TTL defaults to `604800` seconds (7 days). TTL values must be between `60`  and `604800` seconds.
 
-- Blocking - (Optional) provide a blocking flag for the operation. Defaults to `false`, allowing the mesh to proceed with code execution without waiting for a response. If blocking is `true`, the mesh will wait for a response, which allows you to ensure the operation was successful.
-
 <InlineAlert variant="info" slots="text"/>
-
-Setting the blocking flag to `true` can add latency to the overall query responses.
 
 - Put a simple entry:
 
@@ -93,12 +89,6 @@ Setting the blocking flag to `true` can add latency to the overall query respons
 
     ```typescript
     context.state.put('example_key', 'example_value', { ttl: 600 });
-    ```
-
-- Put a simple entry in a blocking manor when verification of the put is required:
-
-    ```typescript
-    context.state.put('example_key', 'example_value', { blocking: true });
     ```
 
 #### Limitations
@@ -123,24 +113,12 @@ Get allows users to fetch a value for a given key.
 
 Delete allows users to delete a key and its associated value. A delete propagates to all edge locations.
 
-You can also provide the following:
-
-- Blocking - (Optional) a blocking flag for the operation. Defaults to `false` allowing mesh to proceed with code execution without waiting for a response. If blocking is `true`, the mesh will wait for a response, which allows you to ensure the delete was successful.
-
 <InlineAlert variant="info" slots="text"/>
-
-Setting the blocking flag to `true` can add latency to the overall query responses.
 
 - Delete a key:
 
     ```typescript
     context.state.delete('example_key');
-    ```
-
-- Delete a key in a blocking manor when verification of the delete is required:
-
-    ```typescript
-    context.state.delete('example_key', 'example_value', { blocking: true });
     ```
 
 ## Adobe Commerce as a Cloud Service (SaaS) REST example
