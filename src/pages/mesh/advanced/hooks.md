@@ -118,13 +118,13 @@ interface HookPayloadContext {
 	// Request headers
 	headers?: Record<string, string>;
 
-	// Secrets
+	// Secrets (Local hooks only)
 	secrets?: Record<string, string>;
 
-	// State API
+	// State API (Local hooks only)
 	state?: StateApi;
 
-	// Common logger
+	// Common logger (Local hooks only)
 	logger?: Logger;
 }
 
@@ -142,6 +142,10 @@ interface SourceHookPayload extends HookPayload {
 	sourceName?: string;
 };
 ```
+
+<InlineAlert variant="info" slots="text"/>
+
+The `secrets`, `state`, and `logger` contexts are not available in remote composers.
 
 ## Hook response
 
