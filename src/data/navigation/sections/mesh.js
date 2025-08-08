@@ -178,6 +178,10 @@ module.exports = [
                 path: "/mesh/advanced/hooks.md",
             },
             {
+                title: "Context state",
+                path: "/mesh/advanced/context-state.md",
+            },
+            {
                 title: "Logging",
                 path: "/mesh/advanced/logging.md",
             },

@@ -216,6 +216,12 @@ The following summary tables use the RACI model to show the security responsibil
       <td>I</td>
       <td></td>
     </tr>
+    <tr>
+      <td>Managing state data</td>
+      <td></td>
+      <td>R</td>
+      <td></td>
+    </tr>
   </tbody>
 </table>
 <p><sup>1</sup> The CDN provider column refers to a CDN managed and provided by API Mesh.</p>
