@@ -32,6 +32,18 @@ This release contains the following changes to API Mesh:
 
 - Added [context state](../advanced/context-state.md) to allow persisting reusable values for hooks and resolvers.
 
+## August 08, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Updated the user interface in the developer console to allow you to view the [deployment history](../basic/create-mesh.md#deployment-history) for your mesh.
+
+- Added an [Open Playground](../basic/create-mesh.md#api-playground) button to the developer console user interface that allows you to interact with your mesh using a GraphiQL client.
+
+- Added an `--active` flag to the [`aio api-mesh:get`](../advanced/index.md#aio-api-meshget) command that allows you to retrieve the most recent successfully deployed mesh.
+
 ## June 24, 2025
 
 This release contains the following changes to API Mesh:
