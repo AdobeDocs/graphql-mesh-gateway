@@ -255,6 +255,14 @@ aio api-mesh:get [FILE] [-i] [--json] [--help]
 
 `--json` outputs the file as JSON.
 
+`--active` retrieves the active mesh (as indicated in the [developer console UI](../basic/create-mesh.md#deployment-history)). This is the most recent successfully deployed mesh.
+
+If you have not successfully deployed a mesh, the `--active` flag will return the following error:
+
+```terminal
+No active deployment found for mesh. Check the details and try again or try without the --active flag. RequestId: ${global.requestId}
+```
+
 `--help` provides information on the specified command.
 
 ### Example
