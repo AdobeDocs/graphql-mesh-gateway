@@ -40,6 +40,14 @@ This release contains the following changes to API Mesh:
   - [`beforeSource`](../advanced/hooks.md#beforesource) - Runs before querying a source.
   - [`afterSource`](../advanced/hooks.md#aftersource) - Runs after querying a source.
 
+### Troubleshooting
+
+If you encounter the following error, refer to [Troubleshooting](../release/update.md#troubleshooting) for a solution.
+
+```terminal
+Mesh TypeError: Cache is not a constructor
+```
+
 ## August 08, 2025
 
 This release contains the following changes to API Mesh:
