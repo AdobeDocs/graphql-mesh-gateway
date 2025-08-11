@@ -55,3 +55,19 @@ When performance testing edge meshes in API Mesh, you need to account for cold s
 If applicable, you should use the `Connection: keep-alive` header described in [Optimizing edge mesh performance](../basic/create-mesh.md#optimizing-edge-mesh-performance).
 
 Alternatively, you can manually warm the cache using the process described in [Performance testing](../best-practices/performance.md#performance-testing).
+
+## Troubleshooting
+
+If you encounter the following error after updating the aio-cli plugin to the latest version, run the corresponding commands to uninstall and reinstall the plugin:
+
+```terminal
+Mesh TypeError: Cache is not a constructor
+```
+
+```bash
+aio plugins:uninstall @adobe/aio-cli-plugin-api-mesh
+```
+
+```bash
+aio plugins:install @adobe/aio-cli-plugin-api-mesh
+```

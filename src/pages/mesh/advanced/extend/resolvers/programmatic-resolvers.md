@@ -10,6 +10,8 @@ keywords:
   - Tools
 ---
 
+import ContextLogger from '/src/_includes/context-logger.md'
+
 # Programmatic resolvers
 
 While [Configuration-based (declarative) resolvers](../resolvers/index.md) explains how `additionalResolvers` can shape and augment the unified schema with configuration changes, programmatic resolvers shape the schema programmatically using JavaScript.
@@ -303,6 +305,41 @@ module.exports = {
               context.logger.log(err.message);
               return err.message;
             });
+        },
+      },
+    },
+  },
+};
+```
+
+## `context.logger`
+
+<InlineAlert variant="info" slots="text"/>
+
+`context.logger` is available in both [declarative](./index.md) and programmatic resolvers.
+
+<ContextLogger />
+
+### Example
+
+The following example resolver calculates a product's final price by adding a 10% markup to the base price.
+
+```javascript
+module.exports = {
+  resolvers: {
+    Product: {
+      price: {
+        resolve: (root, args, context) => {
+          context.logger.log("Calculating product price");
+          
+          try {
+            const price = root.basePrice * 1.1; // Add 10% markup
+            context.logger.log("Price calculated successfully");
+            return price;
+          } catch (error) {
+            context.logger.error("Price calculation failed");
+            return root.basePrice;
+          }
         },
       },
     },

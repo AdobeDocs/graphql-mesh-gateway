@@ -10,15 +10,13 @@ keywords:
   - Tools
 ---
 
+import ContextLogger from '/src/_includes/context-logger.md'
+
 # Hooks
-
-<InlineAlert variant="info" slots="text"/>
-
-The hooks feature is currently in development and will be expanded in future releases. Only `beforeAll` hooks are currently available.
 
 Hooks allow you to invoke a composable [local or remote](#local-vs-remote-functions) function on a targeted node.
 
-Some use cases for the `Hooks` include:
+Some use cases for the `hooks` include:
 
 -  Authenticating a user before all operations
 
@@ -71,6 +69,108 @@ Hooks are plugins that accept the following arguments:
 <!--
     Blocking hooks are executed before non-blocking hooks. and the node's `target` will not be invoked. If multiple objects use the same `target`, an unsuccessful response means that the `target` is not called for the remainder of the operation.
 -->
+
+## Hook payload
+
+All hooks receive the following payload. Specific hooks extend their types based on additional data they may provide in the payload as described in the [creating composers](#creating-composers) section.
+
+```ts
+// Logger utility
+interface Logger {
+	debug: (...args: any[]) => void;
+	info: (...args: any[]) => void;
+	warn: (...args: any[]) => void;
+	error: (...args: any[]) => void;
+}
+
+// State API interface for managing key-value pairs
+export interface StateApi {
+	/**
+	 * Get a value by key
+	 * @param key Key to retrieve
+	 */
+	get(key: string): Promise<string | null>;
+
+	/**
+	 * Put a key-value pair with optional TTL
+	 * @param key Key to store
+	 * @param value Value to store
+	 * @param config Optional configuration object that may contain a TTL value in seconds
+	 */
+	put(key: string, value: string, config?: { ttl?: number }): Promise<void>;
+
+	/**
+	 * Delete a key-value pair.
+	 * @param key Key to delete.
+	 */
+	delete(key: string): Promise<void>;
+}
+
+// Context available within a hook function payload.
+interface HookPayloadContext {
+	// Request from the client
+	request: Request;
+
+	// GraphQL parameters
+	params: GraphQLParams;
+
+	// Request body
+	body?: unknown;
+
+	// Request headers
+	headers?: Record<string, string>;
+
+	// Secrets (Local hooks only)
+	secrets?: Record<string, string>;
+
+	// State API (Local hooks only)
+	state?: StateApi;
+
+	// Common logger (Local hooks only)
+	logger?: Logger;
+}
+
+// Payload that all hook functions receive
+interface HookPayload {
+	context: HookFunctionPayloadContext;
+
+	// GraphQL document node
+	document?: DocumentNode;
+};
+
+// Payload that all source hook functions receive, including beforeSource and afterSource.
+interface SourceHookPayload extends HookPayload {
+	// Name of the source
+	sourceName?: string;
+};
+```
+
+<InlineAlert variant="info" slots="text"/>
+
+The `secrets`, `state`, and `logger` contexts are not available in remote composers.
+
+## Hook response
+
+Hooks have the following response. Response information for specific hooks is described in the [Creating composers](#creating-composers) section.
+
+```ts
+/**
+ * Hook response status.
+ */
+export enum HookResponseStatus {
+	SUCCESS = 'SUCCESS',
+	ERROR = 'ERROR',
+}
+
+/**
+ * Response from a hook.
+ */
+interface HookResponse {
+	status: HookResponseStatus;
+	message: string;
+}
+```
+
 ## Types of hooks
 
 <!-- The following sections describe how to invoke hooks at different points during the query. -->
@@ -81,7 +181,7 @@ The `beforeAll` hook allows you to insert a function before the query takes plac
 
 <InlineAlert variant="info" slots="text"/>
 
-The `beforeAll` hook is a singular hook.
+The [`beforeAll` hook](#beforeall-hooks) is a singular hook.
 
 ```json
 "plugins": [
@@ -122,10 +222,13 @@ interface AfterHooksTransformObject {
   composer: string;
 }
 ```
+-->
 
 ### `afterAll`
 
-The `afterAll` hook allows you to insert a function after the entire operation resolves, but before the response is returned.
+The [`afterAll` hook](#afterall-hooks) allows you to insert a function after the entire operation resolves, but before the response is returned.
+
+`afterAll` hooks allow a user to provide a function or an endpoint to invoke after executing the operation. `afterAll` hooks can be used for logging or triggering events. Each hook can be blocking or non-blocking. Non-blocking hooks will not wait for the completion of the execution.
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -135,7 +238,95 @@ The `afterAll` hook allows you to insert a function after the entire operation r
 interface AfterAllTransformObject {
   composer: string;
 }
-``` -->
+```
+
+### `beforeSource`
+
+The `beforeSource` hook allows you to insert a function before querying a specific source. This is useful for adding source-specific authentication, logging, or request modification before making requests to individual GraphQL sources.
+
+<InlineAlert variant="info" slots="text"/>
+
+The [`beforeSource` hook](#beforesource-hooks) uses source names as keys in the configuration object to specify which source the hook should target.
+
+```json
+"hooks": {
+    "beforeSource": {
+        "source1": [
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": true
+            },
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": true
+            }
+        ],
+        "source2": [
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": false
+            },
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": false
+            }
+        ]
+    }
+}
+```
+
+```ts
+interface BeforeSourceTransformObject {
+  [sourceName: string]: Array<{
+    composer: string;
+    blocking: boolean;
+  }>;
+}
+```
+
+### `afterSource`
+
+The [`afterSource` hook](#aftersource-hooks) allows you to insert a function after querying a specific source, but before returning the response. This is useful for logging source responses, transforming data, or triggering events after source operations complete.
+
+The `afterSource` hook uses source names as keys in the configuration object to specify which source the hook should target.
+
+`afterSource` hooks additionally support blocking behavior to control whether the response waits for the hook to complete.
+
+```json
+"hooks": {
+    "afterSource": {
+        "source1": [
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": true
+            },
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": true
+            }
+        ],
+        "source2": [
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": false
+            },
+            {
+                "composer": "<Local or Remote file>",
+                "blocking": false
+            }
+        ]
+    }
+}
+```
+
+```ts
+interface AfterSourceTransformObject {
+  [sourceName: string]: Array<{
+    composer: string;
+    blocking: boolean;
+  }>;
+}
+```
 
 ## Local vs remote functions
 
@@ -166,7 +357,7 @@ Local composers require adding any local scripts to the mesh's [`files` array](.
   "meshConfig": {
     "sources": [
       {
-        "name": "MagentoMonolithApi",
+        "name": "Commerce",
         "handler": {
           "graphql": {
             "endpoint": "https://venia.magento.com/graphql"
@@ -268,7 +459,7 @@ When using `remote` composers, you could see decreased performance, because `rem
   "meshConfig": {
     "sources": [
       {
-        "name": "MagentoMonolithApi",
+        "name": "Commerce",
         "handler": {
           "graphql": {
             "endpoint": "https://venia.magento.com/graphql"
@@ -296,21 +487,31 @@ A composer can be a local function or a remote serverless function. Composer sig
 
 ### `beforeAll` hooks
 
-`beforeAll` hooks can receive the following fields as objects during runtime:
-<!--
+`beforeAll` hooks have the following payload and response:
 
-`root` - The resolver's return value for this field's root or parent
+<CodeBlock slots="heading, code" repeat="2" languages="ts, ts" />
 
-`params` - An object that contains all GraphQL arguments provided for this field
+#### Payload
 
-For example, when executing `query{ user(id: "4") }`, the `params` object passed to the resolver is `{ "id": "4" }`
--->
+```ts
+interface HookPayload {
+	context: HookFunctionPayloadContext;
+	// GraphQL document node.
+	document?: DocumentNode;
+};
+```
 
-- `context` - An object containing information about the request.
-  
-    For example, `context` can contain `headers`, the `body` of the request, and the request `object`.
+#### Response
 
-- `document` - A GraphQL representation of the query.
+```ts
+interface BeforeAllHookResponse extends HookResponse {
+	data?: {
+		headers?: {
+			[headerName: string]: string;
+		};
+	};
+}
+```
 
 <InlineAlert variant="info" slots="text"/>
 
@@ -406,22 +607,39 @@ async function handleRequest(event) {
     }
 }
 ```
-<!-- 
-### `after` and `afterAll` hook composer
 
-`after` and `afterAll` hook composers accept the following arguments:
+### `afterAll` hooks
 
--  `key` - The name of the field
+`afterAll` hook composers have the following payload and response:
 
-    In `afterAll` hooks, the `key` argument defaults to `ROOT`.
+<CodeBlock slots="heading, code" repeat="2" languages="ts, ts" />
 
--  `data` - The resolved value of the field
+#### Payload
 
-`after` and `afterAll` hook composers can be local or remote.
+```ts
+interface AfterAllHookPayload extends HookPayload {
+	// GraphQL result to be returned to the client. Includes data, errors, and extensions.
+	result: GraphQLResult;
+}
+```
+
+#### Response
+
+```ts
+interface AfterAllHookResponse extends HookResponse {
+	data?: {
+		result?: GraphQLResult;
+	};
+}
+```
+
+`afterAll` hook composers can be local or remote.
 
 <InlineAlert variant="info" slots="text"/>
 
 Due to the limitations of `JSON` serialization and de-serialization, some complex `JSON` fields inside a remote function's arguments might not function correctly over the `HTTPS` call.
+
+Local hook functions have a 30-second timeout. If a local hook function takes longer than 30 seconds, it will timeout and return an error. Non-blocking hooks will not cause the operation to fail even if they timeout.
 
 ### Examples
 
@@ -431,9 +649,42 @@ Due to the limitations of `JSON` serialization and de-serialization, some comple
 
 ```js
 module.exports = {
-  publishEvent: (key, data) => {
-    publisher.send("Resolved %s to %o", key, data);
-    // It is unnecessary to return anything from here, because after hooks are non blocking.
+  metaData: async (payload) => {
+    const originalData = payload.result?.data || {};
+    const originalErrors = payload.result?.errors || [];
+    
+    console.log('AfterAll Hook: Adding simple audit trail');
+    
+    // Extract dynamic information from the GraphQL request/response
+    const queriedFields = Object.keys(originalData);
+    const primaryQuery = queriedFields.length > 0 ? queriedFields[0] : 'unknown';
+    const queryDocument = payload.document || '';
+    const operationType = queryDocument.toString().includes('mutation') ? 'mutation' : 'query';
+    
+    // Calculate response size
+    const responseSize = JSON.stringify(originalData).length;
+    
+    // Add comprehensive dynamic audit metadata
+    const extensions = {
+      _metaData: {
+        primaryQuery: primaryQuery,
+        operationType: operationType,
+        responseSizeBytes: responseSize,
+        processedBy: 'local-hook'
+      }
+    };
+    
+    return {
+      status: 'SUCCESS',
+      message: `Audit trail added for ${primaryQuery} ${operationType}`,
+      data: {
+        result: {
+          data: originalData,
+          errors: originalErrors,
+          extensions,
+        }
+      }
+    };
   },
 };
 ```
@@ -443,28 +694,273 @@ module.exports = {
 ```js
 addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
 
-async function publishEvent(event) {
+async function handleRequest(event) {
   try {
-    const { key, data } = await event.request.json();
-    fetch(EVENT_BUS_URL, {
-      method: "POST",
-      body: {
-        key,
-        data,
-      },
-    });
+    const payload = await event.request.json();
+    const { result, context, document } = payload;
+    
+    // Add a new 'sale_price' field that provides 20% discount for all products
+    if (result.data?.products?.items) {
+      result.data.products.items.forEach(product => {
+        if (product.price_range?.minimum_price?.final_price?.value) {
+          const originalPrice = product.price_range.minimum_price.final_price.value;
+          const salePrice = originalPrice * 0.8; // 20% discount
+          
+          product.sale_price = {
+            value: Math.round(salePrice * 100) / 100,
+            currency: product.price_range.minimum_price.final_price.currency,
+            discount_percent: 20
+          };
+        }
+      });
+    }
+    
     return new Response(
-      { status: "SUCCESS", message: "Published Event" },
+      JSON.stringify({
+        status: "SUCCESS",
+        message: "Price modification applied",
+        data: {
+          result: {
+            data: result.data,
+            errors: result.errors || []
+          }
+        }
+      }),
       { status: 200 }
     );
   } catch (err) {
     return new Response(
-      { status: "ERROR", message: err.message },
+      JSON.stringify({
+        status: "ERROR",
+        message: err.message
+      }),
       { status: 500 }
     );
   }
 }
-``` -->
+```
+
+### `beforeSource` hooks
+
+`beforeSource` hooks have the following payload and response:
+
+<CodeBlock slots="heading, code" repeat="2" languages="ts, ts" />
+
+#### Payload
+
+```ts
+interface BeforeSourceHookPayload extends SourceHookPayload {
+	// Request init to be used in the source fetch request. Includes body, headers, method.
+	request: RequestInit;
+}
+```
+
+#### Response
+
+```ts
+interface BeforeSourceHookResponse extends HookResponse {
+	data?: {
+		request?:
+			| RequestInit
+			| {
+					body?: string | ReadableStream<Uint8Array>;
+					headers?: Record<string, string>;
+					method?: string;
+					url?: string;
+			  };
+	};
+}
+```
+
+`beforeSource` hook composers can be local or remote. You can configure multiple hooks for each source, which execute in the specified order.
+
+#### Examples
+
+The local composer example adds source-specific headers before making requests to the Adobe Commerce API. The remote composer example validates source-specific authentication before making requests.
+
+<CodeBlock slots="heading, code" repeat="2" languages="js, js" />
+
+#### Local composer example
+
+```js
+module.exports = {
+  beforeCommerceRequest: ({ sourceName, request, operation }) => {
+    // Add Commerce-specific authentication headers
+    const commerceHeaders = {
+      "x-commerce-store": "default",
+      "x-commerce-customer-token": request.headers?.authorization?.replace("Bearer ", "") || "",
+    };
+    
+    return {
+      status: "SUCCESS",
+      message: "Commerce headers added",
+      data: {
+        request: {
+                headers: commerceHeaders,
+        }
+      },
+    };
+  },
+};
+```
+
+#### Remote composer example
+
+```js
+addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
+
+async function handleRequest(event) {
+  try {
+    const { sourceName, request, operation } = await event.request.json();
+    
+    // Validate source-specific authentication
+    if (sourceName === "CommerceApi" && !request.headers["x-commerce-token"]) {
+      return new Response(
+        JSON.stringify({
+          status: "ERROR",
+          message: "Commerce token required for this source",
+        }),
+        { status: 401 }
+      );
+    }
+    
+    return new Response(
+      JSON.stringify({
+        status: "SUCCESS",
+        message: "Source validation passed",
+      }),
+      { status: 200 }
+    );
+  } catch (err) {
+    return new Response(
+      JSON.stringify({
+        status: "ERROR",
+        message: err.message,
+      }),
+      { status: 500 }
+    );
+  }
+}
+```
+
+### `afterSource` hooks
+
+`afterSource` hooks have the following payload and response:
+
+<CodeBlock slots="heading, code" repeat="2" languages="ts, ts" />
+
+#### Payload
+
+```ts
+interface AfterSourceHookPayload extends SourceHookPayload {
+	// Response from the source fetch request. Includes body, headers, status, statusText.
+	response: Response;
+}
+```
+
+#### Response
+
+```ts
+interface AfterSourceHookResponse extends HookResponse {
+	data?: {
+		response?:
+			| Response
+			| {
+					body?: string | ReadableStream<Uint8Array>;
+					headers?: Record<string, string>;
+					status?: number;
+					statusText?: string;
+			  };
+	};
+}
+
+```
+
+`afterSource` hook composers can be local or remote. Multiple hooks can be configured for each source, and they will be executed in order.
+
+#### Examples
+
+The local composer example logs source responses and modifies the response after source operations. The remote composer example publishes events after source operations complete.
+
+<CodeBlock slots="heading, code" repeat="2" languages="js, js" />
+
+#### Local composer example
+
+```js
+module.exports = {
+  afterCommerceResponse: ({ sourceName, request, operation, response, setResponse }) => {
+    console.log(`Source ${sourceName} returned response:`, response);
+    
+    // Modify the response if needed
+    if (sourceName === "Commerce") {
+      // Example: Add custom headers to the response
+      const modifiedResponse = new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: {
+          ...Object.fromEntries(response.headers.entries()),
+          "x-processed-by": "commerce-hook",
+        },
+      });
+      
+      return {
+            status: "SUCCESS",
+            message: "Source response processed",
+            data: {
+                  response: modifiedResponse,
+            }
+      };
+    }
+    
+    return {
+      status: "SUCCESS",
+      message: "Source response processed",
+    };
+  },
+};
+```
+
+#### Remote composer example
+
+```js
+addEventListener("fetch", (event) => event.respondWith(handleRequest(event)));
+
+async function handleRequest(event) {
+  try {
+    const { sourceName, request, operation, response } = await event.request.json();
+    
+    // Publish source completion event
+    await fetch("https://events.adobe.com/publish", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        event: "source_completed",
+        sourceName,
+        timestamp: new Date().toISOString(),
+        responseStatus: response.status,
+      }),
+    });
+    
+    return new Response(
+      JSON.stringify({
+        status: "SUCCESS",
+        message: "Source event published",
+      }),
+      { status: 200 }
+    );
+  } catch (err) {
+    return new Response(
+      JSON.stringify({
+        status: "ERROR",
+        message: err.message,
+      }),
+      { status: 500 }
+    );
+  }
+}
+```
 
 ### Return signatures
 
@@ -546,5 +1042,49 @@ async function handleOnFetch(data) {
 module.exports = {
   default: handleOnFetch,
   __esModule: true,
+};
+```
+
+## `context.logger`
+
+<InlineAlert variant="info" slots="text"/>
+
+`context.logger` is only available in local hooks. For remote hooks, use language-specific logging, such as `console.log` in JavaScript.
+
+<ContextLogger />
+
+### Example
+
+The following example hook checks for authentication before processing GraphQL requests.
+
+```javascript
+module.exports = {
+  checkAuth: ({ context }) => {
+    context.logger.log("Checking authentication");
+    
+    try {
+      const authHeader = context.headers.authorization;
+      
+      if (!authHeader) {
+        context.logger.error("No authorization header found");
+        return {
+          status: "ERROR",
+          message: "Unauthorized - missing token"
+        };
+      }
+      
+      context.logger.log("Authentication check completed");
+      return {
+        status: "SUCCESS",
+        message: "Authorized"
+      };
+    } catch (error) {
+      context.logger.error("Authentication check failed");
+      return {
+        status: "ERROR", 
+        message: "Authentication error"
+      };
+    }
+  }
 };
 ```

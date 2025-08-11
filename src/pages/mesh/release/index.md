@@ -24,6 +24,30 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## August 11, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added `context.logger` for [hooks](../advanced/hooks.md#contextlogger) and [custom resolvers](../advanced/extend/resolvers/programmatic-resolvers.md#contextlogger).
+
+- Added [context state](../advanced/context-state.md) to allow persisting reusable values for hooks and resolvers.
+
+- Added support for the following hooks:
+
+  - [`afterAll`](../advanced/hooks.md#afterall) - Runs after querying all sources.
+  - [`beforeSource`](../advanced/hooks.md#beforesource) - Runs before querying a source.
+  - [`afterSource`](../advanced/hooks.md#aftersource) - Runs after querying a source.
+
+### Troubleshooting
+
+If you encounter the following error, refer to [Troubleshooting](../release/update.md#troubleshooting) for a solution.
+
+```terminal
+Mesh TypeError: Cache is not a constructor
+```
+
 ## August 08, 2025
 
 This release contains the following changes to API Mesh:
