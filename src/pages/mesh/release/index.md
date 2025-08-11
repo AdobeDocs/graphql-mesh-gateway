@@ -24,6 +24,15 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
+
+## August 11, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added `context.logger` for [hooks](../advanced/hooks.md#contextlogger) and [custom resolvers](../advanced/extend/resolvers/programmatic-resolvers.md#contextlogger).
+
 ## August 08, 2025
 
 This release contains the following changes to API Mesh:
