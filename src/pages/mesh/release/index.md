@@ -30,6 +30,8 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
+- Added [context state](../advanced/context-state.md) to allow persisting reusable values for hooks and resolvers.
+
 - The following hooks are now supported:
 
   - [`afterAll`](../advanced/hooks.md#afterall) - Runs after querying all sources.

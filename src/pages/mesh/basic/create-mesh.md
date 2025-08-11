@@ -30,6 +30,17 @@ Workspaces that already have an API mesh will have "API Mesh" displayed on their
 
 ![workspace card](../../_images/workspace-card.png)
 
+After creating a workspace:
+
+1. In your workspace, click the **Add Service** button and select **API**.
+1. Filter by **Adobe Experience Platform**.
+1. Select the **API Mesh for Adobe Developer App Builder** service.
+
+At the same time, you can optionally add the following services to your workspace:
+
+- **I/O Management API** - This service can be used for [authentication](../best-practices/cicd.md#1-add-authentication-to-your-workspace).
+- **Adobe Commerce as a Cloud Service** - This service can be used to access the Adobe Commerce as a Cloud Service REST source, as described in the [REST context state example](../advanced/context-state.md#adobe-commerce-as-a-cloud-service-saas-rest-example).
+
 ## Create a mesh
 
 When you create or update a mesh configuration, API Mesh requires some processing time before your mesh is available. If you intend to perform several create or update commands, consider using our [local development](../advanced/developer-tools.md#create-a-local-environment) feature to test your mesh configuration locally.
