@@ -30,9 +30,11 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
+- Added `context.logger` for [hooks](../advanced/hooks.md#contextlogger) and [custom resolvers](../advanced/extend/resolvers/programmatic-resolvers.md#contextlogger).
+
 - Added [context state](../advanced/context-state.md) to allow persisting reusable values for hooks and resolvers.
 
-- The following hooks are now supported:
+- Added support for the following hooks:
 
   - [`afterAll`](../advanced/hooks.md#afterall) - Runs after querying all sources.
   - [`beforeSource`](../advanced/hooks.md#beforesource) - Runs before querying a source.

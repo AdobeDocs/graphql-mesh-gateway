@@ -10,6 +10,8 @@ keywords:
   - Tools
 ---
 
+import ContextLogger from '/src/_includes/context-logger.md'
+
 # Hooks
 
 Hooks allow you to invoke a composable [local or remote](#local-vs-remote-functions) function on a targeted node.
@@ -1040,5 +1042,49 @@ async function handleOnFetch(data) {
 module.exports = {
   default: handleOnFetch,
   __esModule: true,
+};
+```
+
+## `context.logger`
+
+<InlineAlert variant="info" slots="text"/>
+
+`context.logger` is only available in local hooks. For remote hooks, use language-specific logging, such as `console.log` in JavaScript.
+
+<ContextLogger />
+
+### Example
+
+The following example hook checks for authentication before processing GraphQL requests.
+
+```javascript
+module.exports = {
+  checkAuth: ({ context }) => {
+    context.logger.log("Checking authentication");
+    
+    try {
+      const authHeader = context.headers.authorization;
+      
+      if (!authHeader) {
+        context.logger.error("No authorization header found");
+        return {
+          status: "ERROR",
+          message: "Unauthorized - missing token"
+        };
+      }
+      
+      context.logger.log("Authentication check completed");
+      return {
+        status: "SUCCESS",
+        message: "Authorized"
+      };
+    } catch (error) {
+      context.logger.error("Authentication check failed");
+      return {
+        status: "ERROR", 
+        message: "Authentication error"
+      };
+    }
+  }
 };
 ```
