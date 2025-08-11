@@ -5,7 +5,22 @@
  *  Dissemination of this information or reproduction of this material is strictly forbidden unless prior written permission is obtained from Adobe.
  */
 
+import React from 'react';
+import { MDXProvider } from '@mdx-js/react';
+import { Edition } from './src/@adobe/gatsby-theme-aio/components/Edition';
+
 const isBrowser = typeof window !== "undefined";
+
+// Define the components that will be available in MDX files
+const components = {
+  // Register the Edition component for inline use
+  Edition
+};
+
+// Wrap the root element with the MDXProvider
+export const wrapRootElement = ({ element }) => {
+  return <MDXProvider components={components}>{element}</MDXProvider>;
+}; 
 
 export const onClientEntry = () => {
   // set adobe analytics window object
