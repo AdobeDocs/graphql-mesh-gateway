@@ -234,10 +234,6 @@ module.exports = [
                 path: "/mesh/release/"
             },
             {
-                title: "Update notice",
-                path: "/mesh/release/update.md"
-            }, 
-            {
                 title: "Upgrade versions",
                 path: "/mesh/release/upgrade.md"
             },
