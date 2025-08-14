@@ -84,7 +84,7 @@ The following example encapsulates the Adobe Commerce schema into the `AdobeComm
 
 If you need to access two Adobe Commerce GraphQL endpoints without introducing any prefixes, using a single API Mesh configuration, you will need a transform strategy to avoid naming conflicts.
 
-Instead of using a [`prefix`](./prefix.md), which will involve more changes, you can use the encapsulate transform and wrap one of the sources within a field. For example, one source would be `data.storeConfig` and another could be `data.source2.storeConfig`. In the following example query, `storeConfig` will continue to point to the main `storeConfig` and `source2.storeConfig` will point to your additional source's `storeConfig`.
+Instead of using a [`prefix`](./prefix.md), which will involve more changes, you can use the encapsulate transform and wrap one of the sources within a field. For example, one source would be `data.storeConfig` and another could be `data.source2.storeConfig`. In the following example query, `storeConfig` will continue to point to the main `storeConfig` and `commerce2.storeConfig` will point to your additional source's `storeConfig`.
 
 ### Example query
 
