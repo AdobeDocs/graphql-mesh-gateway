@@ -24,6 +24,14 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## September 08, 2025
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Fixed a serialization error that could occur when using `useGETForQueries` with GraphQL handlers.
+
 ## August 11, 2025
 
 This release contains the following changes to API Mesh:
