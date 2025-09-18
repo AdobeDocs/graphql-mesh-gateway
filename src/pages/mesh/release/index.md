@@ -30,7 +30,7 @@ This release contains the following changes to API Mesh:
 
 ### Enhancements
 
-Added support for customer group–specific caching in API Mesh by enabling cache variance on custom headers with the `x-api-mesh-vary` header.
+Added support for customer group–specific caching in API Mesh by enabling [cache variance](../advanced/caching/index.md#cache-variance) on custom headers with the `x-api-mesh-vary` header.
 
 ## September 08, 2025
 
