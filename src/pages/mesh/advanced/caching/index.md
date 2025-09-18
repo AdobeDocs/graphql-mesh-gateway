@@ -160,3 +160,16 @@ When using your own CDN, you must invalidate the cache after modifying a mesh co
 <InlineAlert variant="info" slots="text"/>
 
 `POST` requests are typically not supported when bringing your own CDN.
+
+## Cache variance
+
+API Mesh supports cache variance based on custom request headers. By including the `x-api-mesh-vary` header with a comma-separated list of header names, API Mesh will factor the specified headers and their values into the cache key. This allows for scenarios such as customer group–specific pricing, ensuring that cached responses are correctly segmented by customer group or other custom criteria. For example, to enable caching by customer group, send the following request headers:
+
+```yaml
+x-api-mesh-vary: customer-group-1, customer-group-2, customer-group-3
+customer-group-1: value-1
+customer-group-2: value-2
+customer-group-3: value-3
+```
+
+Requests with different values for these headers will be cached separately, ensuring accurate, group-specific responses.
