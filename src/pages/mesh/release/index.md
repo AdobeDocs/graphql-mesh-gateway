@@ -24,6 +24,14 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## September 29, 2025
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Resolved an issue that could prevent retrieving logs in the CLI.
+
 ## September 18, 2025
 
 This release contains the following changes to API Mesh:
