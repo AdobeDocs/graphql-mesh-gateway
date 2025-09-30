@@ -9,6 +9,10 @@ keywords:
   - Tools
 ---
 
+<InlineAlert variant="info" slots="text"/>
+
+To create a GraphQL handler for Adobe Commerce as a Cloud Service, see the [Adobe Commerce as a Cloud Service best practices](../../best-practices/commerce-cloud-service.md).
+
 # `graphql` handlers
 
 The `graphql` handler allows you to connect to a GraphQL endpoint.
