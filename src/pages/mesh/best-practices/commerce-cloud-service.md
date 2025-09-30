@@ -12,7 +12,7 @@ keywords:
 
 # Adobe Commerce as a Cloud Service best practices
 
-You can use API Mesh to connect your Adobe Commerce as a Cloud Service instance with other APIs and create a single GraphQL endpoint.
+Use API Mesh to connect your Adobe Commerce as a Cloud Service instance with other APIs and create a single GraphQL endpoint.
 
 ## Example mesh configuration
 
