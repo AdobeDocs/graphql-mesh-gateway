@@ -109,6 +109,11 @@ module.exports = [
                     }      
                 ]
             },
+            {
+                title: "Commerce code samples",
+                path: "https://github.com/adobe/adobe-commerce-samples/tree/main/api-mesh",
+                EventTarget: "_blank"
+            },
         ],
     },
     {
