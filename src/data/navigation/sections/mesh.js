@@ -228,6 +228,10 @@ module.exports = [
                 title: "Secrets management",
                 path: "/mesh/advanced/secrets.md"
             },
+            {
+                title: "Adobe Commerce as a Cloud Service",
+                path: "/mesh/best-practices/commerce-cloud-service.md"
+            },
         ]
     },
     {
