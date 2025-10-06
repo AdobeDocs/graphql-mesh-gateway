@@ -24,6 +24,18 @@ To use the latest enhancements, update your CLI to the latest version:
 aio plugins:install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## Known issues
+
+If you encounter a `TypeError`, such as `HandlerCtor is not a constructor`, when running a CLI command, you should uninstall and reinstall the API Mesh plugin and try the command again:
+
+```bash
+aio plugins:uninstall @adobe/aio-cli-plugin-api-mesh
+```
+
+```bash
+aio plugins install @adobe/aio-cli-plugin-api-mesh
+```
+
 ## September 29, 2025
 
 This release contains the following changes to API Mesh:
