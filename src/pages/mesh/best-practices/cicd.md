@@ -180,11 +180,11 @@ jobs:
         uses: adobe/aio-cli-setup-action@1.3.0
         with:
           os: ${{ matrix.os }}
-          version: 10.x.x
+          version: 11.x.x
       - name: api-mesh-plugin install
         run: aio plugins:install @adobe/aio-cli-plugin-api-mesh
       - name: Auth
-        uses: adobe/aio-apps-action@3.3.0
+        uses: adobe/aio-apps-action@4.0.0
         with:
           os: ${{ matrix.os }}
           command: oauth_sts
