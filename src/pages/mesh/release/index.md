@@ -35,6 +35,14 @@ aio plugins:uninstall @adobe/aio-cli-plugin-api-mesh
 ```bash
 aio plugins install @adobe/aio-cli-plugin-api-mesh
 ```
+## December 01, 2025
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Resolved an issue with context state that could cause a `Context state is not configured for this mesh` error.
+- Resolved a possible `500` error and `TypeError` that could occur when retrying a request.
 
 ## September 29, 2025
 
