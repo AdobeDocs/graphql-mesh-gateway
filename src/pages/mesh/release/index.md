@@ -35,6 +35,7 @@ aio plugins:uninstall @adobe/aio-cli-plugin-api-mesh
 ```bash
 aio plugins install @adobe/aio-cli-plugin-api-mesh
 ```
+
 ## December 01, 2025
 
 This release contains the following changes to API Mesh:
