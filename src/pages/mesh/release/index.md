@@ -41,8 +41,8 @@ This release contains the following changes to API Mesh:
 
 ### Bug fixes
 
-- Resolved an issue with context state that could cause a `Context state is not configured for this mesh` error.
-- Resolved a possible `500` error and `TypeError` that could occur when retrying a request.
+- Resolved an intermittent issue where provisioning context state that could cause a `Context state is not configured for this mesh` error.
+- Resolved a possible `TypeError` that could lead to `500` errors when your mesh is experiencing heavy traffic.
 
 ## September 29, 2025
 
