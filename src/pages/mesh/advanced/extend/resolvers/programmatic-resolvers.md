@@ -257,7 +257,7 @@ To see a similar programmatic resolver that uses batching and logging, see [Batc
 
 ## `fetch` with programmatic resolvers
 
-Instead of adding another [source handler](../../../basic/handlers/index.md), [edge meshes](../../../release/index.md#august-15-2024) can interact with third-party services using the `fetch` method.
+Instead of adding another [source handler](../../../basic/handlers/index.md), edge meshes can interact with third-party services using the `fetch` method.
 
 The script below uses a programmatic resolver to fetch discounts from a remote server. In this case, we are using the Discounts API discussed in [Programmatic `additionalResolvers`](#programmatic-additionalresolvers).
 
