@@ -39,7 +39,7 @@ While you can use alternative coding agents, this guide focuses on creating mesh
 
 - A coding agent - [Cursor](https://cursor.com/download) is recommended.
 - Node.js 18+
-- The Adobe I/O CLI: 
+- The Adobe I/O CLI:
 
   ```bash
   npm install -g @adobe/aio-cli
