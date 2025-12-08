@@ -36,6 +36,14 @@ aio plugins:uninstall @adobe/aio-cli-plugin-api-mesh
 aio plugins install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## December 03, 2025
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added a [prompting guide](../basic/prompting.md) to generate API Mesh configurations using AI prompting techniques.
+
 ## December 01, 2025
 
 This release contains the following changes to API Mesh:
