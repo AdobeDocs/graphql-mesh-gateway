@@ -1,5 +1,5 @@
 ---
-title: Best pracitces for Adobe Commerce as a Cloud Service
+title: Best practices for Adobe Commerce as a Cloud Service
 description: Learn how to set up continuous integration and delivery/deployment for API Mesh.
 keywords:
   - API Mesh
