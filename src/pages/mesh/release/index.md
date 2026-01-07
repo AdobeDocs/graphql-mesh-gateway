@@ -44,7 +44,6 @@ This release contains the following changes to API Mesh:
 
 - Resolved an issue where the Developer Console UI incorrectly displayed a status of "Provisioning" for successfully deployed meshes.
 
-
 ## December 03, 2025
 
 This release contains the following changes to API Mesh:
