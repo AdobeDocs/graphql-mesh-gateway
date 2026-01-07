@@ -36,6 +36,14 @@ aio plugins:uninstall @adobe/aio-cli-plugin-api-mesh
 aio plugins install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## January 07, 2026
+
+This release contains the following changes to API Mesh:
+
+### Bug fixes
+
+- Resolved an issue where the Developer Console UI incorrectly displayed a status of "Provisioning" for successfully deployed meshes.
+
 ## December 03, 2025
 
 This release contains the following changes to API Mesh:

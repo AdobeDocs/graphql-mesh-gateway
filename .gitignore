@@ -44,3 +44,6 @@ local-test.yml
 # yalc
 .yalc
 yalc.lock
+
+# cursor
+.cursor
