@@ -34,6 +34,14 @@ aio plugins:uninstall @adobe/aio-cli-plugin-api-mesh
 aio plugins install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## May 14, 2026
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added support for referencing a local `.graphql` schema file directly from a [`graphql` handler's `source` field](../basic/handlers/graphql.md#provide-an-introspection-file). The file is automatically resolved and attached to your mesh, so large schemas can be stored separately instead of being embedded in your mesh configuration.
+
 ## April 28, 2026
 
 This release contains the following changes to API Mesh:
