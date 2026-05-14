@@ -1,3 +1,5 @@
+# .gitignore
+
 
 # OS and IDE generated files #
 ##############################
@@ -40,11 +42,14 @@ lerna-debug.log
 .actrc
 .secrets
 local-test.yml
+linter-report.txt
 
 # yalc
 .yalc
 yalc.lock
 
-#txt
+# cursor
+.cursor
+
+# Added by update-bot
 linter-output.txt
-linter-report.txt
