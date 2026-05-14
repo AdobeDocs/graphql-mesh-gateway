@@ -9,7 +9,7 @@
 
 # npm yarn
 node_modules
-package.lock
+package-lock.json
 yarn-error.log
 .pnp.*
 .yarn/*
@@ -40,11 +40,11 @@ lerna-debug.log
 .actrc
 .secrets
 local-test.yml
-linter-report.txt
 
 # yalc
 .yalc
 yalc.lock
 
-# cursor
-.cursor
+#txt
+linter-output.txt
+linter-report.txt
