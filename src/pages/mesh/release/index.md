@@ -1,6 +1,6 @@
 ---
 title: Release notes
-description: This page lists changes that were made in each version of API Mesh for Adobe Developer App Builder.
+description: This page lists changes for each version of API Mesh for Adobe Developer App Builder.
 keywords:
   - API Mesh
   - Extensibility
