@@ -110,6 +110,28 @@ If introspection is disabled in the production environment of your GraphQL sourc
 }
 ```
 
+You can also reference a local `.graphql` file directly. When the mesh is created or updated, the file is automatically resolved and attached to your mesh, so you do not need to add it to the [`files` array](../../advanced/developer-tools.md#reference-files-directly) manually.
+
+```json
+{
+  "meshConfig": {
+    "sources": [
+      {
+        "name": "NoIntrospectionSrc",
+        "handler": {
+          "graphql": {
+            "endpoint": "https://venia.magento.com/graphql",
+            "source": "./schemas/schema.graphql"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+Alternatively, you can include the schema content inline in the `files` array:
+
 ```json
 {
   "meshConfig": {

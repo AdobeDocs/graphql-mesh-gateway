@@ -94,7 +94,7 @@ You can reference local files as sources in handlers using the following format:
 
 <InlineAlert variant="info" slots="text"/>
 
-Only `JS` and `JSON` files are supported using this method.
+Only `JS` and `JSON` files are supported using this method, except for the [`graphql` handler's `source` field](graphql.md#provide-an-introspection-file), which also supports `.graphql` files.
 
 ## Package versions
 
