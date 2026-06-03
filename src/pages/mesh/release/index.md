@@ -34,6 +34,21 @@ aio plugins:uninstall @adobe/aio-cli-plugin-api-mesh
 aio plugins install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## June 03, 2026
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+- Added [`queryConfig`](../advanced/query-config.md), a new top-level mesh configuration object that allows you to harden your mesh against oversized, abusive, or schema-probing GraphQL queries. All protections are disabled by default. Supported controls include: \<!-- CEXT-5692, CEXT-5693, CEXT-5694 --\>
+  - [`blockFieldSuggestion`](../advanced/query-config.md#blockfieldsuggestion) - Suppresses hints in error responses to prevent schema enumeration.
+  - [`costLimit`](../advanced/query-config.md#costlimit) - Rejects queries whose computed cost exceeds the configured maximum.
+  - [`maskErrors`](../advanced/query-config.md#maskerrors) - Replaces unintentional resolver errors with a generic message so internal details are not leaked to clients.
+  - [`maxAliases`](../advanced/query-config.md#maxaliases) - Limits the number of aliases used in a single query.
+  - [`maxDepth`](../advanced/query-config.md#maxdepth) - Limits the nesting depth of incoming queries.
+  - [`maxDirectives`](../advanced/query-config.md#maxdirectives) - Limits the number of directives used in a single query.
+  - [`maxTokens`](../advanced/query-config.md#maxtokens) - Limits the total number of GraphQL tokens parsed per query.
+
 ## May 14, 2026
 
 This release contains the following changes to API Mesh:
