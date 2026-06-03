@@ -71,7 +71,7 @@ The following summary tables use the RACI model to show the security responsibil
 * C — Consulted
 * I — Informed
 
-| Task | Adobe | Customers | CDN Provider<sup>1</sup> |
+| Task | Adobe | Customers | CDN Provider [^1] |
 |------|:-----:|:---------:|:-------------:|
 | DDoS Protection | R | I | R |
 | Defining API Mesh WAF rules | R | | |
@@ -97,4 +97,4 @@ The following summary tables use the RACI model to show the security responsibil
 | Monitoring security logs | R | I | |
 | Managing state data | | R | |
 
-<sup>1</sup> The CDN provider column refers to a CDN managed and provided by API Mesh.
+[^1]: The CDN provider column refers to a CDN managed and provided by API Mesh.
