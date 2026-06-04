@@ -51,6 +51,7 @@
         - [Hooks](/mesh/advanced/hooks.md)
         - [Context state](/mesh/advanced/context-state.md)
         - [Logging](/mesh/advanced/logging.md)
+        - [Query configuration](/mesh/advanced/query-config.md)
         - [Request and response headers](/mesh/advanced/headers.md)
         - [Secrets management](/mesh/advanced/secrets.md)
     - [Best practices](/mesh/best-practices/index.md)

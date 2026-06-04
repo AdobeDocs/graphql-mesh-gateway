@@ -40,6 +40,10 @@ While introspection is useful for developers using your APIs, if you are using A
 
 As a general API security strategy, Adobe recommends [disabling introspection](basic/work-with-mesh.md#disable-introspection) in production environments to reduce your attack surface.
 
+## GraphQL query protections
+
+Use the [`queryConfig`](advanced/query-config.md) object to enforce server-side limits on incoming GraphQL queries. They can help prevent denial-of-service from oversized or deeply nested queries, alias-based amplification, schema enumeration through field-suggestion hints, and accidental leakage of internal error details.
+
 ## Restrict CORS domains
 
 API Mesh provides [cross-origin resource sharing (CORS)](advanced/cors.md), which allows you to pass resources that are usually restricted to an outside domain.
@@ -67,7 +71,7 @@ The following summary tables use the RACI model to show the security responsibil
 * C — Consulted
 * I — Informed
 
-| Task | Adobe | Customers | CDN Provider¹ |
+| Task | Adobe | Customers | CDN Provider [^1] |
 |------|:-----:|:---------:|:-------------:|
 | DDoS Protection | R | I | R |
 | Defining API Mesh WAF rules | R | | |
@@ -93,4 +97,4 @@ The following summary tables use the RACI model to show the security responsibil
 | Monitoring security logs | R | I | |
 | Managing state data | | R | |
 
-¹ The CDN provider column refers to a CDN managed and provided by API Mesh.
+[^1]: The CDN provider column refers to a CDN managed and provided by API Mesh.
