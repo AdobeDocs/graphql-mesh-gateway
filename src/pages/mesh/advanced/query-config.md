@@ -68,23 +68,23 @@ Suppresses the `Did you mean "<field name>"?` hints that GraphQL adds to error r
 
 **`blockFieldSuggestion` disabled**:
 
-  ```json
-  {
-    "errors": [
-      { "message": "Cannot query field \"productz\" on type \"Query\". Did you mean \"products\"?" }
-    ]
-  }
-  ```
+```json
+{
+  "errors": [
+    { "message": "Cannot query field \"productz\" on type \"Query\". Did you mean \"products\"?" }
+  ]
+}
+```
 
 **`blockFieldSuggestion` enabled**:
 
-  ```json
-  {
-    "errors": [
-      { "message": "Cannot query field \"productz\" on type \"Query\"." }
-    ]
-  }
-  ```
+```json
+{
+  "errors": [
+    { "message": "Cannot query field \"productz\" on type \"Query\"." }
+  ]
+}
+```
 
 ### `costLimit`
 
