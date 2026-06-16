@@ -19,3 +19,5 @@ linter-report.txt
 .history
 yalc.lock
 .cursor
+tmp
+.claude
