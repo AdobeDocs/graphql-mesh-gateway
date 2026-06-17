@@ -56,6 +56,10 @@ Is a complete framework that enables enterprise developers to build and deploy c
 
 Makes Commerce transactional data available to App Builder using Adobe I/O. You can define the events to transmit data each time an event triggers, or only under circumstances defined within configuration rules.
 
+## Join the conversation
+
+Join the [#commerce-api-mesh-community](https://magentocommeng.slack.com/archives/C08TH60U290) Slack channel to ask questions, share your work, and connect with other developers interested in API Mesh.
+
 ## Contributing to this documentation
 
 We encourage you to participate in our open documentation initiative. If you have suggestions, corrections, additions, or deletions for this documentation, check out the source on [GitHub](https://github.com/AdobeDocs/graphql-mesh-gateway) and open a pull request.
