@@ -70,5 +70,5 @@
         - [Video tutorials](https://experienceleague.adobe.com/docs/commerce-learn/api-mesh/getting-started-api-mesh.html)
         - [Understanding extensibility](https://developer.adobe.com/commerce/extensibility/app-development/examples/)
         - [Commerce code samples](https://github.com/adobe/adobe-commerce-samples/tree/main/api-mesh)
-        - [Slack](https://magentocommeng.slack.com/archives/C08TH60U290)
+        - [Public Slack Channel](https://magentocommeng.slack.com/archives/C08TH60U290)
         - [Contact support](https://experienceleague.adobe.com/home?support-tab=home#support)
