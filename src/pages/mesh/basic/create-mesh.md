@@ -92,6 +92,10 @@ When creating or updating a mesh, the file to upload must have the `.json` filen
 
 1. When you are prompted to confirm that you want to create a mesh, select **Yes**. If you want to automatically confirm the creation, add the `-c` or `--autoConfirmAction` flag to your create command.
 
+<InlineAlert variant="info" slots="text"/>
+
+Meshes are limited to 375KB, you can use the [`files` array](../advanced/developer-tools.md#reference-files-directly) to reference local files in your mesh configuration and benefit from a larger config size limit of 750KB.
+
 ### Access your mesh URLs
 
 <InlineAlert variant="info" slots="text"/>

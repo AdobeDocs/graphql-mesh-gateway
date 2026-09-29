@@ -34,6 +34,23 @@ aio plugins:uninstall @adobe/aio-cli-plugin-api-mesh
 aio plugins install @adobe/aio-cli-plugin-api-mesh
 ```
 
+## September 29, 2026
+
+This release contains the following changes to API Mesh:
+
+### Enhancements
+
+Mesh config size limits have increased:
+
+- Without a files array: The config size limit is 375KB.
+- With a files array: The config size limit is 750KB.
+
+If you encounter issues with the config size, reduce the size of sources, transforms, or other config content. If you are not already using a files array, add one and move content into it to benefit from the larger config size limit.
+
+### Bug fixes
+
+- Resolved an error that could cause meshes with redirected endpoints to get stuck in the build phase.
+
 ## September 01, 2026
 
 This release contains the following changes to API Mesh:
