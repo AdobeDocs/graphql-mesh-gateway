@@ -10,7 +10,7 @@ keywords:
   - Tools
 ---
 
-<Fragment src="includes/update-notice.md"/>
+<Fragment src="/_includes/update-notice.md"/>
 
 <Superhero slots="image, heading, text"/>
 
@@ -63,3 +63,7 @@ Join the [#commerce-api-mesh-community](https://magentocommeng.slack.com/archive
 ## Contributing to this documentation
 
 We encourage you to participate in our open documentation initiative. If you have suggestions, corrections, additions, or deletions for this documentation, check out the source on [GitHub](https://github.com/AdobeDocs/graphql-mesh-gateway) and open a pull request.
+
+## What's new
+
+<Fragment src="/_includes/templated/whats-new.md" />

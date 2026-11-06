@@ -17,6 +17,7 @@ package-lock.json
 .editorconfig
 .cursor
 .claude/
+.scout/
 .cache
 public
 cypress/videos

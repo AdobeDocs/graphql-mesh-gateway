@@ -1053,7 +1053,7 @@ module.exports = {
 
 `context.logger` is only available in local hooks. For remote hooks, use language-specific logging, such as `console.log` in JavaScript.
 
-<Fragment src="../../context-logger.md"/>
+<Fragment src="/_includes/context-logger.md"/>
 
 ### Example
 
