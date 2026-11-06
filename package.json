@@ -35,7 +35,10 @@
           "src/pages/_includes"
         ]
       }
-    }
+    },
+    "skipUrlPatterns": [
+      "https://magentocommeng.slack.com/archives/C08TH60U290"
+    ]
   },
   "engines": {
     "node": "^24.11.0"
