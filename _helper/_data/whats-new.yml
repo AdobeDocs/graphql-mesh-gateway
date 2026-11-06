@@ -1,0 +1,25 @@
+---
+title: What's new
+description: This section contains the changes made in the last 60 days. We exclude
+  all minor updates, such as copy editing, from this list.
+updated: Fri Nov 6 10:29:13 2026
+entries:
+- description: Updated the API Mesh [release notes](https://developer.adobe.com/graphql-mesh-gateway/mesh/release/).
+  versions: ''
+  type: release-notes
+  date: '2026-09-29'
+  link: https://github.com/AdobeDocs/graphql-mesh-gateway/pull/390
+  merge_commit: 58d31080c65b76999252cd0487bb34334478fc83
+  contributor: jhadobe
+  labels:
+  - release-notes
+- description: Updated the API Mesh [release notes](https://developer.adobe.com/graphql-mesh-gateway/mesh/release/).
+  versions: ''
+  type: major-update, release-notes
+  date: '2026-09-03'
+  link: https://github.com/AdobeDocs/graphql-mesh-gateway/pull/389
+  merge_commit: c51f8eded4d6a45658167d8e340938ac017f35e7
+  contributor: jhadobe
+  labels:
+  - major-update
+  - release-notes

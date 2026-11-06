@@ -1,0 +1,11 @@
+---
+repo: AdobeDocs/graphql-mesh-gateway
+url: https://developer.adobe.com/graphql-mesh-gateway
+exclude:
+  - Rakefile
+  - tmp
+  - Gemfile
+  - Gemfile.lock
+kramdown:
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+  syntax_highlighter: none
