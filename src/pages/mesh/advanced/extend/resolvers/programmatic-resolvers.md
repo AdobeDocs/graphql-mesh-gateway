@@ -316,7 +316,7 @@ module.exports = {
 
 `context.logger` is available in both [declarative](index.md) and programmatic resolvers.
 
-<Fragment src="../../../../context-logger.md"/>
+<Fragment src="/_includes/context-logger.md"/>
 
 ### Example
 

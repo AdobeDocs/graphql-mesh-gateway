@@ -10,7 +10,7 @@ keywords:
   - Tools
 ---
 
-<Fragment src="includes/update-notice.md"/>
+<Fragment src="/_includes/update-notice.md"/>
 
 <Superhero slots="image, heading, text"/>
 

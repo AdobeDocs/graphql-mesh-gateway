@@ -38,4 +38,4 @@ If you are not using the `keep-alive` header, you can prime your mesh by repeati
 
 ## Schedule performance testing
 
-<Fragment src="../../includes/performance-schedule.md" />
+<Fragment src="/_includes/performance-schedule.md" />
