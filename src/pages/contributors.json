@@ -1,19 +1,47 @@
 {
-  "total": 51,
+  "total": 52,
   "offset": 0,
-  "limit": 51,
+  "limit": 52,
   "data": [
     {
       "page": "/",
       "avatars": [
-        "https://avatars.githubusercontent.com/u/11652541?v=4",
         "https://avatars.githubusercontent.com/u/12731225?v=4",
+        "https://avatars.githubusercontent.com/u/11652541?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/98363870?v=4",
         "https://avatars.githubusercontent.com/u/13662379?v=4",
         "https://avatars.githubusercontent.com/u/57922?v=4"
       ],
-      "lastUpdated": "6/17/2026"
+      "lastUpdated": "11/6/2026"
+    },
+    {
+      "page": "/_includes/context-logger",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/12731225?v=4"
+      ],
+      "lastUpdated": "11/6/2026"
+    },
+    {
+      "page": "/_includes/performance-schedule",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/12731225?v=4"
+      ],
+      "lastUpdated": "11/6/2026"
+    },
+    {
+      "page": "/_includes/templated/whats-new",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/12731225?v=4"
+      ],
+      "lastUpdated": "11/6/2026"
+    },
+    {
+      "page": "/_includes/update-notice",
+      "avatars": [
+        "https://avatars.githubusercontent.com/u/12731225?v=4"
+      ],
+      "lastUpdated": "11/6/2026"
     },
     {
       "page": "/config",
@@ -25,34 +53,13 @@
       "lastUpdated": "6/17/2026"
     },
     {
-      "page": "/_includes/context-logger",
-      "avatars": [
-        "https://avatars.githubusercontent.com/u/14320591?v=4"
-      ],
-      "lastUpdated": "4/10/2026"
-    },
-    {
-      "page": "/_includes/performance-schedule",
-      "avatars": [
-        "https://avatars.githubusercontent.com/u/12731225?v=4",
-        "https://avatars.githubusercontent.com/u/14320591?v=4"
-      ],
-      "lastUpdated": "4/14/2026"
-    },
-    {
-      "page": "/_includes/update-notice",
-      "avatars": [
-        "https://avatars.githubusercontent.com/u/14320591?v=4"
-      ],
-      "lastUpdated": "4/10/2026"
-    },
-    {
       "page": "/mesh/",
       "avatars": [
+        "https://avatars.githubusercontent.com/u/12731225?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/98363870?v=4"
       ],
-      "lastUpdated": "4/10/2026"
+      "lastUpdated": "11/6/2026"
     },
     {
       "page": "/mesh/advanced/",
@@ -115,7 +122,7 @@
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/98363870?v=4"
       ],
-      "lastUpdated": "9/29/2026"
+      "lastUpdated": "11/6/2026"
     },
     {
       "page": "/mesh/advanced/extend/",
@@ -150,7 +157,7 @@
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/98363870?v=4"
       ],
-      "lastUpdated": "4/14/2026"
+      "lastUpdated": "11/6/2026"
     },
     {
       "page": "/mesh/advanced/headers",
@@ -167,7 +174,7 @@
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/98363870?v=4"
       ],
-      "lastUpdated": "4/15/2026"
+      "lastUpdated": "11/6/2026"
     },
     {
       "page": "/mesh/advanced/logging",
@@ -384,19 +391,21 @@
     {
       "page": "/mesh/best-practices/performance",
       "avatars": [
+        "https://avatars.githubusercontent.com/u/12731225?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/98363870?v=4"
       ],
-      "lastUpdated": "4/10/2026"
+      "lastUpdated": "11/6/2026"
     },
     {
       "page": "/mesh/release/",
       "avatars": [
+        "https://avatars.githubusercontent.com/u/12731225?v=4",
         "https://avatars.githubusercontent.com/u/11652541?v=4",
         "https://avatars.githubusercontent.com/u/14320591?v=4",
         "https://avatars.githubusercontent.com/u/98363870?v=4"
       ],
-      "lastUpdated": "9/29/2026"
+      "lastUpdated": "11/6/2026"
     },
     {
       "page": "/mesh/release/update",
